@@ -34,7 +34,7 @@ const list = (dir, rel = '') => (existsSync(join(D, dir)) ? readdirSync(join(D, 
 
 /* the documents: the index, every compiled page, every state, every component */
 const isCompiled = (rel) => /<meta name="pf-compiled"/.test(readFileSync(join(D, rel), 'utf8').slice(0, 8000));
-const HOME = ['design-system.html', ...(existsSync(join(D, 'design-qa.html')) ? ['design-qa.html'] : [])];
+const HOME = ['design-system.html'];
 /* Three files, not one: packed together the site is ~87 MB — over what
    GitHub will take without complaint (50 MB) and heading for its hard limit
    (100 MB). Each file is whole on its own (the index opens in every one of

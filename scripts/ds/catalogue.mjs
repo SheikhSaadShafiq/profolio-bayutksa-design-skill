@@ -521,14 +521,13 @@ const index = `<!doctype html>
     ${mobNames.length ? `<a href="#pages-responsive">Responsive <small>${mobNames.length}</small></a>` : ''}
     ${kbIndex ? '<a href="#knowledge">Product knowledge</a>' : ''}
     <a href="../kb/screens/index.html">Screens &amp; states KB</a>
-    <a href="design-qa.html">Design QA</a>
   </nav>
 </aside>
 <main class="ds-main">
 <header class="ds-head">
   <p class="ds-kicker">Compiled from the product · ${new Date().toISOString().slice(0, 10)}</p>
   <h1>Profolio KSA design system</h1>
-  <p class="ds-lede">Every page, state and component here was cut out of the product's own render (profolio-reactjs, Bayut KSA tenant, fixture account) — nothing was redrawn. ${pages.length} components in ${compiledPages.length} pages and ${webNames.length - compiledPages.length} states${mobNames.length ? `, and the responsive layout (a phone, ${PHONE_W} wide) in ${mobNames.filter((p) => !p.includes('--')).length} pages and ${mobNames.filter((p) => p.includes('--')).length} states` : ''}; ${ok} of ${measured} component variants render identically to where they came from (≤${BAR}% pixel difference). One stylesheet per layout: <a href="profolio.css"><code>profolio.css</code></a> for the web${MOBILE_SHEET !== 'profolio.css' ? `, <a href="${MOBILE_SHEET}"><code>${MOBILE_SHEET}</code></a> for the responsive layout` : ''}. How close all of it is to the product, checked three ways: <a href="design-qa.html">Design QA</a>. Every screen and state in words, to find the one a PRD needs: <a href="../kb/screens/index.html">the design knowledge base</a>.</p>
+  <p class="ds-lede">Every page, state and component here was cut out of the product's own render (profolio-reactjs, Bayut KSA tenant, fixture account) — nothing was redrawn. ${pages.length} components in ${compiledPages.length} pages and ${webNames.length - compiledPages.length} states${mobNames.length ? `, and the responsive layout (a phone, ${PHONE_W} wide) in ${mobNames.filter((p) => !p.includes('--')).length} pages and ${mobNames.filter((p) => p.includes('--')).length} states` : ''}; ${ok} of ${measured} component variants render identically to where they came from (≤${BAR}% pixel difference). One stylesheet per layout: <a href="profolio.css"><code>profolio.css</code></a> for the web${MOBILE_SHEET !== 'profolio.css' ? `, <a href="${MOBILE_SHEET}"><code>${MOBILE_SHEET}</code></a> for the responsive layout` : ''}. Every screen and state in words, to find the one a PRD needs: <a href="../kb/screens/index.html">the design knowledge base</a>.</p>
 </header>
 <section class="ds-section" id="foundations"><h2>Foundations</h2>${foundations}</section>
 ${LEVELS.map((l) => `<section class="ds-section" id="${l}"><h2>${LEVEL_TITLE[l]}</h2>${groups(l) || '<p class="ds-note">None.</p>'}</section>`).join('\n')}
