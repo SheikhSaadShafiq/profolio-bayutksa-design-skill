@@ -4,7 +4,7 @@
   "shell": true,
   "errorCard": false,
   "spinning": false,
-  "pageHeight": 2658,
+  "pageHeight": 2656,
   "answered": [
     "GET /api/surge/users/current",
     "GET /api/surge/notifications/stats",
@@ -24,6 +24,7 @@
   ],
   "unanswered": [],
   "errors": [],
-  "blocked": 4,
-  "ms": 8200
+  "blocked": 3,
+  "fonts": "served from deliverables/fonts.css",
+  "ms": 9597
 }

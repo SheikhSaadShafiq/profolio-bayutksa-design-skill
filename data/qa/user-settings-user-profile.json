@@ -1,60 +1,55 @@
 {
   "route": "user-settings-user-profile",
-  "at": "2026-09-22T12:17:21.474Z",
-  "shellFails": [
-    {
-      "id": "shell.title",
-      "diff": 30.9
-    },
-    {
-      "id": "shell.header",
-      "diff": 8.5
-    }
-  ],
+  "at": "2026-09-28T08:02:31.529Z",
+  "shellFails": [],
   "diffs": [
     {
-      "id": "settings.avatar",
-      "diff": 79.8
-    },
-    {
-      "id": "shell.title",
-      "diff": 30.9
-    },
-    {
-      "id": "shell.header",
-      "diff": 8.5
-    },
-    {
-      "id": "sfield",
-      "diff": 7.5
-    },
-    {
-      "id": "settings.head",
-      "diff": 6.4
-    },
-    {
       "id": "settings.main",
-      "diff": 5.5
+      "diff": 5
     },
     {
       "id": "shell.sider",
-      "diff": 4.7
-    },
-    {
-      "id": "shell.content",
       "diff": 4.6
     },
     {
-      "id": "shell.footer",
-      "diff": 2.1
+      "id": "shell.content",
+      "diff": 4.2
+    },
+    {
+      "id": "shell.title",
+      "diff": 2.6
     },
     {
       "id": "settings.side",
       "diff": 2.1
     },
     {
-      "id": "sfield.control",
+      "id": "shell.header",
       "diff": 2.1
+    },
+    {
+      "id": "sfield.control",
+      "diff": 1.6
+    },
+    {
+      "id": "shell.footer",
+      "diff": 1.6
+    },
+    {
+      "id": "settings.avatar",
+      "diff": 1.5
+    },
+    {
+      "id": "settings.head",
+      "diff": 0.8
+    },
+    {
+      "id": "shell.badge",
+      "diff": 0.7
+    },
+    {
+      "id": "sfield",
+      "diff": 0.6
     }
   ],
   "offScale": {
@@ -65,6 +60,8 @@
   "literals": [
     ".i-17 { width: 17px }",
     ".i-17 { height: 17px }",
+    ".pf-settings-nameline { block-size: 31px }",
+    ".pf-settings-sub { block-size: 22px }",
     ".pf-settings-head + .pf-settings-form { --form-inset: 41px }",
     ".pf-agency { --form-inset: 17px }",
     ".pf-upload-btn { block-size: 55px }",
@@ -92,16 +89,16 @@
     ".pf-filter-bar[data-in-head=\"true\"] { block-size: 78px }"
   ],
   "lowContrast": 0,
-  "contrastMatchingProduct": 4,
+  "contrastMatchingProduct": 7,
   "productLow": [
     {
       "col": "rgb(255,255,255)",
-      "n": 9,
+      "n": 11,
       "ratio": 1
     },
     {
       "col": "rgb(173,180,210)",
-      "n": 4,
+      "n": 8,
       "ratio": 2.05
     },
     {
@@ -111,7 +108,7 @@
     },
     {
       "col": "rgb(157,157,157)",
-      "n": 1,
+      "n": 3,
       "ratio": 2.71
     },
     {

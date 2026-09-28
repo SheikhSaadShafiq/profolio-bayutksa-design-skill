@@ -7,19 +7,20 @@
   "pageHeight": 900,
   "answered": [
     "GET /api/surge/users/current",
+    "GET /api/surge/notifications/stats",
     "GET /api/surge/users/88010234",
     "GET /api/surge/languages",
     "GET /api/surge/area_units",
     "GET /api/surge/experience_list",
     "GET /api/surge/lms/leads/stats",
-    "GET /api/surge/notifications/stats",
     "GET /api/surge/products",
     "GET /api/surge/agencies/880042"
   ],
   "unanswered": [],
   "errors": [
-    "An unhandled error occurred processing a request for the endpoint \"getProfileDetails\".\nIn the case of an unhandled error, no tags will be \"provided\" or \"invalidated\". TypeError: Cannot read properties of undefined (reading 'sizes')\n    at Object.profileDataMapper (http://127.0.0.1:3000/src/tenant/co"
+    "An unhandled error occurred processing a request for the endpoint \"getProfileDetails\".\nIn the case of an unhandled error, no tags will be \"provided\" or \"invalidated\". TypeError: Cannot read properties of undefined (reading 'thumbnail')\n    at Object.profileDataMapper (http://127.0.0.1:3000/src/tenan"
   ],
-  "blocked": 4,
-  "ms": 5898
+  "blocked": 3,
+  "fonts": "served from deliverables/fonts.css",
+  "ms": 6065
 }

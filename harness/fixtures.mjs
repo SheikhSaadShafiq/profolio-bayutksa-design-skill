@@ -19,12 +19,38 @@ const user = read('./fixtures/user.json');
 const page = read('../data/fixtures/dashboard.json');   /* the same invented data the HTML composes from */
 
 const U = user.user;
-/* profileDataMapper reads profile_image.sizes.thumbnail unguarded, so the
-   shape has to exist — but the STRING is empty, so antd's Avatar falls back to
-   its icon. That is what the design system documents (user.json:107), and
-   serving a picture made the header compare a photo against a glyph: 8.3% on
-   a shell region with a 6% threshold, none of it a real disagreement. */
-const AVATAR = { sizes: { thumbnail: '', small: '' } };
+/* THE ACCOUNT HAS NO PROFILE PHOTO, and the product reads that fact three
+   different ways — two of them unguarded. The shape below is what satisfies
+   all three while still rendering the glyph the design system documents.
+
+     1  profileDataMapper reads   values.profile_image.sizes.thumbnail
+        common/transformers/user.js:35 — no optional chaining, so `.sizes` has
+        to exist or the mapper throws before the page starts.
+
+     2  it then only converts profile_image into an array when that url is
+        TRUTHY:  ...(profileImageUrl && { profile_image: [{ gallerythumb }] })
+        common/transformers/user.js:76 — so with an empty url the raw value
+        survives the spread and is whatever the API sent.
+
+     3  the page then reads  profileData?.profile_image?.[0].gallerythumb
+        container/pages/user-settings/profile.js:157 — the optional chain stops
+        at [0], so `.gallerythumb` is unguarded, and <ImageUpload images={…}>
+        calls images?.map on the same value.
+
+   An empty string satisfied 1 and failed 3: profile_image stayed the {sizes}
+   OBJECT, [0] was undefined, and /user-settings/user-profile died on
+   "Cannot read properties of undefined (reading 'gallerythumb')". It had died
+   that way for a week — the route's reference capture predates the break, so
+   nothing compared against a working render. Serving a real picture fixes 3
+   and breaks the shell instead: the header then draws an <img> on that one
+   page and a glyph on the other ten.
+
+   So: an ARRAY carrying the `sizes` the mapper wants, holding one image record
+   whose url is empty. Read 1 finds sizes.thumbnail. Read 2 leaves the array
+   alone. Read 3 finds [0] and an empty gallerythumb, which antd's Avatar
+   renders as its fallback icon — the glyph, on all eleven headers. */
+const AVATAR = Object.assign([{ id: null, gallerythumb: null, title: '' }], { sizes: { thumbnail: '', small: '' } });
+
 const AGENCY = U.agency;
 
 /* ── dates: the report window is the last 30 days from now ─────────────── */

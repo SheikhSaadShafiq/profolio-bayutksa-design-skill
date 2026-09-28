@@ -1,52 +1,47 @@
 {
   "route": "user-settings-agency-profile",
-  "at": "2026-09-22T12:17:18.637Z",
-  "shellFails": [
-    {
-      "id": "shell.title",
-      "diff": 30.9
-    },
-    {
-      "id": "shell.header",
-      "diff": 8.5
-    }
-  ],
+  "at": "2026-09-28T08:02:28.565Z",
+  "shellFails": [],
   "diffs": [
     {
-      "id": "shell.title",
-      "diff": 30.9
-    },
-    {
-      "id": "shell.header",
-      "diff": 8.5
-    },
-    {
       "id": "sfield.control",
-      "diff": 6.3
-    },
-    {
-      "id": "sfield",
-      "diff": 5.8
+      "diff": 5.6
     },
     {
       "id": "shell.sider",
-      "diff": 4.7
+      "diff": 4.6
     },
     {
       "id": "settings.side",
-      "diff": 3.5
+      "diff": 3.6
+    },
+    {
+      "id": "shell.title",
+      "diff": 2.6
+    },
+    {
+      "id": "shell.header",
+      "diff": 2.1
     },
     {
       "id": "shell.content",
-      "diff": 2.5
+      "diff": 2
     },
     {
       "id": "settings.main",
-      "diff": 2.3
+      "diff": 1.6
     },
     {
       "id": "shell.footer",
-      "diff": 2.1
+      "diff": 1.6
+    },
+    {
+      "id": "shell.badge",
+      "diff": 0.7
+    },
+    {
+      "id": "sfield",
+      "diff": 0.6
     }
   ],
   "offScale": {
@@ -57,6 +52,8 @@
   "literals": [
     ".i-17 { width: 17px }",
     ".i-17 { height: 17px }",
+    ".pf-settings-nameline { block-size: 31px }",
+    ".pf-settings-sub { block-size: 22px }",
     ".pf-settings-head + .pf-settings-form { --form-inset: 41px }",
     ".pf-agency { --form-inset: 17px }",
     ".pf-upload-btn { block-size: 55px }",
@@ -88,7 +85,7 @@
   "productLow": [
     {
       "col": "rgb(255,255,255)",
-      "n": 7,
+      "n": 8,
       "ratio": 1
     },
     {

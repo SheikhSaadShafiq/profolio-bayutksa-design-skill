@@ -86,10 +86,18 @@ export const icon = (name, size = 16) => `<svg class="i${size ? ` i-${size}` : '
  * @param {string} o.docTitle    <title>
  * @param {string} [o.comment]   a source-map comment placed above the shell
  * @param {string} [o.instance]  extra rules for the instance-data <style> block
- * @param {number} [o.badge]     notification count
+ * @param {number} [o.badge]     notification count, clamped like antd's Badge
  * @param {number} [o.pct]       profile completion ring
  */
-export function open({ title, current, docTitle, comment = '', instance = '', badge = 46, pct = 90, contentGap }) {
+export function open({ title, current, docTitle, comment = '', instance = '', badge = 128, pct = 90, contentGap }) {
+  /* antd's Badge clamps at overflowCount, which defaults to 99, so the fixture's
+     128 renders "99+" and not "128" — three glyphs wide, 37px, where a
+     two-digit count is 30. We had 46 hardcoded here, which is neither: a number
+     nobody measured, drawn on all eleven pages, in a region derive-layout did
+     not score. The count is the fixture's; the clamp is antd's.
+       count   harness/fixtures/user.json unread_notifications_count
+       render  src/components/notification-center/notification-center.js:163 */
+  const badgeText = badge > 99 ? '99+' : String(badge);
   return `<!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -138,7 +146,7 @@ ${NAV.map(([label, ic, page]) => `      <a class="pf-rail-item"${label === curre
              href="#", which is a dead click dressed as a destination. -->
         <a class="pf-classified-pill" href="https://www.bayut.sa/" target="_blank" rel="noopener">${icon('SidebarClassifiedLinkIcon', 18)}Go to Bayut.sa</a>
         <a class="pf-btn" data-variant="primary" href="not-built.html?screen=Post%20Listing">${icon('PostListingIcon')}<span>Post Listing</span></a>
-        <button class="pf-bell" type="button" aria-label="Notifications" data-open="popover-notifications">${icon('GrNotification', 20)}<span class="pf-badge">${badge}</span></button>
+        <button class="pf-bell" type="button" aria-label="Notifications" data-open="popover-notifications">${icon('GrNotification', 20)}<span class="pf-badge">${badgeText}</span></button>
         <button class="pf-avatar-button" type="button" aria-label="Account" data-open="popover-account"><span class="pf-progress-ring pct-${pct}"><span class="pf-avatar">${icon('FiUser')}</span></span></button>
       </div>
     </header>

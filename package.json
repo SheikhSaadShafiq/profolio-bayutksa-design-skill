@@ -19,7 +19,7 @@
     "kb": "node scripts/kb.mjs",
     "harness:install": "node harness/install.mjs",
     "harness:capture": "node harness/capture.mjs",
-    "pages": "node scripts/pages/listings.mjs",
+    "pages": "node scripts/pages/listings.mjs && node scripts/pages/dashboard.mjs && node scripts/pages/settings.mjs && node scripts/pages/blocks.mjs",
     "layout": "node scripts/derive-layout.mjs",
     "qa": "node scripts/qa-design.mjs",
     "sync": "node scripts/sync.mjs",

@@ -1,56 +1,67 @@
 {
   "route": "lms-leads",
-  "at": "2026-09-22T12:17:12.652Z",
-  "shellFails": [
-    {
-      "id": "shell.header",
-      "diff": 7.7
-    }
-  ],
+  "at": "2026-09-28T08:02:22.312Z",
+  "shellFails": [],
   "diffs": [
     {
       "id": "filter.clear",
-      "diff": 25
+      "diff": 25.3
     },
     {
       "id": "filter.search",
-      "diff": 15.3
+      "diff": 15.1
     },
     {
       "id": "filter.field",
-      "diff": 11.6
+      "diff": 9.1
     },
     {
       "id": "filter.bar",
-      "diff": 8.8
+      "diff": 8.2
     },
     {
-      "id": "shell.header",
-      "diff": 7.7
-    },
-    {
-      "id": "filter.input",
-      "diff": 7.5
-    },
-    {
-      "id": "filter.label",
-      "diff": 6.3
+      "id": "filter.select",
+      "diff": 6.8
     },
     {
       "id": "shell.sider",
-      "diff": 4.6
+      "diff": 4.5
     },
     {
-      "id": "shell.footer",
-      "diff": 2.1
+      "id": "table.cell",
+      "diff": 2.2
     },
     {
       "id": "table",
       "diff": 2
     },
     {
-      "id": "shell.content",
+      "id": "shell.header",
       "diff": 1.9
+    },
+    {
+      "id": "shell.content",
+      "diff": 1.8
+    },
+    {
+      "id": "shell.footer",
+      "diff": 1.6
+    },
+    {
+      "id": "filter.input",
+      "diff": 1.3
+    },
+    {
+      "id": "shell.badge",
+      "diff": 0
+    },
+    {
+      "id": "filter.label",
+      "diff": 0
+    },
+    {
+      "id": "table.head",
+      "diff": 0
     }
   ],
   "offScale": {
@@ -61,6 +72,8 @@
   "literals": [
     ".i-17 { width: 17px }",
     ".i-17 { height: 17px }",
+    ".pf-settings-nameline { block-size: 31px }",
+    ".pf-settings-sub { block-size: 22px }",
     ".pf-settings-head + .pf-settings-form { --form-inset: 41px }",
     ".pf-agency { --form-inset: 17px }",
     ".pf-upload-btn { block-size: 55px }",
@@ -92,12 +105,17 @@
   "productLow": [
     {
       "col": "rgb(255,255,255)",
-      "n": 10,
+      "n": 11,
       "ratio": 1
     },
     {
+      "col": "rgb(204,223,225)",
+      "n": 1,
+      "ratio": 1.38
+    },
+    {
       "col": "rgb(157,157,157)",
-      "n": 4,
+      "n": 7,
       "ratio": 2.71
     },
     {

@@ -1,68 +1,83 @@
 {
   "route": "reports-leads-reports",
-  "at": "2026-09-22T12:17:14.126Z",
-  "shellFails": [
-    {
-      "id": "shell.title",
-      "diff": 37.2
-    },
-    {
-      "id": "shell.header",
-      "diff": 10
-    }
-  ],
+  "at": "2026-09-28T08:02:23.872Z",
+  "shellFails": [],
   "diffs": [
     {
-      "id": "shell.title",
-      "diff": 37.2
-    },
-    {
       "id": "filter.clear",
-      "diff": 25.3
+      "diff": 24.5
     },
     {
       "id": "filter.search",
-      "diff": 16.1
+      "diff": 15.3
     },
     {
       "id": "filter.field",
-      "diff": 14.7
+      "diff": 13.7
     },
     {
-      "id": "shell.header",
-      "diff": 10
+      "id": "filter.label",
+      "diff": 8.2
     },
     {
       "id": "filter.bar",
-      "diff": 5.6
+      "diff": 5.3
     },
     {
       "id": "shell.sider",
-      "diff": 4.6
+      "diff": 4.5
     },
     {
       "id": "shell.content",
       "diff": 3.6
     },
     {
-      "id": "pager.active",
-      "diff": 3.1
+      "id": "table.cell",
+      "diff": 2.2
     },
     {
-      "id": "shell.footer",
+      "id": "shell.header",
       "diff": 2.1
     },
     {
-      "id": "table",
-      "diff": 1.1
+      "id": "shell.footer",
+      "diff": 1.6
     },
     {
-      "id": "pager.item",
-      "diff": 0.8
+      "id": "shell.title",
+      "diff": 1.2
+    },
+    {
+      "id": "table",
+      "diff": 1
+    },
+    {
+      "id": "shell.badge",
+      "diff": 0.7
+    },
+    {
+      "id": "table.row",
+      "diff": 0.6
+    },
+    {
+      "id": "filter.select",
+      "diff": 0.6
     },
     {
       "id": "pager",
       "diff": 0.5
+    },
+    {
+      "id": "table.head",
+      "diff": 0
+    },
+    {
+      "id": "pager.item",
+      "diff": 0
+    },
+    {
+      "id": "pager.active",
+      "diff": 0
     },
     {
       "id": "pager.nav",
@@ -77,6 +92,8 @@
   "literals": [
     ".i-17 { width: 17px }",
     ".i-17 { height: 17px }",
+    ".pf-settings-nameline { block-size: 31px }",
+    ".pf-settings-sub { block-size: 22px }",
     ".pf-settings-head + .pf-settings-form { --form-inset: 41px }",
     ".pf-agency { --form-inset: 17px }",
     ".pf-upload-btn { block-size: 55px }",
@@ -103,18 +120,33 @@
     ".pf-table-card[data-h=\"528\"] { block-size: 528px }",
     ".pf-filter-bar[data-in-head=\"true\"] { block-size: 78px }"
   ],
-  "lowContrast": 2,
-  "contrastMatchingProduct": 15,
+  "lowContrast": 0,
+  "contrastMatchingProduct": 17,
   "productLow": [
     {
       "col": "rgb(255,255,255)",
-      "n": 13,
+      "n": 22,
       "ratio": 1
     },
     {
-      "col": "rgb(157,157,157)",
+      "col": "rgb(240,167,66)",
       "n": 1,
+      "ratio": 2.04
+    },
+    {
+      "col": "rgb(157,157,157)",
+      "n": 19,
       "ratio": 2.71
+    },
+    {
+      "col": "rgb(40,177,109)",
+      "n": 1,
+      "ratio": 2.76
+    },
+    {
+      "col": "rgb(71,158,235)",
+      "n": 1,
+      "ratio": 2.85
     },
     {
       "col": "rgb(247,49,49)",
@@ -123,6 +155,7 @@
     }
   ],
   "notModelled": [
+    "filter.input",
     "table.card",
     "table.card.head",
     "tabs.nav",

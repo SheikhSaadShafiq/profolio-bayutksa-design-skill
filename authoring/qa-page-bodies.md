@@ -97,3 +97,101 @@ instance-promoted-to-default, arrived at from the other direction.
   now resolves the product's theme and keeps those two presentation styles.
   `scripts/check.mjs`'s no-inline-style rule exempts inlined `<svg>` for that
   reason and no other.
+
+## A second way a reference lies: it is older than the fixture
+
+The nine pages above were rebuilt against captures that were seven days stale,
+and the staleness was doing three separate kinds of damage at once. None of it
+was visible as a failing page — it was visible as a failing *region*, which is
+the last place anyone looks for a bad reference.
+
+**It blamed the pages for the reference's fault.** The notification bell is
+gated on a user setting, not a route (`header-components.js:53-57`, defaulted
+to `'disabled'` in `transformers/user.js:14`). The fixture enabled it partway
+through 21 Sep. Eight routes were captured before that and four hold no
+`ant-badge` anywhere — no bell in the header at all. `qa-design.mjs` duly
+reported `shell.header` at **8.5% FAIL** on every one of them, and **0 shell
+failures** on the two routes captured a day later. The header is the same
+component on every route, so a per-route disagreement about it can only be the
+reference. All eleven pages now read `shell ok`.
+
+**It flattered the numbers.** Two of those captures were stubs: the product's
+Listing Report body held **189** nodes and Leads & Reach **153**. Our pages
+were scored against them at **210%** and **123%** — coverage over 100%, which
+should have been read as "the reference is empty", not as a pass. Against the
+current captures (821 and 450 nodes) the same, byte-identical HTML reads 48%
+and 42%. Nothing about our pages changed; every node count on our side is
+unchanged. Only the thing they were being compared to.
+
+**It hid a route that had been broken for a week.** `/user-settings/user-
+profile` had been crashing since the fixture reshape on 22 Sep, and its
+reference capture predated the break, so nothing ever compared against a
+working render. Three unguarded reads of one field:
+
+| # | what the product does | where |
+|---|---|---|
+| 1 | reads `values.profile_image.sizes.thumbnail`, no optional chaining | `common/transformers/user.js:35` |
+| 2 | converts `profile_image` to an array **only if that url is truthy** | `common/transformers/user.js:76` |
+| 3 | reads `profile_image?.[0].gallerythumb` — the chain stops at `[0]` | `user-settings/profile.js:157` |
+
+An empty-string thumbnail satisfies 1 and fails 3: `profile_image` stays the
+raw `{sizes}` object, `[0]` is undefined, and the page dies on "Cannot read
+properties of undefined (reading 'gallerythumb')" — then again in
+`<ImageUpload>`, where `images?.map` is not a function. Serving a real picture
+fixes 3 and breaks the shell instead, drawing an `<img>` in that one page's
+header and a glyph in the other ten. The fixture is now an **array carrying the
+`sizes` the mapper wants**, holding one record whose url is null: read 1 finds
+`sizes.thumbnail`, read 2 leaves the array alone, read 3 finds `[0]` and a null
+url, and antd's Avatar draws its own fallback — a solid `#9D9D9D` circle, on
+all eleven headers.
+
+The route went from 309 nodes (the `/user-settings` redirect shape, which
+`check-captures.mjs` already flagged as a twin) to **397**, rendering its real
+form for the first time. Everything the head had been built from was therefore
+guesswork, and the measurements disagreed:
+
+| | built from the redirect | measured from the render |
+|---|---|---|
+| avatar | 56×56 at x=461 | **58×58 ring at x=501**, 54 avatar inside it |
+| completion | a 28×14 orange pill | **40×14, `#28B16D` green** |
+| name | 20/**700** | 20/**600**, `#272B41` |
+| role tags | 24 tall, radius 10, grey `#EFF0F3` | **26 tall, radius 24**, `#E1F2F0` / `#E7F3FF` |
+| content inset | one 40px card pad | **two** — the body pads 40 and `.ant-card-meta` pads 40 again |
+
+`settings.avatar` fell from **80%** of pixels differing to under 4%.
+
+### The gate
+
+`scripts/check-captures.mjs` now measures each capture's header — buttons and
+`ant-badge-count` inside `ant-layout-header` — and names every capture that
+disagrees with the **newest** one, with its date. Newest, not commonest: the
+first cut took a majority vote and named the ten current captures stale,
+because fourteen routes nobody had re-run outvoted them. The fixture only moves
+forward, so the most recent render is the one that agrees with it.
+
+`scripts/derive-layout.mjs` also gained a `shell.badge` region. It immediately
+earned itself: the badge's horizontal place is not a fixed inset but
+`w/2 - 14`, because antd centres the sup on the button's end edge and then
+applies `offset={[-14,0]}`. We had a flat `-11px`, measured once against a
+two-digit count, and it stayed behind when the count became `99+` and the badge
+went 30 → 37 wide. The product put it at x=1328; we put it at 1334. A constant
+cannot follow a width. It is now `inset-inline-end:14px` with
+`translateX(50%)`, and both sides read `1328,2 37×20`.
+
+## Still open, after this pass
+
+- **The dashboard draws controls the product no longer does.** Its reference
+  was seven days stale too, and under the current fixture the product's
+  dashboard table renders **10 buttons over 10 rows** where the old capture had
+  **120**. `deliverables/dashboard.html` was built from the 120. Cards, tabs and
+  row counts all still agree, so this is a per-row column question, not a
+  broken page — but the body now reads 129%, and 129% means the same thing
+  210% did.
+- **`npm run pages` only built Listings.** A change to `shell.mjs` reached one
+  page out of eleven, and `npm run all` inherited that. It now runs all four
+  generators. Anything measured between those two facts is suspect.
+- `user-settings-licenses` and `user-settings-preferences` now read as twins of
+  `change-password`. `shapeOf` only walks six levels deep, so three empty
+  settings shells collide. The dedupe also now prefers the more specific route
+  as the real one — `/user-settings` is the alias of
+  `/user-settings/user-profile`, not the reverse.

@@ -2,7 +2,7 @@
   {
     "page": "ad-license",
     "nodes": [
-      210,
+      281,
       155
     ],
     "cards": [
@@ -52,8 +52,8 @@
       {
         "button": 2,
         "link": 0,
-        "input": 6,
-        "icon": 32,
+        "input": 27,
+        "icon": 46,
         "text": 58
       },
       {
@@ -72,10 +72,9 @@
       0,
       0
     ],
-    "coverage": 74,
+    "coverage": 55,
     "faults": [
-      "1 card(s) against 4",
-      "24 input(s) against 6"
+      "1 card(s) against 4"
     ]
   },
   {
@@ -254,7 +253,7 @@
   {
     "page": "dashboard",
     "nodes": [
-      1502,
+      677,
       870
     ],
     "cards": [
@@ -266,7 +265,7 @@
         "658×220",
         "658×220",
         "1332×528",
-        "1332×1573"
+        "1332×1581"
       ],
       [
         "658×299",
@@ -290,7 +289,7 @@
           370
         ],
         [
-          1573
+          1581
         ]
       ],
       [
@@ -315,11 +314,11 @@
     ],
     "parts": [
       {
-        "button": 115,
+        "button": 5,
         "link": 1,
         "input": 12,
-        "icon": 149,
-        "text": 345
+        "icon": 50,
+        "text": 195
       },
       {
         "button": 136,
@@ -341,8 +340,9 @@
       0,
       0
     ],
-    "coverage": 58,
+    "coverage": 129,
     "faults": [
+      "136 button(s) against 5",
       "13 link(s) against 1",
       "0 input(s) against 12"
     ]
@@ -412,7 +412,7 @@
   {
     "page": "lms-leads",
     "nodes": [
-      64,
+      109,
       45
     ],
     "cards": [
@@ -444,9 +444,9 @@
       {
         "button": 3,
         "link": 0,
-        "input": 0,
-        "icon": 4,
-        "text": 12
+        "input": 5,
+        "icon": 17,
+        "text": 10
       },
       {
         "button": 4,
@@ -464,13 +464,16 @@
       1,
       1
     ],
-    "coverage": 70,
-    "faults": []
+    "coverage": 41,
+    "faults": [
+      "body carries 45 nodes against the product's 109 (41%)",
+      "2 input(s) against 5"
+    ]
   },
   {
     "page": "reports-leads-reports",
     "nodes": [
-      153,
+      450,
       188
     ],
     "cards": [
@@ -512,9 +515,9 @@
       {
         "button": 5,
         "link": 3,
-        "input": 7,
-        "icon": 8,
-        "text": 31
+        "input": 15,
+        "icon": 36,
+        "text": 112
       },
       {
         "button": 6,
@@ -536,15 +539,15 @@
       0,
       0
     ],
-    "coverage": 123,
+    "coverage": 42,
     "faults": [
-      "12 input(s) against 7"
+      "body carries 188 nodes against the product's 450 (42%)"
     ]
   },
   {
     "page": "reports-listing-report",
     "nodes": [
-      189,
+      821,
       397
     ],
     "cards": [
@@ -555,8 +558,8 @@
       [
         "533×240",
         "783×240",
-        "1332×1484",
-        "1330×1368"
+        "1332×1577",
+        "1330×1461"
       ],
       [
         "533×241",
@@ -576,10 +579,10 @@
         ],
         [
           46,
-          1437
+          1530
         ],
         [
-          1368
+          1461
         ]
       ],
       [
@@ -603,7 +606,7 @@
         "link": 2,
         "input": 2,
         "icon": 19,
-        "text": 32
+        "text": 239
       },
       {
         "button": 4,
@@ -627,15 +630,16 @@
       0,
       0
     ],
-    "coverage": 210,
+    "coverage": 48,
     "faults": [
+      "body carries 397 nodes against the product's 821 (48%)",
       "3 card(s) against 4"
     ]
   },
   {
     "page": "reports-summary",
     "nodes": [
-      254,
+      349,
       146
     ],
     "cards": [
@@ -689,8 +693,8 @@
         "button": 1,
         "link": 0,
         "input": 12,
-        "icon": 18,
-        "text": 54
+        "icon": 37,
+        "text": 67
       },
       {
         "button": 1,
@@ -716,13 +720,15 @@
       0,
       0
     ],
-    "coverage": 57,
-    "faults": []
+    "coverage": 42,
+    "faults": [
+      "body carries 146 nodes against the product's 349 (42%)"
+    ]
   },
   {
     "page": "user-settings-agency-profile",
     "nodes": [
-      148,
+      170,
       98
     ],
     "cards": [
@@ -731,7 +737,7 @@
     ],
     "cardSizes": [
       [
-        "997×902"
+        "997×901"
       ],
       [
         "996×908"
@@ -742,7 +748,7 @@
         [
           72,
           1,
-          621,
+          620,
           58
         ]
       ],
@@ -757,11 +763,11 @@
     ],
     "parts": [
       {
-        "button": 2,
+        "button": 3,
         "link": 6,
-        "input": 5,
-        "icon": 18,
-        "text": 28
+        "input": 8,
+        "icon": 21,
+        "text": 30
       },
       {
         "button": 3,
@@ -779,7 +785,7 @@
       0,
       0
     ],
-    "coverage": 66,
+    "coverage": 58,
     "faults": []
   },
   {
@@ -846,7 +852,7 @@
   {
     "page": "user-settings-user-profile",
     "nodes": [
-      206,
+      283,
       155
     ],
     "cards": [
@@ -859,7 +865,7 @@
         "997×1373"
       ],
       [
-        "996×150",
+        "996×152",
         "996×1443"
       ]
     ],
@@ -875,8 +881,8 @@
       ],
       [
         [
-          56,
-          57
+          58,
+          56
         ],
         [
           25,
@@ -887,11 +893,11 @@
     ],
     "parts": [
       {
-        "button": 5,
+        "button": 7,
         "link": 6,
-        "input": 10,
-        "icon": 24,
-        "text": 42
+        "input": 17,
+        "icon": 41,
+        "text": 52
       },
       {
         "button": 6,
@@ -909,9 +915,7 @@
       0,
       0
     ],
-    "coverage": 75,
-    "faults": [
-      "13 input(s) against 10"
-    ]
+    "coverage": 55,
+    "faults": []
   }
 ]

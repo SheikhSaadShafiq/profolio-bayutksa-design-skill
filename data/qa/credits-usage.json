@@ -1,6 +1,6 @@
 {
   "route": "credits-usage",
-  "at": "2026-09-22T12:16:01.471Z",
+  "at": "2026-09-28T08:01:04.639Z",
   "shellFails": [],
   "diffs": [
     {
@@ -13,7 +13,7 @@
     },
     {
       "id": "shell.header",
-      "diff": 2.7
+      "diff": 2.1
     },
     {
       "id": "shell.title",
@@ -22,6 +22,10 @@
     {
       "id": "shell.footer",
       "diff": 1.6
+    },
+    {
+      "id": "shell.badge",
+      "diff": 0.7
     }
   ],
   "offScale": {
@@ -32,6 +36,8 @@
   "literals": [
     ".i-17 { width: 17px }",
     ".i-17 { height: 17px }",
+    ".pf-settings-nameline { block-size: 31px }",
+    ".pf-settings-sub { block-size: 22px }",
     ".pf-settings-head + .pf-settings-form { --form-inset: 41px }",
     ".pf-agency { --form-inset: 17px }",
     ".pf-upload-btn { block-size: 55px }",

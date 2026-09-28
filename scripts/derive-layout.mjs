@@ -55,6 +55,13 @@ const BOXY = ['backgroundColor', 'borderTopColor', 'borderTopWidth', 'borderTopL
 export const REGIONS = [
   { id: 'shell.sider',    ours: '.pf-rail',          w: 3, live: (n) => cls(n, 'ant-layout-sider'),      mine: (n) => cls(n, 'pf-rail'),          props: [...GEOM, 'backgroundColor'] },
   { id: 'shell.header',   ours: '.pf-header',        w: 3, live: (n) => cls(n, 'ant-layout-header'),     mine: (n) => cls(n, 'pf-header'),        props: [...GEOM, 'paddingInlineStart', 'backgroundColor'] },
+  /* The bell's count. Its own region because the header's width swallows it:
+     shell.header scored 100% while the badge underneath was 7px narrow and
+     carried a number no capture had ever shown. A region is the only thing
+     that reads a box nobody looks at. Kept out of POSITIONAL below — the badge
+     is offset [-14,0] from a button whose position shell.header already
+     scores, so size and colour are what there is to get wrong. */
+  { id: 'shell.badge',    ours: '.pf-badge',         w: 2, live: (n) => cls(n, 'ant-badge-count'),       mine: (n) => cls(n, 'pf-badge'),         props: [...GEOM, 'fontSize', 'backgroundColor', 'color'] },
   { id: 'shell.title',    ours: '.pf-page-title',    w: 3, live: (n) => cls(n, 'navbar-page-title'),     mine: (n) => cls(n, 'pf-page-title'),    props: TYPE },
   { id: 'shell.content',  ours: '.pf-content',       w: 3, live: (n) => cls(n, 'ant-layout-content'),    mine: (n) => cls(n, 'pf-content'),       props: GEOM },
   { id: 'shell.footer',   ours: '.pf-footer',        w: 3, live: (n) => n.tag === 'footer',              mine: (n) => cls(n, 'pf-footer'),        props: [...GEOM, ...PAD, 'fontSize', 'color', 'backgroundColor'] },

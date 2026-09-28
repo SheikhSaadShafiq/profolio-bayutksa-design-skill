@@ -93,7 +93,7 @@
   --warning:#f0a742;
   --badge-bg:#F5222D;          /* .ant-badge-count — antd colorError, measured */
   --badge-rise:-10px;          /* the sup hangs above the button */
-  --badge-inset:-11px;
+  --badge-offset:14px;         /* antd Badge offset={[-14,0]} — notification-center.js:163 */
   --danger:#f73131;
   --error:#f73131;
   --info:#2C99FF;
@@ -112,7 +112,7 @@
   --white:#fff;
 
   /* surfaces + borders */
-  /* antd's own resolved tokens — references/tokens/antd.md, from antd 5.20.6.
+  /* antd's own resolved tokens — kb/design/antd-tokens.html, from antd 5.20.6.
      The product never overrides these, so they were "cannot tell" until the
      token algorithm was actually run. */
   --color-split:rgba(5, 5, 5, 0.06);       /* colorSplit — every antd Divider */
@@ -677,8 +677,28 @@
   --settings-meter-fill:#F0A742;       /* ORANGE — not the page's teal */
   --settings-step-h:24px;
   --settings-step-r:10px;
-  --settings-head-h:150px;             /* the profile page's header card */
-  --settings-avatar:56px;
+  /* the profile page's header card, measured off data/live/user-settings-user-
+     profile.capture.json once the route rendered for the first time. Every
+     number here used to come from the /user-settings REDIRECT capture, which is
+     a different screen. */
+  --settings-head-h:152px;             /* the card, border included */
+  --settings-head-inset:40px;          /* .ant-card-meta pads 40 INSIDE the body's 40 */
+  --settings-avatar:58px;              /* the ant-progress ring */
+  --settings-avatar-in:54px;           /* the ant-avatar inside it */
+  --settings-avatar-fill:#9D9D9D;      /* antd's own Avatar fallback, measured */
+  --settings-avatar-gap:16px;          /* .ant-card-meta-avatar padding-inline-end */
+  --settings-pct-w:40px;
+  --settings-pct-h:14px;
+  --settings-pct-bg:#28B16D;           /* GREEN. It was drawn in the meter's orange. */
+  --user-tag-h:26px;
+  --user-tag-r:24px;
+  --user-tag-pad:10.2px;
+  --user-tag-bg:#E1F2F0;               /* pale teal, not the grey tag default */
+  --user-tag-fg:#707070;
+  --user-tag-bg-verified:#E7F3FF;
+  --user-tag-fg-verified:#2C99FF;
+  --settings-name:#272B41;
+  --settings-sub:#A3A3A3;
   --agency-logo:72px;
   --agency-head-h:72px;
   --settings-pad:40px;                 /* card body inset on every shape */
@@ -1055,10 +1075,16 @@ table{border-collapse:collapse}
 .pf-badge{
   position:absolute;
   /* the product's sup sits at y=2 against a button top of 12 — ten pixels
-     above it — and starts 7px in from the button's start edge */
+     above it. Its HORIZONTAL place is not a fixed inset: antd centres the sup
+     on the button's end edge and then shifts it by offset={[-14,0]}, so the
+     overhang is w/2 - 14 and MOVES WITH THE BADGE'S WIDTH. We had it as a flat
+     -11px, measured once against a two-digit count, and it stayed behind when
+     the count became "99+" and the badge went 30 -> 37 wide: the product put it
+     at x=1328, we put it at 1334. A constant cannot follow a width. */
   inset-block-start:var(--badge-rise);
-  inset-inline-end:var(--badge-inset);
-  /* .ant-badge-count — references/tokens/antd-css.md */
+  inset-inline-end:var(--badge-offset);
+  transform:translateX(50%);
+  /* .ant-badge-count — kb/design/antd-css.html */
   min-width:var(--badge-h);
   height:var(--badge-h);
   padding-inline:var(--sp-8);          /* measured 8, not 4 */
@@ -1071,6 +1097,9 @@ table{border-collapse:collapse}
   line-height:var(--badge-h);
   text-align:center;
 }
+/* translateX is physical, so the mirror has to be written out; inset-inline-end
+   already flips on its own. */
+[dir="rtl"] .pf-badge{transform:translateX(-50%)}
 /* data/live/listings.capture.json — the header avatar is three boxes:
      button.ant-btn-round   36x36, white, 1px #f0f0f0, radius 36
      .ant-progress-circle   34x34   (antd draws an SVG ring; a conic gradient
@@ -1271,7 +1300,7 @@ table{border-collapse:collapse}
    antd Divider type=vertical, height 40 / stretch
    ═══════════════════════════════════════════════════════════════════════ */
 /* antd Divider paints colorSplit, which resolves to rgba(5,5,5,0.06) —
-   not gray-100. references/tokens/antd.md */
+   not gray-100. kb/design/antd-tokens.html */
 .pf-divider{border:0;border-inline-start:var(--border-w) solid var(--color-split);margin:var(--sp-0)}
 .pf-divider[data-orientation="vertical"]{width:0;height:var(--divider-40);align-self:center}
 .pf-divider[data-orientation="vertical"][data-stretch="true"]{height:auto;align-self:stretch}
@@ -2990,37 +3019,62 @@ body[data-page-state="loading"] .pf-filter-actions .pf-btn[data-variant="primary
 /* .pf-card is a flex COLUMN, so a header that only says `display:flex` stacks
    the avatar over the name instead of putting them side by side. The direction
    has to be restated on every row inside a card. */
+/* The product's head is a card body padded 40, holding an .ant-card-meta that
+   pads ANOTHER 40 — so its content starts 80 inside the card, at x=501 against
+   a card at 420, which is exactly where the form below it starts. We had the
+   avatar at 461: one padding, not two. */
 .pf-settings-head{
   block-size:var(--settings-head-h);
-  display:flex;flex-direction:row;align-items:center;gap:var(--sp-16);
-  padding-inline:var(--settings-pad);box-sizing:border-box;
+  display:flex;flex-direction:row;align-items:flex-start;
+  gap:var(--settings-avatar-gap);
+  padding-block-start:var(--settings-pad);
+  padding-inline:calc(var(--settings-pad) + var(--settings-head-inset));
+  box-sizing:border-box;
 }
+/* the ring the completion percentage draws — ant-progress-circle, 58, with the
+   54 avatar centred inside it */
 .pf-settings-avatar{
+  --ring-pct:90;
   inline-size:var(--settings-avatar);block-size:var(--settings-avatar);
+  margin-block-start:6px;                       /* 127 against a row at 121 */
   border-radius:var(--radius-round);
-  background:var(--gray-400);
+  /* the same conic ring .pf-progress-ring draws in the header, because it is
+     the same antd Progress — an ARC to the completion percentage, not a closed
+     circle */
+  background:conic-gradient(var(--classification-high) calc(var(--ring-pct) * 1%), var(--color-fill-secondary) 0);
   position:relative;flex:none;
 }
-/* the completeness ring's percentage sits on the avatar, not beside it */
+.pf-settings-avatar::before{
+  content:"";position:absolute;inset:2px;
+  border-radius:var(--radius-round);background:var(--settings-avatar-fill);
+}
+/* 40x14 and GREEN, centred on the avatar and hanging 8px below it — measured
+   at 510,177 against an avatar whose bottom is 183. */
 .pf-avatar-pct{
-  position:absolute;inset-block-end:-6px;inset-inline-start:50%;translate:-50% 0;
-  padding:0 var(--sp-4);
-  border-radius:var(--radius-round);
-  background:var(--settings-meter-fill);color:var(--white);
-  font-size:var(--fs-10);font-weight:var(--fw-600);line-height:14px;
+  position:absolute;inset-block-end:calc(var(--settings-pct-h) - 6px);
+  inset-inline-start:50%;translate:-50% 100%;
+  inline-size:var(--settings-pct-w);block-size:var(--settings-pct-h);
+  display:grid;place-content:center;
+  border-radius:calc(var(--settings-pct-h) / 2);
+  background:var(--settings-pct-bg);color:var(--white);
+  font-size:var(--fs-12);font-weight:var(--fw-400);line-height:1;
 }
-.pf-settings-who{display:grid;gap:var(--sp-4)}
-.pf-settings-nameline{display:flex;align-items:center;gap:var(--sp-8);flex-wrap:wrap}
-.pf-settings-name{font-size:var(--fs-20);font-weight:var(--fw-700);margin:var(--sp-0)}
+.pf-settings-who{display:grid;gap:3px;margin-block-start:12px}
+.pf-settings-nameline{display:flex;align-items:center;gap:var(--sp-8);flex-wrap:wrap;block-size:31px}
+.pf-settings-name{
+  font-size:var(--fs-20);font-weight:var(--fw-600);   /* 600, not 700 */
+  color:var(--settings-name);margin:var(--sp-0);
+}
 .pf-user-tag{
-  display:inline-flex;align-items:center;gap:var(--sp-4);
-  block-size:var(--settings-step-h);padding-inline:var(--sp-8);
-  border-radius:var(--settings-step-r);
-  background:var(--bg-gray-deep);color:var(--base);
-  font-size:var(--fs-12);font-weight:var(--fw-500);
+  display:inline-flex;align-items:center;gap:var(--sp-8);
+  block-size:var(--user-tag-h);padding-inline:var(--user-tag-pad);
+  border:var(--border-w) solid transparent;box-sizing:border-box;
+  border-radius:var(--user-tag-r);
+  background:var(--user-tag-bg);color:var(--user-tag-fg);
+  font-size:var(--fs-12);font-weight:var(--fw-400);
 }
-.pf-user-tag[data-tone="verified"]{background:var(--primary-light-4);color:var(--primary)}
-.pf-settings-sub{color:var(--gray-700)}
+.pf-user-tag[data-tone="verified"]{background:var(--user-tag-bg-verified);color:var(--user-tag-fg-verified)}
+.pf-settings-sub{color:var(--settings-sub);block-size:22px}
 
 /* ── the agency page: one card with its header inside ───────────────────── */
 .pf-agency-head{display:flex;flex-direction:row;align-items:center;gap:var(--sp-16);block-size:var(--agency-head-h)}
@@ -4528,7 +4582,7 @@ body[data-page-state="loading"] .pf-filter-actions .pf-btn[data-variant="primary
              href="#", which is a dead click dressed as a destination. -->
         <a class="pf-classified-pill" href="https://www.bayut.sa/" target="_blank" rel="noopener"><svg class="i i-18"><use href="#pf-SidebarClassifiedLinkIcon"/></svg>Go to Bayut.sa</a>
         <a class="pf-btn" data-variant="primary" href="not-built.html?screen=Post%20Listing"><svg class="i i-16"><use href="#pf-PostListingIcon"/></svg><span>Post Listing</span></a>
-        <button class="pf-bell" type="button" aria-label="Notifications" data-open="popover-notifications"><svg class="i i-20"><use href="#pf-GrNotification"/></svg><span class="pf-badge">46</span></button>
+        <button class="pf-bell" type="button" aria-label="Notifications" data-open="popover-notifications"><svg class="i i-20"><use href="#pf-GrNotification"/></svg><span class="pf-badge">99+</span></button>
         <button class="pf-avatar-button" type="button" aria-label="Account" data-open="popover-account"><span class="pf-progress-ring pct-90"><span class="pf-avatar"><svg class="i i-16"><use href="#pf-FiUser"/></svg></span></span></button>
       </div>
     </header>

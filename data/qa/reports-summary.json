@@ -1,36 +1,31 @@
 {
   "route": "reports-summary",
-  "at": "2026-09-22T12:17:17.255Z",
-  "shellFails": [
-    {
-      "id": "shell.title",
-      "diff": 39.4
-    },
-    {
-      "id": "shell.header",
-      "diff": 8.8
-    }
-  ],
+  "at": "2026-09-28T08:02:27.150Z",
+  "shellFails": [],
   "diffs": [
     {
-      "id": "shell.title",
-      "diff": 39.4
-    },
-    {
-      "id": "shell.header",
-      "diff": 8.8
-    },
-    {
       "id": "shell.sider",
-      "diff": 4.6
+      "diff": 4.5
     },
     {
       "id": "shell.content",
-      "diff": 4.6
+      "diff": 4.5
+    },
+    {
+      "id": "shell.title",
+      "diff": 2.8
+    },
+    {
+      "id": "shell.header",
+      "diff": 2.1
     },
     {
       "id": "shell.footer",
-      "diff": 2.1
+      "diff": 1.6
+    },
+    {
+      "id": "shell.badge",
+      "diff": 0.7
     }
   ],
   "offScale": {
@@ -41,6 +36,8 @@
   "literals": [
     ".i-17 { width: 17px }",
     ".i-17 { height: 17px }",
+    ".pf-settings-nameline { block-size: 31px }",
+    ".pf-settings-sub { block-size: 22px }",
     ".pf-settings-head + .pf-settings-form { --form-inset: 41px }",
     ".pf-agency { --form-inset: 17px }",
     ".pf-upload-btn { block-size: 55px }",
@@ -72,7 +69,7 @@
   "productLow": [
     {
       "col": "rgb(255,255,255)",
-      "n": 12,
+      "n": 17,
       "ratio": 1
     },
     {
@@ -81,18 +78,23 @@
       "ratio": 1.35
     },
     {
-      "col": "rgb(157,157,157)",
+      "col": "rgb(240,167,66)",
       "n": 1,
+      "ratio": 2.04
+    },
+    {
+      "col": "rgb(157,157,157)",
+      "n": 9,
       "ratio": 2.71
     },
     {
       "col": "rgb(40,177,109)",
-      "n": 1,
+      "n": 2,
       "ratio": 2.76
     },
     {
       "col": "rgb(71,158,235)",
-      "n": 2,
+      "n": 3,
       "ratio": 2.85
     },
     {
