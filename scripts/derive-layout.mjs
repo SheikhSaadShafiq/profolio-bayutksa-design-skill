@@ -179,7 +179,7 @@ const routeOf = (file) => basename(file).replace(/\.capture\.json$/, '').replace
 if (flag('--ours')) {
   /* capture our page with the extension's own script, exactly as the harness does */
   const page = after('--ours');
-  const pkg = await import('/opt/node22/lib/node_modules/playwright/index.js');
+  const pkg = await import('playwright');
   const { chromium } = pkg.default || pkg;
   const script = readFileSync(join(ROOT, 'tools/profolio-capture/capture.js'), 'utf8');
   const b = await chromium.launch();

@@ -26,7 +26,7 @@
  * component as broken, which is the right failure: it means the two pages are
  * no longer showing the same thing.
  */
-import pkg from '/opt/node22/lib/node_modules/playwright/index.js';
+import pkg from 'playwright';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';

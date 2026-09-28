@@ -22,7 +22,7 @@
  * stroke widths, row heights — and where the source declares a value, the
  * source still wins.
  */
-import pkg from '/opt/node22/lib/node_modules/playwright/index.js';
+import pkg from 'playwright';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';

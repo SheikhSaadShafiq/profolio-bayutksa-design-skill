@@ -27,7 +27,7 @@
  * No new dependency: the comparison runs in a canvas in the Chromium Playwright
  * already drives.
  */
-import pkg from '/opt/node22/lib/node_modules/playwright/index.js';
+import pkg from 'playwright';
 import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';

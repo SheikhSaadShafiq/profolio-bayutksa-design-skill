@@ -14,7 +14,7 @@
  * visible, close it with Escape, assert it went away and focus came back.
  * Then every tab, then every page state.
  */
-import pkg from '/opt/node22/lib/node_modules/playwright/index.js';
+import pkg from 'playwright';
 import { readdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
