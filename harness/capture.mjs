@@ -65,9 +65,12 @@ const captureSrc = readFileSync(join(ROOT, 'tools/profolio-capture/capture.js'),
 const FONTS_CSS = readFileSync(join(ROOT, 'deliverables/fonts.css'), 'utf8');
 const locales = flag('--rtl') ? ['en', 'ar'] : ['en'];
 const WITH_STATES = flag('--states');
+/* --mode staff renders every route as that fixture account variant and
+   writes it as <route>--as-staff, beside the default capture */
+const AS_MODE = arg('--mode') || null;
 /* the answer-set mode a state step is running under — null for a normal
    answer, 'error' or 'slow' while one step wants a failure or a wait */
-let MODE = null;
+let MODE = AS_MODE;
 
 /* ── one page per route ────────────────────────────────────────────────── */
 /* wait for the page to stop moving — the same settle every capture uses, so a
@@ -121,9 +124,15 @@ async function captureRoute(browser, base, route, locale) {
      reloads; sessionStorage survives the reload, and this leaves that one out. */
   await ctx.addInitScript((uid) => {
     try {
+      /* the app's own document only — a frame inside it is not the app, and
+         must not set or spend these */
+      if (window.top !== window) return;
+      /* a flag is spent by the load it was set for: a state that fails
+         half-way cannot leave one behind for the next */
+      const take = (k) => { const v = sessionStorage.getItem(k); if (v) sessionStorage.removeItem(k); return v; };
       const hide = { hide: true };
       const lms = { introModal: hide, dashboard: hide, management: hide, lead_detail: hide };
-      const show = sessionStorage.getItem('pf-harness-tour');
+      const show = take('pf-harness-tour');
       if (show) delete lms[show];
       localStorage.setItem('tapTargets', JSON.stringify({ lms }));
       /* the "Profile Completed" congratulations modal shows once, when the
@@ -131,8 +140,15 @@ async function captureRoute(browser, base, route, locale) {
          (withAdminLayout.js:106-126). A returning user has seen it; the
          dashboard state 'modal-profile-completed' asks for it back. */
       const key = `showCompletionModal_${uid}`;
-      if (sessionStorage.getItem('pf-harness-congrats')) localStorage.removeItem(key);
+      if (take('pf-harness-congrats')) localStorage.removeItem(key);
       else localStorage.setItem(key, '100');
+      /* the Quality Lister congratulations modal on /agent-performance shows
+         once per badge, until localStorage holds true for it
+         (AgentPerformance.js:128-137). A returning user has seen it; a state
+         that wants it back sets sessionStorage 'pf-harness-quality'. */
+      const quality = `qualityListerShown_${uid}`;
+      if (take('pf-harness-quality')) localStorage.removeItem(quality);
+      else localStorage.setItem(quality, 'true');
     } catch {}
   }, UID);
   await ctx.addCookies([{ name: 'byt_cd', value: 'harness-token', domain: '127.0.0.1', path: '/' }]);
@@ -157,6 +173,15 @@ async function captureRoute(browser, base, route, locale) {
         return r.fulfill({ status: 200, contentType: 'text/css', body: FONTS_CSS });
       }
       return r.abort();          /* the faces are already inlined in that CSS */
+    }
+    /* the phone field's country flag is fetched from the flag library's own
+       site (react-phone-number-input → purecatamphetamine.github.io); the
+       product ships the same files in node_modules/country-flag-icons, so
+       they are answered from there — the harness still reaches nothing
+       outside */
+    if (u.host === 'purecatamphetamine.github.io' && /^\/country-flag-icons\/3x2\/[A-Z]{2}\.svg$/.test(u.pathname)) {
+      const flag = join(REPO, 'node_modules', 'country-flag-icons', '3x2', u.pathname.split('/').pop());
+      if (existsSync(flag)) return r.fulfill({ status: 200, contentType: 'image/svg+xml', headers: { 'access-control-allow-origin': '*' }, body: readFileSync(flag) });
     }
     if (u.host !== appHost) { log.blocked++; return r.abort(); }         /* nothing else leaves the sandbox */
     if (u.pathname.startsWith('/harness-img/')) return r.fulfill({ status: 200, contentType: THUMB.contentType, body: u.pathname.includes('avatar') ? AVATAR_SVG : THUMB.body });
@@ -210,7 +235,7 @@ async function captureRoute(browser, base, route, locale) {
   capture.source = 'harness';           /* vs. the extension; same shape otherwise */
   capture.locale = locale;
 
-  const name = slug(route) + (locale === 'ar' ? '.rtl' : '');
+  const name = slug(route) + (AS_MODE ? `--as-${AS_MODE}` : '') + (locale === 'ar' ? '.rtl' : '');
   mkdirSync(OUT, { recursive: true });
   writeFileSync(join(OUT, `${name}.capture.json`), JSON.stringify(capture));
   await page.screenshot({ path: join(OUT, `${name}.png`), fullPage: true });
@@ -249,7 +274,7 @@ async function captureRoute(browser, base, route, locale) {
         } catch (e) {
           states.push({ name: step.name, ok: false, why: String(e).split('\n')[0].slice(0, 90) });
         } finally {
-          MODE = null;
+          MODE = AS_MODE;
         }
       }
     }

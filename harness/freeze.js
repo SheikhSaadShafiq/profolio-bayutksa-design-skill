@@ -149,8 +149,9 @@
       try {
         const u = new URL(url, document.baseURI);
         if (u.protocol === 'data:') return url;
-        if (u.origin !== location.origin) return null;
-        const res = await fetch(u.href);
+        /* another origin only when it answers (the harness serves the phone
+           field's flags locally, with CORS); everything else it refuses */
+        const res = await fetch(u.href, u.origin === location.origin ? {} : { mode: 'cors' });
         if (!res.ok) return null;
         const blob = await res.blob();
         return await new Promise((ok) => { const fr = new FileReader(); fr.onload = () => ok(fr.result); fr.onerror = () => ok(null); fr.readAsDataURL(blob); });
@@ -176,8 +177,9 @@
      form panel, a table scrolled sideways to reach a cell) is recorded as
      data-pf-scroll and put back when the compiled file loads — the window's
      own scroll is returned separately */
+  let scrolled = 0;
   for (const el of document.querySelectorAll('body *')) {
-    if (el.scrollTop > 0 || el.scrollLeft > 0) el.setAttribute('data-pf-scroll', `${Math.round(el.scrollLeft)},${Math.round(el.scrollTop)}`);
+    if (el.scrollTop > 0 || el.scrollLeft > 0) { el.setAttribute('data-pf-scroll', `${Math.round(el.scrollLeft)},${Math.round(el.scrollTop)}`); scrolled++; }
   }
 
   /* form state lives in properties, not attributes; outerHTML only sees attributes */
@@ -189,6 +191,13 @@
   }
 
   const canvases = [...document.querySelectorAll('canvas')].map((c) => { try { return c.toDataURL(); } catch { return null; } });
+  /* the pointer and the focus are state too: what was hovered, focused or
+     pressed when the page was frozen is marked, and compile.mjs makes the
+     product's :hover, :focus… rules match the mark — the copy shows what the
+     product showed, with no pointer over it */
+  for (const [pc, attr] of [[':hover', 'data-pf-hover'], [':focus', 'data-pf-focus'], [':focus-visible', 'data-pf-focus-visible'], [':focus-within', 'data-pf-focus-within'], [':active', 'data-pf-active']]) {
+    try { for (const el of document.querySelectorAll(pc)) if (el !== document.documentElement && el !== document.body) el.setAttribute(attr, ''); } catch {}
+  }
   const doc = document.documentElement.cloneNode(true);
   doc.querySelectorAll('canvas').forEach((c, i) => {
     const img = document.createElement('img');
@@ -213,13 +222,32 @@
      out tag-manager iframe that would read as a network dependency */
   { const w = document.createTreeWalker(doc, NodeFilter.SHOW_COMMENT); const cs = []; while (w.nextNode()) cs.push(w.currentNode); cs.forEach((c) => c.remove()); }
   doc.querySelectorAll('meta').forEach((m) => { if (!/^(charset|viewport)$/i.test(m.getAttribute('name') || (m.hasAttribute('charset') ? 'charset' : ''))) m.remove(); });
+  /* Markup React builds and the HTML parser cannot keep — a <div> in a <p>,
+     a link in a link, a button in a button, a form in a form, a heading right
+     inside a heading — comes apart when the file is read back. Each such
+     element is written <pf-el data-pf-tag="…"> and made real again as the
+     page loads (the rules are scripts/lib/nested-a.mjs's; compile.mjs puts
+     them in the placeholder below). The CSS above was collected from the live
+     document, so every selector that names the real tag is kept. */
+  /* an element still entering (antd's -appear/-enter motion classes) is
+     written as it will be once it has: the copy has no animation to finish */
+  for (const el of doc.querySelectorAll('[class*="-appear"], [class*="-enter"]')) {
+    const keep = [...el.classList].filter((c) => !/^ant-[\w-]+-(appear|enter)(-(active|prepare|start))?$/.test(c));
+    if (keep.length !== el.classList.length) el.setAttribute('class', keep.join(' '));
+  }
+  const unparsable = typeof __UNPARSABLE__ === 'function' ? __UNPARSABLE__ : null;
+  if (unparsable) unparsable(doc);
 
   const vis = (sel) => [...document.querySelectorAll(sel)].some((el) => { const r = el.getBoundingClientRect(); return r.width > 0 && r.height > 0; });
   return {
     html: '<!doctype html>\n' + doc.outerHTML,
     css, unreadable, sc, generated, components,
     scroll: { x: Math.round(scrollX), y: Math.round(scrollY) },
-    overlay: { modal: vis('.ant-modal'), drawer: vis('.ant-drawer-content'), popover: vis('.ant-popover'), dropdown: vis('.ant-dropdown'), tour: vis('.ant-tour') },
+    /* boxes scrolled inside the page: a full-page shot resizes the viewport,
+       their heights with it, and re-clamps where they are scrolled to */
+    scrolled,
+    overlay: { modal: vis('.ant-modal'), drawer: vis('.ant-drawer-content'), popover: vis('.ant-popover'), dropdown: vis('.ant-dropdown:not(.ant-dropdown-hidden)'), tour: vis('.ant-tour'),
+      select: vis('.ant-select-dropdown:not(.ant-select-dropdown-hidden)'), picker: vis('.ant-picker-dropdown:not(.ant-picker-dropdown-hidden)'), tooltip: vis('.ant-tooltip:not(.ant-tooltip-hidden)') },
     title: document.title,
   };
 })();

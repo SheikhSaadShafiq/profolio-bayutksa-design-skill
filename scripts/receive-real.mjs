@@ -50,9 +50,9 @@ createServer((req, res) => {
   if (req.method === 'OPTIONS') { res.writeHead(204, h); return res.end(); }
   if (!h['Access-Control-Allow-Origin']) { res.writeHead(403); return res.end('origin not allowed'); }
 
-  if (req.method === 'GET' && url.pathname === '/capture.js') {
+  if (req.method === 'GET' && (url.pathname === '/capture.js' || url.pathname === '/recorder.js')) {
     res.writeHead(200, { ...h, 'Content-Type': 'text/javascript' });
-    return res.end(readFileSync(join(ROOT, 'tools/profolio-capture/capture.js'), 'utf8'));
+    return res.end(readFileSync(join(ROOT, 'tools/profolio-capture', url.pathname.slice(1)), 'utf8'));
   }
 
   /* API SHAPES — what the real API answers, as keys and types. The page
@@ -74,7 +74,10 @@ createServer((req, res) => {
         if (typeof v === 'string' && /^"/.test(v) && !ENUM_KEYS.test(key)) return `string(${v.length - 2})`;
         return v;
       };
-      const file = join(ROOT, 'data', 'api-shapes.json');
+      /* a second account's shapes are kept apart (?account=b), so the delta
+         between two real accounts can be read — scripts/delta-accounts.mjs */
+      const acct = (url.searchParams.get('account') || '').replace(/[^a-z0-9]/g, '');
+      const file = join(ROOT, 'data', acct ? `api-shapes.${acct}.json` : 'api-shapes.json');
       let all = {};
       try { all = JSON.parse(readFileSync(file, 'utf8')); } catch {}
       for (const [k, v] of Object.entries(got)) all[k.replace(/\/\d+(?=\/|$)/g, '/:id')] = clean(v);
@@ -95,7 +98,7 @@ createServer((req, res) => {
       walk(all, '');
       if (bad.length) { res.writeHead(422, h); return res.end('refused: ' + bad.slice(0, 5).join(' · ')); }
       writeFileSync(file, json);
-      console.log(`  wrote api-shapes.json  ${Object.keys(all).length} endpoints`);
+      console.log(`  wrote ${file.slice(ROOT.length + 1)}  ${Object.keys(all).length} endpoints`);
       res.writeHead(200, h); res.end(JSON.stringify({ ok: true, endpoints: Object.keys(all).length }));
     });
     return;
@@ -109,7 +112,14 @@ createServer((req, res) => {
     req.on('end', () => {
       let cap;
       try { cap = JSON.parse(body); } catch { res.writeHead(400, h); return res.end('not JSON'); }
-      if (cap?.viewport?.w !== 1440) { res.writeHead(422, h); return res.end(`viewport is ${cap?.viewport?.w} wide; captures are taken at 1440`); }
+      /* web captures are taken at 1440; a responsive one is named <page>--mobile
+         and taken at phone width (the product's mobile layout is chosen by
+         user agent, src/utility/general.js isMobile — so it must ALSO come
+         from a mobile browser, which only the page can know) */
+      const mobile = /--mobile$/.test(name);
+      if (mobile ? !(cap?.viewport?.w >= 320 && cap?.viewport?.w <= 480) : cap?.viewport?.w !== 1440) {
+        res.writeHead(422, h); return res.end(`viewport is ${cap?.viewport?.w} wide; web captures are 1440, --mobile captures 320–480`);
+      }
       cap.source = 'real-account';
       cap.route = name;
       const json = JSON.stringify(cap);
@@ -119,10 +129,12 @@ createServer((req, res) => {
         res.writeHead(422, h); return res.end('refused: ' + leaks.join(' · '));
       }
       mkdirSync(OUT, { recursive: true });
-      writeFileSync(join(OUT, `${name}.real.capture.json`), json);
-      console.log(`  wrote ${name}.real.capture.json  ${cap.nodes} nodes  page ${cap.viewport.page.w}×${cap.viewport.page.h}`);
+      const acct = (url.searchParams.get('account') || '').replace(/[^a-z0-9]/g, '');
+      const out = `${name}.real${acct ? '-' + acct : ''}.capture.json`;
+      writeFileSync(join(OUT, out), json);
+      console.log(`  wrote ${out}  ${cap.nodes} nodes  page ${cap.viewport.page.w}×${cap.viewport.page.h}`);
       res.writeHead(200, { ...h, 'Content-Type': 'application/json' });
-      res.end(JSON.stringify({ ok: true, name, nodes: cap.nodes, page: cap.viewport.page }));
+      res.end(JSON.stringify({ ok: true, name, file: out, nodes: cap.nodes, page: cap.viewport.page }));
     });
     return;
   }

@@ -19,6 +19,7 @@ import statsArea from './fixtures/stats.mjs';
 import listingsArea from './fixtures/listings.mjs';
 import lmsArea from './fixtures/lms.mjs';
 import profileArea from './fixtures/profile.mjs';
+import extraArea from './fixtures/extra.mjs';
 
 const HERE = new URL('.', import.meta.url);
 const read = (p) => JSON.parse(readFileSync(new URL(p, HERE), 'utf8'));
@@ -208,7 +209,10 @@ const listings = page.recentListings.map((r, i) => {
        the platform listing (listingUtilities.js:100), and it is the presence
        of this array that makes the info icon render beside the Status pill */
     ...(rejected && { rejection_reason: ['Images do not match the property', 'Price is outside the expected range'] }),
-    /* listingUtilities.js:238 gates Mark as Booked on this slug alone */
+    /* the DAILY RENTAL job marker. Not sent: harness/fixtures/listings.mjs
+       reads it and makes the row a daily rental the way Surge says so —
+       listing_category.purpose_hash 'daily-rental' — which is what Mark as
+       Booked (listingUtilities.js:247) and "Night" both resolve from */
     ...(dailyRental && { listing_purpose: { id: 3, slug: 'daily-rental', title: 'Daily Rental', title_l1: 'إيجار يومي', name: 'Daily Rental' } }),
     /* a booked range puts the "Booked Until" chip over the thumbnail
        (listing-purpose.js:217) and is what its tooltip reads */
@@ -352,7 +356,10 @@ const ROUTES = [
   } })],
   [/^\/api\/surge\/products$/,                       () => ({ products: [] })],
   [/^\/api\/surge\/agencies\/\d+$/,                  () => ({ agency: { ...AGENCY, owner: { id: U.id, name: U.name }, users: [{ id: U.id, name: U.name, agency_admin: true, platform_mapping: U.platform_mapping }] } })],
-  [/^\/api\/surge\/notifications\/stats$/,           () => ({ stats: { unread_notifications_count: U.unread_notifications_count } })],
+  /* the bell. The owner's 128 draws "99+"; the real staff account's bell
+     holds one digit (data/qa/delta-b.json: ant-scroll-number-only), so mode
+     'staff' answers 3 */
+  [/^\/api\/surge\/notifications\/stats$/,           (search, mode) => ({ stats: { unread_notifications_count: mode === 'staff' ? 3 : U.unread_notifications_count } })],
   [/^\/api\/surge\/lms\/leads\/stats$/,              () => ({ stats: { unseen_leads_count: 0 } })],
   [/^\/api\/surge\/lms\/stats\//,                    () => ({ stats: { items: {} } })],
   [/^\/api\/surge\/(languages|area_units|experience_list)$/, () => ({})],
@@ -483,7 +490,7 @@ const ROUTES = [
 const H = { user, U, AGENCY, AVATAR, page, day, iso, num, listings, clean, STATUSES, SUMMARY, statsItems, items, aggregates, C, products, purposes, memberUser, purposeOf };
 let ALL = null;
 export function answer(method, pathname, search = '', mode = null) {
-  ALL ||= [...creditsArea(H), ...statsArea(H), ...listingsArea(H), ...lmsArea(H), ...profileArea(H), ...ROUTES];
+  ALL ||= [...creditsArea(H), ...statsArea(H), ...listingsArea(H), ...lmsArea(H), ...profileArea(H), ...extraArea(H), ...ROUTES];
   for (const [re, fn] of ALL) {
     if (!re.test(pathname)) continue;
     const body = fn(search, mode, pathname, method);

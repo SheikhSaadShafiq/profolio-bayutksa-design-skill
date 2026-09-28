@@ -35,9 +35,18 @@
  *   - the history and summary are keyed 'bayut' (the platform's
  *     platform_slug), not 'ksa' (its slug): bayut/apis/quotaCredits.js:158/:180.
  *
+ * Mode 'staff' answers as one of the agency's staff (the second real
+ * account's kind of user): their own Titanium pool of 5,000 / 1,250 / 3,750
+ * and their own month of applications — see STAFF below.
+ *
  * @param h  the shared invented account — user, listings, credits, dates
  * @returns  [[RegExp over the pathname, (search, mode, pathname, method) => body], …]
  */
+/* a cycle (fixtures.mjs imports this file), used only inside a handler — by
+   then both modules have finished loading. It is how the staff history names
+   the user the profile area answers users/current with. */
+import { answer } from '../fixtures.mjs';
+
 export default (h) => {
   const { U, C, day, iso, num, listings } = h;
 
@@ -122,10 +131,78 @@ export default (h) => {
   const ADVERTISER = String(U.license?.number ?? '7201000001');
   const opt = (id, slug, label, label_l1, value_l1 = label_l1) => ({ id, slug, label, value: label, label_l1, value_l1 });
 
+  /* a feature row as the second account's history sends it
+     (data/api-shapes.b.json): an option like every other dynamic field —
+     label / value, not title */
+  const feature = (id, slug, label, label_l1) => ({ id, slug, label, value: 'Yes', label_l1, value_l1: 'نعم' });
+
+  /* the listing's REGA advertisement record, in REGA's own camelCase names,
+     as that history carries it (the first account's recording stopped at
+     "{…}" here). The card draws none of it; the values are this listing's
+     own — its licence, the agency as advertiser, its price, rooms and area */
+  const regaAdvertisement = (l) => {
+    const r = l._row;
+    const sale = l.listing_category.purpose_hash.slug === 'for-sale';
+    const parts = r.location.split(', ');
+    const [city, district] = parts;
+    const where = parts[parts.length - 1];
+    const created = l.posted_at.slice(0, 10);
+    const ends = iso(new Date(Date.parse(l.posted_at) + 365 * 864e5));
+    const deed = String(310000000000 + (l.id % 1e8));                    /* 12 digits, as recorded */
+    const type = TYPES[l.listing_category.name]?.title_l1 || l.listing_category.name;
+    const border = (name, length) => ({ name, length: `${length} متر طولي` });
+    return {
+      notes: '',
+      borders: { northLimitName: 'شارع', southLimitName: 'جار', eastLimitName: 'شارع', westLimitName: 'قطعة' },
+      endDate: ends,
+      adSource: 'Brokerage Agreements',
+      channels: ['منصة مرخصة', 'لوحة إعلانية', 'وسائل التواصل', 'مطبوعات'],
+      isHalted: false,
+      isPawned: false,
+      location: { city: AR[city] || city, district: AR[where] || where, region: 'منطقة الرياض', postalCode: String(13000 + (l.id % 900)), ...(district && { area: AR[district] || district }) },
+      deedNumber: deed,
+      isTestment: false,
+      landNumber: String(100 + (l.id % 900)),
+      planNumber: String(215000000000 + (l.id % 1e6)).slice(0, 12),
+      rerBorders: [border('شارع', 20), border('جار', 15), border('شارع', 15), border('قطعة', 20)],
+      phoneNumber: `05${String(l.id).slice(-8)}`,
+      propertyAge: 'أقل من سنة',
+      streetWidth: 20,
+      adLicenseUrl: `https://rega.gov.sa/rega-services/ads/license-verification?adLicenseNumber=${l.ad_license}&idType=1`,
+      advertiserId: ADVERTISER,
+      creationDate: created,
+      propertyArea: l.area,
+      propertyFace: 'شمالية',
+      propertyType: type,
+      isConstrained: false,
+      numberOfRooms: r.beds || 0,
+      propertyPrice: l.price,
+      advertiserName: U.agency?.name_l1 || U.name_l1,
+      landTotalPrice: null,
+      propertyUsages: [],
+      rerConstraints: null,
+      adLicenseNumber: String(l.ad_license),
+      redZoneTypeName: 'غير مصنفة',
+      advertisementType: sale ? 'بيع' : 'إيجار',
+      propertyUtilities: ['كهرباء', 'مياه', 'صرف صحي', 'هاتف'],
+      titleDeedTypeName: 'صك إلكتروني',
+      landTotalAnnualRent: null,
+      mainLandUseTypeName: 'سكني',
+      obligationsOnTheProperty: 'لا يوجد',
+      guaranteesAndTheirDuration: '',
+      locationDescriptionOnMOJDeed: `حي ${AR[where] || where} - مخطط ${2150 + (l.id % 100)}`,
+      brokerageAndMarketingLicenseNumber: ADVERTISER,
+      complianceWithTheSaudiBuildingCode: true,
+      responsibleEmployeeName: null,
+      ownershipTransferFeeType: 'البائع',
+      responsibleEmployeePhoneNumber: null,
+    };
+  };
+
   /* the history's copy of a listing — a projection, not the listing: price,
      purpose, type, beds, area and one image are all the card draws, and
      dynamic_data is carried because the real answer carries it */
-  const historyListing = (l) => {
+  const historyListing = (l, satellite = false) => {
     const r = l._row;
     const typeName = l.listing_category.name;
     const sale = l.listing_category.purpose_hash.slug === 'for-sale';
@@ -145,21 +222,26 @@ export default (h) => {
         baths: opt(20 + (r.baths || 0), String(r.baths || 0), String(r.baths || 0), String(r.baths || 0)),
         id_type: 1,
         features: [
-          { id: 11, slug: 'central-ac', title: 'Central A/C', title_l1: 'تكييف مركزي' },
-          { id: 14, slug: 'parking', title: 'Parking', title_l1: 'موقف سيارات' },
-          { id: 19, slug: 'maid-room', title: 'Maid Room', title_l1: 'غرفة خادمة' },
+          feature(11, 'central-ac', 'Central A/C', 'تكييف مركزي'),
+          feature(14, 'parking', 'Parking', 'موقف سيارات'),
+          feature(19, 'maid-room', 'Maid Room', 'غرفة خادمة'),
         ],
         area_unit: { id: 2, slug: 'square-meters', label: 'Square Meters', value: 'sqm', label_l1: 'متر مربع', value_l1: 'متر مربع' },
         furnished: opt(2, 'no', 'No', 'لا'),
         sale_type: opt(1, 'initial-sale', 'Initial Sale', 'بيع أولي', null),
         is_verified: true,
+        is_furnished: false,                                /* = furnished 'no' below */
         floor_number: typeName === 'Villa' ? 0 : 2,
         otp_attempts: 0,
         rega_details: {
-          ai_data: { title_matches: true, price_matches: true },
+          /* the listing's generated title and description, both languages */
+          ai_data: {
+            title: { en: `${typeName} for ${sale ? 'Sale' : 'Rent'} in ${l._row.location.split(', ').pop()}`, ar: `${type.title_l1} ${sale ? 'للبيع' : 'للإيجار'} في ${AR[l._row.location.split(', ').pop()] || l._row.location.split(', ').pop()}` },
+            description: { en: `${bedsN} bedroom ${typeName.toLowerCase()}, ${l.area} sq. m., ready to move in.`, ar: `${type.title_l1} ${bedsN} غرف، ${l.area} متر مربع، جاهز للسكن.` },
+          },
           isValid: true,
           message: null,
-          advertisement: { advertisement_number: l.ad_license, advertiser_id: ADVERTISER, is_valid: true },
+          advertisement: regaAdvertisement(l),
         },
         rental_price: sale ? '0.00' : String(l.price),
         advertiser_id: ADVERTISER,
@@ -183,6 +265,7 @@ export default (h) => {
         title_translation_enabled: true,
         auto_generated_description: false,
         description_translation_enabled: true,
+        extension: 0,                                       /* recorded as a number; nothing reads it */
       } },
       purpose: sale ? { id: 1, title: 'Sale', title_l1: 'للبيع' } : { id: 2, title: 'Rent', title_l1: 'للإيجار' },
       type: { id: type.id, title: typeName, title_l1: type.title_l1 },
@@ -193,7 +276,11 @@ export default (h) => {
         filename: `${String(l.id).padStart(32, 'a')}.jpg`,
         uuid: `${String(l.id).padStart(8, '0')}-0000-4000-8000-000000000000`,
         full: img('full'), large: img('large'), medium: img('medium'), thumbnail: img('thumbnail'), small: img('small'),
-        default: 1, order: 0, rejection_reason: null, is_rega_image: false, image_type: 'listing_image',
+        /* a listing with no photo of its own is shown by the satellite view of
+           its plot — image_type 'satellite', the same sizes (the staff
+           account's newest card is one). The card draws its thumbnail
+           either way. */
+        default: 1, order: 0, rejection_reason: null, is_rega_image: false, image_type: satellite ? 'satellite' : 'listing_image',
       },
     };
   };
@@ -226,40 +313,102 @@ export default (h) => {
   at(9, 'refresh',             day(20).getTime() + 11 * H + 26 * M);
   events.sort((a, b) => b.ms - a.ms);
 
-  const historyItem = ({ i, slug, ms, action }) => {
+  /* ── mode 'staff': the account as one of the agency's STAFF sees it ──────
+     The second real account (data/api-shapes.b.json, data/qa/delta-b.json)
+     is a staff user on the agency's Titanium package, and the numbers are the
+     ones agreed for the staff user record (the profile area answers
+     users/current in this mode): 5,000 credits allocated to them, 1,250 used,
+     3,750 available. Every credits answer here is THEIR pool, not the
+     agency's — the product asks for it by user (credits/summary carries
+     q[user_id_eq] / subject_id for a staff user; consumption_summary and
+     _history are the signed-in user's). */
+  const STAFF = { allocated: 5000, used: 1250 };
+  STAFF.available = STAFF.allocated - STAFF.used;
+  STAFF.percentage_used = Math.round((STAFF.used / STAFF.allocated) * 10000) / 100;
+  /* 'titanium' is a slug tenant/bayut/data/packages.js:7 knows (its own
+     icon and colour); name and name_l1 are 8 and 10 characters, as recorded */
+  const staffPackage = {
+    name: 'Titanium', name_l1: 'التيتانيوم',
+    next_disbursement_date: null,
+    end_date: iso(day(-185)),
+    credits_per_month: 12500,
+    slug: 'titanium',
+    top_up_credits: 0,
+    net_amount: 250000,
+    duration_in_months: 12,
+    is_multi_platform: false,
+  };
+  /* what their 1,250 went on — the same seven rows, summing to `used` */
+  const STAFF_BREAKDOWN = [
+    ['basic-listing', 540], ['hot-listing', 350], ['signature-listing', 250],
+    ['refresh', 70], ['photography-service', 30],
+    ['videography-service', 10], ['drone-footage-service', 0],
+  ];
+  /* WHO the staff user is, is the profile area's to say: read it from
+     users/current in this mode when the history is asked for (lazily — the
+     two areas import each other), so "applied to listing … by …" names
+     whoever the header names. Until that record exists it falls back to the
+     agency member whose credit limit is 5,000 (profile.mjs USERS). */
+  const staffPerformer = () => {
+    try {
+      const u = answer('GET', '/api/surge/users/current', '', 'staff')?.user;
+      if (u?.id && u.id !== U.id) return { id: u.id, name: u.name, name_l1: u.name_l1 };
+    } catch {}
+    return { id: 88010257, name: 'Abdullah Al-Otaibi', name_l1: 'عبدالله العتيبي' };
+  };
+  /* the month's applications, THEIRS — newest first as the real staff
+     account's page opens: a Refresh (on a plot shown by its satellite
+     image), a Signature upgrade, a Hot upgrade, then postings. Only what the
+     listings table allows: nothing on row 1 (rejected), row 7 (never
+     published) or row 8's services (not applicable there). Fourteen, so the
+     history is two pages, as the real one is more than one. */
+  const SATELLITE = new Set([5]);        /* row 5: the Al Diriyah plot, 399 sq. m., no rooms */
+  const staffEvents = [
+    [5, 'refresh', 1, 7, 12], [6, 'signature-listing', 2, 11, 40], [3, 'hot-listing', 2, 8, 5],
+    [0, 'basic-listing', 2, 6, 0], [2, 'basic-listing', 8, 6, 34], [4, 'refresh', 9, 10, 26],
+    [6, 'refresh', 10, 9, 48], [3, 'signature-listing', 11, 7, 20], [3, 'basic-listing', 11, 6, 51],
+    [9, 'refresh', 12, 7, 3], [4, 'signature-listing', 14, 7, 35], [4, 'basic-listing', 14, 6, 51],
+    [5, 'signature-listing', 17, 8, 2], [5, 'basic-listing', 17, 7, 25],
+  ].map(([i, slug, d, hh, mm]) => ({ i, slug, ms: day(d).getTime() + hh * H + mm * M, action: 'consumed' }))
+    .sort((a, b) => b.ms - a.ms);
+
+  const historyItem = (by, satellite = new Set()) => ({ i, slug, ms, action }) => {
     const l = listings[i];
     return {
       product: product(slug),
       credits_quantity: PRODUCTS[slug].cost,
       action_performed: action,
-      listing: historyListing(l),
+      listing: historyListing(l, satellite.has(i)),
       location: locationOf(l),
       performed_at: riyadh(ms),
-      performed_by: performer,
+      performed_by: by,
     };
   };
 
   const PER_PAGE = 10;
   /* the page's own filters — creditsUsageFilters.js: listing id, upgrade, user */
-  const filtered = (search) => {
+  const filtered = (search, set, by) => {
     const q = new URLSearchParams(search || '');
     const idEq = q.get('q[consumed_on_id_eq]');
     const productIds = q.getAll('q[product_id_in][]').concat(q.getAll('q[product_id_in]')).filter(Boolean).map(Number);
     const userEq = q.get('q[user_id_eq]');
-    return events.filter((e) =>
+    return set.filter((e) =>
       (!idEq || String(listings[e.i].id) === idEq.trim()) &&
       (!productIds.length || productIds.includes(PRODUCTS[e.slug].id)) &&
-      (!userEq || String(U.id) === userEq));
+      (!userEq || String(by.id) === userEq));
   };
 
   return [
-    [/^\/api\/surge\/credits\/consumption_history$/, (search) => {
-      const set = filtered(search);
+    [/^\/api\/surge\/credits\/consumption_history$/, (search, mode) => {
+      const staff = mode === 'staff';
+      const by = staff ? staffPerformer() : performer;
+      const item = historyItem(by, staff ? SATELLITE : undefined);
+      const set = filtered(search, staff ? staffEvents : events, by);
       const total_pages = Math.max(1, Math.ceil(set.length / PER_PAGE));
       const page = Math.min(Math.max(1, Number(new URLSearchParams(search || '').get('page')) || 1), total_pages);
       return {
         credits_consumption_history: {
-          bayut: set.slice((page - 1) * PER_PAGE, page * PER_PAGE).map(historyItem),
+          bayut: set.slice((page - 1) * PER_PAGE, page * PER_PAGE).map(item),
         },
         pagination: {
           current_page: page,
@@ -271,11 +420,13 @@ export default (h) => {
       };
     }],
 
-    [/^\/api\/surge\/credits\/consumption_summary$/, () => ({
+    [/^\/api\/surge\/credits\/consumption_summary$/, (search, mode) => ({
       credits_consumption_summary: {
         bayut: {
-          available, expiring: 0, allocated, used, percentage_used,
-          product_wise: BREAKDOWN.map(([slug, consumed_credits]) => ({
+          ...(mode === 'staff'
+            ? { available: STAFF.available, expiring: 0, allocated: STAFF.allocated, used: STAFF.used, percentage_used: STAFF.percentage_used }
+            : { available, expiring: 0, allocated, used, percentage_used }),
+          product_wise: (mode === 'staff' ? STAFF_BREAKDOWN : BREAKDOWN).map(([slug, consumed_credits]) => ({
             id: PRODUCTS[slug].id,
             title: PRODUCTS[slug].name,
             title_l1: PRODUCTS[slug].name_l1,
@@ -292,18 +443,20 @@ export default (h) => {
        header. `expiring` stays 0: above it the card grows a
        "credits are expiring within 7 days" notice the real account does not
        show. */
-    [/^\/api\/surge\/credits\/summary$/, () => ({
-      credits_summary: {
-        bayut: {
-          allocated, available, used, expiring: 0, percentage_used, top_up_credits: 0,
-          product_wise: [{
-            id: 7, name: 'Credit',
-            allocated, available, used, expiring: 0, percentage_used, top_up_credits: 0,
-          }],
-          current_package: currentPackage,
+    [/^\/api\/surge\/credits\/summary$/, (search, mode) => {
+      const pool = mode === 'staff'
+        ? { allocated: STAFF.allocated, available: STAFF.available, used: STAFF.used, expiring: 0, percentage_used: STAFF.percentage_used, top_up_credits: 0 }
+        : { allocated, available, used, expiring: 0, percentage_used, top_up_credits: 0 };
+      return {
+        credits_summary: {
+          bayut: {
+            ...pool,
+            product_wise: [{ id: 7, name: 'Credit', ...pool }],
+            current_package: mode === 'staff' ? staffPackage : currentPackage,
+          },
         },
-      },
-    })],
+      };
+    }],
 
     /* NOT RECORDED — data/api-shapes.json has no entry. A credit user never
        asks for it: bayut/apis/quotaCredits.js:129 sends currency users to

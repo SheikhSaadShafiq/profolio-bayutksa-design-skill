@@ -38,6 +38,16 @@
  *   booked
  *       listingMapper takes `listing.booked` when it is present and only falls
  *       back to booked_dates when it is not — the real API always sends it.
+ *   listing_category.purpose_hash.slug 'daily-rental'  (rows 4 and 9)
+ *       the only key that makes a daily rental — it drives Mark as Booked,
+ *       "Night" after the price and rent_frequency 'daily'; the root
+ *       listing_purpose these rows used to carry is not a real key. As on
+ *       the real accounts they are MOT-permitted ("Permit No:"), priced per
+ *       night, with no REGA licence.
+ *   auto_renewable_item { id, renewing_on }  (row 5), residence_type
+ *   'family' / face 'western' / 'lawn-or-garden'  (row 9), tier 'poor'
+ *       the second real account's (agency staff) values — see the comments
+ *       at each; only auto-renew is drawn, and only on the mobile card.
  *   is_otp_required / phone_number  (row 7)
  *       platformActions.js:47 opens the OTP modal only when the listing says
  *       is_otp_required === true, after POST /api/surge/otps; otherwise
@@ -81,9 +91,11 @@ export default (h) => {
   const PURPOSE = {
     sale: { id: 1, name: 'Sale', slug: 'sale', name_l1: 'بيع', crumb: 'Property for Sale', crumb_l1: 'عقار للبيع', ad: 'For Sale', ad_l1: 'للبيع' },
     rent: { id: 2, name: 'Rent', slug: 'rent', name_l1: 'إيجار', crumb: 'Property for Rent', crumb_l1: 'عقار للإيجار', ad: 'For Rent', ad_l1: 'للإيجار' },
-    /* only a row that asks for it (`_daily`) is a daily rental by category —
-       base row 2's title says "Daily Rental" but its job is the REGA expiry */
-    daily: { id: 4, name: 'Daily Rental', slug: 'daily-rental', name_l1: 'إيجار يومي', crumb: 'Property for Daily Rent', crumb_l1: 'عقار للإيجار اليومي', ad: 'For Rent', ad_l1: 'للإيجار' },
+    /* only a row whose job is a daily rental (base rows 4 and 9, or a
+       fakeBase `_daily`) is one by category — base row 2's title says "Daily
+       Rental" but its job is the REGA expiry. The crumb is the staff
+       account's own (25 and 19 characters in data/api-shapes.b.json). */
+    daily: { id: 4, name: 'Daily Rental', slug: 'daily-rental', name_l1: 'إيجار يومي', crumb: 'Property for Daily Rental', crumb_l1: 'عقار للإيجار اليومي', ad: 'For Rent', ad_l1: 'للإيجار' },
   };
   const PRODUCT_TITLES = {
     'basic-listing': ['Basic Listing', 'الإعلان أساسي'],
@@ -148,16 +160,32 @@ export default (h) => {
     const [city, district, area] = parts;
     const where = parts[parts.length - 1];
     const [lat, lng] = GEO[where] || [24.7136, 46.6753];
-    const P = l._daily ? PURPOSE.daily : /Rent/i.test(r.title) ? PURPOSE.rent : PURPOSE.sale;
+    /* A daily rental is one BY CATEGORY: listing_category.purpose_hash.slug
+       'daily-rental' is the only place the real API says so. The base row
+       marks the job with a listing_purpose (harness/fixtures.mjs rows 4 and
+       9); that key is read here and not sent — Surge has no root
+       listing_purpose. Both things the job needs still render from the
+       category alone (bayut/transformers/listings.js mapListingPurpose
+       prefers purpose_hash):
+         Mark as Booked  platformMapper's listingForActions falls back to it
+                         when the root key is absent → listingUtilities.js:247
+         "Night"         listingMapper's property.isDailyRental → listing-purpose.js:344 */
+    const dailyJob = !!(l._daily || l.listing_purpose?.slug === 'daily-rental');
+    const P = dailyJob ? PURPOSE.daily : /Rent/i.test(r.title) ? PURPOSE.rent : PURPOSE.sale;
     const rent = P !== PURPOSE.sale;
     const id = l.id;
-    /* a project unit (WAFI) or an MOT-permitted daily rental has no REGA ad licence */
-    const hasRega = r.regaId != null;
+    /* a project unit (WAFI) or an MOT-permitted daily rental has no REGA ad
+       licence: the Property cell reads "Permit No:" (listing-purpose.js:478),
+       as the owner's real daily rental does, and the Timeline has no REGA line */
+    const hasRega = r.regaId != null && !dailyJob;
     const license = hasRega ? num(r.regaId) : null;
-    /* a daily rental (by category, or by the base row's Mark-as-Booked job)
-       carries its Ministry of Tourism permit — the real shape's
+    /* a daily rental is priced per NIGHT. The base rows carry sale prices
+       (2,330,000 would print "SAR 2,330,000 Night"), so a base row that is a
+       daily rental by job is priced at a thousandth of it; a fakeBase
+       `_daily` row is already nightly */
+    const price = dailyJob && !l._daily ? Math.round(l.price / 1000) : l.price;
+    /* a daily rental carries its Ministry of Tourism permit — the real shape's
        permit_number / legal_id / mot_details / national_address */
-    const dailyJob = l._daily || l.listing_purpose?.slug === 'daily-rental';
     const crNumber = '1010456789';                               /* invented: the agency's commercial registration */
     const mot = dailyJob ? {
       legal_id: crNumber,
@@ -187,24 +215,35 @@ export default (h) => {
        shows and no fixture row ever did. Row 9's other job (a second
        daily-rental entry point) lives in its actions, not its thumbnail. */
     const discounted = i === 9;
-    const actualPrice = discounted ? Math.round(l.price / 0.95 / 1000) * 1000 : l.price;
+    /* the pre-discount price, rounded the way its own magnitude is written —
+       to the thousand for a sale price, to the ten for a nightly one */
+    const unit = price >= 100000 ? 1000 : 10;
+    const actualPrice = discounted ? Math.round(price / 0.95 / unit) * unit : price;
+    /* Row 9 is also THE STAFF ACCOUNT'S ROW. The second real account (agency
+       staff, data/api-shapes.b.json) opens its list with a furnished
+       daily-rental apartment for FAMILIES, facing WEST, with a lawn or garden
+       — four enum values the owner account never sent (data/qa/delta-b.json).
+       None of them is drawn in the table; residence type is a line in the
+       detail drawer (listingDrawer.js:228). Row 9's jobs are its actions and
+       its thumbnail, so these ride along without moving anything. */
+    const staffLike = i === 9;
 
     const titleEn = `${beds ? `${beds} Bedroom ` : ''}${type} for ${P.name} in ${where}, ${city}`;
     const titleAr = `${T.ar} ${P.slug === 'daily-rental' ? 'للإيجار اليومي' : rent ? 'للإيجار' : 'للبيع'} في ${AR[where] || where}، ${AR[city] || city}`;
     const descEn = [
       `${type} for ${P.name.toLowerCase()} in ${where}, ${district || city}, ${city}.`,
-      `${size} sq. m. of ${beds ? `${beds}-bedroom, ${baths}-bathroom ` : ''}living space, ready to move in, facing north onto a 20 m street.`,
+      `${size} sq. m. of ${beds ? `${beds}-bedroom, ${baths}-bathroom ` : ''}living space, ready to move in, facing ${staffLike ? 'west' : 'north'} onto a 20 m street.`,
       'Private entrance, central air conditioning in every room, a fitted kitchen with storage, a maid\'s room with its own bathroom, and a covered parking space.',
       `Close to schools, mosques and daily shopping, with quick access to King Fahd Road and the ${city} ring roads.`,
-      'Water, electricity and sewerage connected. Title deed ready for transfer; REGA advertising licence issued.',
+      dailyJob ? 'Water, electricity and sewerage connected. Furnished and serviced; Ministry of Tourism holiday-home permit issued.' : 'Water, electricity and sewerage connected. Title deed ready for transfer; REGA advertising licence issued.',
       `Contact ${AGENCY.name} to arrange a viewing.`,
     ].join('\n\n');
     const descAr = [
-      `${T.ar} ${rent ? 'للإيجار' : 'للبيع'} في حي ${AR[where] || where}، ${AR[city] || city}.`,
-      `مساحة ${size} متر مربع${beds ? ` تضم ${beds} غرف نوم و${baths} دورات مياه` : ''}، جاهز للسكن، واجهة شمالية على شارع عرض 20 متر.`,
+      `${T.ar} ${dailyJob ? 'للإيجار اليومي' : rent ? 'للإيجار' : 'للبيع'} في حي ${AR[where] || where}، ${AR[city] || city}.`,
+      `مساحة ${size} متر مربع${beds ? ` تضم ${beds} غرف نوم و${baths} دورات مياه` : ''}، جاهز للسكن، واجهة ${staffLike ? 'غربية' : 'شمالية'} على شارع عرض 20 متر.`,
       'مدخل خاص، تكييف مركزي في جميع الغرف، مطبخ راكب مع خزائن، غرفة خادمة بدورة مياه، وموقف سيارة مظلل.',
       'قريب من المدارس والمساجد والخدمات اليومية مع وصول سريع إلى طريق الملك فهد.',
-      'الماء والكهرباء والصرف الصحي متصلة، والصك جاهز للإفراغ، ورخصة الإعلان من الهيئة العامة للعقار صادرة.',
+      dailyJob ? 'الماء والكهرباء والصرف الصحي متصلة، مفروش ومخدوم، وتصريح بيت العطلات من وزارة السياحة صادر.' : 'الماء والكهرباء والصرف الصحي متصلة، والصك جاهز للإفراغ، ورخصة الإعلان من الهيئة العامة للعقار صادرة.',
       `تواصل مع ${AGENCY.name_l1} لترتيب موعد المعاينة.`,
     ].join('\n\n');
 
@@ -268,11 +307,23 @@ export default (h) => {
       interior_images_percentage_score: b.interior_images_percentage_score,
     };
 
-    /* the listing-quality model Surge sends beside health (nothing on these
-       screens renders it yet; it is here so the shape is whole) */
-    const tier = score >= 80 ? ['strong', 'Strong', 'قوي', null, null, null]
-      : score >= 50 ? ['moderate', 'Moderate', 'متوسط', 'strong', 'Strong', 'قوي']
-        : ['weak', 'Needs Work', 'يحتاج تحسين', 'moderate', 'Moderate', 'متوسط'];
+    /* The listing-quality model Surge sends beside health. NOTHING in the
+       product reads it (no `listing_quality`, `tier` or `quick_wins` anywhere
+       in profolio-reactjs/src) — the quality chip is health.overall_
+       classification. It is here so the shape is whole.
+
+       The ladder is the two real accounts' own: the owner's rows are 'weak'
+       → next 'moderate' ("Moderate", "متوسط"); the staff account's are
+       'poor' ("Poor", "ضعيف") → next 'weak' ("Needs Work", "يحتاج تحسين").
+       Both sit under the 50 where the chip turns red, so the cut between them
+       is ours: under 35 is poor — rows 6, 7 and 9 here. Colours are NAMES,
+       as the components' chip_colour are: the staff account's poor tier is
+       3 characters ('red'), the owner's weak one 6 ('orange'). */
+    const tier = score >= 80 ? ['strong', 'Strong', 'قوي', null, null, null, 'green']
+      : score >= 50 ? ['moderate', 'Moderate', 'متوسط', 'strong', 'Strong', 'قوي', 'yellow']
+        : score >= 35 ? ['weak', 'Needs Work', 'يحتاج تحسين', 'moderate', 'Moderate', 'متوسط', 'orange']
+          : ['poor', 'Poor', 'ضعيف', 'weak', 'Needs Work', 'يحتاج تحسين', 'red'];
+    const nextAt = score >= 80 ? score : score >= 50 ? 80 : score >= 35 ? 50 : 35;
     const chip = (state) => ({
       partial: { chip: 'partial', chip_label: 'Partial', chip_colour: 'orange', chip_label_l1: 'جزئي' },
       missing: { chip: 'missing', chip_label: 'Missing', chip_colour: 'red', chip_label_l1: 'غير مضاف' },
@@ -284,9 +335,9 @@ export default (h) => {
         chip_colour: c.chip_colour, chip_label_l1: c.chip_label_l1, effective_weight: weight };
     };
     const listing_quality = {
-      tier: { key: tier[0], label: tier[1], colour: score >= 80 ? '12B76A' : score >= 50 ? 'F79009' : 'F04438',
+      tier: { key: tier[0], label: tier[1], colour: tier[6],
         label_l1: tier[2], next_tier: tier[3], next_tier_label: tier[4], next_tier_label_l1: tier[5],
-        points_to_next_tier: score >= 80 ? 0 : (score >= 50 ? 80 : 50) - score },
+        points_to_next_tier: nextAt - score },
       components: {
         title: component('partial', 9, 15, { word_count: titleEn.split(' ').length, word_count_l1: titleAr.split(' ').length, hygiene_flagged: false }),
         video: component('missing', 0, 10, { count: 0 }),
@@ -402,7 +453,7 @@ export default (h) => {
       license_info: { end_date: regaEnd, start_date: regaStart, ad_license_number: String(license), fal_license_number: null },
       utilities_l1: { 'مياه': true, 'كهرباء': true, 'صرف صحي': true },
       property_specs: {
-        price: l.price, area_size: size, listing_type: type, listing_usages: [], listing_type_l1: T.ar,
+        price, area_size: size, listing_type: type, listing_usages: [], listing_type_l1: T.ar,
         number_of_rooms: beds, listing_usages_l1: [], advertisement_type: P.ad, advertisement_type_l1: P.ad_l1,
       },
       additional_info: {
@@ -443,7 +494,9 @@ export default (h) => {
       isTestment: false,
       landNumber: `${240 + i}/12`,
       planNumber: String(2150 + i),
-      rerBorders: [],
+      /* the owner's rows send [], the staff account's four empty border slots;
+         rows 5–8 take the staff form so both are served (the product reads neither) */
+      rerBorders: i >= 5 ? Array.from({ length: 4 }, () => ({ type: null, length: null, direction: null })) : [],
       phoneNumber: localMobile,
       propertyAge: 'جديد',
       streetWidth: 20,
@@ -455,7 +508,7 @@ export default (h) => {
       propertyType: T.ar,
       isConstrained: false,
       numberOfRooms: beds,
-      propertyPrice: l.price,
+      propertyPrice: price,
       advertiserName: U.name_l1,
       landTotalPrice: null,
       propertyUsages: [],
@@ -486,17 +539,20 @@ export default (h) => {
       age: option(1, 'new', 'New', 'جديد'),
       area: size,
       ...(beds > 0 && { beds: n(beds) }),
-      face: option(1, 'northern', 'Northern', 'شمالية'),
+      face: staffLike ? option(4, 'western', 'Western', 'غربية') : option(1, 'northern', 'Northern', 'شمالية'),
       ...(baths > 0 && { baths: n(baths) }),
       id_type: 1,
       features: [
         feature(201, 'electricity', 'Electricity', 'كهرباء'),
         feature(202, 'water-supply', 'Water Supply', 'مياه'),
         feature(203, 'sewerage', 'Sewerage', 'صرف صحي'),
-        feature(204, 'private-parking', 'Private Parking', 'موقف خاص'),
+        staffLike ? feature(212, 'lawn-or-garden', 'Lawn or Garden', 'حديقة') : feature(204, 'private-parking', 'Private Parking', 'موقف خاص'),
       ].slice(0, featuresSelected),
       area_unit: option(2, 'square-meters', 'Square Meters', 'متر مربع'),
-      furnished: option(2, 'no', 'No', 'لا'),
+      /* a holiday home is let furnished; the staff account also sends the
+         flag as a boolean beside the option */
+      furnished: dailyJob ? option(1, 'yes', 'Yes', 'نعم') : option(2, 'no', 'No', 'لا'),
+      is_furnished: dailyJob,
       sale_type: { ...option(1, 'initial-sale', 'Initial Sale', 'بيع أولي'), value_l1: null },
       is_verified: false,
       floor_number: type === 'Floor' ? 1 : 0,
@@ -512,7 +568,7 @@ export default (h) => {
       } }),
       /* the real API carries both purposes' fields (its rent listing sends a
          sale_type) — on a sale row these are the form's untouched defaults */
-      rental_price: rent ? String(l.price) : '',
+      rental_price: rent ? String(price) : '',
       advertiser_id: '1098765432',
       built_up_area: size,
       campaign_type: { ...option(1, 'by-staff', 'By Staff', 'بواسطة الموظفين'), value_l1: null },
@@ -522,12 +578,14 @@ export default (h) => {
       rent_frequency: P.slug === 'daily-rental'
         ? { ...option(1, 'daily', 'Daily', 'يومي'), value_l1: null }
         : { ...option(3, 'yearly', 'Yearly', 'سنوي'), value_l1: null },
-      residence_type: { ...option(1, 'open-to-all', 'Open to All', 'مفتوح للكل'), value_l1: null },
+      residence_type: staffLike
+        ? { ...option(2, 'family', 'Family', 'عائلات'), value_l1: null }
+        : { ...option(1, 'open-to-all', 'Open to All', 'مفتوح للكل'), value_l1: null },
       area_unit_value: size,
       completion_status: { ...option(1, 'ready', 'Ready', 'جاهز'), value_l1: null },
       is_contact_hidden: false,
       is_photo_verified: false,
-      is_posted_on_rega: true,
+      is_posted_on_rega: hasRega,
       is_video_verified: false,
       auto_generated_title: false,
       is_location_editable: false,
@@ -540,6 +598,24 @@ export default (h) => {
       /* the MOT permit's CR number and the national short address */
       ...(dailyJob && { legal_id: crNumber, national_address: nationalAddress }),
     };
+
+    /* AUTO-RENEW. The staff account sends auto_renewable_item as
+       { id, renewing_on: 'YYYY-MM-DD' } — on the listing and on the product
+       it renews — where the owner's sends {} everywhere. The product reads
+       ONLY the basic-listing's copy (bayut/transformers/listings.js
+       listingMapper → platforms.auto_renewable_item.isApplied = !!id, and
+       platformMapper → renewing_on), and on Bayut KSA desktop draws nothing
+       from it: the Timeline's second date and its AUTO-RENEW switch are both
+       gated off (constants.js HIDE_AUTO_RENEWAL, HIDE_TIMELINE_DATA). Where
+       it shows is the MOBILE card, whose second date is not gated:
+       "Renewing on <date>" in place of "Expiring on <date>"
+       (listingCard.js:69, getDateFieldsByStatus). Row 5's job is its
+       six-action row, so its Timeline is free to renew — on the day it
+       would otherwise expire. */
+    const autoRenew = i === 5 ? { id: 64100 + i, renewing_on: expiry } : null;
+    /* the base's own auto-renew (row 3's applied Signature) in the same
+       shape: an id, and a date rather than a timestamp */
+    const renewShape = (a) => (a?.renewing_on ? { id: a.id ?? 64000 + i, renewing_on: iso(new Date(a.renewing_on)) } : {});
 
     /* products: the base row decides applied / applicable / requested; the
        real API adds titles and the dates the popovers print */
@@ -562,7 +638,7 @@ export default (h) => {
         start_date: start,
         platform_id: 1,
         is_applicable: p.is_applicable,
-        auto_renewable_item: p.auto_renewable_item ?? {},
+        auto_renewable_item: p.slug === 'basic-listing' && autoRenew ? autoRenew : renewShape(p.auto_renewable_item),
       };
     });
 
@@ -575,7 +651,7 @@ export default (h) => {
       id,
       url,
       phone: null,
-      price: l.price,
+      price,
       title: titleEn,
       booked: !!bookedDates?.length,
       health,
@@ -612,8 +688,8 @@ export default (h) => {
       wafi_license: null,
       permit_number: mot ? mot.permit_number : null,
       description_l1: descAr,
-      discount_value: actualPrice - l.price,
-      residence_type: { id: 1, name: 'Open to All', slug: 'open-to-all', name_l1: 'مفتوح للجميع' },
+      discount_value: actualPrice - price,
+      residence_type: staffLike ? { id: 2, name: 'Family', slug: 'family', name_l1: 'عوائل' } : { id: 1, name: 'Open to All', slug: 'open-to-all', name_l1: 'مفتوح للجميع' },
       listing_quality,
       discount_applied: discounted,
       listing_category: category,
@@ -650,7 +726,7 @@ export default (h) => {
       }],
       additional_details: bookedDates ? { booked_dates: bookedDates } : null,
       is_offplan_listing: false,
-      auto_renewable_item: {},
+      auto_renewable_item: autoRenew || {},
       discount_applicable: l.discount_applicable,
       discount_percentage: discounted ? '5.00' : '0.00',
       project_detail_card: null,
@@ -664,9 +740,8 @@ export default (h) => {
       description_translation_enabled: true,
 
       /* ── not in the real shape, kept for a row's job ───────────────────── */
-      /* rows 4 and 9: listingUtilities.js:238 offers Mark as Booked on this
-         slug alone (the base comment explains why these rows carry it) */
-      ...(l.listing_purpose && { listing_purpose: l.listing_purpose }),
+      /* (rows 4 and 9 used to carry a root listing_purpose here for Mark as
+         Booked; they are daily rentals by category now — see dailyJob) */
       /* row 7: platformActions.js:47 — the OTP modal needs both */
       ...(dispSlug === 'pending-otp-verification' && { is_otp_required: true, phone_number: U.mobile }),
     };
@@ -835,6 +910,78 @@ export default (h) => {
     return { ...row, dynamic_data: { dynamic_fields: fields } };
   };
 
+  /* ── ad licence requests ─────────────────────────────────────────────────
+     The staff account's shape (data/api-shapes.b.json): a flat request with
+     the pin as STRINGS (8 and 9 characters), a location whose lat/lng are
+     NUMBERS, and a `type` that is the form's Residential/Commercial choice
+     (create-ad-license.js:148 `type_id: property_type`, staticLists.js:172)
+     with a purpose-combined title — "Residential for Rent" is its 20
+     characters, "سكني للإيجار" its 12. ad_license_number and external_id stay
+     null until REGA issues the licence, as all three of the staff account's do.
+
+     What the table draws from it (bayut/utils/listingUtilities.js:366):
+     property_price + location.title + type.combined_title in the Property
+     cell, deed_number, id, the stage Tag, created_at, and the Actions cell.
+     AdLicenseStatus (ad-license-status.js) colours seven stages; these four
+     are the lifecycle in order, newest first, each drawn differently:
+       payment_pending         red   — and the ONLY stage with an action:
+                                        Pay Now (ad-license-actions.js:64)
+       request_confirmation    lime  — "Verifying Details", the staff
+                                        account's own (20 and 17 characters)
+       rega_contract_creation  blue  — "Preparing Contract"
+       completed               green — the licence issued
+     Not used: rega_contract_signing has NO colour in the switch, so the Tag
+     would be handed the string "undefined"; ad_license_creation (gold),
+     post_listing (orange) and rejected (red, as Payment Pending) are the
+     other three a fifth row could carry. */
+  const AD_LICENSE_TYPE = {
+    residential: { id: 1, title: 'Residential', title_l1: 'سكني' },
+    commercial: { id: 2, title: 'Commercial', title_l1: 'تجاري' },
+  };
+  const AD_LICENSE_REQUESTS = [
+    /* id · stage · display name · purpose_id (1 sale, 2 rent) · type · district · price · days ago · licence */
+    [22017, 'payment_pending', 'Payment Pending', 1, 'residential', 'Al Wurud', 1180000, 0, null],
+    [21964, 'request_confirmation', 'Verifying Details', 2, 'residential', 'Al Masif', 85000, 3, null],
+    [21902, 'rega_contract_creation', 'Preparing Contract', 1, 'commercial', 'Al Aqiq', 3400000, 9, null],
+    [21815, 'completed', 'Completed', 2, 'residential', 'Al Rawabi', 62000, 24, 7201352240],
+  ].map(([id, stage, stageName, purposeId, typeKey, district, price, ago, licence], k) => {
+    const T = AD_LICENSE_TYPE[typeKey];
+    const [lat, lng] = GEO[district];
+    const created = stamp(day(ago), k);
+    return {
+      id,
+      user_id: U.id,
+      deed_number: `31${String(id * 7919).slice(-8)}${pad(k + 21)}`,     /* 12 digits, like a MOJ e-deed */
+      latitude: lat.toFixed(5),
+      longitude: lng.toFixed(6),
+      purpose_id: purposeId,
+      property_price: price,
+      jarvis_stages: stage,
+      jarvis_stages_display_name: stageName,
+      external_id: null,
+      ad_license_number: licence,
+      created_at: created,
+      /* the stage last moved a day or two after the request was made; an
+         unpaid request has not moved at all */
+      updated_at: ago ? stamp(day(ago - 1 - (k % 2)), k + 4) : created,
+      location: {
+        id: hid(district, 300),                 /* the same district id the listings' breadcrumbs use */
+        title: district,
+        title_l1: AR[district],
+        level: 4,
+        city_id: hid('Riyadh', 100),
+        latitude: lat,
+        longitude: lng,
+        external_id: 10100000 + hid(district, 0),
+      },
+      type: {
+        ...T,
+        combined_title: `${T.title} for ${purposeId === 1 ? 'Sale' : 'Rent'}`,
+        combined_title_l1: `${T.title_l1} ${purposeId === 1 ? 'للبيع' : 'للإيجار'}`,
+      },
+    };
+  });
+
   /* TruCheck statuses — the filter drawer's "TruCheck Status" select */
   const TRUCHECK = [
     ['active', 'Active', 'نشط'], ['pending', 'Pending', 'قيد الانتظار'], ['rejected', 'Rejected', 'مرفوض'],
@@ -865,12 +1012,30 @@ export default (h) => {
       return { listing: forDrawer(rows.find((x) => x.id === id) || projectRows.find((x) => x.id === id) || rows[0]) };
     }],
     [/^\/api\/surge\/statuses$/, () => ({ statuses: TRUCHECK })],
-    /* the account has never requested an ad licence — neither has the real
-       one (its list is empty too), so the tab reads "(0)" on both */
-    [/^\/api\/surge\/ad_license_requests$/, () => ({
-      ad_license_requests: [],
-      pagination: { current_page: 1, next_page: null, prev_page: null, total_pages: 0, total_count: 0 },
-    })],
+    /* The Ad License Requests tab (listings.js:133, one call on every
+       Listings load, so the tab count is always live) and the mobile card's
+       ad-license branch (listingCard.js:214). The owner account has never
+       requested one; the staff account has three, so the tab is a table,
+       not an empty state. Four here, one per stage the product draws
+       differently — the query's own filters are honoured, so the filter
+       drawer's Status select narrows the list. See AD_LICENSE_REQUESTS. */
+    [/^\/api\/surge\/ad_license_requests$/, (search) => {
+      const q = new URLSearchParams(search || '');
+      const eq = (k) => (q.get(k) ?? '').trim();
+      const from = eq('q[created_at_gteq]').slice(0, 10), to = eq('q[created_at_lteq]').slice(0, 10);
+      const list = AD_LICENSE_REQUESTS.filter((r) =>
+        (!eq('q[id_eq]') || String(r.id) === eq('q[id_eq]')) &&
+        (!eq('q[deed_number_eq]') || r.deed_number === eq('q[deed_number_eq]')) &&
+        (!eq('q[jarvis_stages_eq]') || r.jarvis_stages === eq('q[jarvis_stages_eq]')) &&
+        (!from || r.created_at.slice(0, 10) >= from) && (!to || r.created_at.slice(0, 10) <= to));
+      const pages = Math.ceil(list.length / 10);
+      const pageNo = Math.min(Math.max(1, pages), Math.max(1, Number(q.get('page')) || 1));
+      return {
+        ad_license_requests: list.slice((pageNo - 1) * 10, pageNo * 10),
+        pagination: { current_page: pageNo, next_page: pageNo < pages ? pageNo + 1 : null,
+                      prev_page: pageNo > 1 ? pageNo - 1 : null, total_pages: pages, total_count: list.length },
+      };
+    }],
     /* the purpose radio on /ad-license — one priced product per purpose.
        Unanswered, the page drew "Purpose" over nothing. */
     [/^\/api\/surge\/ad_license_products$/, () => ({ ad_license_products: [

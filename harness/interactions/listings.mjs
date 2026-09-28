@@ -191,7 +191,7 @@ export default [
   },
   {
     name: 'tab-ad-license-requests',
-    note: 'Ad License Requests (0) — a different table entirely (adLicenseTableColumnMapper)',
+    note: 'Ad License Requests (4) — a different table entirely (adLicenseTableColumnMapper): Payment Pending with Pay Now, Verifying Details, Preparing Contract, Completed (harness/fixtures/listings.mjs AD_LICENSE_REQUESTS)',
     do: async (p) => { await p.getByRole('tab', { name: /^Ad License/ }).click(); await p.waitForTimeout(1500); },
   },
   /* ── the flows the old fixture account hid ────────────────────────────

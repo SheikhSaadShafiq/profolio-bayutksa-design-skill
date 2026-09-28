@@ -1,0 +1,89 @@
+{
+ "page": "user-settings-licenses",
+ "route": "/user-settings/licenses",
+ "device": "web",
+ "at": "2026-09-28T16:58:39.332Z",
+ "tried": 11,
+ "states": [
+  {
+   "name": "modal-information-share-license-with",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > span:nth-child(1) > svg:nth-child(1)",
+   "label": "svg",
+   "title": "Information Share License with",
+   "shell": false,
+   "opened": [
+    {
+     "k": "modal",
+     "w": 500,
+     "h": 296
+    },
+    {
+     "k": "modal",
+     "w": 500,
+     "h": 296
+    }
+   ]
+  },
+  {
+   "name": "modal-share-license-by-enabling",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > button:nth-child(2)",
+   "label": "button",
+   "title": "Share License By Enabling",
+   "shell": false,
+   "opened": [
+    {
+     "k": "modal",
+     "w": 400,
+     "h": 222
+    },
+    {
+     "k": "modal",
+     "w": 400,
+     "h": 222
+    }
+   ]
+  },
+  {
+   "name": "drawer-feedback",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4)",
+   "label": "FEEDBACK",
+   "title": "Send us feedback The",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 400,
+     "h": 900
+    }
+   ]
+  }
+ ],
+ "links": [
+  {
+   "label": "User Settings",
+   "to": "/en/user-settings/user-profile"
+  },
+  {
+   "label": "Add FAL license",
+   "to": "/en/verification/rega/?redirectPath=http://127.0.0.1:3100/en/user-settings/licenses"
+  },
+  {
+   "label": "Agency Settings",
+   "to": "/en/user-settings/agency-profile"
+  },
+  {
+   "label": "Preferences",
+   "to": "/en/user-settings/preferences"
+  },
+  {
+   "label": "Change Password",
+   "to": "/en/user-settings/change-password"
+  }
+ ]
+}

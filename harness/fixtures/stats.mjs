@@ -42,6 +42,24 @@
  * days, each with a channel, a purpose and a product. Every total on every page
  * is a sum over that one list, which is what keeps the dashboard, the summary
  * and the two report tables agreeing with each other.
+ *
+ * ── the product chips (a 4-radio group, 3 borderless tags) ─────────────────
+ * All / Basic / Hot / Signature above the Performance chart are a Radio.Group
+ * of RadioPills, and each product pill holds a ProductTag — an antd Tag with
+ * no border (components/widgets/LeadsStatsGraphWidget.js:205). The whole row
+ * renders only when `!isNoGraph(data[currentTab])` — when the window has ANY
+ * non-zero traffic (utility/utility.js:139). It is not a staff or a
+ * tracking-off variant: the first real account had no traffic at all in its
+ * window (product_stats.items {}), so it drew the "View In-Depth Insights"
+ * empty state instead; the staff account had traffic and draws the row; this
+ * account has traffic in every mode, so it draws it too.
+ *
+ * ── mode 'staff' ──────────────────────────────────────────────────────────
+ * A staff user with call and WhatsApp tracking off (see `tracked`). The same
+ * traffic and the same lead schedule — the product just stops asking LMS for
+ * it — with three things the staff account's recording does differently:
+ * a null leads trend, six sale and five rent areas in the donuts, and null /
+ * zero figures wherever only a tracked number could know the answer.
  */
 export default (h) => {
   const { day, iso, num, listings, page, products } = h;
@@ -150,6 +168,20 @@ export default (h) => {
       sum_whatsapp_contact_lead_count: 0,
     };
   };
+  /* a row PER AD or PER PRODUCT carries a different key set from a day's
+     total (data/api-shapes.b.json, ovation/stats items and product_wise[]):
+     sum_phone_lead_count rather than sum_phone_lead, and the four
+     apply / book-now counters, which are null on every row the real API
+     sent — no KSA listing has an Apply or Book Now button. Nothing in the
+     product reads these five; they are here because the API sends them. */
+  const rowRecord = (views, clicks, ls) => ({
+    ...record(views, clicks, ls),
+    sum_phone_lead_count: count(ls, 'call'),
+    sum_apply_view_count: null,
+    sum_apply_lead_count: null,
+    sum_book_now_view_count: null,
+    sum_book_now_lead_count: null,
+  });
   const dayItem = (d, cats) => {
     const off = offsetOf(d);
     const views = Math.round(viewsAt(off) * shareOf(cats));
@@ -158,7 +190,8 @@ export default (h) => {
     const v = splitByProduct(views), c = splitByProduct(clicks);
     return {
       ...record(views, clicks, ls),
-      product_wise: PRODUCTS.map((p) => ({ ad_product: p, ...record(v[p], c[p], ls.filter((l) => l.p === p)) })),
+      /* each product row repeats its day as `date` (string(10) in the recording) */
+      product_wise: PRODUCTS.map((p) => ({ date: d, ad_product: p, ...rowRecord(v[p], c[p], ls.filter((l) => l.p === p)) })),
     };
   };
   const itemsFor = (search) => {
@@ -180,8 +213,24 @@ export default (h) => {
     ...Object.fromEntries(SUM_KEYS.filter((k) => !/contact_(agent|lead)/.test(k)).map((k) => [k, null])),
     sum_search_count: 12.5, sum_view_count: -3.1, sum_lead_count: 8.3,
   };
-  const productStats = (search) => {
-    const items = itemsFor(search);
+  /* the staff account's recording has views and clicks trends and a NULL
+     leads trend (data/api-shapes.b.json) — its Leads tab carries no arrow */
+  const STAFF_TRENDS = { ...TRENDS, sum_lead_count: null };
+  /* The real API sends a date only when something happened on it: the staff
+     account's recording has 23 of its 31 days (the first account, which had
+     no traffic at all, got `items: {}`). The chart does not care —
+     fillMissingDates puts the gaps back (common/transformers/reports.js:103)
+     — but the Traffic and Leads by date table lists only the dates it is
+     sent (:848), and its page count is parseInt(rows / 10) + 1. So in mode
+     'staff' the two days before this account's traffic starts (Aug 30-31
+     in the default window: no views, no clicks, no leads) are left out, and
+     that table has three pages, as the staff account's does. Owner mode keeps
+     every day, as it always has, so its pages do not move. */
+  const productStats = (search, mode) => {
+    const all = itemsFor(search);
+    const items = mode === 'staff'
+      ? Object.fromEntries(Object.entries(all).filter(([, it]) => SUM_KEYS.some((k) => it[k])))
+      : all;
     return { stats: { items, total: Object.keys(items).length, ...totalsOf(items) } };
   };
 
@@ -194,8 +243,11 @@ export default (h) => {
     const ls = Array.from({ length: leads }, (_, k) => ({ ch: CHANNELS[(i * 2 + k) % CHANNELS.length], answered: k % 2 === 0 }));
     const calls = ls.filter((l) => l.ch === 'call');
     return {
-      ad_external_id: id,
-      ...record(views, clicks, ls),
+      /* a STRING over the wire (string(9) in data/api-shapes.b.json); every
+         reader matches it with == against the numeric listing id
+         (bayut/transformers/reports.js:108, bayut/apis/listings.js:83) */
+      ad_external_id: String(id),
+      ...rowRecord(views, clicks, ls),
       received_calls: calls.length,
       answered_calls: calls.filter((l) => l.answered).length,
       missed_calls: calls.filter((l) => !l.answered).length,
@@ -238,6 +290,19 @@ export default (h) => {
     basic: KSA.basic, signature: KSA.signature, hot: KSA.hot,
     sale_breakdown_by_area: SALE_AREAS, rent_breakdown_by_area: RENT_AREAS,
   };
+  /* mode 'staff': the staff account's donuts have SIX sale areas and FIVE
+     rent areas (data/api-shapes.b.json), so its legends are six and five rows
+     tall. Same 13 sale / 5 rent listings; the six sale areas are exactly the
+     six the visible listing rows sit in. */
+  const STAFF_SALE_AREAS = areas([
+    ['Al Yarmuk', 'اليرموك', 5], ['Al Wurud', 'الورود', 2], ['Al Nahdah', 'النهضة', 2],
+    ['Al Masif', 'المصيف', 2], ['Al Rawabi', 'الروابي', 1], ['As Sulaymaniyah', 'السليمانية', 1],
+  ]);
+  const STAFF_RENT_AREAS = areas([
+    ['Al Mughrizat', 'المغرزات', 1], ['Al Malqa', 'الملقا', 1], ['Al Narjis', 'النرجس', 1],
+    ['Al Rawabi', 'الروابي', 1], ['Al Sahafa', 'الصحافة', 1],
+  ]);
+  const staffByArea = { ...byArea, sale_breakdown_by_area: STAFF_SALE_AREAS, rent_breakdown_by_area: STAFF_RENT_AREAS };
 
   /* ── LMS call tracking ───────────────────────────────────────────────── */
   const callsIn = (ls) => ls.filter((l) => l.ch === 'call');
@@ -256,6 +321,14 @@ export default (h) => {
     const wa = ls.filter((l) => l.ch === 'whatsapp');
     return wa.length ? Math.round((wa.filter((l) => l.answered).length / wa.length) * 10000) / 100 : 0;
   };
+  /* mode 'staff' is a user with call AND WhatsApp tracking OFF (the second
+     real account). The product then never asks for lms/stats/product_stats
+     or phone_lead_stats (reports.js:31) — the Performance card's leads come
+     from ovation's product_stats, which already counts every lead above.
+     What tracking-off takes away is what only a TRACKED number knows: whether
+     a call was received, answered or missed, and how fast a chat was
+     answered. So those figures are empty; clicks are still counted. */
+  const tracked = (ls, mode) => (mode === 'staff' ? [] : ls);
 
   return [
     /* Listings card — dashboard and all three reports pages */
@@ -264,11 +337,11 @@ export default (h) => {
     })],
 
     /* Breakdown By Location. Unanswered, both donuts said "Not enough data". */
-    [/^\/api\/surge\/dashboard\/listings_by_area$/, () => ({
+    [/^\/api\/surge\/dashboard\/listings_by_area$/, (search, mode) => ({
       listings: {
-        ksa: byArea,
+        ksa: mode === 'staff' ? staffByArea : byArea,
         platforms: {
-          ksa: byArea,
+          ksa: mode === 'staff' ? staffByArea : byArea,
           dubizzle: { total: 0, rent: 0, sale: 0, basic: 0, 'boost-to-top': 0, feature: 0, sale_breakdown_by_area: [], rent_breakdown_by_area: [] },
         },
       },
@@ -304,14 +377,14 @@ export default (h) => {
     }],
 
     /* the Performance card's totals and ↑/↓ */
-    [/^\/api\/surge\/ovation\/stats\/trends$/, (search) => ({
+    [/^\/api\/surge\/ovation\/stats\/trends$/, (search, mode) => ({
       /* aggregates carry the sixteen keys trends does — not the two
          whatsapp_contact counts, which only product_stats sends */
-      stats: { aggregates: Object.fromEntries(Object.keys(TRENDS).map((k) => [k, totalsOf(itemsFor(search))[k]])), trends: { ...TRENDS } },
+      stats: { aggregates: Object.fromEntries(Object.keys(TRENDS).map((k) => [k, totalsOf(itemsFor(search))[k]])), trends: { ...(mode === 'staff' ? STAFF_TRENDS : TRENDS) } },
     })],
 
     /* the Performance chart (per day, per product) and the leads-by-date table */
-    [/^\/api\/surge\/ovation\/stats\/product_stats$/, (search) => productStats(search)],
+    [/^\/api\/surge\/ovation\/stats\/product_stats$/, (search, mode) => productStats(search, mode)],
 
     /* the same, as counted by LMS tracking — requested instead of the ovation
        leads when the user has call or WhatsApp tracking on (reports.js:31) */
@@ -332,8 +405,8 @@ export default (h) => {
        With the KSA clicks layout the call card reads its row from
        response_time_metrics and the WhatsApp card from here, so both carry
        every key either identifier is read for. */
-    [/^\/api\/surge\/lms\/stats\/insights$/, (search) => {
-      const ls = leadsInWindow(search);
+    [/^\/api\/surge\/lms\/stats\/insights$/, (search, mode) => {
+      const ls = tracked(leadsInWindow(search), mode);
       const t = totalsOf(itemsFor(search));
       const { sum_view_count, sum_search_count, sum_sms_view_count, sum_whatsapp_view_count, sum_email_view_count,
         sum_chat_view_count, sum_phone_view_count, sum_whatsapp_lead_count, sum_email_lead_count, sum_chat_lead_count,
@@ -349,33 +422,44 @@ export default (h) => {
 
     /* the cards' stats row — Response Rate, Avg Duration, Avg Resp. Time. The
        values are printed as sent (utils.js:67), so they are sent formatted. */
-    [/^\/api\/surge\/lms\/stats\/response_time_metrics$/, (search) => {
+    [/^\/api\/surge\/lms\/stats\/response_time_metrics$/, (search, mode) => {
       const ls = leadsInWindow(search);
+      const off = mode === 'staff';                      /* tracking off: see `tracked` */
       /* Clicked is the same click the Performance card counts as Calls /
          WhatsApp (sum_phone_view_count / sum_whatsapp_view_count), so the
-         two pages print the same 3 and 7 */
+         two pages print the same 3 and 7 — with tracking on or off, since a
+         click is counted either way */
       return { metrics: {
-        avg_whatsapp_response_time: '7m 40s',
+        avg_whatsapp_response_time: off ? null : '7m 40s',
         whatsapp_clicks: count(ls, 'whatsapp'),
         period: 'custom',
         clicked_calls: count(ls, 'call'),
-        ...phoneRecord(ls),
-        avg_call_duration: '2m 14s',
-        avg_call_response_time: '21s',
+        ...phoneRecord(tracked(ls, mode)),
+        /* recorded by the second account; nothing reads it. Every call on this
+           account either connected or was missed outright. */
+        not_connected_calls: 0,
+        /* null, not '0s', is how the staff account's recording spells "none" */
+        avg_call_duration: off ? null : '2m 14s',
+        avg_call_response_time: off ? null : '21s',
       } };
     }],
 
-    /* the View Trend modal behind either card (common/transformers/leads.js:1017) */
-    [/^\/api\/surge\/lms\/stats\/response_time_graph$/, (search) => {
+    /* the View Trend modal behind either card (common/transformers/leads.js:1017,
+       which reads a missing rate or time as 0) */
+    [/^\/api\/surge\/lms\/stats\/response_time_graph$/, (search, mode) => {
+      const off = mode === 'staff';
       const daily_data = windowOf(search).map((d) => {
-        const off = offsetOf(d);
+        const o = offsetOf(d);
         return {
           date: d,
-          calls: { response_rate: 50 + ((off * 17) % 45), avg_response_time: 12 + ((off * 7) % 25) },
-          whatsapp: { response_rate: 55 + ((off * 13) % 40), avg_response_time: 4 + ((off * 5) % 9) },
+          calls: off ? { response_rate: 0, avg_response_time: null } : { response_rate: 50 + ((o * 17) % 45), avg_response_time: 12 + ((o * 7) % 25) },
+          whatsapp: off ? { response_rate: 0, avg_response_time: null } : { response_rate: 55 + ((o * 13) % 40), avg_response_time: 4 + ((o * 5) % 9) },
         };
       });
-      return { daily_response_rates: { daily_data, summary: {
+      return { daily_response_rates: { daily_data, summary: off ? {
+        calls: { avg_response_rate: 0, avg_response_time: null },
+        whatsapp: { avg_response_rate: 0, avg_response_time: null },
+      } : {
         calls: { avg_response_rate: 66.67, avg_response_time: '21s' },
         whatsapp: { avg_response_rate: 71.43, avg_response_time: '7m 40s' },
       } } };

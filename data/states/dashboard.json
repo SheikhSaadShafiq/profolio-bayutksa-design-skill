@@ -1,8 +1,9 @@
 {
  "page": "dashboard",
  "route": "/dashboard",
- "at": "2026-09-28T12:10:54.511Z",
- "tried": 60,
+ "device": "web",
+ "at": "2026-09-28T16:39:42.630Z",
+ "tried": 120,
  "states": [
   {
    "name": "modal-download-app",
@@ -10,6 +11,7 @@
    "action": "click",
    "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > header:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > button:nth-child(1)",
    "label": "Download App",
+   "title": "Get the Bayut KSA",
    "shell": true,
    "opened": [
     {
@@ -20,11 +22,12 @@
    ]
   },
   {
-   "name": "popover-notifications",
+   "name": "popover-notifications-mark-all-as",
    "kind": "popover",
    "action": "click",
    "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > header:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > span:nth-child(1) > button:nth-child(1)",
    "label": "icon",
+   "title": "Notifications Mark all as",
    "shell": true,
    "opened": [
     {
@@ -32,15 +35,15 @@
      "w": 590,
      "h": 776
     }
-   ],
-   "title": "Notifications"
+   ]
   },
   {
-   "name": "popover-account",
+   "name": "popover-faisal-al-harbi-agency-user",
    "kind": "popover",
    "action": "click",
    "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > header:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(5) > button:nth-child(1)",
    "label": "icon",
+   "title": "Faisal Al-Harbi Agency User",
    "shell": true,
    "opened": [
     {
@@ -48,15 +51,15 @@
      "w": 400,
      "h": 233
     }
-   ],
-   "title": "Faisal Al-Harbi Agency User"
+   ]
   },
   {
-   "name": "modal-help-support",
+   "name": "modal-help-support-profolio",
    "kind": "modal",
    "action": "click",
    "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > aside:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(3) > div:nth-child(2) > button:nth-child(1)",
    "label": "icon",
+   "title": "Help & Support Profolio",
    "shell": true,
    "opened": [
     {
@@ -64,15 +67,15 @@
      "w": 620,
      "h": 412
     }
-   ],
-   "title": "Help & Support"
+   ]
   },
   {
-   "name": "dropdown-agency-switcher",
+   "name": "dropdown-najd-horizon-real-estate",
    "kind": "dropdown",
    "action": "click",
    "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)",
    "label": "icon",
+   "title": "Najd Horizon Real Estate",
    "shell": false,
    "opened": [
     {
@@ -80,8 +83,7 @@
      "w": 258,
      "h": 168
     }
-   ],
-   "title": "Najd Horizon Real Estate"
+   ]
   },
   {
    "name": "drawer-credits-balance",
@@ -89,6 +91,7 @@
    "action": "click",
    "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)",
    "label": "Credits Balance",
+   "title": "Bayut Credits What are",
    "shell": false,
    "opened": [
     {
@@ -104,6 +107,7 @@
    "action": "click",
    "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > button:nth-child(1)",
    "label": "Top-Up your Credits",
+   "title": "Credits Balance Credit Top-up",
    "shell": false,
    "opened": [
     {
@@ -114,11 +118,12 @@
    ]
   },
   {
-   "name": "popover-date-range",
+   "name": "popover-today-yesterday-last-7",
    "kind": "popover",
    "action": "click",
    "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > span:nth-child(1)",
    "label": "icon",
+   "title": "Today Yesterday Last 7",
    "shell": false,
    "opened": [
     {
@@ -126,8 +131,7 @@
      "w": 802,
      "h": 420
     }
-   ],
-   "title": "Today Yesterday Last 7"
+   ]
   },
   {
    "name": "inline-clicks-407-3",
@@ -135,24 +139,17 @@
    "action": "click",
    "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)",
    "label": "Clicks 407 3%",
+   "title": "",
    "shell": false,
    "opened": []
   },
   {
-   "name": "inline-leads-13-8",
-   "kind": "inline",
-   "action": "click",
-   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3)",
-   "label": "Leads 13 8%",
-   "shell": false,
-   "opened": []
-  },
-  {
-   "name": "popover-calls-clicked-3",
+   "name": "popover-calls-3",
    "kind": "popover",
    "action": "click",
    "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)",
    "label": "Calls 3",
+   "title": "Calls Clicked 3",
    "shell": false,
    "opened": [
     {
@@ -160,42 +157,7 @@
      "w": 123,
      "h": 54
     }
-   ],
-   "title": "Calls Clicked 3"
-  },
-  {
-   "name": "popover-whatsapp-clicked-7",
-   "kind": "popover",
-   "action": "click",
-   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1)",
-   "label": "WhatsApp 7",
-   "shell": false,
-   "opened": [
-    {
-     "k": "popover",
-     "w": 159,
-     "h": 54
-    }
-   ],
-   "title": "WhatsApp Clicked 7"
-  },
-  {
-   "name": "inline-sms-1",
-   "kind": "inline",
-   "action": "click",
-   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(5) > div:nth-child(1)",
-   "label": "SMS 1",
-   "shell": false,
-   "opened": []
-  },
-  {
-   "name": "inline-emails-2",
-   "kind": "inline",
-   "action": "click",
-   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(7) > div:nth-child(1)",
-   "label": "Emails 2",
-   "shell": false,
-   "opened": []
+   ]
   },
   {
    "name": "inline-canvas",
@@ -203,15 +165,17 @@
    "action": "click",
    "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > canvas:nth-child(2)",
    "label": "canvas",
+   "title": "",
    "shell": false,
    "opened": []
   },
   {
-   "name": "popover-overall-quality",
+   "name": "popover-62",
    "kind": "popover",
    "action": "hover",
    "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(2) > td:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > span:nth-child(1)",
    "label": "62%",
+   "title": "Overall Quality Higher quality",
    "shell": false,
    "opened": [
     {
@@ -219,15 +183,15 @@
      "w": 440,
      "h": 531
     }
-   ],
-   "title": "Overall Quality"
+   ]
   },
   {
-   "name": "popover-listing-timeline",
+   "name": "popover-1104-am-sep-26",
    "kind": "popover",
    "action": "hover",
    "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(2) > td:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > span:nth-child(3)",
    "label": "icon",
+   "title": "11:04 am, Sep 26,",
    "shell": false,
    "opened": [
     {
@@ -235,8 +199,282 @@
      "w": 177,
      "h": 54
     }
-   ],
-   "title": "11:04 am, Sep 26,"
+   ]
+  },
+  {
+   "name": "tooltip-mark-signature",
+   "kind": "tooltip",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(2) > td:nth-child(5) > div:nth-child(1) > div:nth-child(1) > button:nth-child(1)",
+   "label": "icon",
+   "title": "Mark Signature",
+   "shell": false,
+   "opened": [
+    {
+     "k": "modal",
+     "w": 708,
+     "h": 414
+    },
+    {
+     "k": "tooltip",
+     "w": 153,
+     "h": 40
+    }
+   ]
+  },
+  {
+   "name": "modal-trucheck-eligible-trucheck-is",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(2) > td:nth-child(6) > div:nth-child(1) > div:nth-child(1) > span:nth-child(1) > button:nth-child(1)",
+   "label": "icon",
+   "title": "TruCheck Eligible TruCheck is",
+   "shell": false,
+   "opened": [
+    {
+     "k": "modal",
+     "w": 620,
+     "h": 376
+    }
+   ]
+  },
+  {
+   "name": "popover-43",
+   "kind": "popover",
+   "action": "hover",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(6) > td:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > span:nth-child(1)",
+   "label": "43%",
+   "title": "Overall Quality Higher quality",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 440,
+     "h": 547
+    }
+   ]
+  },
+  {
+   "name": "modal-publish-now",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(9) > td:nth-child(5) > div:nth-child(1) > div:nth-child(1) > button:nth-child(1)",
+   "label": "Publish Now",
+   "title": "OTP Verification You've received",
+   "shell": false,
+   "opened": [
+    {
+     "k": "modal",
+     "w": 620,
+     "h": 385
+    }
+   ]
+  },
+  {
+   "name": "tooltip-booked",
+   "kind": "tooltip",
+   "action": "hover",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(8) > td:nth-child(1) > div:nth-child(1) > div:nth-child(1) > span:nth-child(1) > div:nth-child(1) > div:nth-child(1)",
+   "label": "Booked",
+   "title": "Booked Until Oct 04,",
+   "shell": false,
+   "opened": [
+    {
+     "k": "tooltip",
+     "w": 232,
+     "h": 40
+    }
+   ]
+  },
+  {
+   "name": "inline-leads-13-8",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3)",
+   "label": "Leads 13 8%",
+   "title": "",
+   "shell": false,
+   "opened": []
+  },
+  {
+   "name": "popover-whatsapp-7",
+   "kind": "popover",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1)",
+   "label": "WhatsApp 7",
+   "title": "WhatsApp Clicked 7",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 159,
+     "h": 54
+    }
+   ]
+  },
+  {
+   "name": "popover-54",
+   "kind": "popover",
+   "action": "hover",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(4) > td:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > span:nth-child(1)",
+   "label": "54%",
+   "title": "Overall Quality Higher quality",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 440,
+     "h": 547
+    }
+   ]
+  },
+  {
+   "name": "tooltip-50-off",
+   "kind": "tooltip",
+   "action": "hover",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(11) > td:nth-child(1) > div:nth-child(1) > div:nth-child(1) > span:nth-child(1) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)",
+   "label": "5.0% Off",
+   "title": "Actual Price 1110",
+   "shell": false,
+   "opened": [
+    {
+     "k": "tooltip",
+     "w": 115,
+     "h": 49
+    }
+   ]
+  },
+  {
+   "name": "popover-46",
+   "kind": "popover",
+   "action": "hover",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(7) > td:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > span:nth-child(1)",
+   "label": "46%",
+   "title": "Overall Quality Higher quality",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 440,
+     "h": 547
+    }
+   ]
+  },
+  {
+   "name": "inline-sms-1",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(5) > div:nth-child(1)",
+   "label": "SMS 1",
+   "title": "",
+   "shell": false,
+   "opened": []
+  },
+  {
+   "name": "popover-50",
+   "kind": "popover",
+   "action": "hover",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(5) > td:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > span:nth-child(1)",
+   "label": "50%",
+   "title": "Overall Quality Higher quality",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 440,
+     "h": 547
+    }
+   ]
+  },
+  {
+   "name": "popover-31",
+   "kind": "popover",
+   "action": "hover",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(8) > td:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > span:nth-child(1)",
+   "label": "31%",
+   "title": "Overall Quality Higher quality",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 440,
+     "h": 547
+    }
+   ]
+  },
+  {
+   "name": "inline-emails-2",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(7) > div:nth-child(1)",
+   "label": "Emails 2",
+   "title": "",
+   "shell": false,
+   "opened": []
+  },
+  {
+   "name": "popover-34",
+   "kind": "popover",
+   "action": "hover",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(9) > td:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > span:nth-child(1)",
+   "label": "34%",
+   "title": "Overall Quality Higher quality",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 440,
+     "h": 547
+    }
+   ]
+  },
+  {
+   "name": "popover-39",
+   "kind": "popover",
+   "action": "hover",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(10) > td:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > span:nth-child(1)",
+   "label": "39%",
+   "title": "Overall Quality Higher quality",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 440,
+     "h": 531
+    }
+   ]
+  },
+  {
+   "name": "popover-33",
+   "kind": "popover",
+   "action": "hover",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(11) > td:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > span:nth-child(1)",
+   "label": "33%",
+   "title": "Overall Quality Higher quality",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 440,
+     "h": 547
+    }
+   ]
+  },
+  {
+   "name": "drawer-feedback",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4)",
+   "label": "FEEDBACK",
+   "title": "Send us feedback The",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 400,
+     "h": 900
+    }
+   ]
   }
  ],
  "links": [
@@ -245,52 +483,8 @@
    "to": "/en/agency-staff"
   },
   {
-   "label": "My Listings",
-   "to": "/en/listings"
-  },
-  {
-   "label": "Credits Usage",
-   "to": "/en/credits-usage"
-  },
-  {
-   "label": "TruLeads",
-   "to": "/en/lms/leads"
-  },
-  {
-   "label": "Agent Performance",
-   "to": "/en/agent-performance"
-  },
-  {
-   "label": "Reports",
-   "to": "/en/reports/summary"
-  },
-  {
-   "label": "Agency Staff",
-   "to": "/en/agency-staff"
-  },
-  {
-   "label": "Settings",
-   "to": "/en/user-settings/user-profile"
-  },
-  {
-   "label": "Credits & Packages",
-   "to": "/en/packages"
-  },
-  {
    "label": "icon",
    "to": "/ar/dashboard"
-  },
-  {
-   "label": "View All Listings",
-   "to": "/en/listings"
-  },
-  {
-   "label": "Credits Usage",
-   "to": "/en/credits-usage"
-  },
-  {
-   "label": "View All Listings",
-   "to": "/en/listings"
   },
   {
    "label": "21",
@@ -299,6 +493,86 @@
   {
    "label": "div",
    "to": "/en/dashboard?preview=88240117"
+  },
+  {
+   "label": "View All Listings",
+   "to": "/en/listings"
+  },
+  {
+   "label": "My Listings",
+   "to": "/en/listings"
+  },
+  {
+   "label": "View All Listings",
+   "to": "/en/listings"
+  },
+  {
+   "label": "Credits Usage",
+   "to": "/en/credits-usage"
+  },
+  {
+   "label": "18",
+   "to": "/en/dashboard?preview=88240112"
+  },
+  {
+   "label": "Credits Usage",
+   "to": "/en/credits-usage"
+  },
+  {
+   "label": "26",
+   "to": "/en/dashboard?preview=88238421"
+  },
+  {
+   "label": "TruLeads",
+   "to": "/en/lms/leads"
+  },
+  {
+   "label": "31",
+   "to": "/en/dashboard?preview=88236048"
+  },
+  {
+   "label": "Agent Performance",
+   "to": "/en/agent-performance"
+  },
+  {
+   "label": "38",
+   "to": "/en/dashboard?preview=88235710"
+  },
+  {
+   "label": "Reports",
+   "to": "/en/reports/summary"
+  },
+  {
+   "label": "47",
+   "to": "/en/dashboard?preview=88234837"
+  },
+  {
+   "label": "Agency Staff",
+   "to": "/en/agency-staff"
+  },
+  {
+   "label": "Booked 18",
+   "to": "/en/dashboard?preview=88232857"
+  },
+  {
+   "label": "Settings",
+   "to": "/en/user-settings/user-profile"
+  },
+  {
+   "label": "19",
+   "to": "/en/dashboard?preview=88230489"
+  },
+  {
+   "label": "Credits & Packages",
+   "to": "/en/packages"
+  },
+  {
+   "label": "20",
+   "to": "/en/dashboard?preview=88230479"
+  },
+  {
+   "label": "5.0% Off 24",
+   "to": "/en/dashboard?preview=88230478"
   }
  ]
 }

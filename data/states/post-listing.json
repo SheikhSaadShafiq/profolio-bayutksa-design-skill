@@ -1,0 +1,57 @@
+{
+ "page": "post-listing",
+ "route": "/post-listing",
+ "device": "web",
+ "at": "2026-09-28T16:58:00.924Z",
+ "tried": 5,
+ "states": [
+  {
+   "name": "modal-learn-more",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > button:nth-child(4)",
+   "label": "Learn More",
+   "title": "Steps to Issue Real",
+   "shell": false,
+   "opened": [
+    {
+     "k": "modal",
+     "w": 800,
+     "h": 355
+    }
+   ]
+  },
+  {
+   "name": "inline-continue",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > button:nth-child(3)",
+   "label": "Continue",
+   "title": "",
+   "shell": false,
+   "opened": []
+  },
+  {
+   "name": "drawer-feedback",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4)",
+   "label": "FEEDBACK",
+   "title": "Send us feedback The",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 400,
+     "h": 900
+    }
+   ]
+  }
+ ],
+ "links": [
+  {
+   "label": "Get an Ad License",
+   "to": "/en/ad-license"
+  }
+ ]
+}

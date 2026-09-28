@@ -26,7 +26,8 @@
  *
  *   node harness/explore.mjs                    the eleven pages
  *   node harness/explore.mjs --pages dashboard
- *   node harness/explore.mjs --max 80           candidates tried per page (default 60)
+ *   node harness/explore.mjs --max 80           candidates tried per page (default 120),
+ *                                               breadth first: one of every kind of control before any repeat
  *
  * Writes data/states/<page>.json. scripts/compile.mjs compiles every state in
  * it after the hand-written ones in harness/interactions/<page>.mjs.
@@ -41,9 +42,13 @@ import { openPage, settle } from './page.mjs';
 const { chromium } = pkg;
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const arg = (n, d) => { const i = process.argv.indexOf(n); return i > -1 ? process.argv[i + 1] : d; };
-const { PAGES } = await import('../scripts/pages-list.mjs');
+const { ALL: PAGES } = await import('../scripts/pages-list.mjs');
 const want = arg('--pages') ? arg('--pages').split(',') : Object.keys(PAGES);
-const MAX = Number(arg('--max', 60));
+const MAX = Number(arg('--max', 120));
+/* --device mobile explores the RESPONSIVE layout (a phone's viewport and
+   user agent — harness/page.mjs DEVICES) into data/states/mobile/ */
+const DEVICE = arg('--device', 'web');
+const OUTDIR = join(ROOT, 'data', 'states', DEVICE === 'mobile' ? 'mobile' : '');
 /* the shell is the same on every page: explore it once, on the dashboard */
 const SHELL_ON = 'dashboard';
 /* things that end the session, leave the product or switch the language —
@@ -62,8 +67,20 @@ const CANDIDATES = (includeShell) => {
     return 'html > ' + parts.join(' > ');
   };
   const labelOf = (el) => {
-    const t = (el.getAttribute('aria-label') || el.getAttribute('title') || el.innerText || '').trim().replace(/\s+/g, ' ');
+    const t = (el.getAttribute('aria-label') || el.getAttribute('title') || el.getAttribute('placeholder') || el.innerText || '').trim().replace(/\s+/g, ' ');
     if (t) return t.slice(0, 40);
+    /* a field's inner input says nothing: the select, picker or form item it
+       belongs to names it — its placeholder, its value, its label */
+    const host = el.closest('.ant-select, .ant-picker, .ant-input-affix-wrapper, .ant-form-item');
+    if (host) {
+      /* the field's label first ("City"), then its placeholder ("Select
+         Purpose") — its current value ("Riyadh") is the account's data */
+      const lab = (host.closest('.ant-form-item') || host).querySelector('.ant-form-item-label label');
+      if (lab && lab.innerText.trim()) return lab.innerText.trim().replace(/\s+/g, ' ').slice(0, 40);
+      const ph = host.querySelector('.ant-select-selection-placeholder, input[placeholder]');
+      const pt = ph ? (ph.getAttribute('placeholder') || ph.innerText || '').trim() : '';
+      if (pt) return pt.replace(/\s+/g, ' ').slice(0, 40);
+    }
     const svg = el.querySelector('svg'); return svg ? (svg.getAttribute('data-icon') || 'icon') : el.tagName.toLowerCase();
   };
   const inShell = (el) => !!el.closest('.ant-layout-header, .ant-layout-sider, footer');
@@ -88,7 +105,10 @@ const CANDIDATES = (includeShell) => {
     const sig = `${el.getAttribute('data-pf-src') || ''}|${[...el.classList].filter((c) => /^ant-/.test(c)).join('.')}|${label}|${el.tagName}`;
     if (seen.has(sig)) continue;
     seen.add(sig);
-    out.push({ path: pathOf(el), label, action: click ? 'click' : 'hover', shell, y: Math.round(r.y + scrollY) });
+    /* the KIND of control — same component, classes and tag — whatever its
+       label says: ten rows' menus are one kind, tried once before any repeat */
+    const group = `${el.getAttribute('data-pf-src') || ''}|${[...el.classList].filter((c) => /^ant-/.test(c)).join('.')}|${el.tagName}|${click ? 'c' : 'h'}`;
+    out.push({ path: pathOf(el), label, action: click ? 'click' : 'hover', shell, group, y: Math.round(r.y + scrollY) });
   }
   return out;
 };
@@ -119,11 +139,11 @@ const kebab = (s) => s.toLowerCase().normalize('NFKD').replace(/[^\w\s-]/g, '').
 
 const app = await serve();
 const browser = await chromium.launch();
-mkdirSync(join(ROOT, 'data', 'states'), { recursive: true });
+mkdirSync(OUTDIR, { recursive: true });
 
 for (const slug of want) {
   const url = `${app.url}/en${PAGES[slug]}`;
-  const { page, ctx } = await openPage(browser, app.url);
+  const { page, ctx } = await openPage(browser, app.url, { device: DEVICE });
   await ctx.addInitScript(() => { window.open = () => null; });
   const fresh = async () => {
     await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60_000 });
@@ -132,7 +152,15 @@ for (const slug of want) {
   };
   await fresh();
   const base = await page.evaluate(OBSERVE);
-  const cands = (await page.evaluate(CANDIDATES, slug === SHELL_ON)).filter((c) => !SKIP.test(c.label)).slice(0, MAX);
+  /* breadth first: one control of every kind, then the second of every
+     kind, … — so a page whose rows repeat a control fifty times still has
+     every OTHER control tried before the cap is reached */
+  const all = (await page.evaluate(CANDIDATES, slug === SHELL_ON)).filter((c) => !SKIP.test(c.label));
+  const groups = new Map();
+  for (const c of all) { if (!groups.has(c.group)) groups.set(c.group, []); groups.get(c.group).push(c); }
+  const cands = [];
+  for (let i = 0; cands.length < all.length; i++) for (const g of groups.values()) if (g[i]) cands.push(g[i]);
+  cands.splice(MAX);
   const states = [], links = [], seen = new Set();
   let dirty = false;
   for (const c of cands) {
@@ -156,16 +184,17 @@ for (const slug of want) {
       /* an icon-only trigger has no label worth a name — name the state after
          what OPENED instead: the overlay's own first words (fixture text) */
       const title = opened.length ? opened[opened.length - 1].text.split(/\s+/).slice(0, 4).join(' ') : '';
-      const generic = /^(icon|svg|div|span|img|button|a|li|p|x|i)$/i.test(c.label) || c.label.length < 2;
-      const base = kebab(generic && title ? title : c.label);
-      let name = `${kind}-${base}`;
-      for (let k = 2; states.some((s) => s.name === name); k++) name = `${kind}-${base}-${k}`;
+      const generic = /^(icon|svg|div|span|img|button|a|li|p|x|i|input|textarea|label|select)$/i.test(c.label) || c.label.length < 2;
+      const stem = kebab(generic && title ? title : c.label);
+      let name = `${kind}-${stem}`;
+      for (let k = 2; states.some((s) => s.name === name); k++) name = `${kind}-${stem}-${k}`;
       states.push({ name, kind, action: c.action, path: c.path, label: c.label, title, shell: c.shell, opened: opened.map(({ k, w, h }) => ({ k, w, h })) });
     } catch (e) {
       dirty = true;
+      if (process.env.EXPLORE_DEBUG) console.log(`    ! ${c.action} “${c.label}” — ${String(e).split('\n')[0].slice(0, 140)}`);
     }
   }
-  writeFileSync(join(ROOT, 'data', 'states', `${slug}.json`), JSON.stringify({ page: slug, route: PAGES[slug], at: new Date().toISOString(), tried: cands.length, states, links }, null, 1));
+  writeFileSync(join(OUTDIR, `${slug}.json`), JSON.stringify({ page: slug, route: PAGES[slug], device: DEVICE, at: new Date().toISOString(), tried: cands.length, states, links }, null, 1));
   console.log(`  ${slug.padEnd(32)} tried ${String(cands.length).padStart(3)}  states ${String(states.length).padStart(3)}  links ${links.length}   ${states.map((s) => s.name).join(' ').slice(0, 150)}`);
   await ctx.close();
 }

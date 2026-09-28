@@ -25,6 +25,7 @@
  *   leads/:id, interests, tasks
  *                      the lead detail drawer a row click opens — see the
  *                      note above those three routes
+ *   leads/:id/listings the "+ n more properties." popover, on click
  *
  * Row by row (transformers/leads.js:457 leadsDataMapper):
  *   Lead Details      name, client.email, client.mobile, created_at,
@@ -59,6 +60,15 @@
  * the latest one on the list row, so row 1 draws its planned task where the
  * real row 1 draws "Add Task". Rows 2 and 3 keep "Add Task".
  *
+ * A FOURTH row carries what the second real account, an agency STAFF member
+ * (data/live/lms-leads.real-b.capture.json, four rows), showed and the
+ * owner's did not: a lead on a listing ops removed, no name, a call with no
+ * message — see lead 3 in PEOPLE. It is last so the rows above it, and the
+ * drawer states harness/interactions/lms-leads.mjs opens on the first, do
+ * not move. With mode 'staff' the same four leads are the signed-in staff
+ * member's, and every leads query is narrowed by the f[user_id] the product
+ * sends — see "staff mode" after the leads.
+ *
  * `sources` in the real shape carries only name / name_l1 / count on its
  * FIRST item. The second tab needs a slug: lead-listings.js keys each tab
  * `source.slug || 'all'`, and the real page shows exactly one active tab, so
@@ -68,6 +78,9 @@
  * @param h  the shared invented account — user, listings, credits, dates
  * @returns  [[RegExp over the pathname, (search, mode, pathname, method) => body], …]
  */
+
+/* staff mode asks the profile area who is signed in (see "staff mode" below) */
+import profileArea from './profile.mjs';
 
 /* The real API answers in Riyadh time: "2026-09-24T10:12:33.000+03:00", 29 chars */
 const riyadh = (d) => new Date(d.getTime() + 3 * 36e5).toISOString().replace('Z', '+03:00');
@@ -159,10 +172,13 @@ export default (h) => {
         longitude: 46.67 + i * 0.011,
         /* the top crumb is dropped by the mapper (level > 1), then reversed:
            "Al Rawabi, East Riyadh, Riyadh" */
+        /* external_id: null on every crumb — the staff account's recording
+           (data/api-shapes.b.json) has it, the owner's predates it */
         breadcrumbs: crumbs.map((c, k) => ({
           id: locId + k, level: c.level,
           title: k === 0 ? 'KSA' : c.title,
           title_l1: c.title_l1,
+          external_id: null,
         })),
         external_id: null,
       },
@@ -178,6 +194,51 @@ export default (h) => {
       is_unit_type_listing: false,
     };
   };
+
+  /* ── the listing ops took down ─────────────────────────────────────────
+     The staff account (data/api-shapes.b.json, data/qa/delta-b.json) has a
+     lead whose interest listing is REMOVED: platform_listings[].status
+     'removed', disposition 'deleted-by-ops', a SALE apartment whose cover
+     image is its satellite picture (image_type 'satellite'). All ten of the
+     account's listings are live on My Listings, so this one is invented
+     beside them, the way the account's removed listings are not on that
+     page either. The labels are the recorded lengths (Removed / 5-letter
+     Arabic, Deleted By Ops / 21).
+
+     What the product draws for it. The row's Interested-in card
+     (listing-detail-compact.js) reads no status: headline, location and
+     thumbnail, as for a live listing. The state is in the card's HOVER
+     popover (ListingPurpose, listing-purpose.js:75/358): the status the
+     normaliser lifts off platform_listings[0] (utility.js:949) →
+     getStatusBasedTagProps('removed') (bayut/utils/listingUtilities.js:697)
+     → a round "Removed" tag with the BsTrash glyph, #222 at 50% opacity,
+     beside the price. The external-link icon stays, because the platform
+     listing keeps its url. The disposition is read nowhere on this page. */
+  const REMOVED = 'removed';
+  const removedListing = (() => {
+    const s = surgeListing({
+      id: 88219034, price: 785000,
+      location: { title: 'Al Qadisiyah', title_l1: 'Al Qadisiyah', breadcrumbs: [
+        { level: 1, title: 'Saudi Arabia', title_l1: 'السعودية' },
+        { level: 2, title: 'Riyadh', title_l1: 'Riyadh' },
+        { level: 3, title: 'East Riyadh', title_l1: 'East Riyadh' },
+        { level: 4, title: 'Al Qadisiyah', title_l1: 'Al Qadisiyah' },
+      ] },
+      _row: { title: 'Apartment for Sale | Ready', bayutId: '88219034', beds: '2', baths: '2', area: '112 Sq. M.', regaId: '7201336405' },
+    }, 10);
+    const img = '/harness-img/88219034-satellite.svg';
+    return {
+      ...s,
+      cover_image: { ...s.cover_image, sizes: { full: img, large: img, small: img, medium: img, thumbnail: img }, image_type: 'satellite' },
+      platform_listings: [{
+        ...s.platform_listings[0],
+        status: { id: 4, name: 'Removed', slug: 'removed', name_l1: 'محذوف' },
+        disposition: { id: 13, name: 'Deleted By Ops', slug: 'deleted-by-ops', name_l1: 'محذوف من قبل العمليات', description: null, description_l1: null },
+      }],
+    };
+  })();
+  /* a said/task `on`: an index into h.listings, or REMOVED */
+  const listingOn = (on) => (on === REMOVED ? removedListing : surgeListing(h.listings[on], on));
 
   /* ── the three leads ────────────────────────────────────────────────────
      Invented people; the numbers are the +966 5X shape with digits nobody
@@ -249,6 +310,32 @@ export default (h) => {
           message_body_l1: 'مرحباً، هل فيلا النهضة لا تزال للبيع؟' },
       ],
     },
+    /* lead 3 — the staff account's edge cases, on the fourth row so rows
+       0–2 (and the drawer states on row 0) are untouched:
+         · its one listing is the one ops REMOVED (above) — the Removed tag
+           in the Interested-in popover; one listing, so no "+ n more";
+         · NO NAME, as on three of the staff account's four rows: LeadInfo
+           draws "Unnamed Lead" and the "Add Name" link (lead-info.js:117/202);
+         · the last interaction is a call with NO MESSAGE — Last Interaction
+           is the source line and the date alone (source-content.js:105),
+           as on the staff account's fourth row;
+         · no task — "Add Task", as on three of its four rows.
+       The call on day 12 and the WhatsApp on day 15 are the stats area's own
+       two leads on those days (harness/fixtures/stats.mjs LEADS: a sale
+       call not picked up, a sale chat not replied to). */
+    {
+      name: null,
+      email: 'homes.search.2291@mail.example',
+      mobile: '+966500000741',
+      created: [15, 10, 12],
+      said: [
+        { ...CALL, on: REMOVED, at: [12, 16, 48], response_time: 540,
+          message_body: null, message_body_l1: null },
+        { ...WHATSAPP, on: REMOVED, at: [15, 10, 12], response_time: 1260,
+          message_body: 'Is the Al Qadisiyah apartment still available? Which floor is it on?',
+          message_body_l1: 'هل شقة القادسية لا تزال متاحة؟ في أي دور؟' },
+      ],
+    },
   ];
 
   const leadId = (i) => 5104210 + i * 37;
@@ -263,7 +350,7 @@ export default (h) => {
     message_body_l1: s.message_body_l1,
     recorded_at: at(...s.at),
     recording_url: null,
-    listing: surgeListing(h.listings[s.on], s.on),
+    listing: listingOn(s.on),
     call_duration: null,
     call_status: null,
     call_total_duration: null,
@@ -282,8 +369,8 @@ export default (h) => {
          Task renders "-".
      The newer one is also the lead's `task` on /lms/leads: leadsDataMapper
      reads it for Next Planned Task, so that row draws the planned task and its
-     timeline popover instead of "Add Task". Leads 1 and 2 have no tasks. */
-  const agent = { id: U.id, name: U.name, name_l1: U.name_l1 };
+     timeline popover instead of "Add Task". Leads 1–3 have no tasks. The
+     tasks are the manager's — built by tasksFor(agent) below, per mode. */
   const TYPE = {
     contact: { id: 1, name: 'Contact', name_l1: 'تواصل' },
     meeting: { id: 2, name: 'Meeting', name_l1: 'اجتماع' },
@@ -293,8 +380,28 @@ export default (h) => {
     viewing:  { id: 21, name: 'Property Viewing',  name_l1: 'معاينة العقار' },
     followUp: { id: 12, name: 'Follow-up Call',    name_l1: 'مكالمة متابعة' },
   };
-  const tasksOf = PEOPLE.map(() => []);
-  {
+  /* ── what a task carries (data/api-shapes.b.json, the staff account's
+     /lms/leads `task`) ──────────────────────────────────────────────────────
+     The Add Task form sends ONE due date and ONE listing for the step and its
+     follow-up alike (payloads/leads.js:31-47), and the recording has both on
+     both: `due_date` on the done step too, and a `listing` — the lead's
+     listing the task is about — on the step and on its child, from a lighter
+     serializer than interest.listing (no dynamic_section, no image_type).
+     `previous_assignee` is {id: null, name: null} until a lead is reassigned.
+     A step with nothing planned after it has `child: {}`, not null — the
+     recorded child's own child is {}. Nothing on screen reads listing,
+     previous_assignee or the done step's due_date (tasksMapper and
+     leadsDataMapper read the child's), and {} reads like null through every
+     `?.`, so lead 0's row and All Tasks tab draw exactly what they drew. */
+  const taskListing = (on) => {
+    const s = surgeListing(h.listings[on], on);
+    const { dynamic_section, ...listing_category } = s.listing_category;
+    const { image_type, ...cover_image } = s.cover_image;
+    return { ...s, listing_category, cover_image };
+  };
+  const NOBODY = { id: null, name: null };
+  const tasksFor = (agent) => {
+    const tasksOf = PEOPLE.map(() => []);
     const lead = leadId(0);
     const viewedAt = at(1, 12, 30);
     const due = at(-2, 11, 0);
@@ -303,13 +410,14 @@ export default (h) => {
         id: 7310552, taskable_id: lead, taskable_type: 'Lead',
         task_type: TYPE.meeting, task_purpose: PURPOSE_OF_TASK.viewing,
         notes: 'Liked the layout and the parking; wants to discuss the final price.',
-        completed_at: viewedAt, due_date: null, created_at: viewedAt, updated_at: viewedAt,
-        assignee: agent, images: [],
+        completed_at: viewedAt, due_date: due, created_at: viewedAt, updated_at: viewedAt,
+        assignee: agent, previous_assignee: NOBODY, images: [], listing: taskListing(3),
         child: {
           id: 7310553, taskable_id: lead, taskable_type: 'Lead',
           task_type: TYPE.contact, task_purpose: PURPOSE_OF_TASK.followUp,
           notes: null, completed_at: null, due_date: due, created_at: viewedAt, updated_at: viewedAt,
-          assignee: agent,
+          assignee: agent, previous_assignee: NOBODY, images: [], listing: taskListing(3),
+          child: {},
         },
       },
       {
@@ -317,40 +425,78 @@ export default (h) => {
         task_type: TYPE.contact, task_purpose: PURPOSE_OF_TASK.intro,
         notes: 'Shared the floor plan and the price list on WhatsApp.',
         completed_at: at(5, 15, 10), due_date: null, created_at: at(5, 15, 10), updated_at: at(5, 15, 10),
-        assignee: agent, images: [],
-        child: null,
+        assignee: agent, previous_assignee: NOBODY, images: [], listing: taskListing(3),
+        child: {},
       },
     ];
-  }
+    return tasksOf;
+  };
 
-  const leads = PEOPLE.map((p, i) => {
-    const said = interestsOf[i];
-    const count = (src) => said.filter((s) => s.source === src).length;
-    return {
-      id: leadId(i),
-      name: p.name,
-      created_at: at(...p.created),
-      updated_at: said[0].recorded_at,
-      interests_count: said.length,
-      listings_count: new Set(said.map((s) => s.listing.id)).size,
-      call_leads_count: count('call'),
-      whatsapp_leads_count: count('whatsapp'),
-      email_leads_count: count('email'),
-      sms_leads_count: count('sms'),
-      manual_leads_count: count('manual'),
-      matching_leads_count: count('bayut_match'),
-      user: { id: U.id, name: U.name },
-      is_viewed: true,
-      client: { id: 3302190 + i * 11, mobile: p.mobile, email: p.email, name_l1: null, whatsapp: p.mobile },
-      interest: said[0],
-      task: tasksOf[i][0] ?? null,
-    };
-  });
+  /* the four leads and their tasks, managed by `who` */
+  const accountOf = (who) => {
+    const agent = { id: who.id, name: who.name, name_l1: who.name_l1 };
+    const tasksOf = tasksFor(agent);
+    const leads = PEOPLE.map((p, i) => {
+      const said = interestsOf[i];
+      const count = (src) => said.filter((s) => s.source === src).length;
+      return {
+        id: leadId(i),
+        name: p.name,
+        created_at: at(...p.created),
+        updated_at: said[0].recorded_at,
+        interests_count: said.length,
+        listings_count: new Set(said.map((s) => s.listing.id)).size,
+        call_leads_count: count('call'),
+        whatsapp_leads_count: count('whatsapp'),
+        email_leads_count: count('email'),
+        sms_leads_count: count('sms'),
+        manual_leads_count: count('manual'),
+        matching_leads_count: count('bayut_match'),
+        user: { id: who.id, name: who.name },
+        is_viewed: true,
+        client: { id: 3302190 + i * 11, mobile: p.mobile, email: p.email, name_l1: null, whatsapp: p.mobile },
+        interest: said[0],
+        task: tasksOf[i][0] ?? null,
+      };
+    });
+    return { leads, tasksOf };
+  };
 
-  const bayutMatch = leads.filter((l) => l.interest.source === 'bayut_match');
-  const sources = [
-    { name: 'All Leads', name_l1: 'جميع الاستفسارات', count: leads.length },
-    { name: 'Bayut Match', name_l1: 'بيوت ماتش', count: bayutMatch.length, slug: 'bayut_match' },
+  /* ── staff mode: the same four leads, seen from a staff member's seat ────
+     With mode 'staff' the signed-in user is an agency STAFF member, not the
+     owner — the record is the profile area's (its /users/current answer in
+     that mode; until it has one this falls back to the owner, and staff mode
+     answers exactly as the default does). What changes for the LMS:
+       · the product narrows every leads query to that user. A non-admin's
+         selected user is the login user (useLeadsDashboardData.js:41), so
+         lead-listings.js:167 and apis/lms.js:234 send f[user_id]=<their id>
+         on /lms/leads and /lms/leads/leads_summary — the staff recording's
+         q lists it on both (data/api-shapes.b.json) — and the server answers
+         only the leads that user manages. `visible` below does the same in
+         every mode, so an owner who switches the profile switcher to an
+         agent gets that agent's leads: none, in this account.
+       · the leads are the staff member's: lead.user, and the tasks'
+         assignee, are them. The real staff account has four leads of its
+         own, so all four are theirs here.
+     The owner's answers are built once, the staff's on first use. */
+  let profile = null, staff = null;
+  const signedIn = (mode) => {
+    profile ||= profileArea(h);
+    const current = profile.find(([re]) => re.test('/api/surge/users/current'));
+    return current?.[1]('', mode, '/api/surge/users/current', 'GET')?.user ?? U;
+  };
+  const OWNER = accountOf(U);
+  const accountIn = (mode) => (mode === 'staff' ? (staff ||= accountOf(signedIn('staff'))) : OWNER);
+  const visible = (search, mode) => {
+    const all = accountIn(mode).leads;
+    const uid = new URLSearchParams(search || '').get('f[user_id]');
+    return uid ? all.filter((l) => String(l.user.id) === uid) : all;
+  };
+
+  const matchOf = (list) => list.filter((l) => l.interest.source === 'bayut_match');
+  const sourcesOf = (list) => [
+    { name: 'All Leads', name_l1: 'جميع الاستفسارات', count: list.length },
+    { name: 'Bayut Match', name_l1: 'بيوت ماتش', count: matchOf(list).length, slug: 'bayut_match' },
   ];
 
   /* one page of a list, in the pagination block every /lms/ index answers with */
@@ -371,31 +517,32 @@ export default (h) => {
     };
   };
   /* which lead a drawer query is about; no filter means the whole account */
-  const forLead = (search, key, perLead) => {
+  const forLead = (search, key, perLead, leads) => {
     const id = Number(new URLSearchParams(search || '').get(key));
     const i = leads.findIndex((l) => l.id === id);
     return id ? (perLead[i] ?? []) : perLead.flat();
   };
 
   return [
-    /* the sidebar badge. Every lead above is viewed, and the real shell
-       draws no badge on the Leads item, so this stays 0. */
-    [/^\/api\/surge\/lms\/leads\/stats$/, () => ({
-      stats: { unseen_leads_count: leads.filter((l) => !l.is_viewed).length },
+    /* the sidebar badge — the session's own unseen leads, no query. Every
+       lead above is viewed, and the real shell draws no badge on the Leads
+       item, so this stays 0. */
+    [/^\/api\/surge\/lms\/leads\/stats$/, (search, mode) => ({
+      stats: { unseen_leads_count: accountIn(mode).leads.filter((l) => !l.is_viewed).length },
     })],
 
-    [/^\/api\/surge\/lms\/leads\/leads_summary$/, () => ({
-      total_leads_count: leads.length,
-      bayut_match_count: bayutMatch.length,
-      truleads_count: leads.length - bayutMatch.length,
-    })],
+    [/^\/api\/surge\/lms\/leads\/leads_summary$/, (search, mode) => {
+      const set = visible(search, mode), match = matchOf(set);
+      return { total_leads_count: set.length, bayut_match_count: match.length, truleads_count: set.length - match.length };
+    }],
 
     /* The Bayut Match tab asks with f[bayut_match]=true (lead-listings.js),
        and the tabs keep their counts whichever one is open. */
-    [/^\/api\/surge\/lms\/leads$/, (search) => {
-      const set = new URLSearchParams(search || '').get('f[bayut_match]') === 'true' ? bayutMatch : leads;
+    [/^\/api\/surge\/lms\/leads$/, (search, mode) => {
+      const all = visible(search, mode);
+      const set = new URLSearchParams(search || '').get('f[bayut_match]') === 'true' ? matchOf(all) : all;
       const { items, pagination } = paged(set, search);
-      return { leads: items, pagination, sources };
+      return { leads: items, pagination, sources: sourcesOf(all) };
     }],
 
     /* ── the lead detail drawer (lead-detail-drawer.js) ──────────────────
@@ -409,6 +556,7 @@ export default (h) => {
        unknown id answers with the first lead, as the listings drawer does. */
     [/^\/api\/surge\/lms\/leads\/\d+$/, (search, mode, pathname) => {
       const id = Number(pathname.match(/leads\/(\d+)$/)[1]);
+      const { leads } = accountIn(mode);
       const l = leads.find((x) => x.id === id) || leads[0];
       return { leads: {
         id: l.id, name: l.name, created_at: l.created_at, updated_at: l.updated_at,
@@ -420,9 +568,23 @@ export default (h) => {
     }],
 
     /* ?q[lead_id_eq]=<lead>&page=n */
-    [/^\/api\/surge\/lms\/interests$/, (search) => {
-      const { items, pagination } = paged(forLead(search, 'q[lead_id_eq]', interestsOf), search);
+    [/^\/api\/surge\/lms\/interests$/, (search, mode) => {
+      const { items, pagination } = paged(forLead(search, 'q[lead_id_eq]', interestsOf, accountIn(mode).leads), search);
       return { interests: items, pagination };
+    }],
+
+    /* "+ n more properties." — MorePropertiesPopover asks, on click, for the
+       lead's listings (getLeadListings, apis/lms.js:259) and draws each
+       through normalizeSurgeListingsResponse → listingDetailMapper as a
+       ListingPurpose card. Unanswered, the popover opened EMPTY (the
+       explorer's popover-1-more-properties capture: a 32×32 box). NOT in
+       api-shapes.json; the listings are the Surge card interest.listing
+       already is (the product's own comment there says so), the lead's
+       distinct ones, newest interaction first. */
+    [/^\/api\/surge\/lms\/leads\/\d+\/listings$/, (search, mode, pathname) => {
+      const i = Math.max(0, PEOPLE.findIndex((p, k) => leadId(k) === Number(pathname.match(/leads\/(\d+)\//)[1])));
+      const seen = new Map(interestsOf[i].map((s) => [s.listing.id, s.listing]));
+      return { listings: [...seen.values()] };
     }],
 
     /* The Add Task drawer mounted inside the lead drawer asks for the task
@@ -439,8 +601,9 @@ export default (h) => {
     ] })],
 
     /* ?q[taskable_id_eq]=<lead>&page=n */
-    [/^\/api\/surge\/lms\/tasks$/, (search) => {
-      const { items, pagination } = paged(forLead(search, 'q[taskable_id_eq]', tasksOf), search);
+    [/^\/api\/surge\/lms\/tasks$/, (search, mode) => {
+      const { leads, tasksOf } = accountIn(mode);
+      const { items, pagination } = paged(forLead(search, 'q[taskable_id_eq]', tasksOf, leads), search);
       return { lead_tasks: items, pagination };
     }],
   ];

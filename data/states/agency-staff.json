@@ -1,0 +1,74 @@
+{
+ "page": "agency-staff",
+ "route": "/agency-staff",
+ "device": "web",
+ "at": "2026-09-28T16:56:09.863Z",
+ "tried": 25,
+ "states": [
+  {
+   "name": "modal-set-credits-limit",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > button:nth-child(1)",
+   "label": "Set Credits Limit",
+   "title": "Set Credits Limit Total",
+   "shell": false,
+   "opened": [
+    {
+     "k": "modal",
+     "w": 770,
+     "h": 660
+    }
+   ]
+  },
+  {
+   "name": "modal-edit-user-title-english",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(3) > td:nth-child(4) > div:nth-child(1) > span:nth-child(1) > button:nth-child(1)",
+   "label": "icon",
+   "title": "Edit User Title (English)",
+   "shell": false,
+   "opened": [
+    {
+     "k": "modal",
+     "w": 990,
+     "h": 1104
+    }
+   ]
+  },
+  {
+   "name": "drawer-feedback",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4)",
+   "label": "FEEDBACK",
+   "title": "Send us feedback The",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 400,
+     "h": 900
+    }
+   ]
+  },
+  {
+   "name": "modal-invite-user",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > button:nth-child(2)",
+   "label": "Invite User",
+   "title": "Invite User Enter the",
+   "shell": false,
+   "opened": [
+    {
+     "k": "modal",
+     "w": 510,
+     "h": 261
+    }
+   ]
+  }
+ ],
+ "links": []
+}

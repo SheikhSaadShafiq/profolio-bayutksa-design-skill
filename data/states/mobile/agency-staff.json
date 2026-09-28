@@ -1,0 +1,74 @@
+{
+ "page": "agency-staff",
+ "route": "/agency-staff",
+ "device": "mobile",
+ "at": "2026-09-28T16:46:37.373Z",
+ "tried": 4,
+ "states": [
+  {
+   "name": "modal-set-credits-limit",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > button:nth-child(2)",
+   "label": "Set Credits Limit",
+   "title": "Set Credits Limit Total",
+   "shell": false,
+   "opened": [
+    {
+     "k": "modal",
+     "w": 359,
+     "h": 652
+    }
+   ]
+  },
+  {
+   "name": "dropdown-edit-delete",
+   "kind": "dropdown",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)",
+   "label": "icon",
+   "title": "Edit Delete",
+   "shell": false,
+   "opened": [
+    {
+     "k": "dropdown",
+     "w": 200,
+     "h": 72
+    }
+   ]
+  },
+  {
+   "name": "drawer-invite-user",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(7) > button:nth-child(1)",
+   "label": "Invite User",
+   "title": "Invite User Enter the",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 375,
+     "h": 221
+    }
+   ]
+  },
+  {
+   "name": "drawer-feedback",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4)",
+   "label": "FEEDBACK",
+   "title": "Send us feedback The",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 375,
+     "h": 812
+    }
+   ]
+  }
+ ],
+ "links": []
+}

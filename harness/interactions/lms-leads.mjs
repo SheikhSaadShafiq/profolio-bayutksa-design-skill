@@ -21,6 +21,7 @@ const openLeadDrawer = async (p) => {
 export default [
   {
     name: 'tour',
+    devices: ['web', 'mobile'],
     note: 'first visit: the antd Tour over the leads table (useGetTourStepsForLms.js, section "management")',
     do: async (p) => {
       await p.evaluate(() => sessionStorage.setItem('pf-harness-tour', 'management'));

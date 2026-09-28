@@ -1,0 +1,1601 @@
+{
+ "at": "2026-09-28T15:54:56.303Z",
+ "account": "b",
+ "api": {
+  "onlyB": [
+   "GET /api/surge/packages",
+   "GET /api/surge/agencies/:id/licenses",
+   "GET /api/surge/users/trubroker/leader_board",
+   "GET /api/surge/users/user_badge_eligibility",
+   "GET /api/surge/users/team_performance",
+   "GET /api/surge/users/:id/trubroker/tru_point_activities",
+   "GET /api/surge/users/tru_points"
+  ],
+  "onlyA": [
+   "GET /api/surge/lms/stats/product_stats",
+   "GET /api/surge/lms/stats/phone_lead_stats",
+   "GET /api/surge/agencies/:id",
+   "GET /api/surge/lms/leads/stats",
+   "GET /api/surge/notifications/stats",
+   "GET /api/surge/lms/interests",
+   "GET /api/surge/lms/leads/:id",
+   "GET /api/surge/lms/tasks"
+  ],
+  "keys": [
+   {
+    "ep": "GET /api/surge/listings",
+    "at": ".listings[].dynamic_data.dynamic_fields.is_furnished"
+   },
+   {
+    "ep": "GET /api/surge/listings",
+    "at": ".listings[].dynamic_data.dynamic_fields.rega_details.advertisement.rerBorders[] (items)"
+   },
+   {
+    "ep": "GET /api/surge/listings",
+    "at": ".listings[].platform_listings[].products_information[].auto_renewable_item.id"
+   },
+   {
+    "ep": "GET /api/surge/listings",
+    "at": ".listings[].platform_listings[].products_information[].auto_renewable_item.renewing_on"
+   },
+   {
+    "ep": "GET /api/surge/listings",
+    "at": ".listings[].auto_renewable_item.id"
+   },
+   {
+    "ep": "GET /api/surge/listings",
+    "at": ".listings[].auto_renewable_item.renewing_on"
+   },
+   {
+    "ep": "GET /api/surge/ovation/stats/product_stats",
+    "at": ".stats.items.2026-08-31"
+   },
+   {
+    "ep": "GET /api/surge/ovation/stats/product_stats",
+    "at": ".stats.items.2026-09-01"
+   },
+   {
+    "ep": "GET /api/surge/ovation/stats/product_stats",
+    "at": ".stats.items.2026-09-02"
+   },
+   {
+    "ep": "GET /api/surge/ovation/stats/product_stats",
+    "at": ".stats.items.2026-09-03"
+   },
+   {
+    "ep": "GET /api/surge/ovation/stats/product_stats",
+    "at": ".stats.items.2026-09-04"
+   },
+   {
+    "ep": "GET /api/surge/ovation/stats/product_stats",
+    "at": ".stats.items.2026-09-07"
+   },
+   {
+    "ep": "GET /api/surge/ovation/stats/product_stats",
+    "at": ".stats.items.2026-09-08"
+   },
+   {
+    "ep": "GET /api/surge/ovation/stats/product_stats",
+    "at": ".stats.items.2026-09-09"
+   },
+   {
+    "ep": "GET /api/surge/ovation/stats/product_stats",
+    "at": ".stats.items.2026-09-10"
+   },
+   {
+    "ep": "GET /api/surge/ovation/stats/product_stats",
+    "at": ".stats.items.2026-09-11"
+   },
+   {
+    "ep": "GET /api/surge/ovation/stats/product_stats",
+    "at": ".stats.items.2026-09-13"
+   },
+   {
+    "ep": "GET /api/surge/ovation/stats/product_stats",
+    "at": ".stats.items.2026-09-14"
+   },
+   {
+    "ep": "GET /api/surge/ovation/stats/product_stats",
+    "at": ".stats.items.2026-09-15"
+   },
+   {
+    "ep": "GET /api/surge/ovation/stats/product_stats",
+    "at": ".stats.items.2026-09-16"
+   },
+   {
+    "ep": "GET /api/surge/ovation/stats/product_stats",
+    "at": ".stats.items.2026-09-17"
+   },
+   {
+    "ep": "GET /api/surge/ovation/stats/product_stats",
+    "at": ".stats.items.2026-09-18"
+   },
+   {
+    "ep": "GET /api/surge/ovation/stats/product_stats",
+    "at": ".stats.items.2026-09-21"
+   },
+   {
+    "ep": "GET /api/surge/ovation/stats/product_stats",
+    "at": ".stats.items.2026-09-22"
+   },
+   {
+    "ep": "GET /api/surge/ovation/stats/product_stats",
+    "at": ".stats.items.2026-09-23"
+   },
+   {
+    "ep": "GET /api/surge/ovation/stats/product_stats",
+    "at": ".stats.items.2026-09-24"
+   },
+   {
+    "ep": "GET /api/surge/ovation/stats/product_stats",
+    "at": ".stats.items.2026-09-25"
+   },
+   {
+    "ep": "GET /api/surge/ovation/stats/product_stats",
+    "at": ".stats.items.2026-09-28"
+   },
+   {
+    "ep": "GET /api/surge/ovation/stats/product_stats",
+    "at": ".stats.items.2026-08-29"
+   },
+   {
+    "ep": "GET /api/surge/ovation/stats",
+    "at": ".stats.items[] (items)"
+   },
+   {
+    "ep": "GET /api/surge/ad_license_requests",
+    "at": ".ad_license_requests[] (items)"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.features[].id"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.features[].slug"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.features[].label"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.features[].value"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.features[].label_l1"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.features[].value_l1"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.is_furnished"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.ai_data.title"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.ai_data.description"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.notes"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.borders"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.endDate"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.adSource"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.channels"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.isHalted"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.isPawned"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.location"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.deedNumber"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.isTestment"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.landNumber"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.planNumber"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.rerBorders"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.phoneNumber"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.propertyAge"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.streetWidth"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.adLicenseUrl"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.advertiserId"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.creationDate"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.propertyArea"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.propertyFace"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.propertyType"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.isConstrained"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.numberOfRooms"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.propertyPrice"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.advertiserName"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.landTotalPrice"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.propertyUsages"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.rerConstraints"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.adLicenseNumber"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.redZoneTypeName"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.advertisementType"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.propertyUtilities"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.titleDeedTypeName"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.landTotalAnnualRent"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.mainLandUseTypeName"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.obligationsOnTheProperty"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.guaranteesAndTheirDuration"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.locationDescriptionOnMOJDeed"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.brokerageAndMarketingLicenseNumber"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.complianceWithTheSaudiBuildingCode"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.responsibleEmployeeName"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.ownershipTransferFeeType"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.rega_details.advertisement.responsibleEmployeePhoneNumber"
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.extension"
+   },
+   {
+    "ep": "GET /api/surge/lms/stats/response_time_metrics",
+    "at": ".metrics.clicked_calls"
+   },
+   {
+    "ep": "GET /api/surge/lms/stats/response_time_metrics",
+    "at": ".metrics.received_calls"
+   },
+   {
+    "ep": "GET /api/surge/lms/stats/response_time_metrics",
+    "at": ".metrics.answered_calls"
+   },
+   {
+    "ep": "GET /api/surge/lms/stats/response_time_metrics",
+    "at": ".metrics.not_connected_calls"
+   },
+   {
+    "ep": "GET /api/surge/lms/stats/response_time_metrics",
+    "at": ".metrics.missed_calls"
+   },
+   {
+    "ep": "GET /api/surge/lms/stats/response_time_metrics",
+    "at": ".metrics.response_rate"
+   },
+   {
+    "ep": "GET /api/surge/lms/stats/response_time_metrics",
+    "at": ".metrics.avg_call_duration"
+   },
+   {
+    "ep": "GET /api/surge/lms/stats/response_time_metrics",
+    "at": ".metrics.avg_call_response_time"
+   },
+   {
+    "ep": "GET /api/surge/lms/leads",
+    "at": ".leads[].interest.listing.location.breadcrumbs[].external_id"
+   },
+   {
+    "ep": "GET /api/surge/lms/leads",
+    "at": ".leads[].task.id"
+   },
+   {
+    "ep": "GET /api/surge/lms/leads",
+    "at": ".leads[].task.created_at"
+   },
+   {
+    "ep": "GET /api/surge/lms/leads",
+    "at": ".leads[].task.completed_at"
+   },
+   {
+    "ep": "GET /api/surge/lms/leads",
+    "at": ".leads[].task.due_date"
+   },
+   {
+    "ep": "GET /api/surge/lms/leads",
+    "at": ".leads[].task.task_type"
+   },
+   {
+    "ep": "GET /api/surge/lms/leads",
+    "at": ".leads[].task.task_purpose"
+   },
+   {
+    "ep": "GET /api/surge/lms/leads",
+    "at": ".leads[].task.images"
+   },
+   {
+    "ep": "GET /api/surge/lms/leads",
+    "at": ".leads[].task.notes"
+   },
+   {
+    "ep": "GET /api/surge/lms/leads",
+    "at": ".leads[].task.child"
+   },
+   {
+    "ep": "GET /api/surge/lms/leads",
+    "at": ".leads[].task.listing"
+   },
+   {
+    "ep": "GET /api/surge/lms/leads",
+    "at": ".leads[].task.assignee"
+   },
+   {
+    "ep": "GET /api/surge/lms/leads",
+    "at": ".leads[].task.previous_assignee"
+   },
+   {
+    "ep": "GET /api/surge/lms/leads",
+    "at": ".sources[].slug"
+   },
+   {
+    "ep": "GET /api/surge/users/:id",
+    "at": ".user.nudges[] (items)"
+   }
+  ],
+  "enums": [
+   {
+    "ep": "GET /api/surge/credits/summary",
+    "at": ".credits_summary.bayut.current_package.slug",
+    "a": "\"bronze-half-yearly\"",
+    "b": "\"titanium\""
+   },
+   {
+    "ep": "GET /api/surge/listings",
+    "at": ".listings[].dynamic_data.dynamic_fields.features[].slug",
+    "a": "\"electricity\"",
+    "b": "\"lawn-or-garden\""
+   },
+   {
+    "ep": "GET /api/surge/listings",
+    "at": ".listings[].dynamic_data.dynamic_fields.rent_frequency.slug",
+    "a": "\"monthly\"",
+    "b": "\"daily\""
+   },
+   {
+    "ep": "GET /api/surge/listings",
+    "at": ".listings[].dynamic_data.dynamic_fields.residence_type.slug",
+    "a": "\"open-to-all\"",
+    "b": "\"family\""
+   },
+   {
+    "ep": "GET /api/surge/listings",
+    "at": ".listings[].dynamic_data.dynamic_fields.face.slug",
+    "a": "\"northern\"",
+    "b": "\"western\""
+   },
+   {
+    "ep": "GET /api/surge/listings",
+    "at": ".listings[].residence_type.slug",
+    "a": "\"open-to-all\"",
+    "b": "\"family\""
+   },
+   {
+    "ep": "GET /api/surge/listings",
+    "at": ".listings[].listing_quality.tier.key",
+    "a": "\"weak\"",
+    "b": "\"poor\""
+   },
+   {
+    "ep": "GET /api/surge/listings",
+    "at": ".listings[].listing_category.purpose_hash.slug",
+    "a": "\"rent\"",
+    "b": "\"daily-rental\""
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].product.slug",
+    "a": "\"hot-listing\"",
+    "b": "\"refresh\""
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.face.slug",
+    "a": "\"northern\"",
+    "b": "\"southern\""
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.dynamic_data.dynamic_fields.residence_type.slug",
+    "a": "\"open-to-all\"",
+    "b": "\"family\""
+   },
+   {
+    "ep": "GET /api/surge/credits/consumption_history",
+    "at": ".credits_consumption_history.bayut[].listing.image.image_type",
+    "a": "\"listing_image\"",
+    "b": "\"satellite\""
+   },
+   {
+    "ep": "GET /api/surge/lms/leads",
+    "at": ".leads[].interest.listing.listing_category.purpose_hash.slug",
+    "a": "\"rent\"",
+    "b": "\"sale\""
+   },
+   {
+    "ep": "GET /api/surge/lms/leads",
+    "at": ".leads[].interest.listing.cover_image.image_type",
+    "a": "\"listing_image\"",
+    "b": "\"satellite\""
+   },
+   {
+    "ep": "GET /api/surge/lms/leads",
+    "at": ".leads[].interest.listing.platform_listings[].status.slug",
+    "a": "\"active\"",
+    "b": "\"removed\""
+   },
+   {
+    "ep": "GET /api/surge/lms/leads",
+    "at": ".leads[].interest.listing.platform_listings[].disposition.slug",
+    "a": "\"live\"",
+    "b": "\"deleted-by-ops\""
+   },
+   {
+    "ep": "GET /api/surge/users/:id",
+    "at": ".user.settings[].slug",
+    "a": "\"image_detail_usage\"",
+    "b": "\"language_preference\""
+   },
+   {
+    "ep": "GET /api/surge/users/:id",
+    "at": ".user.credits.bayut.current_package.slug",
+    "a": "\"bronze-half-yearly\"",
+    "b": "\"titanium\""
+   },
+   {
+    "ep": "GET /api/surge/users/:id",
+    "at": ".user.package.slug",
+    "a": "\"bronze-half-yearly\"",
+    "b": "\"titanium\""
+   }
+  ]
+ },
+ "pages": [
+  {
+   "page": "dashboard",
+   "compared": true,
+   "nodes": [
+    785,
+    848
+   ],
+   "height": [
+    2966,
+    2887
+   ],
+   "counts": {
+    "ant-card": [
+     4,
+     5
+    ],
+    "ant-btn": [
+     10,
+     12
+    ],
+    "ant-tag": [
+     0,
+     3
+    ],
+    "ant-menu-item": [
+     10,
+     9
+    ],
+    "ant-badge": [
+     1,
+     3
+    ]
+   },
+   "onlyB": [
+    "ant-radio-css-var×5",
+    "ant-radio-wrapper×4",
+    "idPqgb×4",
+    "ant-radio×4",
+    "ant-wave-target×4",
+    "ant-radio-input×4",
+    "ant-radio-inner×4",
+    "ant-tag×3",
+    "ant-tag-borderless×3",
+    "igfhkn×3",
+    "ant-scroll-number-only×1",
+    "ant-scroll-number-only-unit×1",
+    "current×1",
+    "hZPcyA×1",
+    "uyXpa×1",
+    "diKjdM×1",
+    "ant-badge-count-sm×1",
+    "ant-card-meta-description×1",
+    "iKdYDc×1",
+    "color-gray-dark×1",
+    "base-color×1",
+    "fw-700×1",
+    "fz-14×1",
+    "jgBjCb×1",
+    "py-0×1",
+    "cVCSrk×1",
+    "ant-radio-group×1",
+    "ant-radio-group-outline×1",
+    "ant-radio-wrapper-checked×1",
+    "ant-radio-checked×1",
+    "ant-badge-status×1",
+    "ant-badge-not-a-wrapper×1",
+    "ant-badge-status-dot×1",
+    "ant-badge-status-text×1",
+    "xIClh×1",
+    "fAaCP×1",
+    "gzBIlJ×1",
+    "YmAcY×1",
+    "parentContainer×1",
+    "chartjs-size-monitor×1"
+   ],
+   "onlyA": [
+    "ant-progress-status-success×1",
+    "ant-avatar-image×1",
+    "mb-24×1",
+    "ccinJM×1",
+    "cOHtMd×1",
+    "ant-card-meta-title×1",
+    "kvaoSF×1",
+    "ant-dropdown-trigger×1",
+    "bycHqQ×1",
+    "jTFBDo×1",
+    "dnnOYH×1",
+    "mb-0×1"
+   ]
+  },
+  {
+   "page": "listings",
+   "compared": true,
+   "nodes": [
+    1463,
+    1661
+   ],
+   "height": [
+    2063,
+    1913
+   ],
+   "counts": {
+    "ant-btn": [
+     97,
+     129
+    ],
+    "ant-menu-item": [
+     10,
+     9
+    ],
+    "ant-avatar": [
+     1,
+     0
+    ]
+   },
+   "onlyB": [
+    "ant-scroll-number-only-unit×1",
+    "current×1",
+    "ant-progress-status-normal×1",
+    "ilewrA×1"
+   ],
+   "onlyA": [
+    "icon×2",
+    "icon-check×2",
+    "icon-applied×2",
+    "ant-badge-multiple-words×1",
+    "ant-progress-status-success×1",
+    "ant-avatar×1",
+    "ant-avatar-circle×1",
+    "ant-avatar-image×1",
+    "ant-avatar-css-var×1",
+    "fAaCP×1",
+    "gzBIlJ×1",
+    "ant-pagination-item-before-jump-next×1",
+    "ant-pagination-jump-next×1",
+    "ant-pagination-jump-next-custom-icon×1",
+    "ant-pagination-item-container×1",
+    "anticon-double-right×1",
+    "ant-pagination-item-link-icon×1",
+    "ant-pagination-item-ellipsis×1",
+    "ant-pagination-item-37×1"
+   ]
+  },
+  {
+   "page": "credits-usage",
+   "compared": true,
+   "nodes": [
+    451,
+    450
+   ],
+   "height": [
+    1058,
+    1058
+   ],
+   "counts": {
+    "ant-menu-item": [
+     10,
+     9
+    ],
+    "ant-avatar": [
+     1,
+     0
+    ]
+   },
+   "onlyB": [
+    "ant-scroll-number-only×1",
+    "ant-scroll-number-only-unit×1",
+    "current×1",
+    "ant-progress-status-normal×1",
+    "ilewrA×1",
+    "jPDrdK×1"
+   ],
+   "onlyA": [
+    "ant-badge-multiple-words×1",
+    "ant-progress-status-success×1",
+    "ant-avatar×1",
+    "ant-avatar-circle×1",
+    "ant-avatar-image×1",
+    "ant-avatar-css-var×1",
+    "rc-virtual-list-scrollbar-visible×1"
+   ]
+  },
+  {
+   "page": "ad-license",
+   "compared": true,
+   "nodes": [
+    459,
+    458
+   ],
+   "height": [
+    900,
+    900
+   ],
+   "counts": {
+    "ant-menu-item": [
+     10,
+     9
+    ],
+    "ant-avatar": [
+     1,
+     0
+    ]
+   },
+   "onlyB": [
+    "ant-scroll-number-only×1",
+    "ant-scroll-number-only-unit×1",
+    "current×1",
+    "ant-progress-status-normal×1"
+   ],
+   "onlyA": [
+    "ant-badge-multiple-words×1",
+    "ant-progress-status-success×1",
+    "ant-avatar×1",
+    "ant-avatar-circle×1",
+    "ant-avatar-image×1",
+    "ant-avatar-css-var×1"
+   ]
+  },
+  {
+   "page": "lms-leads",
+   "compared": true,
+   "nodes": [
+    692,
+    742
+   ],
+   "height": [
+    1043,
+    1180
+   ],
+   "counts": {
+    "ant-table-row": [
+     3,
+     4
+    ],
+    "ant-btn": [
+     25,
+     32
+    ],
+    "ant-menu-item": [
+     10,
+     9
+    ],
+    "ant-select": [
+     3,
+     2
+    ],
+    "ant-avatar": [
+     2,
+     0
+    ]
+   },
+   "onlyB": [
+    "ilewrA×2",
+    "ant-scroll-number-only×1",
+    "ant-scroll-number-only-unit×1",
+    "current×1",
+    "ant-progress-status-normal×1"
+   ],
+   "onlyA": [
+    "ant-avatar×2",
+    "ant-avatar-circle×2",
+    "ant-avatar-image×2",
+    "ant-avatar-css-var×2",
+    "text-primary×2",
+    "fz-12×2",
+    "listing-popover×2",
+    "ant-badge-multiple-words×1",
+    "ant-progress-status-success×1",
+    "ant-dropdown-trigger×1",
+    "bycHqQ×1",
+    "selectSearch×1",
+    "iAAQrM×1",
+    "dGQXtn×1",
+    "ant-select-allow-clear×1",
+    "ant-select-selection-placeholder×1"
+   ]
+  },
+  {
+   "page": "reports-summary",
+   "compared": true,
+   "nodes": [
+    514,
+    571
+   ],
+   "height": [
+    900,
+    929
+   ],
+   "counts": {
+    "ant-tag": [
+     0,
+     3
+    ],
+    "ant-menu-item": [
+     10,
+     9
+    ],
+    "ant-badge": [
+     9,
+     13
+    ],
+    "ant-avatar": [
+     1,
+     0
+    ]
+   },
+   "onlyB": [
+    "ant-radio-css-var×5",
+    "ant-radio-wrapper×4",
+    "idPqgb×4",
+    "ant-radio×4",
+    "ant-wave-target×4",
+    "ant-radio-input×4",
+    "ant-radio-inner×4",
+    "ant-tag×3",
+    "ant-tag-borderless×3",
+    "igfhkn×3",
+    "figmMG×2",
+    "fw-400×2",
+    "ant-scroll-number-only×1",
+    "ant-scroll-number-only-unit×1",
+    "current×1",
+    "ant-progress-status-normal×1",
+    "ilewrA×1",
+    "lhagxB×1",
+    "dcXkdK×1",
+    "fHstRr×1",
+    "kFuhnp×1",
+    "cVCSrk×1",
+    "ant-radio-group×1",
+    "ant-radio-group-outline×1",
+    "ant-radio-wrapper-checked×1",
+    "ant-radio-checked×1",
+    "xIClh×1",
+    "fAaCP×1",
+    "gzBIlJ×1",
+    "YmAcY×1",
+    "parentContainer×1"
+   ],
+   "onlyA": [
+    "ant-badge-multiple-words×1",
+    "ant-progress-status-success×1",
+    "ant-avatar×1",
+    "ant-avatar-circle×1",
+    "ant-avatar-image×1",
+    "ant-avatar-css-var×1",
+    "knbRRl×1",
+    "iNCvWm×1",
+    "bBecKm×1",
+    "jhEWPH×1",
+    "jTFBDo×1",
+    "dnnOYH×1",
+    "ant-typography-secondary×1",
+    "mb-0×1"
+   ]
+  },
+  {
+   "page": "reports-listing-report",
+   "compared": true,
+   "nodes": [
+    1040,
+    1064
+   ],
+   "height": [
+    2228,
+    2081
+   ],
+   "counts": {
+    "ant-menu-item": [
+     10,
+     9
+    ],
+    "ant-badge": [
+     19,
+     22
+    ],
+    "ant-avatar": [
+     1,
+     0
+    ]
+   },
+   "onlyB": [
+    "ant-scroll-number-only×1",
+    "ant-scroll-number-only-unit×1",
+    "current×1",
+    "ant-progress-status-normal×1",
+    "ilewrA×1",
+    "lhagxB×1",
+    "dcXkdK×1"
+   ],
+   "onlyA": [
+    "ant-badge-multiple-words×1",
+    "ant-progress-status-success×1",
+    "ant-avatar×1",
+    "ant-avatar-circle×1",
+    "ant-avatar-image×1",
+    "ant-avatar-css-var×1",
+    "knbRRl×1",
+    "iNCvWm×1",
+    "ant-pagination-item-before-jump-next×1",
+    "ant-pagination-jump-next×1",
+    "ant-pagination-jump-next-custom-icon×1",
+    "ant-pagination-item-container×1",
+    "anticon-double-right×1",
+    "ant-pagination-item-link-icon×1",
+    "ant-pagination-item-ellipsis×1",
+    "ant-pagination-item-37×1"
+   ]
+  },
+  {
+   "page": "reports-leads-reports",
+   "compared": true,
+   "nodes": [
+    567,
+    601
+   ],
+   "height": [
+    1429,
+    1490
+   ],
+   "counts": {
+    "ant-tag": [
+     0,
+     3
+    ],
+    "ant-menu-item": [
+     10,
+     9
+    ],
+    "ant-badge": [
+     1,
+     2
+    ],
+    "ant-avatar": [
+     1,
+     0
+    ]
+   },
+   "onlyB": [
+    "ant-radio-css-var×5",
+    "ant-radio-wrapper×4",
+    "idPqgb×4",
+    "ant-radio×4",
+    "ant-wave-target×4",
+    "ant-radio-input×4",
+    "ant-radio-inner×4",
+    "ant-tag×3",
+    "ant-tag-borderless×3",
+    "igfhkn×3",
+    "ant-scroll-number-only×1",
+    "ant-scroll-number-only-unit×1",
+    "current×1",
+    "ant-progress-status-normal×1",
+    "ilewrA×1",
+    "fHstRr×1",
+    "kFuhnp×1",
+    "cVCSrk×1",
+    "ant-radio-group×1",
+    "ant-radio-group-outline×1",
+    "ant-radio-wrapper-checked×1",
+    "ant-radio-checked×1",
+    "ant-badge-status×1",
+    "ant-badge-not-a-wrapper×1",
+    "ant-badge-status-dot×1",
+    "ant-badge-status-text×1",
+    "xIClh×1",
+    "fAaCP×1",
+    "gzBIlJ×1",
+    "YmAcY×1",
+    "parentContainer×1",
+    "chartjs-size-monitor×1",
+    "chartjs-size-monitor-expand×1",
+    "chartjs-size-monitor-shrink×1",
+    "chartjs-render-monitor×1"
+   ],
+   "onlyA": [
+    "ant-badge-multiple-words×1",
+    "ant-progress-status-success×1",
+    "ant-avatar×1",
+    "ant-avatar-circle×1",
+    "ant-avatar-image×1",
+    "ant-avatar-css-var×1",
+    "bBecKm×1",
+    "jhEWPH×1",
+    "jTFBDo×1",
+    "dnnOYH×1",
+    "ant-typography-secondary×1",
+    "ant-pagination-item-4×1"
+   ]
+  },
+  {
+   "page": "user-settings-user-profile",
+   "compared": true,
+   "nodes": [
+    555,
+    433
+   ],
+   "height": [
+    1680,
+    1662
+   ],
+   "counts": {
+    "ant-card": [
+     3,
+     7
+    ],
+    "ant-btn": [
+     11,
+     12
+    ],
+    "ant-menu-item": [
+     10,
+     9
+    ],
+    "ant-avatar": [
+     2,
+     1
+    ]
+   },
+   "onlyB": [
+    "fw-600×4",
+    "ant-progress-status-normal×3",
+    "mb-8×3",
+    "iqTTPO×3",
+    "profile-card×3",
+    "fz-14×3",
+    "ant-select-selection-placeholder×3",
+    "ant-upload×2",
+    "ant-scroll-number-only×1",
+    "ant-scroll-number-only-unit×1",
+    "current×1",
+    "ilewrA×1",
+    "mb-4×1",
+    "fw-500×1",
+    "laikMn×1",
+    "mb-16×1",
+    "ant-progress-line×1",
+    "ant-progress-line-align-end×1",
+    "ant-progress-line-position-outer×1",
+    "ant-progress-default×1",
+    "ant-progress-outer×1",
+    "ant-progress-bg×1",
+    "ant-progress-bg-outer×1",
+    "gjOrSB×1",
+    "ant-upload-wrapper×1",
+    "upload-img×1",
+    "ant-upload-select×1",
+    "gompsv×1",
+    "px-24×1",
+    "ant-upload-list×1",
+    "ant-upload-list-text×1"
+   ],
+   "onlyA": [
+    "ant-progress-status-success×2",
+    "ant-avatar-image×2",
+    "cGkeYU×1",
+    "gallery-thumb×1",
+    "gjKFQp×1",
+    "iDcYAN×1",
+    "ant-btn-circle×1"
+   ]
+  },
+  {
+   "page": "user-settings-change-password",
+   "compared": true,
+   "nodes": [
+    223,
+    260
+   ],
+   "height": [
+    900,
+    900
+   ],
+   "counts": {
+    "ant-card": [
+     2,
+     6
+    ],
+    "ant-btn": [
+     7,
+     8
+    ],
+    "ant-menu-item": [
+     10,
+     9
+    ],
+    "ant-avatar": [
+     1,
+     0
+    ]
+   },
+   "onlyB": [
+    "fw-600×4",
+    "mb-8×3",
+    "iqTTPO×3",
+    "ant-card-meta×3",
+    "uyXpa×3",
+    "p-0×3",
+    "profile-card×3",
+    "ant-card-meta-avatar×3",
+    "ant-card-meta-detail×3",
+    "ant-card-meta-title×3",
+    "clkSiM×3",
+    "fz-14×3",
+    "ant-progress-status-normal×2",
+    "fz-12×2",
+    "ant-scroll-number-only×1",
+    "ant-scroll-number-only-unit×1",
+    "current×1",
+    "ilewrA×1",
+    "iKdYDc×1",
+    "mb-4×1",
+    "ant-typography×1",
+    "fw-500×1",
+    "mb-0×1",
+    "laikMn×1",
+    "mb-16×1",
+    "ant-progress-line×1",
+    "ant-progress-line-align-end×1",
+    "ant-progress-line-position-outer×1",
+    "ant-progress-default×1",
+    "ant-progress-outer×1",
+    "ant-progress-bg×1",
+    "ant-progress-bg-outer×1",
+    "gjOrSB×1"
+   ],
+   "onlyA": [
+    "ant-badge-multiple-words×1",
+    "ant-progress-status-success×1",
+    "ant-avatar×1",
+    "ant-avatar-circle×1",
+    "ant-avatar-image×1",
+    "ant-avatar-css-var×1"
+   ]
+  },
+  {
+   "page": "agency-staff",
+   "compared": false,
+   "nodes": [
+    0,
+    150
+   ],
+   "height": [
+    0,
+    900
+   ],
+   "counts": {
+    "ant-btn": [
+     0,
+     6
+    ],
+    "ant-menu-item": [
+     0,
+     9
+    ],
+    "ant-badge": [
+     0,
+     1
+    ]
+   },
+   "onlyB": [
+    "anticon×18",
+    "fZMNLY×18",
+    "ant-menu-item×9",
+    "ant-menu-item-icon×9",
+    "ant-menu-title-content×9",
+    "ant-btn×6",
+    "ant-btn-icon×4",
+    "ant-btn-default×4",
+    "ant-btn-color-default×4",
+    "ant-btn-variant-outlined×4",
+    "ant-col×3",
+    "jhHaBQ×3",
+    "cTAjIT×3",
+    "klyxMD×3",
+    "dXgbeI×3",
+    "ant-layout×2",
+    "ant-row×2",
+    "ant-btn-color-primary×2",
+    "ant-btn-icon-only×2",
+    "px-8×2",
+    "ant-btn-block×2",
+    "ljZywZ×2",
+    "notranslate×1",
+    "knBGsu×1",
+    "ant-layout-has-sider×1",
+    "ant-layout-header×1",
+    "ant-row-no-wrap×1",
+    "ant-row-space-between×1",
+    "ant-row-middle×1",
+    "eiFNPR×1",
+    "ant-btn-link×1",
+    "ant-btn-variant-link×1",
+    "gUAaVI×1",
+    "px-0×1",
+    "eHIyET×1",
+    "jXCEGs×1",
+    "ant-btn-primary×1",
+    "ant-btn-variant-solid×1",
+    "khckeg×1",
+    "cKVexS×1"
+   ],
+   "onlyA": []
+  },
+  {
+   "page": "agent-performance",
+   "compared": false,
+   "nodes": [
+    0,
+    589
+   ],
+   "height": [
+    0,
+    1248
+   ],
+   "counts": {
+    "ant-card": [
+     0,
+     4
+    ],
+    "ant-table-row": [
+     0,
+     10
+    ],
+    "ant-btn": [
+     0,
+     6
+    ],
+    "ant-menu-item": [
+     0,
+     9
+    ],
+    "ant-badge": [
+     0,
+     1
+    ]
+   },
+   "onlyB": [
+    "ant-table-cell×44",
+    "ant-flex×26",
+    "anticon×22",
+    "fZMNLY×22",
+    "ant-flex-align-center×22",
+    "ant-table-row×10",
+    "ant-table-row-level-0×10",
+    "tableHoverGradient×10",
+    "ant-menu-item×9",
+    "ant-menu-item-icon×9",
+    "ant-menu-title-content×9",
+    "cGjrlh×8",
+    "cfXLZp×8",
+    "bwBqaO×8",
+    "hNSNen×8",
+    "bFrIey×8",
+    "bfefJt×8",
+    "ant-btn×6",
+    "hWKrqp×5",
+    "bNyhul×5",
+    "lnVJYV×5",
+    "buZSKc×5",
+    "ant-btn-icon×4",
+    "jDgZzN×4",
+    "ant-btn-default×4",
+    "ant-btn-color-default×4",
+    "ant-btn-variant-outlined×4",
+    "ant-card×4",
+    "ant-card-bordered×4",
+    "ant-card-body×4",
+    "ant-col×3",
+    "jhHaBQ×3",
+    "cTAjIT×3",
+    "klyxMD×3",
+    "dXgbeI×3",
+    "ant-flex-vertical×3",
+    "mb-8×3",
+    "goal-point-card×3",
+    "eflvZm×3",
+    "ant-card-meta×3"
+   ],
+   "onlyA": []
+  },
+  {
+   "page": "packages",
+   "compared": false,
+   "nodes": [
+    0,
+    734
+   ],
+   "height": [
+    0,
+    1231
+   ],
+   "counts": {
+    "ant-card": [
+     0,
+     14
+    ],
+    "ant-btn": [
+     0,
+     18
+    ],
+    "ant-tag": [
+     0,
+     8
+    ],
+    "ant-menu-item": [
+     0,
+     9
+    ],
+    "ant-input": [
+     0,
+     1
+    ],
+    "ant-badge": [
+     0,
+     1
+    ],
+    "ant-statistic": [
+     0,
+     5
+    ]
+   },
+   "onlyB": [
+    "anticon×73",
+    "fZMNLY×73",
+    "ant-typography×20",
+    "text-primary×20",
+    "ant-btn×18",
+    "fz-12×18",
+    "ant-card×14",
+    "ant-card-bordered×14",
+    "ant-card-body×14",
+    "dDPFpE×12",
+    "color-gray-dark×11",
+    "mb-0×11",
+    "mb-4×11",
+    "w-100×10",
+    "mb-8×10",
+    "ant-typography-secondary×10",
+    "dnnOYH×10",
+    "ilewrA×9",
+    "ant-menu-item×9",
+    "ant-menu-item-icon×9",
+    "ant-menu-title-content×9",
+    "fz-16×9",
+    "eHLPo×9",
+    "jwyyfg×9",
+    "droZQZ×9",
+    "MRuvs×9",
+    "fw-700×9",
+    "mb-24×9",
+    "ant-btn-primaryOutlined×9",
+    "gompsv×9",
+    "swiper-slide×8",
+    "pos-rel×8",
+    "text-center×8",
+    "jRgXWU×8",
+    "additional-info×8",
+    "ant-tag×8",
+    "ant-tag-has-color×8",
+    "ant-tag-borderless×8",
+    "hneiEU×8",
+    "listing-tag×8"
+   ],
+   "onlyA": []
+  },
+  {
+   "page": "post-listing",
+   "compared": false,
+   "nodes": [
+    0,
+    184
+   ],
+   "height": [
+    0,
+    900
+   ],
+   "counts": {
+    "ant-card": [
+     0,
+     2
+    ],
+    "ant-btn": [
+     0,
+     9
+    ],
+    "ant-tag": [
+     0,
+     1
+    ],
+    "ant-menu-item": [
+     0,
+     9
+    ],
+    "ant-input": [
+     0,
+     1
+    ],
+    "ant-badge": [
+     0,
+     1
+    ]
+   },
+   "onlyB": [
+    "anticon×19",
+    "fZMNLY×19",
+    "ant-btn×9",
+    "ant-menu-item×9",
+    "ant-menu-item-icon×9",
+    "ant-menu-title-content×9",
+    "ant-btn-color-primary×5",
+    "w-100×5",
+    "ant-col×4",
+    "ant-btn-icon×4",
+    "ant-btn-default×4",
+    "ant-btn-color-default×4",
+    "ant-btn-variant-outlined×4",
+    "ant-row×3",
+    "ant-btn-link×3",
+    "ant-btn-variant-link×3",
+    "gUAaVI×3",
+    "jhHaBQ×3",
+    "cTAjIT×3",
+    "klyxMD×3",
+    "dXgbeI×3",
+    "ant-typography×3",
+    "ant-layout×2",
+    "ant-btn-primary×2",
+    "ant-btn-variant-solid×2",
+    "ant-btn-icon-only×2",
+    "ilewrA×2",
+    "px-8×2",
+    "ant-btn-block×2",
+    "ljZywZ×2",
+    "ant-col-xs-24×2",
+    "ant-card×2",
+    "ant-card-bordered×2",
+    "dDPFpE×2",
+    "ant-card-body×2",
+    "m-auto×2",
+    "mb-24×2",
+    "fz-16×2",
+    "text-muted×2",
+    "fz-14×2"
+   ],
+   "onlyA": []
+  },
+  {
+   "page": "user-settings-licenses",
+   "compared": false,
+   "nodes": [
+    0,
+    399
+   ],
+   "height": [
+    0,
+    1300
+   ],
+   "counts": {
+    "ant-card": [
+     0,
+     10
+    ],
+    "ant-btn": [
+     0,
+     8
+    ],
+    "ant-tag": [
+     0,
+     8
+    ],
+    "ant-menu-item": [
+     0,
+     9
+    ],
+    "ant-badge": [
+     0,
+     1
+    ]
+   },
+   "onlyB": [
+    "anticon×43",
+    "fZMNLY×43",
+    "ant-col×25",
+    "fw-600×16",
+    "ant-row×15",
+    "clkSiM×12",
+    "ant-card×10",
+    "ant-card-bordered×10",
+    "ant-card-body×10",
+    "ant-row-space-between×9",
+    "ant-menu-item×9",
+    "ant-menu-item-icon×9",
+    "ant-menu-title-content×9",
+    "ant-typography×9",
+    "eolAvG×9",
+    "ant-btn×8",
+    "ant-tag×8",
+    "ant-tag-borderless×8",
+    "fs12×8",
+    "ant-col-xs-24×7",
+    "dDPFpE×7",
+    "mb-8×7",
+    "fZzKO×6",
+    "color-gray-dark×6",
+    "ant-row-no-wrap×5",
+    "gyZUop×5",
+    "ant-btn-color-primary×4",
+    "ant-btn-icon×4",
+    "ant-btn-default×4",
+    "ant-btn-color-default×4",
+    "ant-btn-variant-outlined×4",
+    "nav-text×4",
+    "mb-12×4",
+    "align-items-center×4",
+    "ant-tag-has-color×4",
+    "jCRzjO×4",
+    "ant-space-compact×4",
+    "base-color×4",
+    "ant-tag-green×4",
+    "cLVPmk×4"
+   ],
+   "onlyA": []
+  }
+ ]
+}

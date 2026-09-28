@@ -1,15 +1,17 @@
 {
  "page": "reports-leads-reports",
  "route": "/reports/leads-reports",
- "at": "2026-09-28T12:18:40.308Z",
+ "device": "web",
+ "at": "2026-09-28T16:53:08.925Z",
  "tried": 59,
  "states": [
   {
-   "name": "popover-date-range",
+   "name": "popover-today-yesterday-last-7",
    "kind": "popover",
    "action": "click",
    "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > span:nth-child(1)",
    "label": "icon",
+   "title": "Today Yesterday Last 7",
    "shell": false,
    "opened": [
     {
@@ -17,8 +19,7 @@
      "w": 802,
      "h": 420
     }
-   ],
-   "title": "Today Yesterday Last 7"
+   ]
   },
   {
    "name": "inline-clicks-407-3",
@@ -26,24 +27,17 @@
    "action": "click",
    "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)",
    "label": "Clicks 407 3%",
+   "title": "",
    "shell": false,
    "opened": []
   },
   {
-   "name": "inline-leads-13-8",
-   "kind": "inline",
-   "action": "click",
-   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3)",
-   "label": "Leads 13 8%",
-   "shell": false,
-   "opened": []
-  },
-  {
-   "name": "popover-calls-clicked-3",
+   "name": "popover-calls-3",
    "kind": "popover",
    "action": "click",
    "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)",
    "label": "Calls 3",
+   "title": "Calls Clicked 3",
    "shell": false,
    "opened": [
     {
@@ -51,42 +45,7 @@
      "w": 123,
      "h": 54
     }
-   ],
-   "title": "Calls Clicked 3"
-  },
-  {
-   "name": "popover-whatsapp-clicked-7",
-   "kind": "popover",
-   "action": "click",
-   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1)",
-   "label": "WhatsApp 7",
-   "shell": false,
-   "opened": [
-    {
-     "k": "popover",
-     "w": 159,
-     "h": 54
-    }
-   ],
-   "title": "WhatsApp Clicked 7"
-  },
-  {
-   "name": "inline-sms-1",
-   "kind": "inline",
-   "action": "click",
-   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(5) > div:nth-child(1)",
-   "label": "SMS 1",
-   "shell": false,
-   "opened": []
-  },
-  {
-   "name": "inline-emails-2",
-   "kind": "inline",
-   "action": "click",
-   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(7) > div:nth-child(1)",
-   "label": "Emails 2",
-   "shell": false,
-   "opened": []
+   ]
   },
   {
    "name": "inline-canvas",
@@ -94,15 +53,17 @@
    "action": "click",
    "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > canvas:nth-child(2)",
    "label": "canvas",
+   "title": "",
    "shell": false,
    "opened": []
   },
   {
-   "name": "popover-date-range-2",
+   "name": "popover-close-circle",
    "kind": "popover",
    "action": "click",
    "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > span:nth-child(2)",
    "label": "close-circle",
+   "title": "Today Yesterday Last 7",
    "shell": false,
    "opened": [
     {
@@ -110,8 +71,7 @@
      "w": 802,
      "h": 382
     }
-   ],
-   "title": "Today Yesterday Last 7"
+   ]
   },
   {
    "name": "dropdown-select-purpose",
@@ -119,6 +79,7 @@
    "action": "click",
    "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)",
    "label": "Select Purpose",
+   "title": "1 2 Sell Rent",
    "shell": false,
    "opened": [
     {
@@ -134,6 +95,7 @@
    "action": "click",
    "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > button:nth-child(2)",
    "label": "Search",
+   "title": "",
    "shell": false,
    "opened": []
   },
@@ -143,6 +105,7 @@
    "action": "click",
    "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > ul:nth-child(1) > li:nth-child(5)",
    "label": "4",
+   "title": "",
    "shell": false,
    "opened": []
   },
@@ -152,6 +115,7 @@
    "action": "click",
    "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4)",
    "label": "FEEDBACK",
+   "title": "Send us feedback The",
    "shell": false,
    "opened": [
     {
@@ -160,6 +124,52 @@
      "h": 900
     }
    ]
+  },
+  {
+   "name": "inline-leads-13-8",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3)",
+   "label": "Leads 13 8%",
+   "title": "",
+   "shell": false,
+   "opened": []
+  },
+  {
+   "name": "popover-whatsapp-7",
+   "kind": "popover",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1)",
+   "label": "WhatsApp 7",
+   "title": "WhatsApp Clicked 7",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 159,
+     "h": 54
+    }
+   ]
+  },
+  {
+   "name": "inline-sms-1",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(5) > div:nth-child(1)",
+   "label": "SMS 1",
+   "title": "",
+   "shell": false,
+   "opened": []
+  },
+  {
+   "name": "inline-emails-2",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(7) > div:nth-child(1)",
+   "label": "Emails 2",
+   "title": "",
+   "shell": false,
+   "opened": []
   }
  ],
  "links": []

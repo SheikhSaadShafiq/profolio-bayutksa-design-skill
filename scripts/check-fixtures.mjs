@@ -30,7 +30,12 @@ import { fileURLToPath } from 'node:url';
 import { answer } from '../harness/fixtures.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const shapes = JSON.parse(readFileSync(join(ROOT, 'data', 'api-shapes.json'), 'utf8'));
+/* --shapes data/api-shapes.b.json holds the fixtures to a second account's
+   recording; --mode staff answers every endpoint in that fixture mode */
+const argv = process.argv;
+const argOf = (n) => { const i = argv.indexOf(n); return i > -1 ? argv[i + 1] : null; };
+const shapes = JSON.parse(readFileSync(argOf('--shapes') ? join(ROOT, argOf('--shapes')) : join(ROOT, 'data', 'api-shapes.json'), 'utf8'));
+const MODE = argOf('--mode');
 const verbose = process.argv.includes('--verbose');
 const strict = process.argv.includes('--strict');
 
@@ -46,7 +51,9 @@ const mergeItems = (a, b) => {
     for (const k of Object.keys(b)) o[k] = k in a ? (a[k] === null ? b[k] : mergeItems(a[k], b[k])) : b[k];
     return o;
   }
-  if (Array.isArray(a) && Array.isArray(b)) return a.length ? a : b;
+  /* a nested list is merged across rows too: one row's product carrying an
+     auto-renew item must count, whichever row it is */
+  if (Array.isArray(a) && Array.isArray(b)) { const items = [...a, ...b]; return items.length ? [items.reduce(mergeItems, undefined)] : []; }
   return a === null ? b : a;
 };
 const diff = (real, fix, at, out) => {
@@ -66,6 +73,15 @@ const diff = (real, fix, at, out) => {
     return;
   }
   if (kr === 'object') {
+    /* an object keyed by DATE (product_stats.items) is a list by another
+       name: the dates are the account's, not the API's — compare one day */
+    const DATE = /^\d{4}-\d{2}-\d{2}$/;
+    const rd = Object.keys(real).filter((k) => DATE.test(k)), fd = Object.keys(fix).filter((k) => DATE.test(k));
+    if (rd.length && rd.length === Object.keys(real).length) {
+      if (!fd.length) out.push(['empty', `${at}{date}`]);
+      else diff(real[rd[0]], fix[fd[0]], `${at}{date}`, out);
+      return;
+    }
     for (const k of Object.keys(real)) {
       if (!(k in fix)) out.push(['missing', `${at}.${k}`]);
       else diff(real[k], fix[k], `${at}.${k}`, out);
@@ -79,7 +95,7 @@ for (const [key, { q, shape }] of Object.entries(shapes)) {
   const [method, path] = key.split(' ');
   if (!path.startsWith('/api/')) continue;
   const concrete = path.replace(/:id/g, '1');
-  const body = answer(method, concrete, '');
+  const body = answer(method, concrete, '', MODE);
   if (body === undefined) { rows.push({ key, unanswered: true, out: [] }); continue; }
   const out = [];
   diff(shape, JSON.parse(JSON.stringify(body)), '', out);
