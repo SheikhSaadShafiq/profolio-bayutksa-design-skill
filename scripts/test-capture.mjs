@@ -15,7 +15,7 @@ const { chromium } = pkg;
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const script = readFileSync(join(ROOT, 'tools/profolio-capture/capture.js'), 'utf8');
 
-const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' });
+const b = await chromium.launch();
 const p = await (await b.newContext({ viewport: { width: 1440, height: 900 } })).newPage();
 await p.goto('file://' + join(ROOT, 'deliverables/dashboard.html'));
 await p.waitForTimeout(800);
@@ -40,8 +40,14 @@ cap.fonts?.bodyStack ? ok(`font stack recorded (${cap.fonts.bodyStack.split(',')
 const depth = (n) => 1 + Math.max(0, ...(n.children || []).map(depth));
 depth(cap.tree) >= 6 ? ok(`tree is ${depth(cap.tree)} deep`) : bad('tree too shallow to rebuild from');
 
+/* A page that draws its icons from the sprite (<use href="#pf-…">) must keep
+   their names; the compiled pages draw the product's own inline SVG, as the
+   product does, so there is no reference to keep and none is expected. */
 const icons = JSON.stringify(cap).match(/"icon":"pf-/g) || [];
-icons.length ? ok(`${icons.length} icon references kept`) : bad('no icon references — glyphs would be unidentifiable');
+const usesSprite = /<use [^>]*href="#pf-/.test(readFileSync(join(ROOT, 'deliverables/dashboard.html'), 'utf8'));
+icons.length ? ok(`${icons.length} icon references kept`)
+  : usesSprite ? bad('no icon references — glyphs would be unidentifiable')
+    : ok('the page draws inline SVG, as the product does — no sprite references to keep');
 
 /* ── and nothing it promised not to ────────────────────────────────────── */
 /* the rules live in scripts/leaks.mjs so that measure-real.mjs holds a

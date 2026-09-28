@@ -1,7 +1,7 @@
 ---
 name: profolio-ksa-design
-version: 0.8.0
-source_commit: b83e805
+version: 0.9.0
+source_commit: Profolio-Surge-28sep (local git c354183)
 description: "Design system for Bayut Profolio KSA — the agent and seller portal at profolio.bayut.sa. Use when designing, changing or reviewing any Profolio KSA screen, component or flow: turning a PRD into artboards, checking an existing screen against the system, finding which tokens, components or flags a surface uses, or locating where a feature lives in the codebase. Triggers on 'design this screen for Profolio', 'what does the listings page use', 'add X to Profolio KSA', 'is there a component for Y', 'make a mockup of the dashboard'. Covers tenant bayut (KSA) only — not Oman, Bahrain, Qatar, Jordan, Egypt or Zameen, and not the consumer side of bayut.sa, which Strat owns."
 ---
 
@@ -27,7 +27,7 @@ pages with one linked stylesheet, so a page costs about what its prose weighs.
 | `kb/pages/<route>.html` | The one screen you are working on. 30 of 31 routes have one. |
 | `kb/design/components.html` | To find a component by design name. |
 | `kb/design/components/<id>.html` | Only the components this screen uses. 179 entries — canvas-documented ones carry prose, feature ones carry measured CSS from their own source. |
-| `kb/design/foundations.html` | **All** colour, typography, spacing, radius, elevation, iconography, breakpoints and z-index. Complete — read to the bottom before calling anything undocumented. |
+| `kb/design/foundations.html` | Where the design-system index's *Foundations* (measured from the compiled stylesheet) and this page disagree, the index wins. **All** colour, typography, spacing, radius, elevation, iconography, breakpoints and z-index. Complete — read to the bottom before calling anything undocumented. |
 | `kb/product/copy.html` | To find which copy page covers your area. |
 | `kb/product/copy/<area>.html` | **The real shipped strings**, English beside Arabic. Load the area you are designing. |
 | `kb/product/flags.html` | When a surface may be switched off or altered. |
@@ -39,10 +39,14 @@ pages with one linked stylesheet, so a page costs about what its prose weighs.
 | `kb/design/fonts.html` | Before you specify a weight. Only 300/400/700 ship; 500 and 600 are synthesised. |
 | `kb/design/antd-tokens.html` | When a value looks like an antd default and you want the global token scale. |
 | `kb/design/antd-css.html` | When a value looks like an antd default and you want what the component actually paints — Badge is 20px, not `controlHeightXS`. This wins over the token scale. |
-| `deliverables/sprite.svg` | **The product's real icons**, 64 of them, each named as the codebase names it. Reference one with `<use href="#pf-SideMenuDashboard">`. Never draw a glyph yourself. |
-| `deliverables/dashboard.html` | The dashboard rebuilt on `deliverables/profolio.css` — the one stylesheet every page composes from. Start here when asked to change the dashboard. |
-| `deliverables/listings.html` | **My Listings**, composed the same way and measured at 91.7% against the product's own render. Start here for anything with a filter bar, status tabs, a table card or a pager. |
-| `deliverables/components.html` | Every catalogued class with its variants and states side by side. A page may only use classes that exist here. |
+| `deliverables/design-system.html` | **Start here for anything visual.** Foundations (every colour, type style, space, radius, shadow and curve the product actually paints with, named from its theme and antd's), then every component as an atom, molecule, organism or template, then every page and state. All of it cut out of the product's own render — nothing redrawn. |
+| `deliverables/components/<slug>.html` | **One component**: each variant live, the markup to copy, the exact `profolio.css` rules it uses, its hover/focus/active states, what it is made of, where it is used, the product file that defines it, and its copy in `kb/`. Each variant carries a badge saying whether the cut-out matches the product. |
+| `deliverables/<page>.html` | **The eleven pages, compiled from the product** (`scripts/compile.mjs`) — pixel-identical to the running product at 1440 on the fixture account. Every trigger that opens a state is a link to it. Start a redesign from the page, not from a blank canvas. |
+| `deliverables/states/<page>--<state>.html` | **Every state** the harness can reach: modals, drawers, popovers, tooltips, dropdowns, pickers, tabs, tours, empty, loading, error. Escape goes back to the page. |
+| `deliverables/profolio.css` | The one stylesheet every page and component uses — the product's own CSS, `ant-*` renamed `pf-*`, styled-components named after the JSX the product wrote. Generated; never edit it by hand. |
+| `deliverables/tokens.css` | The named tokens as custom properties (`--pf-primary`, `--pf-color-text`…). Cite these names in a spec, never raw hex. |
+| `deliverables/profolio-ksa.html` | Everything above in one self-contained file — for handing over, not for reading into context. |
+| `deliverables/sprite.svg` | **The product's real icons**, each named as the codebase names it. Reference one with `<use href="#pf-SideMenuDashboard">`. Never draw a glyph yourself. |
 | `kb/guide/recipe.html` | **Building a whole page?** Follow it — the order exists because each step cost real rework when skipped. |
 
 **Before you open a path, check it exists.** Two entries above are conditional:
@@ -102,14 +106,13 @@ Nine checks. Each one has been failed in a real session; each takes seconds.
    (`SideMenuDashboard`, `IconForSale`, `MdPhone`). **Never draw one.** If the icon you need is
    not in the sprite, name the one you looked for and ask — a hand-drawn glyph is the single
    most visible way a design stops looking like the product.
-9. **States.** A screen is not one picture. Before you design a flow, open
-   `deliverables/listings.html` and walk it: every modal, drawer and popover opens, every status
-   tab switches, and the bar at the bottom flips the page between **default, loading and error**.
-   `listings.html#state=modal-delete` goes straight to one. Each of those was captured from the
-   running product before it was drawn, and `deliverables/qa-listings.html` scores every one of
-   them. Two rules fall out of that and hold for your work too: **a disabled control is dimmed to
-   0.54** (`utils.less:142`, it is global), and **a failed list query shows the same “No Record
-   Found” empty state as an empty one** — Profolio has no separate error card for a table.
+9. **States.** A screen is not one picture. Before you design a flow, open the page in
+   `deliverables/<page>.html` and click through it: every trigger that opens a modal, drawer,
+   popover or tab is a link to `deliverables/states/<page>--<state>.html`, compiled from the
+   running product. The index lists them under *Pages & states*. Two rules hold for your work
+   too: **a disabled control is dimmed to 0.54** (`utils.less:142`, it is global), and **a failed
+   list query shows the same “No Record Found” empty state as an empty one** — Profolio has no
+   separate error card for a table.
 
 If a check fails, fix it before producing. If the information genuinely is not in
 `kb/`, say which file you looked in and stop — a guess that looks confident is worse
@@ -160,7 +163,9 @@ Hand-written prose lives in `authoring/` — the KSA rules and the working guide
 
 `data/live/` is written by `harness/capture.mjs`, which boots the product itself and
 renders every route in a headless browser from a fixture account. Re-run it after any
-product change; nothing in it was clicked by a person.
+product change; nothing in it was clicked by a person. The pages, states and components in
+`deliverables/` are compiled from that same render (`npm run pages`, then the `scripts/ds/`
+steps) and each is scored against it; `data/qa/` holds the scores.
 
 Every generated page carries the commit it was built from. If a generated page disagrees
 with the code, the code is right and the generator needs re-running: `npm run all`.

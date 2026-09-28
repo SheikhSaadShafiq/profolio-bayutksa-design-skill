@@ -29,7 +29,24 @@
     }
     return null;
   };
-  const nameOf = (t) => (t && typeof t !== 'string' ? (t.displayName || t.name || '') : '');
+  const nameOf = (t) => (t && typeof t !== 'string' ? (t.displayName || t.name || nameOf(t.type) || nameOf(t.render) || '') : '');
+  /* where a component is DEFINED: the file of the JSX it renders itself —
+     the first fiber below it whose owner is this very fiber */
+  const defOf = (fiber) => {
+    const q = [fiber.child];
+    for (let n = 0; q.length && n < 400; n++) {
+      const f = q.shift();
+      if (!f) continue;
+      if (f._debugOwner === fiber && f._debugSource && /\/src\//.test(f._debugSource.fileName)) return rel(f._debugSource.fileName);
+      q.push(f.child, f.sibling);
+    }
+    return null;
+  };
+  /* INSTANCES. Every product component rendered here marks the first DOM
+     element it draws with its name (data-pf-i, outermost first when several
+     components share a root) — that element is where the design system cuts
+     the component out. components{} says which file defines each. */
+  const components = {};
   if (ck) {
     const stack = [rootEl[ck]];
     while (stack.length) {
@@ -41,6 +58,18 @@
           dn: f.type.displayName || '',
           src: src ? `${rel(src.fileName)}:${src.lineNumber}:${src.columnNumber || 0}` : null,
         };
+      }
+      if (src && typeof f.type !== 'string' && f.type && !f.type.styledComponentId) {
+        const name = nameOf(f.type);
+        const def = name && defOf(f);
+        const el = def && hostOf(f);
+        if (el) {
+          const key = `${name}@${def}`;
+          components[key] ||= { name, def, n: 0 };
+          components[key].n++;
+          const had = el.getAttribute('data-pf-i');
+          if (!had || !had.split(' ').includes(key)) el.setAttribute('data-pf-i', had ? `${had} ${key}` : key);
+        }
       }
       if (src) {
         const el = f.stateNode instanceof Element ? f.stateNode : hostOf(f);
@@ -143,6 +172,14 @@
   };
   for (const c of css) c.text = await inlineUrls(c.text, c.base);
 
+  /* scroll lives in properties too: an element scrolled inside the page (a
+     form panel, a table scrolled sideways to reach a cell) is recorded as
+     data-pf-scroll and put back when the compiled file loads — the window's
+     own scroll is returned separately */
+  for (const el of document.querySelectorAll('body *')) {
+    if (el.scrollTop > 0 || el.scrollLeft > 0) el.setAttribute('data-pf-scroll', `${Math.round(el.scrollLeft)},${Math.round(el.scrollTop)}`);
+  }
+
   /* form state lives in properties, not attributes; outerHTML only sees attributes */
   for (const el of document.querySelectorAll('input, textarea, select')) {
     if (el.tagName === 'TEXTAREA') el.textContent = el.value;
@@ -172,12 +209,15 @@
   }
   for (const el of doc.querySelectorAll('[style*="url("]')) el.setAttribute('style', await inlineUrls(el.getAttribute('style'), document.baseURI));
   doc.querySelectorAll('script, noscript, style, iframe, link, template').forEach((n) => n.remove());
+  /* comments draw nothing, and the product's index.html carries a commented-
+     out tag-manager iframe that would read as a network dependency */
+  { const w = document.createTreeWalker(doc, NodeFilter.SHOW_COMMENT); const cs = []; while (w.nextNode()) cs.push(w.currentNode); cs.forEach((c) => c.remove()); }
   doc.querySelectorAll('meta').forEach((m) => { if (!/^(charset|viewport)$/i.test(m.getAttribute('name') || (m.hasAttribute('charset') ? 'charset' : ''))) m.remove(); });
 
   const vis = (sel) => [...document.querySelectorAll(sel)].some((el) => { const r = el.getBoundingClientRect(); return r.width > 0 && r.height > 0; });
   return {
     html: '<!doctype html>\n' + doc.outerHTML,
-    css, unreadable, sc, generated,
+    css, unreadable, sc, generated, components,
     scroll: { x: Math.round(scrollX), y: Math.round(scrollY) },
     overlay: { modal: vis('.ant-modal'), drawer: vis('.ant-drawer-content'), popover: vis('.ant-popover'), dropdown: vis('.ant-dropdown'), tour: vis('.ant-tour') },
     title: document.title,

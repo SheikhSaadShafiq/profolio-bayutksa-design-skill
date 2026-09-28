@@ -71,7 +71,6 @@ const CAPTURE = readFileSync(join(ROOT, 'tools', 'profolio-capture', 'capture.js
 /* ── 1 · freeze every page and state from the product ─────────────────── */
 const app = await serve();
 const browser = await chromium.launch();
-let MODE = null;
 const frozen = [];                                   /* { name, page, state, note, raw } */
 
 const snap = async (page, name, meta) => {
@@ -86,21 +85,51 @@ const snap = async (page, name, meta) => {
   console.log(`  froze ${name.padEnd(46)} ${String(raw.css.length).padStart(4)} sheets  ${(raw.html.length / 1024).toFixed(0).padStart(5)} KB dom`);
 };
 
-for (const slug of want) {
+/* one page, all its states, in its own browser context — pages run in
+   parallel (--jobs, default 3), so the answer-set MODE is the page's own */
+const compilePage = async (slug) => {
+  const M = { v: null };
   const url = `${app.url}/en${PAGES[slug]}`;
-  const { page, ctx } = await openPage(browser, app.url, { mode: () => MODE });
+  const { page, ctx } = await openPage(browser, app.url, { mode: () => M.v });
   await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60_000 });
   try { await page.waitForSelector('.ant-layout', { timeout: 30_000 }); } catch {}
   await settle(page);
-  if (!ONLY.length) await snap(page, slug, { page: slug, state: null });
-
+  /* the states: the hand-written ones (harness/interactions/<page>.mjs), then
+     the ones harness/explore.mjs found by trying every handler on the page
+     (data/states/<page>.json) under names the hand-written list does not use */
   const file = join(ROOT, 'harness', 'interactions', `${slug}.mjs`);
-  if (flag('--states') && existsSync(file)) {
-    let steps = (await import(file)).default;
-    if (ONLY.length) steps = steps.filter((s) => ONLY.includes(s.name));
+  let steps = flag('--states') && existsSync(file) ? (await import(file)).default : [];
+  const explored = join(ROOT, 'data', 'states', `${slug}.json`);
+  if (flag('--states') && existsSync(explored)) {
+    for (const st of JSON.parse(readFileSync(explored, 'utf8')).states) {
+      if (steps.some((s) => s.name === st.name)) continue;
+      steps.push({
+        name: st.name, path: st.path,
+        note: `found by harness/explore.mjs: ${st.action} “${st.label}” opens ${st.kind === 'inline' ? 'a change in place' : `a ${st.kind}`}`,
+        do: async (p) => {
+          const loc = p.locator(st.path).first();
+          await loc.scrollIntoViewIfNeeded({ timeout: 5000 });
+          if (st.action === 'hover') await loc.hover({ force: true, timeout: 5000 });
+          else await loc.click({ force: true, timeout: 5000, noWaitAfter: true });
+          await p.waitForTimeout(900);
+        },
+      });
+    }
+  }
+  if (ONLY.length) steps = steps.filter((s) => ONLY.includes(s.name));
+
+  /* the base page, with every trigger that opens a state marked as a link
+     to that state's page — the compiled site is a clickable prototype */
+  if (!ONLY.length) {
+    await page.evaluate((links) => { for (const [path, href] of links) { const el = document.querySelector(path); if (el) el.setAttribute('data-pf-go', href); } },
+      steps.filter((s) => s.path).map((s) => [s.path, `states/${slug}--${s.name}.html`]));
+    await snap(page, slug, { page: slug, state: null });
+  }
+
+  if (steps.length) {
     for (const step of steps) {
       try {
-        MODE = step.mode || null;
+        M.v = step.mode || null;
         await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60_000 });
         await page.waitForSelector('.ant-layout', { timeout: 30_000 });
         if (step.mode !== 'slow' && step.mode !== 'error') await settle(page);
@@ -109,10 +138,28 @@ for (const slug of want) {
         await snap(page, `${slug}--${step.name}`, { page: slug, state: step.name, note: step.note });
       } catch (e) {
         console.log(`  FAILED ${slug}--${step.name}: ${String(e).split('\n')[0].slice(0, 110)}`);
-      } finally { MODE = null; }
+      } finally { M.v = null; }
     }
   }
   await ctx.close();
+};
+const JOBS = Number(arg('--jobs', 3));
+const queue = [...want];
+await Promise.all(Array.from({ length: Math.min(JOBS, queue.length) }, async () => { while (queue.length) await compilePage(queue.shift()); }));
+/* parallel pages finish in any order; naming below must not depend on it */
+frozen.sort((a, b) => a.name.localeCompare(b.name));
+
+/* the product components each state rendered — name, defining file, and
+   where they appear — for the design system to cut from */
+{
+  const REG = join(ROOT, 'data', 'ds', 'components.json');
+  mkdirSync(dirname(REG), { recursive: true });
+  const reg = existsSync(REG) ? JSON.parse(readFileSync(REG, 'utf8')) : {};
+  for (const f of frozen) for (const [key, c] of Object.entries(f.raw.components || {})) {
+    const e = (reg[key] ||= { name: c.name, def: c.def, in: {} });
+    e.in[f.name] = c.n;
+  }
+  writeFileSync(REG, JSON.stringify(reg, null, 1));
 }
 
 /* ── 2 · names: every styled component after the JSX tag that made it ─── */
@@ -241,12 +288,29 @@ for (const f of frozen) {
     `<title>${esc(raw.title || f.page)}${f.state ? ` — ${esc(f.state)}` : ''}</title>`,
     `<meta name="pf-compiled" content="${esc(`${PAGES[f.page]}${f.state ? ` · state ${f.state}` : ''} · profolio-reactjs · fixture account · ${new Date().toISOString().slice(0, 10)}`)}">`,
     f.note ? `<meta name="pf-state-note" content="${esc(f.note)}">` : '',
+    /* how this file was verified: a whole-page shot, or the viewport at the
+       scroll position the state was frozen at (an open overlay is fixed to the
+       viewport) — every later check renders it the same way */
+    `<meta name="pf-shot" content="${f.shotFull ? 'full' : 'viewport'}" data-scroll="${raw.scroll.x},${raw.scroll.y}">`,
     `<style>\n${css}\n</style>`,
   ].filter(Boolean).join('\n');
   body = body.replace(/<head>[\s\S]*?<\/head>/, `<head>\n${head}\n</head>`);
   if (raw.scroll.x || raw.scroll.y) body = body.replace(/<\/body>/, `<script>scrollTo(${raw.scroll.x},${raw.scroll.y})</script></body>`);
+  /* inner scroll positions (freeze.js data-pf-scroll), put back on load */
+  if (/data-pf-scroll=/.test(body)) body = body.replace(/<\/body>/, `<script>document.querySelectorAll('[data-pf-scroll]').forEach(function(e){var p=e.getAttribute('data-pf-scroll').split(',');e.scrollLeft=+p[0];e.scrollTop=+p[1]})</script></body>`);
+  /* prototype wiring: a base page's triggers open their states; a state goes
+     back to its page on Escape or a click on the mask behind an overlay */
+  const nav = f.state
+    ? `<script>addEventListener('keydown',function(e){if(e.key==='Escape')location.href='../${f.page}.html'});addEventListener('click',function(e){if(e.target.matches('.pf-modal-wrap,.pf-drawer-mask,.pf-modal-mask,.pf-tour-mask'))location.href='../${f.page}.html'},true)</script>`
+    : /data-pf-go=/.test(body) ? `<script>addEventListener('click',function(e){var t=e.target.closest('[data-pf-go]');if(t){e.preventDefault();e.stopPropagation();location.href=t.getAttribute('data-pf-go')}},true)</script>` : '';
+  if (nav) body = body.replace(/<\/body>/, `${nav}</body>`);
   const out = inStates ? join(STATES_DIR, `${f.name}.html`) : join(DELIV, `${f.name}.html`);
   writeFileSync(out, body);
+  /* the page's own rules, kept: scripts/ds/stylesheet.mjs merges every
+     page's list into the one stylesheet and re-links the page to it, after
+     which the page no longer carries them */
+  mkdirSync(join(ROOT, 'data', 'ds', 'page-css'), { recursive: true });
+  writeFileSync(join(ROOT, 'data', 'ds', 'page-css', `${f.name}.css`), css);
   written.push({ ...f, out, bytes: body.length });
 }
 

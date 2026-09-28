@@ -43,6 +43,10 @@ function place(rel) {
   const m = (re) => rel.match(re);
   let x;
   if (rel === 'tenants/ksa.md')          return ['Product', 'product/ksa.html', 10];
+  /* the KSA rules are hand-written prose: they live in authoring/ like the
+     guide, and land in Product. They used to sit in the gitignored staging
+     folder, and a fresh clone rendered the knowledge base without them. */
+  if (rel === 'guide/ksa.html')          return ['Product', 'product/ksa.html', 10];
   if (rel === 'pages/index.md')          return ['Product', 'product/screens.html', 20];
   if (rel === 'flags.md')                return ['Product', 'product/flags.html', 30];
   if (rel === 'copy/index.md')           return ['Product', 'product/copy.html', 40];
@@ -114,7 +118,8 @@ for (const b of walk(join(REFS, 'pages')).filter((f) => f.endsWith('.board.html'
 }
 /* things outside kb that the prose points at */
 const OUTSIDE = { 'deliverables/sprite.svg': '../deliverables/sprite.svg', 'deliverables/dashboard.html': '../deliverables/dashboard.html',
-  'deliverables/components.html': '../deliverables/components.html', 'deliverables/profolio.css': '../deliverables/profolio.css',
+  'deliverables/design-system.html': '../deliverables/design-system.html', 'deliverables/components.html': '../deliverables/design-system.html',
+  'deliverables/profolio.css': '../deliverables/profolio.css', 'deliverables/tokens.css': '../deliverables/tokens.css',
   'deliverables/profolio-ksa.html': '../deliverables/profolio-ksa.html' };
 
 const relTo = (from, to) => { const up = from.split('/').length - 1; return '../'.repeat(up) + to; };
@@ -247,7 +252,8 @@ const sectionHtml = (name) => {
   return `<section id="${id}"><h2>${name}</h2><ul>${top.map((d) => item(d)).join('')}</ul>${leafBlock}</section>`;
 };
 
-const deliverables = ['dashboard.html', 'components.html', 'profolio-ksa.html', 'profolio.css', 'sprite.svg']
+/* the design system is compiled from the product now: the index first */
+const deliverables = ['design-system.html', 'dashboard.html', 'listings.html', 'profolio-ksa.html', 'profolio.css', 'tokens.css', 'sprite.svg']
   .filter((f) => existsSync(join(ROOT, 'deliverables', f)))
   .map((f) => `<li><a href="../deliverables/${f}">deliverables/${f}</a></li>`).join('');
 

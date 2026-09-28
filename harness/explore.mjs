@@ -153,9 +153,14 @@ for (const slug of want) {
       const sig = opened.length ? opened.map((o) => `${o.k}:${o.w}x${o.h}:${o.text}`).join('|') : `inline:${now.shape}`;
       if (seen.has(sig)) continue;
       seen.add(sig);
-      let name = `${kind}-${kebab(c.label)}`;
-      for (let k = 2; states.some((s) => s.name === name); k++) name = `${kind}-${kebab(c.label)}-${k}`;
-      states.push({ name, kind, action: c.action, path: c.path, label: c.label, shell: c.shell, opened: opened.map(({ k, w, h }) => ({ k, w, h })) });
+      /* an icon-only trigger has no label worth a name — name the state after
+         what OPENED instead: the overlay's own first words (fixture text) */
+      const title = opened.length ? opened[opened.length - 1].text.split(/\s+/).slice(0, 4).join(' ') : '';
+      const generic = /^(icon|svg|div|span|img|button|a|li|p|x|i)$/i.test(c.label) || c.label.length < 2;
+      const base = kebab(generic && title ? title : c.label);
+      let name = `${kind}-${base}`;
+      for (let k = 2; states.some((s) => s.name === name); k++) name = `${kind}-${base}-${k}`;
+      states.push({ name, kind, action: c.action, path: c.path, label: c.label, title, shell: c.shell, opened: opened.map(({ k, w, h }) => ({ k, w, h })) });
     } catch (e) {
       dirty = true;
     }
