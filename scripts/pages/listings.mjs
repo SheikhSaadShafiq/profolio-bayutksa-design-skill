@@ -572,7 +572,7 @@ ${/* ONE button, which is what the capture has. health.js:132 and :247 render
      an Add beside Images and Features only when they are incomplete, and on
      this listing they are not — the same account-shaped absence that taught
      this system four wrong rules before. Those two rows are in
-     authoring/listings-buttons.md as states needing a fixture that is short of
+     kb/guide/listings-buttons.html as states needing a fixture that is short of
      images, not drawn here on the strength of reading the source. */
 [
   ['MdRefresh', 'Freshness', 'Posted 3 days ago', ['refresh', 'Refresh']],
@@ -737,7 +737,7 @@ ${[['Pay with credits', '1'], ['Pay with card', '1']].map(([label, cost], n) => 
 </div>`;
 
 /* platformActions.js:174-213. UNMEASURED, and marked as such in
-   authoring/listings-buttons.md: a pending-otp-verification row renders
+   kb/guide/listings-buttons.html: a pending-otp-verification row renders
    Publish Now but clicking it takes the currency-user branch and navigates
    (:68-71), so the harness has never opened this modal. The size below is the
    listing modal's 620, not a measurement of this one. */

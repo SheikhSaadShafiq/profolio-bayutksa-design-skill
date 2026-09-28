@@ -36,7 +36,9 @@ const css   = read('profolio.css');
 const fonts = read('fonts.css');
 const proto = read('prototype.js');
 const cat   = read('components.html');
-const md    = readFileSync(join(D, '..', 'authoring', 'extraction-report.md'), 'utf8');
+/* the report is authored as HTML now, like the rest of authoring/ — the
+   repository keeps no markdown to render */
+const md    = readFileSync(join(D, '..', 'authoring', 'extraction-report.html'), 'utf8');
 
 /* ── slice out the parts ──────────────────────────────────────────────── */
 const between = (s, a, b, label) => {
@@ -71,7 +73,10 @@ const TITLES = {
 
 const slugs = readdirSync(D)
   .filter((f) => f.endsWith('.html'))
-  .filter((f) => !/bundled|components|not-built|inline-art|qa-|\.qa\.|profolio-ksa/.test(f))
+  /* design-system.html is a browsing surface, not a product screen: it has no
+     .pf-shell to slice out, and it already carries its own copy of everything
+     this file inlines. Excluded on the same grounds as components.html. */
+  .filter((f) => !/bundled|components|design-system|not-built|inline-art|qa-|\.qa\.|profolio-ksa/.test(f))
   .map((f) => f.replace(/\.html$/, ''))
   .sort((a, b) => {
     const ia = ORDER.indexOf(a), ib = ORDER.indexOf(b);
@@ -195,7 +200,15 @@ function markdown(src) {
   return out.join('\n');
 }
 
-const report = markdown(md);
+/* The tab's own sidebar is built from `id="r-…"` on the headings, which
+   markdown() used to mint while rendering. The source is already HTML, so the
+   ids are added here, by the same slug rule — lowercase, non-alphanumerics to
+   hyphens. Without this the report still rendered and its whole contents
+   panel came out empty. */
+const report = md.replace(/<h([23])>([\s\S]*?)<\/h\1>/g, (_, lvl, inner) => {
+  const id = inner.replace(/<[^>]+>/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  return `<h${lvl} id="r-${id}">${inner}</h${lvl}>`;
+});
 
 /* section links for the report's own sidebar */
 const toc = [...report.matchAll(/<h([23]) id="(r-[^"]+)">(.*?)<\/h[23]>/g)]

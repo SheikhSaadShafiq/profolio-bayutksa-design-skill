@@ -1,14 +1,3 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>QA — /dashboard against live — Profolio KSA</title>
-<link rel="stylesheet" href="../kb.css">
-</head>
-<body>
-<nav><a href="../index.html">Profolio KSA</a> › <a href="../index.html#guide">Guide</a> › QA — /dashboard against live</nav>
-<main>
 <h1>QA — <code>/dashboard</code> against live</h1>
 <p>Method: measure, don't squint. Every row below is a computed value from the rendered page set against what the codebase declares, not an impression of a screenshot. Where the codebase declares nothing, the row says so and stays open.</p>
 <p>Status at the time of writing: <strong>5 defects found and fixed, 4 open, 3 of the open ones need one live measurement.</strong></p>
@@ -22,7 +11,7 @@
 <p>This was the most visible thing wrong with the rail and the easiest to miss: every item was individually the right height, and the column was still too tight.</p>
 <p>Verified now: 60px wide, 11 items in the order <code>menuList.js</code> declares, icons 20px at <code>#707070</code>, selected on <code>#F2FAFA</code> at <code>#006169</code>, two bottom actions.</p>
 <h2>The one that matters more than any pixel</h2>
-<p><strong>The pages carry an inlined copy of the sprite, and it had fallen four regenerations behind.</strong> The pill icon was fixed in <a href="../../deliverables/sprite.svg"><a href="../../deliverables/sprite.svg"><code>deliverables/sprite.svg</code></a></a> and the page kept rendering the old symbol. Nothing catches that by eye, so it is now <code>scripts/sync.mjs</code> and <code>npm run check</code> fails on drift.</p>
+<p><strong>The pages carry an inlined copy of the sprite, and it had fallen four regenerations behind.</strong> The pill icon was fixed in <a href="../../deliverables/sprite.svg"><code>deliverables/sprite.svg</code></a> and the page kept rendering the old symbol. Nothing catches that by eye, so it is now <code>scripts/sync.mjs</code> and <code>npm run check</code> fails on drift.</p>
 <p>Any generated asset that gets embedded rather than linked can do this. There are two: the sprite and the brand wordmark. Both are covered.</p>
 <hr>
 <h2>Still open</h2>
@@ -49,7 +38,3 @@
 <ul><li>style attributes in the body — <code>npm run check</code> fails on them</li><li>raw hex, rgb or px outside <code>:root</code> — likewise</li><li>any glyph not from the sprite</li><li>invented copy, invented numbers, and any value that should carry a <code>TBC</code></li></ul>
 <p>  instead</p>
 <p><strong>Enforced, not hoped for:</strong> <code>npm run check</code> verifies all of the above plus every path <code>SKILL.md</code> routes to, every <code>var()</code> resolving, and every icon reference existing.</p>
-
-</main>
-</body>
-</html>

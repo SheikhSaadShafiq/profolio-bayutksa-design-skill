@@ -24,7 +24,11 @@ const proto = readFileSync(join(D, 'prototype.js'), 'utf8');
    know about them — the same failure mode as check.mjs's page list. */
 const PAGES = readdirSync(D)
   .filter((f) => f.endsWith('.html'))
-  .filter((f) => !/bundled|not-built|inline-art|qa-|\.qa\.|profolio-ksa/.test(f))
+  /* design-system.html is already self-contained — it inlines the fonts, the
+     stylesheet and the sprite itself — so there is nothing here to inline and
+     no <link> to find. It threw on the missing link rather than being skipped,
+     which is the right failure for a page that should have one. */
+  .filter((f) => !/bundled|design-system|not-built|inline-art|qa-|\.qa\.|profolio-ksa/.test(f))
   .sort()
   .map((f) => [f, f.replace(/\.html$/, '.bundled.html')]);
 

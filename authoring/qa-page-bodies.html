@@ -1,14 +1,3 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>QA — the page bodies, and the number that was measuring nothing — Profolio KSA</title>
-<link rel="stylesheet" href="../kb.css">
-</head>
-<body>
-<nav><a href="../index.html">Profolio KSA</a> › <a href="../index.html#guide">Guide</a> › QA — the page bodies, and the number that was measuring nothing</nav>
-<main>
 <h1>QA — the page bodies, and the number that was measuring nothing</h1>
 <p>Nine pages were reported here at 77–96% while being, in the user's words, "not 10% similar to live". Both statements were true, and the gap between them is the finding.</p>
 <h2>What the old number measured</h2>
@@ -59,12 +48,8 @@ node scripts/qa-body.mjs credits       only pages matching "credits"</code></pre
 <p><code>scripts/derive-layout.mjs</code> also gained a <code>shell.badge</code> region. It immediately earned itself: the badge's horizontal place is not a fixed inset but <code>w/2 - 14</code>, because antd centres the sup on the button's end edge and then applies <code>offset={[-14,0]}</code>. We had a flat <code>-11px</code>, measured once against a two-digit count, and it stayed behind when the count became <code>99+</code> and the badge went 30 → 37 wide. The product put it at x=1328; we put it at 1334. A constant cannot follow a width. It is now <code>inset-inline-end:14px</code> with <code>translateX(50%)</code>, and both sides read <code>1328,2 37×20</code>.</p>
 <h2>Still open, after this pass</h2>
 <ul><li><strong>The dashboard draws controls the product no longer does.</strong> Its reference</li></ul>
-<p>  was seven days stale too, and under the current fixture the product's   dashboard table renders <strong>10 buttons over 10 rows</strong> where the old capture had   <strong>120</strong>. <a href="../../deliverables/dashboard.html"><a href="../../deliverables/dashboard.html"><code>deliverables/dashboard.html</code></a></a> was built from the 120. Cards, tabs and   row counts all still agree, so this is a per-row column question, not a   broken page — but the body now reads 129%, and 129% means the same thing   210% did.</p>
+<p>  was seven days stale too, and under the current fixture the product's   dashboard table renders <strong>10 buttons over 10 rows</strong> where the old capture had   <strong>120</strong>. <a href="../../deliverables/dashboard.html"><code>deliverables/dashboard.html</code></a> was built from the 120. Cards, tabs and   row counts all still agree, so this is a per-row column question, not a   broken page — but the body now reads 129%, and 129% means the same thing   210% did.</p>
 <ul><li><strong><code>npm run pages</code> only built Listings.</strong> A change to <code>shell.mjs</code> reached one</li></ul>
 <p>  page out of eleven, and <code>npm run all</code> inherited that. It now runs all four   generators. Anything measured between those two facts is suspect.</p>
 <ul><li><code>user-settings-licenses</code> and <code>user-settings-preferences</code> now read as twins of</li></ul>
 <p>  <code>change-password</code>. <code>shapeOf</code> only walks six levels deep, so three empty   settings shells collide. The dedupe also now prefers the more specific route   as the real one — <code>/user-settings</code> is the alias of   <code>/user-settings/user-profile</code>, not the reverse.</p>
-
-</main>
-</body>
-</html>

@@ -134,7 +134,7 @@ function compare(name, kind, a, b, trees) {
   const pa = parts(a), pb = parts(b);
   /* Count what is INTERACTIVE, not what tag it is. This prototype turns a
      navigation into <a href="not-built.html"> where the product uses a Button
-     with an onClick — a deliberate convention (see authoring/listings-buttons.md),
+     with an onClick — a deliberate convention (see kb/guide/listings-buttons.html),
      not a defect, and flagging it made three matching overlays look broken.
      The split is still reported, as a note. */
   const actA = pa.button + pa.link, actB = pb.button + pb.link;

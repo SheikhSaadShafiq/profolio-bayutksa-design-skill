@@ -1,14 +1,3 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>QA — /listings against the harness render — Profolio KSA</title>
-<link rel="stylesheet" href="../kb.css">
-</head>
-<body>
-<nav><a href="../index.html">Profolio KSA</a> › <a href="../index.html#guide">Guide</a> › QA — /listings against the harness render</nav>
-<main>
 <h1>QA — <code>/listings</code> against the harness render</h1>
 <p><strong>Score: 94.9%</strong> — 10 disagreements out of 351 weighted checks, 28 regions found in the product and 27 in ours. It was 91.7% until the design QA found that the whole system was painting in the wrong typeface; see below. <code>data/layout/listings.score.json</code> carries the full list; re-run it with</p>
 <pre class="code"><code>node harness/capture.mjs --routes listings          # the product, in a real browser
@@ -140,7 +129,7 @@ ant-tooltip markup=3  css-rules=2     ← one had opened</code></pre>
 <ul><li><code>action-discount</code> scores 5 regions, because that capture is of the product</li></ul>
 <p>  NAVIGATING AWAY — the action is a link, and what it captured is the next   screen beginning to load. It is kept because a capture that proves an action   navigates is worth having; it is not a fidelity comparison.</p>
 <h2>The dashboard</h2>
-<p><a href="../../deliverables/dashboard.html"><a href="../../deliverables/dashboard.html"><code>deliverables/dashboard.html</code></a></a> goes through <code>scripts/pages/shell.mjs</code> now. It was hand-written, and by the time anyone looked it carried an <strong>eleven-item rail still listing Inbox and TruLeads</strong>, every rail item on <code>href="#"</code>, no <code>prototype.js</code> and not one <code>data-open</code> — 166 controls, none of them wired. Its shell is the same shell as Listings now and its three overlays work.</p>
+<p><a href="../../deliverables/dashboard.html"><code>deliverables/dashboard.html</code></a> goes through <code>scripts/pages/shell.mjs</code> now. It was hand-written, and by the time anyone looked it carried an <strong>eleven-item rail still listing Inbox and TruLeads</strong>, every rail item on <code>href="#"</code>, no <code>prototype.js</code> and not one <code>data-open</code> — 166 controls, none of them wired. Its shell is the same shell as Listings now and its three overlays work.</p>
 <p>Its own body still has 149 dead controls. That is the Overview screen's audit, and it wants its own <code>authoring/dashboard-buttons.md</code>; this document covers Listings. <code>shell.title</code> at 17.8% is unchanged by the move — it was failing before it and is a page-title width, measured the same both ways.</p>
 <hr>
 <h1>Pass 5 — the QA that looks inside, and what it found</h1>
@@ -169,7 +158,3 @@ ant-tooltip markup=3  css-rules=2     ← one had opened</code></pre>
 <ul><li>the <strong>overlay comparator</strong> walks <code>.ant-popover-inner</code>, and antd makes the</li></ul>
 <p>  arrow a SIBLING of that, not a child.</p>
 <p>So the comparator now looks for an arrow near the overlay on each side, and compares the surface's paint as well — background, radius, shadow, border. That found two more things immediately: the <strong>health popover's radius is 10, not the component's 8</strong> (the account menu does the same, so two of the three popovers on this screen override the default), and the <strong>select dropdown has no arrow at all</strong>, which we had given it.</p>
-
-</main>
-</body>
-</html>

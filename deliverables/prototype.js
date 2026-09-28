@@ -30,7 +30,7 @@
  * as read" that mutates data. Leaving them inert makes them indistinguishable
  * from the ones nobody has got to yet, so scripts/census.mjs counts a
  * data-noop as ACKNOWLEDGED and everything else without a target as DEAD.
- * Dead is the number authoring/listings-buttons.md exists to drive to zero.
+ * Dead is the number kb/guide/listings-buttons.html exists to drive to zero.
  *
  * Esc closes the topmost overlay, focus is trapped while one is open and
  * restored to the trigger on close — the product's behaviour, and the part

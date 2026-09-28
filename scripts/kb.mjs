@@ -63,7 +63,7 @@ function place(rel) {
   if (rel === 'pages/_shell.md')         return ['Pages', 'pages/_shell.html', 0];
   if ((x = m(/^pages\/(.+)\.md$/)))      return ['Pages', `pages/${x[1]}.html`, 10, true];
 
-  return ['Guide', `guide/${basename(rel, '.md')}.html`, 90];
+  return ['Guide', `guide/${basename(rel).replace(/\.(md|html)$/, '')}.html`, 90];
 }
 
 const GUIDE_ORDER = ['recipe', 'qa-listings', 'qa-dashboard', 'extraction-report', 'harness', 'capture-extension'];
@@ -71,16 +71,24 @@ const GUIDE_ORDER = ['recipe', 'qa-listings', 'qa-dashboard', 'extraction-report
 /* ── inputs ────────────────────────────────────────────────────────────── */
 const sources = [
   ...walk(REFS).filter((f) => f.endsWith('.md')).map((f) => ({ file: f, rel: relative(REFS, f).split('\\').join('/') })),
-  ...(existsSync(AUTH) ? readdirSync(AUTH).filter((n) => n.endsWith('.md') && n !== 'ksa.md')
-        .map((n) => ({ file: join(AUTH, n), rel: `guide/${n}` })) : []),
+  /* authoring/ is HTML, not markdown. It used to be .md rendered here, which
+     put eleven markdown files in a repository whose whole point is that the
+     reference layer is HTML. The prose is now written as the content it ends
+     up being — this wraps it in the same head, nav and stylesheet link it
+     wraps a rendered page in, and nothing else. */
+  ...(existsSync(AUTH) ? readdirSync(AUTH).filter((n) => n.endsWith('.html'))
+        .map((n) => ({ file: join(AUTH, n), rel: `guide/${n}`, raw: true })) : []),
 ];
 
-const docs = sources.map(({ file, rel }) => {
+const stem = (rel) => basename(rel).replace(/\.(md|html)$/, '');
+const docs = sources.map(({ file, rel, raw }) => {
   const src = readFileSync(file, 'utf8');
   const [section, out, order, leaf] = place(rel);
-  const title = (src.match(/^#\s+(.+)$/m) || [, basename(rel, '.md')])[1].trim();
-  const guideIdx = GUIDE_ORDER.indexOf(basename(rel, '.md'));
-  return { rel, out, section, order: section === 'Guide' && guideIdx > -1 ? guideIdx : order, leaf: !!leaf, title, src, mdBytes: Buffer.byteLength(src) };
+  const title = (raw
+    ? (src.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [, stem(rel)])[1].replace(/<[^>]+>/g, '')
+    : (src.match(/^#\s+(.+)$/m) || [, stem(rel)])[1]).trim();
+  const guideIdx = GUIDE_ORDER.indexOf(stem(rel));
+  return { rel, out, raw, section, order: section === 'Guide' && guideIdx > -1 ? guideIdx : order, leaf: !!leaf, title, src, mdBytes: Buffer.byteLength(src) };
 });
 
 /* three routes are all titled "Lms" and two "Post Listing": suffix the route so
@@ -201,7 +209,7 @@ ${body}
 const boards = walk(join(REFS, 'pages')).filter((f) => f.endsWith('.board.html'));
 let kbBytes = 0, mdBytes = 0, worst = [];
 for (const d of docs) {
-  const html = linkify(md(d.src), d.out);
+  const html = linkify(d.raw ? d.src : md(d.src), d.out);
   const route = d.section === 'Pages' && d.leaf ? basename(d.out, '.html') : null;
   const board = route && boards.find((b) => basename(b) === `${route}.board.html`);
   const shot = route && existsSync(join(ROOT, 'data', 'live', `${route}.png`));
@@ -213,7 +221,7 @@ for (const d of docs) {
   writeFileSync(join(OUT, d.out), full);
   const b = Buffer.byteLength(full);
   kbBytes += b; mdBytes += d.mdBytes;
-  worst.push({ out: d.out, ratio: b / d.mdBytes, b, md: d.mdBytes });
+  worst.push({ out: d.out, ratio: b / d.mdBytes, b, md: d.mdBytes, raw: d.raw });
 }
 for (const b of boards) copyFileSync(b, join(OUT, 'pages', basename(b)));
 
@@ -306,7 +314,7 @@ p.open a{display:inline-block;margin:0 12px 8px 0;padding:6px 12px;border:1px so
 
 /* ── the cost claim, measured ─────────────────────────────────────────── */
 worst.sort((a, b) => b.ratio - a.ratio);
-const over = worst.filter((w) => w.ratio > 2 && w.md > 600);
+const over = worst.filter((w) => w.ratio > 2 && w.md > 600 && !w.raw);
 console.log(`  kb/  ${docs.length} pages + ${boards.length} artboards`);
 console.log(`  markdown ${(mdBytes / 1024).toFixed(0)}KB → html ${(kbBytes / 1024).toFixed(0)}KB  (${(kbBytes / mdBytes).toFixed(2)}× overall)`);
 if (over.length) {

@@ -1,14 +1,3 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Building a page, repeatably — Profolio KSA</title>
-<link rel="stylesheet" href="../kb.css">
-</head>
-<body>
-<nav><a href="../index.html">Profolio KSA</a> › <a href="../index.html#guide">Guide</a> › Building a page, repeatably</nav>
-<main>
 <h1>Building a page, repeatably</h1>
 <p>The dashboard took several passes and most of the cost was rework: values read off a screenshot that were declared in the codebase all along, and fixes that landed in a generated file but never reached the page. This is the order that avoids both.</p>
 <p>It is written to be followed by a person or an agent. Every step is either a command or a question with a file that answers it.</p>
@@ -45,7 +34,7 @@
 <hr>
 <h2>4 · Sync and check</h2>
 <pre class="code"><code>npm run sync &amp;&amp; npm run check</code></pre>
-<p><code>sync</code> pushes the sprite and inline art into the pages that embed them. This step exists because skipping it silently cost four rounds of icon fixes: they landed in <a href="../../deliverables/sprite.svg"><a href="../../deliverables/sprite.svg"><code>deliverables/sprite.svg</code></a></a> and the page kept rendering the old copy.</p>
+<p><code>sync</code> pushes the sprite and inline art into the pages that embed them. This step exists because skipping it silently cost four rounds of icon fixes: they landed in <a href="../../deliverables/sprite.svg"><code>deliverables/sprite.svg</code></a> and the page kept rendering the old copy.</p>
 <p><code>check</code> enforces: every routed path exists, every <code>var()</code> resolves, no raw colour or style attributes outside <code>:root</code>, every icon reference present, every class defined, no embedded asset stale.</p>
 <hr>
 <h2>5 · Measure against live</h2>
@@ -80,7 +69,3 @@ data/fixtures/&lt;route&gt;.json       invent the data, keep the shapes
 data/live/&lt;route&gt;.capture.json       what the extension writes</code></pre>
 <p><strong>Never commit a page built from a real account.</strong> Compose from a fixture whose strings are the same length as the real ones — a two-word agency name where the real one is two words, an eight-digit Bayut id where the real one is eight digits — so the layout you are checking is the layout that ships. The dashboard's fixture is the worked example.</p>
 <p>The capture itself carries no account data by construction, and <code>npm run test-capture</code> asserts that. The screenshot does; capture on a test account if it matters, or send the JSON alone.</p>
-
-</main>
-</body>
-</html>

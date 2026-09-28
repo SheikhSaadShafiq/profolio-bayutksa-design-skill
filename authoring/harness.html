@@ -1,14 +1,3 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The harness: rendering the product here — Profolio KSA</title>
-<link rel="stylesheet" href="../kb.css">
-</head>
-<body>
-<nav><a href="../index.html">Profolio KSA</a> › <a href="../index.html#guide">Guide</a> › The harness: rendering the product here</nav>
-<main>
 <h1>The harness: rendering the product here</h1>
 <p>The live site and your browser are both unreachable from the sandbox, so the harness runs <strong>the product itself</strong>: it installs the app's own dependency tree from the committed lockfile, boots its Vite dev server, signs a headless Chromium in with a fixture account, answers every API call from invented data, and runs the capture extension's page script on each route.</p>
 <pre class="code"><code>npm run harness:install      # once — rewrites the lockfile host to public npm, stubs the one private package
@@ -45,7 +34,3 @@ node harness/serve.mjs       # keep the app up to look at a page by hand: http:/
 <p>  showed at the right edge is injected outside this repo.</p>
 <h2>Failure modes, so partial mocking is safe</h2>
 <p>Only <code>users/current</code> is all-or-nothing. Every widget has its own error state (<code>EmptyState</code> with the error string) and its own empty state. An <strong>aborted or hanging</strong> request pins a skeleton indefinitely; a <strong>200 with <code>{}</code></strong> lands in a localised empty state. So the harness answers everything, never aborts an <code>/api/</code> call.</p>
-
-</main>
-</body>
-</html>

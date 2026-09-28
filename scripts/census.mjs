@@ -1,7 +1,7 @@
 /**
  * The interactive census of a prototype page, in one place.
  *
- * `authoring/listings-buttons.md` is the audit matrix: one row per interactive
+ * `kb/guide/listings-buttons.html` is the audit matrix: one row per interactive
  * element the product renders. A matrix is only as good as the thing that
  * proves it is still complete, and the failure it has to catch is a control
  * nobody wrote down — a button added to the page that never got a row.
@@ -66,8 +66,13 @@ export function census(html) {
 }
 
 /** The fenced ```census block a matrix carries, parsed back into numbers. */
+/* The matrix is HTML now, so the census arrives as <pre class="… lang-census">
+   rather than a ```census fence. Both forms are read: the fence is still what
+   .build/ staging markdown produces, and the repository itself no longer keeps
+   any markdown to hold one. */
 export function declaredCensus(md) {
-  const block = /```census\n([\s\S]*?)```/.exec(md);
+  const block = /```census\n([\s\S]*?)```/.exec(md)
+    || /<pre[^>]*lang-census[^>]*>\s*<code>([\s\S]*?)<\/code>/.exec(md);
   if (!block) return null;
   const out = {};
   for (const line of block[1].split('\n')) {

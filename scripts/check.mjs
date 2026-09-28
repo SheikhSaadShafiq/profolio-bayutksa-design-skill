@@ -264,32 +264,37 @@ for (const page of PAGES) {
 }
 
 /* ── 3d · the audit matrix must still describe the page ────────────────────
-   authoring/listings-buttons.md is one row per interactive element the product
+   kb/guide/listings-buttons.html is one row per interactive element the product
    renders, and it is only worth having if something proves it is still
    complete. The failure it has to catch is a control nobody wrote down: a
    button added to the page that never got a row. So the matrix records the
    page's census and this recomputes it — add a control and the numbers stop
    matching until someone opens the matrix and says what it is. */
-const matrixPath = join(ROOT, 'authoring', 'listings-buttons.md');
+const matrixPath = join(ROOT, 'authoring', 'listings-buttons.html');
 if (existsSync(matrixPath)) {
   const md = readFileSync(matrixPath, 'utf8');
   const want = declaredCensus(md);
   if (!want) {
-    bad('authoring/listings-buttons.md carries no ```census block');
+    bad('kb/guide/listings-buttons.html carries no ```census block');
   } else {
     const got = census(readFileSync(join(D, 'listings.html'), 'utf8'));
     const off = Object.entries(want).filter(([k, v]) => got[k] !== v);
     off.length
       ? bad(`listings.html census disagrees with the matrix — ${off.map(([k, v]) => `${k} ${got[k]} vs ${v}`).join(', ')}. `
-            + 'A control changed; give it a row in authoring/listings-buttons.md and update the census.')
+            + 'A control changed; give it a row in kb/guide/listings-buttons.html and update the census.')
       : ok(`listings.html census matches the matrix (${got.total} elements, ${got.dead} dead)`);
   }
 
-  /* every row has to name where its value came from, or it is a drawing */
-  const rows = md.split('\n').filter((l) => /^\|/.test(l) && !/^\|\s*-+/.test(l));
+  /* every row has to name where its value came from, or it is a drawing.
+     The matrix is HTML now, so a row is a <tr> and a cell is a <td> — it used
+     to be a pipe table, and reading it as one after the conversion would have
+     found zero rows and reported 100% of nothing. */
+  const strip = (h) => h.replace(/<[^>]+>/g, ' ').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
+  const rows = [...md.matchAll(/<tr>([\s\S]*?)<\/tr>/g)].map((m) => m[1]);
   let counted = 0, covered = 0, unmeasured = 0, sourceless = 0;
-  for (const line of rows) {
-    const cells = line.split('|').slice(1, -1).map((c) => c.trim());
+  for (const row of rows) {
+    const cells = [...row.matchAll(/<t[dh][^>]*>([\s\S]*?)<\/t[dh]>/g)].map((m) => strip(m[1]));
     if (cells.length < 5 || /^element$|^#$/.test(cells[0])) continue;
     const our = cells[cells.length - 2], from = cells[cells.length - 1], src = cells[cells.length - 3];
     /* classify on the FIRST word only: "dead — should be a stub link" is dead,
@@ -310,7 +315,7 @@ if (existsSync(matrixPath)) {
   const unlisted = opens.filter((o) => !md.includes(o));
   if (unlisted.length) bad(`listings.html opens overlays the matrix never mentions — ${unlisted.join(', ')}`);
 } else {
-  bad('authoring/listings-buttons.md missing — it is the definition of done for Listings');
+  bad('kb/guide/listings-buttons.html missing — it is the definition of done for Listings');
 }
 
 /* ── 4 · verdict ───────────────────────────────────────────────────────── */

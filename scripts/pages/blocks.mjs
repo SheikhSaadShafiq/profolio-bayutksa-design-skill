@@ -295,7 +295,7 @@ const fbField = (slug) => (x, i) => {
          known-fabricated component — both of its months share one invented day
          grid — and putting it behind two more triggers would spread a defect
          rather than reuse a measurement. It says so instead. */
-      ? `            <button class="pf-datefield" id="${id}" type="button" data-noop="the range calendar is not measured yet — see authoring/qa-listings.md"><span class="pf-placeholder">${esc(x.placeholder)}</span>${icon('FiCalendar', 16)}</button>`
+      ? `            <button class="pf-datefield" id="${id}" type="button" data-noop="the range calendar is not measured yet — see kb/guide/qa-listings.html"><span class="pf-placeholder">${esc(x.placeholder)}</span>${icon('FiCalendar', 16)}</button>`
       : x.type === 'search-compound'
         /* LMS Leads: one control that is an input and a select side by side,
            sharing a border — searchBy picks which field the text applies to */
