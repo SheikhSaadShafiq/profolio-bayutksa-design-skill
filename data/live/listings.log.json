@@ -1,5 +1,5 @@
 {
-  "url": "http://127.0.0.1:3000/en/listings",
+  "url": "http://127.0.0.1:3100/en/listings",
   "finalPath": "/en/listings",
   "shell": true,
   "errorCard": false,
@@ -13,6 +13,7 @@
     "GET /api/surge/area_units",
     "GET /api/surge/experience_list",
     "GET /api/surge/lms/leads/stats",
+    "GET /api/surge/tenants/current",
     "GET /api/surge/products",
     "GET /api/surge/agencies/880042",
     "GET /api/surge/statuses",
@@ -26,5 +27,5 @@
   ],
   "blocked": 3,
   "fonts": "served from deliverables/fonts.css",
-  "ms": 8909
+  "ms": 3782
 }

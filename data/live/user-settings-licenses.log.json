@@ -1,5 +1,5 @@
 {
-  "url": "http://127.0.0.1:3000/en/user-settings/licenses",
+  "url": "http://127.0.0.1:3100/en/user-settings/licenses",
   "finalPath": "/en/user-settings/licenses",
   "shell": true,
   "errorCard": false,
@@ -13,6 +13,7 @@
     "GET /api/surge/area_units",
     "GET /api/surge/experience_list",
     "GET /api/surge/lms/leads/stats",
+    "GET /api/surge/tenants/current",
     "GET /api/surge/products",
     "GET /api/surge/agencies/880042",
     "GET /api/surge/agencies/880042/licenses"
@@ -21,5 +22,5 @@
   "errors": [],
   "blocked": 3,
   "fonts": "served from deliverables/fonts.css",
-  "ms": 6333
+  "ms": 2919
 }

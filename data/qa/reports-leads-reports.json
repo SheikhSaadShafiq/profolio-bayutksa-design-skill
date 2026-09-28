@@ -1,71 +1,71 @@
 {
   "route": "reports-leads-reports",
-  "at": "2026-09-28T08:02:23.872Z",
+  "at": "2026-09-28T10:48:20.276Z",
   "shellFails": [],
   "diffs": [
     {
       "id": "filter.clear",
-      "diff": 24.5
-    },
-    {
-      "id": "filter.search",
-      "diff": 15.3
+      "diff": 13.3
     },
     {
       "id": "filter.field",
-      "diff": 13.7
+      "diff": 12.7
     },
     {
       "id": "filter.label",
-      "diff": 8.2
-    },
-    {
-      "id": "filter.bar",
-      "diff": 5.3
-    },
-    {
-      "id": "shell.sider",
-      "diff": 4.5
-    },
-    {
-      "id": "shell.content",
-      "diff": 3.6
-    },
-    {
-      "id": "table.cell",
-      "diff": 2.2
+      "diff": 7.7
     },
     {
       "id": "shell.header",
-      "diff": 2.1
+      "diff": 4.9
+    },
+    {
+      "id": "shell.sider",
+      "diff": 4.4
+    },
+    {
+      "id": "filter.bar",
+      "diff": 3.8
+    },
+    {
+      "id": "shell.content",
+      "diff": 3.4
+    },
+    {
+      "id": "pager",
+      "diff": 3
+    },
+    {
+      "id": "filter.select",
+      "diff": 2.5
+    },
+    {
+      "id": "filter.search",
+      "diff": 2.2
+    },
+    {
+      "id": "table.cell",
+      "diff": 2
     },
     {
       "id": "shell.footer",
-      "diff": 1.6
-    },
-    {
-      "id": "shell.title",
-      "diff": 1.2
+      "diff": 1.5
     },
     {
       "id": "table",
-      "diff": 1
-    },
-    {
-      "id": "shell.badge",
-      "diff": 0.7
+      "diff": 0.9
     },
     {
       "id": "table.row",
       "diff": 0.6
     },
     {
-      "id": "filter.select",
-      "diff": 0.6
+      "id": "shell.badge",
+      "diff": 0
     },
     {
-      "id": "pager",
-      "diff": 0.5
+      "id": "shell.title",
+      "diff": 0
     },
     {
       "id": "table.head",
@@ -125,7 +125,7 @@
   "productLow": [
     {
       "col": "rgb(255,255,255)",
-      "n": 22,
+      "n": 25,
       "ratio": 1
     },
     {

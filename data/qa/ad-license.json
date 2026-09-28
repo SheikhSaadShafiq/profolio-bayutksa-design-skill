@@ -1,27 +1,27 @@
 {
   "route": "ad-license",
-  "at": "2026-09-28T08:01:03.164Z",
+  "at": "2026-09-28T10:47:24.721Z",
   "shellFails": [],
   "diffs": [
     {
+      "id": "shell.header",
+      "diff": 4.9
+    },
+    {
       "id": "shell.sider",
-      "diff": 4.5
+      "diff": 4.4
     },
     {
       "id": "shell.content",
-      "diff": 2.8
-    },
-    {
-      "id": "shell.header",
-      "diff": 2
+      "diff": 3.3
     },
     {
       "id": "shell.footer",
-      "diff": 1.6
+      "diff": 1.5
     },
     {
       "id": "shell.badge",
-      "diff": 0.7
+      "diff": 0
     }
   ],
   "offScale": {
@@ -65,7 +65,7 @@
   "productLow": [
     {
       "col": "rgb(255,255,255)",
-      "n": 8,
+      "n": 12,
       "ratio": 1
     },
     {
@@ -81,7 +81,6 @@
   ],
   "notModelled": [
     "settings.main",
-    "sfield",
     "sfield.control"
   ],
   "rtlOverflow": false,

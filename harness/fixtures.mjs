@@ -443,6 +443,12 @@ const ROUTES = [
       { id: 4, title: 'Rented out through another source', name: 'Rented out through another source' },
       { id: 5, title: 'Other',                           name: 'Other' },
   ] })],
+  /* The FEEDBACK tab pinned to the inline-end edge (FeedbackTab.js renders
+     nothing unless `enabled`). New in the product after the snapshot. Values
+     read from staging's own answer on 2026-09-28 — config, not anybody's data. */
+  [/^\/api\/surge\/tenants\/current$/,               () => ({ tenant: { profolio_feedback: {
+      enabled: true, daily_limit: 5, remaining_today: 5, image_max_mb: 5, message_min: 10, message_max: 2000,
+  } } })],
   /* the notification centre popover */
   [/^\/api\/surge\/notifications$/,                  () => ({ notifications: [
       { id: 9001, title: 'Your listing is live', body: 'Apartment for Sale in Al Yarmuk is now live on Bayut.', is_read: false, created_at: new Date(Date.now() - 36e5).toISOString() },

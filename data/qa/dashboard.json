@@ -1,43 +1,43 @@
 {
   "route": "dashboard",
-  "at": "2026-09-28T08:01:07.123Z",
+  "at": "2026-09-28T10:47:27.514Z",
   "shellFails": [],
   "diffs": [
     {
       "id": "table.cell",
-      "diff": 27.7
+      "diff": 27.4
     },
     {
       "id": "table",
-      "diff": 12
+      "diff": 11.6
     },
     {
       "id": "table.row",
-      "diff": 11.3
+      "diff": 11.1
     },
     {
       "id": "shell.content",
-      "diff": 9.7
-    },
-    {
-      "id": "shell.sider",
-      "diff": 4.5
-    },
-    {
-      "id": "shell.title",
-      "diff": 2.6
+      "diff": 9.3
     },
     {
       "id": "shell.header",
-      "diff": 2.1
+      "diff": 4.9
+    },
+    {
+      "id": "shell.sider",
+      "diff": 4.4
     },
     {
       "id": "shell.footer",
-      "diff": 1.6
+      "diff": 1.5
     },
     {
       "id": "shell.badge",
-      "diff": 0.7
+      "diff": 0
+    },
+    {
+      "id": "shell.title",
+      "diff": 0
     },
     {
       "id": "table.head",
@@ -85,7 +85,7 @@
   "productLow": [
     {
       "col": "rgb(255,255,255)",
-      "n": 17,
+      "n": 20,
       "ratio": 1
     },
     {

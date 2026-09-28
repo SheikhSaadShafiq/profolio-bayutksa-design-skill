@@ -11,5 +11,5 @@
   "spinning": false,
   "pageHeight": 1926,
   "note": "row 2, Property cell — hover the AiOutlineInfoCircle beside the REGA id (listing-purpose.js:346). It is the LAST icon in the cell; the four before it are the bed/bath/area specs, and a row without a rega expiry has only those four",
-  "url": "http://127.0.0.1:3000/en/listings"
+  "url": "http://127.0.0.1:3100/en/listings"
 }

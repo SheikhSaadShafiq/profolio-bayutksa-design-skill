@@ -1,71 +1,71 @@
 {
   "route": "reports-listing-report",
-  "at": "2026-09-28T08:02:25.704Z",
+  "at": "2026-09-28T10:48:21.643Z",
   "shellFails": [],
   "diffs": [
     {
       "id": "table.cell",
-      "diff": 23.8
+      "diff": 23.1
     },
     {
       "id": "tabs.active",
-      "diff": 11.9
+      "diff": 12.1
     },
     {
       "id": "table.row",
-      "diff": 9.4
+      "diff": 9.1
     },
     {
       "id": "table",
-      "diff": 8.5
+      "diff": 8.2
     },
     {
       "id": "table.card",
-      "diff": 8.3
+      "diff": 8
     },
     {
       "id": "shell.content",
-      "diff": 7.3
+      "diff": 7.1
+    },
+    {
+      "id": "shell.header",
+      "diff": 4.9
     },
     {
       "id": "shell.sider",
-      "diff": 4.5
+      "diff": 4.4
+    },
+    {
+      "id": "pager",
+      "diff": 3.5
     },
     {
       "id": "tabs.nav",
       "diff": 3
     },
     {
-      "id": "shell.title",
-      "diff": 2.5
-    },
-    {
-      "id": "shell.header",
-      "diff": 2.1
-    },
-    {
       "id": "shell.footer",
-      "diff": 1.6
+      "diff": 1.5
     },
     {
       "id": "pager.nav",
       "diff": 1.2
     },
     {
-      "id": "pager",
-      "diff": 0.8
-    },
-    {
       "id": "table.head",
-      "diff": 0.7
-    },
-    {
-      "id": "shell.badge",
       "diff": 0.7
     },
     {
       "id": "table.card.head",
       "diff": 0.6
+    },
+    {
+      "id": "shell.badge",
+      "diff": 0
+    },
+    {
+      "id": "shell.title",
+      "diff": 0
     },
     {
       "id": "tabs.tab",
@@ -121,7 +121,7 @@
   "productLow": [
     {
       "col": "rgb(255,255,255)",
-      "n": 6,
+      "n": 9,
       "ratio": 1
     },
     {

@@ -1,5 +1,5 @@
 {
-  "url": "http://127.0.0.1:3000/en/user-settings/agency-profile",
+  "url": "http://127.0.0.1:3100/en/user-settings/agency-profile",
   "finalPath": "/en/user-settings/agency-profile",
   "shell": true,
   "errorCard": false,
@@ -13,6 +13,7 @@
     "GET /api/surge/area_units",
     "GET /api/surge/experience_list",
     "GET /api/surge/lms/leads/stats",
+    "GET /api/surge/tenants/current",
     "GET /api/surge/products",
     "GET /api/surge/agencies/880042"
   ],
@@ -24,5 +25,5 @@
   ],
   "blocked": 17,
   "fonts": "served from deliverables/fonts.css",
-  "ms": 6256
+  "ms": 3462
 }

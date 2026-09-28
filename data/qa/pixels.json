@@ -1,0 +1,696 @@
+{
+  "at": "2026-09-28T10:49:13.166Z",
+  "bar": 0.5,
+  "rows": [
+    {
+      "page": "ad-license",
+      "size": {
+        "live": [
+          1440,
+          900
+        ],
+        "ours": [
+          1440,
+          1739
+        ]
+      },
+      "differing": 1236809,
+      "pct": 49.39
+    },
+    {
+      "page": "credits-usage",
+      "size": {
+        "live": [
+          1440,
+          982
+        ],
+        "ours": [
+          1440,
+          1034
+        ]
+      },
+      "differing": 125303,
+      "pct": 8.42
+    },
+    {
+      "page": "dashboard",
+      "size": {
+        "live": [
+          1440,
+          2656
+        ],
+        "ours": [
+          1440,
+          2839
+        ]
+      },
+      "differing": 480410,
+      "pct": 11.75
+    },
+    {
+      "page": "listings",
+      "size": {
+        "live": [
+          1440,
+          1926
+        ],
+        "ours": [
+          1440,
+          1913
+        ]
+      },
+      "differing": 137654,
+      "pct": 4.96
+    },
+    {
+      "page": "listings--action-detail-drawer",
+      "size": {
+        "live": [
+          1440,
+          900
+        ],
+        "ours": [
+          1440,
+          900
+        ]
+      },
+      "differing": 82731,
+      "pct": 6.38
+    },
+    {
+      "page": "listings--action-discount",
+      "size": {
+        "live": [
+          1440,
+          900
+        ],
+        "ours": [
+          1440,
+          1913
+        ]
+      },
+      "differing": 1544360,
+      "pct": 56.06
+    },
+    {
+      "page": "listings--date-posted-on",
+      "size": {
+        "live": [
+          1440,
+          900
+        ],
+        "ours": [
+          1440,
+          900
+        ]
+      },
+      "differing": 430220,
+      "pct": 33.2
+    },
+    {
+      "page": "listings--drawer-filters",
+      "size": {
+        "live": [
+          1440,
+          900
+        ],
+        "ours": [
+          1440,
+          900
+        ]
+      },
+      "differing": 95668,
+      "pct": 7.38
+    },
+    {
+      "page": "listings--error",
+      "size": {
+        "live": [
+          1440,
+          900
+        ],
+        "ours": [
+          1440,
+          900
+        ]
+      },
+      "differing": 26601,
+      "pct": 2.05
+    },
+    {
+      "page": "listings--loading",
+      "size": {
+        "live": [
+          1440,
+          900
+        ],
+        "ours": [
+          1440,
+          900
+        ]
+      },
+      "differing": 8884,
+      "pct": 0.69
+    },
+    {
+      "page": "listings--modal-booking",
+      "size": {
+        "live": [
+          1440,
+          900
+        ],
+        "ours": [
+          1440,
+          900
+        ]
+      },
+      "differing": 85275,
+      "pct": 6.58
+    },
+    {
+      "page": "listings--modal-delete",
+      "size": {
+        "live": [
+          1440,
+          900
+        ],
+        "ours": [
+          1440,
+          900
+        ]
+      },
+      "differing": 87074,
+      "pct": 6.72
+    },
+    {
+      "page": "listings--modal-download-app",
+      "size": {
+        "live": [
+          1440,
+          900
+        ],
+        "ours": [
+          1440,
+          900
+        ]
+      },
+      "differing": 96396,
+      "pct": 7.44
+    },
+    {
+      "page": "listings--modal-trucheck",
+      "size": {
+        "live": [
+          1440,
+          900
+        ],
+        "ours": [
+          1440,
+          900
+        ]
+      },
+      "differing": 90838,
+      "pct": 7.01
+    },
+    {
+      "page": "listings--popover-account",
+      "size": {
+        "live": [
+          1440,
+          900
+        ],
+        "ours": [
+          1440,
+          900
+        ]
+      },
+      "differing": 54013,
+      "pct": 4.17
+    },
+    {
+      "page": "listings--popover-health",
+      "size": {
+        "live": [
+          1440,
+          900
+        ],
+        "ours": [
+          1440,
+          900
+        ]
+      },
+      "differing": 56450,
+      "pct": 4.36
+    },
+    {
+      "page": "listings--popover-leads",
+      "size": {
+        "live": [
+          1440,
+          900
+        ],
+        "ours": [
+          1440,
+          900
+        ]
+      },
+      "differing": 54823,
+      "pct": 4.23
+    },
+    {
+      "page": "listings--popover-notifications",
+      "size": {
+        "live": [
+          1440,
+          900
+        ],
+        "ours": [
+          1440,
+          900
+        ]
+      },
+      "differing": 50034,
+      "pct": 3.86
+    },
+    {
+      "page": "listings--popover-rega",
+      "size": {
+        "live": [
+          1440,
+          900
+        ],
+        "ours": [
+          1440,
+          900
+        ]
+      },
+      "differing": 52152,
+      "pct": 4.02
+    },
+    {
+      "page": "listings--popover-status-rejected",
+      "size": {
+        "live": [
+          1440,
+          900
+        ],
+        "ours": [
+          1440,
+          900
+        ]
+      },
+      "differing": 54419,
+      "pct": 4.2
+    },
+    {
+      "page": "listings--popover-timeline",
+      "size": {
+        "live": [
+          1440,
+          900
+        ],
+        "ours": [
+          1440,
+          900
+        ]
+      },
+      "differing": 53363,
+      "pct": 4.12
+    },
+    {
+      "page": "listings--select-property-type",
+      "size": {
+        "live": [
+          1440,
+          1926
+        ],
+        "ours": [
+          1440,
+          1913
+        ]
+      },
+      "differing": 140908,
+      "pct": 5.08
+    },
+    {
+      "page": "listings--select-purpose",
+      "size": {
+        "live": [
+          1440,
+          1926
+        ],
+        "ours": [
+          1440,
+          1913
+        ]
+      },
+      "differing": 139736,
+      "pct": 5.04
+    },
+    {
+      "page": "listings--tab-ad-license-requests",
+      "size": {
+        "live": [
+          1440,
+          900
+        ],
+        "ours": [
+          1440,
+          900
+        ]
+      },
+      "differing": 23653,
+      "pct": 1.83
+    },
+    {
+      "page": "listings--tab-draft",
+      "size": {
+        "live": [
+          1440,
+          900
+        ],
+        "ours": [
+          1440,
+          900
+        ]
+      },
+      "differing": 23078,
+      "pct": 1.78
+    },
+    {
+      "page": "listings--tab-pending",
+      "size": {
+        "live": [
+          1440,
+          967
+        ],
+        "ours": [
+          1440,
+          900
+        ]
+      },
+      "differing": 157124,
+      "pct": 11.28
+    },
+    {
+      "page": "listings--tab-removed",
+      "size": {
+        "live": [
+          1440,
+          900
+        ],
+        "ours": [
+          1440,
+          900
+        ]
+      },
+      "differing": 26058,
+      "pct": 2.01
+    },
+    {
+      "page": "listings--tooltip-action",
+      "size": {
+        "live": [
+          1440,
+          1926
+        ],
+        "ours": [
+          1440,
+          1913
+        ]
+      },
+      "differing": 139354,
+      "pct": 5.02
+    },
+    {
+      "page": "listings--tooltip-booked",
+      "size": {
+        "live": [
+          1440,
+          1926
+        ],
+        "ours": [
+          1440,
+          1913
+        ]
+      },
+      "differing": 148695,
+      "pct": 5.36
+    },
+    {
+      "page": "listings--tooltip-upgrade",
+      "size": {
+        "live": [
+          1440,
+          1926
+        ],
+        "ours": [
+          1440,
+          1913
+        ]
+      },
+      "differing": 139768,
+      "pct": 5.04
+    },
+    {
+      "page": "listings--tooltip-upgrade-applied",
+      "size": {
+        "live": [
+          1440,
+          1926
+        ],
+        "ours": [
+          1440,
+          1913
+        ]
+      },
+      "differing": 140101,
+      "pct": 5.05
+    },
+    {
+      "page": "listings--tooltip-upgrade-none",
+      "size": {
+        "live": [
+          1440,
+          1926
+        ],
+        "ours": [
+          1440,
+          1913
+        ]
+      },
+      "differing": 150555,
+      "pct": 5.43
+    },
+    {
+      "page": "listings--tooltip-upgrade-pending",
+      "size": {
+        "live": [
+          1440,
+          1926
+        ],
+        "ours": [
+          1440,
+          1913
+        ]
+      },
+      "differing": 140458,
+      "pct": 5.06
+    },
+    {
+      "page": "listings--tooltip-upgrade-service",
+      "size": {
+        "live": [
+          1440,
+          1926
+        ],
+        "ours": [
+          1440,
+          1913
+        ]
+      },
+      "differing": 140469,
+      "pct": 5.06
+    },
+    {
+      "page": "listings--tooltip-upgrade-unavailable",
+      "size": {
+        "live": [
+          1440,
+          1926
+        ],
+        "ours": [
+          1440,
+          1913
+        ]
+      },
+      "differing": 151727,
+      "pct": 5.47
+    },
+    {
+      "page": "listings--upgrade-hot",
+      "size": {
+        "live": [
+          1440,
+          900
+        ],
+        "ours": [
+          1440,
+          900
+        ]
+      },
+      "differing": 89653,
+      "pct": 6.92
+    },
+    {
+      "page": "listings--upgrade-photography",
+      "size": {
+        "live": [
+          1440,
+          900
+        ],
+        "ours": [
+          1440,
+          900
+        ]
+      },
+      "differing": 96403,
+      "pct": 7.44
+    },
+    {
+      "page": "listings--upgrade-refresh",
+      "size": {
+        "live": [
+          1440,
+          900
+        ],
+        "ours": [
+          1440,
+          900
+        ]
+      },
+      "differing": 94777,
+      "pct": 7.31
+    },
+    {
+      "page": "listings--upgrade-signature",
+      "size": {
+        "live": [
+          1440,
+          900
+        ],
+        "ours": [
+          1440,
+          900
+        ]
+      },
+      "differing": 93014,
+      "pct": 7.18
+    },
+    {
+      "page": "lms-leads",
+      "size": {
+        "live": [
+          1440,
+          1165
+        ],
+        "ours": [
+          1440,
+          900
+        ]
+      },
+      "differing": 412014,
+      "pct": 24.56
+    },
+    {
+      "page": "reports-leads-reports",
+      "size": {
+        "live": [
+          1440,
+          1489
+        ],
+        "ours": [
+          1440,
+          1556
+        ]
+      },
+      "differing": 134612,
+      "pct": 6.01
+    },
+    {
+      "page": "reports-listing-report",
+      "size": {
+        "live": [
+          1440,
+          1973
+        ],
+        "ours": [
+          1440,
+          1830
+        ]
+      },
+      "differing": 340305,
+      "pct": 11.98
+    },
+    {
+      "page": "reports-summary",
+      "size": {
+        "live": [
+          1440,
+          924
+        ],
+        "ours": [
+          1440,
+          968
+        ]
+      },
+      "differing": 92592,
+      "pct": 6.64
+    },
+    {
+      "page": "user-settings-agency-profile",
+      "size": {
+        "live": [
+          1440,
+          1057
+        ],
+        "ours": [
+          1440,
+          1049
+        ]
+      },
+      "differing": 34680,
+      "pct": 2.28
+    },
+    {
+      "page": "user-settings-change-password",
+      "size": {
+        "live": [
+          1440,
+          900
+        ],
+        "ours": [
+          1440,
+          900
+        ]
+      },
+      "differing": 13438,
+      "pct": 1.04
+    },
+    {
+      "page": "user-settings-user-profile",
+      "size": {
+        "live": [
+          1440,
+          1681
+        ],
+        "ours": [
+          1440,
+          1725
+        ]
+      },
+      "differing": 135752,
+      "pct": 5.47
+    }
+  ]
+}
