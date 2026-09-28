@@ -1,0 +1,466 @@
+{
+  "at": "2026-09-28T11:21:59.688Z",
+  "bar": 0.5,
+  "rows": [
+    {
+      "name": "ad-license",
+      "file": "deliverables/ad-license.html",
+      "kb": 431,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "credits-usage",
+      "file": "deliverables/credits-usage.html",
+      "kb": 425,
+      "heights": [
+        982,
+        982
+      ],
+      "pct": 0.031
+    },
+    {
+      "name": "dashboard",
+      "file": "deliverables/dashboard.html",
+      "kb": 841,
+      "heights": [
+        2656,
+        2656
+      ],
+      "pct": 0.001
+    },
+    {
+      "name": "listings",
+      "file": "deliverables/listings.html",
+      "kb": 724,
+      "heights": [
+        1926,
+        1926
+      ],
+      "pct": 0.002
+    },
+    {
+      "name": "listings--action-detail-drawer",
+      "file": "deliverables/states/listings--action-detail-drawer.html",
+      "kb": 749,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.004
+    },
+    {
+      "name": "listings--action-discount",
+      "file": "deliverables/states/listings--action-discount.html",
+      "kb": 730,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.01
+    },
+    {
+      "name": "listings--date-posted-on",
+      "file": "deliverables/states/listings--date-posted-on.html",
+      "kb": 804,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.002
+    },
+    {
+      "name": "listings--drawer-filters",
+      "file": "deliverables/states/listings--drawer-filters.html",
+      "kb": 771,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.07
+    },
+    {
+      "name": "listings--error",
+      "file": "deliverables/states/listings--error.html",
+      "kb": 395,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.007
+    },
+    {
+      "name": "listings--loading",
+      "file": "deliverables/states/listings--loading.html",
+      "kb": 386,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.01
+    },
+    {
+      "name": "listings--modal-booking",
+      "file": "deliverables/states/listings--modal-booking.html",
+      "kb": 732,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.002
+    },
+    {
+      "name": "listings--modal-delete",
+      "file": "deliverables/states/listings--modal-delete.html",
+      "kb": 744,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.002
+    },
+    {
+      "name": "listings--modal-download-app",
+      "file": "deliverables/states/listings--modal-download-app.html",
+      "kb": 758,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.002
+    },
+    {
+      "name": "listings--modal-trucheck",
+      "file": "deliverables/states/listings--modal-trucheck.html",
+      "kb": 744,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.004
+    },
+    {
+      "name": "listings--popover-account",
+      "file": "deliverables/states/listings--popover-account.html",
+      "kb": 742,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.005
+    },
+    {
+      "name": "listings--popover-health",
+      "file": "deliverables/states/listings--popover-health.html",
+      "kb": 739,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.004
+    },
+    {
+      "name": "listings--popover-leads",
+      "file": "deliverables/states/listings--popover-leads.html",
+      "kb": 738,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.003
+    },
+    {
+      "name": "listings--popover-notifications",
+      "file": "deliverables/states/listings--popover-notifications.html",
+      "kb": 745,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.007
+    },
+    {
+      "name": "listings--popover-rega",
+      "file": "deliverables/states/listings--popover-rega.html",
+      "kb": 728,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.004
+    },
+    {
+      "name": "listings--popover-status-rejected",
+      "file": "deliverables/states/listings--popover-status-rejected.html",
+      "kb": 728,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.003
+    },
+    {
+      "name": "listings--popover-timeline",
+      "file": "deliverables/states/listings--popover-timeline.html",
+      "kb": 728,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.003
+    },
+    {
+      "name": "listings--select-property-type",
+      "file": "deliverables/states/listings--select-property-type.html",
+      "kb": 729,
+      "heights": [
+        1926,
+        1926
+      ],
+      "pct": 0.002
+    },
+    {
+      "name": "listings--select-purpose",
+      "file": "deliverables/states/listings--select-purpose.html",
+      "kb": 732,
+      "heights": [
+        1926,
+        1926
+      ],
+      "pct": 0.002
+    },
+    {
+      "name": "listings--tab-ad-license-requests",
+      "file": "deliverables/states/listings--tab-ad-license-requests.html",
+      "kb": 394,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.012
+    },
+    {
+      "name": "listings--tab-draft",
+      "file": "deliverables/states/listings--tab-draft.html",
+      "kb": 436,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.002
+    },
+    {
+      "name": "listings--tab-pending",
+      "file": "deliverables/states/listings--tab-pending.html",
+      "kb": 485,
+      "heights": [
+        967,
+        967
+      ],
+      "pct": 0.003
+    },
+    {
+      "name": "listings--tab-removed",
+      "file": "deliverables/states/listings--tab-removed.html",
+      "kb": 396,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.007
+    },
+    {
+      "name": "listings--tooltip-action",
+      "file": "deliverables/states/listings--tooltip-action.html",
+      "kb": 728,
+      "heights": [
+        1926,
+        1926
+      ],
+      "pct": 0.002
+    },
+    {
+      "name": "listings--tooltip-booked",
+      "file": "deliverables/states/listings--tooltip-booked.html",
+      "kb": 731,
+      "heights": [
+        1926,
+        1926
+      ],
+      "pct": 0.002
+    },
+    {
+      "name": "listings--tooltip-upgrade",
+      "file": "deliverables/states/listings--tooltip-upgrade.html",
+      "kb": 729,
+      "heights": [
+        1926,
+        1926
+      ],
+      "pct": 0.002
+    },
+    {
+      "name": "listings--tooltip-upgrade-applied",
+      "file": "deliverables/states/listings--tooltip-upgrade-applied.html",
+      "kb": 728,
+      "heights": [
+        1926,
+        1926
+      ],
+      "pct": 0.002
+    },
+    {
+      "name": "listings--tooltip-upgrade-none",
+      "file": "deliverables/states/listings--tooltip-upgrade-none.html",
+      "kb": 724,
+      "heights": [
+        1926,
+        1926
+      ],
+      "pct": 0.002
+    },
+    {
+      "name": "listings--tooltip-upgrade-pending",
+      "file": "deliverables/states/listings--tooltip-upgrade-pending.html",
+      "kb": 728,
+      "heights": [
+        1926,
+        1926
+      ],
+      "pct": 0.002
+    },
+    {
+      "name": "listings--tooltip-upgrade-service",
+      "file": "deliverables/states/listings--tooltip-upgrade-service.html",
+      "kb": 728,
+      "heights": [
+        1926,
+        1926
+      ],
+      "pct": 0.002
+    },
+    {
+      "name": "listings--tooltip-upgrade-unavailable",
+      "file": "deliverables/states/listings--tooltip-upgrade-unavailable.html",
+      "kb": 728,
+      "heights": [
+        1926,
+        1926
+      ],
+      "pct": 0.002
+    },
+    {
+      "name": "listings--upgrade-hot",
+      "file": "deliverables/states/listings--upgrade-hot.html",
+      "kb": 750,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.003
+    },
+    {
+      "name": "listings--upgrade-photography",
+      "file": "deliverables/states/listings--upgrade-photography.html",
+      "kb": 755,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.003
+    },
+    {
+      "name": "listings--upgrade-refresh",
+      "file": "deliverables/states/listings--upgrade-refresh.html",
+      "kb": 750,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.003
+    },
+    {
+      "name": "listings--upgrade-signature",
+      "file": "deliverables/states/listings--upgrade-signature.html",
+      "kb": 746,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.002
+    },
+    {
+      "name": "lms-leads",
+      "file": "deliverables/lms-leads.html",
+      "kb": 499,
+      "heights": [
+        1165,
+        1165
+      ],
+      "pct": 0.004
+    },
+    {
+      "name": "reports-leads-reports",
+      "file": "deliverables/reports-leads-reports.html",
+      "kb": 521,
+      "heights": [
+        1489,
+        1489
+      ],
+      "pct": 0
+    },
+    {
+      "name": "reports-listing-report",
+      "file": "deliverables/reports-listing-report.html",
+      "kb": 537,
+      "heights": [
+        1973,
+        1973
+      ],
+      "pct": 0.006
+    },
+    {
+      "name": "reports-summary",
+      "file": "deliverables/reports-summary.html",
+      "kb": 509,
+      "heights": [
+        924,
+        924
+      ],
+      "pct": 0
+    },
+    {
+      "name": "user-settings-agency-profile",
+      "file": "deliverables/user-settings-agency-profile.html",
+      "kb": 422,
+      "heights": [
+        1057,
+        1057
+      ],
+      "pct": 0
+    },
+    {
+      "name": "user-settings-change-password",
+      "file": "deliverables/user-settings-change-password.html",
+      "kb": 361,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "user-settings-user-profile",
+      "file": "deliverables/user-settings-user-profile.html",
+      "kb": 445,
+      "heights": [
+        1681,
+        1681
+      ],
+      "pct": 0
+    }
+  ]
+}

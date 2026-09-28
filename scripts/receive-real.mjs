@@ -55,6 +55,52 @@ createServer((req, res) => {
     return res.end(readFileSync(join(ROOT, 'tools/profolio-capture/capture.js'), 'utf8'));
   }
 
+  /* API SHAPES — what the real API answers, as keys and types. The page
+     side records shape only (arrays cut to one item, strings as their
+     length); this side then keeps a string's VALUE only under keys that hold
+     enumerations (slug, status, …), strips numeric ids out of paths, and
+     merges into data/api-shapes.json, which scripts/check-fixtures.mjs holds
+     harness/fixtures.mjs to. */
+  if (req.method === 'POST' && url.pathname === '/shapes') {
+    let body = '';
+    req.on('data', (d) => { body += d; if (body.length > 16e6) req.destroy(); });
+    req.on('end', () => {
+      let got;
+      try { got = JSON.parse(body); } catch { res.writeHead(400, h); return res.end('not JSON'); }
+      const ENUM_KEYS = /^(slug|status|state|type|kind|action_performed|image_type|key|code|platform|purpose_slug|category|mode|currency)$/;
+      const clean = (v, key = '') => {
+        if (Array.isArray(v)) return v.map((x) => clean(x, key));
+        if (v && typeof v === 'object') return Object.fromEntries(Object.entries(v).map(([k, x]) => [k, clean(x, k)]));
+        if (typeof v === 'string' && /^"/.test(v) && !ENUM_KEYS.test(key)) return `string(${v.length - 2})`;
+        return v;
+      };
+      const file = join(ROOT, 'data', 'api-shapes.json');
+      let all = {};
+      try { all = JSON.parse(readFileSync(file, 'utf8')); } catch {}
+      for (const [k, v] of Object.entries(got)) all[k.replace(/\/\d+(?=\/|$)/g, '/:id')] = clean(v);
+      const json = JSON.stringify(all, null, 1);
+      /* A shape's KEYS are the API's field names — id, title, name — and
+         leaks.mjs, written for captures, rightly refuses those there. Here the
+         question is the VALUES, so every leaf is held to what a shape may
+         contain: a type, a length, a count, or an enumeration's slug. */
+      const bad = [];
+      const LEAF = /^(number|boolean|null|undefined|string\(\d+\)|\{…\}|×\d+|"[a-z][a-z0-9_-]{0,30}")$/;
+      const walk = (v, at) => {
+        /* q is the endpoint's query-parameter NAMES (page, platform_id[]) */
+        if (/^\.[^.]+\.q$/.test(at) && Array.isArray(v)) return v.forEach((x) => { if (!/^[\w[\].-]{1,60}$/.test(x)) bad.push(`${at}=${x}`); });
+        if (Array.isArray(v)) return v.forEach((x, i) => walk(x, `${at}[${i}]`));
+        if (v && typeof v === 'object') return Object.entries(v).forEach(([k, x]) => walk(x, `${at}.${k}`));
+        if (typeof v !== 'string' || !LEAF.test(v)) bad.push(`${at}=${String(v).slice(0, 30)}`);
+      };
+      walk(all, '');
+      if (bad.length) { res.writeHead(422, h); return res.end('refused: ' + bad.slice(0, 5).join(' · ')); }
+      writeFileSync(file, json);
+      console.log(`  wrote api-shapes.json  ${Object.keys(all).length} endpoints`);
+      res.writeHead(200, h); res.end(JSON.stringify({ ok: true, endpoints: Object.keys(all).length }));
+    });
+    return;
+  }
+
   if (req.method === 'POST' && url.pathname === '/capture') {
     const name = url.searchParams.get('name') || '';
     if (!/^[a-z0-9][a-z0-9-]*$/.test(name)) { res.writeHead(400, h); return res.end('name must be a route slug'); }

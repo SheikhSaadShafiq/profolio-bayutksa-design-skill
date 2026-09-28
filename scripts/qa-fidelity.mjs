@@ -221,7 +221,7 @@ for (const page of pages) {
   const live = JSON.parse(readFileSync(liveFile(page), 'utf8'));
   const ours = JSON.parse(readFileSync(oursFile(page), 'utf8'));
   const lc = contentOf(live.tree, /^ant-layout-content$/);
-  const oc = contentOf(ours.tree, ACCOUNTS ? /^ant-layout-content$/ : /^pf-content$/);
+  const oc = contentOf(ours.tree, ACCOUNTS ? /^ant-layout-content$/ : /^pf-(layout-)?content$/);
   if (!lc || !oc) { rows.push({ page, fault: 'no content region on one side' }); continue; }
 
   /* the content frame itself is not a box on the page — it is the page. Its

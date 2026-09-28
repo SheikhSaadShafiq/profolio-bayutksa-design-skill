@@ -19,7 +19,7 @@
     "kb": "node scripts/kb.mjs",
     "harness:install": "node harness/install.mjs",
     "harness:capture": "node harness/capture.mjs",
-    "pages": "node scripts/pages/listings.mjs && node scripts/pages/dashboard.mjs && node scripts/pages/settings.mjs && node scripts/pages/blocks.mjs",
+    "pages": "node scripts/compile.mjs --states",
     "layout": "node scripts/derive-layout.mjs",
     "qa": "node scripts/qa-design.mjs",
     "sync": "node scripts/sync.mjs",
@@ -27,7 +27,11 @@
     "qa-overlays": "node scripts/qa-overlays.mjs",
     "outline": "node scripts/outline.mjs",
     "components": "node scripts/extract-components.mjs && node scripts/design-system.mjs",
-    "qa-components": "node scripts/qa-components.mjs"
+    "qa-components": "node scripts/qa-components.mjs",
+    "explore": "node harness/explore.mjs",
+    "receive-real": "node scripts/receive-real.mjs",
+    "qa-pixels": "node scripts/qa-pixels.mjs",
+    "qa-fidelity": "node scripts/qa-fidelity.mjs"
   },
   "devDependencies": {
     "antd": "5.22.1",
