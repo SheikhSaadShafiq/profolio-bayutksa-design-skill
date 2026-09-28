@@ -1,0 +1,2418 @@
+{
+  "at": "2026-09-28T09:35:57.694Z",
+  "tolerancePx": 2,
+  "coverage": 24,
+  "fidelity": 3.6,
+  "rows": [
+    {
+      "page": "ad-license",
+      "live": 195,
+      "ours": 143,
+      "matched": 19,
+      "clean": 0,
+      "missing": 176,
+      "moved": 16,
+      "painted": 3,
+      "extra": 124,
+      "pageHeight": [
+        814,
+        1638
+      ],
+      "coverage": 9.7,
+      "fidelity": 0,
+      "score": 0,
+      "worklist": [
+        {
+          "kind": "extra",
+          "at": "div.pf-block-row",
+          "box": "1332×1496 @24,122",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "section.pf-wsection",
+          "box": "985×252 @198,1341",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-wsection-fields",
+          "box": "640×270 @441,1023",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-wsection-fields",
+          "box": "640×172 @441,1381",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-page-lead",
+          "box": "1035×78 @173,20",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-wfield",
+          "box": "640×110 @441,629",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-wfield-body",
+          "box": "590×110 @491,629",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-wfield",
+          "box": "640×74 @441,335",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-wfield",
+          "box": "640×74 @441,433",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-wfield",
+          "box": "640×74 @441,763",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-wfield",
+          "box": "640×74 @441,861",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-wfield",
+          "box": "640×74 @441,1121",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-wfield",
+          "box": "640×74 @441,1219",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-wfield",
+          "box": "640×74 @441,1381",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-wfield",
+          "box": "640×74 @441,1479",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-choices",
+          "box": "590×80 @491,659",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-wfield-body",
+          "box": "590×74 @491,335",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-wfield-body",
+          "box": "590×74 @491,763",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-wfield-body",
+          "box": "590×74 @491,861",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-wfield-body",
+          "box": "590×74 @491,1121",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-wfield-body",
+          "box": "590×74 @491,1219",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-wfield-body",
+          "box": "590×74 @491,1381",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-wfield-body",
+          "box": "590×74 @491,1479",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-wfield",
+          "box": "640×66 @441,245",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-wfield-body",
+          "box": "590×66 @491,245",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "button.pf-select",
+          "box": "590×44 @491,365",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "input",
+          "box": "590×44 @491,463",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "button.pf-select",
+          "box": "590×44 @491,561",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "input",
+          "box": "590×44 @491,793",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "input",
+          "box": "590×44 @491,891",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "button.pf-select",
+          "box": "590×44 @491,1151",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "input",
+          "box": "590×44 @491,1249",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "input",
+          "box": "590×44 @491,1411",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "input",
+          "box": "590×44 @491,1509",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-choices",
+          "box": "590×36 @491,275",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-wsection-title",
+          "box": "195×105 @198,187",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-wsection-title",
+          "box": "195×105 @198,1023",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-wsection-title",
+          "box": "195×105 @198,1381",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-wfield-body",
+          "box": "590×30 @491,187",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "label.pf-field-label",
+          "box": "590×22 @491,187",
+          "detail": "we draw it, the product does not"
+        }
+      ]
+    },
+    {
+      "page": "credits-usage",
+      "live": 159,
+      "ours": 127,
+      "matched": 24,
+      "clean": 0,
+      "missing": 135,
+      "moved": 24,
+      "painted": 0,
+      "extra": 103,
+      "pageHeight": [
+        856,
+        933
+      ],
+      "coverage": 15.1,
+      "fidelity": 0,
+      "score": 0,
+      "worklist": [
+        {
+          "kind": "extra",
+          "at": "div.pf-tl-item",
+          "box": "817×140 @514,256",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-tl-item",
+          "box": "817×140 @514,420",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-tl-item",
+          "box": "817×140 @514,584",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-card.pf-tl-card",
+          "box": "783×140 @548,256",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-card.pf-tl-card",
+          "box": "783×140 @548,420",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-card.pf-tl-card",
+          "box": "783×140 @548,584",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-card.pf-tl-card",
+          "box": "783×140 @548,748",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-card.pf-tl-prop",
+          "box": "582×106 @565,765",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-card.pf-tl-prop",
+          "box": "580×106 @565,273",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-card.pf-tl-prop",
+          "box": "580×106 @565,437",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-card.pf-tl-prop",
+          "box": "580×106 @565,601",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div",
+          "box": "157×73 @713,125",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div",
+          "box": "157×73 @713,453",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div",
+          "box": "157×73 @713,781",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div",
+          "box": "156×73 @713,289",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div",
+          "box": "156×73 @713,617",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-credits-bd-title",
+          "box": "399×25 @49,577",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-tl-thumb",
+          "box": "120×82 @577,121",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-tl-thumb",
+          "box": "120×82 @577,285",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-tl-thumb",
+          "box": "120×82 @577,449",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-tl-thumb",
+          "box": "120×82 @577,613",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-tl-thumb",
+          "box": "120×82 @577,777",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-bd-row",
+          "box": "399×22 @49,614",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-bd-row",
+          "box": "399×22 @49,648",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-bd-row",
+          "box": "399×22 @49,682",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-bd-row",
+          "box": "399×22 @49,716",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-credits-cell",
+          "box": "123×59 @65,154",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-credits-cell",
+          "box": "123×59 @188,154",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-credits-cell",
+          "box": "122×59 @310,154",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-block-title",
+          "box": "161×25 @502,31",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-tl-price",
+          "box": "157×22 @713,125",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-tl-price",
+          "box": "157×22 @713,453",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-tl-price",
+          "box": "157×22 @713,781",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-tl-price",
+          "box": "156×22 @713,289",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-tl-price",
+          "box": "156×22 @713,617",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-tl-date",
+          "box": "145×22 @1169,151",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-tl-date",
+          "box": "145×22 @1169,315",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-tl-date",
+          "box": "145×22 @1169,479",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-tl-date",
+          "box": "145×22 @1169,643",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-tl-date",
+          "box": "143×22 @1171,807",
+          "detail": "we draw it, the product does not"
+        }
+      ]
+    },
+    {
+      "page": "dashboard",
+      "live": 463,
+      "ours": 854,
+      "matched": 18,
+      "clean": 0,
+      "missing": 445,
+      "moved": 18,
+      "painted": 0,
+      "extra": 836,
+      "pageHeight": [
+        2556,
+        2738
+      ],
+      "coverage": 3.9,
+      "fidelity": 0,
+      "score": 0,
+      "worklist": [
+        {
+          "kind": "extra",
+          "at": "div.pf-card-body",
+          "box": "1330×449 @25,663",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "svg",
+          "box": "1282×363 @49,725",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-two-col",
+          "box": "1332×299 @24,157",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "tr",
+          "box": "1329×150 @26,1219",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "tr",
+          "box": "1329×150 @26,1369",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "tr",
+          "box": "1329×150 @26,1519",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "tr",
+          "box": "1329×150 @26,1669",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "tr",
+          "box": "1329×150 @26,1818",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "tr",
+          "box": "1329×150 @26,1968",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "tr",
+          "box": "1329×150 @26,2118",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "tr",
+          "box": "1329×150 @26,2267",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "tr",
+          "box": "1329×150 @26,2567",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-card-body",
+          "box": "656×232 @25,223",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-card-body",
+          "box": "656×232 @699,223",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-metric-bar",
+          "box": "1330×109 @25,554",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-breakdown",
+          "box": "608×143 @49,253",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-metric-extra",
+          "box": "730×108 @625,554",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "tr",
+          "box": "1329×55 @26,1164",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.col-property",
+          "box": "469×150 @26,1219",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.col-property",
+          "box": "469×150 @26,1369",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.col-property",
+          "box": "469×150 @26,1519",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.col-property",
+          "box": "469×150 @26,1669",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.col-property",
+          "box": "469×150 @26,1818",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.col-property",
+          "box": "469×150 @26,1968",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.col-property",
+          "box": "469×150 @26,2118",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.col-property",
+          "box": "469×150 @26,2267",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.col-property",
+          "box": "469×150 @26,2417",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.col-property",
+          "box": "469×150 @26,2567",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-breakdown-rows",
+          "box": "484×143 @229,253",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-credit-stats",
+          "box": "608×108 @723,247",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-listing",
+          "box": "437×118 @42,1235",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-listing",
+          "box": "437×118 @42,1385",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-listing",
+          "box": "437×118 @42,1535",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-listing",
+          "box": "437×118 @42,1685",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-listing",
+          "box": "437×118 @42,1834",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-listing",
+          "box": "437×118 @42,1984",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-listing",
+          "box": "437×118 @42,2134",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-listing",
+          "box": "437×118 @42,2283",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-listing",
+          "box": "437×118 @42,2433",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-listing",
+          "box": "437×118 @42,2583",
+          "detail": "we draw it, the product does not"
+        }
+      ]
+    },
+    {
+      "page": "listings",
+      "live": 962,
+      "ours": 779,
+      "matched": 215,
+      "clean": 2,
+      "missing": 747,
+      "moved": 195,
+      "painted": 18,
+      "extra": 564,
+      "pageHeight": [
+        1826,
+        1812
+      ],
+      "coverage": 22.3,
+      "fidelity": 0.9,
+      "score": 0.9,
+      "worklist": [
+        {
+          "kind": "extra",
+          "at": "ul.pf-pagination",
+          "box": "308×40 @1048,1752",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-action-grid",
+          "box": "124×80 @1182,391",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-action-grid",
+          "box": "124×80 @1182,540",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-action-grid",
+          "box": "124×80 @1182,691",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-action-grid",
+          "box": "124×80 @1182,997",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-action-grid",
+          "box": "124×80 @1182,1146",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-action-grid",
+          "box": "124×80 @1182,1296",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-action-grid",
+          "box": "124×80 @1182,1446",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-action-grid",
+          "box": "116×76 @1014,241",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-action-grid",
+          "box": "116×76 @1014,540",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-action-grid",
+          "box": "116×76 @1014,691",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-action-grid",
+          "box": "116×76 @1014,841",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-action-grid",
+          "box": "116×76 @1014,997",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-action-grid",
+          "box": "116×76 @1014,1146",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-action-grid",
+          "box": "116×76 @1014,1446",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-action-grid",
+          "box": "116×76 @1014,1595",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-listing-price",
+          "box": "264×30 @156,1296",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-listing-price",
+          "box": "264×30 @156,1446",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-listing-price",
+          "box": "264×30 @156,1595",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-listing-loc",
+          "box": "264×22 @156,917",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-listing-loc",
+          "box": "264×22 @156,1073",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-listing-loc",
+          "box": "264×22 @156,1222",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-listing-loc",
+          "box": "264×22 @156,1372",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-listing-loc",
+          "box": "264×22 @156,1522",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-status-pill",
+          "box": "182×30 @791,1296",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-listing-specs",
+          "box": "264×19 @156,898",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-listing-specs",
+          "box": "264×19 @156,1203",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-listing-specs",
+          "box": "264×19 @156,1353",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-listing-specs",
+          "box": "264×19 @156,1503",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-listing-specs",
+          "box": "264×19 @156,1653",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "button.pf-btn",
+          "box": "135×36 @1014,1296",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-listing-ids",
+          "box": "264×16 @156,943",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-listing-ids",
+          "box": "264×16 @156,1099",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-listing-ids",
+          "box": "264×16 @156,1248",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-listing-ids",
+          "box": "264×16 @156,1398",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-listing-ids",
+          "box": "264×16 @156,1548",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-listing-title",
+          "box": "186×20 @156,1180",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-listing-title",
+          "box": "186×20 @156,1330",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-listing-title",
+          "box": "186×20 @156,1479",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-listing-title",
+          "box": "186×20 @156,1629",
+          "detail": "we draw it, the product does not"
+        }
+      ]
+    },
+    {
+      "page": "lms-leads",
+      "live": 56,
+      "ours": 38,
+      "matched": 29,
+      "clean": 0,
+      "missing": 27,
+      "moved": 29,
+      "painted": 0,
+      "extra": 9,
+      "pageHeight": [
+        800,
+        799
+      ],
+      "coverage": 51.8,
+      "fidelity": 0,
+      "score": 0,
+      "worklist": [
+        {
+          "kind": "extra",
+          "at": "div.pf-filter-actions",
+          "box": "336×48 @1020,47",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "svg",
+          "box": "164×89 @584,249",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div",
+          "box": "142×37 @595,370",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-empty-title",
+          "box": "142×28 @595,370",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "button.pf-select",
+          "box": "82×44 @207,49",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-placeholder",
+          "box": "34×22 @219,60",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "svg",
+          "box": "16×16 @1210,63",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "svg",
+          "box": "14×14 @1111,64",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "svg",
+          "box": "12×12 @265,65",
+          "detail": "we draw it, the product does not"
+        }
+      ]
+    },
+    {
+      "page": "reports-leads-reports",
+      "live": 316,
+      "ours": 182,
+      "matched": 75,
+      "clean": 0,
+      "missing": 241,
+      "moved": 74,
+      "painted": 1,
+      "extra": 107,
+      "pageHeight": [
+        1389,
+        1455
+      ],
+      "coverage": 23.7,
+      "fidelity": 0,
+      "score": 0,
+      "worklist": [
+        {
+          "kind": "extra",
+          "at": "div.pf-filter-fields",
+          "box": "1155×99 @24,675",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "ul.pf-pagination",
+          "box": "1332×40 @24,1395",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-pills",
+          "box": "1282×29 @49,247",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "h3.pf-section-h",
+          "box": "1332×25 @24,630",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-field",
+          "box": "283×75 @24,675",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-field",
+          "box": "283×75 @315,675",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "291×54 @26,1324",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "button.pf-metric",
+          "box": "152×93 @412,113",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-channels",
+          "box": "554×25 @789,147",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "256×54 @1050,946",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "256×54 @1050,1000",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "256×54 @1050,1054",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "256×54 @1050,1108",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "256×54 @1050,1162",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "256×54 @1050,1216",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "256×54 @1050,1270",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "256×54 @1050,1324",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "button.pf-datefield",
+          "box": "274×48 @24,702",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "243×54 @807,1324",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "button.pf-select",
+          "box": "283×44 @315,704",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "180×54 @472,1324",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "155×54 @652,946",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "155×54 @652,1000",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "155×54 @652,1054",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "155×54 @652,1108",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "155×54 @652,1162",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "155×54 @652,1216",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "155×54 @652,1270",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "155×54 @317,1324",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "155×54 @652,1324",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-filter-actions",
+          "box": "165×48 @1191,702",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "button.pf-datefield",
+          "box": "141×48 @1202,37",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-metric-text",
+          "box": "111×59 @107,129",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "label.pf-field-label",
+          "box": "283×21 @315,675",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "label.pf-field-label",
+          "box": "283×19 @24,675",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "button.pf-segment",
+          "box": "125×36 @1056,43",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-metric-text",
+          "box": "76×59 @312,129",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-channel",
+          "box": "167×25 @915,147",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "button.pf-btn",
+          "box": "87×40 @1269,706",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-metric-value",
+          "box": "111×31 @107,156",
+          "detail": "we draw it, the product does not"
+        }
+      ]
+    },
+    {
+      "page": "reports-listing-report",
+      "live": 470,
+      "ours": 372,
+      "matched": 125,
+      "clean": 1,
+      "missing": 345,
+      "moved": 110,
+      "painted": 14,
+      "extra": 247,
+      "pageHeight": [
+        1873,
+        1729
+      ],
+      "coverage": 26.6,
+      "fidelity": 0.8,
+      "score": 0.8,
+      "worklist": [
+        {
+          "kind": "extra",
+          "at": "tr",
+          "box": "1331×128 @25,884",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "tr",
+          "box": "1331×128 @25,1012",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "tr",
+          "box": "1331×128 @25,1140",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-td-prop",
+          "box": "475×128 @25,884",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-td-prop",
+          "box": "475×128 @25,1012",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-td-prop",
+          "box": "475×128 @25,1140",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "ul.pf-pagination",
+          "box": "1332×40 @24,1669",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-stat-grid",
+          "box": "357×144 @176,92",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-prop",
+          "box": "443×96 @41,771",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-prop",
+          "box": "443×96 @41,900",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-prop",
+          "box": "443×96 @41,1028",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-prop",
+          "box": "443×96 @41,1156",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-prop",
+          "box": "443×96 @41,1284",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-prop",
+          "box": "443×96 @41,1412",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-prop-detail",
+          "box": "248×96 @81,771",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-prop-detail",
+          "box": "245×96 @81,1284",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-prop-detail",
+          "box": "245×96 @81,1540",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-prop-detail",
+          "box": "244×96 @81,515",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-prop-detail",
+          "box": "244×96 @81,643",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-prop-detail",
+          "box": "244×96 @81,900",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-prop-detail",
+          "box": "244×96 @81,1156",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-prop-detail",
+          "box": "243×96 @81,387",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-prop-detail",
+          "box": "242×96 @81,1028",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-prop-detail",
+          "box": "241×96 @81,1412",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "157×128 @500,884",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "157×128 @500,1012",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "157×128 @500,1140",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "157×128 @500,1268",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "128×128 @963,884",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "128×128 @963,1012",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "128×128 @963,1140",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "128×128 @963,1268",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "117×128 @846,884",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "117×128 @846,1012",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "117×128 @846,1140",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "117×128 @846,1268",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "98×128 @1258,884",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "98×128 @1258,1012",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "98×128 @1258,1140",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td",
+          "box": "98×128 @1258,1268",
+          "detail": "we draw it, the product does not"
+        }
+      ]
+    },
+    {
+      "page": "reports-summary",
+      "live": 220,
+      "ours": 131,
+      "matched": 49,
+      "clean": 1,
+      "missing": 171,
+      "moved": 34,
+      "painted": 14,
+      "extra": 82,
+      "pageHeight": [
+        824,
+        867
+      ],
+      "coverage": 22.3,
+      "fidelity": 2,
+      "score": 2,
+      "worklist": [
+        {
+          "kind": "extra",
+          "at": "div.pf-stat-grid",
+          "box": "357×144 @176,92",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-pills",
+          "box": "1282×29 @49,496",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-segmented",
+          "box": "377×46 @809,287",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "button.pf-metric",
+          "box": "152×93 @412,362",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-channels",
+          "box": "554×25 @789,396",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "button.pf-datefield",
+          "box": "141×48 @1202,286",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-stat-lead",
+          "box": "103×59 @49,92",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "button.pf-segment",
+          "box": "125×36 @1056,292",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-channel",
+          "box": "167×25 @915,396",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-metric-value",
+          "box": "111×31 @107,405",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-metric-text",
+          "box": "58×59 @482,378",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-channel",
+          "box": "136×25 @1207,396",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "button.pf-segment",
+          "box": "94×36 @960,292",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-channel",
+          "box": "126×25 @789,396",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-channel",
+          "box": "125×25 @1082,396",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "button.pf-pill",
+          "box": "104×29 @286,496",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-metric-label",
+          "box": "111×25 @107,378",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-stat-title",
+          "box": "63×44 @470,92",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-legend-item",
+          "box": "123×22 @750,145",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-legend-item",
+          "box": "123×22 @1129,145",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-metric-value",
+          "box": "76×31 @312,405",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span",
+          "box": "105×22 @768,145",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span",
+          "box": "105×22 @1147,145",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "button.pf-pill",
+          "box": "79×29 @120,496",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span",
+          "box": "91×25 @1215,298",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "button.pf-pill",
+          "box": "71×29 @207,496",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span",
+          "box": "77×25 @963,396",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-metric-label",
+          "box": "76×25 @312,378",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "button.pf-segment",
+          "box": "51×36 @814,292",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "button.pf-pill",
+          "box": "63×29 @49,496",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-metric-value",
+          "box": "58×31 @482,405",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-stat-value",
+          "box": "63×25 @470,138",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-stat-value",
+          "box": "61×25 @216,211",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-metric-label",
+          "box": "58×25 @482,378",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-stat-lead-value",
+          "box": "45×31 @78,120",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-stat-title",
+          "box": "61×22 @216,187",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-metric-tile",
+          "box": "34×34 @61,390",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-metric-tile",
+          "box": "34×34 @266,390",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-metric-tile",
+          "box": "34×34 @436,390",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span",
+          "box": "46×25 @1255,396",
+          "detail": "we draw it, the product does not"
+        }
+      ]
+    },
+    {
+      "page": "user-settings-agency-profile",
+      "live": 121,
+      "ours": 84,
+      "matched": 79,
+      "clean": 12,
+      "missing": 42,
+      "moved": 41,
+      "painted": 26,
+      "extra": 5,
+      "pageHeight": [
+        957,
+        948
+      ],
+      "coverage": 65.3,
+      "fidelity": 15.2,
+      "score": 15.2,
+      "worklist": [
+        {
+          "kind": "moved",
+          "at": "span.nav-text",
+          "box": "214×22 @99,45",
+          "detail": "w 214→228"
+        },
+        {
+          "kind": "moved",
+          "at": "span.nav-text",
+          "box": "214×22 @99,91",
+          "detail": "w 214→228"
+        },
+        {
+          "kind": "moved",
+          "at": "span.nav-text",
+          "box": "214×22 @99,137",
+          "detail": "w 214→228"
+        },
+        {
+          "kind": "moved",
+          "at": "span.nav-text",
+          "box": "214×22 @99,183",
+          "detail": "w 214→228"
+        },
+        {
+          "kind": "moved",
+          "at": "span.nav-text",
+          "box": "214×22 @99,229",
+          "detail": "w 214→228"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-progress",
+          "box": "235×8 @49,352",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-progress-bg",
+          "box": "212×8 @49,352",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "moved",
+          "at": "span.anticon.fZMNLY",
+          "box": "38×17 @61,48",
+          "detail": "x 61→46 · w 38→54"
+        },
+        {
+          "kind": "moved",
+          "at": "span.anticon.fZMNLY",
+          "box": "38×17 @61,94",
+          "detail": "x 61→46 · w 38→54"
+        },
+        {
+          "kind": "moved",
+          "at": "span.anticon.fZMNLY",
+          "box": "38×17 @61,140",
+          "detail": "x 61→46 · w 38→54"
+        },
+        {
+          "kind": "moved",
+          "at": "span.anticon.fZMNLY",
+          "box": "38×17 @61,186",
+          "detail": "x 61→46 · w 38→54"
+        },
+        {
+          "kind": "moved",
+          "at": "span.anticon.fZMNLY",
+          "box": "38×17 @61,232",
+          "detail": "x 61→46 · w 38→54"
+        },
+        {
+          "kind": "extra",
+          "at": "svg",
+          "box": "18×18 @550,787",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "svg",
+          "box": "12×12 @924,249",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-select-value",
+          "box": "6×22 @897,343",
+          "detail": "we draw it, the product does not"
+        }
+      ]
+    },
+    {
+      "page": "user-settings-change-password",
+      "live": 91,
+      "ours": 62,
+      "matched": 51,
+      "clean": 6,
+      "missing": 40,
+      "moved": 26,
+      "painted": 19,
+      "extra": 11,
+      "pageHeight": [
+        800,
+        799
+      ],
+      "coverage": 56,
+      "fidelity": 11.8,
+      "score": 11.8,
+      "worklist": [
+        {
+          "kind": "extra",
+          "at": "input",
+          "box": "450×44 @621,91",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "input",
+          "box": "450×44 @621,189",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "input",
+          "box": "450×44 @621,287",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "moved",
+          "at": "span.nav-text",
+          "box": "214×22 @99,45",
+          "detail": "w 214→228"
+        },
+        {
+          "kind": "moved",
+          "at": "span.nav-text",
+          "box": "214×22 @99,91",
+          "detail": "w 214→228"
+        },
+        {
+          "kind": "moved",
+          "at": "span.nav-text",
+          "box": "214×22 @99,137",
+          "detail": "w 214→228"
+        },
+        {
+          "kind": "moved",
+          "at": "span.nav-text",
+          "box": "214×22 @99,183",
+          "detail": "w 214→228"
+        },
+        {
+          "kind": "moved",
+          "at": "span.nav-text",
+          "box": "214×22 @99,229",
+          "detail": "w 214→228"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-progress",
+          "box": "235×8 @49,352",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-progress-bg",
+          "box": "212×8 @49,352",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "moved",
+          "at": "span.anticon.fZMNLY",
+          "box": "38×17 @61,48",
+          "detail": "x 61→46 · w 38→54"
+        },
+        {
+          "kind": "moved",
+          "at": "span.anticon.fZMNLY",
+          "box": "38×17 @61,94",
+          "detail": "x 61→46 · w 38→54"
+        },
+        {
+          "kind": "moved",
+          "at": "span.anticon.fZMNLY",
+          "box": "38×17 @61,140",
+          "detail": "x 61→46 · w 38→54"
+        },
+        {
+          "kind": "moved",
+          "at": "span.anticon.fZMNLY",
+          "box": "38×17 @61,186",
+          "detail": "x 61→46 · w 38→54"
+        },
+        {
+          "kind": "moved",
+          "at": "span.anticon.fZMNLY",
+          "box": "38×17 @61,232",
+          "detail": "x 61→46 · w 38→54"
+        },
+        {
+          "kind": "extra",
+          "at": "button.pf-input-suffix",
+          "box": "24×16 @1071,105",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "button.pf-input-suffix",
+          "box": "24×16 @1071,203",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "button.pf-input-suffix",
+          "box": "24×16 @1071,301",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "svg",
+          "box": "14×14 @1076,106",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "svg",
+          "box": "14×14 @1076,204",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "svg",
+          "box": "14×14 @1076,302",
+          "detail": "we draw it, the product does not"
+        }
+      ]
+    },
+    {
+      "page": "user-settings-user-profile",
+      "live": 193,
+      "ours": 137,
+      "matched": 96,
+      "clean": 6,
+      "missing": 97,
+      "moved": 78,
+      "painted": 12,
+      "extra": 41,
+      "pageHeight": [
+        1581,
+        1643
+      ],
+      "coverage": 49.7,
+      "fidelity": 6.3,
+      "score": 6.3,
+      "worklist": [
+        {
+          "kind": "extra",
+          "at": "div.pf-upload",
+          "box": "835×122 @442,1396",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-guidelines",
+          "box": "364×122 @913,1396",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-form-actions",
+          "box": "832×40 @442,1542",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-generate",
+          "box": "835×38 @442,1100",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-generate",
+          "box": "835×38 @442,1304",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "button.pf-upload-btn",
+          "box": "415×55 @442,1396",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "label.pf-field-label",
+          "box": "835×22 @442,1162",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "label.pf-field-label",
+          "box": "835×22 @442,1366",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-guideline",
+          "box": "364×38 @913,1420",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-guideline",
+          "box": "364×38 @913,1460",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span",
+          "box": "348×38 @929,1420",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span",
+          "box": "348×38 @929,1460",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "button.pf-btn",
+          "box": "288×38 @989,1100",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "button.pf-btn",
+          "box": "212×40 @1062,1542",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-guidelines-title",
+          "box": "364×22 @913,1396",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "button.pf-btn",
+          "box": "204×38 @442,1304",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "a",
+          "box": "364×19 @913,1499",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "moved",
+          "at": "span.nav-text",
+          "box": "214×22 @99,45",
+          "detail": "w 214→228"
+        },
+        {
+          "kind": "moved",
+          "at": "span.nav-text",
+          "box": "214×22 @99,91",
+          "detail": "w 214→228"
+        },
+        {
+          "kind": "moved",
+          "at": "span.nav-text",
+          "box": "214×22 @99,137",
+          "detail": "w 214→228"
+        },
+        {
+          "kind": "moved",
+          "at": "span.nav-text",
+          "box": "214×22 @99,183",
+          "detail": "w 214→228"
+        },
+        {
+          "kind": "moved",
+          "at": "span.nav-text",
+          "box": "214×22 @99,229",
+          "detail": "w 214→228"
+        },
+        {
+          "kind": "extra",
+          "at": "span",
+          "box": "220×20 @1037,1109",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "h2.pf-settings-name",
+          "box": "131×31 @515,73",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "missing",
+          "at": "div.ant-space-item",
+          "box": "176×22 @515,107",
+          "detail": "the product draws it, we do not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-placeholder",
+          "box": "175×22 @454,901",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-placeholder",
+          "box": "145×22 @899,803",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span",
+          "box": "147×20 @485,1313",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span",
+          "box": "121×22 @604,1413",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span",
+          "box": "104×24 @1116,1550",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-progress",
+          "box": "235×8 @49,352",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-progress-bg",
+          "box": "212×8 @49,352",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "moved",
+          "at": "span.anticon.fZMNLY",
+          "box": "38×17 @61,48",
+          "detail": "x 61→46 · w 38→54"
+        },
+        {
+          "kind": "moved",
+          "at": "span.anticon.fZMNLY",
+          "box": "38×17 @61,94",
+          "detail": "x 61→46 · w 38→54"
+        },
+        {
+          "kind": "moved",
+          "at": "span.anticon.fZMNLY",
+          "box": "38×17 @61,140",
+          "detail": "x 61→46 · w 38→54"
+        },
+        {
+          "kind": "moved",
+          "at": "span.anticon.fZMNLY",
+          "box": "38×17 @61,186",
+          "detail": "x 61→46 · w 38→54"
+        },
+        {
+          "kind": "moved",
+          "at": "span.anticon.fZMNLY",
+          "box": "38×17 @61,232",
+          "detail": "x 61→46 · w 38→54"
+        },
+        {
+          "kind": "extra",
+          "at": "svg",
+          "box": "18×18 @574,1415",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-flag",
+          "box": "20×14 @459,512",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-flag",
+          "box": "20×14 @904,512",
+          "detail": "we draw it, the product does not"
+        }
+      ]
+    }
+  ]
+}

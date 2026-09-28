@@ -23,7 +23,7 @@
  * Arabic and the currency glyph stay: the stack names Droid Arabic Kufi second
  * and KSA ships Arabic first, so an Arabic string falls through to it.
  *
- *   node scripts/fonts.mjs --repo ../profolio-reactjs-copy --tenant bayut
+ *   node scripts/fonts.mjs --repo ../profolio-reactjs --tenant bayut
  *
  * Figtree is fetched once from Google (the same URL useAppInit asks for) and
  * cached in .build/fonts/, so a later run needs no network.
@@ -36,7 +36,7 @@ import { fileURLToPath } from 'node:url';
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..');
 const arg = (n, d) => { const i = process.argv.indexOf(n); return i > -1 ? process.argv[i + 1] : d; };
-const REPO = join(ROOT, arg('--repo', '../profolio-reactjs-copy'));
+const REPO = join(ROOT, arg('--repo', '../profolio-reactjs'));
 const TENANT = arg('--tenant', 'bayut');
 const DIR = join(REPO, 'public', 'profolio-assets', TENANT, 'fonts');
 const CACHE = join(ROOT, '.build', 'fonts');

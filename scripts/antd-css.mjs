@@ -13,7 +13,7 @@
  * a string through a StyleProvider cache, then `extractStyle` it. Feed it the
  * product's own theme config and what comes out is what the product paints.
  *
- *   node scripts/antd-css.mjs --repo ../profolio-reactjs-copy
+ *   node scripts/antd-css.mjs --repo ../profolio-reactjs
  *
  * The config is read out of src/theme/index.js rather than copied here, so it
  * cannot drift from the product.
@@ -30,7 +30,7 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const arg = (n, d) => { const i = process.argv.indexOf(n); return i > -1 ? process.argv[i + 1] : d; };
-const REPO = join(ROOT, arg('--repo', '../profolio-reactjs-copy'));
+const REPO = join(ROOT, arg('--repo', '../profolio-reactjs'));
 
 /* ── the product's own theme, evaluated not transcribed ────────────────── */
 const src = readFileSync(join(REPO, 'src/theme/index.js'), 'utf8');

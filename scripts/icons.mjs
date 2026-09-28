@@ -11,7 +11,7 @@
  * This reads both and writes `deliverables/sprite.svg` as <symbol>s that the
  * pages reference with <use href="#pf-Name">.
  *
- *   node scripts/icons.mjs --repo ../profolio-reactjs-copy
+ *   node scripts/icons.mjs --repo ../profolio-reactjs
  *
  * react-icons is optional. If it is not installed the script still emits every
  * local icon and lists what it skipped, so the sprite is always usable.
@@ -27,7 +27,7 @@ const arg = (name, fallback) => {
   const i = process.argv.indexOf(name);
   return i > -1 ? process.argv[i + 1] : fallback;
 };
-const REPO = join(ROOT, arg('--repo', '../profolio-reactjs-copy'));
+const REPO = join(ROOT, arg('--repo', '../profolio-reactjs'));
 
 /* ── what the dashboard actually uses ──────────────────────────────────────
    Grouped so the sprite stays legible and so a missing icon is obvious. The

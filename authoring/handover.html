@@ -1,0 +1,146 @@
+<h1>Handover — running this on your own machine</h1>
+
+<p>Everything this project knows is in two repositories and one rule: <strong>no value is
+written that was not measured from a render</strong>. The design system is generated from the
+Profolio codebase and from the product running in a headless browser; nothing in it is
+typed by hand, and every claim has a check that fails when it stops being true.</p>
+
+<h2>The two repositories</h2>
+
+<table>
+  <tr><th>repo</th><th>what it is</th></tr>
+  <tr><td><code>chaudhary-umair-ahmad/profolio-bayutksa-design-skill</code></td>
+      <td>This one. The design system, the pages, the knowledge base and all the tooling.
+      Branch <code>main</code>.</td></tr>
+  <tr><td><code>SectorLabs/profolio-reactjs</code></td>
+      <td>The product. Read, never modified — except for one route this project adds,
+      which is kept here as a patch.</td></tr>
+</table>
+
+<p>They must sit <strong>side by side</strong>. Every script defaults to <code>../profolio-reactjs</code>,
+and the harness reads <code>PROFOLIO_REPO</code> if you keep them somewhere else.</p>
+
+<h2>Setting up</h2>
+
+<pre class="code"><code>git clone https://github.com/chaudhary-umair-ahmad/profolio-bayutksa-design-skill
+git clone https://github.com/SectorLabs/profolio-reactjs
+
+cd profolio-bayutksa-design-skill
+npm install
+
+# the capture route: two new files and two registrations in the product
+git -C ../profolio-reactjs apply ../profolio-bayutksa-design-skill/product-route/design-capture.patch
+
+# stand the product up: rewrites yarn.lock's private mirror to public npm,
+# stubs the one genuinely private package, installs, and refuses to finish if
+# the installed antd, react or styled-components differ from the lockfile
+node harness/install.mjs
+
+npm run all</code></pre>
+
+<p><code>npm run all</code> reads the product, renders it, builds every page, cuts the design
+system out of the stylesheet and runs every check. It stops on the first failure.</p>
+
+<h3>What you need that is not in git</h3>
+<ul>
+  <li><strong>Playwright with Chromium</strong> — the harness drives a real browser. It is the
+  only way heights, stroke widths and row heights are known.</li>
+  <li><strong>Nothing else.</strong> No API keys, no VPN, no account. The product is answered
+  entirely from <code>harness/fixtures.mjs</code>.</li>
+</ul>
+
+<h2>The commands worth knowing</h2>
+
+<table>
+  <tr><th>command</th><th>what it does</th></tr>
+  <tr><td><code>npm run all</code></td><td>everything, in order, gated by the checks</td></tr>
+  <tr><td><code>npm run harness:capture</code></td><td>renders the product and measures all 24 routes. <code>--routes a,b</code> for a few, <code>--list</code> to see them</td></tr>
+  <tr><td><code>npm run pages</code></td><td>regenerates the eleven page HTMLs</td></tr>
+  <tr><td><code>npm run components</code></td><td>cuts each component out of the stylesheet and rebuilds <code>design-system.html</code></td></tr>
+  <tr><td><code>npm run check</code></td><td>the invariants: no undefined class, no dead trigger, no leaked text in a capture</td></tr>
+  <tr><td><code>npm run qa</code></td><td>our render against the product's, region by region</td></tr>
+  <tr><td><code>npm run qa-body</code></td><td>what each page body is made of, against the product's</td></tr>
+  <tr><td><code>npm run qa-components</code></td><td>every extracted component rendered twice and compared</td></tr>
+  <tr><td><code>node scripts/qa-fidelity.mjs</code></td><td>every painted box against the product's — coverage and fidelity</td></tr>
+  <tr><td><code>node scripts/outline.mjs live/&lt;route&gt;</code></td><td>read a capture as a tree. This is how a page gets rebuilt from geometry rather than from an impression of a screenshot</td></tr>
+</table>
+
+<h2>What is built</h2>
+
+<ul>
+  <li><strong><code>deliverables/design-system.html</code></strong> — 38 components in atoms ·
+  molecules · organisms, self-contained, each with its states, what it is made of, where it
+  is used and the exact CSS to lift.</li>
+  <li><strong><code>deliverables/</code></strong> — eleven page HTMLs, plus
+  <code>profolio-ksa.html</code> which carries all of them in one file.</li>
+  <li><strong><code>deliverables/components/</code></strong> — one liftable file per component.</li>
+  <li><strong><code>kb/</code></strong> — 358 HTML pages: the product's screens, flags, copy,
+  tokens and components, for an agent to read a little of rather than all of.</li>
+  <li><strong><code>data/live/</code></strong> — the product's own measurements. These carry
+  geometry and class names and <em>no</em> text, href, src, value or id;
+  <code>scripts/leaks.mjs</code> re-proves it before anything is written.</li>
+</ul>
+
+<h2>Where it stands</h2>
+
+<table>
+  <tr><th>measure</th><th>where</th></tr>
+  <tr><td>shell, every page</td><td>passing — header, rail, content, footer, badge</td></tr>
+  <tr><td>page bodies</td><td>five of eleven clean; the rest carry named faults</td></tr>
+  <tr><td>components</td><td>38 of 38 render identically to the catalogue</td></tr>
+  <tr><td>audit matrix (Listings)</td><td>127 rows, 104 covered, 16 unmeasured, 0 dead controls</td></tr>
+</table>
+
+<h3>Known wrong, and worth fixing in this order</h3>
+<ol>
+  <li><strong>The product checkout moved.</strong> Everything above was measured against a
+  snapshot; the real <code>SectorLabs/profolio-reactjs</code> differs in <strong>357 files</strong>
+  under <code>src/</code>, with whole features added. Re-run <code>npm run all</code> against the
+  real repo and expect numbers to move. Nothing is trustworthy until that has been done once.</li>
+  <li><strong>The dashboard draws 120 controls the product does not.</strong>
+  <code>scripts/pages/dashboard-body.html</code> is the last hand-written page body and was
+  written against a stale capture. It should go through a generator like the other ten.</li>
+  <li><strong>Four bodies sit at 41–48%</strong> of the product's node count — Reports ×3 and
+  LMS Leads — and Ad License renders one card where the product renders four.</li>
+  <li><strong>228 <code>pf-</code> classes are in no catalogue section</strong> — the whole
+  settings and reports vocabulary. They cannot be cut into components or checked until they
+  are catalogued in <code>deliverables/components.html</code>.</li>
+  <li><strong>The Listings range calendar is fabricated</strong> — both months share one
+  invented day grid. The two date fields that would use it are deliberately inert.</li>
+</ol>
+
+<h2>The two habits that matter</h2>
+
+<p><strong>Measure, then write.</strong> Every wrong value in this project came from taking one
+sample and promoting it to a rule — five row actions because the fixture listing offered no
+discount, a disabled upgrade circle because the account had no credits, a profile header
+built from a redirect that was never the profile page. When a page needs rebuilding, run
+<code>outline.mjs</code> against its capture and read the geometry.</p>
+
+<p><strong>A check per claim.</strong> There are 37 scripts and most of them exist because
+something was wrong and nobody noticed: <code>check-captures.mjs</code> because eight
+reference captures were a week stale, <code>qa-components.mjs</code> because cutting CSS by
+class name silently dropped rules, <code>sync.mjs</code> because a regenerated sprite never
+reached the pages embedding it. When you fix something, ask what would have caught it, and
+add that too.</p>
+
+<h2>Gotchas that cost real time</h2>
+
+<ul>
+  <li><strong>A capture older than the fixture lies quietly.</strong> It renders, so it looks
+  fine, and it scores every page built against it as wrong in a region that is actually
+  right. <code>check-captures.mjs</code> now names any capture whose header disagrees with
+  the newest one.</li>
+  <li><strong>Coverage over 100% means the reference is empty</strong>, not that the page is
+  more than complete.</li>
+  <li><strong><code>.pf-card</code> is a flex column</strong>, so any row inside a card has to
+  restate <code>flex-direction:row</code>.</li>
+  <li><strong>The riyal mark U+FDFC is an Arabic letter</strong>, so the digits after it join
+  one right-to-left run and the price renders backwards. CSS cannot fix it; the mark needs
+  its own <code>&lt;bdi&gt;</code>.</li>
+  <li><strong>antd's Badge clamps at 99</strong>, and its offset is <code>w/2 - 14</code> —
+  a width-dependent position, not a fixed inset.</li>
+  <li><strong>Never read <code>canvas/*.dc.html</code></strong> into an agent's context. Three
+  files, about 92,000 tokens. Everything needed from them is already in
+  <code>kb/design/components/</code>.</li>
+</ul>

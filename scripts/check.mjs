@@ -106,7 +106,7 @@ for (const page of ['dashboard.html', 'listings.html', 'components.html']) {
    product's lockfile pinned 5.22.1. Same major, plausible output, wrong
    ground truth. The product's yarn.lock is the authority; if it is not next
    to this repo the rule is skipped, not passed. */
-const lockPath = join(ROOT, '..', 'profolio-reactjs-copy', 'yarn.lock');
+const lockPath = join(ROOT, '..', 'profolio-reactjs', 'yarn.lock');
 if (existsSync(lockPath)) {
   const m = /^antd@[^\n]*:\n  version "([^"]+)"/m.exec(readFileSync(lockPath, 'utf8'));
   const ours = JSON.parse(readFileSync(join(ROOT, 'node_modules/antd/package.json'), 'utf8')).version;

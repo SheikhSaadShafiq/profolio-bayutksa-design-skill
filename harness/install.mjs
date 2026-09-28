@@ -10,7 +10,7 @@
  * it is imported once, for one class, on the branch development never takes,
  * so a local stub satisfies the module graph.
  *
- *   node harness/install.mjs [--repo ../profolio-reactjs-copy]
+ *   node harness/install.mjs [--repo ../profolio-reactjs]
  *
  * Touches the product checkout only through files git already ignores
  * (node_modules, .env, src/utility/variables.js) plus a harness-stubs/ folder
@@ -31,7 +31,7 @@ import { fileURLToPath } from 'node:url';
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..');
 const arg = (n, d) => { const i = process.argv.indexOf(n); return i > -1 ? process.argv[i + 1] : d; };
-const REPO = join(ROOT, arg('--repo', '../profolio-reactjs-copy'));
+const REPO = join(ROOT, arg('--repo', '../profolio-reactjs'));
 const sh = (cmd, opts = {}) => execSync(cmd, { cwd: REPO, stdio: 'inherit', ...opts });
 
 const PRIVATE = '@sector-labs/fe-auth-redux';

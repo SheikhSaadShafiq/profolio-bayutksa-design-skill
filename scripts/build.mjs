@@ -7,7 +7,7 @@
  * Hand-written files are never touched: references/tenants/*, references/pages/_shell.md,
  * references/flows/*. Everything this script emits carries a GENERATED banner.
  *
- * Usage:  node scripts/build.mjs --repo ../profolio-reactjs-copy
+ * Usage:  node scripts/build.mjs --repo ../profolio-reactjs
  */
 
 import { readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync, rmSync, copyFileSync } from 'node:fs';
@@ -26,7 +26,7 @@ if (existsSync(join(ROOT, 'authoring', 'ksa.md'))) copyFileSync(join(ROOT, 'auth
 const CANVAS = join(ROOT, 'canvas');
 
 const argRepo = process.argv.indexOf('--repo');
-const REPO = argRepo > -1 ? process.argv[argRepo + 1] : join(ROOT, '..', 'profolio-reactjs-copy');
+const REPO = argRepo > -1 ? process.argv[argRepo + 1] : join(ROOT, '..', 'profolio-reactjs');
 if (!existsSync(REPO)) {
   console.error(`profolio repo not found at ${REPO} — pass --repo <path>`);
   process.exit(1);

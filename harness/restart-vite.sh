@@ -3,7 +3,7 @@
 # cannot match the shell that invokes it — an inline `pkill -f "yarn start"`
 # matches its own command line and kills the caller.
 set -u
-REPO="${PROFOLIO_REPO:-/home/user/profolio-reactjs-copy}"
+REPO="${PROFOLIO_REPO:-/home/user/profolio-reactjs}"
 LOG="$(cd "$(dirname "$0")" && pwd)/vite.log"
 pkill -f "vite --host" 2>/dev/null
 pkill -f "yarn start" 2>/dev/null

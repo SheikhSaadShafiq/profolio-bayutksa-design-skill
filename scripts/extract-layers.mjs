@@ -15,7 +15,7 @@
  * already a thousand lines and nine sections, and these read different kinds of
  * source in different ways.
  *
- *   node scripts/extract-layers.mjs --repo ../profolio-reactjs-copy --tenant bayut
+ *   node scripts/extract-layers.mjs --repo ../profolio-reactjs --tenant bayut
  *
  * Writes references/data/*.md. Regenerate whenever the product moves.
  */
@@ -28,7 +28,7 @@ import { execSync } from 'node:child_process';
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..');
 const arg = (n, d) => { const i = process.argv.indexOf(n); return i > -1 ? process.argv[i + 1] : d; };
-const REPO = join(ROOT, arg('--repo', '../profolio-reactjs-copy'));
+const REPO = join(ROOT, arg('--repo', '../profolio-reactjs'));
 const TENANT = arg('--tenant', 'bayut');
 const OUT = join(ROOT, '.build', 'references', 'data');
 

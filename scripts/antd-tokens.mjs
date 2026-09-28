@@ -15,7 +15,7 @@
  * being guesses without anybody having to open a browser.
  *
  *   npm i -D antd
- *   node scripts/antd-tokens.mjs --repo ../profolio-reactjs-copy
+ *   node scripts/antd-tokens.mjs --repo ../profolio-reactjs
  *
  * Re-run it when antd is bumped; the output is a build artefact.
  */
@@ -27,7 +27,7 @@ import { fileURLToPath } from 'node:url';
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..');
 const arg = (n, d) => { const i = process.argv.indexOf(n); return i > -1 ? process.argv[i + 1] : d; };
-const REPO = join(ROOT, arg('--repo', '../profolio-reactjs-copy'));
+const REPO = join(ROOT, arg('--repo', '../profolio-reactjs'));
 
 let theme;
 try {

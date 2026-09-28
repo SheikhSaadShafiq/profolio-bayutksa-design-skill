@@ -17,7 +17,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-export const REPO = join(HERE, '..', process.env.PROFOLIO_REPO || '../profolio-reactjs-copy');
+export const REPO = join(HERE, '..', process.env.PROFOLIO_REPO || '../profolio-reactjs');
 export const PORT = Number(process.env.PROFOLIO_PORT || 3000);
 export const URL_BASE = `http://127.0.0.1:${PORT}`;
 
