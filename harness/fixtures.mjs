@@ -12,6 +12,13 @@
  *   const body = answer('GET', '/api/surge/listings', '?page=1');   // object | undefined
  */
 import { readFileSync } from 'node:fs';
+/* per-area answers, brought to the real API's shape one area at a time —
+   see the note above answer() */
+import creditsArea from './fixtures/credits.mjs';
+import statsArea from './fixtures/stats.mjs';
+import listingsArea from './fixtures/listings.mjs';
+import lmsArea from './fixtures/lms.mjs';
+import profileArea from './fixtures/profile.mjs';
 
 const HERE = new URL('.', import.meta.url);
 const read = (p) => JSON.parse(readFileSync(new URL(p, HERE), 'utf8'));
@@ -128,7 +135,11 @@ const listings = page.recentListings.map((r, i) => {
           once there is somewhere to put it)
        8  services NOT applicable → the muted circle, and the one tooltip that
           is a plain string rather than a panel
-       9  DAILY RENTAL again → so Mark as Booked has more than one entry point
+       9  DAILY RENTAL again → so Mark as Booked has more than one entry point;
+          harness/fixtures/listings.mjs also gives it an APPLIED DISCOUNT →
+          the DiscountTag over the thumbnail, which the real account's first
+          row carries (that module re-expresses all ten rows in the real
+          API's shape — this block still decides what each row is)
 
      Everything else about a row is unchanged, so a change here moves exactly
      one thing on the screen. */
@@ -463,8 +474,22 @@ const ROUTES = [
  *   to render the banner and the CreditsQuota widgets. Handlers that do not
  *   care simply ignore it.
  */
+/* AREA MODULES answer first. harness/fixtures/<area>.mjs each export
+   `(h) => [[regex, handler], …]` and receive the shared invented account
+   below, so an area can be brought to the shape the real API answers in
+   (data/api-shapes.json, held by scripts/check-fixtures.mjs) without two
+   areas editing one file. Every object answer carries `success: true`,
+   which is how the real API opens every body. */
+const H = { user, U, AGENCY, AVATAR, page, day, iso, num, listings, clean, STATUSES, SUMMARY, statsItems, items, aggregates, C, products, purposes, memberUser, purposeOf };
+let ALL = null;
 export function answer(method, pathname, search = '', mode = null) {
-  for (const [re, fn] of ROUTES) if (re.test(pathname)) return fn(search, mode, pathname);
+  ALL ||= [...creditsArea(H), ...statsArea(H), ...listingsArea(H), ...lmsArea(H), ...profileArea(H), ...ROUTES];
+  for (const [re, fn] of ALL) {
+    if (!re.test(pathname)) continue;
+    const body = fn(search, mode, pathname, method);
+    if (body && typeof body === 'object' && !Array.isArray(body) && !('success' in body)) return { ...body, success: true };
+    return body;
+  }
   return undefined;
 }
 

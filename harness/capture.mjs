@@ -60,6 +60,7 @@ if (arg('--routes')) {
 if (flag('--list')) { console.log(ALL.map((p) => `  ${slug(p).padEnd(28)} ${p}`).join('\n')); process.exit(0); }
 
 const user = JSON.parse(readFileSync(join(HERE, 'fixtures/user.json'), 'utf8'));
+const UID = user.user.id;
 const captureSrc = readFileSync(join(ROOT, 'tools/profolio-capture/capture.js'), 'utf8');
 const FONTS_CSS = readFileSync(join(ROOT, 'deliverables/fonts.css'), 'utf8');
 const locales = flag('--rtl') ? ['en', 'ar'] : ['en'];
@@ -113,9 +114,27 @@ async function captureRoute(browser, base, route, locale) {
   const ctx = await browser.newContext({
     viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1, locale: locale === 'ar' ? 'ar-SA' : 'en',
   });
-  await ctx.addInitScript(() => {
-    try { localStorage.setItem('tapTargets', JSON.stringify({ lms: { introModal: { hide: true } } })); } catch {}
-  });
+  /* Every first-visit walkthrough is dismissed, the way a returning user has
+     them: the LMS intro modal and the three antd Tours (dashboard,
+     management, lead_detail — useGetTourStepsForLms.js:114). A state that
+     wants one OPEN sets sessionStorage 'pf-harness-tour' to its section and
+     reloads; sessionStorage survives the reload, and this leaves that one out. */
+  await ctx.addInitScript((uid) => {
+    try {
+      const hide = { hide: true };
+      const lms = { introModal: hide, dashboard: hide, management: hide, lead_detail: hide };
+      const show = sessionStorage.getItem('pf-harness-tour');
+      if (show) delete lms[show];
+      localStorage.setItem('tapTargets', JSON.stringify({ lms }));
+      /* the "Profile Completed" congratulations modal shows once, when the
+         score reaches 100 and localStorage has not yet seen it
+         (withAdminLayout.js:106-126). A returning user has seen it; the
+         dashboard state 'modal-profile-completed' asks for it back. */
+      const key = `showCompletionModal_${uid}`;
+      if (sessionStorage.getItem('pf-harness-congrats')) localStorage.removeItem(key);
+      else localStorage.setItem(key, '100');
+    } catch {}
+  }, UID);
   await ctx.addCookies([{ name: 'byt_cd', value: 'harness-token', domain: '127.0.0.1', path: '/' }]);
   const page = await ctx.newPage();
 

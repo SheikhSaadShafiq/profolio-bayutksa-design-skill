@@ -17,15 +17,34 @@ import { answer, THUMB, AVATAR_SVG } from './fixtures.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const FONTS_CSS = readFileSync(join(HERE, '..', 'deliverables', 'fonts.css'), 'utf8');
+const UID = JSON.parse(readFileSync(join(HERE, 'fixtures', 'user.json'), 'utf8')).user.id;
 export { FONTS_CSS };
 
 export async function openPage(browser, base, { locale = 'en', mode = () => null } = {}) {
   const ctx = await browser.newContext({
     viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1, locale: locale === 'ar' ? 'ar-SA' : 'en',
   });
-  await ctx.addInitScript(() => {
-    try { localStorage.setItem('tapTargets', JSON.stringify({ lms: { introModal: { hide: true } } })); } catch {}
-  });
+  /* Every first-visit walkthrough is dismissed, the way a returning user has
+     them: the LMS intro modal and the three antd Tours (dashboard,
+     management, lead_detail — useGetTourStepsForLms.js:114). A state that
+     wants one OPEN sets sessionStorage 'pf-harness-tour' to its section and
+     reloads; sessionStorage survives the reload, and this leaves that one out. */
+  await ctx.addInitScript((uid) => {
+    try {
+      const hide = { hide: true };
+      const lms = { introModal: hide, dashboard: hide, management: hide, lead_detail: hide };
+      const show = sessionStorage.getItem('pf-harness-tour');
+      if (show) delete lms[show];
+      localStorage.setItem('tapTargets', JSON.stringify({ lms }));
+      /* the "Profile Completed" congratulations modal shows once, when the
+         score reaches 100 and localStorage has not yet seen it
+         (withAdminLayout.js:106-126). A returning user has seen it; the
+         dashboard state 'modal-profile-completed' asks for it back. */
+      const key = `showCompletionModal_${uid}`;
+      if (sessionStorage.getItem('pf-harness-congrats')) localStorage.removeItem(key);
+      else localStorage.setItem(key, '100');
+    } catch {}
+  }, UID);
   await ctx.addCookies([{ name: 'byt_cd', value: 'harness-token', domain: '127.0.0.1', path: '/' }]);
   const page = await ctx.newPage();
   const log = { answered: [], unanswered: [], errors: [], blocked: 0 };

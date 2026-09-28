@@ -145,15 +145,13 @@
   }
  },
  "GET /api/surge/listings": {
-  "q": [
-   "page"
-  ],
+  "q": [],
   "shape": {
    "listings": [
     {
      "id": "number",
      "url": "string(59)",
-     "phone": "null",
+     "phone": "string(13)",
      "price": "number",
      "title": "string(54)",
      "booked": "boolean",
@@ -230,21 +228,86 @@
      "source": "string(20)",
      "url_l1": "string(53)",
      "videos": [],
-     "project": "null",
+     "project": {
+      "id": "number",
+      "phone": "string(13)",
+      "title": "string(11)",
+      "images": [
+       {
+        "id": "string(36)",
+        "uuid": "string(36)",
+        "order": "number",
+        "sizes": {
+         "full": "string(85)",
+         "large": "string(86)",
+         "small": "string(86)",
+         "medium": "string(87)",
+         "thumbnail": "string(90)"
+        },
+        "status": "\"done\"",
+        "filename": "string(36)"
+       },
+       "×6"
+      ],
+      "progress": {
+       "id": "number",
+       "date": "string(10)",
+       "progress_title": "null",
+       "progress_title_l1": "null",
+       "completion_percentage": "string(0)"
+      },
+      "title_l1": "string(12)",
+      "whatsapp": "string(13)",
+      "developer": {
+       "id": "number",
+       "name": "string(27)",
+       "name_l1": "string(23)",
+       "logo_url": "string(96)"
+      },
+      "map_image": {},
+      "payment_plans": [],
+      "property_types": [
+       {
+        "id": "number",
+        "title": "string(28)",
+        "title_l1": "string(17)",
+        "floor_plans": [
+         {
+          "id": "string(36)",
+          "uuid": "string(36)",
+          "order": "number",
+          "sizes": {
+           "full": "string(97)",
+           "large": "string(98)",
+           "small": "string(98)",
+           "medium": "string(99)",
+           "thumbnail": "string(102)"
+          },
+          "status": "\"done\"",
+          "filename": "string(36)"
+         },
+         "×1"
+        ]
+       },
+       "×6"
+      ],
+      "geographical_zones": [],
+      "project_classification": "string(4)"
+     },
      "unit_no": "null",
      "latitude": "number",
-     "legal_id": "null",
+     "legal_id": "string(10)",
      "location": {
       "id": "number",
-      "slug": "null",
+      "slug": "\"bahriya-town-38643\"",
       "level": "number",
       "loc_1": "number",
       "loc_2": "number",
       "loc_3": "number",
       "loc_4": "number",
       "loc_5": "number",
-      "loc_6": "null",
-      "loc_7": "null",
+      "loc_6": "number",
+      "loc_7": "number",
       "title": "string(8)",
       "latitude": "number",
       "title_l1": "string(6)",
@@ -266,7 +329,7 @@
       "is_applicable": "boolean",
       "current_trucheck": {}
      },
-     "whatsapp": "null",
+     "whatsapp": "string(13)",
      "longitude": "number",
      "posted_at": "string(29)",
      "posted_by": {
@@ -291,7 +354,13 @@
      "ad_license": "number",
      "description": "string(1707)",
      "external_id": "number",
-     "mot_details": {},
+     "mot_details": {
+      "legal_id": "string(10)",
+      "issue_date": "string(10)",
+      "expiry_date": "string(10)",
+      "permit_number": "string(8)",
+      "commercial_name": "string(33)"
+     },
      "actual_price": "number",
      "dynamic_data": {
       "dynamic_fields": {
@@ -520,12 +589,14 @@
        "apply_refresh_by_default": "boolean",
        "title_translation_enabled": "boolean",
        "auto_generated_description": "boolean",
-       "description_translation_enabled": "boolean"
+       "description_translation_enabled": "boolean",
+       "legal_id": "string(10)",
+       "national_address": "string(8)"
       }
      },
      "social_media": [],
-     "wafi_license": "null",
-     "permit_number": "null",
+     "wafi_license": "string(8)",
+     "permit_number": "string(8)",
      "description_l1": "string(1350)",
      "discount_value": "number",
      "residence_type": {
@@ -921,7 +992,22 @@
      "auto_renewable_item": {},
      "discount_applicable": "boolean",
      "discount_percentage": "string(4)",
-     "project_detail_card": "null",
+     "project_detail_card": {
+      "project": {
+       "name": "string(11)",
+       "image": "string(90)",
+       "status": "\"off_plan\"",
+       "name_l1": "string(12)",
+       "total_units": "number",
+       "completion_date": "string(10)",
+       "wafi_license": "string(8)"
+      },
+      "unit_type": {
+       "total_units": "number",
+       "name": "string(28)",
+       "name_l1": "string(17)"
+      }
+     },
      "is_location_editable": "boolean",
      "is_unit_type_listing": "boolean",
      "ad_license_expiry_date": "string(10)",
@@ -1074,31 +1160,22 @@
  },
  "GET /api/surge/ovation/stats": {
   "q": [
-   "category_ids[]",
-   "category_ids[]",
-   "user_external_ids[]",
-   "user_external_ids[]",
-   "user_external_ids[]",
-   "user_external_ids[]",
-   "user_external_ids[]",
-   "user_external_ids[]",
-   "user_external_ids[]",
-   "user_external_ids[]",
-   "user_external_ids[]",
-   "user_external_ids[]",
-   "group_by[]",
-   "ad_external_ids[]",
-   "ad_external_ids[]",
-   "ad_external_ids[]",
-   "ad_external_ids[]",
-   "ad_external_ids[]",
-   "ad_external_ids[]",
-   "ad_external_ids[]",
-   "ad_external_ids[]",
-   "ad_external_ids[]",
-   "ad_external_ids[]",
    "start_date",
-   "end_date"
+   "end_date",
+   "group_by[]",
+   "category_ids[]",
+   "category_ids[]",
+   "user_external_ids[]",
+   "ad_external_ids[]",
+   "ad_external_ids[]",
+   "ad_external_ids[]",
+   "ad_external_ids[]",
+   "ad_external_ids[]",
+   "ad_external_ids[]",
+   "ad_external_ids[]",
+   "ad_external_ids[]",
+   "ad_external_ids[]",
+   "ad_external_ids[]"
   ],
   "shape": {
    "stats": {
@@ -2357,6 +2434,247 @@
   "shape": {
    "stats": {
     "unseen_leads_count": "number"
+   },
+   "success": "boolean"
+  }
+ },
+ "GET /api/surge/notifications/stats": {
+  "q": [],
+  "shape": {
+   "stats": {
+    "unread_notifications_count": "number"
+   },
+   "success": "boolean"
+  }
+ },
+ "GET /api/surge/lms/interests": {
+  "q": [
+   "q[lead_id_eq]",
+   "page"
+  ],
+  "shape": {
+   "interests": [
+    {
+     "id": "number",
+     "lead_id": "number",
+     "source": "string(5)",
+     "source_title": "string(5)",
+     "source_title_l1": "string(17)",
+     "message_title": "null",
+     "message_body": "string(42)",
+     "message_body_l1": "string(34)",
+     "recorded_at": "string(29)",
+     "recording_url": "null",
+     "listing": {
+      "dynamic_data": {
+       "dynamic_fields": {
+        "beds": {
+         "id": "number",
+         "slug": "string(1)",
+         "label": "string(1)",
+         "value": "string(1)",
+         "label_l1": "string(1)",
+         "value_l1": "string(1)"
+        },
+        "baths": {
+         "id": "number",
+         "slug": "string(1)",
+         "label": "string(1)",
+         "value": "string(1)",
+         "label_l1": "string(1)",
+         "value_l1": "string(1)"
+        },
+        "area_unit": {
+         "id": "number",
+         "slug": "\"square-meters\"",
+         "label": "string(13)",
+         "value": "string(3)",
+         "label_l1": "string(8)",
+         "value_l1": "string(8)"
+        },
+        "area_unit_value": "number"
+       }
+      },
+      "listing_category": {
+       "id": "number",
+       "name": "string(9)",
+       "slug": "\"apartment\"",
+       "level": "number",
+       "name_l1": "string(3)",
+       "purpose": "string(4)",
+       "logo_url": "null",
+       "parent_id": "number",
+       "purpose_l1": "string(5)",
+       "breadcrumbs": [
+        {
+         "id": "number",
+         "name": "string(17)",
+         "level": "number",
+         "name_l1": "string(12)"
+        },
+        "×2"
+       ],
+       "external_id": "string(1)",
+       "name_plural": "string(0)",
+       "purpose_hash": {
+        "id": "number",
+        "name": "string(4)",
+        "slug": "\"rent\"",
+        "name_l1": "string(5)"
+       },
+       "allow_posting": "boolean",
+       "display_order": "number",
+       "name_plural_l1": "string(0)",
+       "dynamic_section": {
+        "id": "number",
+        "name": "string(11)",
+        "slug": "\"residential\"",
+        "name_l1": "string(4)",
+        "display_order": "number",
+        "secondary_display_order": "number"
+       },
+       "classification_scope": [
+        "number",
+        "×2"
+       ]
+      },
+      "cover_image": {
+       "id": "number",
+       "main": "number",
+       "uuid": "string(36)",
+       "order": "number",
+       "sizes": {
+        "full": "string(93)",
+        "large": "string(94)",
+        "small": "string(94)",
+        "medium": "string(95)",
+        "thumbnail": "string(98)"
+       },
+       "status": "\"on\"",
+       "is_unique": "boolean",
+       "image_type": "\"listing_image\""
+      },
+      "id": "number",
+      "price": "number",
+      "ad_license": "number",
+      "permit_number": "null",
+      "location": {
+       "id": "number",
+       "slug": "null",
+       "level": "number",
+       "loc_1": "number",
+       "loc_2": "number",
+       "loc_3": "number",
+       "loc_4": "number",
+       "loc_5": "number",
+       "loc_6": "null",
+       "loc_7": "null",
+       "title": "string(9)",
+       "latitude": "number",
+       "title_l1": "string(6)",
+       "longitude": "number",
+       "breadcrumbs": [
+        {
+         "id": "number",
+         "level": "number",
+         "title": "string(3)",
+         "title_l1": "string(8)"
+        },
+        "×4"
+       ],
+       "external_id": "null"
+      },
+      "platform_listings": [
+       {
+        "url": "string(59)",
+        "url_l1": "string(53)",
+        "status": {
+         "id": "number",
+         "name": "string(6)",
+         "slug": "\"active\"",
+         "name_l1": "string(4)"
+        },
+        "disposition": {
+         "id": "number",
+         "name": "string(4)",
+         "slug": "\"live\"",
+         "name_l1": "string(5)",
+         "description": "null",
+         "description_l1": "null"
+        },
+        "platform": {
+         "id": "number",
+         "slug": "\"bayut\"",
+         "title": "string(3)"
+        }
+       },
+       "×1"
+      ],
+      "unit_no": "null",
+      "wafi_license": "null",
+      "is_unit_type_listing": "boolean"
+     },
+     "call_duration": "null",
+     "call_status": "null",
+     "call_total_duration": "null",
+     "response_time": "number",
+     "call_analysis_score": "number",
+     "project": "null"
+    },
+    "×10"
+   ],
+   "pagination": {
+    "current_page": "number",
+    "next_page": "null",
+    "prev_page": "null",
+    "total_pages": "number",
+    "total_count": "number"
+   },
+   "success": "boolean"
+  }
+ },
+ "GET /api/surge/lms/leads/:id": {
+  "q": [],
+  "shape": {
+   "leads": {
+    "id": "number",
+    "name": "string(20)",
+    "created_at": "string(29)",
+    "updated_at": "string(29)",
+    "call_leads_count": "number",
+    "whatsapp_leads_count": "number",
+    "email_leads_count": "number",
+    "sms_leads_count": "number",
+    "manual_leads_count": "number",
+    "user": {
+     "id": "number",
+     "name": "string(20)"
+    },
+    "is_viewed": "boolean",
+    "client": {
+     "id": "number",
+     "mobile": "string(13)",
+     "email": "string(33)",
+     "name_l1": "null",
+     "whatsapp": "string(13)"
+    }
+   },
+   "success": "boolean"
+  }
+ },
+ "GET /api/surge/lms/tasks": {
+  "q": [
+   "q[taskable_id_eq]",
+   "page"
+  ],
+  "shape": {
+   "lead_tasks": [],
+   "pagination": {
+    "current_page": "number",
+    "next_page": "null",
+    "prev_page": "null",
+    "total_pages": "number",
+    "total_count": "number"
    },
    "success": "boolean"
   }

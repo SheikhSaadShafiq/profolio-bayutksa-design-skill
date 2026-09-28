@@ -222,7 +222,7 @@ export default [
   },
   {
     name: 'action-detail-drawer',
-    note: 'the action tooltipped "Preview" — ListingDrawer, in its loading state (there is no listing-detail fixture yet)',
+    note: 'the action tooltipped "Preview" — ListingDrawer, filled from /api/surge/listings/:id/edit (harness/fixtures/listings.mjs answers it with the same real-shaped row)',
     do: async (p) => { await actionByTooltip(0, 'Preview')(p); await p.waitForSelector('.ant-drawer-content', { timeout: 8000 }); await p.waitForTimeout(600); },
   },
   {
@@ -404,10 +404,18 @@ export default [
   {
     name: 'modal-otp',
     note: 'row 7, Upgrades — the listing is pending-otp-verification, so the cell holds Publish Now instead of six circles, and it opens OtpVerificationModal (platformActions.js:174-213)',
+    /* Surge now opens this modal only when the LISTING says
+       is_otp_required === true (platformActions.js:47), and only after
+       POST /api/surge/otps answers (apis/postlisting.js:71). Without the flag
+       Publish Now navigates to /post-listing/:id/upgrade, which is how this
+       step came to time out waiting for .ant-modal: the button was where it
+       always was, the fixture row just never asked for an OTP. Row 7 now
+       carries the flag (harness/fixtures/listings.mjs). The button is found
+       by its label, not by position, so a column change cannot move it. */
     do: async (p) => {
       const tds = p.locator('.ant-table-row').nth(7).locator('td');
       const n = await tds.count();
-      await tds.nth(n - 2).locator('button').first().click({ timeout: 8000 });
+      await tds.nth(n - 2).getByRole('button', { name: /Publish/i }).first().click({ timeout: 8000 });
       await p.waitForSelector('.ant-modal', { timeout: 10000 });
       await p.waitForTimeout(600);
     },
@@ -455,5 +463,16 @@ export default [
     name: 'error',
     note: '/api/surge/listings answers 500 — the product\'s own error card',
     mode: 'error',
+  },
+
+  /* the real account's OTHER row design. Eight of its ten rows are project
+     unit-type listings, which this account never had: harness/fixtures/
+     listings.mjs answers mode 'projects' with the plain row 0, an
+     MOT-permitted daily rental, then eight units from three invented Riyadh
+     projects — so both designs sit in one table, as they do on the real one. */
+  {
+    name: 'project-units',
+    note: 'mode projects — unit-type rows: 3 upgrade circles (no photo/video/drone), 5 actions (no TruCheck), "Apartment for Sale | Off-plan", project name ending a two-line location, WAFI licence instead of REGA ID, ~170px rows; row 1 is a daily rental with "Night" and "Permit No:"',
+    mode: 'projects',
   },
 ];
