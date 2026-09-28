@@ -13,13 +13,13 @@
 <main class="ds-main">
 
 <header class="ds-head">
-  <p class="ds-kicker">Molecule · product component · Product primitives</p>
+  <p class="ds-kicker">Molecule · product component · Product primitives · web only</p>
   <h1>DateSelect</h1>
-  <p class="ds-lede">Defined in <code>src/components/common/dateSelect/DateSelect.js</code>. 2 variants found across 2 pages and states, 3 instances in all.</p>
+  <p class="ds-lede">Defined in <code>src/components/common/dateSelect/DateSelect.js</code>. 2 web variants and 0 responsive variants, found across 2 pages and states — 3 instances in all.</p>
 </header>
 
-<section class="ds-section">
-<h2>Variants</h2>
+<section class="ds-section" id="web">
+<h2>Web <small>1440 wide</small></h2>
 
 <figure class="ds-example" id="v1">
   <div class="ds-stage" style="background:rgb(255, 255, 255)"><div style="display:contents"><div style="display:contents"><div class="pf-modal-root styleProfolio pf-modal-css-var" style="display:contents"><div class="pf-modal-wrap pf-modal-centered" style="display:contents"><div class="pf-modal pf-modal-styled" role="dialog" style="display:contents"><div style="display:contents"><div class="pf-modal-content" style="display:contents"><div class="pf-modal-body" style="display:contents"><div class="pf-group-styled mb-24" style="display:contents;font-family:Figtree, &quot;Droid Arabic Kufi&quot;, sans-serif;font-size:14px;font-weight:400;font-style:normal;line-height:21.994px;color:rgba(0, 0, 0, 0.88);letter-spacing:normal;text-align:start;text-transform:none;white-space:normal;word-break:normal;direction:ltr;font-variant-numeric:normal;font-feature-settings:normal;-webkit-font-smoothing:antialiased"><div data-ds-example="DateSelect_src_components_common_dateSelect_DateSelect_js__1" class="pf-group-styled pf-listing-date-select date-picker" style="--gap: 8px; --template: initial;;width:660px!important;height:73.97px!important;box-sizing:border-box!important;margin:0.2969px 0 0 0px!important;max-width:none!important;min-width:0!important;flex:none!important;display:grid!important" data-pf-src="src/components/common/group/group.js:8" data-pf-i="DateSelect@src/components/common/dateSelect/DateSelect.js Group@src/components/common/group/group.js" data-pf-c="Group"><label class="pf-label-styled--v2 text-muted" style="align-self: center;" data-pf-src="src/components/common/Label/Label.js:9" data-pf-c="Label">Date &amp; Time</label><div class="pf-picker pf-picker-outlined date-picker styleProfolio pf-picker-css-var" style="width: 100%;" data-pf-src="src/components/common/dateSelect/DateSelect.js:33" data-pf-c="DateSelect"><div class="pf-picker-input"><input aria-invalid="false" autocomplete="off" readonly="" size="22" placeholder="Select date &amp; time" value=""><span class="pf-picker-suffix"><span role="img" aria-label="calendar" class="anticon anticon-calendar"><svg viewBox="64 64 896 896" focusable="false" data-icon="calendar" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"></path></svg></span></span></div></div></div></div></div></div></div></div></div></div></div></div></div>
@@ -57,18 +57,18 @@
 .pf-picker .pf-picker-input { position: relative; display: inline-flex; align-items: center; width: 100%; }
 .pf-picker .pf-picker-input &gt; input { position: relative; display: inline-block; width: 100%; color: inherit; font-size: var(--pf-font-size); line-height: var(--pf-line-height); transition: all var(--pf-motion-duration-mid); flex: 1 1 auto; min-width: 1px; height: auto; padding: 0px; background: transparent; border: 0px; font-family: inherit; }
 .pf-picker .pf-picker-input &gt; input::placeholder { color: var(--pf-color-text-placeholder); user-select: none; }
-.pf-picker .pf-picker-input &gt; input:focus { box-shadow: none; outline: 0px; }
+.pf-picker .pf-picker-input &gt; input:is(:focus,[data-pf-focus]) { box-shadow: none; outline: 0px; }
 .pf-picker .pf-picker-suffix { display: flex; flex: 0 0 auto; align-self: center; margin-inline-start: calc(var(--pf-padding-xs) / 2); color: var(--pf-color-text-disabled); line-height: 1; pointer-events: none; transition: opacity var(--pf-motion-duration-mid),color var(--pf-motion-duration-mid); }
 .pf-picker .pf-picker-suffix &gt; * { vertical-align: top; }
 .pf-picker-outlined { background: var(--pf-color-bg-container); border-width: var(--pf-line-width); border-style: var(--pf-line-type); border-color: var(--pf-color-border); }
-.pf-picker-outlined:hover { border-color: var(--pf-date-picker-hover-border-color); background-color: var(--pf-date-picker-hover-bg); }
-.pf-picker-outlined:focus, .pf-picker-outlined:focus-within { border-color: var(--pf-date-picker-active-border-color); box-shadow: var(--pf-date-picker-active-shadow); outline: 0px; background-color: var(--pf-date-picker-active-bg); }
+.pf-picker-outlined:is(:hover,[data-pf-hover]) { border-color: var(--pf-date-picker-hover-border-color); background-color: var(--pf-date-picker-hover-bg); }
+.pf-picker-outlined:is(:focus,[data-pf-focus]), .pf-picker-outlined:is(:focus-within,[data-pf-focus-within]) { border-color: var(--pf-date-picker-active-border-color); box-shadow: var(--pf-date-picker-active-shadow); outline: 0px; background-color: var(--pf-date-picker-active-bg); }
 *, ::before, ::after { box-sizing: border-box; }
 a, area, button, [role=&quot;button&quot;], input:not([type=&quot;range&quot;]), label, select, summary, textarea { touch-action: manipulation; }
 input, button, select, optgroup, textarea { margin: 0px; color: inherit; font-size: inherit; font-family: inherit; line-height: inherit; }
 button, input { overflow: visible; }
 ::-webkit-file-upload-button { font: inherit; appearance: button; }
-input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active { transition: background-color 5e+06s ease-in-out; }
+input:-webkit-autofill, input:-webkit-autofill:is(:hover,[data-pf-hover]), input:-webkit-autofill:is(:focus,[data-pf-focus]), input:-webkit-autofill:is(:active,[data-pf-active]) { transition: background-color 5e+06s ease-in-out; }
 .text-muted, .color-gray-light { color: rgb(157, 157, 157); }
 .pf-picker { min-width: 250px; }
 .pf-picker { border-color: rgb(227, 230, 239) !important; }
@@ -80,7 +80,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 </figure>
 
 <figure class="ds-example" id="v2">
-  <div class="ds-stage" style="background:rgb(255, 255, 255)"><div style="display:contents"><div style="display:contents"><div class="pf-drawer pf-drawer-right styleProfolio pf-drawer-open" style="display:contents"><div class="pf-drawer-content-wrapper" style="display:contents"><div class="pf-drawer-content pf-drawer-style" role="dialog" style="display:contents"><div class="pf-drawer-body" style="display:contents"><form style="display:contents"><div class="pf-group-styled mb-40" style="display:contents;font-family:Figtree, &quot;Droid Arabic Kufi&quot;, sans-serif;font-size:14px;font-weight:400;font-style:normal;line-height:16.1px;color:rgba(0, 0, 0, 0.88);letter-spacing:normal;text-align:start;text-transform:none;white-space:normal;word-break:normal;direction:ltr;font-variant-numeric:normal;font-feature-settings:normal;-webkit-font-smoothing:antialiased"><div data-ds-example="DateSelect_src_components_common_dateSelect_DateSelect_js__2" class="pf-group-styled date-picker" style="--gap: 8px; --template: initial;;width:314px!important;height:68.08px!important;box-sizing:border-box!important;margin:0.375px 0 0 0px!important;max-width:none!important;min-width:0!important;flex:none!important;display:grid!important" data-pf-i="DateSelect@src/components/common/dateSelect/DateSelect.js Group@src/components/common/group/group.js" data-pf-src="src/components/common/group/group.js:8" data-pf-c="Group"><label class="pf-label-styled--v2" data-pf-i="Label@src/components/common/Label/Label.js" data-pf-src="src/components/common/Label/Label.js:9" data-pf-c="Label">Completion Date &amp; Time</label><div class="pf-picker pf-picker-outlined styleProfolio pf-picker-css-var" style="margin: 0px; width: 100%;" data-pf-src="src/components/common/dateSelect/DateSelect.js:33" data-pf-c="DateSelect"><div class="pf-picker-input"><input aria-invalid="false" autocomplete="off" readonly="" size="22" placeholder="Select Completion Date and Time" value=""><span class="pf-picker-suffix"><span role="img" aria-label="calendar" class="anticon anticon-calendar"><svg viewBox="64 64 896 896" focusable="false" data-icon="calendar" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"></path></svg></span></span></div></div></div></div></form></div></div></div></div></div></div></div>
+  <div class="ds-stage" style="background:rgb(255, 255, 255)"><div style="display:contents"><div style="display:contents"><div class="pf-drawer pf-drawer-right styleProfolio pf-drawer-open" style="display:contents"><div class="pf-drawer-content-wrapper" style="display:contents"><div class="pf-drawer-content pf-drawer-style" role="dialog" style="display:contents"><div class="pf-drawer-body" style="display:contents"><pf-el data-pf-tag="form" style="display:contents"><div class="pf-group-styled mb-40" style="display:contents;font-family:Figtree, &quot;Droid Arabic Kufi&quot;, sans-serif;font-size:14px;font-weight:400;font-style:normal;line-height:16.1px;color:rgba(0, 0, 0, 0.88);letter-spacing:normal;text-align:start;text-transform:none;white-space:normal;word-break:normal;direction:ltr;font-variant-numeric:normal;font-feature-settings:normal;-webkit-font-smoothing:antialiased"><div data-ds-example="DateSelect_src_components_common_dateSelect_DateSelect_js__2" class="pf-group-styled date-picker" style="--gap: 8px; --template: initial;;width:314px!important;height:68.08px!important;box-sizing:border-box!important;margin:0.375px 0 0 0px!important;max-width:none!important;min-width:0!important;flex:none!important;display:grid!important" data-pf-i="DateSelect@src/components/common/dateSelect/DateSelect.js Group@src/components/common/group/group.js" data-pf-src="src/components/common/group/group.js:8" data-pf-c="Group"><label class="pf-label-styled--v2" data-pf-i="Label@src/components/common/Label/Label.js" data-pf-src="src/components/common/Label/Label.js:9" data-pf-c="Label">Completion Date &amp; Time</label><div class="pf-picker pf-picker-outlined styleProfolio pf-picker-css-var" style="margin: 0px; width: 100%;" data-pf-src="src/components/common/dateSelect/DateSelect.js:33" data-pf-c="DateSelect"><div class="pf-picker-input"><input aria-invalid="false" autocomplete="off" readonly="" size="22" placeholder="Select Completion Date and Time" value=""><span class="pf-picker-suffix"><span role="img" aria-label="calendar" class="anticon anticon-calendar"><svg viewBox="64 64 896 896" focusable="false" data-icon="calendar" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"></path></svg></span></span></div></div></div></div></pf-el></div></div></div></div></div></div></div>
   <figcaption>
     <span class="ds-vname">group-styled · 314×68</span>
     <span class="ds-meta">2× · first seen on <a href="../states/lms-leads--drawer-add-task.html">lms-leads--drawer-add-task</a></span>
@@ -115,23 +115,28 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 .pf-picker .pf-picker-input { position: relative; display: inline-flex; align-items: center; width: 100%; }
 .pf-picker .pf-picker-input &gt; input { position: relative; display: inline-block; width: 100%; color: inherit; font-size: var(--pf-font-size); line-height: var(--pf-line-height); transition: all var(--pf-motion-duration-mid); flex: 1 1 auto; min-width: 1px; height: auto; padding: 0px; background: transparent; border: 0px; font-family: inherit; }
 .pf-picker .pf-picker-input &gt; input::placeholder { color: var(--pf-color-text-placeholder); user-select: none; }
-.pf-picker .pf-picker-input &gt; input:focus { box-shadow: none; outline: 0px; }
+.pf-picker .pf-picker-input &gt; input:is(:focus,[data-pf-focus]) { box-shadow: none; outline: 0px; }
 .pf-picker .pf-picker-suffix { display: flex; flex: 0 0 auto; align-self: center; margin-inline-start: calc(var(--pf-padding-xs) / 2); color: var(--pf-color-text-disabled); line-height: 1; pointer-events: none; transition: opacity var(--pf-motion-duration-mid),color var(--pf-motion-duration-mid); }
 .pf-picker .pf-picker-suffix &gt; * { vertical-align: top; }
 .pf-picker-outlined { background: var(--pf-color-bg-container); border-width: var(--pf-line-width); border-style: var(--pf-line-type); border-color: var(--pf-color-border); }
-.pf-picker-outlined:hover { border-color: var(--pf-date-picker-hover-border-color); background-color: var(--pf-date-picker-hover-bg); }
-.pf-picker-outlined:focus, .pf-picker-outlined:focus-within { border-color: var(--pf-date-picker-active-border-color); box-shadow: var(--pf-date-picker-active-shadow); outline: 0px; background-color: var(--pf-date-picker-active-bg); }
+.pf-picker-outlined:is(:hover,[data-pf-hover]) { border-color: var(--pf-date-picker-hover-border-color); background-color: var(--pf-date-picker-hover-bg); }
+.pf-picker-outlined:is(:focus,[data-pf-focus]), .pf-picker-outlined:is(:focus-within,[data-pf-focus-within]) { border-color: var(--pf-date-picker-active-border-color); box-shadow: var(--pf-date-picker-active-shadow); outline: 0px; background-color: var(--pf-date-picker-active-bg); }
 *, ::before, ::after { box-sizing: border-box; }
 a, area, button, [role=&quot;button&quot;], input:not([type=&quot;range&quot;]), label, select, summary, textarea { touch-action: manipulation; }
 input, button, select, optgroup, textarea { margin: 0px; color: inherit; font-size: inherit; font-family: inherit; line-height: inherit; }
 button, input { overflow: visible; }
 ::-webkit-file-upload-button { font: inherit; appearance: button; }
-input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active { transition: background-color 5e+06s ease-in-out; }
+input:-webkit-autofill, input:-webkit-autofill:is(:hover,[data-pf-hover]), input:-webkit-autofill:is(:focus,[data-pf-focus]), input:-webkit-autofill:is(:active,[data-pf-active]) { transition: background-color 5e+06s ease-in-out; }
 .pf-picker { min-width: 250px; }
 .pf-picker { border-color: rgb(227, 230, 239) !important; }
 .pf-label-styled--v2 { color: var(--label-color,#000); font-weight: var(--label-font-weight,600); font-size: 14px; }
 .pf-group-styled { display: grid; gap: var(--gap,24px); grid-template-columns: var(--template,minmax(0,1fr)); grid-auto-rows: minmax(0px, auto); }</code></pre></details>
 </figure>
+</section>
+
+<section class="ds-section" id="responsive">
+<h2>Responsive <small>375 wide · phone</small></h2>
+<p class="ds-note">Not drawn in the responsive layout — none of the 207 responsive pages and states uses it.</p>
 </section>
 
 
@@ -152,8 +157,10 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 <section class="ds-section">
 <h2>Where it appears</h2>
 <ul class="ds-uses"><li><a href="../states/lms-leads--drawer-add-task.html">lms-leads--drawer-add-task</a> <small>2×</small></li><li><a href="../states/listings--upgrade-photography.html">listings--upgrade-photography</a> <small>1×</small></li></ul>
+
 <h3>Drawn by</h3><ul class="ds-uses"><li><code>src/components/common/group/group.js:8</code></li></ul>
 </section>
 </main>
+<script>document.querySelectorAll('pf-el').forEach(function(e){var t=e.getAttribute('data-pf-tag');if(!t)return;var a=document.createElement(t);for(var i=0;i<e.attributes.length;i++){var n=e.attributes[i].name;if(n!=='data-pf-tag')a.setAttribute(n,e.attributes[i].value);}while(e.firstChild)a.appendChild(e.firstChild);e.replaceWith(a);});document.querySelectorAll('pf-nested-a').forEach(function(e){var a=document.createElement('a');for(var i=0;i<e.attributes.length;i++)a.setAttribute(e.attributes[i].name,e.attributes[i].value);while(e.firstChild)a.appendChild(e.firstChild);e.replaceWith(a);});</script>
 </body>
 </html>

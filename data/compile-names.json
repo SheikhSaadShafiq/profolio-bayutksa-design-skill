@@ -4,7 +4,9 @@
    "name": "pf-div",
    "base": "div",
    "variants": [
-    "knBGsu"
+    "knBGsu",
+    "geVBkd",
+    "ikOAgX"
    ]
   },
   "src/components/utilities/auth-info/info.js:159:5": {
@@ -18,7 +20,8 @@
    "name": "pf-body-scrim",
    "base": "body-scrim",
    "variants": [
-    "cyaaXw"
+    "cyaaXw",
+    "kxKjBd"
    ]
   },
   "src/components/common/button/button.js:40:5": {
@@ -47,7 +50,13 @@
     "kCHWUC",
     "jxrdw",
     "IeNnC",
-    "jPbKCf"
+    "jPbKCf",
+    "gneeMv",
+    "hPjUpZ",
+    "kiAcfv",
+    "jMXCai",
+    "kimuTi",
+    "jZgRee"
    ]
   },
   "src/components/common/icon/icon.js:18:9": {
@@ -69,7 +78,8 @@
    "base": "link-styled",
    "variants": [
     "eHIyET",
-    "jPIXBp"
+    "jPIXBp",
+    "gVjlLL"
    ]
   },
   "src/tenant/common/components/header-component/header-components.js:99:13": {
@@ -84,7 +94,8 @@
    "base": "menu-positioner",
    "variants": [
     "cKVexS",
-    "hlSJSM"
+    "hlSJSM",
+    "bnNEmm"
    ]
   },
   "src/components/post-listing-menu/post-listing-menu.js:352:7": {
@@ -167,7 +178,19 @@
     "jsosji",
     "eGDHWS",
     "bLFBiS",
-    "cwSxTO"
+    "cwSxTO",
+    "hgVLzZ",
+    "euMBTQ",
+    "htGjHX",
+    "eQxbGf",
+    "HMrdP",
+    "fLWFpw",
+    "liTJKY",
+    "haiZiI",
+    "byXBaS",
+    "eImiFg",
+    "jOyegA",
+    "ekRotw"
    ]
   },
   "src/layout/MenueItems.js:99:15": {
@@ -251,7 +274,43 @@
     "jRXway",
     "QbqbH",
     "cXqBfm",
-    "bdYikd"
+    "bdYikd",
+    "aOPzq",
+    "eflvZm",
+    "evXShf",
+    "eHLPo",
+    "ixXyc",
+    "cVaUJC",
+    "drvoOe",
+    "cYNwJK",
+    "kaMTFq",
+    "fqgyRa",
+    "hTmlXC",
+    "kCkEWA",
+    "cfrgNI",
+    "zZPzv",
+    "hdodKi",
+    "jgkKIP",
+    "iNYhwL",
+    "iqVQAV",
+    "iCLfM",
+    "kiOUQR",
+    "hlDDGZ",
+    "bcVRKZ",
+    "ifcscQ",
+    "fPFhGY",
+    "kdPoLM",
+    "iHhwIV",
+    "jDzrjj",
+    "ixzUzW",
+    "lbMfRl",
+    "iweMUO",
+    "ctiWiK",
+    "bdrQOO",
+    "gJTHHt",
+    "bRlHCI",
+    "kNrnuB",
+    "jZhVJj"
    ]
   },
   "src/container/pages/dashboard/dashboard.js:478:5": {
@@ -335,7 +394,18 @@
     "eqqBea",
     "bknJVQ",
     "kxfaGH",
-    "bthDpk"
+    "bthDpk",
+    "cFQyJg",
+    "droZQZ",
+    "giNkrZ",
+    "bIiQjF",
+    "FPpLS",
+    "chEaHT",
+    "JnXnt",
+    "zUmMU",
+    "kyfCwi",
+    "gERWbF",
+    "GlIlw"
    ]
   },
   "src/components/common/statistic/index.js:93:9": {
@@ -349,7 +419,14 @@
     "kDegEr",
     "cinmGx",
     "llrxdY",
-    "ksNBgG"
+    "ksNBgG",
+    "kswJnK",
+    "fjXOIG",
+    "crycDL",
+    "dXqFXw",
+    "gkmIrz",
+    "iizBHO",
+    "lmKEGZ"
    ]
   },
   "src/components/common/drawer/drawer.js:90:7": {
@@ -420,7 +497,10 @@
     "gFfZSh",
     "hHxqGT",
     "jCRzjO",
-    "fpgfJi"
+    "fpgfJi",
+    "hYglkH",
+    "hneiEU",
+    "cLVPmk"
    ]
   },
   "src/components/charts/chartjs.js:355:7": {
@@ -501,7 +581,8 @@
    "variants": [
     "dGQXtn",
     "gCLwju",
-    "eeEYeY"
+    "eeEYeY",
+    "bmOli"
    ]
   },
   "src/components/common/dataTable/dataTable.js:102:7": {
@@ -525,7 +606,8 @@
     "dzbJqq",
     "dnnOYH",
     "cjJMSC",
-    "esccsz"
+    "esccsz",
+    "jZClyj"
    ]
   },
   "src/components/common/popup/popup.js:20:20": {
@@ -1086,6 +1168,928 @@
    "base": "thumbnail",
    "variants": [
     "pPyIH"
+   ]
+  },
+  "src/components/common/custom-card/customCard.js:54:11": {
+   "name": "pf-custom-card-card-meta-styled",
+   "base": "card-meta-styled",
+   "variants": [
+    "uyXpa",
+    "cOHtMd"
+   ]
+  },
+  "src/container/pages/agancy-staff/agancy-staff.js:88:7": {
+   "name": "pf-agancy-staff-main",
+   "base": "main",
+   "variants": [
+    "dAXlsr"
+   ]
+  },
+  "src/components/agency-staff-header/agancy-staff-header.js:30:5": {
+   "name": "pf-user-card",
+   "base": "user-card",
+   "variants": [
+    "cWSefC"
+   ]
+  },
+  "src/components/listing-container/ListingContainer.js:90:15": {
+   "name": "pf-listing-container-title-styled",
+   "base": "title-styled",
+   "variants": [
+    "gUNwqU"
+   ]
+  },
+  "src/components/post-listing-menu/post-listing-menu.js:258:9": {
+   "name": "pf-rail-scrim",
+   "base": "rail-scrim",
+   "variants": [
+    "duQTXn"
+   ]
+  },
+  "src/components/post-listing-menu/post-listing-menu.js:233:5": {
+   "name": "pf-chrome-scrim",
+   "base": "chrome-scrim",
+   "variants": [
+    "ZcHav"
+   ]
+  },
+  "src/components/forms/AgencyUserForm.js:228:9": {
+   "name": "pf-agency-user-form-json-form-styled",
+   "base": "json-form-styled",
+   "variants": [
+    "gontI"
+   ]
+  },
+  "src/tenant/bayut/data/agencyStaffUserFields.js:221:11": {
+   "name": "pf-agency-staff-user-fields-list-with-bullet",
+   "base": "list-with-bullet",
+   "variants": [
+    "hJelWe"
+   ]
+  },
+  "src/components/set-credit-limit/set-credit-limit.js:226:9": {
+   "name": "pf-credit-limit-popup",
+   "base": "credit-limit-popup",
+   "variants": [
+    "iBSQbX"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentProfileCard.js:83:5": {
+   "name": "pf-profile-header-wrapper",
+   "base": "profile-header-wrapper",
+   "variants": [
+    "fjDklX"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentProfileCard.js:91:11": {
+   "name": "pf-profile-user-avatar",
+   "base": "profile-user-avatar",
+   "variants": [
+    "gjwUZo"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentProfileCard.js:95:13": {
+   "name": "pf-profile-user-name",
+   "base": "profile-user-name",
+   "variants": [
+    "gxGeUh"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentProfileCard.js:99:15": {
+   "name": "pf-public-profile-link",
+   "base": "public-profile-link",
+   "variants": [
+    "hXdNcH"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentProfileCard.js:115:9": {
+   "name": "pf-stat-tile",
+   "base": "stat-tile",
+   "variants": [
+    "kiDRXc"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentProfileCard.js:116:11": {
+   "name": "pf-tile-left",
+   "base": "tile-left",
+   "variants": [
+    "jpEnrq"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentProfileCard.js:117:13": {
+   "name": "pf-icon-box",
+   "base": "icon-box",
+   "variants": [
+    "bfXpBD"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentProfileCard.js:126:15": {
+   "name": "pf-stat-label",
+   "base": "stat-label",
+   "variants": [
+    "kmDhhy"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentProfileCard.js:127:15": {
+   "name": "pf-stat-value",
+   "base": "stat-value",
+   "variants": [
+    "frFhBd"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentProfileCard.js:130:11": {
+   "name": "pf-tile-link",
+   "base": "tile-link",
+   "variants": [
+    "jJSTyP"
+   ]
+  },
+  "src/container/pages/agent-performance/TruBroker.js:43:7": {
+   "name": "pf-tru-broker-banner-container",
+   "base": "tru-broker-banner-container",
+   "variants": [
+    "dnrVq",
+    "jHszvT"
+   ]
+  },
+  "src/container/pages/agent-performance/TruBroker.js:44:9": {
+   "name": "pf-banner-content",
+   "base": "banner-content",
+   "variants": [
+    "bqMVES",
+    "cDxWEx"
+   ]
+  },
+  "src/container/pages/agent-performance/TruBroker.js:45:11": {
+   "name": "pf-left-section",
+   "base": "left-section",
+   "variants": [
+    "dXviIV",
+    "eDLQRq"
+   ]
+  },
+  "src/container/pages/agent-performance/TruBroker.js:48:17": {
+   "name": "pf-title-with-lock",
+   "base": "title-with-lock",
+   "variants": [
+    "fxwiqv",
+    "bVCtUt"
+   ]
+  },
+  "src/container/pages/agent-performance/TruBroker.js:53:19": {
+   "name": "pf-lock-icon",
+   "base": "lock-icon",
+   "variants": [
+    "dgNRFB",
+    "hPposp"
+   ]
+  },
+  "src/container/pages/agent-performance/TruBroker.js:57:17": {
+   "name": "pf-description",
+   "base": "description",
+   "variants": [
+    "sjTCh",
+    "idSKxu"
+   ]
+  },
+  "src/container/pages/agent-performance/TruBroker.js:60:17": {
+   "name": "pf-goal-points-section",
+   "base": "goal-points-section",
+   "variants": [
+    "kUHObo",
+    "ecsMid"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBages.js:50:5": {
+   "name": "pf-badge-card",
+   "base": "badge-card",
+   "variants": [
+    "yRfsv",
+    "AskeR",
+    "YnmLV"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBages.js:52:9": {
+   "name": "pf-title-pill",
+   "base": "title-pill",
+   "variants": [
+    "kMqwVZ",
+    "cqhLfs"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBages.js:59:11": {
+   "name": "pf-pill-text",
+   "base": "pill-text",
+   "variants": [
+    "ioArnc"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBages.js:61:9": {
+   "name": "pf-status-tick",
+   "base": "status-tick",
+   "variants": [
+    "dgqAjE",
+    "ekKvUO"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBages.js:107:9": {
+   "name": "pf-desc-text",
+   "base": "desc-text",
+   "variants": [
+    "igceiV",
+    "dntSe"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBages.js:110:11": {
+   "name": "pf-learn-more",
+   "base": "learn-more",
+   "variants": [
+    "nPpTF"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBages.js:124:7": {
+   "name": "pf-metrics-grid",
+   "base": "metrics-grid",
+   "variants": [
+    "bdRSDP",
+    "kLhUhC",
+    "bSzeAm"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBages.js:135:15": {
+   "name": "pf-metric-header",
+   "base": "metric-header",
+   "variants": [
+    "hWKrqp",
+    "cpopbJ"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBages.js:137:19": {
+   "name": "pf-metric-label",
+   "base": "metric-label",
+   "variants": [
+    "bNyhul",
+    "RYlTH"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBages.js:231:21": {
+   "name": "pf-metric-value",
+   "base": "metric-value",
+   "variants": [
+    "lnVJYV",
+    "fAYFGx"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBages.js:236:15": {
+   "name": "pf-track",
+   "base": "track",
+   "variants": [
+    "buZSKc"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBages.js:237:93": {
+   "name": "pf-fill",
+   "base": "fill",
+   "variants": [
+    "gJOKbk",
+    "iodiwG",
+    "hOCVwD",
+    "cNzDJD",
+    "dmajUp",
+    "hbbmFB",
+    "bChfpi",
+    "iKvoTa",
+    "AuXvb",
+    "ftNJMU"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBagesInfo.js:239:9": {
+   "name": "pf-agent-bages-info-drawer-header",
+   "base": "drawer-header",
+   "variants": [
+    "fIqsoN"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBagesInfo.js:242:15": {
+   "name": "pf-agent-bages-info-drawer-title",
+   "base": "drawer-title",
+   "variants": [
+    "iVcpHB"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBagesInfo.js:266:7": {
+   "name": "pf-agent-bages-info-drawer-content-wrapper",
+   "base": "drawer-content-wrapper",
+   "variants": [
+    "dcGZiK"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBagesInfo.js:267:9": {
+   "name": "pf-agent-bages-info-drawer-content",
+   "base": "drawer-content",
+   "variants": [
+    "jyPAGy"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBagesInfo.js:63:7": {
+   "name": "pf-badge-section",
+   "base": "badge-section",
+   "variants": [
+    "geOXYZ",
+    "gGTZUZ",
+    "bLolcg",
+    "fCYXsg"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBagesInfo.js:67:9": {
+   "name": "pf-badge-section-description",
+   "base": "badge-section-description",
+   "variants": [
+    "cHSFqw"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBagesInfo.js:70:9": {
+   "name": "pf-requirements-list",
+   "base": "requirements-list",
+   "variants": [
+    "hZOasl"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBagesInfo.js:72:13": {
+   "name": "pf-requirement-item",
+   "base": "requirement-item",
+   "variants": [
+    "iIcKcl"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBagesInfo.js:99:9": {
+   "name": "pf-badge-image-container",
+   "base": "badge-image-container",
+   "variants": [
+    "hxjOKu"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBagesInfo.js:195:7": {
+   "name": "pf-tru-points-section",
+   "base": "tru-points-section",
+   "variants": [
+    "cCQisz"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBagesInfo.js:210:9": {
+   "name": "pf-tru-points-description",
+   "base": "tru-points-description",
+   "variants": [
+    "fZozLh"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBagesInfo.js:221:9": {
+   "name": "pf-tru-points-button",
+   "base": "tru-points-button",
+   "variants": [
+    "kCeYje"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBagesInfo.js:268:23": {
+   "name": "pf-drawer-fade-overlay",
+   "base": "drawer-fade-overlay",
+   "variants": [
+    "dLoOjp"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:46:7": {
+   "name": "pf-card-shell",
+   "base": "card-shell",
+   "variants": [
+    "bZofvP"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:54:9": {
+   "name": "pf-activity-header",
+   "base": "activity-header",
+   "variants": [
+    "cHKstt"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:57:9": {
+   "name": "pf-empty-state-container",
+   "base": "empty-state-container",
+   "variants": [
+    "chNfgt"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:58:11": {
+   "name": "pf-empty-state-icon-wrapper",
+   "base": "empty-state-icon-wrapper",
+   "variants": [
+    "ihJHzE"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:62:13": {
+   "name": "pf-empty-state-title",
+   "base": "empty-state-title",
+   "variants": [
+    "zyMNB"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:63:13": {
+   "name": "pf-empty-state-description",
+   "base": "empty-state-description",
+   "variants": [
+    "jDlYid"
+   ]
+  },
+  "src/container/pages/agent-performance/LeaderBoard.js:554:9": {
+   "name": "pf-leaderboard-card-header",
+   "base": "leaderboard-card-header",
+   "variants": [
+    "gOddTR"
+   ]
+  },
+  "src/container/pages/agent-performance/LeaderBoard.js:558:11": {
+   "name": "pf-leaderboard-title",
+   "base": "leaderboard-title",
+   "variants": [
+    "kdJSJF"
+   ]
+  },
+  "src/container/pages/agent-performance/LeaderBoard.js:77:9": {
+   "name": "pf-current-user-card",
+   "base": "current-user-card",
+   "variants": [
+    "dldgEL",
+    "dzUEkk"
+   ]
+  },
+  "src/container/pages/agent-performance/LeaderBoard.js:81:11": {
+   "name": "pf-user-left",
+   "base": "user-left",
+   "variants": [
+    "bjFsJW"
+   ]
+  },
+  "src/container/pages/agent-performance/LeaderBoard.js:82:13": {
+   "name": "pf-user-avatar",
+   "base": "user-avatar",
+   "variants": [
+    "gioKFq"
+   ]
+  },
+  "src/container/pages/agent-performance/LeaderBoard.js:104:15": {
+   "name": "pf-user-name",
+   "base": "user-name",
+   "variants": [
+    "BnYER"
+   ]
+  },
+  "src/container/pages/agent-performance/LeaderBoard.js:111:13": {
+   "name": "pf-user-position",
+   "base": "user-position",
+   "variants": [
+    "hcMuUX"
+   ]
+  },
+  "src/container/pages/agent-performance/LeaderBoard.js:116:13": {
+   "name": "pf-user-points",
+   "base": "user-points",
+   "variants": [
+    "gtSBj"
+   ]
+  },
+  "src/container/pages/agent-performance/LeaderBoard.js:131:7": {
+   "name": "pf-leaderboard-table-wrapper",
+   "base": "leaderboard-table-wrapper",
+   "variants": [
+    "jEcBRt"
+   ]
+  },
+  "src/container/pages/agent-performance/LeaderBoard.js:132:9": {
+   "name": "pf-leaderboard-table-content",
+   "base": "leaderboard-table-content",
+   "variants": [
+    "eFooWR"
+   ]
+  },
+  "src/container/pages/agent-performance/LeaderBoard.js:177:25": {
+   "name": "pf-leaderboard-fade-overlay",
+   "base": "leaderboard-fade-overlay",
+   "variants": [
+    "EEfAx"
+   ]
+  },
+  "src/tenant/common/components/prop-shop/prop-shop.js:29:7": {
+   "name": "pf-package-card-list",
+   "base": "package-card-list",
+   "variants": [
+    "kKzIcQ"
+   ]
+  },
+  "src/tenant/common/components/prop-shop/offered-packages/offeredPackages.js:260:5": {
+   "name": "pf-card-packages",
+   "base": "card-packages",
+   "variants": [
+    "eemoYk"
+   ]
+  },
+  "src/components/common/swiper/swiper.js:16:7": {
+   "name": "pf-content-slider",
+   "base": "content-slider",
+   "variants": [
+    "fAxSgt"
+   ]
+  },
+  "src/components/common/drawerPopover/drawerPopover.js:50:9": {
+   "name": "pf-bottom-sheet-drawer",
+   "base": "bottom-sheet-drawer",
+   "variants": [
+    "gMYluK"
+   ]
+  },
+  "src/tenant/bayut/components/listing/listingCard.js:154:7": {
+   "name": "pf-listing-card-styled",
+   "base": "listing-card-styled",
+   "variants": [
+    "gYNlhd"
+   ]
+  },
+  "src/tenant/bayut/components/listing/listingCard.js:169:13": {
+   "name": "pf-listing-card-thumbnail",
+   "base": "thumbnail",
+   "variants": [
+    "pPyIH"
+   ]
+  },
+  "src/tenant/bayut/components/listing/listingCard.js:232:15": {
+   "name": "pf-health-container",
+   "base": "health-container",
+   "variants": [
+    "kkCYfN"
+   ]
+  },
+  "src/tenant/bayut/components/listing/listingCard.js:130:9": {
+   "name": "pf-stats",
+   "base": "stats",
+   "variants": [
+    "gkxXPE"
+   ]
+  },
+  "src/tenant/bayut/components/listing/listingCard.js:410:13": {
+   "name": "pf-tenant-list",
+   "base": "tenant-list",
+   "variants": [
+    "bVFgNg"
+   ]
+  },
+  "src/container/pages/agancy-staff/agency-staff-mobile.js:373:9": {
+   "name": "pf-agency-staff-mobile-action-button",
+   "base": "action-button",
+   "variants": [
+    "jUmAXT"
+   ]
+  },
+  "src/components/invite-user/inviteUser.js:185:15": {
+   "name": "pf-invite-user-json-form-styled",
+   "base": "json-form-styled",
+   "variants": [
+    "gontI"
+   ]
+  },
+  "src/container/pages/agent-performance/LeaderBoard.js:600:5": {
+   "name": "pf-leader-board-card-shell",
+   "base": "card-shell",
+   "variants": [
+    "htbvUe",
+    "bZofvP"
+   ]
+  },
+  "src/container/pages/agent-performance/LeaderBoard.js:609:7": {
+   "name": "pf-leader-board-leaderboard-card-header",
+   "base": "leaderboard-card-header",
+   "variants": [
+    "iPiEff",
+    "gOddTR"
+   ]
+  },
+  "src/container/pages/agent-performance/LeaderBoard.js:610:9": {
+   "name": "pf-leader-board-leaderboard-title",
+   "base": "leaderboard-title",
+   "variants": [
+    "iGRkmO",
+    "kdJSJF"
+   ]
+  },
+  "src/container/pages/agent-performance/LeaderBoard.js:615:9": {
+   "name": "pf-view-leaderboard-button",
+   "base": "view-leaderboard-button",
+   "variants": [
+    "jTBpNN",
+    "jqhKAz"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:128:7": {
+   "name": "pf-agent-activity-activity-header",
+   "base": "activity-header",
+   "variants": [
+    "iCQCHP",
+    "cHKstt"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:129:9": {
+   "name": "pf-activity-title",
+   "base": "activity-title",
+   "variants": [
+    "ijsHkZ"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:131:11": {
+   "name": "pf-how-to-earn-button",
+   "base": "how-to-earn-button",
+   "variants": [
+    "gXLJUe"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:78:5": {
+   "name": "pf-activity-list-wrapper",
+   "base": "activity-list-wrapper",
+   "variants": [
+    "hHDzWA",
+    "kMMYFw"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:79:7": {
+   "name": "pf-activity-list",
+   "base": "activity-list",
+   "variants": [
+    "coSbcx",
+    "eDDffE"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:92:17": {
+   "name": "pf-activity-icon-wrapper",
+   "base": "activity-icon-wrapper",
+   "variants": [
+    "cGjrlh"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:98:15": {
+   "name": "pf-activity-content",
+   "base": "activity-content",
+   "variants": [
+    "cfQcxp",
+    "cfXLZp"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:99:17": {
+   "name": "pf-activity-details",
+   "base": "activity-details",
+   "variants": [
+    "bwBqaO"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:100:19": {
+   "name": "pf-activity-title-text",
+   "base": "activity-title-text",
+   "variants": [
+    "hNSNen"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:103:19": {
+   "name": "pf-activity-date",
+   "base": "activity-date",
+   "variants": [
+    "bFrIey"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:110:19": {
+   "name": "pf-points-value",
+   "base": "points-value",
+   "variants": [
+    "bfefJt"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:118:7": {
+   "name": "pf-activity-fade-overlay",
+   "base": "activity-fade-overlay",
+   "variants": [
+    "hvusCd"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBagesInfo.js:285:7": {
+   "name": "pf-agent-bages-info-drawer-content-wrapper-2",
+   "base": "drawer-content-wrapper",
+   "variants": [
+    "dcGZiK"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBagesInfo.js:286:9": {
+   "name": "pf-agent-bages-info-drawer-content-2",
+   "base": "drawer-content",
+   "variants": [
+    "jzDDLJ"
+   ]
+  },
+  "src/container/pages/agent-performance/ActivityDrawer.js:94:7": {
+   "name": "pf-activity-drawer-drawer-header",
+   "base": "drawer-header",
+   "variants": [
+    "fYxtn"
+   ]
+  },
+  "src/container/pages/agent-performance/ActivityDrawer.js:150:49": {
+   "name": "pf-activity-drawer-drawer-fade-overlay",
+   "base": "drawer-fade-overlay",
+   "variants": [
+    "dLoOjp"
+   ]
+  },
+  "src/tenant/common/components/profile-completion/profile-completion-banner.js:98:9": {
+   "name": "pf-profile-card",
+   "base": "profile-card",
+   "variants": [
+    "hZPcyA"
+   ]
+  },
+  "src/tenant/common/components/profile-completion/profile-completion-banner.js:44:9": {
+   "name": "pf-avatar-styled",
+   "base": "avatar-styled",
+   "variants": [
+    "diKjdM"
+   ]
+  },
+  "src/tenant/bayut/components/listing/listings.js:255:7": {
+   "name": "pf-listings-tabs-styled",
+   "base": "tabs-styled",
+   "variants": [
+    "icJwop"
+   ]
+  },
+  "src/container/pages/user-settings/user-settings.js:59:17": {
+   "name": "pf-user-settings-tabs-styled",
+   "base": "tabs-styled",
+   "variants": [
+    "CDbAZ"
+   ]
+  },
+  "src/components/leads-management/lead-name.js:46:11": {
+   "name": "pf-text-field",
+   "base": "text-field",
+   "variants": [
+    "hmOzDF",
+    "ZHHLS"
+   ]
+  },
+  "src/tenant/common/components/prop-shop/offered-packages/offeredPackages.js:322:5": {
+   "name": "pf-offered-packages-card-packages",
+   "base": "card-packages",
+   "variants": [
+    "eemoYk"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/post-listing-with-options.js:337:19": {
+   "name": "pf-chooser-header",
+   "base": "chooser-header",
+   "variants": [
+    "dxzges"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/post-listing-with-options.js:339:21": {
+   "name": "pf-chooser-subtitle",
+   "base": "chooser-subtitle",
+   "variants": [
+    "iBiFzv"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/post-listing-with-options.js:343:19": {
+   "name": "pf-chooser-grid",
+   "base": "chooser-grid",
+   "variants": [
+    "iPylR"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/post-listing-with-options.js:244:7": {
+   "name": "pf-option-card",
+   "base": "option-card",
+   "variants": [
+    "gFbRZg"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/post-listing-with-options.js:252:11": {
+   "name": "pf-option-card-head",
+   "base": "option-card-head",
+   "variants": [
+    "gyDJrv"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/post-listing-with-options.js:232:7": {
+   "name": "pf-option-icon-box",
+   "base": "option-icon-box",
+   "variants": [
+    "kHhqYp"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/post-listing-with-options.js:237:7": {
+   "name": "pf-option-body",
+   "base": "option-body",
+   "variants": [
+    "fEEYup"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/post-listing-with-options.js:238:9": {
+   "name": "pf-option-title",
+   "base": "option-title",
+   "variants": [
+    "gFCEgV"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/post-listing-with-options.js:239:9": {
+   "name": "pf-option-description",
+   "base": "option-description",
+   "variants": [
+    "eUonbS"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/post-listing-with-options.js:255:13": {
+   "name": "pf-option-chevron",
+   "base": "option-chevron",
+   "variants": [
+    "lmPCZc"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/post-listing-with-options.js:256:15": {
+   "name": "pf-directional-chevron",
+   "base": "directional-chevron",
+   "variants": [
+    "ifKCnh"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/post-listing-with-options.js:265:9": {
+   "name": "pf-option-footer",
+   "base": "option-footer",
+   "variants": [
+    "hjXiZZ"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/post-listing-with-options.js:266:11": {
+   "name": "pf-option-footer-row",
+   "base": "option-footer-row",
+   "variants": [
+    "lgQcFP"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/post-listing-with-options.js:267:13": {
+   "name": "pf-option-meta",
+   "base": "option-meta",
+   "variants": [
+    "fJpSXt"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/post-listing-with-options.js:246:11": {
+   "name": "pf-new-ribbon",
+   "base": "new-ribbon",
+   "variants": [
+    "fYgHPU"
+   ]
+  },
+  "src/tenant/common/components/reports/CardTrafficLeadsByDate.js:49:7": {
+   "name": "pf-list-card-footer",
+   "base": "list-card-footer",
+   "variants": [
+    "kYomG"
+   ]
+  },
+  "src/tenant/common/components/reports/CardTrafficLeadsByDate.js:50:9": {
+   "name": "pf-statistic-wrapper-small",
+   "base": "statistic-wrapper-small",
+   "variants": [
+    "dxzBQJ"
+   ]
+  },
+  "src/container/pages/user-settings/user-settings.js:48:5": {
+   "name": "pf-user-settings-main",
+   "base": "main",
+   "variants": [
+    "dAXlsr"
+   ]
+  },
+  "src/container/pages/reports/listing-reports.js:31:5": {
+   "name": "pf-listing-reports-main",
+   "base": "main",
+   "variants": [
+    "dAXlsr"
+   ]
+  },
+  "src/components/leads-management/lead-listings-mobile.js:147:7": {
+   "name": "pf-lead-listings-mobile-table-pagination",
+   "base": "table-pagination",
+   "variants": [
+    "kAqPZH"
+   ]
+  },
+  "src/components/charts/chartjs.js:232:5": {
+   "name": "pf-chartjs-chart-container",
+   "base": "chart-container",
+   "variants": [
+    "jpxNeV"
    ]
   }
  }

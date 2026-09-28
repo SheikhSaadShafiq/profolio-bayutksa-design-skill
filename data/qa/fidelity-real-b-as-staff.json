@@ -1,0 +1,2632 @@
+{
+  "at": "2026-09-28T19:36:51.397Z",
+  "against": "real account",
+  "tolerancePx": 1,
+  "coverage": 88.9,
+  "fidelity": 75.5,
+  "exact": 48.6,
+  "rows": [
+    {
+      "page": "ad-license",
+      "live": 219,
+      "ours": 219,
+      "matched": 215,
+      "clean": 182,
+      "missing": 4,
+      "moved": 33,
+      "painted": 0,
+      "inherited": 172,
+      "exact": 10,
+      "extra": 4,
+      "pageHeight": [
+        800,
+        800
+      ],
+      "coverage": 98.2,
+      "fidelity": 84.7,
+      "exactPct": 4.6,
+      "score": 84.7,
+      "worklist": [
+        {
+          "kind": "moved",
+          "at": "div.ant-card.ant-card-bordered.dDPFpE",
+          "box": "1020×1893 @173,54",
+          "detail": "w 1020→1035"
+        },
+        {
+          "kind": "moved",
+          "at": "div.eolAvG",
+          "box": "303×76 @430,1693",
+          "detail": "w 303→309"
+        },
+        {
+          "kind": "extra",
+          "at": "div",
+          "box": "30×50 @852,705",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.d-block.text-muted",
+          "box": "30×22 @852,705",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.fz-18.fw-700.text-primary",
+          "box": "12×22 @868,730",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span",
+          "box": "13×14 @852,734",
+          "detail": "we draw it, the product does not"
+        }
+      ]
+    },
+    {
+      "page": "agency-staff",
+      "live": 0,
+      "ours": 0,
+      "matched": 0,
+      "clean": 0,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 0,
+      "extra": 0,
+      "pageHeight": [
+        800,
+        800
+      ],
+      "coverage": 0,
+      "fidelity": 0,
+      "exactPct": 0,
+      "score": 0,
+      "worklist": []
+    },
+    {
+      "page": "agent-performance",
+      "live": 372,
+      "ours": 381,
+      "matched": 365,
+      "clean": 314,
+      "missing": 7,
+      "moved": 51,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 314,
+      "extra": 16,
+      "pageHeight": [
+        1148,
+        1148
+      ],
+      "coverage": 98.1,
+      "fidelity": 86,
+      "exactPct": 84.4,
+      "score": 86,
+      "worklist": [
+        {
+          "kind": "moved",
+          "at": "div.bwBqaO",
+          "box": "500×38 @773,704",
+          "detail": "w 500→508"
+        },
+        {
+          "kind": "moved",
+          "at": "div.bwBqaO",
+          "box": "500×38 @773,944",
+          "detail": "w 500→508"
+        },
+        {
+          "kind": "moved",
+          "at": "div.bwBqaO",
+          "box": "500×38 @773,1024",
+          "detail": "w 500→508"
+        },
+        {
+          "kind": "moved",
+          "at": "div.bwBqaO",
+          "box": "499×38 @773,1104",
+          "detail": "w 499→508"
+        },
+        {
+          "kind": "moved",
+          "at": "div.bwBqaO",
+          "box": "496×38 @773,784",
+          "detail": "w 496→508"
+        },
+        {
+          "kind": "moved",
+          "at": "div.bwBqaO",
+          "box": "496×38 @773,864",
+          "detail": "w 496→508"
+        },
+        {
+          "kind": "moved",
+          "at": "div.ant-flex.ant-flex-align-center",
+          "box": "226×50 @28,43",
+          "detail": "w 226→263"
+        },
+        {
+          "kind": "moved",
+          "at": "div",
+          "box": "109×36 @96,629",
+          "detail": "w 109→136"
+        },
+        {
+          "kind": "moved",
+          "at": "div",
+          "box": "125×22 @195,1140",
+          "detail": "w 125→95"
+        },
+        {
+          "kind": "extra",
+          "at": "div",
+          "box": "99×22 @195,848",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "moved",
+          "at": "div",
+          "box": "89×22 @195,1286",
+          "detail": "w 89→119"
+        },
+        {
+          "kind": "moved",
+          "at": "div",
+          "box": "83×22 @195,1359",
+          "detail": "w 83→91"
+        },
+        {
+          "kind": "moved",
+          "at": "div",
+          "box": "79×22 @195,921",
+          "detail": "w 79→98"
+        },
+        {
+          "kind": "moved",
+          "at": "div",
+          "box": "79×22 @195,1067",
+          "detail": "w 79→89"
+        },
+        {
+          "kind": "moved",
+          "at": "div",
+          "box": "79×22 @195,1432",
+          "detail": "w 79→83"
+        },
+        {
+          "kind": "moved",
+          "at": "div",
+          "box": "78×22 @195,994",
+          "detail": "w 78→101"
+        },
+        {
+          "kind": "moved",
+          "at": "div",
+          "box": "71×22 @195,1213",
+          "detail": "w 71→98"
+        },
+        {
+          "kind": "moved",
+          "at": "div",
+          "box": "68×22 @195,775",
+          "detail": "w 68→106"
+        },
+        {
+          "kind": "moved",
+          "at": "div",
+          "box": "62×21 @1269,792",
+          "detail": "x 1269→1281 (+12 in its parent) · w 62→50"
+        },
+        {
+          "kind": "moved",
+          "at": "div",
+          "box": "62×21 @1269,872",
+          "detail": "x 1269→1281 (+12 in its parent) · w 62→50"
+        },
+        {
+          "kind": "moved",
+          "at": "div",
+          "box": "59×21 @1272,1112",
+          "detail": "x 1272→1281 (+9 in its parent) · w 59→50"
+        },
+        {
+          "kind": "moved",
+          "at": "div",
+          "box": "58×21 @1273,712",
+          "detail": "x 1273→1281 (+8 in its parent) · w 58→50"
+        },
+        {
+          "kind": "moved",
+          "at": "div",
+          "box": "58×21 @1273,952",
+          "detail": "x 1273→1281 (+8 in its parent) · w 58→50"
+        },
+        {
+          "kind": "moved",
+          "at": "div",
+          "box": "58×21 @1273,1032",
+          "detail": "x 1273→1281 (+8 in its parent) · w 58→50"
+        },
+        {
+          "kind": "missing",
+          "at": "div",
+          "box": "45×22 @195,848",
+          "detail": "the product draws it, we do not"
+        },
+        {
+          "kind": "extra",
+          "at": "span",
+          "box": "28×35 @518,988",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span",
+          "box": "28×35 @518,1353",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "moved",
+          "at": "span.lnVJYV",
+          "box": "53×18 @387,494",
+          "detail": "x 387→394 (+7 in its parent) · w 53→46"
+        },
+        {
+          "kind": "extra",
+          "at": "span",
+          "box": "24×35 @518,769",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span",
+          "box": "24×35 @518,915",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span",
+          "box": "24×35 @518,1134",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-fill--v10",
+          "box": "124×6 @940,522",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span",
+          "box": "24×31 @518,844",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span",
+          "box": "24×31 @518,1209",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "moved",
+          "at": "span.lnVJYV",
+          "box": "33×18 @193,494",
+          "detail": "x 193→173 (-20 in its parent) · w 33→53"
+        },
+        {
+          "kind": "moved",
+          "at": "div.cgLdep",
+          "box": "87×6 @242,522",
+          "detail": "w 87→45"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-fill--v8",
+          "box": "83×6 @28,522",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "svg",
+          "box": "20×20 @1311,713",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "svg",
+          "box": "20×20 @1311,793",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "svg",
+          "box": "20×20 @1311,873",
+          "detail": "we draw it, the product does not"
+        }
+      ]
+    },
+    {
+      "page": "credits-usage",
+      "live": 229,
+      "ours": 228,
+      "matched": 214,
+      "clean": 169,
+      "missing": 15,
+      "moved": 45,
+      "painted": 0,
+      "inherited": 10,
+      "exact": 159,
+      "extra": 14,
+      "pageHeight": [
+        958,
+        958
+      ],
+      "coverage": 93.4,
+      "fidelity": 79,
+      "exactPct": 69.4,
+      "score": 79,
+      "worklist": [
+        {
+          "kind": "moved",
+          "at": "div",
+          "box": "753×2280 @538,127",
+          "detail": "h 2280→2260"
+        },
+        {
+          "kind": "moved",
+          "at": "div.ant-col",
+          "box": "509×154 @601,1056",
+          "detail": "w 509→504"
+        },
+        {
+          "kind": "moved",
+          "at": "div.ant-col",
+          "box": "507×154 @601,828",
+          "detail": "w 507→504"
+        },
+        {
+          "kind": "moved",
+          "at": "div.ant-col",
+          "box": "506×152 @601,602",
+          "detail": "w 506→509"
+        },
+        {
+          "kind": "moved",
+          "at": "div.ant-col",
+          "box": "499×152 @601,152",
+          "detail": "w 499→505"
+        },
+        {
+          "kind": "moved",
+          "at": "div.ant-col.jDxNbh",
+          "box": "149×152 @1117,152",
+          "detail": "x 1117→1123 (+6 in its parent) · w 149→143"
+        },
+        {
+          "kind": "moved",
+          "at": "div.ant-col.jDxNbh",
+          "box": "142×154 @1124,828",
+          "detail": "x 1124→1121 (-3 in its parent) · w 142→145"
+        },
+        {
+          "kind": "moved",
+          "at": "div.ant-col.jDxNbh",
+          "box": "142×152 @1124,602",
+          "detail": "x 1124→1127 (+3 in its parent) · w 142→139"
+        },
+        {
+          "kind": "moved",
+          "at": "div.ant-col.jDxNbh",
+          "box": "139×154 @1127,1056",
+          "detail": "x 1127→1122 (-5 in its parent) · w 139→144"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-tag.fpgfJi",
+          "box": "107×33 @1159,495",
+          "detail": "x 1159→1168 (+10 in its parent) · w 107→98"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-statistic.pf-statistic-styled--v5",
+          "box": "50×47 @229,173",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "moved",
+          "at": "div.rc-virtual-list-scrollbar-thumb",
+          "box": "8×205 @1283,127",
+          "detail": "h 205→207"
+        },
+        {
+          "kind": "missing",
+          "at": "div.ant-statistic.kDegEr",
+          "box": "34×47 @216,173",
+          "detail": "the product draws it, we do not"
+        },
+        {
+          "kind": "moved",
+          "at": "strong",
+          "box": "72×22 @818,378",
+          "detail": "w 72→66"
+        },
+        {
+          "kind": "moved",
+          "at": "div.ant-statistic.kDegEr",
+          "box": "32×47 @151,173",
+          "detail": "w 32→45"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-statistic-content-value",
+          "box": "50×25 @229,195",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-statistic-content-value",
+          "box": "47×25 @62,195",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-statistic-content-value-int",
+          "box": "50×21 @229,197",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-statistic-title",
+          "box": "50×20 @229,173",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-statistic-content-value-int",
+          "box": "47×21 @62,197",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-statistic-content-value-int",
+          "box": "45×21 @151,197",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.semiBold",
+          "box": "26×22 @406,655",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.semiBold",
+          "box": "25×22 @407,693",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.semiBold",
+          "box": "25×22 @407,731",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-typography",
+          "box": "26×17 @406,657",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-typography",
+          "box": "25×17 @407,695",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-typography",
+          "box": "25×17 @407,733",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "missing",
+          "at": "span.ant-statistic-content-value",
+          "box": "12×25 @62,195",
+          "detail": "the product draws it, we do not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.base-color.semiBold",
+          "box": "8×28 @1209,721",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "missing",
+          "at": "div.semiBold",
+          "box": "9×22 @423,655",
+          "detail": "the product draws it, we do not"
+        },
+        {
+          "kind": "missing",
+          "at": "div.semiBold",
+          "box": "9×22 @423,693",
+          "detail": "the product draws it, we do not"
+        },
+        {
+          "kind": "missing",
+          "at": "div.semiBold",
+          "box": "9×22 @423,731",
+          "detail": "the product draws it, we do not"
+        },
+        {
+          "kind": "moved",
+          "at": "div.semiBold",
+          "box": "9×22 @423,769",
+          "detail": "x 423→416 (-7 in its parent) · w 9→17"
+        },
+        {
+          "kind": "moved",
+          "at": "div.semiBold",
+          "box": "9×22 @423,807",
+          "detail": "x 423→416 (-7 in its parent) · w 9→17"
+        },
+        {
+          "kind": "moved",
+          "at": "div.semiBold",
+          "box": "9×22 @423,845",
+          "detail": "x 423→417 (-6 in its parent) · w 9→15"
+        }
+      ]
+    },
+    {
+      "page": "dashboard",
+      "live": 485,
+      "ours": 476,
+      "matched": 400,
+      "clean": 269,
+      "missing": 85,
+      "moved": 131,
+      "painted": 0,
+      "inherited": 106,
+      "exact": 163,
+      "extra": 76,
+      "pageHeight": [
+        2787,
+        2799
+      ],
+      "coverage": 82.5,
+      "fidelity": 67.3,
+      "exactPct": 33.6,
+      "score": 67.3,
+      "worklist": [
+        {
+          "kind": "extra",
+          "at": "table",
+          "box": "1370×1581 @24,1182",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "moved",
+          "at": "div",
+          "box": "2660×742 @-1305,382",
+          "detail": "h 742→740"
+        },
+        {
+          "kind": "moved",
+          "at": "canvas.chartjs-render-monitor",
+          "box": "1282×273 @49,827",
+          "detail": "y 827→825 (-2 in its parent)"
+        },
+        {
+          "kind": "extra",
+          "at": "col",
+          "box": "215×1581 @829,1182",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "col",
+          "box": "112×1581 @717,1182",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "moved",
+          "at": "div.ant-tabs-nav-list",
+          "box": "600×84 @24,671",
+          "detail": "w 600→611"
+        },
+        {
+          "kind": "moved",
+          "at": "div.ant-tabs-extra-content",
+          "box": "559×84 @624,671",
+          "detail": "x 624→635 (+11 in its parent) · w 559→552"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "215×156 @829,1844",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "215×156 @829,2607",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "215×152 @829,1237",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "215×152 @829,1389",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "215×152 @829,1540",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "215×152 @829,1692",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "215×152 @829,2000",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "215×152 @829,2152",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "215×152 @829,2304",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "215×152 @829,2455",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "moved",
+          "at": "div.color-gray-dark.fz-12",
+          "box": "475×44 @95,262",
+          "detail": "w 475→500"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "112×156 @717,1844",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "112×156 @717,2607",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "112×152 @717,1237",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "112×152 @717,1389",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "112×152 @717,1540",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "112×152 @717,1692",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "112×152 @717,2000",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "112×152 @717,2152",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "112×152 @717,2304",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "112×152 @717,2455",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "missing",
+          "at": "div.ant-row",
+          "box": "158×80 @1182,1425",
+          "detail": "the product draws it, we do not"
+        },
+        {
+          "kind": "missing",
+          "at": "div.ant-row",
+          "box": "158×80 @1182,2333",
+          "detail": "the product draws it, we do not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.mb-8",
+          "box": "279×44 @422,1287",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.mb-8",
+          "box": "279×44 @422,1439",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.mb-8",
+          "box": "279×44 @422,1590",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.mb-8",
+          "box": "279×44 @422,1742",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.mb-8",
+          "box": "279×44 @422,2050",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "th.pf-table-cell",
+          "box": "215×54 @829,1182",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.mb-8",
+          "box": "279×22 @422,2670",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "th.pf-table-cell",
+          "box": "112×54 @717,1182",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-row",
+          "box": "158×36 @1182,1447",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-row",
+          "box": "158×36 @1182,2361",
+          "detail": "we draw it, the product does not"
+        }
+      ]
+    },
+    {
+      "page": "listings",
+      "live": 1013,
+      "ours": 1022,
+      "matched": 724,
+      "clean": 419,
+      "missing": 289,
+      "moved": 262,
+      "painted": 43,
+      "inherited": 346,
+      "exact": 116,
+      "extra": 298,
+      "pageHeight": [
+        1813,
+        1826
+      ],
+      "coverage": 71.5,
+      "fidelity": 57.9,
+      "exactPct": 11.5,
+      "score": 57.9,
+      "worklist": [
+        {
+          "kind": "extra",
+          "at": "table",
+          "box": "1370×1581 @24,169",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "col",
+          "box": "215×1581 @829,169",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "col",
+          "box": "112×1581 @717,169",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "215×156 @829,831",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "215×156 @829,1594",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "215×152 @829,224",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "215×152 @829,376",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "215×152 @829,527",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "215×152 @829,679",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "215×152 @829,987",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "215×152 @829,1139",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "215×152 @829,1291",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "215×152 @829,1442",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "moved",
+          "at": "div.ant-tabs-nav-list",
+          "box": "544×46 @37,124",
+          "detail": "w 544→539"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "112×156 @717,831",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "112×156 @717,1594",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "112×152 @717,224",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "112×152 @717,376",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "112×152 @717,527",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "112×152 @717,679",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "112×152 @717,987",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "112×152 @717,1139",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "112×152 @717,1291",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "td.pf-table-cell",
+          "box": "112×152 @717,1442",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "missing",
+          "at": "div.ant-row",
+          "box": "158×80 @1182,411",
+          "detail": "the product draws it, we do not"
+        },
+        {
+          "kind": "missing",
+          "at": "div.ant-row",
+          "box": "158×80 @1182,1319",
+          "detail": "the product draws it, we do not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.mb-8",
+          "box": "279×44 @422,274",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.mb-8",
+          "box": "279×44 @422,426",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.mb-8",
+          "box": "279×44 @422,577",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.mb-8",
+          "box": "279×44 @422,729",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.mb-8",
+          "box": "279×44 @422,1037",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "th.pf-table-cell",
+          "box": "215×54 @829,169",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-flex-styled--v17",
+          "box": "279×22 @422,274",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-flex-styled--v45",
+          "box": "279×22 @422,296",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-flex-styled--v17",
+          "box": "279×22 @422,426",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-flex-styled--v45",
+          "box": "279×22 @422,447",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-flex-styled--v17",
+          "box": "279×22 @422,577",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-flex-styled--v45",
+          "box": "279×22 @422,599",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-flex-styled--v17",
+          "box": "279×22 @422,729",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-flex-styled--v45",
+          "box": "279×22 @422,751",
+          "detail": "we draw it, the product does not"
+        }
+      ]
+    },
+    {
+      "page": "lms-leads",
+      "live": 407,
+      "ours": 401,
+      "matched": 361,
+      "clean": 262,
+      "missing": 46,
+      "moved": 99,
+      "painted": 0,
+      "inherited": 75,
+      "exact": 187,
+      "extra": 40,
+      "pageHeight": [
+        1080,
+        1063
+      ],
+      "coverage": 88.7,
+      "fidelity": 72.6,
+      "exactPct": 45.9,
+      "score": 72.6,
+      "worklist": [
+        {
+          "kind": "extra",
+          "at": "div.pf-table-pagination.has-rows-per-page.no-pager",
+          "box": "1332×32 @24,1011",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "moved",
+          "at": "th.ant-table-cell",
+          "box": "321×53 @634,478",
+          "detail": "x 634→637 (+3 in its parent) · w 321→315"
+        },
+        {
+          "kind": "moved",
+          "at": "th.ant-table-cell",
+          "box": "319×53 @315,478",
+          "detail": "w 319→321"
+        },
+        {
+          "kind": "moved",
+          "at": "th.ant-table-cell",
+          "box": "209×53 @1147,478",
+          "detail": "x 1147→1145 (-2 in its parent)"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-flex-styled--v53",
+          "box": "259×41 @41,576",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "moved",
+          "at": "th.ant-table-cell",
+          "box": "192×53 @955,478",
+          "detail": "x 955→952 (-3 in its parent) · w 192→194"
+        },
+        {
+          "kind": "moved",
+          "at": "div.ant-card-meta.cOHtMd.p-0",
+          "box": "184×40 @24,20",
+          "detail": "w 184→216"
+        },
+        {
+          "kind": "extra",
+          "at": "div",
+          "box": "162×38 @968,575",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-flex-styled--v54.pf-popover-styled.pointer",
+          "box": "289×20 @332,669",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-row.pf-row-space-between.pf-row-middle",
+          "box": "180×32 @1176,1011",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-row",
+          "box": "178×32 @1161,567",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-flex-styled--v5",
+          "box": "289×19 @332,601",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-flex-styled--v5",
+          "box": "289×19 @332,708",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-flex-styled--v18",
+          "box": "259×20 @41,549",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-flex-styled--v11",
+          "box": "259×18 @41,576",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "moved",
+          "at": "div.value",
+          "box": "209×18 @57,954",
+          "detail": "w 209→183"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-typography.d-block",
+          "box": "250×15 @332,693",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "moved",
+          "at": "div.value",
+          "box": "196×18 @57,842",
+          "detail": "w 196→160"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-flex-styled--v5",
+          "box": "162×19 @968,575",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "moved",
+          "at": "div.value",
+          "box": "157×18 @57,719",
+          "detail": "w 157→201"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-flex-styled--v11.pf-popover-styled",
+          "box": "136×20 @41,787",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.value",
+          "box": "134×18 @57,576",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-select-selector",
+          "box": "72×32 @1284,1011",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-flex-styled--v11.pf-popover-styled",
+          "box": "110×20 @41,549",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "moved",
+          "at": "div.jwyyfg.jDgZzN",
+          "box": "95×20 @41,693",
+          "detail": "w 95→125"
+        },
+        {
+          "kind": "extra",
+          "at": "span",
+          "box": "94×20 @41,549",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-flex-styled--v5",
+          "box": "87×20 @332,669",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "label.pf-label-styled--v2",
+          "box": "100×17 @1176,1019",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.value",
+          "box": "93×18 @57,599",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "moved",
+          "at": "div.value",
+          "box": "90×18 @57,977",
+          "detail": "w 90→92"
+        },
+        {
+          "kind": "moved",
+          "at": "div.value",
+          "box": "89×18 @57,743",
+          "detail": "w 89→93"
+        },
+        {
+          "kind": "moved",
+          "at": "div.value",
+          "box": "88×18 @57,865",
+          "detail": "w 88→93"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-select-selection-search",
+          "box": "48×30 @1296,1012",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-text--v11",
+          "box": "72×19 @352,708",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-text--v11",
+          "box": "71×19 @352,601",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.value",
+          "box": "71×19 @988,575",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-text--v10",
+          "box": "66×20 @352,669",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.text-primary.fz-12",
+          "box": "93×13 @661,836",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.text-primary.fz-12",
+          "box": "92×13 @661,712",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-text--v10",
+          "box": "23×20 @352,546",
+          "detail": "we draw it, the product does not"
+        }
+      ]
+    },
+    {
+      "page": "packages",
+      "live": 393,
+      "ours": 401,
+      "matched": 370,
+      "clean": 324,
+      "missing": 23,
+      "moved": 40,
+      "painted": 6,
+      "inherited": 7,
+      "exact": 317,
+      "extra": 31,
+      "pageHeight": [
+        1131,
+        1131
+      ],
+      "coverage": 94.1,
+      "fidelity": 87.6,
+      "exactPct": 80.7,
+      "score": 87.6,
+      "worklist": [
+        {
+          "kind": "moved",
+          "at": "div.eHLPo",
+          "box": "135×44 @539,45",
+          "detail": "x 539→554 (+15 in its parent) · w 135→119"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-progress-bg.pf-progress-bg-outer",
+          "box": "468×8 @707,102",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "moved",
+          "at": "div.jwyyfg",
+          "box": "99×31 @307,367",
+          "detail": "x 307→315 (+8 in its parent) · w 99→84"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-statistic.pf-statistic-styled--v3",
+          "box": "56×50 @992,45",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "moved",
+          "at": "div.jwyyfg",
+          "box": "88×31 @591,367",
+          "detail": "x 591→598 (+7 in its parent) · w 88→74"
+        },
+        {
+          "kind": "moved",
+          "at": "div.jwyyfg",
+          "box": "86×31 @870,367",
+          "detail": "x 870→874 (+4 in its parent) · w 86→76"
+        },
+        {
+          "kind": "moved",
+          "at": "div.jwyyfg",
+          "box": "82×31 @1150,367",
+          "detail": "x 1150→1154 (+4 in its parent) · w 82→73"
+        },
+        {
+          "kind": "moved",
+          "at": "div.jwyyfg",
+          "box": "76×31 @1709,367",
+          "detail": "x 1709→1711 (+2 in its parent) · w 76→72"
+        },
+        {
+          "kind": "moved",
+          "at": "div.jwyyfg",
+          "box": "71×31 @1989,367",
+          "detail": "w 71→73"
+        },
+        {
+          "kind": "missing",
+          "at": "div.ant-statistic.gnJOul",
+          "box": "37×50 @974,45",
+          "detail": "the product draws it, we do not"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-tag.ant-tag-has-color.ant-tag-borderless",
+          "box": "71×25 @713,253",
+          "detail": "x 713→716 (+3 in its parent) · w 71→68"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-tag.ant-tag-has-color.ant-tag-borderless",
+          "box": "71×25 @991,253",
+          "detail": "x 991→994 (+3 in its parent) · w 71→68"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-tag.ant-tag-has-color.ant-tag-borderless",
+          "box": "71×25 @1269,253",
+          "detail": "x 1269→1272 (+3 in its parent) · w 71→68"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-tag.ant-tag-has-color.ant-tag-borderless",
+          "box": "71×25 @1825,253",
+          "detail": "x 1825→1828 (+3 in its parent) · w 71→68"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-tag.ant-tag-has-color.ant-tag-borderless",
+          "box": "71×25 @2103,253",
+          "detail": "x 2103→2106 (+3 in its parent) · w 71→68"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-tag.ant-tag-has-color.ant-tag-borderless",
+          "box": "70×25 @436,253",
+          "detail": "x 436→443 (+7 in its parent) · w 70→63"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-tag.ant-tag-has-color.ant-tag-borderless",
+          "box": "70×25 @1548,253",
+          "detail": "x 1548→1550 (+2 in its parent) · w 70→68"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-tag.ant-tag-has-color.ant-tag-borderless",
+          "box": "70×25 @2382,253",
+          "detail": "x 2382→2384 (+2 in its parent) · w 70→68"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-statistic-content-value",
+          "box": "87×20 @85,132",
+          "detail": "w 87→82"
+        },
+        {
+          "kind": "moved",
+          "at": "div.ant-statistic.gnJOul",
+          "box": "32×50 @877,45",
+          "detail": "w 32→50"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-statistic-content-value",
+          "box": "56×28 @992,67",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-statistic-content-value",
+          "box": "52×28 @707,67",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-statistic-content-value-int",
+          "box": "56×24 @992,69",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-statistic-content-value-int",
+          "box": "52×24 @707,69",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-statistic-content-value-int",
+          "box": "50×24 @877,69",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-statistic-title",
+          "box": "56×20 @992,45",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "moved",
+          "at": "span.fw-700.fz-16",
+          "box": "52×19 @358,313",
+          "detail": "x 358→352 (-6 in its parent) · w 52→64"
+        },
+        {
+          "kind": "moved",
+          "at": "span.fw-700.fz-16",
+          "box": "52×19 @914,313",
+          "detail": "x 914→910 (-4 in its parent) · w 52→62"
+        },
+        {
+          "kind": "moved",
+          "at": "span.fw-700.fz-16",
+          "box": "51×19 @637,313",
+          "detail": "x 637→632 (-5 in its parent) · w 51→62"
+        },
+        {
+          "kind": "moved",
+          "at": "span.fw-700.fz-16",
+          "box": "49×19 @1194,313",
+          "detail": "x 1194→1191 (-3 in its parent) · w 49→55"
+        },
+        {
+          "kind": "moved",
+          "at": "span.fw-700.fz-16",
+          "box": "46×19 @1473,313",
+          "detail": "x 1473→1469 (-4 in its parent) · w 46→55"
+        },
+        {
+          "kind": "moved",
+          "at": "span.fw-700.fz-16",
+          "box": "43×19 @2031,313",
+          "detail": "x 2031→2025 (-6 in its parent) · w 43→55"
+        },
+        {
+          "kind": "moved",
+          "at": "span.fw-700.fz-16",
+          "box": "42×19 @1753,313",
+          "detail": "x 1753→1748 (-5 in its parent) · w 42→53"
+        },
+        {
+          "kind": "moved",
+          "at": "span.fw-700.fz-16",
+          "box": "42×19 @2309,313",
+          "detail": "x 2309→2305 (-4 in its parent) · w 42→51"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-typography.color-gray-dark.fz-12",
+          "box": "37×19 @410,373",
+          "detail": "x 410→402 (-8 in its parent)"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-typography.color-gray-dark.fz-12",
+          "box": "37×19 @682,373",
+          "detail": "x 682→675 (-7 in its parent)"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-typography.color-gray-dark.fz-12",
+          "box": "37×19 @959,373",
+          "detail": "x 959→955 (-4 in its parent)"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-typography.color-gray-dark.fz-12",
+          "box": "37×19 @1235,373",
+          "detail": "x 1235→1231 (-4 in its parent)"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-typography.color-gray-dark.fz-12",
+          "box": "37×19 @1788,373",
+          "detail": "x 1788→1786 (-2 in its parent)"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-typography.color-gray-dark.fz-12",
+          "box": "37×19 @636,58",
+          "detail": "we draw it, the product does not"
+        }
+      ]
+    },
+    {
+      "page": "post-listing",
+      "live": 26,
+      "ours": 26,
+      "matched": 26,
+      "clean": 26,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 26,
+      "extra": 0,
+      "pageHeight": [
+        800,
+        800
+      ],
+      "coverage": 100,
+      "fidelity": 100,
+      "exactPct": 100,
+      "score": 100,
+      "worklist": []
+    },
+    {
+      "page": "reports-leads-reports",
+      "live": 318,
+      "ours": 318,
+      "matched": 307,
+      "clean": 275,
+      "missing": 11,
+      "moved": 32,
+      "painted": 0,
+      "inherited": 145,
+      "exact": 130,
+      "extra": 11,
+      "pageHeight": [
+        1391,
+        1389
+      ],
+      "coverage": 96.5,
+      "fidelity": 89.6,
+      "exactPct": 40.9,
+      "score": 89.6,
+      "worklist": [
+        {
+          "kind": "moved",
+          "at": "div",
+          "box": "2660×742 @-1305,-193",
+          "detail": "h 742→740"
+        },
+        {
+          "kind": "moved",
+          "at": "div.ant-tabs-nav-list",
+          "box": "600×84 @24,96",
+          "detail": "w 600→611"
+        },
+        {
+          "kind": "moved",
+          "at": "div.ant-tabs-extra-content",
+          "box": "559×84 @624,96",
+          "detail": "x 624→635 (+11 in its parent) · w 559→552"
+        },
+        {
+          "kind": "moved",
+          "at": "small",
+          "box": "54×22 @323,137",
+          "detail": "x 323→347 (+13 in its parent) · w 54→41"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-statistic-content-value",
+          "box": "23×28 @295,135",
+          "detail": "w 23→37"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-statistic-content-value",
+          "box": "13×28 @495,135",
+          "detail": "w 13→20"
+        },
+        {
+          "kind": "missing",
+          "at": "span.ant-statistic-content-suffix",
+          "box": "4×28 @512,135",
+          "detail": "the product draws it, we do not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-statistic-content-suffix",
+          "box": "4×28 @530,135",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-typography",
+          "box": "6×17 @1104,955",
+          "detail": "w 6→8"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-typography",
+          "box": "6×17 @1104,1279",
+          "detail": "w 6→8"
+        },
+        {
+          "kind": "missing",
+          "at": "span.ant-statistic-content-suffix",
+          "box": "4×23 @724,125",
+          "detail": "the product draws it, we do not"
+        },
+        {
+          "kind": "missing",
+          "at": "span.ant-statistic-content-suffix",
+          "box": "4×23 @889,125",
+          "detail": "the product draws it, we do not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-statistic-content-suffix",
+          "box": "4×23 @733,125",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-statistic-content-suffix",
+          "box": "4×23 @896,125",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-statistic-content-suffix",
+          "box": "4×23 @1021,125",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "small",
+          "box": "4×19 @530,141",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-typography.px-2.text-muted",
+          "box": "4×17 @733,128",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-typography.px-2.text-muted",
+          "box": "4×17 @896,128",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-typography.px-2.text-muted",
+          "box": "4×17 @1021,128",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "small",
+          "box": "4×15 @733,129",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "small",
+          "box": "4×15 @896,129",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "small",
+          "box": "4×15 @1021,129",
+          "detail": "we draw it, the product does not"
+        }
+      ]
+    },
+    {
+      "page": "reports-listing-report",
+      "live": 579,
+      "ours": 568,
+      "matched": 550,
+      "clean": 367,
+      "missing": 29,
+      "moved": 181,
+      "painted": 2,
+      "inherited": 14,
+      "exact": 355,
+      "extra": 18,
+      "pageHeight": [
+        1981,
+        1981
+      ],
+      "coverage": 95,
+      "fidelity": 66.7,
+      "exactPct": 61.3,
+      "score": 66.7,
+      "worklist": [
+        {
+          "kind": "moved",
+          "at": "colgroup",
+          "box": "479×1564 @26,327",
+          "detail": "w 479→477"
+        },
+        {
+          "kind": "moved",
+          "at": "td.ant-table-cell.col-property",
+          "box": "479×151 @26,382",
+          "detail": "w 479→477"
+        },
+        {
+          "kind": "moved",
+          "at": "td.ant-table-cell.col-property",
+          "box": "479×151 @26,533",
+          "detail": "w 479→477"
+        },
+        {
+          "kind": "moved",
+          "at": "td.ant-table-cell.col-property",
+          "box": "479×151 @26,684",
+          "detail": "w 479→477"
+        },
+        {
+          "kind": "moved",
+          "at": "td.ant-table-cell.col-property",
+          "box": "479×151 @26,835",
+          "detail": "w 479→477"
+        },
+        {
+          "kind": "moved",
+          "at": "td.ant-table-cell.col-property",
+          "box": "479×151 @26,986",
+          "detail": "w 479→477"
+        },
+        {
+          "kind": "moved",
+          "at": "td.ant-table-cell.col-property",
+          "box": "479×151 @26,1137",
+          "detail": "w 479→477"
+        },
+        {
+          "kind": "moved",
+          "at": "td.ant-table-cell.col-property",
+          "box": "479×151 @26,1288",
+          "detail": "w 479→477"
+        },
+        {
+          "kind": "moved",
+          "at": "td.ant-table-cell.col-property",
+          "box": "479×151 @26,1439",
+          "detail": "w 479→477"
+        },
+        {
+          "kind": "moved",
+          "at": "td.ant-table-cell.col-property",
+          "box": "479×151 @26,1590",
+          "detail": "w 479→477"
+        },
+        {
+          "kind": "moved",
+          "at": "td.ant-table-cell.col-property",
+          "box": "479×151 @26,1741",
+          "detail": "w 479→477"
+        },
+        {
+          "kind": "moved",
+          "at": "th.ant-table-cell.col-property",
+          "box": "479×54 @26,327",
+          "detail": "w 479→477"
+        },
+        {
+          "kind": "moved",
+          "at": "td.ant-table-cell",
+          "box": "155×151 @504,382",
+          "detail": "x 504→502 (-2 in its parent) · w 155→157"
+        },
+        {
+          "kind": "moved",
+          "at": "td.ant-table-cell",
+          "box": "155×151 @504,533",
+          "detail": "x 504→502 (-2 in its parent) · w 155→157"
+        },
+        {
+          "kind": "moved",
+          "at": "td.ant-table-cell",
+          "box": "155×151 @504,684",
+          "detail": "x 504→502 (-2 in its parent) · w 155→157"
+        },
+        {
+          "kind": "moved",
+          "at": "td.ant-table-cell",
+          "box": "155×151 @504,835",
+          "detail": "x 504→502 (-2 in its parent) · w 155→157"
+        },
+        {
+          "kind": "moved",
+          "at": "td.ant-table-cell",
+          "box": "155×151 @504,986",
+          "detail": "x 504→502 (-2 in its parent) · w 155→157"
+        },
+        {
+          "kind": "moved",
+          "at": "td.ant-table-cell",
+          "box": "155×151 @504,1137",
+          "detail": "x 504→502 (-2 in its parent) · w 155→157"
+        },
+        {
+          "kind": "moved",
+          "at": "td.ant-table-cell",
+          "box": "155×151 @504,1288",
+          "detail": "x 504→502 (-2 in its parent) · w 155→157"
+        },
+        {
+          "kind": "moved",
+          "at": "td.ant-table-cell",
+          "box": "155×151 @504,1439",
+          "detail": "x 504→502 (-2 in its parent) · w 155→157"
+        },
+        {
+          "kind": "moved",
+          "at": "td.ant-table-cell",
+          "box": "155×151 @504,1590",
+          "detail": "x 504→502 (-2 in its parent) · w 155→157"
+        },
+        {
+          "kind": "moved",
+          "at": "td.ant-table-cell",
+          "box": "155×151 @504,1741",
+          "detail": "x 504→502 (-2 in its parent) · w 155→157"
+        },
+        {
+          "kind": "moved",
+          "at": "ul.ant-pagination",
+          "box": "270×40 @1085,1908",
+          "detail": "x 1085→1199 (+114 in its parent) · w 270→156"
+        },
+        {
+          "kind": "moved",
+          "at": "th.ant-table-cell",
+          "box": "155×54 @504,327",
+          "detail": "x 504→502 (-2 in its parent) · w 155→157"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-badge.ant-badge-status.ant-badge-not-a-wrapper",
+          "box": "133×22 @1144,130",
+          "detail": "w 133→125"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-badge.ant-badge-status.ant-badge-not-a-wrapper",
+          "box": "133×22 @1144,152",
+          "detail": "w 133→125"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-badge.ant-badge-status.ant-badge-not-a-wrapper",
+          "box": "133×22 @1144,174",
+          "detail": "w 133→125"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-badge.ant-badge-status.ant-badge-not-a-wrapper",
+          "box": "133×22 @1144,196",
+          "detail": "w 133→125"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-badge.ant-badge-status.ant-badge-not-a-wrapper",
+          "box": "122×22 @758,121",
+          "detail": "w 122→125"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-flex-styled--v16",
+          "box": "101×16 @261,499",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-flex-styled--v16",
+          "box": "101×16 @265,952",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-flex-styled--v16",
+          "box": "100×16 @261,650",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-flex-styled--v16",
+          "box": "100×16 @262,801",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-flex-styled--v16",
+          "box": "97×16 @263,1254",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-space-item",
+          "box": "81×19 @157,1208",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-badge-status-text",
+          "box": "89×17 @772,101",
+          "detail": "w 89→62"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-space-item",
+          "box": "50×24 @247,400",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-space-item",
+          "box": "50×24 @245,551",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-space-item",
+          "box": "50×24 @246,702",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-space-item",
+          "box": "50×24 @247,853",
+          "detail": "we draw it, the product does not"
+        }
+      ]
+    },
+    {
+      "page": "reports-summary",
+      "live": 293,
+      "ours": 293,
+      "matched": 279,
+      "clean": 218,
+      "missing": 14,
+      "moved": 61,
+      "painted": 0,
+      "inherited": 48,
+      "exact": 170,
+      "extra": 14,
+      "pageHeight": [
+        829,
+        828
+      ],
+      "coverage": 95.2,
+      "fidelity": 78.1,
+      "exactPct": 58,
+      "score": 78.1,
+      "worklist": [
+        {
+          "kind": "moved",
+          "at": "div",
+          "box": "2660×742 @-1305,67",
+          "detail": "h 742→740"
+        },
+        {
+          "kind": "moved",
+          "at": "div.ant-tabs-nav-list",
+          "box": "600×84 @24,356",
+          "detail": "w 600→611"
+        },
+        {
+          "kind": "moved",
+          "at": "div.ant-tabs-extra-content",
+          "box": "559×84 @624,356",
+          "detail": "x 624→635 (+11 in its parent) · w 559→552"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-badge.ant-badge-status.ant-badge-not-a-wrapper",
+          "box": "133×22 @1144,130",
+          "detail": "w 133→125"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-badge.ant-badge-status.ant-badge-not-a-wrapper",
+          "box": "133×22 @1144,152",
+          "detail": "w 133→125"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-badge.ant-badge-status.ant-badge-not-a-wrapper",
+          "box": "133×22 @1144,174",
+          "detail": "w 133→125"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-badge.ant-badge-status.ant-badge-not-a-wrapper",
+          "box": "133×22 @1144,196",
+          "detail": "w 133→125"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-badge.ant-badge-status.ant-badge-not-a-wrapper",
+          "box": "122×22 @758,121",
+          "detail": "w 122→125"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-badge-status-text",
+          "box": "89×17 @772,101",
+          "detail": "w 89→62"
+        },
+        {
+          "kind": "moved",
+          "at": "div.figmMG.fw-400",
+          "box": "54×22 @323,397",
+          "detail": "x 323→347 (+13 in its parent) · w 54→41"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-badge-status-text",
+          "box": "67×17 @772,189",
+          "detail": "w 67→61"
+        },
+        {
+          "kind": "moved",
+          "at": "div",
+          "box": "48×22 @896,121",
+          "detail": "x 896→899 (+3 in its parent) · w 48→45"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-badge-status-text",
+          "box": "62×17 @1158,110",
+          "detail": "w 62→79"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-badge-status-text",
+          "box": "48×17 @772,167",
+          "detail": "w 48→50"
+        },
+        {
+          "kind": "moved",
+          "at": "div",
+          "box": "37×22 @1294,130",
+          "detail": "x 1294→1285 (-9 in its parent) · w 37→46"
+        },
+        {
+          "kind": "moved",
+          "at": "div",
+          "box": "37×22 @1294,152",
+          "detail": "x 1294→1285 (-9 in its parent) · w 37→46"
+        },
+        {
+          "kind": "moved",
+          "at": "div",
+          "box": "37×22 @1294,174",
+          "detail": "x 1294→1285 (-9 in its parent) · w 37→46"
+        },
+        {
+          "kind": "moved",
+          "at": "div",
+          "box": "37×22 @1294,196",
+          "detail": "x 1294→1285 (-9 in its parent) · w 37→46"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-badge-status-text",
+          "box": "44×17 @772,145",
+          "detail": "w 44→65"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-statistic-content-value",
+          "box": "23×28 @295,395",
+          "detail": "w 23→37"
+        },
+        {
+          "kind": "moved",
+          "at": "small",
+          "box": "35×14 @1296,113",
+          "detail": "x 1296→1294 (-2 in its parent) · w 35→37"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-statistic-content-value",
+          "box": "13×28 @495,395",
+          "detail": "w 13→20"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-statistic-content-value",
+          "box": "15×20 @469,201",
+          "detail": "w 15→8"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-statistic-content-value",
+          "box": "14×20 @342,126",
+          "detail": "w 14→8"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-statistic-content-value",
+          "box": "14×20 @464,126",
+          "detail": "w 14→8"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-statistic-content-value",
+          "box": "14×20 @216,201",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-statistic-content-value-int",
+          "box": "14×17 @216,202",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "moved",
+          "at": "span",
+          "box": "8×17 @1285,110",
+          "detail": "w 8→6"
+        },
+        {
+          "kind": "missing",
+          "at": "span.ant-statistic-content-value",
+          "box": "6×20 @216,201",
+          "detail": "the product draws it, we do not"
+        },
+        {
+          "kind": "missing",
+          "at": "span.ant-statistic-content-suffix",
+          "box": "4×28 @512,395",
+          "detail": "the product draws it, we do not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-statistic-content-suffix",
+          "box": "4×28 @530,394",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "missing",
+          "at": "span.ant-statistic-content-suffix",
+          "box": "4×23 @724,385",
+          "detail": "the product draws it, we do not"
+        },
+        {
+          "kind": "missing",
+          "at": "span.ant-statistic-content-suffix",
+          "box": "4×23 @889,385",
+          "detail": "the product draws it, we do not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-statistic-content-suffix",
+          "box": "4×23 @733,384",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-statistic-content-suffix",
+          "box": "4×23 @896,384",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-statistic-content-suffix",
+          "box": "4×23 @1021,384",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "small",
+          "box": "4×19 @530,400",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-typography.px-2.text-muted",
+          "box": "4×17 @530,402",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-typography.px-2.text-muted",
+          "box": "4×17 @733,387",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-typography.px-2.text-muted",
+          "box": "4×17 @896,387",
+          "detail": "we draw it, the product does not"
+        }
+      ]
+    },
+    {
+      "page": "user-settings-change-password",
+      "live": 86,
+      "ours": 86,
+      "matched": 86,
+      "clean": 86,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 86,
+      "extra": 0,
+      "pageHeight": [
+        800,
+        800
+      ],
+      "coverage": 100,
+      "fidelity": 100,
+      "exactPct": 100,
+      "score": 100,
+      "worklist": []
+    },
+    {
+      "page": "user-settings-licenses",
+      "live": 185,
+      "ours": 186,
+      "matched": 183,
+      "clean": 136,
+      "missing": 2,
+      "moved": 46,
+      "painted": 1,
+      "inherited": 4,
+      "exact": 132,
+      "extra": 3,
+      "pageHeight": [
+        1200,
+        1200
+      ],
+      "coverage": 98.9,
+      "fidelity": 74.3,
+      "exactPct": 71.4,
+      "score": 74.3,
+      "worklist": [
+        {
+          "kind": "moved",
+          "at": "span.ant-tag.ant-tag-has-color.ant-tag-borderless",
+          "box": "186×28 @402,119",
+          "detail": "w 186→184"
+        },
+        {
+          "kind": "moved",
+          "at": "span.ant-tag.ant-tag-has-color.ant-tag-borderless",
+          "box": "185×28 @402,381",
+          "detail": "w 185→187"
+        },
+        {
+          "kind": "moved",
+          "at": "div.clkSiM",
+          "box": "188×22 @553,1013",
+          "detail": "x 553→550 (-3 in its parent) · w 188→195"
+        },
+        {
+          "kind": "moved",
+          "at": "span",
+          "box": "162×22 @475,424",
+          "detail": "w 162→158"
+        },
+        {
+          "kind": "moved",
+          "at": "span",
+          "box": "160×22 @475,714",
+          "detail": "w 160→158"
+        },
+        {
+          "kind": "moved",
+          "at": "div.ant-col.text-right",
+          "box": "85×41 @1229,255",
+          "detail": "x 1229→1234 (+5 in its parent) · w 85→80"
+        },
+        {
+          "kind": "moved",
+          "at": "div.ant-col.text-right",
+          "box": "85×41 @1229,545",
+          "detail": "x 1229→1233 (+4 in its parent) · w 85→81"
+        },
+        {
+          "kind": "moved",
+          "at": "div.clkSiM",
+          "box": "153×22 @420,193",
+          "detail": "x 420→422 (+2 in its parent) · w 153→105"
+        },
+        {
+          "kind": "moved",
+          "at": "div.GlIlw",
+          "box": "152×22 @422,511",
+          "detail": "w 152→100"
+        },
+        {
+          "kind": "moved",
+          "at": "div.ant-col",
+          "box": "81×41 @402,255",
+          "detail": "w 81→112"
+        },
+        {
+          "kind": "moved",
+          "at": "div.ant-col",
+          "box": "81×41 @402,545",
+          "detail": "w 81→93"
+        },
+        {
+          "kind": "moved",
+          "at": "div.ant-col",
+          "box": "81×41 @402,813",
+          "detail": "w 81→93"
+        },
+        {
+          "kind": "moved",
+          "at": "div.ant-col.text-right",
+          "box": "81×41 @1233,813",
+          "detail": "x 1233→1228 (-5 in its parent) · w 81→86"
+        },
+        {
+          "kind": "moved",
+          "at": "div.ant-col",
+          "box": "81×41 @402,1075",
+          "detail": "w 81→99"
+        },
+        {
+          "kind": "moved",
+          "at": "div.clkSiM",
+          "box": "148×22 @551,483",
+          "detail": "x 551→554 (+3 in its parent) · w 148→187"
+        },
+        {
+          "kind": "moved",
+          "at": "div.clkSiM",
+          "box": "128×22 @402,1013",
+          "detail": "w 128→125"
+        },
+        {
+          "kind": "moved",
+          "at": "div.clkSiM",
+          "box": "126×22 @402,483",
+          "detail": "w 126→129"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-flex-styled--v5",
+          "box": "125×22 @402,193",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-text--v24",
+          "box": "102×22 @422,221",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "moved",
+          "at": "div.GlIlw",
+          "box": "97×22 @422,779",
+          "detail": "w 97→100"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-text--v24",
+          "box": "84×22 @422,1041",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "painted",
+          "at": "svg",
+          "box": "12×12 @402,198",
+          "detail": "color rgb(204, 223, 225) → rgb(0, 97, 105) · borderTopColor rgb(204, 223, 225) → rgb(0, 97, 105)"
+        },
+        {
+          "kind": "moved",
+          "at": "svg",
+          "box": "12×12 @533,488",
+          "detail": "x 533→536 (+3 in its parent)"
+        },
+        {
+          "kind": "moved",
+          "at": "svg",
+          "box": "12×12 @535,1018",
+          "detail": "x 535→532 (-3 in its parent)"
+        }
+      ]
+    },
+    {
+      "page": "user-settings-user-profile",
+      "live": 194,
+      "ours": 193,
+      "matched": 184,
+      "clean": 173,
+      "missing": 10,
+      "moved": 10,
+      "painted": 1,
+      "inherited": 4,
+      "exact": 169,
+      "extra": 9,
+      "pageHeight": [
+        1562,
+        1562
+      ],
+      "coverage": 94.8,
+      "fidelity": 94,
+      "exactPct": 87.1,
+      "score": 94,
+      "worklist": [
+        {
+          "kind": "moved",
+          "at": "div.ant-card-meta.uyXpa",
+          "box": "538×78 @401,57",
+          "detail": "w 538→569"
+        },
+        {
+          "kind": "missing",
+          "at": "div.ant-select-selection-overflow-item",
+          "box": "165×32 @540,793",
+          "detail": "the product draws it, we do not"
+        },
+        {
+          "kind": "moved",
+          "at": "div.ant-select-selection-overflow-item",
+          "box": "89×32 @452,793",
+          "detail": "w 89→86"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-select-selection-overflow-item",
+          "box": "80×32 @537,793",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-tag.pf-tag-has-color.pf-tag-borderless",
+          "box": "85×26 @690,76",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-select-selection-item",
+          "box": "70×22 @537,798",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-flex-styled--v5",
+          "box": "63×24 @701,77",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "painted",
+          "at": "div",
+          "box": "40×31 @563,1366",
+          "detail": "display block → inline"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-text--v3",
+          "box": "41×24 @723,77",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-select-selection-item-content",
+          "box": "44×20 @544,799",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "span.pf-select-selection-item-remove",
+          "box": "10×20 @592,799",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "svg",
+          "box": "13×13 @701,82",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "svg",
+          "box": "10×10 @592,804",
+          "detail": "we draw it, the product does not"
+        }
+      ]
+    }
+  ]
+}

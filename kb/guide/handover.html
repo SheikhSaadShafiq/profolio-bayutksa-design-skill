@@ -51,11 +51,11 @@ npx playwright install chromium
 npm run all</code></pre>
 
 <p><strong>The harness runs its own dev server on port 3100</strong>, with
-<code>harness/env</code> passed as process environment (which Vite ranks above every
-<code>.env</code> file) and its own dependency cache (<code>harness/vite.config.mjs</code>,
+<a href="../../harness/env"><code>harness/env</code></a> passed as process environment (which Vite ranks above every
+<code>.env</code> file) and its own dependency cache (<a href="../../harness/vite.config.mjs"><code>harness/vite.config.mjs</code></a>,
 copied into the product untracked). So someone's normal <code>yarn start</code> on 3000,
 signed in to staging with a staging <code>.env</code>, keeps running beside it and is never
-touched. Do not run <code>harness/install.mjs</code> against a real install — it was for a
+touched. Do not run <a href="../../harness/install.mjs"><code>harness/install.mjs</code></a> against a real install — it was for a
 sandbox with no Nexus access and rewrites <code>.env</code> and the lockfile.</p>
 
 <h2>The pipeline</h2>
@@ -64,10 +64,13 @@ sandbox with no Nexus access and rewrites <code>.env</code> and the lockfile.</p
   <tr><th>command</th><th>what it does</th></tr>
   <tr><td><code>npm run all</code></td><td>everything, in order, then the checks</td></tr>
   <tr><td><code>npm run harness:capture</code></td><td>renders every route on the fixture account (<code>--routes a,b</code>, <code>--states</code>, <code>--list</code>)</td></tr>
-  <tr><td><code>npm run explore</code></td><td>tries every React click and hover handler on each page and records every state that opens — <code>data/states/&lt;page&gt;.json</code></td></tr>
-  <tr><td><code>npm run pages</code></td><td><code>scripts/compile.mjs --states</code>: each page and state frozen from the product with exactly the CSS that paints it, re-rendered and pixel-diffed against the product</td></tr>
-  <tr><td><code>npm run ds</code></td><td>the design system: one stylesheet, the tokens, the knowledge-base links, the component collection and the catalogue — each verified</td></tr>
-  <tr><td><code>npm run combine</code></td><td>everything in one self-contained file, <a href="../../deliverables/profolio-ksa.html"><code>deliverables/profolio-ksa.html</code></a></td></tr>
+  <tr><td><code>npm run explore</code>, <code>npm run explore:mobile</code></td><td>tries every React click and hover handler on each page — breadth first, one of every kind of control before any repeat, up to 120 — and records every state that opens: <code>data/states/&lt;page&gt;.json</code>, and <a href="../../data/states/mobile/"><code>data/states/mobile/</code></a> for the phone layout</td></tr>
+  <tr><td><code>npm run pages</code>, <code>npm run pages:mobile</code></td><td><code>scripts/compile.mjs --states [--device mobile]</code>: each page and state frozen from the product with exactly the CSS that paints it, re-rendered and pixel-diffed against the product. The two can run at once (the class-name registry is locked)</td></tr>
+  <tr><td><code>npm run ds</code></td><td>the design system: prototype navigation, one stylesheet, the tokens, the knowledge-base links, the component collection (web and responsive), the catalogue and the design knowledge base — each verified</td></tr>
+  <tr><td><code>npm run qa</code></td><td>the Design QA: our pages against the live product on both real accounts (web, and responsive for the staff account), then <a href="../../scripts/design-qa.mjs"><code>scripts/design-qa.mjs</code></a> — pixels, components, copy against <code>translation.json</code> and the code, sources, sanity — into <a href="../../deliverables/design-qa.html"><code>deliverables/design-qa.html</code></a></td></tr>
+  <tr><td><code>npm run find -- "&lt;words&gt;"</code></td><td>the design knowledge base, searched: the screens, states and components a PRD's words point at, with their files</td></tr>
+  <tr><td><code>npm run delta b</code></td><td>what a second real account shows that the first does not — endpoints, keys, enum values, and each screen's classes and counts</td></tr>
+  <tr><td><code>npm run combine</code></td><td>everything as three self-contained files — <a href="../../deliverables/profolio-ksa.html"><code>deliverables/profolio-ksa.html</code></a> (web), <code>profolio-ksa-responsive.html</code>, <code>profolio-ksa-components.html</code> — each under GitHub's 50 MB, each opening on the index</td></tr>
   <tr><td><code>npm run check</code></td><td>the invariants, and the capture privacy tests</td></tr>
   <tr><td><code>npm run check-fixtures</code></td><td>every fixture answer against the real API's recorded shape</td></tr>
   <tr><td><code>npm run receive-real</code></td><td>the other end of a capture posted from a signed-in browser — geometry only, refused if anything else leaks</td></tr>
@@ -81,18 +84,32 @@ sandbox with no Nexus access and rewrites <code>.env</code> and the lockfile.</p
   the stylesheet, every component as atom, molecule, organism or template (antd's, as the
   product themes them, and the product's own, named and sourced from its files), every page
   and state, and the product knowledge that goes with them.</li>
-  <li><strong><code>deliverables/components/</code></strong> — a page per component: live
+  <li><strong><a href="../../deliverables/components/"><code>deliverables/components/</code></a></strong> — a page per component: live
   variants, markup, exact CSS, forced hover/focus/active, anatomy, usage, source, copy.</li>
   <li><strong><code>deliverables/&lt;page&gt;.html</code></strong> and
-  <strong><code>deliverables/states/</code></strong> — the eleven pages and every state,
-  compiled. A clickable prototype: a trigger opens its state, Escape goes back.</li>
+  <strong><a href="../../deliverables/states/"><code>deliverables/states/</code></a></strong> — the sixteen pages and every state,
+  compiled, with the account variants (<code>--as-staff</code> on every page,
+  <code>--profile-incomplete</code>, <code>--modal-non-saudi</code>). A clickable prototype: a
+  trigger opens its state, Escape goes back, the rail and menus go to the other pages.</li>
+  <li><strong><a href="../../deliverables/mobile/"><code>deliverables/mobile/</code></a></strong> — the <strong>responsive layout</strong>:
+  the same pages and states as the product draws them for a phone (375, mobile user agent —
+  the product picks its phone layout by device, <code>src/utility/general.js</code>).</li>
+  <li><strong><a href="../../deliverables/design-qa.html"><code>deliverables/design-qa.html</code></a></strong> — every page, state and component
+  held to the product's render, the live product on two real accounts, and the code.</li>
+  <li><strong><a href="../screens/"><code>kb/screens/</code></a></strong> and <strong><a href="../../data/design-kb.json"><code>data/design-kb.json</code></a></strong> —
+  the <strong>design knowledge base</strong>: every screen and state, web and responsive, in
+  words — what it is for, how it is reached, what it shows, the components it adds, the file to
+  open — searched by <a href="../../scripts/design-find.mjs"><code>scripts/design-find.mjs</code></a>.</li>
   <li><strong><a href="../../deliverables/profolio.css"><code>deliverables/profolio.css</code></a></strong> (the product's CSS, renamed:
   <code>ant-*</code> → <code>pf-*</code>, styled-components → the JSX name the product
   wrote) and <strong><code>tokens.css</code></strong> (the named values).</li>
-  <li><strong><code>harness/fixtures/</code></strong> — the invented account, one module per
-  area, answering every endpoint in the real API's shape
-  (<code>data/api-shapes.json</code>, recorded from a signed-in session as keys and types
-  only).</li>
+  <li><strong><a href="../../harness/fixtures/"><code>harness/fixtures/</code></a></strong> — the invented account, one module per
+  area, answering every endpoint in the real API's shape for two real accounts: an agency
+  owner (<a href="../../data/api-shapes.json"><code>data/api-shapes.json</code></a>) and an agency staff user
+  (<a href="../../data/api-shapes.b.json"><code>data/api-shapes.b.json</code></a>, fixture mode <code>staff</code>) — recorded from
+  signed-in sessions as keys and types only. Modes: <code>staff</code>, <code>incomplete</code>,
+  <code>member</code>, <code>projects</code>, <code>error</code>, <code>slow</code>,
+  <code>non-saudi</code>.</li>
 </ul>
 
 <h2>Where it stands</h2>
@@ -100,16 +117,23 @@ sandbox with no Nexus access and rewrites <code>.env</code> and the lockfile.</p
 <!-- filled in by the pass of 2026-09-28; re-run npm run all for current numbers -->
 <table>
   <tr><th>measure</th><th>where</th></tr>
-  <tr><td>compiled pages and states vs the product</td><td data-fill="pages">150 of 150 within 0.5% pixel difference; worst user-settings-user-profile--inline-generate-agent-description-english at 0.39% (2026-09-28)</td></tr>
-  <tr><td>pages on the one stylesheet</td><td data-fill="sheet">149 of 150 pages on the one stylesheet (2085 rules)</td></tr>
-  <tr><td>component variants matching their in-page reference</td><td data-fill="components">536 of 607 variants (88.3%) within 1% of their in-page shot</td></tr>
+  <tr><td>compiled pages and states vs the product</td><td data-fill="pages">325 of 325 within 0.5% pixel difference; worst user-settings-licenses--menu-post-a-listing at 0.226% (2026-09-28)</td></tr>
+  <tr><td>pages on the one stylesheet</td><td data-fill="sheet">504 of 532 pages on the one stylesheet (2313 rules)</td></tr>
+  <tr><td>component variants matching their in-page reference</td><td data-fill="components">1079 of 1223 variants (88.2%) within 1% of their in-page shot</td></tr>
   <tr><td>fixture endpoints in the real API's shape</td><td data-fill="fixtures">30 of 30 recorded endpoints answered; npm run check-fixtures for their shape</td></tr>
+  <tr><td>responsive pages and states vs the product</td><td data-fill="responsive">207 of 207 within 0.5% pixel difference; worst lms-leads--popover-clicked-total-number-of--mobile at 0.323% (2026-09-28)</td></tr>
+  <tr><td>against the live product (real accounts)</td><td data-fill="live">owner at 1440 75.8% coverage, 23.7% exact · staff at 1440 88.9% coverage, 48.6% exact · staff at 375 81.4% coverage, 49.2% exact</td></tr>
+  <tr><td>interface copy that is the product's own</td><td data-fill="copy">508 of 513 interface strings are in translation.json or the code (99.0%); 5 unmatched</td></tr>
 </table>
 
 <h3>Known gaps</h3>
 <ol>
-  <li><strong>English, 1440 only.</strong> Arabic RTL and other widths were out of scope for this
-  pass; the harness can capture <code>--rtl</code> and the compiler would follow.</li>
+  <li><strong>English only; web at 1440 and the phone layout at 375.</strong> Arabic RTL and
+  tablet widths were out of scope; the harness can capture <code>--rtl</code> and the compiler
+  would follow.</li>
+  <li><strong>The product is wider than a phone.</strong> At 375 its content overflows to about
+  433px (<a href="../../deliverables/design-qa.html"><code>deliverables/design-qa.html</code></a> lists where); the compiled pages reproduce
+  it, as they reproduce everything.</li>
   <li><strong>The member-area variant of Listings does not mount under the harness</strong> — it
   loads the classified site's header from another origin. <code>member-area</code> and
   <code>drawer-credit-info</code> are known failing states.</li>
@@ -139,10 +163,26 @@ sandbox with no Nexus access and rewrites <code>.env</code> and the lockfile.</p
   for that.</li>
   <li><strong>First-visit UI hides the page:</strong> the LMS tours and the "Profile Completed"
   modal. The harness dismisses them the way a returning user has them, and states bring them
-  back (<code>harness/page.mjs</code>).</li>
+  back (<a href="../../harness/page.mjs"><code>harness/page.mjs</code></a>).</li>
   <li><strong>Never read <code>canvas/*.dc.html</code></strong> into an agent's context.</li>
+  <li><strong>The viewport meta is part of the layout.</strong> Compiled pages carried a generic
+  one; without the product's <code>maximum-scale=1.0, user-scalable=0</code> a phone widens its
+  layout viewport to the product's overflow, and every fixed bar with it. A full-page
+  screenshot hides this — it resizes the viewport anyway. Compile copies the product's.</li>
+  <li><strong>A link inside a link does not survive HTML.</strong> React builds it; the parser
+  closes the outer link at the inner one, and the phone's app banner lost its text column.
+  Such links are written <code>&lt;pf-nested-a&gt;</code> and made real by a line of script
+  (<a href="../../scripts/lib/nested-a.mjs"><code>scripts/lib/nested-a.mjs</code></a>).</li>
+  <li><strong>A failed state can poison the next.</strong> A state that sets a harness flag
+  and times out leaves it set; compile clears every <code>pf-harness-*</code> flag before each
+  state.</li>
+  <li><strong><code>clientWidth</code> is rounded.</strong> Centred text in a 72.39px box is not
+  centred in 72px — widths come from the rect. And an inline box takes no vertical margin, so
+  an inline cut-out is placed by the box around it.</li>
+  <li><strong>Mobile emulation is not a phone-width window.</strong> Collect the responsive
+  components in a plain 375 window — exactly what a component page's frame is — or shots of
+  anything in the overflow come out blank.</li>
 </ul>
-
 </main>
 </body>
 </html>

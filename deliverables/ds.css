@@ -77,6 +77,11 @@ body.ds { margin: 0; background: #fff; color: var(--ds-ink); font: 14px/1.55 Fig
 .ds-example summary::before { content: "▸ "; color: var(--ds-ink-3); }
 .ds-example details[open] summary::before { content: "▾ "; }
 .ds-code { margin: 0; max-height: 380px; overflow: auto; padding: 12px 14px; background: var(--ds-ground); border-top: 1px solid var(--ds-line); white-space: pre-wrap; word-break: break-all; line-height: 1.5; color: #24292f; }
+.ds-section > h2 small { margin-left: 8px; font-size: 13px; font-weight: 500; color: var(--ds-ink-3); }
+/* a responsive example: a frame exactly as wide as the phone it was drawn on */
+.ds-phone { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; padding: 18px 28px 22px; background: var(--ds-ground); overflow-x: auto; }
+.ds-phone-w { font-size: 11px; font-weight: 600; letter-spacing: 0.03em; color: var(--ds-ink-3); }
+.ds-frame { display: block; flex: none; border: 0; border-radius: 14px; background: #fff; box-shadow: 0 0 0 1px var(--ds-line), 0 6px 22px rgba(0, 0, 0, 0.07); }
 .ds-states { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
 .ds-example--state { margin: 0; }
 .ds-chips, .ds-uses { display: flex; flex-wrap: wrap; gap: 6px 8px; margin: 0; padding: 0; list-style: none; }
@@ -108,3 +113,10 @@ body.ds { margin: 0; background: #fff; color: var(--ds-ink); font: 14px/1.55 Fig
 .ds-kb a:hover { border-color: #c9d6d8; }
 .ds-kb b { display: block; color: var(--ds-primary); margin-bottom: 2px; }
 .ds-kb span { font-size: 12px; color: var(--ds-ink-3); }
+
+/* ── design QA ── */
+.qa-table td, .qa-table th { padding: 5px 10px; }
+.ds-scale td.qa-ok { color: var(--ds-ok); font-weight: 600; }
+.ds-scale td.qa-off { color: var(--ds-off); background: var(--ds-off-tint); font-weight: 600; }
+.ds-scale td.qa-na { color: var(--ds-ink-3); }
+.ds-qa .ds-section > h3 { margin-top: 22px; }

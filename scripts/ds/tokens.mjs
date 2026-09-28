@@ -172,9 +172,6 @@ const html = `
 <div class="ds-swatches">${theme.map(swatch).join('')}</div>
 <h3>Colour — antd semantic tokens <small>${antdOnly.length}</small></h3>
 <div class="ds-swatches">${antdOnly.map(swatch).join('')}</div>
-<h3>Colour — used, but named nowhere <small>${unnamed.length}</small></h3>
-<p class="ds-note">Literals written straight into the product's styles. The most used are tokens in all but name.</p>
-<div class="ds-swatches">${unnamed.slice(0, 48).map(swatch).join('')}</div>
 <h3>Typefaces</h3>
 ${table(['font-family', 'declarations'], families.map(([f, n]) => `<tr><td style="font-family:${esc(f)}">${esc(f)}</td><td>${n}</td></tr>`))}
 <h3>Type styles <small>size / line height / weight, as rules set them together</small></h3>

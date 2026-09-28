@@ -42,22 +42,30 @@
  * data/qa/compile.json.
  */
 import pkg from 'playwright';
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, statSync, unlinkSync, readdirSync } from 'node:fs';
 import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { PNG } from 'pngjs';
 import pixelmatch from 'pixelmatch';
 import { serve, REPO } from '../harness/serve.mjs';
-import { openPage, settle, FONTS_CSS } from '../harness/page.mjs';
+import { openPage, settle, FONTS_CSS, DEVICES } from '../harness/page.mjs';
 
 const { chromium } = pkg;
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const DELIV = join(ROOT, 'deliverables');
+/* --device mobile compiles the RESPONSIVE site: the product rendered as a
+   phone (harness/page.mjs DEVICES.mobile — 375×812, a phone's user agent,
+   touch), written to deliverables/mobile/, its data named <name>--mobile */
+const DEVICE = (process.argv.includes('--device') ? process.argv[process.argv.indexOf('--device') + 1] : 'web');
+const MOBILE = DEVICE === 'mobile';
+const DELIV = join(ROOT, 'deliverables', MOBILE ? 'mobile' : '');
 const STATES_DIR = join(DELIV, 'states');
+const dataName = (n) => (MOBILE ? `${n}--mobile` : n);
+const UP = (inStates) => (MOBILE ? '../' : '') + (inStates ? '../' : '');
 const arg = (n, d) => { const i = process.argv.indexOf(n); return i > -1 ? process.argv[i + 1] : d; };
 const flag = (n) => process.argv.includes(n);
 
-import { PAGES } from './pages-list.mjs';
+import { ALL as PAGES } from './pages-list.mjs';
+import { NESTED_A, UNPARSABLE_SOURCE, needsRestore } from './lib/nested-a.mjs';
 const want = arg('--pages') ? arg('--pages').split(',').map((s) => s.trim()) : Object.keys(PAGES);
 const unknown = want.filter((p) => !PAGES[p]);
 if (unknown.length) { console.error(`  unknown page(s): ${unknown.join(', ')}\n  known: ${Object.keys(PAGES).join(' ')}`); process.exit(2); }
@@ -65,7 +73,7 @@ const ONLY = (arg('--only') || '').split(',').map((s) => s.trim()).filter(Boolea
 /* the agreed bar: at most 0.5% of the pixels differ */
 const BAR = 0.5;
 
-const FREEZE = readFileSync(join(ROOT, 'harness', 'freeze.js'), 'utf8');
+const FREEZE = readFileSync(join(ROOT, 'harness', 'freeze.js'), 'utf8').replace(/__UNPARSABLE__/g, `(${UNPARSABLE_SOURCE})`);
 const CAPTURE = readFileSync(join(ROOT, 'tools', 'profolio-capture', 'capture.js'), 'utf8');
 
 /* ── 1 · freeze every page and state from the product ─────────────────── */
@@ -73,24 +81,85 @@ const app = await serve();
 const browser = await chromium.launch();
 const frozen = [];                                   /* { name, page, state, note, raw } */
 
+/* quiet: half a second without a DOM change, a scroll or a finite
+   animation; three seconds is the most it waits */
+const QUIET = async () => {
+  let last = performance.now();
+  /* an animated SVG (a Lottie, a chart) changes its attributes every
+     frame and is never quiet; the rest of the page is what must settle */
+  const obs = new MutationObserver((ms) => { if (ms.some((m) => !(m.target instanceof SVGElement))) last = performance.now(); });
+  obs.observe(document.body, { subtree: true, childList: true, attributes: true, characterData: true });
+  const onScroll = () => { last = performance.now(); };
+  document.addEventListener('scroll', onScroll, true);           /* any box, not only the window */
+  let sx = scrollX, sy = scrollY;
+  const t0 = performance.now();
+  while (performance.now() - t0 < 3000) {
+    await new Promise((r) => setTimeout(r, 100));
+    if (scrollX !== sx || scrollY !== sy) { sx = scrollX; sy = scrollY; last = performance.now(); }
+    if (document.getAnimations().some((a) => a.playState === 'running' && a.effect && a.effect.getComputedTiming().iterations !== Infinity)) last = performance.now();
+    if (performance.now() - last > 500) break;
+  }
+  obs.disconnect();
+  document.removeEventListener('scroll', onScroll, true);
+};
+/* did the page stay where it was frozen? every scrolled box still at the
+   offset freeze.js wrote on it, the window at its own */
+const STILL = (at) => scrollX === at.x && scrollY === at.y
+  && [...document.querySelectorAll('[data-pf-scroll]')].every((el) => `${Math.round(el.scrollLeft)},${Math.round(el.scrollTop)}` === el.getAttribute('data-pf-scroll'));
 const snap = async (page, name, meta) => {
-  const raw = await page.evaluate(FREEZE);
-  const shotFull = !raw.overlay.modal && !raw.overlay.drawer && !raw.overlay.popover;
-  mkdirSync(join(ROOT, 'data', 'live'), { recursive: true });
-  const cap = await page.evaluate(CAPTURE);
+  /* freeze what has SETTLED — the reference shot is taken after the freeze,
+     and a page still moving between the two disagrees with itself: an
+     overlay caught mid-entrance, text still being typed in, a panel still
+     scrolling a control into view. And if it moved anyway (a late scroll the
+     product schedules), freeze it again: the copy and its reference must be
+     of the same moment. */
+  let raw, cap, shotFull;
+  for (let attempt = 0; attempt < 3; attempt++) {
+    await page.evaluate(QUIET).catch(() => {});
+    raw = await page.evaluate(FREEZE);
+    /* anything open over the page is placed against the VIEWPORT, and a
+       full-page shot resizes it — antd then re-places a dropdown, a select
+       list, a picker or a tooltip, and the shot no longer shows what was frozen */
+    shotFull = meta.shot === 'viewport' ? false : !Object.values(raw.overlay).some(Boolean) && !raw.scrolled;
+    mkdirSync(join(ROOT, 'data', 'live'), { recursive: true });
+    cap = await page.evaluate(CAPTURE);
+    await page.screenshot({ path: join(ROOT, 'data', 'live', `${dataName(name)}.png`), fullPage: shotFull });
+    if (await page.evaluate(STILL, raw.scroll).catch(() => true)) break;
+    console.log(`  ${name}: the page moved after it was frozen — again`);
+  }
   cap.source = 'harness'; cap.locale = 'en'; cap.state = name;
-  writeFileSync(join(ROOT, 'data', 'live', `${name}.capture.json`), JSON.stringify(cap));
-  await page.screenshot({ path: join(ROOT, 'data', 'live', `${name}.png`), fullPage: shotFull });
+  writeFileSync(join(ROOT, 'data', 'live', `${dataName(name)}.capture.json`), JSON.stringify(cap));
   frozen.push({ name, ...meta, raw, shotFull });
   console.log(`  froze ${name.padEnd(46)} ${String(raw.css.length).padStart(4)} sheets  ${(raw.html.length / 1024).toFixed(0).padStart(5)} KB dom`);
 };
 
 /* one page, all its states, in its own browser context — pages run in
    parallel (--jobs, default 3), so the answer-set MODE is the page's own */
+/* The product's own viewport meta, not a generic one. A phone lays a page out
+   by it: without the product's maximum-scale=1.0 and user-scalable=0 a mobile
+   browser widens the layout viewport to the product's horizontal overflow
+   (433px at 375) and every fixed bar — the app banner, the header — with it. */
+const VIEWPORT = (() => {
+  try { const m = readFileSync(join(REPO, 'index.html'), 'utf8').match(/<meta\s+name="viewport"\s+content="([^"]+)"/); if (m) return m[1]; } catch {}
+  return 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0';
+})();
+/* a page recompiled with all its states replaces the states it had: a state
+   the explorer no longer finds, or found under a better name, must not stay
+   behind as an orphan file (and its captures and page CSS with it) */
+const clearStates = (slug) => {
+  const stem = `${slug}--`, tail = MOBILE ? '--mobile' : '';
+  const dirs = [[join(DELIV, 'states'), (f) => f.startsWith(stem) && f.endsWith('.html')]];
+  for (const d of ['live', 'ours']) dirs.push([join(ROOT, 'data', d), (f) => f.startsWith(stem) && !/\.real/.test(f) && (MOBILE ? f.includes(`${tail}.`) : !f.includes('--mobile.'))]);
+  dirs.push([join(ROOT, 'data', 'ds', 'page-css'), (f) => f.startsWith(stem) && (MOBILE ? f.endsWith(`${tail}.css`) : !f.endsWith('--mobile.css'))]);
+  let n = 0;
+  for (const [dir, keep] of dirs) if (existsSync(dir)) for (const f of readdirSync(dir)) if (keep(f)) { unlinkSync(join(dir, f)); n++; }
+  return n;
+};
 const compilePage = async (slug) => {
+  if (flag('--states') && !ONLY.length) clearStates(slug);
   const M = { v: null };
   const url = `${app.url}/en${PAGES[slug]}`;
-  const { page, ctx } = await openPage(browser, app.url, { mode: () => M.v });
+  const { page, ctx } = await openPage(browser, app.url, { mode: () => M.v, device: DEVICE });
   await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60_000 });
   try { await page.waitForSelector('.ant-layout', { timeout: 30_000 }); } catch {}
   await settle(page);
@@ -99,7 +168,11 @@ const compilePage = async (slug) => {
      (data/states/<page>.json) under names the hand-written list does not use */
   const file = join(ROOT, 'harness', 'interactions', `${slug}.mjs`);
   let steps = flag('--states') && existsSync(file) ? (await import(file)).default : [];
-  const explored = join(ROOT, 'data', 'states', `${slug}.json`);
+  /* a hand-written click path is written against the WEB layout; on a phone
+     only the device-neutral states carry over (fixture modes — loading,
+     error, staff, … — and steps that declare devices: ['mobile']) */
+  if (MOBILE) steps = steps.filter((st) => !st.do || (st.devices || []).includes('mobile'));
+  const explored = join(ROOT, 'data', 'states', MOBILE ? 'mobile' : '', `${slug}.json`);
   if (flag('--states') && existsSync(explored)) {
     for (const st of JSON.parse(readFileSync(explored, 'utf8')).states) {
       if (steps.some((s) => s.name === st.name)) continue;
@@ -110,11 +183,46 @@ const compilePage = async (slug) => {
           const loc = p.locator(st.path).first();
           await loc.scrollIntoViewIfNeeded({ timeout: 5000 });
           if (st.action === 'hover') await loc.hover({ force: true, timeout: 5000 });
+          /* a phone is tapped: a click leaves the pointer over the control, and the
+             product's :hover then shows in the shot but not in the copy */
+          else if (MOBILE) await loc.tap({ force: true, timeout: 5000, noWaitAfter: true });
           else await loc.click({ force: true, timeout: 5000, noWaitAfter: true });
           await p.waitForTimeout(900);
         },
       });
     }
+  }
+  /* the shell's states, on every page: harness/interactions/_shell.mjs, and
+     the shell states the explorer found on the dashboard */
+  if (flag('--states')) {
+    const shellFile = join(ROOT, 'harness', 'interactions', MOBILE ? '_mobile.mjs' : '_shell.mjs');
+    const accountsFile = join(ROOT, 'harness', 'interactions', '_accounts.mjs');
+    const shell = [...(existsSync(shellFile) ? (await import(shellFile)).default : []),
+                   ...(existsSync(accountsFile) ? (await import(accountsFile)).default : [])];
+    const dash = join(ROOT, 'data', 'states', MOBILE ? 'mobile' : '', 'dashboard.json');
+    const explShell = existsSync(dash) ? JSON.parse(readFileSync(dash, 'utf8')).states.filter((st) => st.shell) : [];
+    for (const st of shell) if (!steps.some((s) => s.name === st.name)) steps.push(st);
+    for (const st of explShell) if (!steps.some((s) => s.name === st.name)) steps.push({
+      name: st.name, path: st.path,
+      note: `the shell, found by harness/explore.mjs on the dashboard: ${st.action} “${st.label}” opens a ${st.kind}`,
+      do: async (p) => {
+        /* the path was recorded on the dashboard; on another page what comes
+           before the header or the rail can differ (the phone layout's app
+           banner is on the dashboard only), so it is re-anchored at them */
+        let loc = p.locator(st.path).first();
+        if (!(await loc.count())) {
+          const m = st.path.match(/^(.*)> (header|aside):nth-child\(\d+\)( > .*)?$/);
+          if (m) loc = p.locator(`${m[2] === 'header' ? 'header.ant-layout-header' : 'aside.ant-layout-sider'}${m[3] || ''}`).first();
+        }
+        await loc.scrollIntoViewIfNeeded({ timeout: 5000 });
+        if (st.action === 'hover') await loc.hover({ force: true, timeout: 5000 });
+        /* a phone is tapped: a click leaves the pointer over the control, and the
+             product's :hover then shows in the shot but not in the copy */
+          else if (MOBILE) await loc.tap({ force: true, timeout: 5000, noWaitAfter: true });
+          else await loc.click({ force: true, timeout: 5000, noWaitAfter: true });
+        await p.waitForTimeout(900);
+      },
+    });
   }
   if (ONLY.length) steps = steps.filter((s) => ONLY.includes(s.name));
 
@@ -123,6 +231,13 @@ const compilePage = async (slug) => {
   if (!ONLY.length) {
     await page.evaluate((links) => { for (const [path, href] of links) { const el = document.querySelector(path); if (el) el.setAttribute('data-pf-go', href); } },
       steps.filter((s) => s.path).map((s) => [s.path, `states/${slug}--${s.name}.html`]));
+    /* a hand-written state names its trigger with a Playwright selector */
+    for (const st of steps.filter((s) => s.trigger)) {
+      try {
+        const h = await page.locator(st.trigger).first().elementHandle({ timeout: 2000 });
+        if (h) await h.evaluate((el, href) => el.setAttribute('data-pf-go', href), `states/${slug}--${st.name}.html`);
+      } catch {}
+    }
     await snap(page, slug, { page: slug, state: null });
   }
 
@@ -130,14 +245,24 @@ const compilePage = async (slug) => {
     for (const step of steps) {
       try {
         M.v = step.mode || null;
+        /* a state that failed half-way can leave its flag behind (the
+           congratulations modal would then open over every later state):
+           each state starts from none */
+        await page.evaluate(() => { for (const k of Object.keys(sessionStorage)) if (k.startsWith('pf-harness-')) sessionStorage.removeItem(k); }).catch(() => {});
         await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60_000 });
         await page.waitForSelector('.ant-layout', { timeout: 30_000 });
         if (step.mode !== 'slow' && step.mode !== 'error') await settle(page);
         if (step.do) await step.do(page);
         await page.waitForTimeout(600);
-        await snap(page, `${slug}--${step.name}`, { page: slug, state: step.name, note: step.note });
+        await snap(page, `${slug}--${step.name}`, { page: slug, state: step.name, note: step.note, shot: step.shot });
       } catch (e) {
         console.log(`  FAILED ${slug}--${step.name}: ${String(e).split('\n')[0].slice(0, 110)}`);
+        /* a failed state can leave its flag set and a navigation in flight
+           (member-area goes to another origin) that would interrupt the next
+           state's own: clear the flags while still on the app's origin, then
+           leave */
+        await page.evaluate(() => { for (const k of Object.keys(sessionStorage)) if (k.startsWith('pf-harness-')) sessionStorage.removeItem(k); }).catch(() => {});
+        await page.goto('about:blank', { timeout: 10_000 }).catch(() => {});
       } finally { M.v = null; }
     }
   }
@@ -157,7 +282,7 @@ frozen.sort((a, b) => a.name.localeCompare(b.name));
   const reg = existsSync(REG) ? JSON.parse(readFileSync(REG, 'utf8')) : {};
   for (const f of frozen) for (const [key, c] of Object.entries(f.raw.components || {})) {
     const e = (reg[key] ||= { name: c.name, def: c.def, in: {} });
-    e.in[f.name] = c.n;
+    e.in[dataName(f.name)] = c.n;
   }
   writeFileSync(REG, JSON.stringify(reg, null, 1));
 }
@@ -200,6 +325,18 @@ for (const f of frozen) {
    its suffix. Compiling one page alone must not rename a component another
    page already uses. */
 const REGISTRY = join(ROOT, 'data', 'compile-names.json');
+/* two runs at once (the web and the responsive layout) must not both hand out
+   the same --vN to different CSS: the registry is read, extended and written
+   under a lock */
+const LOCK = REGISTRY + '.lock';
+for (let t = 0; ; t++) {
+  try { writeFileSync(LOCK, String(process.pid), { flag: 'wx' }); break; } catch {
+    /* a lock older than two minutes belongs to a run that died */
+    try { if (Date.now() - statSync(LOCK).mtimeMs > 120_000) { unlinkSync(LOCK); continue; } } catch {}
+    if (t > 600) throw new Error(`${LOCK} held for ten minutes — remove it if no compile is running`);
+    await new Promise((r) => setTimeout(r, 1000));
+  }
+}
 const registry = existsSync(REGISTRY) ? JSON.parse(readFileSync(REGISTRY, 'utf8')) : { components: {} };
 const taken = new Set([...antdNames, ...Object.values(registry.components).map((c) => c.name)]);
 const claim = (want) => { let n = want, k = 2; while (taken.has(n)) n = `${want}-${k++}`; taken.add(n); return n; };
@@ -240,6 +377,7 @@ for (const [key, ids] of byName) {
   }
 }
 writeFileSync(REGISTRY, JSON.stringify(registry, null, 1));
+unlinkSync(LOCK);
 
 /* ── 3 · rewrite and write ─────────────────────────────────────────────── */
 const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -247,6 +385,8 @@ const keys = [...rename.keys()].filter((k) => rename.get(k)).sort((a, b) => b.le
 const scRe = keys.length ? new RegExp(`\\.(${keys.map(escapeRe).join('|')})(?![\\w-])`, 'g') : null;
 const rewriteCss = (css) => {
   let out = css
+    /* a pseudo-class also matches the element freeze.js marked with it */
+    .replace(/(?<!:)(?<!::[\w-]+):(hover|focus-visible|focus-within|focus|active)(?![\w-])/g, ':is(:$1,[data-pf-$1])')   /* not after a pseudo-element: ::x:is() is invalid, and one invalid selector drops the whole rule */
     .replace(/css-dev-only-do-not-override-[\w]+/g, 'pf-theme')
     .replace(/--ant-/g, '--pf-')
     .replace(/(?<![\w-])ant-(?=[\w])/g, 'pf-');
@@ -284,7 +424,7 @@ for (const f of frozen) {
   const css = fonts + raw.css.map((c) => rewriteCss(c.text)).join('\n');
   const head = [
     '<meta charset="utf-8">',
-    '<meta name="viewport" content="width=device-width,initial-scale=1">',
+    `<meta name="viewport" content="${esc(VIEWPORT)}">`,
     `<title>${esc(raw.title || f.page)}${f.state ? ` — ${esc(f.state)}` : ''}</title>`,
     `<meta name="pf-compiled" content="${esc(`${PAGES[f.page]}${f.state ? ` · state ${f.state}` : ''} · profolio-reactjs · fixture account · ${new Date().toISOString().slice(0, 10)}`)}">`,
     f.note ? `<meta name="pf-state-note" content="${esc(f.note)}">` : '',
@@ -292,32 +432,41 @@ for (const f of frozen) {
        scroll position the state was frozen at (an open overlay is fixed to the
        viewport) — every later check renders it the same way */
     `<meta name="pf-shot" content="${f.shotFull ? 'full' : 'viewport'}" data-scroll="${raw.scroll.x},${raw.scroll.y}">`,
+    `<meta name="pf-device" content="${DEVICE}">`,
     `<style>\n${css}\n</style>`,
   ].filter(Boolean).join('\n');
   body = body.replace(/<head>[\s\S]*?<\/head>/, `<head>\n${head}\n</head>`);
   if (raw.scroll.x || raw.scroll.y) body = body.replace(/<\/body>/, `<script>scrollTo(${raw.scroll.x},${raw.scroll.y})</script></body>`);
-  /* inner scroll positions (freeze.js data-pf-scroll), put back on load */
-  if (/data-pf-scroll=/.test(body)) body = body.replace(/<\/body>/, `<script>document.querySelectorAll('[data-pf-scroll]').forEach(function(e){var p=e.getAttribute('data-pf-scroll').split(',');e.scrollLeft=+p[0];e.scrollTop=+p[1]})</script></body>`);
+  /* inner scroll positions (freeze.js data-pf-scroll), put back on load —
+     and again once the fonts are in: before them the text above reflows, and
+     the browser's scroll anchoring moves the box to keep what it showed */
+  if (/data-pf-scroll=/.test(body)) body = body.replace(/<\/body>/, `<script>(function(){function s(){document.querySelectorAll('[data-pf-scroll]').forEach(function(e){var p=e.getAttribute('data-pf-scroll').split(',');e.scrollLeft=+p[0];e.scrollTop=+p[1]})}s();addEventListener('load',s);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(s)})()</script></body>`);
   /* prototype wiring: a base page's triggers open their states; a state goes
      back to its page on Escape or a click on the mask behind an overlay */
   const nav = f.state
     ? `<script>addEventListener('keydown',function(e){if(e.key==='Escape')location.href='../${f.page}.html'});addEventListener('click',function(e){if(e.target.matches('.pf-modal-wrap,.pf-drawer-mask,.pf-modal-mask,.pf-tour-mask'))location.href='../${f.page}.html'},true)</script>`
     : /data-pf-go=/.test(body) ? `<script>addEventListener('click',function(e){var t=e.target.closest('[data-pf-go]');if(t){e.preventDefault();e.stopPropagation();location.href=t.getAttribute('data-pf-go')}},true)</script>` : '';
   if (nav) body = body.replace(/<\/body>/, `${nav}</body>`);
+  /* page-to-page navigation — the rail, the header, every link the explorer
+     saw change the URL — is resolved at click time by one shared script
+     (scripts/ds/prototype.mjs writes it), so a page never needs recompiling
+     when another page is added */
+  if (needsRestore(body)) body = body.replace(/<\/body>/, `<script>${NESTED_A}</script></body>`);
+  body = body.replace(/<\/body>/, `<script src="${UP(inStates)}prototype.js"></script></body>`);
   const out = inStates ? join(STATES_DIR, `${f.name}.html`) : join(DELIV, `${f.name}.html`);
   writeFileSync(out, body);
   /* the page's own rules, kept: scripts/ds/stylesheet.mjs merges every
      page's list into the one stylesheet and re-links the page to it, after
      which the page no longer carries them */
   mkdirSync(join(ROOT, 'data', 'ds', 'page-css'), { recursive: true });
-  writeFileSync(join(ROOT, 'data', 'ds', 'page-css', `${f.name}.css`), css);
+  writeFileSync(join(ROOT, 'data', 'ds', 'page-css', `${dataName(f.name)}.css`), css);
   written.push({ ...f, out, bytes: body.length });
 }
 
 /* ── 4 · render what was written, and hold it to the product ──────────── */
 const crop = (png, w, h) => { const o = Buffer.alloc(w * h * 4); for (let y = 0; y < h; y++) png.data.copy(o, y * w * 4, y * png.width * 4, y * png.width * 4 + w * 4); return o; };
 const rows = [];
-const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
+const ctx = await browser.newContext(DEVICES[DEVICE]);
 mkdirSync(join(ROOT, 'data', 'ours'), { recursive: true });
 for (const w of written) {
   const p = await ctx.newPage();
@@ -326,23 +475,23 @@ for (const w of written) {
   await p.evaluate(() => document.fonts.ready);
   await p.waitForTimeout(400);
   await p.evaluate(({ x, y }) => scrollTo(x, y), w.raw.scroll);
-  const oursPng = join(ROOT, 'data', 'ours', `${w.name}.png`);
+  const oursPng = join(ROOT, 'data', 'ours', `${dataName(w.name)}.png`);
   await p.screenshot({ path: oursPng, fullPage: w.shotFull });
   const cap = await p.evaluate(CAPTURE);
   cap.source = 'compiled';
-  writeFileSync(join(ROOT, 'data', 'ours', `${w.name}.capture.json`), JSON.stringify(cap));
+  writeFileSync(join(ROOT, 'data', 'ours', `${dataName(w.name)}.capture.json`), JSON.stringify(cap));
   await p.close();
 
-  const a = PNG.sync.read(readFileSync(join(ROOT, 'data', 'live', `${w.name}.png`)));
+  const a = PNG.sync.read(readFileSync(join(ROOT, 'data', 'live', `${dataName(w.name)}.png`)));
   const b = PNG.sync.read(readFileSync(oursPng));
   const W = Math.min(a.width, b.width), H = Math.min(a.height, b.height);
   const diff = new PNG({ width: W, height: H });
   const n = pixelmatch(crop(a, W, H), crop(b, W, H), diff.data, W, H, { threshold: 0.1, includeAA: false, alpha: 0.15, diffColor: [229, 57, 53] });
   mkdirSync(join(ROOT, 'data', 'qa', 'pixels'), { recursive: true });
-  writeFileSync(join(ROOT, 'data', 'qa', 'pixels', `${w.name}.diff.png`), PNG.sync.write(diff));
+  writeFileSync(join(ROOT, 'data', 'qa', 'pixels', `${dataName(w.name)}.diff.png`), PNG.sync.write(diff));
   const all = Math.max(a.width, b.width) * Math.max(a.height, b.height);
   const pct = ((n + all - W * H) / all) * 100;
-  rows.push({ name: w.name, file: w.out.slice(ROOT.length + 1), kb: Math.round(w.bytes / 1024), heights: [a.height, b.height], pct: +pct.toFixed(3) });
+  rows.push({ name: dataName(w.name), device: DEVICE, file: w.out.slice(ROOT.length + 1), kb: Math.round(w.bytes / 1024), heights: [a.height, b.height], pct: +pct.toFixed(3) });
 }
 await browser.close();
 if (!process.env.KEEP_SERVER) await app.stop();
@@ -353,6 +502,7 @@ const over = rows.filter((r) => r.pct > BAR);
 console.log(`\n  ${rows.length - over.length} of ${rows.length} within the bar${over.length ? ` · over: ${over.map((r) => r.name).join(', ')}` : ''}\n`);
 const ledger = join(ROOT, 'data', 'qa', 'compile.json');
 const prev = existsSync(ledger) ? JSON.parse(readFileSync(ledger, 'utf8')).rows || [] : [];
-const merged = [...prev.filter((r) => !rows.some((x) => x.name === r.name)), ...rows].sort((a, b) => a.name.localeCompare(b.name));
+/* a row whose file is gone (a state renamed or no longer found) goes too */
+const merged = [...prev.filter((r) => !rows.some((x) => x.name === r.name)), ...rows].filter((r) => !r.file || existsSync(join(ROOT, r.file))).sort((a, b) => a.name.localeCompare(b.name));
 writeFileSync(ledger, JSON.stringify({ at: new Date().toISOString(), bar: BAR, rows: merged }, null, 2));
 if (over.length && flag('--strict')) process.exit(1);

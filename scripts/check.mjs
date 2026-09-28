@@ -44,10 +44,10 @@ ok(`SKILL.md — ${checked} routed paths resolve`);
    Each one: compiled (the meta says from which route and state), linked to
    the one stylesheet or knowingly self-contained, needing nothing from the
    network, and scored against the product it was compiled from. */
-const compiled = [
-  ...readdirSync(D).filter((f) => f.endsWith('.html')).map((f) => [join(D, f), f]),
-  ...(existsSync(join(D, 'states')) ? readdirSync(join(D, 'states')).filter((f) => f.endsWith('.html')).map((f) => [join(D, 'states', f), 'states/' + f]) : []),
-].filter(([f]) => /<meta name="pf-compiled"/.test(readFileSync(f, 'utf8').slice(0, 8000)));
+/* web pages at the top and in states/; the responsive layout under mobile/ */
+const htmlIn = (rel) => (existsSync(join(D, rel)) ? readdirSync(join(D, rel)).filter((f) => f.endsWith('.html')).map((f) => [join(D, rel, f), rel + f]) : []);
+const compiled = [...htmlIn(''), ...htmlIn('states/'), ...htmlIn('mobile/'), ...htmlIn('mobile/states/')]
+  .filter(([f]) => /<meta name="pf-compiled"/.test(readFileSync(f, 'utf8').slice(0, 8000)));
 const pixel = json('data/qa/compile.json');
 const sheet = json('data/qa/stylesheet.json');
 const scored = new Map((pixel?.rows || []).map((r) => [r.name, r]));
@@ -55,21 +55,23 @@ const linkedOk = new Map((sheet?.rows || []).map((r) => [r.name, r]));
 let linked = 0, inline = 0, over = [], unscored = [], net = [];
 for (const [file, rel] of compiled) {
   const html = readFileSync(file, 'utf8');
-  const name = rel.replace(/^states\//, '').replace(/\.html$/, '');
-  if (/<link rel="stylesheet" href="(\.\.\/)?profolio\.css">/.test(html)) linked++; else inline++;
+  /* the ledgers name a responsive page <page>--mobile */
+  const name = rel.replace(/^(mobile\/)?(states\/)?/, '').replace(/\.html$/, '') + (rel.startsWith('mobile/') ? '--mobile' : '');
+  if (/<link rel="stylesheet" href="(\.\.\/)*profolio(\.mobile)?\.css">/.test(html)) linked++; else inline++;
   const head = html.slice(0, html.indexOf('</head>'));
   if (/(href|src)="https?:\/\//.test(head) || /<(img|script|iframe|link)[^>]+(src|href)="https?:\/\//.test(html)) net.push(rel);
   const s = scored.get(name);
   if (!s) unscored.push(rel); else if (s.pct > (pixel.bar ?? 0.5)) over.push(`${rel} ${s.pct}%`);
 }
-compiled.length ? ok(`${compiled.length} compiled pages and states`) : bad('no compiled page in deliverables/ — run npm run pages');
+const nMob = compiled.filter(([, rel]) => rel.startsWith('mobile/')).length;
+compiled.length ? ok(`${compiled.length - nMob} compiled web pages and states${nMob ? `, ${nMob} responsive` : ''}`) : bad('no compiled page in deliverables/ — run npm run pages');
 over.length ? bad(`${over.length} compiled page(s) over the ${pixel?.bar}% pixel bar: ${over.slice(0, 4).join(', ')}`) : ok(`every compiled page within ${pixel?.bar ?? 0.5}% of the product it was compiled from`);
 unscored.length ? warn(`${unscored.length} compiled page(s) never scored: ${unscored.slice(0, 4).join(', ')}`) : ok('every compiled page has a score');
 net.length ? bad(`${net.length} page(s) load something over the network: ${net.slice(0, 3).join(', ')}`) : ok('no compiled page needs the network');
-ok(`${linked} pages on the one stylesheet, ${inline} self-contained`);
+ok(`${linked} pages on their layout's stylesheet (profolio.css, profolio.mobile.css), ${inline} self-contained`);
 if (sheet) {
   const off = sheet.rows.filter((r) => !r.ok);
-  off.length ? warn(`${off.length} page(s) differ on the shared stylesheet and stay self-contained: ${off.map((r) => r.name).join(', ')}`) : ok(`profolio.css — ${sheet.rules} rules, every page renders the same on it`);
+  off.length ? warn(`${off.length} page(s) differ on the shared stylesheet and stay self-contained: ${off.map((r) => r.name).join(', ')}`) : ok(`profolio.css — ${sheet.rules} rules${sheet.rulesMobile ? `, profolio.mobile.css — ${sheet.rulesMobile}` : ''}; every page renders the same on its sheet`);
 } else warn('data/qa/stylesheet.json missing — run node scripts/ds/stylesheet.mjs');
 
 /* ── 3 · the components are the elements they were cut from ──────────────── */
@@ -82,12 +84,13 @@ else {
   const rs = Object.values(comp.results).filter((r) => r.level !== 'page' && !Number.isNaN(r.pct) && r.pct !== null);
   const okN = rs.filter((r) => r.ok).length, near = rs.filter((r) => r.pct <= 2).length;
   const pct = (okN / Math.max(1, rs.length)) * 100;
-  pct >= 88 ? ok(`${okN} of ${rs.length} component variants match their in-page reference within ${comp.bar}% (${pct.toFixed(1)}%; ${near} within 2%)`)
-    : bad(`only ${okN} of ${rs.length} component variants match their in-page reference (${pct.toFixed(1)}%, gate 88%)`);
+  const split = ['web', 'mobile'].map((d) => { const x = rs.filter((r) => (r.device || 'web') === d); return x.length ? `${d === 'web' ? 'web' : 'responsive'} ${x.filter((r) => r.ok).length}/${x.length}` : ''; }).filter(Boolean).join(' · ');
+  pct >= 88 ? ok(`${okN} of ${rs.length} component variants match their in-page reference within ${comp.bar}% (${pct.toFixed(1)}%; ${near} within 2%; ${split})`)
+    : bad(`only ${okN} of ${rs.length} component variants match their in-page reference (${pct.toFixed(1)}%, gate 88%; ${split})`);
 }
 if (existsSync(join(D, 'design-system.html'))) {
   const idx = readFileSync(join(D, 'design-system.html'), 'utf8');
-  const hrefs = [...idx.matchAll(/(?:href|src)="((?:components|states)\/[^"#]+|[\w-]+\.html)"/g)].map((m) => m[1]);
+  const hrefs = [...idx.matchAll(/(?:href|src)="((?:components|states|mobile)\/[^"#]+|[\w-]+\.html)"/g)].map((m) => m[1]);
   const dead = [...new Set(hrefs)].filter((h) => !existsSync(join(D, h)));
   dead.length ? bad(`design-system.html links ${dead.length} file(s) that do not exist: ${dead.slice(0, 4).join(', ')}`) : ok(`design-system.html — ${new Set(hrefs).size} links, all resolve`);
 } else bad('deliverables/design-system.html missing — run node scripts/ds/catalogue.mjs');
@@ -138,6 +141,19 @@ if (existsSync(KB)) {
   const leaking = pages.filter((f) => /<style[\s>]|<script[\s>]/i.test(readFileSync(f, 'utf8')));
   leaking.length ? bad(`${leaking.length} kb page(s) carry inline style or script: ${leaking.slice(0, 3).map((f) => f.slice(KB.length + 1)).join(', ')}`) : ok(`kb/ — ${pages.length} pages, none inline a style or script`);
 }
+
+/* ── 8 · the design knowledge base knows every compiled file ─────────────── */
+const dkb = json('data/design-kb.json');
+if (!dkb) warn('data/design-kb.json missing — run node scripts/ds/design-kb.mjs');
+else {
+  const known = new Set(dkb.screens.flatMap((x) => [x.files.web, x.files.responsive, ...x.states.flatMap((st) => [st.files.web, st.files.responsive])]).filter(Boolean));
+  const unknown = compiled.map(([, rel]) => `deliverables/${rel}`).filter((f) => !known.has(f));
+  unknown.length ? bad(`${unknown.length} compiled file(s) the design knowledge base does not know — rerun node scripts/ds/design-kb.mjs: ${unknown.slice(0, 3).join(', ')}`)
+    : ok(`design knowledge base — ${dkb.counts.states} states over ${dkb.counts.screens} screens; every compiled file is in it`);
+  const noPage = dkb.screens.filter((x) => !existsSync(join(ROOT, 'kb', 'screens', `${x.slug}.html`)));
+  if (noPage.length) bad(`kb/screens/ lacks ${noPage.length} screen page(s): ${noPage.map((x) => x.slug).join(', ')}`);
+}
+existsSync(join(D, 'design-qa.html')) ? ok('deliverables/design-qa.html — the Design QA report is there') : warn('deliverables/design-qa.html missing — run npm run qa');
 
 console.log(`\n  ${fails.length} fail · ${warns.length} warn`);
 if (fails.length) process.exit(1);

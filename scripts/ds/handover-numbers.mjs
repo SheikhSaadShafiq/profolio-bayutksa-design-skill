@@ -18,9 +18,21 @@ const fills = {};
 
 const pix = json('data/qa/compile.json');
 if (pix) {
-  const within = pix.rows.filter((r) => r.pct <= pix.bar).length;
-  const worst = pix.rows.reduce((m, r) => (r.pct > m.pct ? r : m), { pct: -1 });
-  fills.pages = `${within} of ${pix.rows.length} within ${pix.bar}% pixel difference; worst ${worst.name} at ${worst.pct}% (${at})`;
+  /* web and responsive apart: a responsive row is named <page>--mobile */
+  for (const [key, rows] of [['pages', pix.rows.filter((r) => !/--mobile$/.test(r.name))], ['responsive', pix.rows.filter((r) => /--mobile$/.test(r.name))]]) {
+    if (!rows.length) continue;
+    const within = rows.filter((r) => r.pct <= pix.bar).length;
+    const worst = rows.reduce((m, r) => (r.pct > m.pct ? r : m), { pct: -1 });
+    fills[key] = `${within} of ${rows.length} within ${pix.bar}% pixel difference; worst ${worst.name} at ${worst.pct}% (${at})`;
+  }
+}
+const qa = json('data/qa/design-qa.json');
+if (qa) {
+  const l = qa.summary.live;
+  const f = (x, t) => (x ? `${t} ${x.coverage}% coverage, ${x.exact}% exact` : null);
+  fills.live = [f(l.owner, 'owner at 1440'), f(l.staff, 'staff at 1440'), f(l.staffMobile, 'staff at 375')].filter(Boolean).join(' · ') || '—';
+  const c = qa.summary.copy;
+  fills.copy = `${c.copy + c.code} of ${c.strings - c.data} interface strings are in translation.json or the code (${(((c.copy + c.code) / Math.max(1, c.strings - c.data)) * 100).toFixed(1)}%); ${c.unmatched} unmatched`;
 }
 const sheet = json('data/qa/stylesheet.json');
 if (sheet) fills.sheet = `${sheet.rows.filter((r) => r.ok).length} of ${sheet.rows.length} pages on the one stylesheet (${sheet.rules} rules)`;
@@ -37,4 +49,16 @@ const file = join(ROOT, 'authoring', 'handover.html');
 let html = readFileSync(file, 'utf8');
 for (const [k, v] of Object.entries(fills)) html = html.replace(new RegExp(`(<td data-fill="${k}">)[^<]*(</td>)`), `$1${v}$2`);
 writeFileSync(file, html);
+/* and its rendered copy in kb/guide/, which scripts/kb.mjs writes from it —
+   the same body in the same page, a path in <code> linked when it exists */
+const kbCopy = join(ROOT, 'kb', 'guide', 'handover.html');
+if (existsSync(kbCopy)) {
+  const linked = html.replace(/<code>((?:deliverables|kb|data|scripts|harness)\/[^<]+)<\/code>/g, (m, path) => {
+    const clean = path.replace(/&lt;[^&]*&gt;.*$/, '');
+    if (!clean || clean !== path || !existsSync(join(ROOT, path))) return m;
+    return `<a href="${path.startsWith('kb/') ? '../' + path.slice(3) : '../../' + path}">${m}</a>`;
+  });
+  const page = readFileSync(kbCopy, 'utf8');
+  writeFileSync(kbCopy, page.replace(/<main>[\s\S]*<\/main>/, `<main>\n${linked}</main>`));
+}
 console.log(fills);

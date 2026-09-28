@@ -19,11 +19,13 @@
     "GET /api/surge/dashboard/listing_stats",
     "GET /api/surge/dashboard/listings_by_area",
     "GET /api/surge/ovation/stats/trends",
-    "GET /api/surge/ovation/stats/product_stats"
+    "GET /api/surge/ovation/stats/product_stats",
+    "GET /api/surge/lms/stats/product_stats",
+    "GET /api/surge/lms/stats/phone_lead_stats"
   ],
   "unanswered": [],
   "errors": [],
   "blocked": 3,
   "fonts": "served from deliverables/fonts.css",
-  "ms": 3138
+  "ms": 3052
 }

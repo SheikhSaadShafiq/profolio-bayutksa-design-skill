@@ -1,756 +1,3200 @@
 {
-  "at": "2026-09-28T12:37:59.081Z",
-  "rules": 2085,
-  "conflicts": 21746,
+  "at": "2026-09-28T20:13:37.433Z",
+  "rules": 2313,
+  "rulesMobile": 2209,
+  "conflicts": 40379,
+  "conflictsMobile": 41299,
   "rows": [
     {
       "name": "ad-license",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
-      "name": "credits-usage",
-      "pct": 0.029,
+      "name": "agency-staff",
+      "device": "web",
+      "pct": 0,
       "ok": true
     },
     {
-      "name": "dashboard",
-      "pct": 0.003,
-      "ok": true
-    },
-    {
-      "name": "listings",
-      "pct": 0.021,
-      "ok": true
-    },
-    {
-      "name": "lms-leads",
+      "name": "agent-performance",
+      "device": "web",
       "pct": 0.001,
       "ok": true
     },
     {
+      "name": "credits-usage",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "listings",
+      "device": "web",
+      "pct": 0.009,
+      "ok": true
+    },
+    {
+      "name": "lms-leads",
+      "device": "web",
+      "pct": 0.028,
+      "ok": true
+    },
+    {
+      "name": "packages",
+      "device": "web",
+      "pct": 0.017,
+      "ok": true
+    },
+    {
+      "name": "post-listing",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "reports-leads-reports",
-      "pct": 0.033,
+      "device": "web",
+      "pct": 0,
       "ok": true
     },
     {
       "name": "reports-listing-report",
-      "pct": 0.007,
+      "device": "web",
+      "pct": 0.004,
       "ok": true
     },
     {
       "name": "reports-summary",
-      "pct": 0.006,
+      "device": "web",
+      "pct": 0.03,
       "ok": true
     },
     {
       "name": "user-settings-agency-profile",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
       "name": "user-settings-change-password",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
+      "name": "user-settings-licenses",
+      "device": "web",
+      "pct": 0.023,
+      "ok": true
+    },
+    {
       "name": "user-settings-user-profile",
+      "device": "web",
       "pct": 0.001,
       "ok": true
     },
     {
+      "name": "ad-license--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--mobile",
+      "device": "mobile",
+      "pct": 0.197,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--mobile",
+      "device": "mobile",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "credits-usage--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "listings--mobile",
+      "device": "mobile",
+      "pct": 0.033,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--mobile",
+      "device": "mobile",
+      "pct": 0.099,
+      "ok": true
+    },
+    {
+      "name": "packages--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-licenses--mobile",
+      "device": "mobile",
+      "pct": 0.099,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--mobile",
+      "device": "mobile",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "ad-license--as-staff",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "ad-license--drawer-feedback",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
       "name": "ad-license--dropdown-select-property-age",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
       "name": "ad-license--inline-adjust",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
       "name": "ad-license--inline-continue",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
-      "name": "ad-license--inline-select-city",
+      "name": "ad-license--menu-post-a-listing",
+      "device": "web",
       "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--modal-download-app",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--modal-help-support-profolio",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--popover-faisal-al-harbi-agency-user",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--popover-notifications-mark-all-as",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--rail-expanded",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--as-staff",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--drawer-feedback",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--menu-post-a-listing",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--modal-download-app",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--modal-edit-user-title-english",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--modal-help-support-profolio",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--modal-invite-user",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--modal-set-credits-limit",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--popover-faisal-al-harbi-agency-user",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--popover-notifications-mark-all-as",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--rail-expanded",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--as-staff",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--drawer-feedback",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--drawer-learn-more",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--drawer-trupointsTM-46",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--dropdown-filter-by-badges",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--menu-post-a-listing",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--modal-download-app",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--modal-help-support-profolio",
+      "device": "web",
+      "pct": 0.011,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--modal-not-ranked",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--modal-quality-lister",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--popover-calls-received-9-calls",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--popover-faisal-al-harbi-agency-user",
+      "device": "web",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--popover-notifications-mark-all-as",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--rail-expanded",
+      "device": "web",
+      "pct": 0.05,
+      "ok": true
+    },
+    {
+      "name": "credits-usage--as-staff",
+      "device": "web",
+      "pct": 0.002,
       "ok": true
     },
     {
       "name": "credits-usage--drawer-feedback",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
       "name": "credits-usage--drawer-filters-apply-filters-to",
+      "device": "web",
       "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "credits-usage--menu-post-a-listing",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "credits-usage--modal-download-app",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "credits-usage--modal-help-support-profolio",
+      "device": "web",
+      "pct": 0.028,
       "ok": true
     },
     {
       "name": "credits-usage--modal-top-up-your-credits",
+      "device": "web",
       "pct": 0.004,
       "ok": true
     },
     {
-      "name": "dashboard--drawer-credits-balance",
-      "pct": 0.003,
-      "ok": true
-    },
-    {
-      "name": "dashboard--dropdown-agency-switcher",
-      "pct": 0.003,
-      "ok": true
-    },
-    {
-      "name": "dashboard--inline-canvas",
-      "pct": 0.003,
-      "ok": true
-    },
-    {
-      "name": "dashboard--inline-clicks-407-3",
-      "pct": 0.003,
-      "ok": true
-    },
-    {
-      "name": "dashboard--inline-emails-2",
-      "pct": 0.003,
-      "ok": true
-    },
-    {
-      "name": "dashboard--inline-leads-13-8",
-      "pct": 0.003,
-      "ok": true
-    },
-    {
-      "name": "dashboard--inline-sms-1",
-      "pct": 0.003,
-      "ok": true
-    },
-    {
-      "name": "dashboard--modal-download-app",
+      "name": "credits-usage--popover-faisal-al-harbi-agency-user",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
-      "name": "dashboard--modal-help-support",
+      "name": "credits-usage--popover-notifications-mark-all-as",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "credits-usage--rail-expanded",
+      "device": "web",
+      "pct": 0.083,
+      "ok": true
+    },
+    {
+      "name": "dashboard--as-staff",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--drawer-credits-balance",
+      "device": "web",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "dashboard--drawer-feedback",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--dropdown-najd-horizon-real-estate",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--inline-canvas",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--inline-clicks-407-3",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--inline-emails-2",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--inline-leads-13-8",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--inline-sms-1",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--menu-post-a-listing",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--modal-download-app",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--modal-help-support-profolio",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
       "name": "dashboard--modal-profile-completed",
-      "pct": 0.191,
+      "device": "web",
+      "pct": 0.188,
       "ok": true
     },
     {
+      "name": "dashboard--modal-publish-now",
+      "device": "web",
+      "pct": 0.84,
+      "ok": false
+    },
+    {
       "name": "dashboard--modal-top-up-your-credits",
+      "device": "web",
       "pct": 0.004,
       "ok": true
     },
     {
-      "name": "dashboard--popover-account",
-      "pct": 0,
-      "ok": true
-    },
-    {
-      "name": "dashboard--popover-calls-clicked-3",
-      "pct": 0,
-      "ok": true
-    },
-    {
-      "name": "dashboard--popover-date-range",
-      "pct": 0,
-      "ok": true
-    },
-    {
-      "name": "dashboard--popover-listing-timeline",
+      "name": "dashboard--modal-trucheck-eligible-trucheck-is",
+      "device": "web",
       "pct": 0.003,
       "ok": true
     },
     {
-      "name": "dashboard--popover-notifications",
-      "pct": 0.003,
+      "name": "dashboard--popover-1104-am-sep-26",
+      "device": "web",
+      "pct": 0.013,
       "ok": true
     },
     {
-      "name": "dashboard--popover-overall-quality",
-      "pct": 1.507,
+      "name": "dashboard--popover-31",
+      "device": "web",
+      "pct": 1.724,
       "ok": false
     },
     {
-      "name": "dashboard--popover-whatsapp-clicked-7",
+      "name": "dashboard--popover-33",
+      "device": "web",
+      "pct": 1.687,
+      "ok": false
+    },
+    {
+      "name": "dashboard--popover-34",
+      "device": "web",
+      "pct": 1.686,
+      "ok": false
+    },
+    {
+      "name": "dashboard--popover-39",
+      "device": "web",
+      "pct": 1.672,
+      "ok": false
+    },
+    {
+      "name": "dashboard--popover-43",
+      "device": "web",
+      "pct": 1.711,
+      "ok": false
+    },
+    {
+      "name": "dashboard--popover-46",
+      "device": "web",
+      "pct": 1.761,
+      "ok": false
+    },
+    {
+      "name": "dashboard--popover-50",
+      "device": "web",
+      "pct": 1.7,
+      "ok": false
+    },
+    {
+      "name": "dashboard--popover-54",
+      "device": "web",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "dashboard--popover-62",
+      "device": "web",
+      "pct": 1.524,
+      "ok": false
+    },
+    {
+      "name": "dashboard--popover-calls-3",
+      "device": "web",
       "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--popover-faisal-al-harbi-agency-user",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--popover-notifications-mark-all-as",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--popover-today-yesterday-last-7",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--popover-whatsapp-7",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--rail-expanded",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--tooltip-50-off",
+      "device": "web",
+      "pct": 1.529,
+      "ok": false
+    },
+    {
+      "name": "dashboard--tooltip-booked",
+      "device": "web",
+      "pct": 1.609,
+      "ok": false
+    },
+    {
+      "name": "dashboard--tooltip-mark-signature",
+      "device": "web",
+      "pct": 0.001,
       "ok": true
     },
     {
       "name": "listings--action-detail-drawer",
-      "pct": 0.004,
+      "device": "web",
+      "pct": 0.006,
       "ok": true
     },
     {
       "name": "listings--action-discount",
+      "device": "web",
       "pct": 0.043,
       "ok": true
     },
     {
+      "name": "listings--as-staff",
+      "device": "web",
+      "pct": 0.009,
+      "ok": true
+    },
+    {
       "name": "listings--date-posted-on",
-      "pct": 0.002,
+      "device": "web",
+      "pct": 0.004,
+      "ok": true
+    },
+    {
+      "name": "listings--drawer-feedback",
+      "device": "web",
+      "pct": 0.005,
       "ok": true
     },
     {
       "name": "listings--drawer-filters",
-      "pct": 0.002,
+      "device": "web",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "listings--drawer-show-more",
+      "device": "web",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "listings--dropdown-select-property-types",
+      "device": "web",
+      "pct": 0.031,
+      "ok": true
+    },
+    {
+      "name": "listings--dropdown-select-purpose",
+      "device": "web",
+      "pct": 0.009,
       "ok": true
     },
     {
       "name": "listings--error",
+      "device": "web",
       "pct": 0.007,
       "ok": true
     },
     {
+      "name": "listings--inline-search",
+      "device": "web",
+      "pct": 0.025,
+      "ok": true
+    },
+    {
       "name": "listings--loading",
+      "device": "web",
       "pct": 0.014,
       "ok": true
     },
     {
+      "name": "listings--menu-post-a-listing",
+      "device": "web",
+      "pct": 0.007,
+      "ok": true
+    },
+    {
       "name": "listings--modal-booking",
-      "pct": 0.002,
+      "device": "web",
+      "pct": 0.003,
       "ok": true
     },
     {
       "name": "listings--modal-delete",
-      "pct": 0.002,
+      "device": "web",
+      "pct": 0.003,
       "ok": true
     },
     {
       "name": "listings--modal-download-app",
+      "device": "web",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "listings--modal-help-support-profolio",
+      "device": "web",
       "pct": 0.002,
       "ok": true
     },
     {
       "name": "listings--modal-otp",
-      "pct": 0.001,
+      "device": "web",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "listings--modal-publish-now",
+      "device": "web",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "listings--modal-request-signature-upgrade-the",
+      "device": "web",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "listings--modal-trucheck-eligible-trucheck-is",
+      "device": "web",
+      "pct": 0.005,
       "ok": true
     },
     {
       "name": "listings--modal-trucheck",
+      "device": "web",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "listings--popover-1104-am-sep-26",
+      "device": "web",
+      "pct": 0.015,
+      "ok": true
+    },
+    {
+      "name": "listings--popover-31",
+      "device": "web",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "listings--popover-33",
+      "device": "web",
+      "pct": 0.006,
+      "ok": true
+    },
+    {
+      "name": "listings--popover-34",
+      "device": "web",
+      "pct": 0.007,
+      "ok": true
+    },
+    {
+      "name": "listings--popover-39",
+      "device": "web",
+      "pct": 0.008,
+      "ok": true
+    },
+    {
+      "name": "listings--popover-43",
+      "device": "web",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "listings--popover-46",
+      "device": "web",
+      "pct": 0.007,
+      "ok": true
+    },
+    {
+      "name": "listings--popover-50",
+      "device": "web",
+      "pct": 0.006,
+      "ok": true
+    },
+    {
+      "name": "listings--popover-54",
+      "device": "web",
+      "pct": 0.006,
+      "ok": true
+    },
+    {
+      "name": "listings--popover-62",
+      "device": "web",
       "pct": 0.004,
       "ok": true
     },
     {
       "name": "listings--popover-account",
-      "pct": 0.005,
+      "device": "web",
+      "pct": 0.009,
+      "ok": true
+    },
+    {
+      "name": "listings--popover-faisal-al-harbi-agency-user",
+      "device": "web",
+      "pct": 0.009,
       "ok": true
     },
     {
       "name": "listings--popover-health",
-      "pct": 0.002,
-      "ok": true
-    },
-    {
-      "name": "listings--popover-leads",
-      "pct": 0.006,
-      "ok": true
-    },
-    {
-      "name": "listings--popover-notifications",
-      "pct": 0.008,
-      "ok": true
-    },
-    {
-      "name": "listings--popover-rega",
-      "pct": 0.005,
-      "ok": true
-    },
-    {
-      "name": "listings--popover-status-rejected",
-      "pct": 0.006,
-      "ok": true
-    },
-    {
-      "name": "listings--popover-timeline",
-      "pct": 0.006,
-      "ok": true
-    },
-    {
-      "name": "listings--project-units",
+      "device": "web",
       "pct": 0.004,
       "ok": true
     },
     {
-      "name": "listings--select-property-type",
-      "pct": 0.005,
-      "ok": true
-    },
-    {
-      "name": "listings--select-purpose",
-      "pct": 0.005,
-      "ok": true
-    },
-    {
-      "name": "listings--tab-ad-license-requests",
+      "name": "listings--popover-images-do-not-match",
+      "device": "web",
       "pct": 0.012,
       "ok": true
     },
     {
+      "name": "listings--popover-leads",
+      "device": "web",
+      "pct": 0.014,
+      "ok": true
+    },
+    {
+      "name": "listings--popover-notifications-mark-all-as",
+      "device": "web",
+      "pct": 0.009,
+      "ok": true
+    },
+    {
+      "name": "listings--popover-notifications",
+      "device": "web",
+      "pct": 0.009,
+      "ok": true
+    },
+    {
+      "name": "listings--popover-rega",
+      "device": "web",
+      "pct": 0.012,
+      "ok": true
+    },
+    {
+      "name": "listings--popover-status-rejected",
+      "device": "web",
+      "pct": 0.012,
+      "ok": true
+    },
+    {
+      "name": "listings--popover-timeline",
+      "device": "web",
+      "pct": 0.015,
+      "ok": true
+    },
+    {
+      "name": "listings--project-units",
+      "device": "web",
+      "pct": 0.004,
+      "ok": true
+    },
+    {
+      "name": "listings--rail-expanded",
+      "device": "web",
+      "pct": 0.009,
+      "ok": true
+    },
+    {
+      "name": "listings--select-property-type",
+      "device": "web",
+      "pct": 0.031,
+      "ok": true
+    },
+    {
+      "name": "listings--select-purpose",
+      "device": "web",
+      "pct": 0.009,
+      "ok": true
+    },
+    {
+      "name": "listings--tab-ad-license-requests",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "listings--tab-draft",
+      "device": "web",
       "pct": 0.003,
       "ok": true
     },
     {
       "name": "listings--tab-pending",
+      "device": "web",
       "pct": 0.003,
       "ok": true
     },
     {
       "name": "listings--tab-removed",
+      "device": "web",
       "pct": 0.007,
       "ok": true
     },
     {
+      "name": "listings--tooltip-50-off",
+      "device": "web",
+      "pct": 0.011,
+      "ok": true
+    },
+    {
       "name": "listings--tooltip-action",
-      "pct": 0.005,
+      "device": "web",
+      "pct": 0.013,
       "ok": true
     },
     {
       "name": "listings--tooltip-booked",
-      "pct": 0.005,
+      "device": "web",
+      "pct": 0.008,
       "ok": true
     },
     {
       "name": "listings--tooltip-upgrade-applied",
-      "pct": 0.037,
+      "device": "web",
+      "pct": 0.01,
       "ok": true
     },
     {
       "name": "listings--tooltip-upgrade-none",
-      "pct": 0.005,
+      "device": "web",
+      "pct": 0.041,
       "ok": true
     },
     {
       "name": "listings--tooltip-upgrade-pending",
-      "pct": 0.005,
+      "device": "web",
+      "pct": 0.01,
       "ok": true
     },
     {
       "name": "listings--tooltip-upgrade-service",
-      "pct": 0.005,
+      "device": "web",
+      "pct": 0.013,
       "ok": true
     },
     {
       "name": "listings--tooltip-upgrade-unavailable",
-      "pct": 0.005,
+      "device": "web",
+      "pct": 0.009,
       "ok": true
     },
     {
       "name": "listings--tooltip-upgrade",
-      "pct": 0.005,
+      "device": "web",
+      "pct": 0.013,
       "ok": true
     },
     {
       "name": "listings--upgrade-hot",
-      "pct": 0.003,
+      "device": "web",
+      "pct": 0.004,
       "ok": true
     },
     {
       "name": "listings--upgrade-photography",
+      "device": "web",
       "pct": 0.003,
       "ok": true
     },
     {
       "name": "listings--upgrade-refresh",
+      "device": "web",
       "pct": 0.003,
       "ok": true
     },
     {
       "name": "listings--upgrade-signature",
-      "pct": 0.002,
+      "device": "web",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--as-staff",
+      "device": "web",
+      "pct": 0.001,
       "ok": true
     },
     {
       "name": "lms-leads--drawer-abdullah-saleh-abdullahsmailexample",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-add-name",
+      "device": "web",
       "pct": 0.001,
       "ok": true
     },
     {
       "name": "lms-leads--drawer-add-new-lead",
+      "device": "web",
       "pct": 0.001,
       "ok": true
     },
     {
       "name": "lms-leads--drawer-add-task",
+      "device": "web",
       "pct": 0.001,
       "ok": true
     },
     {
       "name": "lms-leads--drawer-feedback",
+      "device": "web",
       "pct": 0.001,
       "ok": true
     },
     {
       "name": "lms-leads--drawer-khalid-al-shammari-khalidalshammari1",
+      "device": "web",
       "pct": 0.001,
       "ok": true
     },
     {
       "name": "lms-leads--drawer-lead-detail",
+      "device": "web",
       "pct": 0.001,
       "ok": true
     },
     {
       "name": "lms-leads--drawer-lead-tasks",
+      "device": "web",
       "pct": 0.001,
       "ok": true
     },
     {
       "name": "lms-leads--drawer-nourah-al-qahtani-nourahqahtanimaile",
-      "pct": 0.32,
-      "ok": true
-    },
-    {
-      "name": "lms-leads--drawer-show-more",
+      "device": "web",
       "pct": 0.001,
       "ok": true
     },
     {
-      "name": "lms-leads--dropdown-agency-switcher",
+      "name": "lms-leads--drawer-show-more",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--dropdown-10",
+      "device": "web",
       "pct": 0.001,
       "ok": true
     },
     {
       "name": "lms-leads--dropdown-listing-id",
-      "pct": 0.021,
+      "device": "web",
+      "pct": 0.001,
       "ok": true
     },
     {
-      "name": "lms-leads--dropdown-rows-per-page",
+      "name": "lms-leads--dropdown-najd-horizon-real-estate",
+      "device": "web",
       "pct": 0.001,
       "ok": true
     },
     {
       "name": "lms-leads--dropdown-select-users",
-      "pct": 0.031,
+      "device": "web",
+      "pct": 0.001,
       "ok": true
     },
     {
       "name": "lms-leads--inline-search",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--menu-post-a-listing",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--modal-download-app",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--modal-help-support-profolio",
+      "device": "web",
       "pct": 0.001,
       "ok": true
     },
     {
       "name": "lms-leads--modal-view-trend",
+      "device": "web",
       "pct": 0.004,
       "ok": true
     },
     {
       "name": "lms-leads--popover-1-more-properties",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--popover-2-more-properties",
+      "device": "web",
       "pct": 0.001,
       "ok": true
     },
     {
       "name": "lms-leads--popover-abdullah-saleh",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
       "name": "lms-leads--popover-apartment-for-sale",
+      "device": "web",
       "pct": 0.001,
       "ok": true
     },
     {
-      "name": "lms-leads--popover-bayut-match-info",
+      "name": "lms-leads--popover-bayut-match-0",
+      "device": "web",
       "pct": 0.001,
       "ok": true
     },
     {
-      "name": "lms-leads--popover-date-range",
+      "name": "lms-leads--popover-clicked-total-number-of",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--popover-close-circle",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--popover-faisal-al-harbi-agency-user",
+      "device": "web",
       "pct": 0.001,
       "ok": true
     },
     {
       "name": "lms-leads--popover-floor-for-sale",
+      "device": "web",
       "pct": 0.001,
       "ok": true
     },
     {
       "name": "lms-leads--popover-follow-up-call",
+      "device": "web",
       "pct": 0.001,
       "ok": true
     },
     {
-      "name": "lms-leads--popover-insight-info",
-      "pct": 0.03,
+      "name": "lms-leads--popover-khalid-al-shammari",
+      "device": "web",
+      "pct": 0.001,
       "ok": true
     },
     {
-      "name": "lms-leads--popover-khalid-al-shammari",
+      "name": "lms-leads--popover-notifications-mark-all-as",
+      "device": "web",
       "pct": 0.001,
       "ok": true
     },
     {
       "name": "lms-leads--popover-nourah-al-qahtani",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--popover-unnamed-lead",
+      "device": "web",
       "pct": 0.001,
       "ok": true
     },
     {
       "name": "lms-leads--popover-villa-for-sale",
+      "device": "web",
       "pct": 0.001,
       "ok": true
     },
     {
+      "name": "lms-leads--rail-expanded",
+      "device": "web",
+      "pct": 0.004,
+      "ok": true
+    },
+    {
       "name": "lms-leads--tooltip-email",
-      "pct": 0.044,
+      "device": "web",
+      "pct": 0.001,
       "ok": true
     },
     {
       "name": "lms-leads--tooltip-whatsapp",
+      "device": "web",
       "pct": 0.001,
       "ok": true
     },
     {
       "name": "lms-leads--tour",
+      "device": "web",
       "pct": 0.001,
       "ok": true
     },
     {
+      "name": "packages--as-staff",
+      "device": "web",
+      "pct": 0.039,
+      "ok": true
+    },
+    {
+      "name": "packages--drawer-feedback",
+      "device": "web",
+      "pct": 0.01,
+      "ok": true
+    },
+    {
+      "name": "packages--drawer-what-are-credits",
+      "device": "web",
+      "pct": 0.012,
+      "ok": true
+    },
+    {
+      "name": "packages--inline-icon",
+      "device": "web",
+      "pct": 0.015,
+      "ok": true
+    },
+    {
+      "name": "packages--menu-post-a-listing",
+      "device": "web",
+      "pct": 0.01,
+      "ok": true
+    },
+    {
+      "name": "packages--modal-download-app",
+      "device": "web",
+      "pct": 0.008,
+      "ok": true
+    },
+    {
+      "name": "packages--modal-get-titanium",
+      "device": "web",
+      "pct": 0.008,
+      "ok": true
+    },
+    {
+      "name": "packages--modal-help-support-profolio",
+      "device": "web",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "packages--popover-faisal-al-harbi-agency-user",
+      "device": "web",
+      "pct": 0.02,
+      "ok": true
+    },
+    {
+      "name": "packages--popover-notifications-mark-all-as",
+      "device": "web",
+      "pct": 0.017,
+      "ok": true
+    },
+    {
+      "name": "packages--rail-expanded",
+      "device": "web",
+      "pct": 0.039,
+      "ok": true
+    },
+    {
+      "name": "post-listing--as-staff",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--drawer-feedback",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--inline-continue",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--menu-post-a-listing",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--modal-download-app",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--modal-help-support-profolio",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--modal-learn-more",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--modal-non-saudi",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "post-listing--popover-faisal-al-harbi-agency-user",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--popover-notifications-mark-all-as",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--rail-expanded",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--as-staff",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "reports-leads-reports--drawer-feedback",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
       "name": "reports-leads-reports--dropdown-select-purpose",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
       "name": "reports-leads-reports--inline-4",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
       "name": "reports-leads-reports--inline-canvas",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
       "name": "reports-leads-reports--inline-clicks-407-3",
-      "pct": 0.033,
+      "device": "web",
+      "pct": 0,
       "ok": true
     },
     {
       "name": "reports-leads-reports--inline-emails-2",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
       "name": "reports-leads-reports--inline-leads-13-8",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
       "name": "reports-leads-reports--inline-search",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
       "name": "reports-leads-reports--inline-sms-1",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
-      "name": "reports-leads-reports--popover-calls-clicked-3",
+      "name": "reports-leads-reports--menu-post-a-listing",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
-      "name": "reports-leads-reports--popover-date-range-2",
+      "name": "reports-leads-reports--modal-download-app",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
-      "name": "reports-leads-reports--popover-date-range",
+      "name": "reports-leads-reports--modal-help-support-profolio",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
-      "name": "reports-leads-reports--popover-whatsapp-clicked-7",
+      "name": "reports-leads-reports--popover-calls-3",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--popover-close-circle",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--popover-faisal-al-harbi-agency-user",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--popover-notifications-mark-all-as",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--popover-today-yesterday-last-7",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--popover-whatsapp-7",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--rail-expanded",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--as-staff",
+      "device": "web",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--drawer-feedback",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
       "name": "reports-listing-report--inline-listing-by-date",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
-      "name": "reports-listing-report--popover-overall-quality-2",
-      "pct": 0.001,
-      "ok": true
-    },
-    {
-      "name": "reports-listing-report--popover-overall-quality-3",
-      "pct": 0.001,
-      "ok": true
-    },
-    {
-      "name": "reports-listing-report--popover-overall-quality-4",
-      "pct": 0.001,
-      "ok": true
-    },
-    {
-      "name": "reports-listing-report--popover-overall-quality-5",
+      "name": "reports-listing-report--menu-post-a-listing",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
-      "name": "reports-listing-report--popover-overall-quality",
+      "name": "reports-listing-report--modal-download-app",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--modal-help-support-profolio",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--popover-31",
+      "device": "web",
       "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--popover-33",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--popover-34",
+      "device": "web",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--popover-39",
+      "device": "web",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--popover-43",
+      "device": "web",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--popover-46",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--popover-50",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--popover-54",
+      "device": "web",
+      "pct": 0.01,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--popover-62",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--popover-faisal-al-harbi-agency-user",
+      "device": "web",
+      "pct": 0.016,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--popover-notifications-mark-all-as",
+      "device": "web",
+      "pct": 0.03,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--rail-expanded",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--as-staff",
+      "device": "web",
+      "pct": 0,
       "ok": true
     },
     {
       "name": "reports-summary--drawer-feedback",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
       "name": "reports-summary--inline-clicks-407-3",
-      "pct": 0,
+      "device": "web",
+      "pct": 0.02,
       "ok": true
     },
     {
       "name": "reports-summary--inline-div",
-      "pct": 0,
+      "device": "web",
+      "pct": 0.03,
       "ok": true
     },
     {
       "name": "reports-summary--inline-emails-2",
-      "pct": 0,
+      "device": "web",
+      "pct": 0.003,
       "ok": true
     },
     {
       "name": "reports-summary--inline-leads-13-8",
-      "pct": 0,
+      "device": "web",
+      "pct": 0.015,
       "ok": true
     },
     {
       "name": "reports-summary--inline-sms-1",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
-      "name": "reports-summary--popover-calls-clicked-3",
+      "name": "reports-summary--menu-post-a-listing",
+      "device": "web",
+      "pct": 0.012,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--modal-download-app",
+      "device": "web",
+      "pct": 0.013,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--modal-help-support-profolio",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
-      "name": "reports-summary--popover-date-range",
-      "pct": 0.007,
+      "name": "reports-summary--popover-calls-3",
+      "device": "web",
+      "pct": 0.034,
       "ok": true
     },
     {
-      "name": "reports-summary--popover-whatsapp-clicked-7",
-      "pct": 0.002,
+      "name": "reports-summary--popover-faisal-al-harbi-agency-user",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--popover-notifications-mark-all-as",
+      "device": "web",
+      "pct": 0.027,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--popover-today-yesterday-last-7",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--popover-whatsapp-7",
+      "device": "web",
+      "pct": 0.012,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--rail-expanded",
+      "device": "web",
+      "pct": 0.009,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--as-staff",
+      "device": "web",
+      "pct": 0.001,
       "ok": true
     },
     {
       "name": "user-settings-agency-profile--drawer-feedback",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
       "name": "user-settings-agency-profile--inline-icon",
-      "pct": 0.026,
+      "device": "web",
+      "pct": 0.002,
       "ok": true
     },
     {
       "name": "user-settings-agency-profile--inline-save-changes",
+      "device": "web",
+      "pct": 0.027,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--menu-post-a-listing",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
+      "name": "user-settings-agency-profile--modal-download-app",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--modal-help-support-profolio",
+      "device": "web",
+      "pct": 0.009,
+      "ok": true
+    },
+    {
       "name": "user-settings-agency-profile--modal-preview",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--popover-faisal-al-harbi-agency-user",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--popover-notifications-mark-all-as",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
       "name": "user-settings-agency-profile--profile-incomplete",
-      "pct": 0.027,
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--rail-expanded",
+      "device": "web",
+      "pct": 0.028,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--as-staff",
+      "device": "web",
+      "pct": 0,
       "ok": true
     },
     {
       "name": "user-settings-change-password--drawer-feedback",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
       "name": "user-settings-change-password--inline-confirm",
-      "pct": 0.08,
+      "device": "web",
+      "pct": 0,
       "ok": true
     },
     {
       "name": "user-settings-change-password--inline-eye-invisible",
-      "pct": 0.083,
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--menu-post-a-listing",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--modal-download-app",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--modal-help-support-profolio",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--popover-faisal-al-harbi-agency-user",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--popover-notifications-mark-all-as",
+      "device": "web",
+      "pct": 0,
       "ok": true
     },
     {
       "name": "user-settings-change-password--profile-incomplete",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
-      "name": "user-settings-user-profile--drawer-feedback",
+      "name": "user-settings-change-password--rail-expanded",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
-      "name": "user-settings-user-profile--dropdown-experience",
+      "name": "user-settings-licenses--as-staff",
+      "device": "web",
+      "pct": 0.023,
+      "ok": true
+    },
+    {
+      "name": "user-settings-licenses--drawer-feedback",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-licenses--menu-post-a-listing",
+      "device": "web",
+      "pct": 0.226,
+      "ok": true
+    },
+    {
+      "name": "user-settings-licenses--modal-download-app",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-licenses--modal-help-support-profolio",
+      "device": "web",
+      "pct": 0.004,
+      "ok": true
+    },
+    {
+      "name": "user-settings-licenses--modal-information-share-license-with",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-licenses--modal-share-license-by-enabling",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-licenses--popover-faisal-al-harbi-agency-user",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-licenses--popover-notifications-mark-all-as",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-licenses--rail-expanded",
+      "device": "web",
+      "pct": 0.029,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--as-staff",
+      "device": "web",
       "pct": 0.001,
       "ok": true
     },
     {
-      "name": "user-settings-user-profile--dropdown-service-areas",
-      "pct": 0.005,
+      "name": "user-settings-user-profile--drawer-feedback",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--dropdown-1-2-riyadh-diriyah",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--dropdown-3-5-years",
+      "device": "web",
+      "pct": 0,
       "ok": true
     },
     {
       "name": "user-settings-user-profile--inline-close-circle",
+      "device": "web",
       "pct": 0.001,
       "ok": true
     },
     {
       "name": "user-settings-user-profile--inline-close",
-      "pct": 0.039,
+      "device": "web",
+      "pct": 0.001,
       "ok": true
     },
     {
       "name": "user-settings-user-profile--inline-generate-agent-description-english",
-      "pct": 0.39,
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--menu-post-a-listing",
+      "device": "web",
+      "pct": 0,
       "ok": true
     },
     {
       "name": "user-settings-user-profile--message-save-changes",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--modal-download-app",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--modal-help-support-profolio",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
       "name": "user-settings-user-profile--modal-learn-more",
+      "device": "web",
       "pct": 0,
       "ok": true
     },
     {
-      "name": "user-settings-user-profile--popover-service-areas-more",
-      "pct": 0.06,
+      "name": "user-settings-user-profile--popover-23",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--popover-faisal-al-harbi-agency-user",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--popover-notifications-mark-all-as",
+      "device": "web",
+      "pct": 0,
       "ok": true
     },
     {
       "name": "user-settings-user-profile--profile-incomplete",
+      "device": "web",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--rail-expanded",
+      "device": "web",
       "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--as-staff--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--drawer-feedback--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--drawer-notifications-mark-all-as--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--drawer-profile-information-faisal-al-harbi--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--dropdown-select-property-age--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--inline-adjust--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--inline-continue--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--inline-select-city--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--mobile-menu--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--as-staff--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--drawer-feedback--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--drawer-invite-user--mobile",
+      "device": "mobile",
+      "pct": 0.06,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--drawer-notifications-mark-all-as--mobile",
+      "device": "mobile",
+      "pct": 0.037,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--drawer-profile-information-faisal-al-harbi--mobile",
+      "device": "mobile",
+      "pct": 0.06,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--dropdown-edit-delete--mobile",
+      "device": "mobile",
+      "pct": 0.098,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--mobile-menu--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--modal-set-credits-limit--mobile",
+      "device": "mobile",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--as-staff--mobile",
+      "device": "mobile",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--drawer-learn-more--mobile",
+      "device": "mobile",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--drawer-not-ranked--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--drawer-notifications-mark-all-as--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--drawer-profile-information-faisal-al-harbi--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--drawer-send-us-feedback-the--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--drawer-trupointsTM-46--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--dropdown-filter-by-badges--mobile",
+      "device": "mobile",
+      "pct": 0.015,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--mobile-menu--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--modal-quality-lister--mobile",
+      "device": "mobile",
+      "pct": 0.017,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--popover-calls-received-9-calls--mobile",
+      "device": "mobile",
+      "pct": 0.013,
+      "ok": true
+    },
+    {
+      "name": "credits-usage--as-staff--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "credits-usage--drawer-notifications-mark-all-as--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "credits-usage--drawer-profile-information-faisal-al-harbi--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "credits-usage--drawer-send-us-feedback-the--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "credits-usage--drawer-top-up-your-credits--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "credits-usage--mobile-menu--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--as-staff--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--drawer-31--mobile",
+      "device": "mobile",
+      "pct": 0.871,
+      "ok": false
+    },
+    {
+      "name": "dashboard--drawer-33--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--drawer-34--mobile",
+      "device": "mobile",
+      "pct": 0.731,
+      "ok": false
+    },
+    {
+      "name": "dashboard--drawer-39--mobile",
+      "device": "mobile",
+      "pct": 0.682,
+      "ok": false
+    },
+    {
+      "name": "dashboard--drawer-43--mobile",
+      "device": "mobile",
+      "pct": 0.786,
+      "ok": false
+    },
+    {
+      "name": "dashboard--drawer-46--mobile",
+      "device": "mobile",
+      "pct": 0.99,
+      "ok": false
+    },
+    {
+      "name": "dashboard--drawer-50--mobile",
+      "device": "mobile",
+      "pct": 0.626,
+      "ok": false
+    },
+    {
+      "name": "dashboard--drawer-54--mobile",
+      "device": "mobile",
+      "pct": 0.666,
+      "ok": false
+    },
+    {
+      "name": "dashboard--drawer-62--mobile",
+      "device": "mobile",
+      "pct": 0.895,
+      "ok": false
+    },
+    {
+      "name": "dashboard--drawer-booked--mobile",
+      "device": "mobile",
+      "pct": 4.348,
+      "ok": false
+    },
+    {
+      "name": "dashboard--drawer-credits-balance--mobile",
+      "device": "mobile",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "dashboard--drawer-feedback--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--drawer-notifications-mark-all-as--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--drawer-profile-information-faisal-al-harbi--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--drawer-publish-now--mobile",
+      "device": "mobile",
+      "pct": 2.233,
+      "ok": false
+    },
+    {
+      "name": "dashboard--drawer-request-signature-upgrade-the--mobile",
+      "device": "mobile",
+      "pct": 1.76,
+      "ok": false
+    },
+    {
+      "name": "dashboard--drawer-search-by-calendar-today--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--drawer-top-up-your-credits--mobile",
+      "device": "mobile",
+      "pct": 3.156,
+      "ok": false
+    },
+    {
+      "name": "dashboard--dropdown-all--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--dropdown-najd-horizon-real-estate--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--inline-canvas--mobile",
+      "device": "mobile",
+      "pct": 6.47,
+      "ok": false
+    },
+    {
+      "name": "dashboard--inline-clicks-407-3--mobile",
+      "device": "mobile",
+      "pct": 6.13,
+      "ok": false
+    },
+    {
+      "name": "dashboard--inline-leads-13-8--mobile",
+      "device": "mobile",
+      "pct": 6.412,
+      "ok": false
+    },
+    {
+      "name": "dashboard--mobile-menu--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--modal-profile-completed--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--tooltip-50-off--mobile",
+      "device": "mobile",
+      "pct": 0.007,
+      "ok": true
+    },
+    {
+      "name": "listings--as-staff--mobile",
+      "device": "mobile",
+      "pct": 0.033,
+      "ok": true
+    },
+    {
+      "name": "listings--drawer-31--mobile",
+      "device": "mobile",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "listings--drawer-33--mobile",
+      "device": "mobile",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "listings--drawer-34--mobile",
+      "device": "mobile",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "listings--drawer-39--mobile",
+      "device": "mobile",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "listings--drawer-43--mobile",
+      "device": "mobile",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "listings--drawer-46--mobile",
+      "device": "mobile",
+      "pct": 0.004,
+      "ok": true
+    },
+    {
+      "name": "listings--drawer-50--mobile",
+      "device": "mobile",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "listings--drawer-54--mobile",
+      "device": "mobile",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "listings--drawer-62--mobile",
+      "device": "mobile",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "listings--drawer-booked--mobile",
+      "device": "mobile",
+      "pct": 0.009,
+      "ok": true
+    },
+    {
+      "name": "listings--drawer-feedback--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "listings--drawer-filters-apply-filters-to--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "listings--drawer-notifications-mark-all-as--mobile",
+      "device": "mobile",
+      "pct": 0.009,
+      "ok": true
+    },
+    {
+      "name": "listings--drawer-profile-information-faisal-al-harbi--mobile",
+      "device": "mobile",
+      "pct": 0.009,
+      "ok": true
+    },
+    {
+      "name": "listings--drawer-publish-now--mobile",
+      "device": "mobile",
+      "pct": 0.02,
+      "ok": true
+    },
+    {
+      "name": "listings--drawer-request-signature-upgrade-the--mobile",
+      "device": "mobile",
+      "pct": 0.009,
+      "ok": true
+    },
+    {
+      "name": "listings--dropdown-trucheck-eligible-view-on--mobile",
+      "device": "mobile",
+      "pct": 0.017,
+      "ok": true
+    },
+    {
+      "name": "listings--error--mobile",
+      "device": "mobile",
+      "pct": 0.041,
+      "ok": true
+    },
+    {
+      "name": "listings--loading--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "listings--mobile-menu--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "listings--project-units--mobile",
+      "device": "mobile",
+      "pct": 0.036,
+      "ok": true
+    },
+    {
+      "name": "listings--tooltip-50-off--mobile",
+      "device": "mobile",
+      "pct": 0.022,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--as-staff--mobile",
+      "device": "mobile",
+      "pct": 0.004,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-1-more-properties--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-2-more-properties--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-abdullah-saleh--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-add-name--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-add-new-lead--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-call--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-follow-up-call--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-khalid-al-shammari--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-notifications-mark-all-as--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-nourah-al-qahtani--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-profile-information-faisal-al-harbi--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-send-us-feedback-the--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-unnamed-lead--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-view-detail--mobile",
+      "device": "mobile",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-view-trend--mobile",
+      "device": "mobile",
+      "pct": 0.011,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-whatsapp--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--dropdown-10--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--dropdown-najd-horizon-real-estate--mobile",
+      "device": "mobile",
+      "pct": 0.006,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--inline-email--mobile",
+      "device": "mobile",
+      "pct": 0.004,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--mobile-menu--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--popover-apartment-for-s--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--popover-bayut-match-0--mobile",
+      "device": "mobile",
+      "pct": 0.006,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--popover-clicked-total-number-of--mobile",
+      "device": "mobile",
+      "pct": 0.323,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--popover-floor-for-sale--mobile",
+      "device": "mobile",
+      "pct": 0.006,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--popover-villa-for-sale--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--tour--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "packages--as-staff--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "packages--drawer-feedback--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "packages--drawer-get-titanium--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "packages--drawer-notifications-mark-all-as--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "packages--drawer-profile-information-faisal-al-harbi--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "packages--drawer-what-are-credits--mobile",
+      "device": "mobile",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "packages--inline-icon--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "packages--mobile-menu--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--as-staff--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--drawer-feedback--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--drawer-notifications-mark-all-as--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--drawer-profile-information-faisal-al-harbi--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--mobile-menu--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--modal-non-saudi--mobile",
+      "device": "mobile",
+      "pct": 0.033,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--as-staff--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--drawer-feedback--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--drawer-notifications-mark-all-as--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--drawer-profile-information-faisal-al-harbi--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--drawer-search-by-calendar-today--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--dropdown-all--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--inline-2--mobile",
+      "device": "mobile",
+      "pct": 1.962,
+      "ok": false
+    },
+    {
+      "name": "reports-leads-reports--inline-3--mobile",
+      "device": "mobile",
+      "pct": 1.842,
+      "ok": false
+    },
+    {
+      "name": "reports-leads-reports--inline-4--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--inline-canvas--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--inline-clicks-407-3--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--inline-leads-13-8--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--mobile-menu--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--as-staff--mobile",
+      "device": "mobile",
+      "pct": 0.033,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--drawer-feedback--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--drawer-notifications-mark-all-as--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--drawer-profile-information-faisal-al-harbi--mobile",
+      "device": "mobile",
+      "pct": 0.004,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--inline-listing-by-date--mobile",
+      "device": "mobile",
+      "pct": 0.029,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--mobile-menu--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--as-staff--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--drawer-feedback--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--drawer-notifications-mark-all-as--mobile",
+      "device": "mobile",
+      "pct": 0.052,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--drawer-profile-information-faisal-al-harbi--mobile",
+      "device": "mobile",
+      "pct": 0.02,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--drawer-search-by-calendar-today--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--dropdown-all--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--inline-clicks-407-3--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--inline-leads-13-8--mobile",
+      "device": "mobile",
+      "pct": 0.021,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--mobile-menu--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--as-staff--mobile",
+      "device": "mobile",
+      "pct": 0.004,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--drawer-feedback--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--drawer-notifications-mark-all-as--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--drawer-preview--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--drawer-profile-information-faisal-al-harbi--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--inline-icon--mobile",
+      "device": "mobile",
+      "pct": 0.004,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--inline-save-changes--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--mobile-menu--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--profile-incomplete--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--as-staff--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--drawer-feedback--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--drawer-notifications-mark-all-as--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--drawer-profile-information-faisal-al-harbi--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--inline-confirm--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--inline-eye-invisible--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--mobile-menu--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--profile-incomplete--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-licenses--as-staff--mobile",
+      "device": "mobile",
+      "pct": 0.084,
+      "ok": true
+    },
+    {
+      "name": "user-settings-licenses--drawer-feedback--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-licenses--drawer-information-share-license-with--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-licenses--drawer-notifications-mark-all-as--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-licenses--drawer-profile-information-faisal-al-harbi--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-licenses--drawer-share-license-by-enabling--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-licenses--mobile-menu--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--as-staff--mobile",
+      "device": "mobile",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--drawer-feedback--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--drawer-learn-more--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--drawer-notifications-mark-all-as--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--drawer-profile-information-faisal-al-harbi--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--dropdown-1-2-riyadh-diriyah--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--dropdown-24--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--dropdown-3-5-years--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--inline-close-circle--mobile",
+      "device": "mobile",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--inline-close--mobile",
+      "device": "mobile",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--inline-generate-agent-description-english--mobile",
+      "device": "mobile",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--message-save-changes--mobile",
+      "device": "mobile",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--mobile-menu--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--profile-incomplete--mobile",
+      "device": "mobile",
+      "pct": 0.001,
       "ok": true
     }
   ]

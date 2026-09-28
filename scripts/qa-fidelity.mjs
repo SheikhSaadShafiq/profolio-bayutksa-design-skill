@@ -205,11 +205,25 @@ const REAL = process.argv.includes('--real');
    is ours to fix — it is the list of what changes with the account, which is
    what tells a design difference from a data one in the other two modes. */
 const ACCOUNTS = process.argv.includes('--accounts');
-const liveFile = (p) => join(LIVE, `${p}${REAL ? '.real' : ''}.capture.json`);
-const oursFile = (p) => ACCOUNTS ? join(LIVE, `${p}.real.capture.json`) : join(OURS, `${p}.capture.json`);
+/* --account b: the real side is the second account's capture
+   (<page>.real-b.capture.json) in --real and --accounts; --state names the
+   harness state to hold to it (e.g. --state as-staff compares
+   <page>--as-staff with the real staff account) */
+const ACCT = arg('--account', '');
+const STATE = arg('--state', '');
+/* --mobile: the responsive layout — every file named <page>[--state]--mobile
+   (compile.mjs --device mobile, receive-real.mjs's --mobile captures) */
+const MOBILE = process.argv.includes('--mobile');
+const SFX = MOBILE ? '--mobile' : '';
+const realName = (p) => `${p}${SFX}.real${ACCT ? '-' + ACCT : ''}.capture.json`;
+const liveFile = (p) => join(LIVE, REAL ? realName(p) : `${p}${STATE ? '--' + STATE : ''}${SFX}.capture.json`);
+/* with --real, --state picks OUR compiled state to hold to the real screen
+   (--real --account b --state as-staff: our staff-mode page against the real
+   staff account) */
+const oursFile = (p) => ACCOUNTS ? join(LIVE, realName(p)) : join(OURS, `${p}${REAL && STATE ? '--' + STATE : ''}${SFX}.capture.json`);
 const pages = readdirSync(LIVE)
-  .filter((f) => /\.capture\.json$/.test(f) && !f.includes('--') && !f.endsWith('.real.capture.json'))
-  .map((f) => f.replace(/\.capture\.json$/, ''))
+  .filter((f) => (MOBILE ? /^[a-z0-9]+(-[a-z0-9]+)*--mobile\.capture\.json$/.test(f) : /\.capture\.json$/.test(f) && !f.includes('--')) && !/\.real(-\w+)?\.capture\.json$/.test(f))
+  .map((f) => f.replace(/\.capture\.json$/, '').replace(/--mobile$/, ''))
   .filter((p) => existsSync(oursFile(p)) && existsSync(liveFile(p)))
   .filter((p) => !arg('--page') || p === arg('--page'))
   .sort();
@@ -398,7 +412,7 @@ console.log(`  exact    ${ex.toFixed(1)}%  — of the product's boxes, how many 
 
 mkdirSync(join(ROOT, 'data', 'qa'), { recursive: true });
 /* --page runs are partial; only a full run rewrites the ledger */
-if (!arg('--page')) writeFileSync(join(ROOT, 'data', 'qa', ACCOUNTS ? 'fidelity-accounts.json' : REAL ? 'fidelity-real.json' : 'fidelity.json'),
+if (!arg('--page')) writeFileSync(join(ROOT, 'data', 'qa', `${ACCOUNTS ? 'fidelity-accounts' : REAL ? 'fidelity-real' : 'fidelity'}${ACCT ? '-' + ACCT : ''}${STATE ? '-' + STATE : ''}${MOBILE ? '-mobile' : ''}.json`),
   JSON.stringify({ at: new Date().toISOString(), against: ACCOUNTS ? 'harness vs real account (the product against itself)' : REAL ? 'real account' : 'harness', tolerancePx: PX, coverage: +cov.toFixed(1), fidelity: +fid.toFixed(1), exact: +ex.toFixed(1), rows }, null, 2));
 
 /* the agreed bar: ≥99% coverage and ≥99% exact on every page */

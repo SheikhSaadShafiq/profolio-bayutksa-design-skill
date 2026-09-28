@@ -62,7 +62,7 @@ const copies = existsSync(join(KB, 'product', 'copy')) ? readdirSync(join(KB, 'p
 const html = `
 <p class="ds-note">What the product says and does — generated from its source into <a href="../kb/index.html"><code>kb/</code></a>. Every component page links to the copy it renders and the notes written about it; every compiled page links to its route's page here.</p>
 <div class="ds-kb">
-${card('product/ksa.html', 'The KSA product: who uses it, the rules the screens follow')}
+${card('product/ksa.html', 'Product knowledge: who uses it, the regulation it works under, how it makes money — not a source of design')}
 ${card('product/screens.html', 'Every route, what it shows and who can reach it')}
 ${card('product/flags.html', 'The tenant flags that switch features on and off for KSA')}
 ${card('product/copy.html', `Every string, by area — ${copies.length} areas`)}

@@ -27,12 +27,16 @@ import pkg from 'playwright';
 import { readFileSync, writeFileSync, readdirSync, mkdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { DEVICES, deviceOf } from '../../harness/devices.mjs';
+import { UNPARSABLE_SOURCE } from '../lib/nested-a.mjs';
 
 const { chromium } = pkg;
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const DELIV = join(ROOT, 'deliverables');
 const OUT = join(ROOT, 'data', 'ds');
-const MAX_VARIANTS = 8;
+/* per device: a component keeps up to this many web variants AND this many
+   responsive ones — the design system shows the two side by side */
+const MAX_VARIANTS = 6;
 
 /* antd's components by the class on their root, with where they sit in the
    atomic scale. The scale is the conventional one: an ATOM cannot be broken
@@ -60,13 +64,20 @@ export const BASE = {
   'pf-layout-header': ['LayoutHeader', 'template'], 'pf-layout-sider': ['LayoutSider', 'template'], 'pf-layout-footer': ['LayoutFooter', 'template'],
 };
 
-const compiled = (dir, rel) => readdirSync(dir).filter((f) => f.endsWith('.html'))
-  .map((f) => ({ file: join(dir, f), rel: rel + f, name: f.replace(/\.html$/, '') }))
-  .filter((p) => /<meta name="pf-compiled"/.test(readFileSync(p.file, 'utf8').slice(0, 6000)));
-const pages = [...compiled(DELIV, ''), ...compiled(join(DELIV, 'states'), 'states/')];
+/* web and responsive pages; a responsive page's name carries --mobile */
+const compiled = (rel) => {
+  const dir = join(DELIV, rel);
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir).filter((f) => f.endsWith('.html'))
+    .map((f) => ({ file: join(dir, f), rel: rel + f }))
+    .filter((p) => /<meta name="pf-compiled"/.test(readFileSync(p.file, 'utf8').slice(0, 6000)))
+    .map((p) => { const device = deviceOf(readFileSync(p.file, 'utf8')); const base = p.rel.split('/').pop().replace(/\.html$/, ''); return { ...p, device, name: device === 'mobile' ? `${base}--mobile` : base }; });
+};
+const pages = [...compiled(''), ...compiled('states/'), ...compiled('mobile/'), ...compiled('mobile/states/')];
 
 /* ── in the page ───────────────────────────────────────────────────────── */
-const COLLECT = (BASE) => {
+const COLLECT = ({ BASE, UNP }) => {
+  const unparsable = (0, eval)(UNP);
   const INHERITED = ['font-family', 'font-size', 'font-weight', 'font-style', 'line-height', 'color', 'letter-spacing',
     'text-align', 'text-transform', 'white-space', 'word-break', 'direction', 'font-variant-numeric', 'font-feature-settings', '-webkit-font-smoothing'];
   /* a variant is its modifier classes plus the STATE attributes antd v5 uses
@@ -80,7 +91,33 @@ const COLLECT = (BASE) => {
       c.unshift({ tag: e.tagName.toLowerCase(), cls: e.getAttribute('class') || '', attrs: ['dir', 'lang', 'role'].filter((a) => e.hasAttribute(a)).map((a) => [a, e.getAttribute(a)]) });
     return c;
   };
-  const vis = (el) => { const r = el.getBoundingClientRect(); const s = getComputedStyle(el); return r.width >= 2 && r.height >= 2 && s.visibility !== 'hidden' && s.display !== 'none' && +s.opacity > 0; };
+  /* DRAWN, not merely present: an element outside the document (the phone
+     layout keeps its rail off-canvas at x < 0) or clipped away entirely by an
+     overflow:hidden box it is laid out in is not something the product shows.
+     A scrolling box does not count — what it hides is one scroll away. */
+  const drawn = (el) => {
+    const r = el.getBoundingClientRect();
+    const W = document.documentElement.scrollWidth, H = document.documentElement.scrollHeight;
+    if (r.right + scrollX <= 0.5 || r.bottom + scrollY <= 0.5 || r.left + scrollX >= W - 0.5 || r.top + scrollY >= H - 0.5) return false;
+    let L = r.left, T = r.top, R = r.right, B = r.bottom;
+    let mode = getComputedStyle(el).position;
+    for (let e = el.parentElement; e && e !== document.body && e !== document.documentElement; e = e.parentElement) {
+      const cs = getComputedStyle(e);
+      const cbAll = cs.transform !== 'none' || cs.filter !== 'none' || cs.perspective !== 'none' || /paint|strict|content/.test(cs.contain);
+      /* an absolute box escapes the overflow of everything below its
+         containing block; a fixed one, everything short of a transform */
+      const isCB = mode === 'fixed' ? cbAll : mode === 'absolute' ? cs.position !== 'static' || cbAll : true;
+      if (!isCB) continue;
+      const q = e.getBoundingClientRect();
+      if (/hidden|clip/.test(cs.overflowX)) { L = Math.max(L, q.left); R = Math.min(R, q.right); }
+      if (/hidden|clip/.test(cs.overflowY)) { T = Math.max(T, q.top); B = Math.min(B, q.bottom); }
+      if (R - L < 1 || B - T < 1) return false;
+      if (mode === 'absolute' || mode === 'fixed') mode = cs.position;
+    }
+    /* what is left after the clipping must still be on the page */
+    return R + scrollX > 0.5 && B + scrollY > 0.5 && L + scrollX < W - 0.5 && T + scrollY < H - 0.5;
+  };
+  const vis = (el) => { const r = el.getBoundingClientRect(); const s = getComputedStyle(el); return r.width >= 2 && r.height >= 2 && s.visibility !== 'hidden' && s.display !== 'none' && +s.opacity > 0 && drawn(el); };
   const record = (el, family, key, name, level) => {
     const r = el.getBoundingClientRect();
     const ps = getComputedStyle(el.parentElement || el);
@@ -97,21 +134,40 @@ const COLLECT = (BASE) => {
       display: s.display,
       /* the content width the element was laid out in — an INLINE root has no
          width of its own, so its cut-out needs a parent box this wide */
-      parentWidth: (() => { const pe = el.parentElement; if (!pe) return null; const q = getComputedStyle(pe); return Math.round((pe.clientWidth - parseFloat(q.paddingLeft) - parseFloat(q.paddingRight)) * 100) / 100; })(),
+      /* (from the rect, not clientWidth, which is rounded to a whole pixel:
+         centred text in a 72.39px box is not centred in a 72px one) */
+      parentWidth: (() => { const pe = el.parentElement; if (!pe) return null; const q = getComputedStyle(pe); return Math.round((pe.getBoundingClientRect().width - parseFloat(q.borderLeftWidth) - parseFloat(q.borderRightWidth) - parseFloat(q.paddingLeft) - parseFloat(q.paddingRight)) * 10000) / 10000; })(),
       inherited: Object.fromEntries(INHERITED.map((p) => [p, ps.getPropertyValue(p)])),
       /* what shows through the element's transparent parts: the first
          ancestor that paints a ground. A 16px icon is mostly transparent, and
          cut out onto a different ground it is mostly a different picture. */
       ground: (() => { for (let e = el.parentElement; e; e = e.parentElement) { const b = getComputedStyle(e).backgroundColor; if (b && b !== 'rgba(0, 0, 0, 0)' && b !== 'transparent') return b; } return 'rgb(255, 255, 255)'; })(),
       positioned: ['absolute', 'fixed'].includes(s.position),
-      html: el.outerHTML.length > 400_000 ? null : el.outerHTML,
+      /* written the way a compiled page is: whatever the parser would take
+         apart (a block in a <p>, a link in a link…) as <pf-el>, which the
+         component page makes real again as it loads */
+      html: el.outerHTML.length > 400_000 ? null : (() => {
+        const copy = el.cloneNode(true);
+        /* a sticky box sat in the flow where the page was scrolled; in an
+           example's short frame it would stick instead and move down — the
+           copy keeps it where it was */
+        const orig = [el, ...el.querySelectorAll('*')], dup = [copy, ...copy.querySelectorAll('*')];
+        orig.forEach((o, i) => { if (i && dup[i] && getComputedStyle(o).position === 'sticky') dup[i].style.setProperty('position', 'relative', 'important'); });
+        const w = document.createElement('div'); w.appendChild(copy); unparsable(w); return w.innerHTML;
+      })(),
       bytes: el.outerHTML.length,
       chain: chainOf(el),
       src: el.getAttribute('data-pf-src') || '',
       children: [...el.querySelectorAll('[data-pf-i]')].flatMap((c) => c.getAttribute('data-pf-i').split(' ')),
+      stateful: stateful(el),
       path: (() => { const parts = []; for (let e = el; e && e !== document.documentElement; e = e.parentElement) { const p = e.parentElement; if (!p) break; parts.unshift(`${e.tagName.toLowerCase()}:nth-child(${[...p.children].indexOf(e) + 1})`); } return 'html > ' + parts.join(' > '); })(),
     };
   };
+  /* an instance frozen under the pointer or with the focus shows its :hover
+     or :focus look (compile.mjs keeps it, so the page is what the product
+     showed): it is counted, but never the example of a variant */
+  const STATEFUL = '[data-pf-hover],[data-pf-focus],[data-pf-focus-visible],[data-pf-focus-within],[data-pf-active]';
+  const stateful = (el) => el.matches(STATEFUL) || !!el.querySelector(STATEFUL);
   const out = [];
   for (const el of document.querySelectorAll('[data-pf-i]')) {
     if (!vis(el)) continue;
@@ -124,17 +180,23 @@ const COLLECT = (BASE) => {
 };
 
 const browser = await chromium.launch();
-const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
+/* A responsive page is read in a plain window as wide as the phone. Mobile
+   EMULATION would widen its layout viewport to the product's own horizontal
+   overflow (433px at 375) and leave element shots outside the visual viewport
+   blank; a plain 375px window lays the page out the same and is exactly what
+   a component page's phone-width frame is, so a reference and its cut-out
+   are drawn under the same conditions. */
+const ctxs = { web: await browser.newContext(DEVICES.web), mobile: await browser.newContext({ viewport: DEVICES.mobile.viewport, deviceScaleFactor: 1 }) };
 mkdirSync(join(OUT, 'ref'), { recursive: true });
 const byKey = new Map();                         /* component key → { meta, variants: Map(variant → example) } */
 let seen = 0;
 for (const p of pages) {
-  const pg = await ctx.newPage();
+  const pg = await ctxs[p.device].newPage();
   await pg.route('**/*', (r) => (/^(file|data):/.test(r.request().url()) ? r.continue() : r.abort()));
   await pg.goto('file://' + p.file, { waitUntil: 'load' });
   await pg.evaluate(() => document.fonts.ready);
   await pg.waitForTimeout(250);
-  const found = await pg.evaluate(COLLECT, BASE);
+  const found = await pg.evaluate(COLLECT, { BASE, UNP: UNPARSABLE_SOURCE });
   seen += found.length;
   for (const f of found) {
     let c = byKey.get(f.key);
@@ -142,10 +204,12 @@ for (const p of pages) {
     c.pages[p.name] = (c.pages[p.name] || 0) + 1;
     if (f.src) c.src.add(f.src);
     f.children.filter((k) => k !== f.key).forEach((k) => c.children.add(k));
+    f.device = p.device;
+    f.variant = `${p.device}|${f.variant}`;
     const v = c.variants.get(f.variant);
     if (v) { v.count++; continue; }
-    if (c.variants.size >= MAX_VARIANTS || !f.html) continue;
-    const id = `${f.key.replace(/[^\w-]+/g, '_').slice(0, 60)}__${c.variants.size + 1}`;
+    if ([...c.variants.values()].filter((x) => x.device === p.device).length >= MAX_VARIANTS || !f.html || f.stateful) continue;
+    const id = `${f.key.replace(/[^\w-]+/g, '_').slice(0, 60)}__${p.device === 'mobile' ? 'm' : ''}${c.variants.size + 1}`;
     /* the reference: this element, in this page, as the product drew it */
     const shot = join(OUT, 'ref', `${id}.png`);
     /* The reference is the element ALONE on the ground it stood on: every
@@ -156,7 +220,23 @@ for (const p of pages) {
       await pg.evaluate(({ x, y, path }) => {
         scrollTo(Math.max(0, x - 40), Math.max(0, y - 200));
         const el = document.querySelector(path);
+        /* a shot scrolls the element into view, and a box that clips may be
+           scrolled too — every such offset is put back afterwards, or the
+           next reference is taken of a page that has moved */
+        window.__dsScroll = [];
+        for (let e = el.parentElement; e; e = e.parentElement) window.__dsScroll.push([e, e.scrollLeft, e.scrollTop]);
+        /* an element deep in a drawer's scrolling body is below a FIXED
+           box's edge, where no window scroll reaches it: scroll it into view
+           inside its own boxes first (put back after the shot) */
+        el.scrollIntoView({ block: 'nearest', inline: 'nearest' });
         for (let e = el; e; e = e.parentElement) e.classList.add('ds-ref-keep');
+        /* and un-clip only the boxes it does not fit in — un-clipping a box
+           it fits in would throw away that box's scroll */
+        const r0 = el.getBoundingClientRect();
+        for (let e = el.parentElement; e && e !== document.body; e = e.parentElement) {
+          const q = e.getBoundingClientRect();
+          if (r0.width > e.clientWidth + 1 || r0.height > e.clientHeight + 1 || r0.left < q.left - 1 || r0.right > q.right + 1 || r0.top < q.top - 1 || r0.bottom > q.bottom + 1) e.classList.add('ds-ref-unclip');
+        }
         el.classList.add('ds-ref-self');
         const st = document.createElement('style');
         st.id = 'ds-ref-style';
@@ -166,14 +246,18 @@ for (const p of pages) {
         /* ancestors must not CLIP it either: a form card taller than the
            scrolling panel it sits in is otherwise photographed half-cut */
         st.textContent = 'body *:not(.ds-ref-keep):not(.ds-ref-self *){visibility:hidden!important}'
-          + '.ds-ref-keep:not(.ds-ref-self):not(html):not(body){overflow:visible!important;contain:none!important;clip-path:none!important}'
+          + '.ds-ref-unclip:not(.ds-ref-self):not(html):not(body){overflow:visible!important;contain:none!important;clip-path:none!important}'
           + 'html,body,.ds-ref-keep:not(.ds-ref-self){background:transparent!important;border-color:transparent!important;box-shadow:none!important;outline-color:transparent!important;background-image:none!important}'
           + '.ds-ref-keep:not(.ds-ref-self)::before,.ds-ref-keep:not(.ds-ref-self)::after{visibility:hidden!important}';
         document.head.appendChild(st);
       }, f);
       await pg.locator(f.path).first().screenshot({ path: shot, timeout: 5000, animations: 'disabled', omitBackground: true });
     } catch { continue; } finally {
-      await pg.evaluate(() => { document.getElementById('ds-ref-style')?.remove(); document.querySelectorAll('.ds-ref-keep').forEach((e) => e.classList.remove('ds-ref-keep', 'ds-ref-self')); }).catch(() => {});
+      await pg.evaluate(() => {
+        document.getElementById('ds-ref-style')?.remove();
+        document.querySelectorAll('.ds-ref-keep, .ds-ref-unclip').forEach((e) => e.classList.remove('ds-ref-keep', 'ds-ref-self', 'ds-ref-unclip'));
+        for (const [e, l, t] of window.__dsScroll || []) { if (e.scrollLeft !== l) e.scrollLeft = l; if (e.scrollTop !== t) e.scrollTop = t; }
+      }).catch(() => {});
     }
     c.variants.set(f.variant, { id, page: p.name, rel: p.rel, count: 1, ...f, children: undefined });
   }

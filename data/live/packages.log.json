@@ -4,7 +4,7 @@
   "shell": true,
   "errorCard": false,
   "spinning": false,
-  "pageHeight": 922,
+  "pageHeight": 1231,
   "answered": [
     "GET /api/surge/users/current",
     "GET /api/surge/notifications/stats",
@@ -16,13 +16,12 @@
     "GET /api/surge/tenants/current",
     "GET /api/surge/products",
     "GET /api/surge/agencies/880042",
-    "GET /api/surge/credits/summary"
-  ],
-  "unanswered": [
+    "GET /api/surge/credits/summary",
     "GET /api/surge/packages"
   ],
+  "unanswered": [],
   "errors": [],
   "blocked": 3,
   "fonts": "served from deliverables/fonts.css",
-  "ms": 3220
+  "ms": 3148
 }

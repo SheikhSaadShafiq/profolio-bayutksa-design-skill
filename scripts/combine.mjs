@@ -34,41 +34,73 @@ const list = (dir, rel = '') => (existsSync(join(D, dir)) ? readdirSync(join(D, 
 
 /* the documents: the index, every compiled page, every state, every component */
 const isCompiled = (rel) => /<meta name="pf-compiled"/.test(readFileSync(join(D, rel), 'utf8').slice(0, 8000));
-const docs = [
-  'design-system.html',
-  ...list('').filter((f) => f !== 'design-system.html' && isCompiled(f)),
-  ...list('states', 'states/'),
-  ...list('components', 'components/'),
+const HOME = ['design-system.html', ...(existsSync(join(D, 'design-qa.html')) ? ['design-qa.html'] : [])];
+/* Three files, not one: packed together the site is ~87 MB — over what
+   GitHub will take without complaint (50 MB) and heading for its hard limit
+   (100 MB). Each file is whole on its own (the index opens in every one of
+   them); a link into another file opens that file at the page it names. */
+const BUNDLES = [
+  { out: 'profolio-ksa.html', title: 'web pages & states', docs: [...HOME, ...list('').filter((f) => !HOME.includes(f) && isCompiled(f)), ...list('states', 'states/')] },
+  { out: 'profolio-ksa-responsive.html', title: 'responsive pages & states', docs: [...HOME, ...list('mobile', 'mobile/').filter(isCompiled), ...list('mobile/states', 'mobile/states/')] },
+  { out: 'profolio-ksa-components.html', title: 'components', docs: [...HOME, ...list('components', 'components/')] },
 ];
-const packed = {};
-let raw = 0;
-for (const rel of docs) {
-  const html = readFileSync(join(D, rel), 'utf8');
-  raw += html.length;
-  packed[rel] = gzipSync(Buffer.from(html, 'utf8'), { level: 9 }).toString('base64');
-}
+const home = {};                                     /* doc → the bundle it lives in (the index: the first) */
+for (const b of BUNDLES) for (const d of b.docs) if (!HOME.includes(d)) home[d] = b.out;
+/* The prototype's navigation assigns location.href, which inside a packed
+   document has no file to go to. Each document's scripts are rewritten to hand
+   the target to the viewer (window.parent.__pfOpen), which resolves it
+   against the document being shown; prototype.js is inlined, with the root it
+   would have computed from its own URL. */
+const PROTO = existsSync(join(D, 'prototype.js')) ? readFileSync(join(D, 'prototype.js'), 'utf8') : '';
+const viaViewer = (js) => js.replace(/location\.href\s*=\s*([^;}\n]+)/g, 'window.parent.__pfOpen($1)');
+/* where each element came from (data-pf-src, -c, -i) is for the scripts that
+   build the design system; a viewer shows the same pixels without it, in a
+   fraction of the size. The compiled pages keep it. */
+const pack = (rel, html) => html
+  .replace(/ data-pf-(src|c|i)="[^"]*"/g, '')
+  .replace(/<script src="(\.\.\/)*prototype\.js"><\/script>/, () => `<script>${viaViewer(PROTO.replace(/var root = [^;]+;/, `var root = '${/(^|\/)states\//.test(rel) ? '../' : ''}';`))}</script>`)
+  .replace(/<script>([\s\S]*?)<\/script>/g, (m, js) => `<script>${viaViewer(js)}</script>`);
 
 /* the stylesheets — ds.css imports fonts.css, which a blob URL cannot resolve, so inline it */
 const fonts = readFileSync(join(D, 'fonts.css'), 'utf8');
 const sheets = {
   'profolio.css': readFileSync(join(D, 'profolio.css'), 'utf8'),
+  'profolio.mobile.css': existsSync(join(D, 'profolio.mobile.css')) ? readFileSync(join(D, 'profolio.mobile.css'), 'utf8') : '',
   'ds.css': readFileSync(join(D, 'ds.css'), 'utf8').replace(/@import url\("fonts\.css"\);?/, fonts),
   'fonts.css': fonts,
   'tokens.css': existsSync(join(D, 'tokens.css')) ? readFileSync(join(D, 'tokens.css'), 'utf8') : '',
   'components/states.css': existsSync(join(D, 'components', 'states.css')) ? readFileSync(join(D, 'components', 'states.css'), 'utf8') : '',
 };
-const images = {};
-if (existsSync(join(D, 'components', 'img'))) {
-  for (const f of readdirSync(join(D, 'components', 'img'))) if (f.endsWith('.png')) images[`components/img/${f}`] = `data:image/png;base64,${readFileSync(join(D, 'components', 'img', f)).toString('base64')}`;
-}
 
-const payload = JSON.stringify({ docs: packed, sheets, images }).replace(/<\//g, '<\\/');
+for (const B of BUNDLES) {
+  const packed = {};
+  let raw = 0;
+  for (const rel of B.docs) {
+    const html = pack(rel, readFileSync(join(D, rel), 'utf8'));
+    raw += html.length;
+    packed[rel] = gzipSync(Buffer.from(html, 'utf8'), { level: 9 }).toString('base64');
+  }
+  /* only the images a packed document shows (the index's thumbnails): every
+     variant's reference shot is in components/img/, and most are shown nowhere */
+  const used = new Set();
+  for (const rel of B.docs) {
+    const html = readFileSync(join(D, rel), 'utf8');
+    for (const m of html.matchAll(/ src="([^"]+\.png)"/g)) {
+      const r = new URL(m[1], 'https://pk.local/' + rel);
+      if (r.origin === 'https://pk.local') used.add(decodeURIComponent(r.pathname.slice(1)));
+    }
+  }
+  const images = {};
+  for (const rel of used) if (existsSync(join(D, rel))) images[rel] = `data:image/png;base64,${readFileSync(join(D, rel)).toString('base64')}`;
+  /* where every document this bundle does not hold lives */
+  const elsewhere = Object.fromEntries(Object.entries(home).filter(([d, f]) => f !== B.out));
+  const payload = JSON.stringify({ docs: packed, sheets, images, elsewhere }).replace(/<\//g, '<\\/');
 const html = `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Profolio KSA — design system (single file)</title>
+<title>Profolio KSA — design system (${B.title})</title>
 <style>
   html, body { margin: 0; height: 100%; background: #fff; font: 13px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif; }
   .pk-bar { position: fixed; inset: 0 0 auto 0; height: 36px; display: flex; align-items: center; gap: 12px; padding: 0 14px; background: #006169; color: #fff; z-index: 2; }
@@ -77,6 +109,9 @@ const html = `<!doctype html>
   .pk-bar button:disabled { opacity: .4; cursor: default; }
   .pk-bar span { opacity: .8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   iframe { position: fixed; inset: 36px 0 0 0; width: 100%; height: calc(100% - 36px); border: 0; }
+  /* a responsive page is shown at the phone's width, where its breakpoints match */
+  iframe.pk-phone { left: 50%; width: 375px; margin-left: -187.5px; box-shadow: 0 0 0 1px #d0d7de, 0 8px 30px rgba(0,0,0,.12); }
+  body.pk-has-phone { background: #eef1f4; }
 </style>
 </head>
 <body>
@@ -106,11 +141,17 @@ const html = `<!doctype html>
     if (!DATA.docs[path]) return false;
     let html = await inflate(path);
     html = html.replace(/<link rel="stylesheet" href="([^"]+)">/g, (m, h) => { const r = resolve(path, h); return r && blobs[r] ? '<link rel="stylesheet" href="' + blobs[r] + '">' : m; });
+    /* a component page's responsive examples are documents of their own, in
+       srcdoc attributes, where the same links are written with &quot; */
+    html = html.replace(/&lt;link rel=&quot;stylesheet&quot; href=&quot;([^&]+)&quot;&gt;/g, (m, h) => { const r = resolve(path, h); return r && blobs[r] ? '&lt;link rel=&quot;stylesheet&quot; href=&quot;' + blobs[r] + '&quot;&gt;' : m; });
     html = html.replace(/ src="([^"]+\\.png)"/g, (m, s) => { const r = resolve(path, s); return r && DATA.images[r] ? ' src="' + DATA.images[r] + '"' : m; });
     if (push && current) history.push(current);
     current = path;
     document.getElementById('back').disabled = !history.length;
     document.getElementById('where').textContent = path;
+    const phone = path.startsWith('mobile/');
+    view.classList.toggle('pk-phone', phone);
+    document.body.classList.toggle('pk-has-phone', phone);
     view.onload = () => {
       const doc = view.contentDocument;
       if (hash) doc.getElementById(hash)?.scrollIntoView();
@@ -121,19 +162,25 @@ const html = `<!doctype html>
         if (href.startsWith('#')) return;
         const r = resolve(path, href);
         if (r && DATA.docs[r.split('#')[0]]) { e.preventDefault(); show(r); }
+        else if (r && DATA.elsewhere[r.split('#')[0]]) { e.preventDefault(); window.open(DATA.elsewhere[r.split('#')[0]] + '#' + encodeURIComponent(r), '_blank'); }
         else if (/^\\.\\.\\/kb\\/|^\\.\\.\\/\\.\\.\\/kb\\//.test(href)) { e.preventDefault(); window.open(href.replace(/^(\\.\\.\\/)+/, 'kb/'), '_blank'); }
       });
     };
     view.srcdoc = html;
     return true;
   };
+  /* a packed document's prototype navigation lands here */
+  window.__pfOpen = (href) => { const r = resolve(current, href); if (r && DATA.docs[r.split('#')[0]]) show(r); else if (r && DATA.elsewhere[r.split('#')[0]]) window.open(DATA.elsewhere[r.split('#')[0]] + '#' + encodeURIComponent(r), '_blank'); };
   document.getElementById('back').onclick = () => { const k = history.pop(); if (k) show(k, false); };
   document.getElementById('home').onclick = () => show('design-system.html');
-  show('design-system.html');
+  /* a link from another bundle names the page after the # */
+  const start = decodeURIComponent(location.hash.slice(1));
+  show(start && DATA.docs[start.split('#')[0]] ? start : 'design-system.html');
 })();
 </script>
 </body>
 </html>
 `;
-writeFileSync(join(D, 'profolio-ksa.html'), html);
-console.log(`  deliverables/profolio-ksa.html — ${docs.length} documents (${(raw / 1048576).toFixed(1)} MB of HTML) in ${(html.length / 1048576).toFixed(1)} MB`);
+  writeFileSync(join(D, B.out), html);
+  console.log(`  deliverables/${B.out} — ${B.docs.length} documents (${(raw / 1048576).toFixed(1)} MB of HTML) in ${(html.length / 1048576).toFixed(1)} MB`);
+}

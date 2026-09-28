@@ -1,10 +1,10 @@
 {
-  "at": "2026-09-28T12:36:28.788Z",
+  "at": "2026-09-28T19:36:50.596Z",
   "against": "harness",
   "tolerancePx": 1,
-  "coverage": 99.6,
+  "coverage": 100,
   "fidelity": 99.9,
-  "exact": 99.5,
+  "exact": 99.9,
   "rows": [
     {
       "page": "ad-license",
@@ -29,97 +29,92 @@
       "worklist": []
     },
     {
-      "page": "credits-usage",
-      "live": 227,
-      "ours": 227,
-      "matched": 225,
-      "clean": 225,
-      "missing": 2,
+      "page": "agency-staff",
+      "live": 127,
+      "ours": 127,
+      "matched": 127,
+      "clean": 127,
+      "missing": 0,
       "moved": 0,
       "painted": 0,
       "inherited": 0,
-      "exact": 225,
-      "extra": 2,
+      "exact": 127,
+      "extra": 0,
+      "pageHeight": [
+        800,
+        800
+      ],
+      "coverage": 100,
+      "fidelity": 100,
+      "exactPct": 100,
+      "score": 100,
+      "worklist": []
+    },
+    {
+      "page": "agent-performance",
+      "live": 307,
+      "ours": 307,
+      "matched": 307,
+      "clean": 307,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 307,
+      "extra": 0,
+      "pageHeight": [
+        1086,
+        1086
+      ],
+      "coverage": 100,
+      "fidelity": 100,
+      "exactPct": 100,
+      "score": 100,
+      "worklist": []
+    },
+    {
+      "page": "credits-usage",
+      "live": 227,
+      "ours": 227,
+      "matched": 227,
+      "clean": 227,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 227,
+      "extra": 0,
       "pageHeight": [
         958,
         958
       ],
-      "coverage": 99.1,
+      "coverage": 100,
       "fidelity": 100,
-      "exactPct": 99.1,
+      "exactPct": 100,
       "score": 100,
-      "worklist": [
-        {
-          "kind": "missing",
-          "at": "div",
-          "box": "1000000×1000000 @-999568,-999421",
-          "detail": "the product draws it, we do not"
-        },
-        {
-          "kind": "extra",
-          "at": "div",
-          "box": "1000000×1000000 @49,273",
-          "detail": "we draw it, the product does not"
-        },
-        {
-          "kind": "missing",
-          "at": "div",
-          "box": "767×612 @-335,-33",
-          "detail": "the product draws it, we do not"
-        },
-        {
-          "kind": "extra",
-          "at": "div",
-          "box": "767×612 @49,273",
-          "detail": "we draw it, the product does not"
-        }
-      ]
+      "worklist": []
     },
     {
       "page": "dashboard",
       "live": 471,
       "ours": 471,
-      "matched": 469,
-      "clean": 468,
-      "missing": 2,
+      "matched": 471,
+      "clean": 470,
+      "missing": 0,
       "moved": 0,
       "painted": 1,
       "inherited": 0,
-      "exact": 468,
-      "extra": 2,
+      "exact": 470,
+      "extra": 0,
       "pageHeight": [
         2789,
         2789
       ],
-      "coverage": 99.6,
+      "coverage": 100,
       "fidelity": 99.8,
-      "exactPct": 99.4,
+      "exactPct": 99.8,
       "score": 99.8,
       "worklist": [
-        {
-          "kind": "missing",
-          "at": "div",
-          "box": "1000000×1000000 @-998645,-998887",
-          "detail": "the product draws it, we do not"
-        },
-        {
-          "kind": "extra",
-          "at": "div",
-          "box": "1000000×1000000 @25,743",
-          "detail": "we draw it, the product does not"
-        },
-        {
-          "kind": "missing",
-          "at": "div",
-          "box": "2660×740 @-1305,373",
-          "detail": "the product draws it, we do not"
-        },
-        {
-          "kind": "extra",
-          "at": "div",
-          "box": "2660×740 @25,743",
-          "detail": "we draw it, the product does not"
-        },
         {
           "kind": "painted",
           "at": "div.ant-tabs-tab.ant-tabs-tab-active",
@@ -130,15 +125,15 @@
     },
     {
       "page": "listings",
-      "live": 1018,
-      "ours": 1018,
-      "matched": 1018,
-      "clean": 1018,
+      "live": 1022,
+      "ours": 1022,
+      "matched": 1022,
+      "clean": 1022,
       "missing": 0,
       "moved": 0,
       "painted": 0,
       "inherited": 0,
-      "exact": 1018,
+      "exact": 1022,
       "extra": 0,
       "pageHeight": [
         1826,
@@ -152,19 +147,63 @@
     },
     {
       "page": "lms-leads",
-      "live": 360,
-      "ours": 360,
-      "matched": 360,
-      "clean": 360,
+      "live": 407,
+      "ours": 407,
+      "matched": 407,
+      "clean": 407,
       "missing": 0,
       "moved": 0,
       "painted": 0,
       "inherited": 0,
-      "exact": 360,
+      "exact": 407,
       "extra": 0,
       "pageHeight": [
-        951,
-        951
+        1063,
+        1063
+      ],
+      "coverage": 100,
+      "fidelity": 100,
+      "exactPct": 100,
+      "score": 100,
+      "worklist": []
+    },
+    {
+      "page": "packages",
+      "live": 404,
+      "ours": 404,
+      "matched": 404,
+      "clean": 404,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 404,
+      "extra": 0,
+      "pageHeight": [
+        1131,
+        1131
+      ],
+      "coverage": 100,
+      "fidelity": 100,
+      "exactPct": 100,
+      "score": 100,
+      "worklist": []
+    },
+    {
+      "page": "post-listing",
+      "live": 26,
+      "ours": 26,
+      "matched": 26,
+      "clean": 26,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 26,
+      "extra": 0,
+      "pageHeight": [
+        800,
+        800
       ],
       "coverage": 100,
       "fidelity": 100,
@@ -176,47 +215,23 @@
       "page": "reports-leads-reports",
       "live": 319,
       "ours": 319,
-      "matched": 317,
-      "clean": 316,
-      "missing": 2,
+      "matched": 319,
+      "clean": 318,
+      "missing": 0,
       "moved": 0,
       "painted": 1,
       "inherited": 0,
-      "exact": 316,
-      "extra": 2,
+      "exact": 318,
+      "extra": 0,
       "pageHeight": [
         1389,
         1389
       ],
-      "coverage": 99.4,
+      "coverage": 100,
       "fidelity": 99.7,
-      "exactPct": 99.1,
+      "exactPct": 99.7,
       "score": 99.7,
       "worklist": [
-        {
-          "kind": "missing",
-          "at": "div",
-          "box": "1000000×1000000 @-998645,-999452",
-          "detail": "the product draws it, we do not"
-        },
-        {
-          "kind": "extra",
-          "at": "div",
-          "box": "1000000×1000000 @25,178",
-          "detail": "we draw it, the product does not"
-        },
-        {
-          "kind": "missing",
-          "at": "div",
-          "box": "2660×740 @-1305,-192",
-          "detail": "the product draws it, we do not"
-        },
-        {
-          "kind": "extra",
-          "at": "div",
-          "box": "2660×740 @25,178",
-          "detail": "we draw it, the product does not"
-        },
         {
           "kind": "painted",
           "at": "div.ant-tabs-tab.ant-tabs-tab-active",
@@ -227,168 +242,47 @@
     },
     {
       "page": "reports-listing-report",
-      "live": 545,
-      "ours": 545,
-      "matched": 541,
-      "clean": 541,
-      "missing": 4,
+      "live": 547,
+      "ours": 547,
+      "matched": 547,
+      "clean": 547,
+      "missing": 0,
       "moved": 0,
       "painted": 0,
       "inherited": 0,
-      "exact": 541,
-      "extra": 4,
+      "exact": 547,
+      "extra": 0,
       "pageHeight": [
         1977,
         1977
       ],
-      "coverage": 99.3,
+      "coverage": 100,
       "fidelity": 100,
-      "exactPct": 99.3,
+      "exactPct": 100,
       "score": 100,
-      "worklist": [
-        {
-          "kind": "missing",
-          "at": "div",
-          "box": "1000000×1000000 @-999274,-999773",
-          "detail": "the product draws it, we do not"
-        },
-        {
-          "kind": "missing",
-          "at": "div",
-          "box": "1000000×1000000 @-998888,-999773",
-          "detail": "the product draws it, we do not"
-        },
-        {
-          "kind": "extra",
-          "at": "div",
-          "box": "1000000×1000000 @598,99",
-          "detail": "we draw it, the product does not"
-        },
-        {
-          "kind": "extra",
-          "at": "div",
-          "box": "1000000×1000000 @984,99",
-          "detail": "we draw it, the product does not"
-        },
-        {
-          "kind": "missing",
-          "at": "div",
-          "box": "256×256 @470,-29",
-          "detail": "the product draws it, we do not"
-        },
-        {
-          "kind": "missing",
-          "at": "div",
-          "box": "256×256 @856,-29",
-          "detail": "the product draws it, we do not"
-        },
-        {
-          "kind": "extra",
-          "at": "div",
-          "box": "256×256 @598,99",
-          "detail": "we draw it, the product does not"
-        },
-        {
-          "kind": "extra",
-          "at": "div",
-          "box": "256×256 @984,99",
-          "detail": "we draw it, the product does not"
-        }
-      ]
+      "worklist": []
     },
     {
       "page": "reports-summary",
       "live": 270,
       "ours": 270,
-      "matched": 264,
-      "clean": 263,
-      "missing": 6,
+      "matched": 270,
+      "clean": 269,
+      "missing": 0,
       "moved": 0,
       "painted": 1,
       "inherited": 0,
-      "exact": 263,
-      "extra": 6,
+      "exact": 269,
+      "extra": 0,
       "pageHeight": [
         824,
         824
       ],
-      "coverage": 97.8,
+      "coverage": 100,
       "fidelity": 99.6,
-      "exactPct": 97.4,
+      "exactPct": 99.6,
       "score": 99.6,
       "worklist": [
-        {
-          "kind": "missing",
-          "at": "div",
-          "box": "1000000×1000000 @-999274,-999773",
-          "detail": "the product draws it, we do not"
-        },
-        {
-          "kind": "missing",
-          "at": "div",
-          "box": "1000000×1000000 @-998888,-999773",
-          "detail": "the product draws it, we do not"
-        },
-        {
-          "kind": "missing",
-          "at": "div",
-          "box": "1000000×1000000 @-998645,-999196",
-          "detail": "the product draws it, we do not"
-        },
-        {
-          "kind": "extra",
-          "at": "div",
-          "box": "1000000×1000000 @598,99",
-          "detail": "we draw it, the product does not"
-        },
-        {
-          "kind": "extra",
-          "at": "div",
-          "box": "1000000×1000000 @984,99",
-          "detail": "we draw it, the product does not"
-        },
-        {
-          "kind": "extra",
-          "at": "div",
-          "box": "1000000×1000000 @25,434",
-          "detail": "we draw it, the product does not"
-        },
-        {
-          "kind": "missing",
-          "at": "div",
-          "box": "2660×740 @-1305,64",
-          "detail": "the product draws it, we do not"
-        },
-        {
-          "kind": "extra",
-          "at": "div",
-          "box": "2660×740 @25,434",
-          "detail": "we draw it, the product does not"
-        },
-        {
-          "kind": "missing",
-          "at": "div",
-          "box": "256×256 @470,-29",
-          "detail": "the product draws it, we do not"
-        },
-        {
-          "kind": "missing",
-          "at": "div",
-          "box": "256×256 @856,-29",
-          "detail": "the product draws it, we do not"
-        },
-        {
-          "kind": "extra",
-          "at": "div",
-          "box": "256×256 @598,99",
-          "detail": "we draw it, the product does not"
-        },
-        {
-          "kind": "extra",
-          "at": "div",
-          "box": "256×256 @984,99",
-          "detail": "we draw it, the product does not"
-        },
         {
           "kind": "painted",
           "at": "div.ant-tabs-tab.ant-tabs-tab-active",
@@ -434,6 +328,28 @@
       "pageHeight": [
         800,
         800
+      ],
+      "coverage": 100,
+      "fidelity": 100,
+      "exactPct": 100,
+      "score": 100,
+      "worklist": []
+    },
+    {
+      "page": "user-settings-licenses",
+      "live": 176,
+      "ours": 176,
+      "matched": 176,
+      "clean": 176,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 176,
+      "extra": 0,
+      "pageHeight": [
+        1242,
+        1242
       ],
       "coverage": 100,
       "fidelity": 100,

@@ -1,5 +1,5 @@
 {
- "at": "2026-09-28T12:37:59.610Z",
+ "at": "2026-09-28T19:41:38.131Z",
  "byDef": {
   "src/components/utilities/auth-info/info.js": [
    {
@@ -1216,6 +1216,505 @@
     "kind": "copy",
     "title": "Copy — page-user-settings"
    }
+  ],
+  "src/container/pages/agancy-staff/agancy-staff.js": [
+   {
+    "href": "product/copy/page-agancy-staff.html",
+    "kind": "copy",
+    "title": "Copy — page-agancy-staff"
+   }
+  ],
+  "src/components/agency-staff-header/agancy-staff-header.js": [
+   {
+    "href": "product/copy/agency-staff-header.html",
+    "kind": "copy",
+    "title": "Copy — agency-staff-header"
+   },
+   {
+    "href": "design/components/agency-staff-header.html",
+    "kind": "notes",
+    "title": "agency-staff-header"
+   }
+  ],
+  "src/components/table/table-components/staff-details.js": [
+   {
+    "href": "product/copy/table.html",
+    "kind": "copy",
+    "title": "Copy — table"
+   }
+  ],
+  "src/components/table/table-components/user-row-actions.js": [
+   {
+    "href": "product/copy/table.html",
+    "kind": "copy",
+    "title": "Copy — table"
+   }
+  ],
+  "src/components/forms/AgencyUserForm.js": [
+   {
+    "href": "design/components/forms.html",
+    "kind": "notes",
+    "title": "forms"
+   }
+  ],
+  "src/components/set-credit-limit/set-credit-limit.js": [
+   {
+    "href": "product/copy/set-credit-limit.html",
+    "kind": "copy",
+    "title": "Copy — set-credit-limit"
+   },
+   {
+    "href": "design/components/set-credit-limit.html",
+    "kind": "notes",
+    "title": "set-credit-limit"
+   }
+  ],
+  "src/components/set-capping-limit/set-capping-limit.js": [
+   {
+    "href": "product/copy/set-capping-limit.html",
+    "kind": "copy",
+    "title": "Copy — set-capping-limit"
+   },
+   {
+    "href": "design/components/set-capping-limit.html",
+    "kind": "notes",
+    "title": "set-capping-limit"
+   }
+  ],
+  "src/container/pages/agent-performance/AgentPerformance.js": [
+   {
+    "href": "product/copy/page-agent-performance.html",
+    "kind": "copy",
+    "title": "Copy — page-agent-performance"
+   }
+  ],
+  "src/container/pages/agent-performance/AgentProfileCard.js": [
+   {
+    "href": "product/copy/page-agent-performance.html",
+    "kind": "copy",
+    "title": "Copy — page-agent-performance"
+   }
+  ],
+  "src/container/pages/agent-performance/TruBroker.js": [
+   {
+    "href": "product/copy/page-agent-performance.html",
+    "kind": "copy",
+    "title": "Copy — page-agent-performance"
+   }
+  ],
+  "src/components/tru-broker/tru-broker-criteria-list.js": [
+   {
+    "href": "product/copy/tru-broker.html",
+    "kind": "copy",
+    "title": "Copy — tru-broker"
+   },
+   {
+    "href": "design/components/tru-broker.html",
+    "kind": "notes",
+    "title": "tru-broker"
+   }
+  ],
+  "src/container/pages/agent-performance/AgentBages.js": [
+   {
+    "href": "product/copy/page-agent-performance.html",
+    "kind": "copy",
+    "title": "Copy — page-agent-performance"
+   }
+  ],
+  "src/container/pages/agent-performance/AgentBagesInfo.js": [
+   {
+    "href": "product/copy/page-agent-performance.html",
+    "kind": "copy",
+    "title": "Copy — page-agent-performance"
+   }
+  ],
+  "src/container/pages/agent-performance/ActivityDrawer.js": [
+   {
+    "href": "product/copy/page-agent-performance.html",
+    "kind": "copy",
+    "title": "Copy — page-agent-performance"
+   }
+  ],
+  "src/container/pages/agent-performance/AgentActivity.js": [
+   {
+    "href": "product/copy/page-agent-performance.html",
+    "kind": "copy",
+    "title": "Copy — page-agent-performance"
+   }
+  ],
+  "src/container/pages/agent-performance/LeaderBoard.js": [
+   {
+    "href": "product/copy/page-agent-performance.html",
+    "kind": "copy",
+    "title": "Copy — page-agent-performance"
+   }
+  ],
+  "src/container/pages/prop-shop/prop-shop.js": [
+   {
+    "href": "design/components/prop-shop.html",
+    "kind": "notes",
+    "title": "prop-shop"
+   }
+  ],
+  "src/tenant/common/components/prop-shop/prop-shop.js": [
+   {
+    "href": "product/copy/tenant-prop-shop.html",
+    "kind": "copy",
+    "title": "Copy — tenant-prop-shop"
+   },
+   {
+    "href": "design/components/prop-shop.html",
+    "kind": "notes",
+    "title": "prop-shop"
+   }
+  ],
+  "src/components/common/iconSubText/icon-with-subtext.js": [
+   {
+    "href": "design/components/iconsubtext.html",
+    "kind": "notes",
+    "title": "iconSubText"
+   }
+  ],
+  "src/tenant/common/components/prop-shop/offered-packages/offeredPackages.js": [
+   {
+    "href": "product/copy/tenant-prop-shop.html",
+    "kind": "copy",
+    "title": "Copy — tenant-prop-shop"
+   }
+  ],
+  "src/components/common/swiper/swiper.js": [
+   {
+    "href": "design/components/swiper.html",
+    "kind": "notes",
+    "title": "swiper"
+   }
+  ],
+  "src/tenant/common/components/prop-shop/package-header.js": [
+   {
+    "href": "product/copy/tenant-prop-shop.html",
+    "kind": "copy",
+    "title": "Copy — tenant-prop-shop"
+   },
+   {
+    "href": "design/components/prop-shop.html",
+    "kind": "notes",
+    "title": "prop-shop"
+   }
+  ],
+  "src/container/pages/post-listing/post-listing-landing.js": [
+   {
+    "href": "product/copy/page-post-listing.html",
+    "kind": "copy",
+    "title": "Copy — page-post-listing"
+   },
+   {
+    "href": "design/components/post-listing.html",
+    "kind": "notes",
+    "title": "post-listing"
+   }
+  ],
+  "src/tenant/bayut/components/post-listing/post-listing-with-options.js": [
+   {
+    "href": "product/copy/tenant-post-listing.html",
+    "kind": "copy",
+    "title": "Copy — tenant-post-listing"
+   },
+   {
+    "href": "design/components/post-listing.html",
+    "kind": "notes",
+    "title": "post-listing"
+   }
+  ],
+  "src/components/success-modal/successModalContent.js": [
+   {
+    "href": "design/components/success-modal.html",
+    "kind": "notes",
+    "title": "success-modal"
+   }
+  ],
+  "src/tenant/common/components/post-listing/license-validation.js": [
+   {
+    "href": "product/copy/tenant-post-listing.html",
+    "kind": "copy",
+    "title": "Copy — tenant-post-listing"
+   },
+   {
+    "href": "design/components/post-listing.html",
+    "kind": "notes",
+    "title": "post-listing"
+   }
+  ],
+  "src/tenant/common/components/post-listing/ad-license-form.js": [
+   {
+    "href": "product/copy/tenant-post-listing.html",
+    "kind": "copy",
+    "title": "Copy — tenant-post-listing"
+   },
+   {
+    "href": "design/components/post-listing.html",
+    "kind": "notes",
+    "title": "post-listing"
+   }
+  ],
+  "src/container/pages/user-settings/license.js": [
+   {
+    "href": "product/copy/page-user-settings.html",
+    "kind": "copy",
+    "title": "Copy — page-user-settings"
+   }
+  ],
+  "src/components/add-license/add-license.js": [
+   {
+    "href": "product/copy/add-license.html",
+    "kind": "copy",
+    "title": "Copy — add-license"
+   },
+   {
+    "href": "design/components/add-license.html",
+    "kind": "notes",
+    "title": "add-license"
+   }
+  ],
+  "src/components/common/rate/rate.js": [
+   {
+    "href": "design/components/rate.html",
+    "kind": "notes",
+    "title": "rate"
+   }
+  ],
+  "src/components/listing-card-container/ListingCardContainer.js": [
+   {
+    "href": "product/copy/listing-card-container.html",
+    "kind": "copy",
+    "title": "Copy — listing-card-container"
+   },
+   {
+    "href": "design/components/listing-card-container.html",
+    "kind": "notes",
+    "title": "listing-card-container"
+   }
+  ],
+  "src/components/listing-card/ListingCard.js": [
+   {
+    "href": "design/components/listingcard.html",
+    "kind": "notes",
+    "title": "Listing card"
+   }
+  ],
+  "src/tenant/bayut/components/listing/listingCard.js": [
+   {
+    "href": "product/copy/tenant-listing.html",
+    "kind": "copy",
+    "title": "Copy — tenant-listing"
+   },
+   {
+    "href": "design/components/listingcard.html",
+    "kind": "notes",
+    "title": "Listing card"
+   }
+  ],
+  "src/container/pages/agancy-staff/agency-staff-mobile.js": [
+   {
+    "href": "product/copy/page-agancy-staff.html",
+    "kind": "copy",
+    "title": "Copy — page-agancy-staff"
+   }
+  ],
+  "src/container/pages/agent-performance/TeamPerformanceTable.js": [
+   {
+    "href": "product/copy/page-agent-performance.html",
+    "kind": "copy",
+    "title": "Copy — page-agent-performance"
+   }
+  ],
+  "src/components/appBanner/appBanner.js": [
+   {
+    "href": "product/copy/appBanner.html",
+    "kind": "copy",
+    "title": "Copy — appBanner"
+   },
+   {
+    "href": "design/components/appbanner.html",
+    "kind": "notes",
+    "title": "appBanner"
+   }
+  ],
+  "src/tenant/common/components/profile-completion/profile-completion-banner.js": [
+   {
+    "href": "product/copy/tenant-profile-completion.html",
+    "kind": "copy",
+    "title": "Copy — tenant-profile-completion"
+   }
+  ],
+  "src/components/common/success-animation-card/success-animation-card.js": [
+   {
+    "href": "design/components/success-animation-card.html",
+    "kind": "notes",
+    "title": "success-animation-card"
+   }
+  ],
+  "src/components/skeleton/Skeleton.js": [
+   {
+    "href": "design/components/skeleton.html",
+    "kind": "notes",
+    "title": "skeleton"
+   }
+  ],
+  "src/components/leads-management/lead-listings-mobile.js": [
+   {
+    "href": "product/copy/leads-management.html",
+    "kind": "copy",
+    "title": "Copy — leads-management"
+   },
+   {
+    "href": "design/components/leads-management.html",
+    "kind": "notes",
+    "title": "leads-management"
+   }
+  ],
+  "src/components/leads-management/lead-detail-drawer.js": [
+   {
+    "href": "product/copy/leads-management.html",
+    "kind": "copy",
+    "title": "Copy — leads-management"
+   },
+   {
+    "href": "design/components/leads-management.html",
+    "kind": "notes",
+    "title": "leads-management"
+   }
+  ],
+  "src/tenant/common/components/prop-shop/offered-packages/packageCardMobile.js": [
+   {
+    "href": "product/copy/tenant-prop-shop.html",
+    "kind": "copy",
+    "title": "Copy — tenant-prop-shop"
+   }
+  ],
+  "src/tenant/common/components/prop-shop/offered-packages/package-upgrade-modal.js": [
+   {
+    "href": "product/copy/tenant-prop-shop.html",
+    "kind": "copy",
+    "title": "Copy — tenant-prop-shop"
+   }
+  ],
+  "src/components/listing-container-mobile/ListingContainerMobile.js": [
+   {
+    "href": "design/components/listing-container-mobile.html",
+    "kind": "notes",
+    "title": "listing-container-mobile"
+   }
+  ],
+  "src/tenant/common/components/reports/CardTrafficLeadsByDate.js": [
+   {
+    "href": "product/copy/tenant-reports.html",
+    "kind": "copy",
+    "title": "Copy — tenant-reports"
+   }
+  ],
+  "src/components/license-card/license-card.js": [
+   {
+    "href": "product/copy/license-card.html",
+    "kind": "copy",
+    "title": "Copy — license-card"
+   },
+   {
+    "href": "design/components/license-card.html",
+    "kind": "notes",
+    "title": "license-card"
+   }
+  ],
+  "src/components/invite-user/inviteUser.js": [
+   {
+    "href": "product/copy/invite-user.html",
+    "kind": "copy",
+    "title": "Copy — invite-user"
+   },
+   {
+    "href": "design/components/invite-user.html",
+    "kind": "notes",
+    "title": "invite-user"
+   }
+  ],
+  "src/components/tru-broker/tru-broker-and-profile-cards.js": [
+   {
+    "href": "product/copy/tru-broker.html",
+    "kind": "copy",
+    "title": "Copy — tru-broker"
+   },
+   {
+    "href": "design/components/tru-broker.html",
+    "kind": "notes",
+    "title": "tru-broker"
+   }
+  ],
+  "src/tenant/common/components/reports/CardListingPerformance.js": [
+   {
+    "href": "product/copy/tenant-reports.html",
+    "kind": "copy",
+    "title": "Copy — tenant-reports"
+   }
+  ],
+  "src/components/table/table-components/ad-license-status.js": [
+   {
+    "href": "product/copy/table.html",
+    "kind": "copy",
+    "title": "Copy — table"
+   }
+  ],
+  "src/components/table/table-components/ad-license-requested-on.js": [
+   {
+    "href": "product/copy/table.html",
+    "kind": "copy",
+    "title": "Copy — table"
+   }
+  ],
+  "src/components/table/table-components/ad-license-actions.js": [
+   {
+    "href": "product/copy/table.html",
+    "kind": "copy",
+    "title": "Copy — table"
+   }
+  ],
+  "src/tenant/common/components/prop-shop/offered-packages/packageCard.js": [
+   {
+    "href": "product/copy/tenant-prop-shop.html",
+    "kind": "copy",
+    "title": "Copy — tenant-prop-shop"
+   }
+  ],
+  "src/tenant/common/components/post-listing/license-validation-guide.js": [
+   {
+    "href": "product/copy/tenant-post-listing.html",
+    "kind": "copy",
+    "title": "Copy — tenant-post-listing"
+   },
+   {
+    "href": "design/components/post-listing.html",
+    "kind": "notes",
+    "title": "post-listing"
+   }
+  ],
+  "src/components/common/tour/tour.js": [
+   {
+    "href": "design/components/tour.html",
+    "kind": "notes",
+    "title": "tour"
+   }
+  ],
+  "src/components/table/table-components/ad-license-listing.js": [
+   {
+    "href": "product/copy/table.html",
+    "kind": "copy",
+    "title": "Copy — table"
+   }
+  ],
+  "src/components/table/table-components/task-notes.js": [
+   {
+    "href": "product/copy/table.html",
+    "kind": "copy",
+    "title": "Copy — table"
+   }
   ]
  },
  "byPage": {
@@ -1264,5 +1763,5 @@
    "title": "Change Password"
   }
  },
- "html": "\n<p class=\"ds-note\">What the product says and does — generated from its source into <a href=\"../kb/index.html\"><code>kb/</code></a>. Every component page links to the copy it renders and the notes written about it; every compiled page links to its route's page here.</p>\n<div class=\"ds-kb\">\n\n<a href=\"../kb/product/screens.html\"><b>Screen map</b><span>Every route, what it shows and who can reach it</span></a>\n<a href=\"../kb/product/flags.html\"><b>KSA tenant flags</b><span>The tenant flags that switch features on and off for KSA</span></a>\n<a href=\"../kb/product/copy.html\"><b>Product copy</b><span>Every string, by area — 101 areas</span></a>\n<a href=\"../kb/index.html\"><b>Profolio KSA</b><span>The whole knowledge base</span></a>\n</div>\n<h3>Routes</h3>\n<ul class=\"ds-uses\"><li><a href=\"../kb/pages/dashboard.html\">Overview</a> <small>dashboard</small></li><li><a href=\"../kb/pages/listings.html\">Listings</a> <small>listings</small></li><li><a href=\"../kb/pages/credits-usage.html\">Credits Usage</a> <small>credits-usage</small></li><li><a href=\"../kb/pages/ad-license.html\">Ad License</a> <small>ad-license</small></li><li><a href=\"../kb/pages/lms-leads.html\">Lms</a> <small>lms-leads</small></li><li><a href=\"../kb/pages/reports-summary.html\">Reports</a> <small>reports-summary</small></li><li><a href=\"../kb/pages/reports-listing-report.html\">Reports</a> <small>reports-listing-report</small></li><li><a href=\"../kb/pages/reports-leads-reports.html\">Reports</a> <small>reports-leads-reports</small></li><li><a href=\"../kb/pages/user-profile.html\">User Profile</a> <small>user-settings-user-profile</small></li><li><a href=\"../kb/pages/agency-profile.html\">Agency Profile</a> <small>user-settings-agency-profile</small></li><li><a href=\"../kb/pages/change-password.html\">Change Password</a> <small>user-settings-change-password</small></li></ul>\n"
+ "html": "\n<p class=\"ds-note\">What the product says and does — generated from its source into <a href=\"../kb/index.html\"><code>kb/</code></a>. Every component page links to the copy it renders and the notes written about it; every compiled page links to its route's page here.</p>\n<div class=\"ds-kb\">\n<a href=\"../kb/product/ksa.html\"><b>Bayut Profolio KSA</b><span>Product knowledge: who uses it, the regulation it works under, how it makes money — not a source of design</span></a>\n<a href=\"../kb/product/screens.html\"><b>Screen map</b><span>Every route, what it shows and who can reach it</span></a>\n<a href=\"../kb/product/flags.html\"><b>KSA tenant flags</b><span>The tenant flags that switch features on and off for KSA</span></a>\n<a href=\"../kb/product/copy.html\"><b>Product copy</b><span>Every string, by area — 101 areas</span></a>\n<a href=\"../kb/index.html\"><b>Profolio KSA</b><span>The whole knowledge base</span></a>\n</div>\n<h3>Routes</h3>\n<ul class=\"ds-uses\"><li><a href=\"../kb/pages/dashboard.html\">Overview</a> <small>dashboard</small></li><li><a href=\"../kb/pages/listings.html\">Listings</a> <small>listings</small></li><li><a href=\"../kb/pages/credits-usage.html\">Credits Usage</a> <small>credits-usage</small></li><li><a href=\"../kb/pages/ad-license.html\">Ad License</a> <small>ad-license</small></li><li><a href=\"../kb/pages/lms-leads.html\">Lms</a> <small>lms-leads</small></li><li><a href=\"../kb/pages/reports-summary.html\">Reports</a> <small>reports-summary</small></li><li><a href=\"../kb/pages/reports-listing-report.html\">Reports</a> <small>reports-listing-report</small></li><li><a href=\"../kb/pages/reports-leads-reports.html\">Reports</a> <small>reports-leads-reports</small></li><li><a href=\"../kb/pages/user-profile.html\">User Profile</a> <small>user-settings-user-profile</small></li><li><a href=\"../kb/pages/agency-profile.html\">Agency Profile</a> <small>user-settings-agency-profile</small></li><li><a href=\"../kb/pages/change-password.html\">Change Password</a> <small>user-settings-change-password</small></li></ul>\n"
 }
