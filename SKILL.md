@@ -1,6 +1,6 @@
 ---
 name: profolio-ksa-design
-version: 0.9.0
+version: 1.0.0
 source_commit: Profolio-Surge-28sep (local git c354183)
 description: "Design system for Bayut Profolio KSA — the agent and seller portal at profolio.bayut.sa. Use when designing, changing or reviewing any Profolio KSA screen, component or flow: turning a PRD into artboards, checking an existing screen against the system, finding which tokens, components or flags a surface uses, or locating where a feature lives in the codebase. Triggers on 'design this screen for Profolio', 'what does the listings page use', 'add X to Profolio KSA', 'is there a component for Y', 'make a mockup of the dashboard'. Covers tenant bayut (KSA) only — not Oman, Bahrain, Qatar, Jordan, Egypt or Zameen, and not the consumer side of bayut.sa, which Strat owns."
 ---
@@ -22,6 +22,9 @@ pages with one linked stylesheet, so a page costs about what its prose weighs.
 | File | When |
 |---|---|
 | `kb/product/ksa.html` | Always. The rules that make KSA different. |
+| `kb/screens/index.html` | **Always, when a PRD names a feature.** The design knowledge base: every compiled screen and every state of it — web and responsive — in words: what it is for, how each state is reached, what it shows, which components it adds, and the file to open. |
+| `node scripts/design-find.mjs "<words>"` | **To find the design a PRD needs.** Give it the PRD's own words ("mark a daily rental as booked", "staff can't see agency settings"); it returns the matching screens, states and components, best first, with their web and responsive files. Searches `data/design-kb.json`. |
+| `kb/screens/<page>.html` | The screen you are designing: every state, grouped by kind, with its trigger, its controls and its files. |
 | `kb/pages/_shell.html` | Always. Real measurements, the nav in order, and copy-paste starting markup. |
 | `kb/product/screens.html` | To find which screen the request is about. |
 | `kb/pages/<route>.html` | The one screen you are working on. 30 of 31 routes have one. |
@@ -40,12 +43,14 @@ pages with one linked stylesheet, so a page costs about what its prose weighs.
 | `kb/design/antd-tokens.html` | When a value looks like an antd default and you want the global token scale. |
 | `kb/design/antd-css.html` | When a value looks like an antd default and you want what the component actually paints — Badge is 20px, not `controlHeightXS`. This wins over the token scale. |
 | `deliverables/design-system.html` | **Start here for anything visual.** Foundations (every colour, type style, space, radius, shadow and curve the product actually paints with, named from its theme and antd's), then every component as an atom, molecule, organism or template, then every page and state. All of it cut out of the product's own render — nothing redrawn. |
-| `deliverables/components/<slug>.html` | **One component**: each variant live, the markup to copy, the exact `profolio.css` rules it uses, its hover/focus/active states, what it is made of, where it is used, the product file that defines it, and its copy in `kb/`. Each variant carries a badge saying whether the cut-out matches the product. |
-| `deliverables/<page>.html` | **The eleven pages, compiled from the product** (`scripts/compile.mjs`) — pixel-identical to the running product at 1440 on the fixture account. Every trigger that opens a state is a link to it. Start a redesign from the page, not from a blank canvas. |
-| `deliverables/states/<page>--<state>.html` | **Every state** the harness can reach: modals, drawers, popovers, tooltips, dropdowns, pickers, tabs, tours, empty, loading, error. Escape goes back to the page. |
-| `deliverables/profolio.css` | The one stylesheet every page and component uses — the product's own CSS, `ant-*` renamed `pf-*`, styled-components named after the JSX the product wrote. Generated; never edit it by hand. |
+| `deliverables/components/<slug>.html` | **One component**: each variant live — **web** and **responsive** in separate sections, the responsive ones in a frame as wide as the phone — the markup to copy, the exact `profolio.css` rules it uses, its hover/focus/active states, what it is made of, where it is used, the product file that defines it, and its copy in `kb/`. Each variant carries a badge saying whether the cut-out matches the product. |
+| `deliverables/<page>.html` | **The sixteen pages, compiled from the product** (`scripts/compile.mjs`) — pixel-identical to the running product at 1440 on the fixture account. Every trigger that opens a state is a link to it, and the rail and menus go to the other pages. Start a redesign from the page, not from a blank canvas. |
+| `deliverables/states/<page>--<state>.html` | **Every state** the harness can reach: modals, drawers, popovers, tooltips, dropdowns, pickers, tabs, tours, empty, loading, error — and the **account variants**: `--as-staff` (an agency staff user: 9 rail items, no agency settings, own leads only), `--profile-incomplete`, `--modal-non-saudi`. Escape goes back to the page. |
+| `deliverables/mobile/<page>.html`, `deliverables/mobile/states/…` | **The responsive layout** — the same pages and states as the product draws them for a phone (375 wide, chosen by the device's user agent, not the window width): a header with a menu button and the page title, the rail as a drawer it opens, listings as cards instead of a table, on the dashboard an app-install banner, and some segmented controls as selects. Open them at phone width. |
+| `deliverables/design-qa.html` | **Before you call anything pixel-perfect.** Every page, state and component held to the product's render, to the live product on two real accounts, and to its code (copy, sources). Names what is off, and by how much. |
+| `deliverables/profolio.css` | The stylesheet every web page and component uses — the product's own CSS, `ant-*` renamed `pf-*`, styled-components named after the JSX the product wrote. `deliverables/profolio.mobile.css` is the responsive layout's: the same rules in the order a phone's pages paint them. Generated; never edit either by hand. |
 | `deliverables/tokens.css` | The named tokens as custom properties (`--pf-primary`, `--pf-color-text`…). Cite these names in a spec, never raw hex. |
-| `deliverables/profolio-ksa.html` | Everything above in one self-contained file — for handing over, not for reading into context. |
+| `deliverables/profolio-ksa.html` (+ `-responsive`, `-components`) | Everything above as three self-contained files — for handing over, not for reading into context. |
 | `deliverables/sprite.svg` | **The product's real icons**, each named as the codebase names it. Reference one with `<use href="#pf-SideMenuDashboard">`. Never draw a glyph yourself. |
 | `kb/guide/recipe.html` | **Building a whole page?** Follow it — the order exists because each step cost real rework when skipped. |
 
@@ -109,7 +114,9 @@ Nine checks. Each one has been failed in a real session; each takes seconds.
 9. **States.** A screen is not one picture. Before you design a flow, open the page in
    `deliverables/<page>.html` and click through it: every trigger that opens a modal, drawer,
    popover or tab is a link to `deliverables/states/<page>--<state>.html`, compiled from the
-   running product. The index lists them under *Pages & states*. Two rules hold for your work
+   running product. `kb/screens/<page>.html` lists them all with how each is reached; a PRD's
+   feature is found with `scripts/design-find.mjs`. Design the **responsive** state too
+   (`deliverables/mobile/…`) and the **staff** variant (`--as-staff`) when the PRD touches roles. Two rules hold for your work
    too: **a disabled control is dimmed to 0.54** (`utils.less:142`, it is global), and **a failed
    list query shows the same “No Record Found” empty state as an empty one** — Profolio has no
    separate error card for a table.
@@ -121,7 +128,10 @@ than a gap that is named.
 ## Resolving a request
 
 1. **Name the screen.** A PRD uses design language — "post a listing", not `post-listing-ksa`.
-   Match on the design name in `kb/product/screens.html`; the repo path is provenance, not the key.
+   Run `node scripts/design-find.mjs "<the PRD's words>"` for each feature it names: it answers
+   with the screens and states that match and the files to open — web and responsive. Match
+   the screen itself on its design name in `kb/product/screens.html`; the repo path is
+   provenance, not the key.
 2. **No match?** Ask the designer: remake it, or will they supply it? Never improvise a screen.
 3. **Start from the shell** either way — paste the markup from `kb/pages/_shell.html` rather than
    redrawing it from the description. There is no blank canvas in Profolio.
@@ -131,14 +141,23 @@ than a gap that is named.
 
 ## Hard constraints
 
-Violating any of these makes the design wrong, not merely off-style.
+Violating any of these makes the design wrong, not merely off-style. Each is how the product
+itself renders — read off the compiled pages, not from any brief.
 
-- Currency renders **ر.س** — never "SAR". Area renders **Sq. M.**
-- **15% VAT never appears on the same line as another tax.**
-- REGA licensing, Nafath identity and the two-step listing draft exist **only** in KSA. Never
-  port a posting design from another Bayut market.
-- English first. Arabic is a variant handled after the English version is approved — but every
-  template declares whether it has had an RTL pass, and a new one starts at `ar: pending`.
+- **Currency** is the Saudi Riyal symbol, which the product draws as an icon-font glyph
+  (`.currency-Saudi_Riyal_Symbol::before`, the `icomoon` face) in front of the amount — take it
+  from the Number component in `deliverables/components/`. An amount is never written "SAR"
+  or "ر.س". The one literal "SAR" the product ships is inside a sentence of copy — "Get one
+  through Bayut, starting from SAR 250." (`ad-license-form.js:106`) — copy it as it is; never
+  put SAR beside an amount yourself. **Area** renders **Sq. M.**
+- REGA licensing, Nafath identity and the two-step listing draft exist **only** in KSA
+  (`kb/product/ksa.html`). A posting flow from another Bayut market is not this product.
+- The product is bilingual with RTL mirroring. This design system covers **English, web at
+  1440 and responsive at 375** (the phone layout); an Arabic screen has not been compiled yet,
+  so say so rather than mirroring one by hand.
+
+`kb/product/ksa.html` is **product knowledge** — who uses the product, the regulation, the
+money. It is not a source of design: how anything looks comes from the compiled product.
 
 ## Not your job
 
@@ -164,8 +183,15 @@ Hand-written prose lives in `authoring/` — the KSA rules and the working guide
 `data/live/` is written by `harness/capture.mjs`, which boots the product itself and
 renders every route in a headless browser from a fixture account. Re-run it after any
 product change; nothing in it was clicked by a person. The pages, states and components in
-`deliverables/` are compiled from that same render (`npm run pages`, then the `scripts/ds/`
-steps) and each is scored against it; `data/qa/` holds the scores.
+`deliverables/` are compiled from that same render (`npm run explore` and `npm run
+explore:mobile` find the states, `npm run pages` and `npm run pages:mobile` compile them,
+then `npm run ds` builds the stylesheet, the components and the design knowledge base) and
+each is scored against it; `npm run qa` holds everything to the live product and the code
+and writes `deliverables/design-qa.html`. `data/qa/` holds the scores.
+
+The fixture account answers every endpoint the real API was seen to serve, in its shape, for
+two real accounts: an agency owner (`data/api-shapes.json`) and an agency staff user
+(`data/api-shapes.b.json`, fixture mode `staff`). `node scripts/check-fixtures.mjs` proves it.
 
 Every generated page carries the commit it was built from. If a generated page disagrees
 with the code, the code is right and the generator needs re-running: `npm run all`.
