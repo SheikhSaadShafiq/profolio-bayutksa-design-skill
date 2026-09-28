@@ -36,13 +36,17 @@
 .x-hr{border:0;border-top:1px solid #E6E6E6;margin:28px 0}
 .x-h2{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#9D9D9D;margin:0 0 14px}
 .x-row{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;margin-block-end:20px}
-.x-item{display:flex;flex-direction:column;gap:8px}
+/* min-width:0, as .cat-main has it: without it a flex item's automatic minimum
+   is its CONTENT, so the table's stage grew to 1177 where the catalogue holds
+   it to the column's 1120 and lets the table overflow inside */
+.x-item{display:flex;flex-direction:column;gap:8px;min-width:0}
 /* .cat-label to the letter — 11px (--fs-tag), uppercased, letter-spaced, bold.
    The item is a flex column sized by its WIDEST child, so the label's metrics
    decide the stage's width, and a plain lowercase 11px label made three
    components measure narrower than the thing they were cut from. */
 .x-label{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#9D9D9D;font-weight:700}
 .x-stage{
+  min-width:0;
   background:#F6F7FB;border:1px dashed #DEDEDE;
   border-radius:4px;padding:16px;
   display:flex;align-items:center;gap:12px;min-height:54px;
@@ -257,7 +261,7 @@ table{border-collapse:collapse}
     classes — <code>.pf-card</code> <code>.pf-card-head</code> <code>.pf-card-title</code> <code>.pf-card-action</code> <code>.pf-card-body</code> <code>.i</code> <code>.i-14</code> <code>.pf-stat</code> <code>.pf-stat-title</code> <code>.pf-stat-value</code> <code>.pf-alert-title</code> <code>.pf-alert-text</code><br>
     tokens — <code>--gray-700</code> <code>--gray-100</code> <code>--primary</code> <code>--base</code> <code>--dark</code> <code>--disabled-opacity</code> <code>--border-light</code> <code>--bg-content</code> <code>--card-bg</code> <code>--chart-line</code> <code>--shadow-card</code> <code>--font-body</code> <code>--fs-base</code> <code>--lh-base</code> <code>--lh-stat</code> <code>--fs-card-title</code> <code>--fs-card-h4</code> <code>--fs-13</code> <code>--fs-12</code> <code>--fs-stat-title</code> <code>--fs-stat-value</code> <code>--fs-stat-lead</code> <code>--fs-stat-leader</code> <code>--gap-stat-title</code> <code>--fw-400</code> <code>--fw-600</code> <code>--fw-700</code> <code>--sp-0</code> <code>--sp-4</code> <code>--sp-8</code> <code>--sp-16</code> <code>--sp-24</code> <code>--border-w</code> <code>--radius-card</code> <code>--radius-tag</code> <code>--card-head-min-h</code> <code>--card-head-pad-x</code> <code>--card-body-pad</code> <code>--card-body-pad-breakdown-y</code> <code>--card-body-pad-breakdown-x</code><br>
     icons — <code>#pf-FiArrowUpRight</code><br>
-    used on — <code>dashboard</code>&nbsp;×540 · <code>listings</code>&nbsp;×523 · <code>reports-listing-report</code>&nbsp;×143 · <code>reports-summary</code>&nbsp;×101 · <code>credits-usage</code>&nbsp;×74 · <code>user-settings-user-profile</code>&nbsp;×59 · <code>ad-license</code>&nbsp;×56 · <code>reports-leads-reports</code>&nbsp;×55 · <code>user-settings-change-password</code>&nbsp;×46 · <code>user-settings-agency-profile</code>&nbsp;×44 · <code>lms-leads</code>&nbsp;×35
+    used on — <code>dashboard</code>&nbsp;×540 · <code>listings</code>&nbsp;×523 · <code>design-system</code>&nbsp;×346 · <code>reports-listing-report</code>&nbsp;×143 · <code>reports-summary</code>&nbsp;×101 · <code>credits-usage</code>&nbsp;×74 · <code>user-settings-user-profile</code>&nbsp;×59 · <code>ad-license</code>&nbsp;×56 · <code>reports-leads-reports</code>&nbsp;×55 · <code>user-settings-change-password</code>&nbsp;×46 · <code>user-settings-agency-profile</code>&nbsp;×44 · <code>lms-leads</code>&nbsp;×35
   </div>
 </div>
 </body>

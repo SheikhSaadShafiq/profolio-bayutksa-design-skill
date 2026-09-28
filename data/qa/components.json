@@ -1,11 +1,11 @@
 {
-  "at": "2026-09-28T08:53:03.206Z",
+  "at": "2026-09-28T09:06:59.660Z",
   "rows": [
     {
       "id": "rail",
       "name": "icon-rail-item",
       "stages": 4,
-      "elements": 62,
+      "elements": 66,
       "diffs": [],
       "n": 0
     },
@@ -13,7 +13,7 @@
       "id": "header",
       "name": "page-header",
       "stages": 1,
-      "elements": 23,
+      "elements": 24,
       "diffs": [],
       "n": 0
     },
@@ -21,7 +21,7 @@
       "id": "header-action",
       "name": "header-action · classified pill",
       "stages": 2,
-      "elements": 6,
+      "elements": 8,
       "diffs": [],
       "n": 0
     },
@@ -29,7 +29,7 @@
       "id": "button",
       "name": "button — every variant, every state",
       "stages": 15,
-      "elements": 45,
+      "elements": 60,
       "diffs": [],
       "n": 0
     },
@@ -37,7 +37,7 @@
       "id": "badge",
       "name": "notification-badge",
       "stages": 3,
-      "elements": 11,
+      "elements": 14,
       "diffs": [],
       "n": 0
     },
@@ -45,7 +45,7 @@
       "id": "avatar",
       "name": "avatar",
       "stages": 2,
-      "elements": 6,
+      "elements": 8,
       "diffs": [],
       "n": 0
     },
@@ -53,7 +53,7 @@
       "id": "ring",
       "name": "progress-ring",
       "stages": 4,
-      "elements": 17,
+      "elements": 21,
       "diffs": [],
       "n": 0
     },
@@ -61,7 +61,7 @@
       "id": "alert",
       "name": "alert-banner",
       "stages": 2,
-      "elements": 24,
+      "elements": 26,
       "diffs": [],
       "n": 0
     },
@@ -69,7 +69,7 @@
       "id": "switcher",
       "name": "account-switcher",
       "stages": 2,
-      "elements": 16,
+      "elements": 18,
       "diffs": [],
       "n": 0
     },
@@ -77,7 +77,7 @@
       "id": "card",
       "name": "card · card-header · card-action-link",
       "stages": 4,
-      "elements": 26,
+      "elements": 30,
       "diffs": [],
       "n": 0
     },
@@ -85,7 +85,7 @@
       "id": "tile",
       "name": "icon-tile",
       "stages": 11,
-      "elements": 33,
+      "elements": 44,
       "diffs": [],
       "n": 0
     },
@@ -93,7 +93,7 @@
       "id": "stat",
       "name": "stat-block",
       "stages": 7,
-      "elements": 36,
+      "elements": 43,
       "diffs": [],
       "n": 0
     },
@@ -101,7 +101,7 @@
       "id": "divider",
       "name": "divider",
       "stages": 3,
-      "elements": 9,
+      "elements": 12,
       "diffs": [],
       "n": 0
     },
@@ -109,7 +109,7 @@
       "id": "meter",
       "name": "credit-meter",
       "stages": 4,
-      "elements": 35,
+      "elements": 39,
       "diffs": [],
       "n": 0
     },
@@ -117,7 +117,7 @@
       "id": "plan",
       "name": "plan-badge",
       "stages": 2,
-      "elements": 12,
+      "elements": 14,
       "diffs": [],
       "n": 0
     },
@@ -125,7 +125,7 @@
       "id": "seg",
       "name": "tab-group (segmented)",
       "stages": 3,
-      "elements": 11,
+      "elements": 14,
       "diffs": [],
       "n": 0
     },
@@ -133,7 +133,7 @@
       "id": "chip",
       "name": "chip-group (radio pills)",
       "stages": 4,
-      "elements": 20,
+      "elements": 24,
       "diffs": [],
       "n": 0
     },
@@ -141,7 +141,7 @@
       "id": "metric",
       "name": "metric-tab",
       "stages": 3,
-      "elements": 38,
+      "elements": 41,
       "diffs": [],
       "n": 0
     },
@@ -149,7 +149,7 @@
       "id": "inline",
       "name": "inline-metric",
       "stages": 1,
-      "elements": 24,
+      "elements": 25,
       "diffs": [],
       "n": 0
     },
@@ -157,7 +157,7 @@
       "id": "date",
       "name": "date-picker",
       "stages": 4,
-      "elements": 12,
+      "elements": 16,
       "diffs": [],
       "n": 0
     },
@@ -165,7 +165,7 @@
       "id": "chart",
       "name": "line-chart",
       "stages": 1,
-      "elements": 74,
+      "elements": 75,
       "diffs": [],
       "n": 0
     },
@@ -173,7 +173,7 @@
       "id": "tooltip",
       "name": "chart-tooltip",
       "stages": 2,
-      "elements": 8,
+      "elements": 10,
       "diffs": [],
       "n": 0
     },
@@ -181,7 +181,7 @@
       "id": "tag",
       "name": "product tag",
       "stages": 5,
-      "elements": 13,
+      "elements": 18,
       "diffs": [],
       "n": 0
     },
@@ -189,7 +189,7 @@
       "id": "status",
       "name": "status pill",
       "stages": 4,
-      "elements": 4,
+      "elements": 8,
       "diffs": [],
       "n": 0
     },
@@ -197,7 +197,7 @@
       "id": "action",
       "name": "round action button",
       "stages": 3,
-      "elements": 48,
+      "elements": 51,
       "diffs": [],
       "n": 0
     },
@@ -205,7 +205,7 @@
       "id": "listing",
       "name": "listing cell (the Property column)",
       "stages": 1,
-      "elements": 25,
+      "elements": 26,
       "diffs": [],
       "n": 0
     },
@@ -213,7 +213,7 @@
       "id": "table",
       "name": "listing table",
       "stages": 1,
-      "elements": 144,
+      "elements": 145,
       "diffs": [],
       "n": 0
     },
@@ -221,7 +221,7 @@
       "id": "filter",
       "name": "filter bar · field · input · select",
       "stages": 6,
-      "elements": 74,
+      "elements": 80,
       "diffs": [],
       "n": 0
     },
@@ -229,7 +229,7 @@
       "id": "tabs",
       "name": "table card · line tabs",
       "stages": 2,
-      "elements": 29,
+      "elements": 31,
       "diffs": [],
       "n": 0
     },
@@ -237,7 +237,7 @@
       "id": "pager",
       "name": "pagination",
       "stages": 2,
-      "elements": 32,
+      "elements": 34,
       "diffs": [],
       "n": 0
     },
@@ -245,7 +245,7 @@
       "id": "modal",
       "name": "modal",
       "stages": 2,
-      "elements": 22,
+      "elements": 24,
       "diffs": [],
       "n": 0
     },
@@ -253,7 +253,7 @@
       "id": "drawer",
       "name": "drawer",
       "stages": 1,
-      "elements": 7,
+      "elements": 8,
       "diffs": [],
       "n": 0
     },
@@ -261,7 +261,7 @@
       "id": "popover",
       "name": "popover · account menu · notifications",
       "stages": 2,
-      "elements": 47,
+      "elements": 49,
       "diffs": [],
       "n": 0
     },
@@ -269,7 +269,7 @@
       "id": "empty",
       "name": "empty state",
       "stages": 1,
-      "elements": 7,
+      "elements": 8,
       "diffs": [],
       "n": 0
     },
@@ -277,7 +277,7 @@
       "id": "spin",
       "name": "spin",
       "stages": 1,
-      "elements": 6,
+      "elements": 7,
       "diffs": [],
       "n": 0
     },
@@ -285,7 +285,7 @@
       "id": "applied",
       "name": "applied-upgrade tick",
       "stages": 3,
-      "elements": 15,
+      "elements": 18,
       "diffs": [],
       "n": 0
     },
@@ -293,7 +293,7 @@
       "id": "feedback",
       "name": "feedback-tab",
       "stages": 1,
-      "elements": 1,
+      "elements": 2,
       "diffs": [],
       "n": 0
     },
@@ -304,6 +304,198 @@
       "elements": 0,
       "diffs": [],
       "n": 0
+    }
+  ],
+  "designSystem": [
+    {
+      "id": "rail",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "header",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "header-action",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "button",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "badge",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "avatar",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "ring",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "alert",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "switcher",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "card",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "tile",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "stat",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "divider",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "meter",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "plan",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "seg",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "chip",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "metric",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "inline",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "date",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "chart",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "tooltip",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "tag",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "status",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "action",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "listing",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "table",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "filter",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "tabs",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "pager",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "modal",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "drawer",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "popover",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "empty",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "spin",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "applied",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "feedback",
+      "n": 0,
+      "first": []
+    },
+    {
+      "id": "layout",
+      "n": 0,
+      "first": []
     }
   ]
 }

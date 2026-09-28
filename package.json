@@ -26,7 +26,7 @@
     "qa-body": "node scripts/qa-body.mjs",
     "qa-overlays": "node scripts/qa-overlays.mjs",
     "outline": "node scripts/outline.mjs",
-    "components": "node scripts/extract-components.mjs",
+    "components": "node scripts/extract-components.mjs && node scripts/design-system.mjs",
     "qa-components": "node scripts/qa-components.mjs"
   },
   "devDependencies": {

@@ -36,13 +36,17 @@
 .x-hr{border:0;border-top:1px solid #E6E6E6;margin:28px 0}
 .x-h2{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#9D9D9D;margin:0 0 14px}
 .x-row{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;margin-block-end:20px}
-.x-item{display:flex;flex-direction:column;gap:8px}
+/* min-width:0, as .cat-main has it: without it a flex item's automatic minimum
+   is its CONTENT, so the table's stage grew to 1177 where the catalogue holds
+   it to the column's 1120 and lets the table overflow inside */
+.x-item{display:flex;flex-direction:column;gap:8px;min-width:0}
 /* .cat-label to the letter — 11px (--fs-tag), uppercased, letter-spaced, bold.
    The item is a flex column sized by its WIDEST child, so the label's metrics
    decide the stage's width, and a plain lowercase 11px label made three
    components measure narrower than the thing they were cut from. */
 .x-label{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#9D9D9D;font-weight:700}
 .x-stage{
+  min-width:0;
   background:#F6F7FB;border:1px dashed #DEDEDE;
   border-radius:4px;padding:16px;
   display:flex;align-items:center;gap:12px;min-height:54px;
@@ -418,7 +422,7 @@ body[data-page-state="loading"] .pf-filter-actions .pf-btn[data-variant="primary
     classes — <code>.pf-field</code> <code>.pf-field-label</code> <code>.pf-input</code> <code>.pf-input-suffix</code> <code>.i</code> <code>.i-14</code> <code>.pf-select</code> <code>.pf-placeholder</code> <code>.pf-select-arrow</code> <code>.i-12</code> <code>.pf-filter-actions</code> <code>.pf-btn</code> <code>.i-18</code> <code>.pf-filter-bar</code> <code>.pf-filter-fields</code><br>
     tokens — <code>--gray-600</code> <code>--gray-500</code> <code>--gray-100</code> <code>--primary</code> <code>--primary-hover</code> <code>--primary-light-1</code> <code>--primary-light-4</code> <code>--danger</code> <code>--base</code> <code>--gray-color</code> <code>--disabled-opacity</code> <code>--black</code> <code>--white</code> <code>--border-normal</code> <code>--bg-content</code> <code>--bg-gray-normal</code> <code>--ghost-btn-content</code> <code>--ghost-btn-border</code> <code>--ghost-btn-hover-bg</code> <code>--font-body</code> <code>--fs-base</code> <code>--lh-base</code> <code>--fs-btn</code> <code>--fs-btn-sm</code> <code>--fs-btn-lg</code> <code>--fs-13</code> <code>--fs-12</code> <code>--fs-18</code> <code>--fw-600</code> <code>--fw-700</code> <code>--sp-0</code> <code>--sp-2</code> <code>--sp-4</code> <code>--sp-8</code> <code>--sp-12</code> <code>--sp-16</code> <code>--border-w</code> <code>--radius-control</code> <code>--radius-round</code> <code>--input-pad-inline</code> <code>--lh-btn-lg</code> <code>--ctl-h</code> <code>--ctl-h-lg</code> <code>--ctl-h-sm</code> <code>--btn-pad-y</code> <code>--btn-pad-x</code> <code>--btn-icon-gap</code> <code>--input-h</code> <code>--filter-label-fs</code> <code>--filter-label-fw</code> <code>--filter-label-color</code> <code>--filter-label-gap</code> <code>--filter-field-gap</code> <code>--filter-actions-h</code> <code>--filter-btn-h</code> <code>--fs-showmore</code> <code>--showmore-fg</code> <code>--fs-search</code> <code>--filter-search-h</code> <code>--filter-search-pad</code> <code>--form-item-mb</code> <code>--input-pad-block</code> <code>--input-border</code> <code>--input-suffix-w</code> <code>--text-placeholder</code> <code>--text-quaternary</code> <code>--color-text</code> <code>--service-control-h</code> <code>--save-w</code> <code>--save-r</code> <code>--round-w</code> <code>--sfield-label-h</code> <code>--sfield-control-h</code> <code>--sfield-phone-h</code> <code>--sfield-round-h</code> <code>--input-disabled-bg</code> <code>--disabled</code> <code>--loading-opacity</code><br>
     icons — <code>#pf-IoMdClose</code> <code>#pf-DownOutlined</code> <code>#pf-MdOutlineDoubleArrow</code> <code>#pf-FiSearch</code><br>
-    used on — <code>listings</code>&nbsp;×503 · <code>dashboard</code>&nbsp;×287 · <code>user-settings-user-profile</code>&nbsp;×132 · <code>ad-license</code>&nbsp;×116 · <code>reports-listing-report</code>&nbsp;×110 · <code>reports-leads-reports</code>&nbsp;×85 · <code>user-settings-agency-profile</code>&nbsp;×83 · <code>user-settings-change-password</code>&nbsp;×72 · <code>reports-summary</code>&nbsp;×71 · <code>credits-usage</code>&nbsp;×64 · <code>lms-leads</code>&nbsp;×64
+    used on — <code>listings</code>&nbsp;×503 · <code>dashboard</code>&nbsp;×287 · <code>design-system</code>&nbsp;×284 · <code>user-settings-user-profile</code>&nbsp;×132 · <code>ad-license</code>&nbsp;×116 · <code>reports-listing-report</code>&nbsp;×110 · <code>reports-leads-reports</code>&nbsp;×85 · <code>user-settings-agency-profile</code>&nbsp;×83 · <code>user-settings-change-password</code>&nbsp;×72 · <code>reports-summary</code>&nbsp;×71 · <code>credits-usage</code>&nbsp;×64 · <code>lms-leads</code>&nbsp;×64
   </div>
 </div>
 </body>

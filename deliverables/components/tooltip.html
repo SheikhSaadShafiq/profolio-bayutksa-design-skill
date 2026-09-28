@@ -36,13 +36,17 @@
 .x-hr{border:0;border-top:1px solid #E6E6E6;margin:28px 0}
 .x-h2{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#9D9D9D;margin:0 0 14px}
 .x-row{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;margin-block-end:20px}
-.x-item{display:flex;flex-direction:column;gap:8px}
+/* min-width:0, as .cat-main has it: without it a flex item's automatic minimum
+   is its CONTENT, so the table's stage grew to 1177 where the catalogue holds
+   it to the column's 1120 and lets the table overflow inside */
+.x-item{display:flex;flex-direction:column;gap:8px;min-width:0}
 /* .cat-label to the letter — 11px (--fs-tag), uppercased, letter-spaced, bold.
    The item is a flex column sized by its WIDEST child, so the label's metrics
    decide the stage's width, and a plain lowercase 11px label made three
    components measure narrower than the thing they were cut from. */
 .x-label{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#9D9D9D;font-weight:700}
 .x-stage{
+  min-width:0;
   background:#F6F7FB;border:1px dashed #DEDEDE;
   border-radius:4px;padding:16px;
   display:flex;align-items:center;gap:12px;min-height:54px;
@@ -182,7 +186,7 @@ table{border-collapse:collapse}
     classes — <code>.pf-tooltip</code> <code>.pf-tooltip-title</code> <code>.pf-tooltip-row</code> <code>.pf-tooltip-key</code><br>
     tokens — <code>--base</code> <code>--dark</code> <code>--gray-color</code> <code>--disabled-opacity</code> <code>--white</code> <code>--border-light</code> <code>--bg-content</code> <code>--chart-line</code> <code>--shadow-tooltip</code> <code>--font-body</code> <code>--font-chart</code> <code>--fs-base</code> <code>--lh-base</code> <code>--fs-13</code> <code>--fs-12</code> <code>--fw-500</code> <code>--sp-0</code> <code>--sp-4</code> <code>--sp-8</code> <code>--sp-12</code> <code>--one-6</code> <code>--one-10</code> <code>--border-w</code> <code>--radius-round</code> <code>--radius-tooltip</code> <code>--metric-tab-minw</code><br>
     icons — <em>none</em><br>
-    used on — <em>no page in this deliverable</em>
+    used on — <code>design-system</code>&nbsp;×14
   </div>
 </div>
 </body>

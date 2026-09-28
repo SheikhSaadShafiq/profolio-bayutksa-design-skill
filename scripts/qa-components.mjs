@@ -69,6 +69,10 @@ const WALK = (stageSel, PROPS) => {
       });
       [...n.children].forEach((c, i) => walk(c, `${path}/${i}`));
     };
+    /* the stage itself first, so a comparison can tell "this page's column is
+       narrower" from "a rule is missing" */
+    const sb = stage.getBoundingClientRect();
+    items.push({ path: 'stage', tag: 'stage', cls: '', w: Math.round(sb.width * 10) / 10, h: Math.round(sb.height * 10) / 10, style: {} });
     [...stage.children].forEach((c, i) => walk(c, String(i)));
     out.push(items);
   }
@@ -120,12 +124,54 @@ for (const c of components) {
       if (Math.abs(x.w - y.w) > 1) diffs.push({ what: `${where} width`, live: x.w, ours: y.w });
       if (Math.abs(x.h - y.h) > 1) diffs.push({ what: `${where} height`, live: x.h, ours: y.h });
       for (const p of PROPS) {
+        if (x.style[p] === undefined) continue;
         if (x.style[p] !== y.style[p]) diffs.push({ what: `${where} ${p}`, live: x.style[p], ours: y.style[p] });
       }
     }
   }
   const elements = L.reduce((n, s) => n + s.length, 0);
   rows.push({ id: c.id, name: c.name, stages: L.length, elements, diffs: diffs.slice(0, 40), n: diffs.length });
+}
+
+/* ── and the design system page, held to the same standard ──────────────
+   design-system.html shows the same specimens on a .ds-stage that reproduces
+   .cat-stage. It is one document rather than 38, so a single wrong chrome rule
+   would misrender every component at once — which is exactly why it gets
+   compared rather than eyeballed. */
+const dsFile = join(D, 'design-system.html');
+const dsRows = [];
+if (existsSync(dsFile)) {
+  await page.goto(`file://${dsFile}`, { waitUntil: 'load' });
+  await page.addStyleTag({ content: FREEZE });
+  await page.evaluate(() => document.fonts.ready);
+  for (const c of components) {
+    const right = await page.evaluate(([sel, props, fn]) =>
+      new Function('stageSel', 'PROPS', `return (${fn})(stageSel, PROPS)`)(sel, props),
+    [`#${c.id} .ds-stage`, PROPS, WALK.toString()]);
+    const L = left[c.id];
+    let n = 0;
+    const first = [];
+    if (L.length !== right.length) { n++; first.push({ what: 'stages', live: L.length, ours: right.length }); }
+    for (let i = 0; i < Math.min(L.length, right.length); i++) {
+      const a = L[i], b = right[i];
+      if (a.length !== b.length) { n++; first.push({ what: `stage ${i} elements`, live: a.length, ours: b.length }); }
+      /* The design system is a document with a sidebar, so its column is
+         narrower than the catalogue's and a component told to fill it
+         correctly fills LESS — and text inside it wraps, so the HEIGHT moves
+         too. Across different columns, geometry says nothing: compare the
+         computed styles instead, which is where a missing rule shows up
+         whatever the width. Where the columns do match, compare everything. */
+      const sameColumn = Math.abs(a[0].w - b[0].w) <= 1;
+      for (let k = 0; k < Math.min(a.length, b.length); k++) {
+        const x = a[k], y = b[k];
+        const where = `${x.tag}${x.cls ? '.' + x.cls.split(' ').join('.') : ''}`;
+        if (sameColumn && Math.abs(x.w - y.w) > 1) { n++; if (first.length < 6) first.push({ what: `${where} width`, live: x.w, ours: y.w }); }
+        if (sameColumn && Math.abs(x.h - y.h) > 1) { n++; if (first.length < 6) first.push({ what: `${where} height`, live: x.h, ours: y.h }); }
+        for (const pr of PROPS) { if (x.style[pr] === undefined) continue; if (x.style[pr] !== y.style[pr]) { n++; if (first.length < 6) first.push({ what: `${where} ${pr}`, live: x.style[pr], ours: y.style[pr] }); } }
+      }
+    }
+    dsRows.push({ id: c.id, n, first });
+  }
 }
 
 await browser.close();
@@ -140,8 +186,19 @@ for (const r of rows) {
     + (ok ? 'identical' : `${r.n} difference(s)`));
   if (!ok) for (const d of r.diffs.slice(0, 6)) console.log(`      ${d.what}: catalogue ${d.live} · extracted ${d.ours}`);
 }
-console.log(`\n  ${rows.length - bad} of ${rows.length} extracted file(s) render identically to the catalogue\n`);
+console.log(`\n  ${rows.length - bad} of ${rows.length} extracted file(s) render identically to the catalogue`);
+
+let dsBad = 0;
+for (const r of dsRows) if (r.n) dsBad++;
+if (dsRows.length) {
+  console.log(`  ${dsRows.length - dsBad} of ${dsRows.length} component(s) in design-system.html render identically to the catalogue`);
+  for (const r of dsRows.filter((x) => x.n)) {
+    console.log(`    ${r.id.padEnd(16)} ${r.n} difference(s)`);
+    for (const d of r.first.slice(0, 4)) console.log(`      ${d.what}: catalogue ${d.live} · design system ${d.ours}`);
+  }
+}
+console.log('');
 
 mkdirSync(join(ROOT, 'data', 'qa'), { recursive: true });
-writeFileSync(join(ROOT, 'data', 'qa', 'components.json'), JSON.stringify({ at: new Date().toISOString(), rows }, null, 2));
-if (strict && bad) process.exit(1);
+writeFileSync(join(ROOT, 'data', 'qa', 'components.json'), JSON.stringify({ at: new Date().toISOString(), rows, designSystem: dsRows }, null, 2));
+if (strict && (bad || dsBad)) process.exit(1);

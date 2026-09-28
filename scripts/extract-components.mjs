@@ -236,6 +236,69 @@ const classesOf = (sec) => {
 
 const selClasses = (sel) => new Set([...sel.matchAll(/\.(-?[_a-zA-Z][\w-]*)/g)].map((m) => m[1]));
 
+/* ── 3b · the tier, from YOUR OWN taxonomy ───────────────────────────────
+   canvas/ holds three files — Atoms, Molecules, Organisms — and their section
+   headings are the design system's own classification. They name no classes,
+   so the join has to be written down; each entry below cites the canvas
+   section it comes from, and anything with no section is marked derived.
+
+   Where a component is COARSER than its canvas section — ours bundles more
+   than the section describes — that is recorded rather than smoothed over. It
+   is the honest reading of a catalogue that grew page by page: `filter` owns
+   the text input, the select and the label that the canvas lists as three
+   separate atoms, and `tabs` owns the card the tab strip sits in.  */
+const CANVAS = {
+  /* Atoms */
+  button:        ['atom', 'Button'],
+  tile:          ['atom', 'Icon container'],
+  avatar:        ['atom', 'Avatar & badge'],
+  badge:         ['atom', 'Avatar & badge'],
+  tag:           ['atom', 'Product tag'],
+  status:        ['atom', 'Tag'],
+  spin:          ['atom', 'Spinner, skeleton & progress'],
+  ring:          ['atom', 'Spinner, skeleton & progress'],
+  seg:           ['atom', 'Segmented'],
+  divider:       ['atom', 'Divider, rate, bullet & tooltip'],
+  tooltip:       ['atom', 'Divider, rate, bullet & tooltip'],
+  'header-action': ['atom', 'Link'],
+  /* Molecules */
+  date:          ['molecule', 'Date controls'],
+  pager:         ['molecule', 'Pagination'],
+  action:        ['molecule', 'Action group'],
+  applied:       ['molecule', 'Action group'],
+  stat:          ['molecule', 'Statistic'],
+  inline:        ['molecule', 'Stats with percentage'],
+  metric:        ['molecule', 'Stats with percentage'],
+  switcher:      ['molecule', 'Avatar meta row'],
+  listing:       ['molecule', 'Thumbnail & badges'],
+  chip:          ['molecule', 'Filter summary chip'],
+  plan:          ['molecule', 'Compact & gradient card'],
+  meter:         ['molecule', 'Health & completion'],
+  /* Organisms */
+  layout:        ['organism', 'App layout'],
+  header:        ['organism', 'Header'],
+  rail:          ['organism', 'Sidebar'],
+  card:          ['organism', 'Card frame'],
+  alert:         ['organism', 'Banner'],
+  chart:         ['organism', 'Dashboard widgets'],
+  table:         ['organism', 'Data table'],
+  filter:        ['organism', 'Filter panel'],
+  tabs:          ['organism', 'Data table'],
+  modal:         ['organism', 'Modal'],
+  drawer:        ['organism', 'Drawer'],
+  popover:       ['organism', 'Notification & toast'],
+  empty:         ['organism', 'Empty states'],
+};
+
+/* What each component actually CONTAINS, measured off its own specimens: the
+   other components whose root class appears inside it. Not the tier — nesting
+   depth calls the sidebar an atom, because its specimen holds nothing but its
+   own items — but the evidence beside the tier, and the thing that would catch
+   a section being filed under the wrong one. */
+const rootOf = (sec) => (sec.primary.match(/^\.([\w-]+)/) || [, ''])[1];
+const ROOTS = Object.fromEntries(sections.map((s) => [rootOf(s), s.id.replace(/^c-/, '')]).filter(([k]) => k));
+const containsOf = (sec, cls) => [...new Set(cls.map((c) => ROOTS[c]).filter((x) => x && x !== sec.id.replace(/^c-/, '')))];
+
 /* ── 4 · the icons ──────────────────────────────────────────────────────── */
 const sprite = readFileSync(join(D, 'sprite.svg'), 'utf8');
 const SYMBOLS = new Map([...sprite.matchAll(/<symbol id="([^"]+)"[\s\S]*?<\/symbol>/g)].map((m) => [m[1], m[0]]));
@@ -281,13 +344,17 @@ const CHROME = `
 .x-hr{border:0;border-top:1px solid #E6E6E6;margin:28px 0}
 .x-h2{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#9D9D9D;margin:0 0 14px}
 .x-row{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;margin-block-end:20px}
-.x-item{display:flex;flex-direction:column;gap:8px}
+/* min-width:0, as .cat-main has it: without it a flex item's automatic minimum
+   is its CONTENT, so the table's stage grew to 1177 where the catalogue holds
+   it to the column's 1120 and lets the table overflow inside */
+.x-item{display:flex;flex-direction:column;gap:8px;min-width:0}
 /* .cat-label to the letter — 11px (--fs-tag), uppercased, letter-spaced, bold.
    The item is a flex column sized by its WIDEST child, so the label's metrics
    decide the stage's width, and a plain lowercase 11px label made three
    components measure narrower than the thing they were cut from. */
 .x-label{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#9D9D9D;font-weight:700}
 .x-stage{
+  min-width:0;
   background:#F6F7FB;border:1px dashed #DEDEDE;
   border-radius:4px;padding:16px;
   display:flex;align-items:center;gap:12px;min-height:54px;
@@ -397,8 +464,12 @@ ${sec.specimens.map((s) => `    <div class="x-item${s.fill ? ' x-fill' : ''}"${s
 </html>
 `;
   writeFileSync(join(OUT, `${sec.id.replace(/^c-/, '')}.html`), html);
+  const cid = sec.id.replace(/^c-/, '');
+  const [tier, section] = CANVAS[cid] || ['unfiled', ''];
   manifest.push({
-    id: sec.id.replace(/^c-/, ''), name: sec.name, primary: sec.primary, src: sec.src,
+    id: cid, name: sec.name, primary: sec.primary, src: sec.src,
+    tier, canvasSection: section, contains: containsOf(sec, cls),
+    css: css1, specimens: sec.specimens, notes: sec.notes,
     classes: cls, tokens, icons, rules: mine.length + media.reduce((n, m) => n + m.inner.length, 0),
     states: sec.specimens.map((s) => s.label), notes: sec.notes,
     usedOn: Object.fromEntries(used), bytes: Buffer.byteLength(html),

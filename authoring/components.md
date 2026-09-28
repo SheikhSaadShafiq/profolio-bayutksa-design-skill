@@ -1,4 +1,4 @@
-# The extraction kit — cutting a component out of the one stylesheet
+# The design system — atoms, molecules, organisms — and the kit that cuts it
 
 The deliverable is one self-contained HTML file, and the way it gets used is
 that somebody carves components out of it. Until now that meant: find a class in
@@ -80,3 +80,48 @@ from. Two things are known wrong right now and are not this kit's to fix:
 draw at all, and four page bodies (Reports ×3, LMS Leads) sit at 41–48% of the
 product's node count. A component lifted out of either is lifted out of
 something that does not match the product yet.
+
+
+## The design system itself
+
+`deliverables/design-system.html` is the one document: 792KB, self-contained,
+no network. Three tiers, every component showing its states live, what it is
+made of, where it is used, and the exact CSS to lift.
+
+**The tiers are not derived — they are yours.** `canvas/` holds three files,
+Atoms, Molecules and Organisms, and their section headings are this system's
+own classification:
+
+| tier | n | components |
+|---|---|---|
+| Atoms | 12 | button · tag · status · avatar · badge · ring · spin · tile · seg · divider · tooltip · header-action |
+| Molecules | 12 | stat · inline · metric · meter · plan · chip · switcher · listing · date · pager · action · applied |
+| Organisms | 13 | layout · header · rail · card · alert · chart · table · tabs · filter · modal · drawer · popover · empty |
+| Not in the canvas | 1 | feedback |
+
+The join from canvas section to component is written down in
+`scripts/extract-components.mjs`, each entry citing the heading it came from,
+because the canvas names no classes and nothing can infer it.
+
+**Deriving the tiers was tried first, twice, and rejected both times.** Nesting
+depth — a component is an atom if it contains no other component, a molecule if
+it contains atoms, an organism if it contains molecules — reads well and gives
+the wrong answer. Measured off the catalogue specimens it files `drawer` and
+`pager` as atoms. Measured off the eleven real page DOMs it does worse: the
+sidebar, the modal, the drawer and the popover all come out atoms, because a
+page capture records the default state and an overlay's interior is not in it.
+The depth is still recorded, per component, as the "made of" line — it is good
+evidence and a bad classifier.
+
+Two places where our component is **coarser than its canvas section**, recorded
+rather than smoothed over: `filter` owns the text input, the select and the
+label that the canvas lists as three separate atoms, and `tabs` owns the card
+its tab strip sits in. Both are the honest reading of a catalogue that grew
+page by page.
+
+`qa-components.mjs` holds the design system to the same standard as the
+per-component files — **38 of 38 render identically to the catalogue** — with
+one allowance it has to make: the page has a sidebar, so its column is narrower
+and a component told to fill it correctly fills less, and text inside it wraps.
+Where the two columns differ the check compares the computed styles rather than
+the geometry, which is where a missing rule shows up whatever the width.

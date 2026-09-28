@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The extraction kit — cutting a component out of the one stylesheet — Profolio KSA</title>
+<title>The design system — atoms, molecules, organisms — and the kit that cuts it — Profolio KSA</title>
 <link rel="stylesheet" href="../kb.css">
 </head>
 <body>
-<nav><a href="../index.html">Profolio KSA</a> › <a href="../index.html#guide">Guide</a> › The extraction kit — cutting a component out of the one stylesheet</nav>
+<nav><a href="../index.html">Profolio KSA</a> › <a href="../index.html#guide">Guide</a> › The design system — atoms, molecules, organisms — and the kit that cuts it</nav>
 <main>
-<h1>The extraction kit — cutting a component out of the one stylesheet</h1>
+<h1>The design system — atoms, molecules, organisms — and the kit that cuts it</h1>
 <p>The deliverable is one self-contained HTML file, and the way it gets used is that somebody carves components out of it. Until now that meant: find a class in an 852KB page, find its rules somewhere in a 180KB stylesheet, then chase every <code>var(--x)</code> back through a 770-line <code>:root</code> by hand. 119 <code>pf-</code> classes in the pages, 179 component docs in <code>kb/design/components/</code>, and nothing mapping one to the other.</p>
 <p><code>npm run components</code> does the carving. For every section of <a href="../../deliverables/components.html"><code>deliverables/components.html</code></a> — the only authority on which classes belong to which component, and the one <code>check.mjs</code> already holds every page to — it writes a standalone page carrying that component and nothing else:</p>
 <ul><li>every rule in <code>profolio.css</code> whose selector names one of its classes, in</li></ul>
@@ -30,6 +30,14 @@
 <p>That is the real limit of this kit: it can only cut out what the catalogue demonstrates, and the catalogue covers 287 of the 515 classes the stylesheet defines. Cataloguing those 228 is what turns the other nine pages' vocabulary into liftable components — and <code>check.mjs</code> already enforces the rule that makes it safe to do, since a page may only use classes the catalogue defines.</p>
 <h2>Known, and inherited</h2>
 <p>These files carry across whatever is still wrong in the pages they were cut from. Two things are known wrong right now and are not this kit's to fix: <a href="../../deliverables/dashboard.html"><code>deliverables/dashboard.html</code></a> draws 120 upgrade circles the product does not draw at all, and four page bodies (Reports ×3, LMS Leads) sit at 41–48% of the product's node count. A component lifted out of either is lifted out of something that does not match the product yet.</p>
+<h2>The design system itself</h2>
+<p><code>deliverables/design-system.html</code> is the one document: 792KB, self-contained, no network. Three tiers, every component showing its states live, what it is made of, where it is used, and the exact CSS to lift.</p>
+<p><strong>The tiers are not derived — they are yours.</strong> <code>canvas/</code> holds three files, Atoms, Molecules and Organisms, and their section headings are this system's own classification:</p>
+<table><tr><th>tier</th><th>n</th><th>components</th></tr><tr><td>Atoms</td><td>12</td><td>button · tag · status · avatar · badge · ring · spin · tile · seg · divider · tooltip · header-action</td></tr><tr><td>Molecules</td><td>12</td><td>stat · inline · metric · meter · plan · chip · switcher · listing · date · pager · action · applied</td></tr><tr><td>Organisms</td><td>13</td><td>layout · header · rail · card · alert · chart · table · tabs · filter · modal · drawer · popover · empty</td></tr><tr><td>Not in the canvas</td><td>1</td><td>feedback</td></tr></table>
+<p>The join from canvas section to component is written down in <code>scripts/extract-components.mjs</code>, each entry citing the heading it came from, because the canvas names no classes and nothing can infer it.</p>
+<p><strong>Deriving the tiers was tried first, twice, and rejected both times.</strong> Nesting depth — a component is an atom if it contains no other component, a molecule if it contains atoms, an organism if it contains molecules — reads well and gives the wrong answer. Measured off the catalogue specimens it files <code>drawer</code> and <code>pager</code> as atoms. Measured off the eleven real page DOMs it does worse: the sidebar, the modal, the drawer and the popover all come out atoms, because a page capture records the default state and an overlay's interior is not in it. The depth is still recorded, per component, as the "made of" line — it is good evidence and a bad classifier.</p>
+<p>Two places where our component is <strong>coarser than its canvas section</strong>, recorded rather than smoothed over: <code>filter</code> owns the text input, the select and the label that the canvas lists as three separate atoms, and <code>tabs</code> owns the card its tab strip sits in. Both are the honest reading of a catalogue that grew page by page.</p>
+<p><code>qa-components.mjs</code> holds the design system to the same standard as the per-component files — <strong>38 of 38 render identically to the catalogue</strong> — with one allowance it has to make: the page has a sidebar, so its column is narrower and a component told to fill it correctly fills less, and text inside it wraps. Where the two columns differ the check compares the computed styles rather than the geometry, which is where a missing rule shows up whatever the width.</p>
 </main>
 </body>
 </html>

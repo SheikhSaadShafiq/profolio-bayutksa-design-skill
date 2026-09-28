@@ -179,8 +179,13 @@ const instance = new Set(['pct-90', 'pct-40', 'pct-100', 'fill-97', 'fill-90', '
 const PAGES = readdirSync(D)
   .filter((f) => f.endsWith('.html'))
   /* .qa.html is a REVIEW TOOL, not a deliverable page: it ships its own
-     stylesheet and is exempt for the same reason kb/ artboards are */
-  .filter((f) => !/bundled|components|not-built|inline-art|qa-|\.qa\.|profolio-ksa/.test(f))
+     stylesheet and is exempt for the same reason kb/ artboards are.
+     design-system.html is exempt on the same grounds as components.html — a
+     BROWSING SURFACE for the components, carrying its own ds- chrome. What it
+     shows of the components is held to a stricter rule than this one anyway:
+     qa-components.mjs renders it against the catalogue and compares every box
+     and twenty-one computed properties. */
+  .filter((f) => !/bundled|components|design-system|not-built|inline-art|qa-|\.qa\.|profolio-ksa/.test(f))
   .sort();
 
 for (const page of PAGES) {

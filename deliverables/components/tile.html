@@ -36,13 +36,17 @@
 .x-hr{border:0;border-top:1px solid #E6E6E6;margin:28px 0}
 .x-h2{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#9D9D9D;margin:0 0 14px}
 .x-row{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;margin-block-end:20px}
-.x-item{display:flex;flex-direction:column;gap:8px}
+/* min-width:0, as .cat-main has it: without it a flex item's automatic minimum
+   is its CONTENT, so the table's stage grew to 1177 where the catalogue holds
+   it to the column's 1120 and lets the table overflow inside */
+.x-item{display:flex;flex-direction:column;gap:8px;min-width:0}
 /* .cat-label to the letter — 11px (--fs-tag), uppercased, letter-spaced, bold.
    The item is a flex column sized by its WIDEST child, so the label's metrics
    decide the stage's width, and a plain lowercase 11px label made three
    components measure narrower than the thing they were cut from. */
 .x-label{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#9D9D9D;font-weight:700}
 .x-stage{
+  min-width:0;
   background:#F6F7FB;border:1px dashed #DEDEDE;
   border-radius:4px;padding:16px;
   display:flex;align-items:center;gap:12px;min-height:54px;
@@ -277,7 +281,7 @@ table{border-collapse:collapse}
     classes — <code>.pf-icon-tile</code> <code>.i</code> <code>.i-16</code> <code>.i-20</code> <code>.i-14</code><br>
     tokens — <code>--gray-700</code> <code>--primary</code> <code>--warning</code> <code>--base</code> <code>--disabled-opacity</code> <code>--bg-content</code> <code>--bg-gray-normal</code> <code>--color-signature</code> <code>--color-hot</code> <code>--color-basic</code> <code>--color-for-sale</code> <code>--color-for-rent</code> <code>--color-clicks</code> <code>--color-leads</code> <code>--tint-for-sale</code> <code>--tint-for-rent</code> <code>--tint-signature</code> <code>--tint-hot</code> <code>--tint-basic</code> <code>--tint-primary</code> <code>--tint-clicks</code> <code>--tint-plan</code> <code>--font-body</code> <code>--fs-base</code> <code>--lh-base</code> <code>--sp-0</code> <code>--sp-8</code> <code>--sp-16</code> <code>--sp-20</code> <code>--radius-icon-tile</code> <code>--radius-round</code> <code>--icon-tile</code> <code>--icon-tile-lg</code> <code>--icon-tile-sm</code> <code>--icon-tile-xs</code><br>
     icons — <code>#pf-IconForSale</code> <code>#pf-IconForRent</code> <code>#pf-IconRental</code> <code>#pf-BsFillLightningChargeFill</code> <code>#pf-IconSuperHot</code> <code>#pf-IconBasic</code> <code>#pf-IoMdEye</code> <code>#pf-IconPkgPlatinumPlus</code> <code>#pf-FiUser</code><br>
-    used on — <code>listings</code>&nbsp;×540 · <code>dashboard</code>&nbsp;×447 · <code>reports-listing-report</code>&nbsp;×123 · <code>ad-license</code>&nbsp;×91 · <code>reports-summary</code>&nbsp;×85 · <code>reports-leads-reports</code>&nbsp;×82 · <code>credits-usage</code>&nbsp;×81 · <code>user-settings-user-profile</code>&nbsp;×79 · <code>user-settings-change-password</code>&nbsp;×69 · <code>user-settings-agency-profile</code>&nbsp;×67 · <code>lms-leads</code>&nbsp;×60
+    used on — <code>listings</code>&nbsp;×540 · <code>dashboard</code>&nbsp;×447 · <code>design-system</code>&nbsp;×305 · <code>reports-listing-report</code>&nbsp;×123 · <code>ad-license</code>&nbsp;×91 · <code>reports-summary</code>&nbsp;×85 · <code>reports-leads-reports</code>&nbsp;×82 · <code>credits-usage</code>&nbsp;×81 · <code>user-settings-user-profile</code>&nbsp;×79 · <code>user-settings-change-password</code>&nbsp;×69 · <code>user-settings-agency-profile</code>&nbsp;×67 · <code>lms-leads</code>&nbsp;×60
   </div>
 </div>
 </body>
