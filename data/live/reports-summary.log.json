@@ -17,14 +17,13 @@
     "GET /api/surge/products",
     "GET /api/surge/agencies/880042",
     "GET /api/surge/dashboard/listing_stats",
+    "GET /api/surge/dashboard/listings_by_area",
     "GET /api/surge/ovation/stats/trends",
     "GET /api/surge/ovation/stats/product_stats"
   ],
-  "unanswered": [
-    "GET /api/surge/dashboard/listings_by_area"
-  ],
+  "unanswered": [],
   "errors": [],
   "blocked": 3,
   "fonts": "served from deliverables/fonts.css",
-  "ms": 3109
+  "ms": 3138
 }

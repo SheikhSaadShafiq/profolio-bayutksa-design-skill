@@ -163,7 +163,11 @@
     "jfTpSW",
     "fbtzRK",
     "SIPpu",
-    "fUCXgY"
+    "fUCXgY",
+    "jsosji",
+    "eGDHWS",
+    "bLFBiS",
+    "cwSxTO"
    ]
   },
   "src/layout/MenueItems.js:99:15": {
@@ -222,7 +226,32 @@
     "iqTTPO",
     "jsvifo",
     "dqWZag",
-    "clVaKe"
+    "clVaKe",
+    "MRuvs",
+    "gcqIaZ",
+    "fAcuPC",
+    "jWBJkc",
+    "emDywP",
+    "bgJUZQ",
+    "kMjhvd",
+    "hxyMiK",
+    "fhYRwm",
+    "cCrdxr",
+    "ePeYfO",
+    "fftASm",
+    "dWSASs",
+    "ePPLSM",
+    "jWHmkz",
+    "dOiYBa",
+    "iprqfT",
+    "iEQwDC",
+    "hBKakR",
+    "cnjgHt",
+    "fXvXpA",
+    "jRXway",
+    "QbqbH",
+    "cXqBfm",
+    "bdYikd"
    ]
   },
   "src/container/pages/dashboard/dashboard.js:478:5": {
@@ -299,7 +328,14 @@
     "klBPER",
     "llXMaj",
     "gbDnfF",
-    "gyZUop"
+    "gyZUop",
+    "ctPcoy",
+    "juoPIx",
+    "cCRVwz",
+    "eqqBea",
+    "bknJVQ",
+    "kxfaGH",
+    "bthDpk"
    ]
   },
   "src/components/common/statistic/index.js:93:9": {
@@ -312,7 +348,8 @@
     "gHZSgq",
     "kDegEr",
     "cinmGx",
-    "llrxdY"
+    "llrxdY",
+    "ksNBgG"
    ]
   },
   "src/components/common/drawer/drawer.js:90:7": {
@@ -335,7 +372,8 @@
    "variants": [
     "kFuhnp",
     "bBecKm",
-    "jhEWPH"
+    "jhEWPH",
+    "jpxNeV"
    ]
   },
   "src/components/common/segmented/segmented.js:8:5": {
@@ -369,7 +407,9 @@
     "xIClh",
     "fAaCP",
     "gzBIlJ",
-    "kEIjvN"
+    "kEIjvN",
+    "hzpycc",
+    "jPDrdK"
    ]
   },
   "src/components/common/tag/tag.js:77:5": {
@@ -379,7 +419,8 @@
     "igfhkn",
     "gFfZSh",
     "hHxqGT",
-    "jCRzjO"
+    "jCRzjO",
+    "fpgfJi"
    ]
   },
   "src/components/charts/chartjs.js:355:7": {
@@ -421,7 +462,9 @@
   "src/tenant/common/components/profile-completion/profile-completion-popup.js:86:5": {
    "name": "pf-modal-completion",
    "base": "modal-completion",
-   "variants": []
+   "variants": [
+    "MkzOi"
+   ]
   },
   "src/components/widgets/ReportsListingsSection.js:22:7": {
    "name": "pf-reports-listings-section-container-widgets",
@@ -457,7 +500,8 @@
    "base": "select-styled",
    "variants": [
     "dGQXtn",
-    "gCLwju"
+    "gCLwju",
+    "eeEYeY"
    ]
   },
   "src/components/common/dataTable/dataTable.js:102:7": {
@@ -845,7 +889,8 @@
    "name": "pf-gallery-thumb",
    "base": "gallery-thumb",
    "variants": [
-    "bxXzpg"
+    "bxXzpg",
+    "cGkeYU"
    ]
   },
   "src/components/common/image-uploads/image-upload-item.js:220:11": {
@@ -886,6 +931,161 @@
    "base": "image-wrapper",
    "variants": [
     "bOySdk"
+   ]
+  },
+  "src/components/common/radio-button/radio-button.js:156:17": {
+   "name": "pf-radio-button-radio-pill",
+   "base": "radio-pill",
+   "variants": [
+    "dOwfTl",
+    "idPqgb"
+   ]
+  },
+  "src/tenant/bayut/components/ad-license/purpose-radio-button.js:13:7": {
+   "name": "pf-circular-border",
+   "base": "circular-border",
+   "variants": [
+    "kWBsCH"
+   ]
+  },
+  "src/tenant/bayut/components/ad-license/create-ad-license.js:521:9": {
+   "name": "pf-create-ad-license-post-listing-action",
+   "base": "post-listing-action",
+   "variants": [
+    "cJIwKa"
+   ]
+  },
+  "src/container/pages/credits-usage/credits-usage.js:481:5": {
+   "name": "pf-credits-usage-main",
+   "base": "main",
+   "variants": [
+    "dAXlsr"
+   ]
+  },
+  "src/components/credits-usage/history-breakdown.js:150:21": {
+   "name": "pf-history-breakdown-thumbnail",
+   "base": "thumbnail",
+   "variants": [
+    "pPyIH"
+   ]
+  },
+  "src/tenant/common/components/prop-shop/credit-top-ups/creditTopUps.js:226:5": {
+   "name": "pf-credit-top-up-card",
+   "base": "credit-top-up-card",
+   "variants": [
+    "gkJHHZ"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/RegaCard.js:247:7": {
+   "name": "pf-rega-card-card",
+   "base": "card",
+   "variants": [
+    "eliSiL"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/RegaCard.js:257:11": {
+   "name": "pf-title",
+   "base": "title",
+   "variants": [
+    "hsmXpB"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/RegaCard.js:264:15": {
+   "name": "pf-gray-box",
+   "base": "gray-box",
+   "variants": [
+    "DckqH"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/RegaCard.js:313:19": {
+   "name": "pf-inline-field",
+   "base": "inline-field",
+   "variants": [
+    "igJoot"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/RegaCard.js:341:17": {
+   "name": "pf-rega-qr-card",
+   "base": "rega-qr-card",
+   "variants": [
+    "NiFzM"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/RegaCard.js:370:13": {
+   "name": "pf-rega-card-divider",
+   "base": "divider",
+   "variants": [
+    "leBRyf"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/RegaCard.js:372:13": {
+   "name": "pf-see-more",
+   "base": "see-more",
+   "variants": [
+    "bHgtDx"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/listing-preview/listing-preview.js:614:15": {
+   "name": "pf-listing-preview-title-text",
+   "base": "title-text",
+   "variants": [
+    "fRmAYr"
+   ]
+  },
+  "src/components/table/table-components/listing-detail-compact.js:110:5": {
+   "name": "pf-popover-listing-container",
+   "base": "popover-listing-container",
+   "variants": [
+    "kngVC"
+   ]
+  },
+  "src/components/table/table-components/more-properties-popover.js:63:9": {
+   "name": "pf-listing-card-detail",
+   "base": "listing-card-detail",
+   "variants": [
+    "jqUOvV"
+   ]
+  },
+  "src/components/common/tour/tour.js:158:5": {
+   "name": "pf-tour-styled",
+   "base": "tour-styled",
+   "variants": [
+    "bOySdk"
+   ]
+  },
+  "src/container/pages/user-settings/agancy-settings.js:93:11": {
+   "name": "pf-agancy-settings-json-form-styled",
+   "base": "json-form-styled",
+   "variants": [
+    "gontI"
+   ]
+  },
+  "src/container/pages/user-settings/password.js:112:11": {
+   "name": "pf-password-action-button",
+   "base": "action-button",
+   "variants": [
+    "jUmAXT"
+   ]
+  },
+  "src/container/pages/lms/leads-management.js:46:5": {
+   "name": "pf-leads-management-main",
+   "base": "main",
+   "variants": [
+    "dAXlsr"
+   ]
+  },
+  "src/components/leads-management/leads-summary-header.js:124:9": {
+   "name": "pf-leads-summary-header-card-meta-styled",
+   "base": "card-meta-styled",
+   "variants": [
+    "cOHtMd"
+   ]
+  },
+  "src/components/table/table-components/listing-detail-compact.js:113:11": {
+   "name": "pf-listing-detail-compact-thumbnail",
+   "base": "thumbnail",
+   "variants": [
+    "pPyIH"
    ]
   }
  }

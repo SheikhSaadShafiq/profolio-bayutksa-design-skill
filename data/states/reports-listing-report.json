@@ -1,0 +1,107 @@
+{
+ "page": "reports-listing-report",
+ "route": "/reports/listing-report",
+ "at": "2026-09-28T12:16:46.687Z",
+ "tried": 60,
+ "states": [
+  {
+   "name": "inline-listing-by-date",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)",
+   "label": "Listing By Date",
+   "shell": false,
+   "opened": []
+  },
+  {
+   "name": "popover-overall-quality",
+   "kind": "popover",
+   "action": "hover",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(2) > td:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)",
+   "label": "62%",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 440,
+     "h": 531
+    }
+   ],
+   "title": "Overall Quality"
+  },
+  {
+   "name": "popover-overall-quality-2",
+   "kind": "popover",
+   "action": "hover",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(4) > td:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)",
+   "label": "54%",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 440,
+     "h": 531
+    }
+   ],
+   "title": "Overall Quality"
+  },
+  {
+   "name": "popover-overall-quality-3",
+   "kind": "popover",
+   "action": "hover",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(5) > td:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)",
+   "label": "50%",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 440,
+     "h": 531
+    }
+   ],
+   "title": "Overall Quality"
+  },
+  {
+   "name": "popover-overall-quality-4",
+   "kind": "popover",
+   "action": "hover",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(6) > td:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)",
+   "label": "43%",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 440,
+     "h": 531
+    }
+   ],
+   "title": "Overall Quality"
+  },
+  {
+   "name": "popover-overall-quality-5",
+   "kind": "popover",
+   "action": "hover",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(7) > td:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)",
+   "label": "46%",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 440,
+     "h": 531
+    }
+   ],
+   "title": "Overall Quality"
+  }
+ ],
+ "links": [
+  {
+   "label": "span",
+   "to": "/en/reports/listing-report?preview=88240117"
+  },
+  {
+   "label": "div",
+   "to": "/en/reports/listing-report?preview=88240117"
+  }
+ ]
+}

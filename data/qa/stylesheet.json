@@ -1,0 +1,757 @@
+{
+  "at": "2026-09-28T12:37:59.081Z",
+  "rules": 2085,
+  "conflicts": 21746,
+  "rows": [
+    {
+      "name": "ad-license",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "credits-usage",
+      "pct": 0.029,
+      "ok": true
+    },
+    {
+      "name": "dashboard",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "listings",
+      "pct": 0.021,
+      "ok": true
+    },
+    {
+      "name": "lms-leads",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports",
+      "pct": 0.033,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report",
+      "pct": 0.007,
+      "ok": true
+    },
+    {
+      "name": "reports-summary",
+      "pct": 0.006,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "ad-license--drawer-feedback",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--dropdown-select-property-age",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--inline-adjust",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--inline-continue",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--inline-select-city",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "credits-usage--drawer-feedback",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "credits-usage--drawer-filters-apply-filters-to",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "credits-usage--modal-top-up-your-credits",
+      "pct": 0.004,
+      "ok": true
+    },
+    {
+      "name": "dashboard--drawer-credits-balance",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "dashboard--dropdown-agency-switcher",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "dashboard--inline-canvas",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "dashboard--inline-clicks-407-3",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "dashboard--inline-emails-2",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "dashboard--inline-leads-13-8",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "dashboard--inline-sms-1",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "dashboard--modal-download-app",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--modal-help-support",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--modal-profile-completed",
+      "pct": 0.191,
+      "ok": true
+    },
+    {
+      "name": "dashboard--modal-top-up-your-credits",
+      "pct": 0.004,
+      "ok": true
+    },
+    {
+      "name": "dashboard--popover-account",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--popover-calls-clicked-3",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--popover-date-range",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--popover-listing-timeline",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "dashboard--popover-notifications",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "dashboard--popover-overall-quality",
+      "pct": 1.507,
+      "ok": false
+    },
+    {
+      "name": "dashboard--popover-whatsapp-clicked-7",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "listings--action-detail-drawer",
+      "pct": 0.004,
+      "ok": true
+    },
+    {
+      "name": "listings--action-discount",
+      "pct": 0.043,
+      "ok": true
+    },
+    {
+      "name": "listings--date-posted-on",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "listings--drawer-filters",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "listings--error",
+      "pct": 0.007,
+      "ok": true
+    },
+    {
+      "name": "listings--loading",
+      "pct": 0.014,
+      "ok": true
+    },
+    {
+      "name": "listings--modal-booking",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "listings--modal-delete",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "listings--modal-download-app",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "listings--modal-otp",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "listings--modal-trucheck",
+      "pct": 0.004,
+      "ok": true
+    },
+    {
+      "name": "listings--popover-account",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "listings--popover-health",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "listings--popover-leads",
+      "pct": 0.006,
+      "ok": true
+    },
+    {
+      "name": "listings--popover-notifications",
+      "pct": 0.008,
+      "ok": true
+    },
+    {
+      "name": "listings--popover-rega",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "listings--popover-status-rejected",
+      "pct": 0.006,
+      "ok": true
+    },
+    {
+      "name": "listings--popover-timeline",
+      "pct": 0.006,
+      "ok": true
+    },
+    {
+      "name": "listings--project-units",
+      "pct": 0.004,
+      "ok": true
+    },
+    {
+      "name": "listings--select-property-type",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "listings--select-purpose",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "listings--tab-ad-license-requests",
+      "pct": 0.012,
+      "ok": true
+    },
+    {
+      "name": "listings--tab-draft",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "listings--tab-pending",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "listings--tab-removed",
+      "pct": 0.007,
+      "ok": true
+    },
+    {
+      "name": "listings--tooltip-action",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "listings--tooltip-booked",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "listings--tooltip-upgrade-applied",
+      "pct": 0.037,
+      "ok": true
+    },
+    {
+      "name": "listings--tooltip-upgrade-none",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "listings--tooltip-upgrade-pending",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "listings--tooltip-upgrade-service",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "listings--tooltip-upgrade-unavailable",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "listings--tooltip-upgrade",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "listings--upgrade-hot",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "listings--upgrade-photography",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "listings--upgrade-refresh",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "listings--upgrade-signature",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-abdullah-saleh-abdullahsmailexample",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-add-new-lead",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-add-task",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-feedback",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-khalid-al-shammari-khalidalshammari1",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-lead-detail",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-lead-tasks",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-nourah-al-qahtani-nourahqahtanimaile",
+      "pct": 0.32,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-show-more",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--dropdown-agency-switcher",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--dropdown-listing-id",
+      "pct": 0.021,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--dropdown-rows-per-page",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--dropdown-select-users",
+      "pct": 0.031,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--inline-search",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--modal-view-trend",
+      "pct": 0.004,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--popover-1-more-properties",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--popover-abdullah-saleh",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--popover-apartment-for-sale",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--popover-bayut-match-info",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--popover-date-range",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--popover-floor-for-sale",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--popover-follow-up-call",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--popover-insight-info",
+      "pct": 0.03,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--popover-khalid-al-shammari",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--popover-nourah-al-qahtani",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--popover-villa-for-sale",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--tooltip-email",
+      "pct": 0.044,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--tooltip-whatsapp",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--tour",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--drawer-feedback",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--dropdown-select-purpose",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--inline-4",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--inline-canvas",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--inline-clicks-407-3",
+      "pct": 0.033,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--inline-emails-2",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--inline-leads-13-8",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--inline-search",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--inline-sms-1",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--popover-calls-clicked-3",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--popover-date-range-2",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--popover-date-range",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--popover-whatsapp-clicked-7",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--inline-listing-by-date",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--popover-overall-quality-2",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--popover-overall-quality-3",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--popover-overall-quality-4",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--popover-overall-quality-5",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--popover-overall-quality",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--drawer-feedback",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--inline-clicks-407-3",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--inline-div",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--inline-emails-2",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--inline-leads-13-8",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--inline-sms-1",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--popover-calls-clicked-3",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--popover-date-range",
+      "pct": 0.007,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--popover-whatsapp-clicked-7",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--drawer-feedback",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--inline-icon",
+      "pct": 0.026,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--inline-save-changes",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--modal-preview",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--profile-incomplete",
+      "pct": 0.027,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--drawer-feedback",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--inline-confirm",
+      "pct": 0.08,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--inline-eye-invisible",
+      "pct": 0.083,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--profile-incomplete",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--drawer-feedback",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--dropdown-experience",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--dropdown-service-areas",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--inline-close-circle",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--inline-close",
+      "pct": 0.039,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--inline-generate-agent-description-english",
+      "pct": 0.39,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--message-save-changes",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--modal-learn-more",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--popover-service-areas-more",
+      "pct": 0.06,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--profile-incomplete",
+      "pct": 0,
+      "ok": true
+    }
+  ]
+}

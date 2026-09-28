@@ -1,0 +1,15 @@
+{
+  "finalPath": "/en/listings",
+  "shell": true,
+  "errorCard": false,
+  "overlay": {
+    "modal": false,
+    "drawer": false,
+    "popover": false,
+    "dropdown": false
+  },
+  "spinning": false,
+  "pageHeight": 2073,
+  "note": "mode projects — unit-type rows: 3 upgrade circles (no photo/video/drone), 5 actions (no TruCheck), \"Apartment for Sale | Off-plan\", project name ending a two-line location, WAFI licence instead of REGA ID, ~170px rows; row 1 is a daily rental with \"Night\" and \"Permit No:\"",
+  "url": "http://127.0.0.1:3100/en/listings"
+}

@@ -19,7 +19,8 @@
     "GET /api/surge/statuses",
     "GET /api/surge/listings/summary",
     "GET /api/surge/listings",
-    "GET /api/surge/ad_license_requests"
+    "GET /api/surge/ad_license_requests",
+    "GET /api/surge/ovation/stats"
   ],
   "unanswered": [],
   "errors": [
@@ -27,5 +28,5 @@
   ],
   "blocked": 3,
   "fonts": "served from deliverables/fonts.css",
-  "ms": 3782
+  "ms": 4118
 }

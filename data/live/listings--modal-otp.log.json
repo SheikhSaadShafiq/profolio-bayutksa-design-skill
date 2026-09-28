@@ -1,0 +1,15 @@
+{
+  "finalPath": "/en/listings",
+  "shell": true,
+  "errorCard": false,
+  "overlay": {
+    "modal": true,
+    "drawer": false,
+    "popover": false,
+    "dropdown": false
+  },
+  "spinning": false,
+  "pageHeight": 1926,
+  "note": "row 7, Upgrades — the listing is pending-otp-verification, so the cell holds Publish Now instead of six circles, and it opens OtpVerificationModal (platformActions.js:174-213)",
+  "url": "http://127.0.0.1:3100/en/listings"
+}

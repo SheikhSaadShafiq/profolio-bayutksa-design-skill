@@ -1,0 +1,144 @@
+{
+ "page": "user-settings-user-profile",
+ "route": "/user-settings/user-profile",
+ "at": "2026-09-28T12:19:48.690Z",
+ "tried": 20,
+ "states": [
+  {
+   "name": "dropdown-service-areas",
+   "kind": "dropdown",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(9) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)",
+   "label": "Riyadh Diriyah Al Kharj Jeddah Makkah Al",
+   "shell": false,
+   "opened": [
+    {
+     "k": "dropdown",
+     "w": 390,
+     "h": 278
+    }
+   ]
+  },
+  {
+   "name": "inline-close",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(9) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > span:nth-child(1) > div:nth-child(1) > div:nth-child(1) > span:nth-child(1) > span:nth-child(2)",
+   "label": "close",
+   "shell": false,
+   "opened": []
+  },
+  {
+   "name": "popover-service-areas-more",
+   "kind": "popover",
+   "action": "hover",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(9) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > span:nth-child(1) > div:nth-child(1) > div:nth-child(27) > span:nth-child(1) > span:nth-child(1) > span:nth-child(1)",
+   "label": "+23",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 130,
+     "h": 538
+    }
+   ],
+   "title": "Jeddah Makkah Al Madinah"
+  },
+  {
+   "name": "inline-close-circle",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(9) > div:nth-child(2) > div:nth-child(1) > span:nth-child(3)",
+   "label": "close-circle",
+   "shell": false,
+   "opened": []
+  },
+  {
+   "name": "dropdown-experience",
+   "kind": "dropdown",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(11) > div:nth-child(2) > div:nth-child(1)",
+   "label": "3-5 Years",
+   "shell": false,
+   "opened": [
+    {
+     "k": "dropdown",
+     "w": 390,
+     "h": 212
+    }
+   ]
+  },
+  {
+   "name": "inline-generate-agent-description-english",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(12) > div:nth-child(1) > div:nth-child(3) > button:nth-child(1)",
+   "label": "Generate Agent Description (English)",
+   "shell": false,
+   "opened": []
+  },
+  {
+   "name": "modal-learn-more",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(14) > div:nth-child(2) > div:nth-child(2) > button:nth-child(3)",
+   "label": "Learn more",
+   "shell": false,
+   "opened": [
+    {
+     "k": "modal",
+     "w": 650,
+     "h": 663
+    }
+   ]
+  },
+  {
+   "name": "message-save-changes",
+   "kind": "message",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > button:nth-child(1)",
+   "label": "Save Changes",
+   "shell": false,
+   "opened": [
+    {
+     "k": "message",
+     "w": 1424,
+     "h": 40
+    }
+   ]
+  },
+  {
+   "name": "drawer-feedback",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4)",
+   "label": "FEEDBACK",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 400,
+     "h": 900
+    }
+   ]
+  }
+ ],
+ "links": [
+  {
+   "label": "Agency Settings",
+   "to": "/en/user-settings/agency-profile"
+  },
+  {
+   "label": "Licenses",
+   "to": "/en/user-settings/licenses"
+  },
+  {
+   "label": "Preferences",
+   "to": "/en/user-settings/preferences"
+  },
+  {
+   "label": "Change Password",
+   "to": "/en/user-settings/change-password"
+  }
+ ]
+}

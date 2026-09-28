@@ -4,7 +4,7 @@
   "shell": true,
   "errorCard": false,
   "spinning": false,
-  "pageHeight": 2656,
+  "pageHeight": 2889,
   "answered": [
     "GET /api/surge/users/current",
     "GET /api/surge/notifications/stats",
@@ -21,11 +21,14 @@
     "GET /api/surge/listings/summary",
     "GET /api/surge/listings",
     "GET /api/surge/ovation/stats/trends",
-    "GET /api/surge/ovation/stats/product_stats"
+    "GET /api/surge/ovation/stats/product_stats",
+    "GET /api/surge/lms/stats/product_stats",
+    "GET /api/surge/lms/stats/phone_lead_stats",
+    "GET /api/surge/ovation/stats"
   ],
   "unanswered": [],
   "errors": [],
   "blocked": 3,
   "fonts": "served from deliverables/fonts.css",
-  "ms": 3586
+  "ms": 4297
 }

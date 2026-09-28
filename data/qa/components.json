@@ -1,501 +1,4257 @@
 {
-  "at": "2026-09-28T09:18:23.880Z",
-  "rows": [
-    {
-      "id": "rail",
-      "name": "icon-rail-item",
-      "stages": 4,
-      "elements": 66,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "header",
-      "name": "page-header",
-      "stages": 1,
-      "elements": 24,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "header-action",
-      "name": "header-action · classified pill",
-      "stages": 2,
-      "elements": 8,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "button",
-      "name": "button — every variant, every state",
-      "stages": 15,
-      "elements": 60,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "badge",
-      "name": "notification-badge",
-      "stages": 3,
-      "elements": 14,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "avatar",
-      "name": "avatar",
-      "stages": 2,
-      "elements": 8,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "ring",
-      "name": "progress-ring",
-      "stages": 4,
-      "elements": 21,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "alert",
-      "name": "alert-banner",
-      "stages": 2,
-      "elements": 26,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "switcher",
-      "name": "account-switcher",
-      "stages": 2,
-      "elements": 18,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "card",
-      "name": "card · card-header · card-action-link",
-      "stages": 4,
-      "elements": 30,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "tile",
-      "name": "icon-tile",
-      "stages": 11,
-      "elements": 44,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "stat",
-      "name": "stat-block",
-      "stages": 7,
-      "elements": 43,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "divider",
-      "name": "divider",
-      "stages": 3,
-      "elements": 12,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "meter",
-      "name": "credit-meter",
-      "stages": 4,
-      "elements": 39,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "plan",
-      "name": "plan-badge",
-      "stages": 2,
-      "elements": 14,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "seg",
-      "name": "tab-group (segmented)",
-      "stages": 3,
-      "elements": 14,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "chip",
-      "name": "chip-group (radio pills)",
-      "stages": 4,
-      "elements": 24,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "metric",
-      "name": "metric-tab",
-      "stages": 3,
-      "elements": 41,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "inline",
-      "name": "inline-metric",
-      "stages": 1,
-      "elements": 25,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "date",
-      "name": "date-picker",
-      "stages": 4,
-      "elements": 16,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "chart",
-      "name": "line-chart",
-      "stages": 1,
-      "elements": 75,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "tooltip",
-      "name": "chart-tooltip",
-      "stages": 2,
-      "elements": 10,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "tag",
-      "name": "product tag",
-      "stages": 5,
-      "elements": 18,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "status",
-      "name": "status pill",
-      "stages": 4,
-      "elements": 8,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "action",
-      "name": "round action button",
-      "stages": 3,
-      "elements": 51,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "listing",
-      "name": "listing cell (the Property column)",
-      "stages": 1,
-      "elements": 26,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "table",
-      "name": "listing table",
-      "stages": 1,
-      "elements": 145,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "filter",
-      "name": "filter bar · field · input · select",
-      "stages": 6,
-      "elements": 80,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "tabs",
-      "name": "table card · line tabs",
-      "stages": 2,
-      "elements": 31,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "pager",
-      "name": "pagination",
-      "stages": 2,
-      "elements": 34,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "modal",
-      "name": "modal",
-      "stages": 2,
-      "elements": 24,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "drawer",
-      "name": "drawer",
-      "stages": 1,
-      "elements": 8,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "popover",
-      "name": "popover · account menu · notifications",
-      "stages": 2,
-      "elements": 49,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "empty",
-      "name": "empty state",
-      "stages": 1,
-      "elements": 8,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "spin",
-      "name": "spin",
-      "stages": 1,
-      "elements": 7,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "applied",
-      "name": "applied-upgrade tick",
-      "stages": 3,
-      "elements": 18,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "feedback",
-      "name": "feedback-tab",
-      "stages": 1,
-      "elements": 2,
-      "diffs": [],
-      "n": 0
-    },
-    {
-      "id": "layout",
-      "name": "layout primitives",
-      "stages": 0,
-      "elements": 0,
-      "diffs": [],
-      "n": 0
-    }
-  ],
-  "designSystem": [
-    {
-      "id": "rail",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "header",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "header-action",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "button",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "badge",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "avatar",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "ring",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "alert",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "switcher",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "card",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "tile",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "stat",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "divider",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "meter",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "plan",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "seg",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "chip",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "metric",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "inline",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "date",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "chart",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "tooltip",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "tag",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "status",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "action",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "listing",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "table",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "filter",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "tabs",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "pager",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "modal",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "drawer",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "popover",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "empty",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "spin",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "applied",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "feedback",
-      "n": 0,
-      "first": []
-    },
-    {
-      "id": "layout",
-      "n": 0,
-      "first": []
-    }
-  ]
+ "at": "2026-09-28T13:01:37.627Z",
+ "bar": 1,
+ "ok": 536,
+ "measured": 607,
+ "results": {
+  "AuthInfo_src_components_utilities_auth-info_info_js__1": {
+   "component": "auth-info",
+   "pct": 0.196,
+   "ok": true,
+   "rules": 118,
+   "level": "organism"
+  },
+  "Button_src_components_common_button_button_js__1": {
+   "component": "button",
+   "pct": 0,
+   "ok": true,
+   "rules": 36,
+   "level": "atom"
+  },
+  "Button_src_components_common_button_button_js__2": {
+   "component": "button",
+   "pct": 0.469,
+   "ok": true,
+   "rules": 34,
+   "level": "atom"
+  },
+  "Button_src_components_common_button_button_js__3": {
+   "component": "button",
+   "pct": 2.011,
+   "ok": false,
+   "rules": 28,
+   "level": "atom"
+  },
+  "Button_src_components_common_button_button_js__4": {
+   "component": "button",
+   "pct": 0,
+   "ok": true,
+   "rules": 39,
+   "level": "atom"
+  },
+  "Button_src_components_common_button_button_js__5": {
+   "component": "button",
+   "pct": 0,
+   "ok": true,
+   "rules": 26,
+   "level": "atom"
+  },
+  "Button_src_components_common_button_button_js__6": {
+   "component": "button",
+   "pct": 0,
+   "ok": true,
+   "rules": 36,
+   "level": "atom"
+  },
+  "Button_src_components_common_button_button_js__7": {
+   "component": "button",
+   "pct": 0,
+   "ok": true,
+   "rules": 33,
+   "level": "atom"
+  },
+  "Button_src_components_common_button_button_js__8": {
+   "component": "button",
+   "pct": 0,
+   "ok": true,
+   "rules": 40,
+   "level": "atom"
+  },
+  "Icon_src_components_common_icon_icon_js__1": {
+   "component": "icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 9,
+   "level": "atom"
+  },
+  "Icon_src_components_common_icon_icon_js__2": {
+   "component": "icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 9,
+   "level": "atom"
+  },
+  "Icon_src_components_common_icon_icon_js__3": {
+   "component": "icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 10,
+   "level": "atom"
+  },
+  "Icon_src_components_common_icon_icon_js__4": {
+   "component": "icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 10,
+   "level": "atom"
+  },
+  "Icon_src_components_common_icon_icon_js__5": {
+   "component": "icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 11,
+   "level": "atom"
+  },
+  "Icon_src_components_common_icon_icon_js__6": {
+   "component": "icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 23,
+   "level": "atom"
+  },
+  "Icon_src_components_common_icon_icon_js__7": {
+   "component": "icon",
+   "pct": 11.667,
+   "ok": false,
+   "rules": 19,
+   "level": "atom"
+  },
+  "Icon_src_components_common_icon_icon_js__8": {
+   "component": "icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 8,
+   "level": "atom"
+  },
+  "LinkWithIcon_src_components_common_link-with-icon_link-with-__1": {
+   "component": "link-with-icon",
+   "pct": 0.926,
+   "ok": true,
+   "rules": 13,
+   "level": "atom"
+  },
+  "LinkWithIcon_src_components_common_link-with-icon_link-with-__2": {
+   "component": "link-with-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 18,
+   "level": "atom"
+  },
+  "LinkWithIcon_src_components_common_link-with-icon_link-with-__3": {
+   "component": "link-with-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 13,
+   "level": "atom"
+  },
+  "LinkWithIcon_src_components_common_link-with-icon_link-with-__4": {
+   "component": "link-with-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 17,
+   "level": "atom"
+  },
+  "SidebarClassifiedLinkIcon_src_components_svg_js__1": {
+   "component": "sidebar-classified-link-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 4,
+   "level": "atom"
+  },
+  "PostListingIcon_src_components_svg_js__1": {
+   "component": "post-listing-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "PostListingIcon_src_components_svg_js__2": {
+   "component": "post-listing-icon",
+   "pct": 11.667,
+   "ok": false,
+   "rules": 9,
+   "level": "atom"
+  },
+  "Popover_src_components_common_popup_popup_js__1": {
+   "component": "popover",
+   "pct": 0,
+   "ok": true,
+   "rules": 50,
+   "level": "molecule"
+  },
+  "Popover_src_components_common_popup_popup_js__2": {
+   "component": "popover",
+   "pct": 0,
+   "ok": true,
+   "rules": 51,
+   "level": "molecule"
+  },
+  "Popover_src_components_common_popup_popup_js__3": {
+   "component": "popover",
+   "pct": 0,
+   "ok": true,
+   "rules": 42,
+   "level": "molecule"
+  },
+  "Popover_src_components_common_popup_popup_js__4": {
+   "component": "popover",
+   "pct": 0.157,
+   "ok": true,
+   "rules": 46,
+   "level": "molecule"
+  },
+  "Popover_src_components_common_popup_popup_js__5": {
+   "component": "popover",
+   "pct": 0,
+   "ok": true,
+   "rules": 36,
+   "level": "molecule"
+  },
+  "Popover_src_components_common_popup_popup_js__6": {
+   "component": "popover",
+   "pct": 0,
+   "ok": true,
+   "rules": 9,
+   "level": "molecule"
+  },
+  "Popover_src_components_common_popup_popup_js__7": {
+   "component": "popover",
+   "pct": 0,
+   "ok": true,
+   "rules": 9,
+   "level": "molecule"
+  },
+  "Popover_src_components_common_popup_popup_js__8": {
+   "component": "popover",
+   "pct": 0,
+   "ok": true,
+   "rules": 16,
+   "level": "molecule"
+  },
+  "Progress_src_components_utilities_auth-info_info_js__1": {
+   "component": "progress",
+   "pct": 0,
+   "ok": true,
+   "rules": 32,
+   "level": "molecule"
+  },
+  "Progress_src_components_utilities_auth-info_info_js__2": {
+   "component": "progress",
+   "pct": 0,
+   "ok": true,
+   "rules": 29,
+   "level": "molecule"
+  },
+  "Avatar_src_components_common_avatar_avatar_js__1": {
+   "component": "avatar",
+   "pct": 0,
+   "ok": true,
+   "rules": 12,
+   "level": "atom"
+  },
+  "Avatar_src_components_common_avatar_avatar_js__2": {
+   "component": "avatar",
+   "pct": 0,
+   "ok": true,
+   "rules": 10,
+   "level": "atom"
+  },
+  "Avatar_src_components_common_avatar_avatar_js__3": {
+   "component": "avatar",
+   "pct": 0,
+   "ok": true,
+   "rules": 23,
+   "level": "atom"
+  },
+  "Avatar_src_components_common_avatar_avatar_js__4": {
+   "component": "avatar",
+   "pct": 0,
+   "ok": true,
+   "rules": 12,
+   "level": "atom"
+  },
+  "Avatar_src_components_common_avatar_avatar_js__5": {
+   "component": "avatar",
+   "pct": 0,
+   "ok": true,
+   "rules": 10,
+   "level": "atom"
+  },
+  "ChevronRightIcon_src_components_svg_js__1": {
+   "component": "chevron-right-icon",
+   "pct": 1.953,
+   "ok": false,
+   "rules": 5,
+   "level": "atom"
+  },
+  "Logo_src_tenant_common_components_logo_Logo_js__1": {
+   "component": "logo",
+   "pct": 0,
+   "ok": true,
+   "rules": 4,
+   "level": "atom"
+  },
+  "ProfolioLogo_src_components_svg_js__1": {
+   "component": "profolio-logo",
+   "pct": 0,
+   "ok": true,
+   "rules": 4,
+   "level": "atom"
+  },
+  "SideMenuDashboard_src_components_svg_js__1": {
+   "component": "side-menu-dashboard",
+   "pct": 0,
+   "ok": true,
+   "rules": 10,
+   "level": "atom"
+  },
+  "MyListingIcon_src_components_svg_js__1": {
+   "component": "my-listing-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 10,
+   "level": "atom"
+  },
+  "SideMenuQuota_src_components_svg_js__1": {
+   "component": "side-menu-quota",
+   "pct": 0,
+   "ok": true,
+   "rules": 10,
+   "level": "atom"
+  },
+  "DashboardLmsIcon_src_components_svg_js__1": {
+   "component": "dashboard-lms-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 10,
+   "level": "atom"
+  },
+  "AgentPerformanceIcon_src_components_svg_js__1": {
+   "component": "agent-performance-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 10,
+   "level": "atom"
+  },
+  "SideMenuReports_src_components_svg_js__1": {
+   "component": "side-menu-reports",
+   "pct": 0,
+   "ok": true,
+   "rules": 10,
+   "level": "atom"
+  },
+  "SideMenuAgency_src_components_svg_js__1": {
+   "component": "side-menu-agency",
+   "pct": 0,
+   "ok": true,
+   "rules": 10,
+   "level": "atom"
+  },
+  "SideMenuPropShop_src_components_svg_js__1": {
+   "component": "side-menu-prop-shop",
+   "pct": 0,
+   "ok": true,
+   "rules": 10,
+   "level": "atom"
+  },
+  "Flex_src_components_common_flex_index_js__1": {
+   "component": "flex",
+   "pct": 0,
+   "ok": true,
+   "rules": 42,
+   "level": "atom"
+  },
+  "Flex_src_components_common_flex_index_js__2": {
+   "component": "flex",
+   "pct": 0,
+   "ok": true,
+   "rules": 8,
+   "level": "atom"
+  },
+  "Flex_src_components_common_flex_index_js__3": {
+   "component": "flex",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "Flex_src_components_common_flex_index_js__4": {
+   "component": "flex",
+   "pct": 0,
+   "ok": true,
+   "rules": 4,
+   "level": "atom"
+  },
+  "Flex_src_components_common_flex_index_js__5": {
+   "component": "flex",
+   "pct": 0.247,
+   "ok": true,
+   "rules": 37,
+   "level": "atom"
+  },
+  "Flex_src_components_common_flex_index_js__6": {
+   "component": "flex",
+   "pct": 0,
+   "ok": true,
+   "rules": 44,
+   "level": "atom"
+  },
+  "Flex_src_components_common_flex_index_js__7": {
+   "component": "flex",
+   "pct": 0,
+   "ok": true,
+   "rules": 56,
+   "level": "atom"
+  },
+  "Flex_src_components_common_flex_index_js__8": {
+   "component": "flex",
+   "pct": 0,
+   "ok": true,
+   "rules": 53,
+   "level": "atom"
+  },
+  "LanguageSwitcherIcon_src_components_svg_js__1": {
+   "component": "language-switcher-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 4,
+   "level": "atom"
+  },
+  "HelpSupportIcon_src_components_svg_js__1": {
+   "component": "help-support-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "HelpSupportIcon_src_components_svg_js__2": {
+   "component": "help-support-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "Home_src_home_js__3": {
+   "component": "home",
+   "pct": 2.347,
+   "ok": false,
+   "rules": 492,
+   "level": "page"
+  },
+  "Home_src_home_js__4": {
+   "component": "home",
+   "pct": 0.001,
+   "ok": true,
+   "rules": 402,
+   "level": "page"
+  },
+  "Home_src_home_js__5": {
+   "component": "home",
+   "pct": 0.019,
+   "ok": true,
+   "rules": 483,
+   "level": "page"
+  },
+  "CreateAdLicense_src_container_pages_ad-license_index_js__1": {
+   "component": "create-ad-license",
+   "pct": 13.304,
+   "ok": false,
+   "rules": 216,
+   "level": "page"
+  },
+  "Heading_src_components_common_heading_heading_js__1": {
+   "component": "heading",
+   "pct": 0,
+   "ok": true,
+   "rules": 7,
+   "level": "atom"
+  },
+  "Heading_src_components_common_heading_heading_js__2": {
+   "component": "heading",
+   "pct": 0,
+   "ok": true,
+   "rules": 4,
+   "level": "atom"
+  },
+  "Heading_src_components_common_heading_heading_js__3": {
+   "component": "heading",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "Heading_src_components_common_heading_heading_js__4": {
+   "component": "heading",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "CreateAdLicense_src_tenant_bayut_components_ad-license_creat__1": {
+   "component": "create-ad-license-ad-license",
+   "pct": 0,
+   "ok": true,
+   "rules": 213,
+   "level": "organism"
+  },
+  "Card_src_components_common_cards_Card_js__7": {
+   "component": "card",
+   "pct": 0,
+   "ok": true,
+   "rules": 275,
+   "level": "organism"
+  },
+  "Card_src_components_common_cards_Card_js__6": {
+   "component": "card",
+   "pct": 0.052,
+   "ok": true,
+   "rules": 96,
+   "level": "organism"
+  },
+  "Card_src_components_common_cards_Card_js__4": {
+   "component": "card",
+   "pct": 0,
+   "ok": true,
+   "rules": 68,
+   "level": "organism"
+  },
+  "Group_src_components_common_group_group_js__4": {
+   "component": "group",
+   "pct": 0,
+   "ok": true,
+   "rules": 58,
+   "level": "atom"
+  },
+  "Group_src_components_common_group_group_js__8": {
+   "component": "group",
+   "pct": 0,
+   "ok": true,
+   "rules": 56,
+   "level": "atom"
+  },
+  "Group_src_components_common_group_group_js__3": {
+   "component": "group",
+   "pct": 0,
+   "ok": true,
+   "rules": 45,
+   "level": "atom"
+  },
+  "CardBlock_src_tenant_bayut_components_ad-license_card-block___1": {
+   "component": "card-block",
+   "pct": 0,
+   "ok": true,
+   "rules": 148,
+   "level": "organism"
+  },
+  "CardBlock_src_tenant_bayut_components_ad-license_card-block___2": {
+   "component": "card-block",
+   "pct": 0,
+   "ok": true,
+   "rules": 99,
+   "level": "organism"
+  },
+  "CardBlock_src_tenant_bayut_components_ad-license_card-block___3": {
+   "component": "card-block",
+   "pct": 0,
+   "ok": true,
+   "rules": 85,
+   "level": "organism"
+  },
+  "IconPropertyInfo_src_components_svg_js__1": {
+   "component": "icon-property-info",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "RadioButtons_src_components_common_radio-button_radio-button__1": {
+   "component": "radio-buttons",
+   "pct": 0.122,
+   "ok": true,
+   "rules": 45,
+   "level": "atom"
+  },
+  "RadioButtons_src_components_common_radio-button_radio-button__2": {
+   "component": "radio-buttons",
+   "pct": 0,
+   "ok": true,
+   "rules": 48,
+   "level": "atom"
+  },
+  "IconPurpose_src_components_svg_js__1": {
+   "component": "icon-purpose",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "Label_src_components_common_Label_Label_js__1": {
+   "component": "label",
+   "pct": 0.046,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "Label_src_components_common_Label_Label_js__2": {
+   "component": "label",
+   "pct": 2.557,
+   "ok": false,
+   "rules": 7,
+   "level": "atom"
+  },
+  "Label_src_components_common_Label_Label_js__3": {
+   "component": "label",
+   "pct": 2.525,
+   "ok": false,
+   "rules": 6,
+   "level": "atom"
+  },
+  "Label_src_components_common_Label_Label_js__4": {
+   "component": "label",
+   "pct": 0,
+   "ok": true,
+   "rules": 7,
+   "level": "atom"
+  },
+  "Label_src_components_common_Label_Label_js__5": {
+   "component": "label",
+   "pct": 0,
+   "ok": true,
+   "rules": 7,
+   "level": "atom"
+  },
+  "Label_src_components_common_Label_Label_js__6": {
+   "component": "label",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "Label_src_components_common_Label_Label_js__7": {
+   "component": "label",
+   "pct": 0,
+   "ok": true,
+   "rules": 7,
+   "level": "atom"
+  },
+  "Label_src_components_common_Label_Label_js__8": {
+   "component": "label",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "IconHome_src_components_svg_js__1": {
+   "component": "icon-home",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "PurposeRadioButtonRightComponent_src_tenant_bayut_components__1": {
+   "component": "purpose-radio-button-right-component",
+   "pct": 0,
+   "ok": true,
+   "rules": 8,
+   "level": "atom"
+  },
+  "IconRent_src_components_svg_js__1": {
+   "component": "icon-rent",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "IconPropertyType_src_components_svg_js__1": {
+   "component": "icon-property-type",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "IconResidential_src_components_svg_js__1": {
+   "component": "icon-residential",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "IconCommercial_src_components_svg_js__1": {
+   "component": "icon-commercial",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "SelectInput_src_components_common_select_select_js__1": {
+   "component": "select-input",
+   "pct": 0,
+   "ok": true,
+   "rules": 58,
+   "level": "molecule"
+  },
+  "SelectInput_src_components_common_select_select_js__2": {
+   "component": "select-input",
+   "pct": 0,
+   "ok": true,
+   "rules": 56,
+   "level": "molecule"
+  },
+  "SelectInput_src_components_common_select_select_js__3": {
+   "component": "select-input",
+   "pct": 6.27,
+   "ok": false,
+   "rules": 57,
+   "level": "molecule"
+  },
+  "SelectInput_src_components_common_select_select_js__4": {
+   "component": "select-input",
+   "pct": 0,
+   "ok": true,
+   "rules": 58,
+   "level": "molecule"
+  },
+  "SelectInput_src_components_common_select_select_js__5": {
+   "component": "select-input",
+   "pct": 0,
+   "ok": true,
+   "rules": 68,
+   "level": "molecule"
+  },
+  "SelectInput_src_components_common_select_select_js__6": {
+   "component": "select-input",
+   "pct": 0,
+   "ok": true,
+   "rules": 63,
+   "level": "molecule"
+  },
+  "SelectInput_src_components_common_select_select_js__7": {
+   "component": "select-input",
+   "pct": 0,
+   "ok": true,
+   "rules": 53,
+   "level": "molecule"
+  },
+  "IconPropertySubType_src_components_svg_js__1": {
+   "component": "icon-property-sub-type",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "TextInput_src_components_common_textInput_textInput_js__1": {
+   "component": "text-input",
+   "pct": 0,
+   "ok": true,
+   "rules": 28,
+   "level": "molecule"
+  },
+  "TextInput_src_components_common_textInput_textInput_js__2": {
+   "component": "text-input",
+   "pct": 0,
+   "ok": true,
+   "rules": 42,
+   "level": "molecule"
+  },
+  "TextInput_src_components_common_textInput_textInput_js__3": {
+   "component": "text-input",
+   "pct": 4.317,
+   "ok": false,
+   "rules": 52,
+   "level": "molecule"
+  },
+  "TextInput_src_components_common_textInput_textInput_js__4": {
+   "component": "text-input",
+   "pct": 0,
+   "ok": true,
+   "rules": 51,
+   "level": "molecule"
+  },
+  "TextInput_src_components_common_textInput_textInput_js__5": {
+   "component": "text-input",
+   "pct": 0,
+   "ok": true,
+   "rules": 53,
+   "level": "molecule"
+  },
+  "TextInput_src_components_common_textInput_textInput_js__6": {
+   "component": "text-input",
+   "pct": 0,
+   "ok": true,
+   "rules": 52,
+   "level": "molecule"
+  },
+  "TextInput_src_components_common_textInput_textInput_js__7": {
+   "component": "text-input",
+   "pct": 0,
+   "ok": true,
+   "rules": 21,
+   "level": "molecule"
+  },
+  "TextInput_src_components_common_textInput_textInput_js__8": {
+   "component": "text-input",
+   "pct": 0,
+   "ok": true,
+   "rules": 51,
+   "level": "molecule"
+  },
+  "IconDocument_src_components_svg_js__1": {
+   "component": "icon-document",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "IconPropertyAge_src_components_svg_js__1": {
+   "component": "icon-property-age",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "IconAreaSize_src_components_svg_js__1": {
+   "component": "icon-area-size",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "IconAreaSize_src_components_svg_js__2": {
+   "component": "icon-area-size",
+   "pct": 0,
+   "ok": true,
+   "rules": 4,
+   "level": "atom"
+  },
+  "IconPriceTag_src_components_svg_js__1": {
+   "component": "icon-price-tag",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "IconLocationPurpose_src_components_svg_js__1": {
+   "component": "icon-location-purpose",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "LocationSelect_src_tenant_bayut_components_post-listing_loca__2": {
+   "component": "location-select",
+   "pct": 0,
+   "ok": true,
+   "rules": 58,
+   "level": "organism"
+  },
+  "LocationSelect_src_tenant_bayut_components_post-listing_loca__1": {
+   "component": "location-select",
+   "pct": 0.313,
+   "ok": true,
+   "rules": 68,
+   "level": "organism"
+  },
+  "LocationSelect_src_tenant_bayut_components_post-listing_loca__3": {
+   "component": "location-select",
+   "pct": 0.34,
+   "ok": true,
+   "rules": 74,
+   "level": "organism"
+  },
+  "IconContactInfo_src_components_svg_js__1": {
+   "component": "icon-contact-info",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "MobileVerification_src_components_mobile-number-verification__1": {
+   "component": "mobile-verification",
+   "pct": 0,
+   "ok": true,
+   "rules": 42,
+   "level": "molecule"
+  },
+  "MobileVerification_src_components_mobile-number-verification__2": {
+   "component": "mobile-verification",
+   "pct": 0,
+   "ok": true,
+   "rules": 29,
+   "level": "molecule"
+  },
+  "FeedbackPlaneIcon_src_components_svg_js__1": {
+   "component": "feedback-plane-icon",
+   "pct": 0.98,
+   "ok": true,
+   "rules": 3,
+   "level": "atom"
+  },
+  "pf-btn__1": {
+   "component": "antd-button",
+   "pct": 0,
+   "ok": true,
+   "rules": 36,
+   "level": "atom"
+  },
+  "pf-btn__2": {
+   "component": "antd-button",
+   "pct": 0.469,
+   "ok": true,
+   "rules": 34,
+   "level": "atom"
+  },
+  "pf-btn__3": {
+   "component": "antd-button",
+   "pct": 0,
+   "ok": true,
+   "rules": 36,
+   "level": "atom"
+  },
+  "pf-btn__4": {
+   "component": "antd-button",
+   "pct": 0,
+   "ok": true,
+   "rules": 51,
+   "level": "atom"
+  },
+  "pf-btn__5": {
+   "component": "antd-button",
+   "pct": 2.011,
+   "ok": false,
+   "rules": 28,
+   "level": "atom"
+  },
+  "pf-btn__6": {
+   "component": "antd-button",
+   "pct": 0,
+   "ok": true,
+   "rules": 39,
+   "level": "atom"
+  },
+  "pf-btn__7": {
+   "component": "antd-button",
+   "pct": 0,
+   "ok": true,
+   "rules": 26,
+   "level": "atom"
+  },
+  "pf-btn__8": {
+   "component": "antd-button",
+   "pct": 0,
+   "ok": true,
+   "rules": 33,
+   "level": "atom"
+  },
+  "pf-badge__1": {
+   "component": "antd-badge",
+   "pct": 0,
+   "ok": true,
+   "rules": 49,
+   "level": "atom"
+  },
+  "pf-badge__2": {
+   "component": "antd-badge",
+   "pct": 0,
+   "ok": true,
+   "rules": 14,
+   "level": "atom"
+  },
+  "pf-badge__3": {
+   "component": "antd-badge",
+   "pct": 0,
+   "ok": true,
+   "rules": 29,
+   "level": "atom"
+  },
+  "pf-badge__4": {
+   "component": "antd-badge",
+   "pct": 0.442,
+   "ok": true,
+   "rules": 41,
+   "level": "atom"
+  },
+  "pf-badge__5": {
+   "component": "antd-badge",
+   "pct": 0,
+   "ok": true,
+   "rules": 13,
+   "level": "atom"
+  },
+  "pf-badge__6": {
+   "component": "antd-badge",
+   "pct": 0,
+   "ok": true,
+   "rules": 19,
+   "level": "atom"
+  },
+  "pf-badge__7": {
+   "component": "antd-badge",
+   "pct": 0,
+   "ok": true,
+   "rules": 23,
+   "level": "atom"
+  },
+  "pf-badge__8": {
+   "component": "antd-badge",
+   "pct": 0,
+   "ok": true,
+   "rules": 27,
+   "level": "atom"
+  },
+  "pf-input-affix-wrapper__1": {
+   "component": "antd-input",
+   "pct": 0,
+   "ok": true,
+   "rules": 36,
+   "level": "atom"
+  },
+  "pf-input-affix-wrapper__2": {
+   "component": "antd-input",
+   "pct": 0.04,
+   "ok": true,
+   "rules": 41,
+   "level": "atom"
+  },
+  "pf-input-affix-wrapper__3": {
+   "component": "antd-input",
+   "pct": 0,
+   "ok": true,
+   "rules": 49,
+   "level": "atom"
+  },
+  "pf-input-affix-wrapper__4": {
+   "component": "antd-input",
+   "pct": 0,
+   "ok": true,
+   "rules": 48,
+   "level": "atom"
+  },
+  "pf-input-affix-wrapper__5": {
+   "component": "antd-input",
+   "pct": 0,
+   "ok": true,
+   "rules": 38,
+   "level": "atom"
+  },
+  "pf-input-affix-wrapper__6": {
+   "component": "antd-input",
+   "pct": 0,
+   "ok": true,
+   "rules": 40,
+   "level": "atom"
+  },
+  "pf-input-affix-wrapper__7": {
+   "component": "antd-input",
+   "pct": 0,
+   "ok": true,
+   "rules": 41,
+   "level": "atom"
+  },
+  "pf-input-affix-wrapper__8": {
+   "component": "antd-input",
+   "pct": 0,
+   "ok": true,
+   "rules": 47,
+   "level": "atom"
+  },
+  "pf-input__1": {
+   "component": "antd-input-x",
+   "pct": 0,
+   "ok": true,
+   "rules": 17,
+   "level": "atom"
+  },
+  "pf-input__2": {
+   "component": "antd-input-x",
+   "pct": 0,
+   "ok": true,
+   "rules": 15,
+   "level": "atom"
+  },
+  "pf-input__3": {
+   "component": "antd-input-x",
+   "pct": 0,
+   "ok": true,
+   "rules": 19,
+   "level": "atom"
+  },
+  "pf-input__4": {
+   "component": "antd-input-x",
+   "pct": 2.061,
+   "ok": false,
+   "rules": 16,
+   "level": "atom"
+  },
+  "pf-input__5": {
+   "component": "antd-input-x",
+   "pct": 0,
+   "ok": true,
+   "rules": 18,
+   "level": "atom"
+  },
+  "pf-input__6": {
+   "component": "antd-input-x",
+   "pct": 0,
+   "ok": true,
+   "rules": 20,
+   "level": "atom"
+  },
+  "pf-input__7": {
+   "component": "antd-input-x",
+   "pct": 0,
+   "ok": true,
+   "rules": 19,
+   "level": "atom"
+  },
+  "pf-input__8": {
+   "component": "antd-input-x",
+   "pct": 22.482,
+   "ok": false,
+   "rules": 16,
+   "level": "atom"
+  },
+  "pf-radio-wrapper__1": {
+   "component": "antd-radio",
+   "pct": 0,
+   "ok": true,
+   "rules": 38,
+   "level": "atom"
+  },
+  "pf-radio-wrapper__2": {
+   "component": "antd-radio",
+   "pct": 0,
+   "ok": true,
+   "rules": 42,
+   "level": "atom"
+  },
+  "pf-radio-wrapper__3": {
+   "component": "antd-radio",
+   "pct": 0,
+   "ok": true,
+   "rules": 44,
+   "level": "atom"
+  },
+  "pf-radio-wrapper__4": {
+   "component": "antd-radio",
+   "pct": 0,
+   "ok": true,
+   "rules": 24,
+   "level": "atom"
+  },
+  "pf-radio-wrapper__5": {
+   "component": "antd-radio",
+   "pct": 0.026,
+   "ok": true,
+   "rules": 35,
+   "level": "atom"
+  },
+  "pf-radio-wrapper__6": {
+   "component": "antd-radio",
+   "pct": 0,
+   "ok": true,
+   "rules": 34,
+   "level": "atom"
+  },
+  "pf-progress__1": {
+   "component": "antd-progress",
+   "pct": 0,
+   "ok": true,
+   "rules": 32,
+   "level": "atom"
+  },
+  "pf-progress__2": {
+   "component": "antd-progress",
+   "pct": 21.4,
+   "ok": false,
+   "rules": 22,
+   "level": "atom"
+  },
+  "pf-progress__3": {
+   "component": "antd-progress",
+   "pct": 0,
+   "ok": true,
+   "rules": 45,
+   "level": "atom"
+  },
+  "pf-progress__4": {
+   "component": "antd-progress",
+   "pct": 0,
+   "ok": true,
+   "rules": 29,
+   "level": "atom"
+  },
+  "pf-progress__5": {
+   "component": "antd-progress",
+   "pct": 0,
+   "ok": true,
+   "rules": 22,
+   "level": "atom"
+  },
+  "pf-progress__6": {
+   "component": "antd-progress",
+   "pct": 0,
+   "ok": true,
+   "rules": 42,
+   "level": "atom"
+  },
+  "pf-select__1": {
+   "component": "antd-select",
+   "pct": 0,
+   "ok": true,
+   "rules": 54,
+   "level": "molecule"
+  },
+  "pf-select__2": {
+   "component": "antd-select",
+   "pct": 0,
+   "ok": true,
+   "rules": 52,
+   "level": "molecule"
+  },
+  "pf-select__3": {
+   "component": "antd-select",
+   "pct": 0,
+   "ok": true,
+   "rules": 54,
+   "level": "molecule"
+  },
+  "pf-select__4": {
+   "component": "antd-select",
+   "pct": 0,
+   "ok": true,
+   "rules": 56,
+   "level": "molecule"
+  },
+  "pf-select__5": {
+   "component": "antd-select",
+   "pct": 0,
+   "ok": true,
+   "rules": 54,
+   "level": "molecule"
+  },
+  "pf-select__6": {
+   "component": "antd-select",
+   "pct": 0,
+   "ok": true,
+   "rules": 58,
+   "level": "molecule"
+  },
+  "pf-select__7": {
+   "component": "antd-select",
+   "pct": 2.721,
+   "ok": false,
+   "rules": 59,
+   "level": "molecule"
+  },
+  "pf-select__8": {
+   "component": "antd-select",
+   "pct": 0,
+   "ok": true,
+   "rules": 58,
+   "level": "molecule"
+  },
+  "pf-radio-group__1": {
+   "component": "antd-radio-group",
+   "pct": 0,
+   "ok": true,
+   "rules": 41,
+   "level": "molecule"
+  },
+  "pf-radio-group__2": {
+   "component": "antd-radio-group",
+   "pct": 0.122,
+   "ok": true,
+   "rules": 64,
+   "level": "molecule"
+  },
+  "pf-radio-group__3": {
+   "component": "antd-radio-group",
+   "pct": 0,
+   "ok": true,
+   "rules": 28,
+   "level": "molecule"
+  },
+  "pf-radio-group__4": {
+   "component": "antd-radio-group",
+   "pct": 0,
+   "ok": true,
+   "rules": 66,
+   "level": "molecule"
+  },
+  "pf-card__8": {
+   "component": "antd-card",
+   "pct": 0.219,
+   "ok": true,
+   "rules": 81,
+   "level": "organism"
+  },
+  "pf-card__4": {
+   "component": "antd-card",
+   "pct": 0,
+   "ok": true,
+   "rules": 85,
+   "level": "organism"
+  },
+  "pf-card__1": {
+   "component": "antd-card",
+   "pct": 0.863,
+   "ok": true,
+   "rules": 213,
+   "level": "organism"
+  },
+  "pf-menu__1": {
+   "component": "antd-menu",
+   "pct": 0.163,
+   "ok": true,
+   "rules": 59,
+   "level": "organism"
+  },
+  "pf-menu__2": {
+   "component": "antd-menu",
+   "pct": 3.234,
+   "ok": false,
+   "rules": 73,
+   "level": "organism"
+  },
+  "pf-layout-header__1": {
+   "component": "antd-layout-header",
+   "pct": 0,
+   "ok": true,
+   "rules": 134,
+   "level": "template"
+  },
+  "pf-layout-sider__1": {
+   "component": "antd-layout-sider",
+   "pct": 0.089,
+   "ok": true,
+   "rules": 115,
+   "level": "template"
+  },
+  "pf-layout-sider__2": {
+   "component": "antd-layout-sider",
+   "pct": 0.135,
+   "ok": true,
+   "rules": 132,
+   "level": "template"
+  },
+  "pf-layout-footer__1": {
+   "component": "antd-layout-footer",
+   "pct": 0,
+   "ok": true,
+   "rules": 16,
+   "level": "template"
+  },
+  "HeaderLink_src_tenant_common_components_headerLink_headerLin__1": {
+   "component": "header-link",
+   "pct": 0.926,
+   "ok": true,
+   "rules": 13,
+   "level": "atom"
+  },
+  "NotificationCentre_src_components_notification-center_notifi__1": {
+   "component": "notification-centre",
+   "pct": 0,
+   "ok": true,
+   "rules": 50,
+   "level": "molecule"
+  },
+  "NotificationCentre_src_components_notification-center_notifi__2": {
+   "component": "notification-centre",
+   "pct": 0,
+   "ok": true,
+   "rules": 55,
+   "level": "molecule"
+  },
+  "CreditsUsage_src_container_pages_credits-usage_credits-usage__1": {
+   "component": "credits-usage",
+   "pct": 10.298,
+   "ok": false,
+   "rules": 215,
+   "level": "page"
+  },
+  "LoaderWrapper_src_components_common_loader-wrapper_loader-wr__1": {
+   "component": "loader-wrapper",
+   "pct": 0.339,
+   "ok": true,
+   "rules": 143,
+   "level": "atom"
+  },
+  "LoaderWrapper_src_components_common_loader-wrapper_loader-wr__2": {
+   "component": "loader-wrapper",
+   "pct": 0,
+   "ok": true,
+   "rules": 116,
+   "level": "atom"
+  },
+  "LoaderWrapper_src_components_common_loader-wrapper_loader-wr__3": {
+   "component": "loader-wrapper",
+   "pct": 0.052,
+   "ok": true,
+   "rules": 119,
+   "level": "atom"
+  },
+  "LoaderWrapper_src_components_common_loader-wrapper_loader-wr__4": {
+   "component": "loader-wrapper",
+   "pct": 0,
+   "ok": true,
+   "rules": 87,
+   "level": "atom"
+  },
+  "LoaderWrapper_src_components_common_loader-wrapper_loader-wr__5": {
+   "component": "loader-wrapper",
+   "pct": 1.13,
+   "ok": false,
+   "rules": 98,
+   "level": "atom"
+  },
+  "LoaderWrapper_src_components_common_loader-wrapper_loader-wr__6": {
+   "component": "loader-wrapper",
+   "pct": 2.466,
+   "ok": false,
+   "rules": 64,
+   "level": "atom"
+  },
+  "LoaderWrapper_src_components_common_loader-wrapper_loader-wr__7": {
+   "component": "loader-wrapper",
+   "pct": 0.003,
+   "ok": true,
+   "rules": 158,
+   "level": "atom"
+  },
+  "LoaderWrapper_src_components_common_loader-wrapper_loader-wr__8": {
+   "component": "loader-wrapper",
+   "pct": 0.46,
+   "ok": true,
+   "rules": 250,
+   "level": "atom"
+  },
+  "Statistic_src_components_common_statistic_index_js__1": {
+   "component": "statistic",
+   "pct": 0,
+   "ok": true,
+   "rules": 20,
+   "level": "molecule"
+  },
+  "Statistic_src_components_common_statistic_index_js__2": {
+   "component": "statistic",
+   "pct": 0,
+   "ok": true,
+   "rules": 27,
+   "level": "molecule"
+  },
+  "Statistic_src_components_common_statistic_index_js__3": {
+   "component": "statistic",
+   "pct": 0,
+   "ok": true,
+   "rules": 20,
+   "level": "molecule"
+  },
+  "Statistic_src_components_common_statistic_index_js__4": {
+   "component": "statistic",
+   "pct": 0,
+   "ok": true,
+   "rules": 46,
+   "level": "molecule"
+  },
+  "Statistic_src_components_common_statistic_index_js__5": {
+   "component": "statistic",
+   "pct": 0,
+   "ok": true,
+   "rules": 36,
+   "level": "molecule"
+  },
+  "Statistic_src_components_common_statistic_index_js__6": {
+   "component": "statistic",
+   "pct": 1.613,
+   "ok": false,
+   "rules": 26,
+   "level": "molecule"
+  },
+  "Statistic_src_components_common_statistic_index_js__7": {
+   "component": "statistic",
+   "pct": 0,
+   "ok": true,
+   "rules": 43,
+   "level": "molecule"
+  },
+  "Statistic_src_components_common_statistic_index_js__8": {
+   "component": "statistic",
+   "pct": 0,
+   "ok": true,
+   "rules": 27,
+   "level": "molecule"
+  },
+  "ChartjsDonutChart_src_components_charts_chartjs_js__1": {
+   "component": "chartjs-donut-chart",
+   "pct": 0.104,
+   "ok": true,
+   "rules": 9,
+   "level": "molecule"
+  },
+  "ChartjsDonutChart_src_components_charts_chartjs_js__2": {
+   "component": "chartjs-donut-chart",
+   "pct": 0,
+   "ok": true,
+   "rules": 16,
+   "level": "molecule"
+  },
+  "ProductBreakdown_src_components_credits-usage_product-breakd__1": {
+   "component": "product-breakdown",
+   "pct": 0,
+   "ok": true,
+   "rules": 27,
+   "level": "molecule"
+  },
+  "Number_src_components_common_number_number_js__1": {
+   "component": "number",
+   "pct": 14.403,
+   "ok": false,
+   "rules": 9,
+   "level": "atom"
+  },
+  "Number_src_components_common_number_number_js__2": {
+   "component": "number",
+   "pct": 0,
+   "ok": true,
+   "rules": 10,
+   "level": "atom"
+  },
+  "Number_src_components_common_number_number_js__3": {
+   "component": "number",
+   "pct": 0,
+   "ok": true,
+   "rules": 9,
+   "level": "atom"
+  },
+  "Number_src_components_common_number_number_js__4": {
+   "component": "number",
+   "pct": 0,
+   "ok": true,
+   "rules": 10,
+   "level": "atom"
+  },
+  "InfiniteScroll_src_components_common_infinite-scroll_infinit__1": {
+   "component": "infinite-scroll",
+   "pct": 0.184,
+   "ok": true,
+   "rules": 93,
+   "level": "molecule"
+  },
+  "InfiniteScroll_src_components_common_infinite-scroll_infinit__2": {
+   "component": "infinite-scroll",
+   "pct": 0.151,
+   "ok": true,
+   "rules": 53,
+   "level": "molecule"
+  },
+  "List_src_components_common_infinite-scroll_infinite-scroll_j__1": {
+   "component": "list",
+   "pct": 0.184,
+   "ok": true,
+   "rules": 93,
+   "level": "molecule"
+  },
+  "List_src_components_common_infinite-scroll_infinite-scroll_j__2": {
+   "component": "list",
+   "pct": 0.151,
+   "ok": true,
+   "rules": 53,
+   "level": "molecule"
+  },
+  "HistoryBreakdown_src_components_credits-usage_history-breakd__1": {
+   "component": "history-breakdown",
+   "pct": 0.182,
+   "ok": true,
+   "rules": 89,
+   "level": "organism"
+  },
+  "HistoryBreakdown_src_components_credits-usage_history-breakd__2": {
+   "component": "history-breakdown",
+   "pct": 0.437,
+   "ok": true,
+   "rules": 89,
+   "level": "organism"
+  },
+  "ProductTag_src_components_common_product-tag_index_js__8": {
+   "component": "product-tag",
+   "pct": 0,
+   "ok": true,
+   "rules": 19,
+   "level": "organism"
+  },
+  "ProductTag_src_components_common_product-tag_index_js__1": {
+   "component": "product-tag",
+   "pct": 2.321,
+   "ok": false,
+   "rules": 19,
+   "level": "organism"
+  },
+  "ProductTag_src_components_common_product-tag_index_js__5": {
+   "component": "product-tag",
+   "pct": 0,
+   "ok": true,
+   "rules": 20,
+   "level": "organism"
+  },
+  "Tag_src_components_common_tag_tag_js__1": {
+   "component": "tag",
+   "pct": 2.321,
+   "ok": false,
+   "rules": 19,
+   "level": "atom"
+  },
+  "Tag_src_components_common_tag_tag_js__2": {
+   "component": "tag",
+   "pct": 0,
+   "ok": true,
+   "rules": 14,
+   "level": "atom"
+  },
+  "Tag_src_components_common_tag_tag_js__3": {
+   "component": "tag",
+   "pct": 0.126,
+   "ok": true,
+   "rules": 19,
+   "level": "atom"
+  },
+  "Tag_src_components_common_tag_tag_js__4": {
+   "component": "tag",
+   "pct": 1.592,
+   "ok": false,
+   "rules": 19,
+   "level": "atom"
+  },
+  "Tag_src_components_common_tag_tag_js__5": {
+   "component": "tag",
+   "pct": 2.033,
+   "ok": false,
+   "rules": 18,
+   "level": "atom"
+  },
+  "Tag_src_components_common_tag_tag_js__6": {
+   "component": "tag",
+   "pct": 0,
+   "ok": true,
+   "rules": 18,
+   "level": "atom"
+  },
+  "Tag_src_components_common_tag_tag_js__7": {
+   "component": "tag",
+   "pct": 0,
+   "ok": true,
+   "rules": 20,
+   "level": "atom"
+  },
+  "Tag_src_components_common_tag_tag_js__8": {
+   "component": "tag",
+   "pct": 0,
+   "ok": true,
+   "rules": 20,
+   "level": "atom"
+  },
+  "IconSuperHot_src_components_svg_js__1": {
+   "component": "icon-super-hot",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "IconSuperHot_src_components_svg_js__2": {
+   "component": "icon-super-hot",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "IconSuperHot_src_components_svg_js__3": {
+   "component": "icon-super-hot",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "IconSuperHot_src_components_svg_js__4": {
+   "component": "icon-super-hot",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "Image_src_components_common_image_image_js__1": {
+   "component": "image",
+   "pct": 0,
+   "ok": true,
+   "rules": 14,
+   "level": "atom"
+  },
+  "Image_src_components_common_image_image_js__2": {
+   "component": "image",
+   "pct": 0,
+   "ok": true,
+   "rules": 14,
+   "level": "atom"
+  },
+  "Image_src_components_common_image_image_js__3": {
+   "component": "image",
+   "pct": 0,
+   "ok": true,
+   "rules": 14,
+   "level": "atom"
+  },
+  "Image_src_components_common_image_image_js__4": {
+   "component": "image",
+   "pct": 0,
+   "ok": true,
+   "rules": 14,
+   "level": "atom"
+  },
+  "Image_src_components_common_image_image_js__5": {
+   "component": "image",
+   "pct": 0,
+   "ok": true,
+   "rules": 11,
+   "level": "atom"
+  },
+  "Image_src_components_common_image_image_js__6": {
+   "component": "image",
+   "pct": 0,
+   "ok": true,
+   "rules": 13,
+   "level": "atom"
+  },
+  "Image_src_components_common_image_image_js__7": {
+   "component": "image",
+   "pct": 0,
+   "ok": true,
+   "rules": 13,
+   "level": "atom"
+  },
+  "Image_src_components_common_image_image_js__8": {
+   "component": "image",
+   "pct": 0,
+   "ok": true,
+   "rules": 13,
+   "level": "atom"
+  },
+  "TextWithIcon_src_components_common_textWithIcon_textWithIcon__1": {
+   "component": "text-with-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 10,
+   "level": "atom"
+  },
+  "TextWithIcon_src_components_common_textWithIcon_textWithIcon__2": {
+   "component": "text-with-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "TextWithIcon_src_components_common_textWithIcon_textWithIcon__3": {
+   "component": "text-with-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 12,
+   "level": "atom"
+  },
+  "TextWithIcon_src_components_common_textWithIcon_textWithIcon__4": {
+   "component": "text-with-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "TextWithIcon_src_components_common_textWithIcon_textWithIcon__5": {
+   "component": "text-with-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 10,
+   "level": "atom"
+  },
+  "TextWithIcon_src_components_common_textWithIcon_textWithIcon__6": {
+   "component": "text-with-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 11,
+   "level": "atom"
+  },
+  "TextWithIcon_src_components_common_textWithIcon_textWithIcon__7": {
+   "component": "text-with-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 11,
+   "level": "atom"
+  },
+  "TextWithIcon_src_components_common_textWithIcon_textWithIcon__8": {
+   "component": "text-with-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 12,
+   "level": "atom"
+  },
+  "IconBedroom_src_components_svg_js__1": {
+   "component": "icon-bedroom",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "IconBedroom_src_components_svg_js__2": {
+   "component": "icon-bedroom",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "IconBasic_src_components_svg_js__1": {
+   "component": "icon-basic",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "IconBasic_src_components_svg_js__2": {
+   "component": "icon-basic",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "IconBasic_src_components_svg_js__3": {
+   "component": "icon-basic",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "IconBasic_src_components_svg_js__4": {
+   "component": "icon-basic",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "FeedbackTab_src_components_feedback_FeedbackTab_js__1": {
+   "component": "feedback-tab",
+   "pct": 25.258,
+   "ok": false,
+   "rules": 4,
+   "level": "molecule"
+  },
+  "FeedbackTab_src_components_feedback_FeedbackTab_js__2": {
+   "component": "feedback-tab",
+   "pct": 4.078,
+   "ok": false,
+   "rules": 35,
+   "level": "molecule"
+  },
+  "pf-tag__1": {
+   "component": "antd-tag",
+   "pct": 2.321,
+   "ok": false,
+   "rules": 19,
+   "level": "atom"
+  },
+  "pf-tag__2": {
+   "component": "antd-tag",
+   "pct": 4.234,
+   "ok": false,
+   "rules": 14,
+   "level": "atom"
+  },
+  "pf-tag__3": {
+   "component": "antd-tag",
+   "pct": 0.126,
+   "ok": true,
+   "rules": 19,
+   "level": "atom"
+  },
+  "pf-tag__4": {
+   "component": "antd-tag",
+   "pct": 1.592,
+   "ok": false,
+   "rules": 19,
+   "level": "atom"
+  },
+  "pf-tag__5": {
+   "component": "antd-tag",
+   "pct": 2.033,
+   "ok": false,
+   "rules": 18,
+   "level": "atom"
+  },
+  "pf-tag__6": {
+   "component": "antd-tag",
+   "pct": 0,
+   "ok": true,
+   "rules": 18,
+   "level": "atom"
+  },
+  "pf-tag__7": {
+   "component": "antd-tag",
+   "pct": 0,
+   "ok": true,
+   "rules": 20,
+   "level": "atom"
+  },
+  "pf-tag__8": {
+   "component": "antd-tag",
+   "pct": 0,
+   "ok": true,
+   "rules": 20,
+   "level": "atom"
+  },
+  "pf-typography__1": {
+   "component": "antd-typography",
+   "pct": 0,
+   "ok": true,
+   "rules": 14,
+   "level": "atom"
+  },
+  "pf-typography__2": {
+   "component": "antd-typography",
+   "pct": 0,
+   "ok": true,
+   "rules": 9,
+   "level": "atom"
+  },
+  "pf-typography__3": {
+   "component": "antd-typography",
+   "pct": 14.403,
+   "ok": false,
+   "rules": 9,
+   "level": "atom"
+  },
+  "pf-typography__4": {
+   "component": "antd-typography",
+   "pct": 0,
+   "ok": true,
+   "rules": 10,
+   "level": "atom"
+  },
+  "pf-typography__5": {
+   "component": "antd-typography",
+   "pct": 0,
+   "ok": true,
+   "rules": 10,
+   "level": "atom"
+  },
+  "pf-typography__6": {
+   "component": "antd-typography",
+   "pct": 0,
+   "ok": true,
+   "rules": 10,
+   "level": "atom"
+  },
+  "pf-typography__7": {
+   "component": "antd-typography",
+   "pct": 12.57,
+   "ok": false,
+   "rules": 10,
+   "level": "atom"
+  },
+  "pf-typography__8": {
+   "component": "antd-typography",
+   "pct": 0,
+   "ok": true,
+   "rules": 10,
+   "level": "atom"
+  },
+  "pf-image__1": {
+   "component": "antd-image",
+   "pct": 0,
+   "ok": true,
+   "rules": 14,
+   "level": "atom"
+  },
+  "pf-image__2": {
+   "component": "antd-image",
+   "pct": 0,
+   "ok": true,
+   "rules": 14,
+   "level": "atom"
+  },
+  "pf-image__3": {
+   "component": "antd-image",
+   "pct": 0,
+   "ok": true,
+   "rules": 14,
+   "level": "atom"
+  },
+  "pf-image__4": {
+   "component": "antd-image",
+   "pct": 0,
+   "ok": true,
+   "rules": 14,
+   "level": "atom"
+  },
+  "pf-image__5": {
+   "component": "antd-image",
+   "pct": 0,
+   "ok": true,
+   "rules": 11,
+   "level": "atom"
+  },
+  "pf-image__6": {
+   "component": "antd-image",
+   "pct": 0,
+   "ok": true,
+   "rules": 13,
+   "level": "atom"
+  },
+  "pf-image__7": {
+   "component": "antd-image",
+   "pct": 0,
+   "ok": true,
+   "rules": 13,
+   "level": "atom"
+  },
+  "pf-image__8": {
+   "component": "antd-image",
+   "pct": 0,
+   "ok": true,
+   "rules": 13,
+   "level": "atom"
+  },
+  "pf-statistic__1": {
+   "component": "antd-statistic",
+   "pct": 0,
+   "ok": true,
+   "rules": 16,
+   "level": "molecule"
+  },
+  "pf-statistic__2": {
+   "component": "antd-statistic",
+   "pct": 0,
+   "ok": true,
+   "rules": 16,
+   "level": "molecule"
+  },
+  "pf-statistic__3": {
+   "component": "antd-statistic",
+   "pct": 0,
+   "ok": true,
+   "rules": 16,
+   "level": "molecule"
+  },
+  "pf-statistic__4": {
+   "component": "antd-statistic",
+   "pct": 0,
+   "ok": true,
+   "rules": 16,
+   "level": "molecule"
+  },
+  "pf-statistic__5": {
+   "component": "antd-statistic",
+   "pct": 0,
+   "ok": true,
+   "rules": 38,
+   "level": "molecule"
+  },
+  "pf-statistic__6": {
+   "component": "antd-statistic",
+   "pct": 0,
+   "ok": true,
+   "rules": 26,
+   "level": "molecule"
+  },
+  "pf-statistic__7": {
+   "component": "antd-statistic",
+   "pct": 0,
+   "ok": true,
+   "rules": 18,
+   "level": "molecule"
+  },
+  "pf-statistic__8": {
+   "component": "antd-statistic",
+   "pct": 0,
+   "ok": true,
+   "rules": 18,
+   "level": "molecule"
+  },
+  "pf-list__2": {
+   "component": "antd-list",
+   "pct": 0,
+   "ok": true,
+   "rules": 72,
+   "level": "organism"
+  },
+  "pf-list__1": {
+   "component": "antd-list",
+   "pct": 0,
+   "ok": true,
+   "rules": 34,
+   "level": "organism"
+  },
+  "pf-list__3": {
+   "component": "antd-list",
+   "pct": 0.729,
+   "ok": true,
+   "rules": 23,
+   "level": "organism"
+  },
+  "DashboardPromoBanner_src_components_dashboard-promo-banner_d__1": {
+   "component": "dashboard-promo-banner",
+   "pct": 0,
+   "ok": true,
+   "rules": 10,
+   "level": "organism"
+  },
+  "DashboardPromoBanner_src_components_dashboard-promo-banner_d__2": {
+   "component": "dashboard-promo-banner",
+   "pct": 0,
+   "ok": true,
+   "rules": 10,
+   "level": "organism"
+  },
+  "Dropdown_src_components_common_dropdown_dropdown_js__1": {
+   "component": "dropdown",
+   "pct": 0,
+   "ok": true,
+   "rules": 14,
+   "level": "molecule"
+  },
+  "Dropdown_src_components_common_dropdown_dropdown_js__2": {
+   "component": "dropdown",
+   "pct": 0,
+   "ok": true,
+   "rules": 14,
+   "level": "molecule"
+  },
+  "ListingBreakdown_src_components_widgets_listing-breakdown_li__1": {
+   "component": "listing-breakdown",
+   "pct": 0.052,
+   "ok": true,
+   "rules": 119,
+   "level": "organism"
+  },
+  "ListingBreakdown_src_components_widgets_listing-breakdown_li__2": {
+   "component": "listing-breakdown",
+   "pct": 1.13,
+   "ok": false,
+   "rules": 98,
+   "level": "organism"
+  },
+  "ActiveListingIcon_src_components_svg_js__1": {
+   "component": "active-listing-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "IconForSale_src_components_svg_js__1": {
+   "component": "icon-for-sale",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "IconForRent_src_components_svg_js__1": {
+   "component": "icon-for-rent",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "IconRental_src_components_svg_js__1": {
+   "component": "icon-rental",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "IconRental_src_components_svg_js__2": {
+   "component": "icon-rental",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "CreditsQuota_src_components_widgets_credits-quota_credits-qu__1": {
+   "component": "credits-quota",
+   "pct": 0,
+   "ok": true,
+   "rules": 157,
+   "level": "organism"
+  },
+  "CreditsQuota_src_components_widgets_credits-quota_credits-qu__2": {
+   "component": "credits-quota",
+   "pct": 0,
+   "ok": true,
+   "rules": 157,
+   "level": "organism"
+  },
+  "QuotaCreditsStatsWidget_src_components_widgets_QuotaCreditsS__1": {
+   "component": "quota-credits-stats-widget",
+   "pct": 0,
+   "ok": true,
+   "rules": 46,
+   "level": "molecule"
+  },
+  "QuotaCreditsStatsWidget_src_components_widgets_QuotaCreditsS__2": {
+   "component": "quota-credits-stats-widget",
+   "pct": 0,
+   "ok": true,
+   "rules": 46,
+   "level": "molecule"
+  },
+  "IconPkgPlatinumPlus_src_components_svg_js__1": {
+   "component": "icon-pkg-platinum-plus",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "ReportsLeadsSection_src_components_widgets_ReportsLeadsTraff__1": {
+   "component": "reports-leads-section",
+   "pct": 0,
+   "ok": true,
+   "rules": 278,
+   "level": "organism"
+  },
+  "ReportsLeadsSection_src_components_widgets_ReportsLeadsTraff__2": {
+   "component": "reports-leads-section",
+   "pct": 0,
+   "ok": true,
+   "rules": 278,
+   "level": "organism"
+  },
+  "LeadsViewsWidget_src_components_widgets_LeadsStatsGraphWidge__2": {
+   "component": "leads-views-widget",
+   "pct": 0,
+   "ok": true,
+   "rules": 276,
+   "level": "organism"
+  },
+  "LeadsViewsWidget_src_components_widgets_LeadsStatsGraphWidge__1": {
+   "component": "leads-views-widget",
+   "pct": 0.007,
+   "ok": true,
+   "rules": 276,
+   "level": "organism"
+  },
+  "LeadsViewsWidget_src_components_widgets_LeadsStatsGraphWidge__3": {
+   "component": "leads-views-widget",
+   "pct": 0,
+   "ok": true,
+   "rules": 276,
+   "level": "organism"
+  },
+  "Segmented_src_components_common_segmented_segmented_js__1": {
+   "component": "segmented",
+   "pct": 0,
+   "ok": true,
+   "rules": 32,
+   "level": "molecule"
+  },
+  "DateFilter_src_components_common_dateFilter_DateFilter_js__1": {
+   "component": "date-filter",
+   "pct": 0,
+   "ok": true,
+   "rules": 42,
+   "level": "molecule"
+  },
+  "DateFilter_src_components_common_dateFilter_DateFilter_js__2": {
+   "component": "date-filter",
+   "pct": 0,
+   "ok": true,
+   "rules": 53,
+   "level": "molecule"
+  },
+  "DateFilter_src_components_common_dateFilter_DateFilter_js__3": {
+   "component": "date-filter",
+   "pct": 0,
+   "ok": true,
+   "rules": 52,
+   "level": "molecule"
+  },
+  "DateFilter_src_components_common_dateFilter_DateFilter_js__4": {
+   "component": "date-filter",
+   "pct": 0,
+   "ok": true,
+   "rules": 51,
+   "level": "molecule"
+  },
+  "DateFilter_src_components_common_dateFilter_DateFilter_js__5": {
+   "component": "date-filter",
+   "pct": 0,
+   "ok": true,
+   "rules": 53,
+   "level": "molecule"
+  },
+  "DateFilter_src_components_common_dateFilter_DateFilter_js__6": {
+   "component": "date-filter",
+   "pct": 0,
+   "ok": true,
+   "rules": 42,
+   "level": "molecule"
+  },
+  "ChartjsAreaChart_src_components_charts_chartjs_js__1": {
+   "component": "chartjs-area-chart",
+   "pct": 0,
+   "ok": true,
+   "rules": 9,
+   "level": "organism"
+  },
+  "ChartjsAreaChart_src_components_charts_chartjs_js__2": {
+   "component": "chartjs-area-chart",
+   "pct": 0,
+   "ok": true,
+   "rules": 9,
+   "level": "organism"
+  },
+  "ListingContainer_src_components_listing-container_ListingCon__2": {
+   "component": "listing-container",
+   "pct": 2.343,
+   "ok": false,
+   "rules": 492,
+   "level": "page"
+  },
+  "ListingContainer_src_components_listing-container_ListingCon__3": {
+   "component": "listing-container",
+   "pct": 0.002,
+   "ok": true,
+   "rules": 383,
+   "level": "page"
+  },
+  "ListingContainer_src_components_listing-container_ListingCon__1": {
+   "component": "listing-container",
+   "pct": 0.042,
+   "ok": true,
+   "rules": 250,
+   "level": "page"
+  },
+  "DataTable_src_components_common_dataTable_dataTable_js__3": {
+   "component": "data-table",
+   "pct": 0,
+   "ok": true,
+   "rules": 266,
+   "level": "page"
+  },
+  "DataTable_src_components_common_dataTable_dataTable_js__2": {
+   "component": "data-table",
+   "pct": 0.036,
+   "ok": true,
+   "rules": 346,
+   "level": "page"
+  },
+  "DataTable_src_components_common_dataTable_dataTable_js__1": {
+   "component": "data-table",
+   "pct": 0,
+   "ok": true,
+   "rules": 247,
+   "level": "page"
+  },
+  "ListingStats_src_components_table_table-components_listing-s__1": {
+   "component": "listing-stats",
+   "pct": 1.935,
+   "ok": false,
+   "rules": 18,
+   "level": "molecule"
+  },
+  "PlatformListingActions_src_components_table_table-components__1": {
+   "component": "platform-listing-actions",
+   "pct": 0,
+   "ok": true,
+   "rules": 76,
+   "level": "organism"
+  },
+  "PlatformListingActions_src_components_table_table-components__3": {
+   "component": "platform-listing-actions",
+   "pct": 0,
+   "ok": true,
+   "rules": 22,
+   "level": "organism"
+  },
+  "PlatformListingActions_src_components_table_table-components__2": {
+   "component": "platform-listing-actions",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "organism"
+  },
+  "TableListingActions_src_components_table_table-components_ta__1": {
+   "component": "table-listing-actions",
+   "pct": 0,
+   "ok": true,
+   "rules": 46,
+   "level": "organism"
+  },
+  "TableListingActions_src_components_table_table-components_ta__2": {
+   "component": "table-listing-actions",
+   "pct": 0,
+   "ok": true,
+   "rules": 44,
+   "level": "organism"
+  },
+  "TableListingActions_src_components_table_table-components_ta__3": {
+   "component": "table-listing-actions",
+   "pct": 0,
+   "ok": true,
+   "rules": 46,
+   "level": "organism"
+  },
+  "PlatformActions_src_tenant_bayut_components_listing_listing-__3": {
+   "component": "platform-actions",
+   "pct": 0,
+   "ok": true,
+   "rules": 76,
+   "level": "organism"
+  },
+  "PlatformActions_src_tenant_bayut_components_listing_listing-__2": {
+   "component": "platform-actions",
+   "pct": 0,
+   "ok": true,
+   "rules": 22,
+   "level": "organism"
+  },
+  "PlatformActions_src_tenant_bayut_components_listing_listing-__1": {
+   "component": "platform-actions",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "organism"
+  },
+  "pf-segmented__1": {
+   "component": "antd-segmented",
+   "pct": 0,
+   "ok": true,
+   "rules": 32,
+   "level": "molecule"
+  },
+  "pf-tabs__1": {
+   "component": "antd-tabs",
+   "pct": 0,
+   "ok": true,
+   "rules": 129,
+   "level": "molecule"
+  },
+  "pf-tabs__2": {
+   "component": "antd-tabs",
+   "pct": 0,
+   "ok": true,
+   "rules": 60,
+   "level": "molecule"
+  },
+  "pf-tabs__3": {
+   "component": "antd-tabs",
+   "pct": 0,
+   "ok": true,
+   "rules": 65,
+   "level": "molecule"
+  },
+  "pf-tabs__4": {
+   "component": "antd-tabs",
+   "pct": 0,
+   "ok": true,
+   "rules": 48,
+   "level": "molecule"
+  },
+  "pf-tabs__5": {
+   "component": "antd-tabs",
+   "pct": 0,
+   "ok": true,
+   "rules": 129,
+   "level": "molecule"
+  },
+  "pf-table-wrapper__1": {
+   "component": "antd-table",
+   "pct": 0.05,
+   "ok": true,
+   "rules": 230,
+   "level": "organism"
+  },
+  "pf-table-wrapper__2": {
+   "component": "antd-table",
+   "pct": 0,
+   "ok": true,
+   "rules": 138,
+   "level": "organism"
+  },
+  "pf-table-wrapper__3": {
+   "component": "antd-table",
+   "pct": 0.029,
+   "ok": true,
+   "rules": 48,
+   "level": "organism"
+  },
+  "Listings_src_tenant_bayut_components_listing_listings_js__1": {
+   "component": "listings",
+   "pct": 2.346,
+   "ok": false,
+   "rules": 492,
+   "level": "page"
+  },
+  "Listings_src_tenant_bayut_components_listing_listings_js__2": {
+   "component": "listings",
+   "pct": 0,
+   "ok": true,
+   "rules": 300,
+   "level": "page"
+  },
+  "Listings_src_tenant_bayut_components_listing_listings_js__3": {
+   "component": "listings",
+   "pct": 0,
+   "ok": true,
+   "rules": 309,
+   "level": "page"
+  },
+  "LmsShowMoreArrowIcon_src_components_svg_js__1": {
+   "component": "lms-show-more-arrow-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "LmsFilterSearchIcon_src_components_svg_js__1": {
+   "component": "lms-filter-search-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "LmsFilterSearchIcon_src_components_svg_js__2": {
+   "component": "lms-filter-search-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "ListingPurpose_src_components_table_table-components_listing__1": {
+   "component": "listing-purpose",
+   "pct": 9.213,
+   "ok": false,
+   "rules": 79,
+   "level": "organism"
+  },
+  "ListingPurpose_src_components_table_table-components_listing__2": {
+   "component": "listing-purpose",
+   "pct": 4.743,
+   "ok": false,
+   "rules": 66,
+   "level": "organism"
+  },
+  "ListingPurpose_src_components_table_table-components_listing__3": {
+   "component": "listing-purpose",
+   "pct": 3.044,
+   "ok": false,
+   "rules": 77,
+   "level": "organism"
+  },
+  "Health_src_tenant_common_components_listing_health_health_js__1": {
+   "component": "health",
+   "pct": 0,
+   "ok": true,
+   "rules": 16,
+   "level": "atom"
+  },
+  "Health_src_tenant_common_components_listing_health_health_js__2": {
+   "component": "health",
+   "pct": 0,
+   "ok": true,
+   "rules": 16,
+   "level": "atom"
+  },
+  "Health_src_tenant_common_components_listing_health_health_js__3": {
+   "component": "health",
+   "pct": 0,
+   "ok": true,
+   "rules": 16,
+   "level": "atom"
+  },
+  "Health_src_tenant_common_components_listing_health_health_js__4": {
+   "component": "health",
+   "pct": 0.471,
+   "ok": true,
+   "rules": 16,
+   "level": "atom"
+  },
+  "ListingHealth_src_components_listing-health_listing-health_j__1": {
+   "component": "listing-health",
+   "pct": 0,
+   "ok": true,
+   "rules": 16,
+   "level": "atom"
+  },
+  "ListingHealth_src_components_listing-health_listing-health_j__2": {
+   "component": "listing-health",
+   "pct": 0,
+   "ok": true,
+   "rules": 16,
+   "level": "atom"
+  },
+  "ListingHealth_src_components_listing-health_listing-health_j__3": {
+   "component": "listing-health",
+   "pct": 0,
+   "ok": true,
+   "rules": 16,
+   "level": "atom"
+  },
+  "ListingHealth_src_components_listing-health_listing-health_j__4": {
+   "component": "listing-health",
+   "pct": 0.471,
+   "ok": true,
+   "rules": 16,
+   "level": "atom"
+  },
+  "IconBathroom_src_components_svg_js__1": {
+   "component": "icon-bathroom",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "IconBathroom_src_components_svg_js__2": {
+   "component": "icon-bathroom",
+   "pct": 0,
+   "ok": true,
+   "rules": 4,
+   "level": "atom"
+  },
+  "ExpiryRenewal_src_components_table_table-components_expiry-r__1": {
+   "component": "expiry-renewal",
+   "pct": 0,
+   "ok": true,
+   "rules": 14,
+   "level": "molecule"
+  },
+  "ExpiryRenewal_src_components_table_table-components_expiry-r__2": {
+   "component": "expiry-renewal",
+   "pct": 0,
+   "ok": true,
+   "rules": 13,
+   "level": "molecule"
+  },
+  "PlatformStatus_src_components_table_table-components_platfor__1": {
+   "component": "platform-status",
+   "pct": 0,
+   "ok": true,
+   "rules": 17,
+   "level": "molecule"
+  },
+  "RenderUpgradeIcons_src_components_common_upgrade-icons_upgra__1": {
+   "component": "render-upgrade-icons",
+   "pct": 0,
+   "ok": true,
+   "rules": 40,
+   "level": "atom"
+  },
+  "RenderUpgradeIcons_src_components_common_upgrade-icons_upgra__2": {
+   "component": "render-upgrade-icons",
+   "pct": 0,
+   "ok": true,
+   "rules": 43,
+   "level": "atom"
+  },
+  "DroneIcon_src_components_svg_js__1": {
+   "component": "drone-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "RowActions_src_tenant_bayut_components_listing_listing-row-a__1": {
+   "component": "row-actions",
+   "pct": 0,
+   "ok": true,
+   "rules": 46,
+   "level": "organism"
+  },
+  "RowActions_src_tenant_bayut_components_listing_listing-row-a__2": {
+   "component": "row-actions",
+   "pct": 0,
+   "ok": true,
+   "rules": 44,
+   "level": "organism"
+  },
+  "RowActions_src_tenant_bayut_components_listing_listing-row-a__3": {
+   "component": "row-actions",
+   "pct": 0,
+   "ok": true,
+   "rules": 46,
+   "level": "organism"
+  },
+  "ListingsRowActions_src_tenant_bayut_components_listing_listi__1": {
+   "component": "listings-row-actions",
+   "pct": 0,
+   "ok": true,
+   "rules": 45,
+   "level": "organism"
+  },
+  "ListingsRowActions_src_tenant_bayut_components_listing_listi__2": {
+   "component": "listings-row-actions",
+   "pct": 0,
+   "ok": true,
+   "rules": 43,
+   "level": "organism"
+  },
+  "ListingsRowActions_src_tenant_bayut_components_listing_listi__3": {
+   "component": "listings-row-actions",
+   "pct": 0,
+   "ok": true,
+   "rules": 45,
+   "level": "organism"
+  },
+  "TableActions_src_components_table_table-actions_table-action__1": {
+   "component": "table-actions",
+   "pct": 0,
+   "ok": true,
+   "rules": 45,
+   "level": "molecule"
+  },
+  "TableActions_src_components_table_table-actions_table-action__2": {
+   "component": "table-actions",
+   "pct": 0,
+   "ok": true,
+   "rules": 43,
+   "level": "molecule"
+  },
+  "TableActions_src_components_table_table-actions_table-action__3": {
+   "component": "table-actions",
+   "pct": 0,
+   "ok": true,
+   "rules": 45,
+   "level": "molecule"
+  },
+  "TableActions_src_components_table_table-actions_table-action__4": {
+   "component": "table-actions",
+   "pct": 0,
+   "ok": true,
+   "rules": 49,
+   "level": "molecule"
+  },
+  "TrucheckSubIcon_src_components_utilities_icons_js__1": {
+   "component": "trucheck-sub-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 11,
+   "level": "atom"
+  },
+  "TruCheckIcon_src_components_svg_js__1": {
+   "component": "tru-check-icon",
+   "pct": 2.632,
+   "ok": false,
+   "rules": 4,
+   "level": "atom"
+  },
+  "TruCheckIcon_src_components_svg_js__2": {
+   "component": "tru-check-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 2,
+   "level": "atom"
+  },
+  "EligibleIcon_src_components_svg_js__1": {
+   "component": "eligible-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "EligibleIcon_src_components_svg_js__2": {
+   "component": "eligible-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 4,
+   "level": "atom"
+  },
+  "IconSellRentListing_src_components_svg_js__1": {
+   "component": "icon-sell-rent-listing",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "RequestedStateIcon_src_components_svg_js__1": {
+   "component": "requested-state-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "BookedBadge_src_components_svg_js__1": {
+   "component": "booked-badge",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "DiscountTag_src_components_discount-tag_DiscountTag_js__1": {
+   "component": "discount-tag",
+   "pct": 17.57,
+   "ok": false,
+   "rules": 12,
+   "level": "molecule"
+  },
+  "pf-pagination__1": {
+   "component": "antd-pagination",
+   "pct": 0,
+   "ok": true,
+   "rules": 61,
+   "level": "molecule"
+  },
+  "pf-form-item__1": {
+   "component": "antd-form-item",
+   "pct": 0,
+   "ok": true,
+   "rules": 73,
+   "level": "molecule"
+  },
+  "pf-form-item__2": {
+   "component": "antd-form-item",
+   "pct": 0,
+   "ok": true,
+   "rules": 124,
+   "level": "molecule"
+  },
+  "pf-form-item__3": {
+   "component": "antd-form-item",
+   "pct": 0,
+   "ok": true,
+   "rules": 73,
+   "level": "molecule"
+  },
+  "pf-form-item__4": {
+   "component": "antd-form-item",
+   "pct": 0,
+   "ok": true,
+   "rules": 47,
+   "level": "molecule"
+  },
+  "pf-form-item__5": {
+   "component": "antd-form-item",
+   "pct": 0,
+   "ok": true,
+   "rules": 86,
+   "level": "molecule"
+  },
+  "pf-form-item__6": {
+   "component": "antd-form-item",
+   "pct": 0,
+   "ok": true,
+   "rules": 51,
+   "level": "molecule"
+  },
+  "pf-form-item__7": {
+   "component": "antd-form-item",
+   "pct": 0,
+   "ok": true,
+   "rules": 112,
+   "level": "molecule"
+  },
+  "pf-form-item__8": {
+   "component": "antd-form-item",
+   "pct": 0,
+   "ok": true,
+   "rules": 80,
+   "level": "molecule"
+  },
+  "LeadsManagement_src_container_pages_lms_leads-management_js__1": {
+   "component": "leads-management",
+   "pct": 4.427,
+   "ok": false,
+   "rules": 402,
+   "level": "page"
+  },
+  "LeadsManagement_src_container_pages_lms_leads-management_js__2": {
+   "component": "leads-management",
+   "pct": 0.846,
+   "ok": true,
+   "rules": 403,
+   "level": "page"
+  },
+  "LeadsSummaryHeader_src_components_leads-management_leads-sum__1": {
+   "component": "leads-summary-header",
+   "pct": 0,
+   "ok": true,
+   "rules": 23,
+   "level": "organism"
+  },
+  "ChevronDown_src_components_svg_js__1": {
+   "component": "chevron-down",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "TotalLeadsCard_src_components_leads-management_total-leads-c__1": {
+   "component": "total-leads-card",
+   "pct": 0.884,
+   "ok": true,
+   "rules": 30,
+   "level": "molecule"
+  },
+  "TruLeadsBreakdownIcon_src_components_svg_js__1": {
+   "component": "tru-leads-breakdown-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "BayutMatchBreakdownIcon_src_components_svg_js__1": {
+   "component": "bayut-match-breakdown-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "LeadsDashboardCard_src_components_leads-management_leads-das__1": {
+   "component": "leads-dashboard-card",
+   "pct": 0,
+   "ok": true,
+   "rules": 36,
+   "level": "molecule"
+  },
+  "LmsCallInsightsIcon_src_components_svg_js__1": {
+   "component": "lms-call-insights-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "ViewTrendsIcon_src_components_svg_js__1": {
+   "component": "view-trends-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 3,
+   "level": "atom"
+  },
+  "BackTickIcon_src_components_svg_js__1": {
+   "component": "back-tick-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 3,
+   "level": "atom"
+  },
+  "LmsClickedIcon_src_components_svg_js__1": {
+   "component": "lms-clicked-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "TooltipInfoIcon_src_components_svg_js__1": {
+   "component": "tooltip-info-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "LmsCallReceivedIcon_src_components_svg_js__1": {
+   "component": "lms-call-received-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "LmsCallAnsweredIcon_src_components_svg_js__1": {
+   "component": "lms-call-answered-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "LmsCallMissedIcon_src_components_svg_js__1": {
+   "component": "lms-call-missed-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "LmsCallRespRateIcon_src_components_svg_js__1": {
+   "component": "lms-call-resp-rate-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "LmsCallAvgDurIcon_src_components_svg_js__1": {
+   "component": "lms-call-avg-dur-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "LmsCallAvgRespIcon_src_components_svg_js__1": {
+   "component": "lms-call-avg-resp-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "LmsWaInsightsIcon_src_components_svg_js__1": {
+   "component": "lms-wa-insights-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "LmsWaReceivedIcon_src_components_svg_js__1": {
+   "component": "lms-wa-received-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "LmsWaChatInitIcon_src_components_svg_js__1": {
+   "component": "lms-wa-chat-init-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "LmsWaRespRateIcon_src_components_svg_js__1": {
+   "component": "lms-wa-resp-rate-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "LmsWaAvgRespIcon_src_components_svg_js__1": {
+   "component": "lms-wa-avg-resp-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "LeadListingsTable_src_components_leads-management_lead-listi__1": {
+   "component": "lead-listings-table",
+   "pct": 0,
+   "ok": true,
+   "rules": 383,
+   "level": "organism"
+  },
+  "LeadListingsTable_src_components_leads-management_lead-listi__2": {
+   "component": "lead-listings-table",
+   "pct": 1.381,
+   "ok": false,
+   "rules": 384,
+   "level": "organism"
+  },
+  "LeadListingsTable_src_components_leads-management_lead-listi__3": {
+   "component": "lead-listings-table",
+   "pct": 0,
+   "ok": true,
+   "rules": 4,
+   "level": "organism"
+  },
+  "UnitSelect_src_components_common_unitSelect_unitSelect_js__1": {
+   "component": "unit-select",
+   "pct": 0,
+   "ok": true,
+   "rules": 103,
+   "level": "molecule"
+  },
+  "LmsAddLeadIcon_src_components_svg_js__1": {
+   "component": "lms-add-lead-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "LeadInfo_src_components_table_table-components_lead-info_js__1": {
+   "component": "lead-info",
+   "pct": 0,
+   "ok": true,
+   "rules": 11,
+   "level": "molecule"
+  },
+  "RenderTextLtr_src_components_render-text_render-text_js__1": {
+   "component": "render-text-ltr",
+   "pct": 0,
+   "ok": true,
+   "rules": 3,
+   "level": "atom"
+  },
+  "RenderTextLtr_src_components_render-text_render-text_js__2": {
+   "component": "render-text-ltr",
+   "pct": 0,
+   "ok": true,
+   "rules": 2,
+   "level": "atom"
+  },
+  "RenderTextLtr_src_components_render-text_render-text_js__3": {
+   "component": "render-text-ltr",
+   "pct": 0,
+   "ok": true,
+   "rules": 2,
+   "level": "atom"
+  },
+  "RenderTextLtr_src_components_render-text_render-text_js__4": {
+   "component": "render-text-ltr",
+   "pct": 0,
+   "ok": true,
+   "rules": 2,
+   "level": "atom"
+  },
+  "RenderTextLtr_src_components_render-text_render-text_js__5": {
+   "component": "render-text-ltr",
+   "pct": 0,
+   "ok": true,
+   "rules": 2,
+   "level": "atom"
+  },
+  "ListingDetailCompact_src_components_table_table-components_l__2": {
+   "component": "listing-detail-compact",
+   "pct": 0,
+   "ok": true,
+   "rules": 33,
+   "level": "organism"
+  },
+  "ListingDetailCompact_src_components_table_table-components_l__1": {
+   "component": "listing-detail-compact",
+   "pct": 0,
+   "ok": true,
+   "rules": 31,
+   "level": "organism"
+  },
+  "TaskDetail_src_components_table_table-components_task-detail__1": {
+   "component": "task-detail",
+   "pct": 0,
+   "ok": true,
+   "rules": 10,
+   "level": "atom"
+  },
+  "TaskDetail_src_components_table_table-components_task-detail__2": {
+   "component": "task-detail",
+   "pct": 5.723,
+   "ok": false,
+   "rules": 10,
+   "level": "atom"
+  },
+  "TimelineIcon_src_components_svg_js__1": {
+   "component": "timeline-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "DateTime_src_components_table_table-components_date-time_js__1": {
+   "component": "date-time",
+   "pct": 6.386,
+   "ok": false,
+   "rules": 11,
+   "level": "atom"
+  },
+  "DateTime_src_components_table_table-components_date-time_js__2": {
+   "component": "date-time",
+   "pct": 2.688,
+   "ok": false,
+   "rules": 11,
+   "level": "atom"
+  },
+  "MorePropertiesPopover_src_components_table_table-components___1": {
+   "component": "more-properties-popover",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "ListingStatsByDateTable_src_tenant_common_components_reports__1": {
+   "component": "listing-stats-by-date-table",
+   "pct": 0,
+   "ok": true,
+   "rules": 268,
+   "level": "page"
+  },
+  "ListingStatsByDateTable_src_tenant_common_components_reports__2": {
+   "component": "listing-stats-by-date-table",
+   "pct": 0.434,
+   "ok": true,
+   "rules": 268,
+   "level": "page"
+  },
+  "Date_src_components_table_table-components_date_js__1": {
+   "component": "date",
+   "pct": 0,
+   "ok": true,
+   "rules": 4,
+   "level": "atom"
+  },
+  "TableNumber_src_components_table_table-components_table-numb__1": {
+   "component": "table-number",
+   "pct": 2.381,
+   "ok": false,
+   "rules": 8,
+   "level": "atom"
+  },
+  "ListingReports_src_container_pages_reports_listing-reports_j__1": {
+   "component": "listing-reports",
+   "pct": 1.047,
+   "ok": false,
+   "rules": 322,
+   "level": "page"
+  },
+  "ReportsListingsSection_src_components_widgets_ReportsListing__1": {
+   "component": "reports-listings-section",
+   "pct": 0,
+   "ok": true,
+   "rules": 136,
+   "level": "organism"
+  },
+  "Lottie_src_components_common_lottie_lottie_js__1": {
+   "component": "lottie",
+   "pct": 9.754,
+   "ok": false,
+   "rules": 6,
+   "level": "atom"
+  },
+  "Lottie_src_components_common_lottie_lottie_js__2": {
+   "component": "lottie",
+   "pct": 9.913,
+   "ok": false,
+   "rules": 5,
+   "level": "atom"
+  },
+  "Lottie_src_components_common_lottie_lottie_js__3": {
+   "component": "lottie",
+   "pct": 0.851,
+   "ok": true,
+   "rules": 3,
+   "level": "atom"
+  },
+  "BreakdownByAreaWidget_src_components_widgets_BreakdownByArea__1": {
+   "component": "breakdown-by-area-widget",
+   "pct": 1.507,
+   "ok": false,
+   "rules": 91,
+   "level": "organism"
+  },
+  "ListingBreakDownByDateTable_src_tenant_common_components_rep__1": {
+   "component": "listing-break-down-by-date-table",
+   "pct": 0.067,
+   "ok": true,
+   "rules": 230,
+   "level": "page"
+  },
+  "ListingPerformanceTable_src_tenant_common_components_reports__1": {
+   "component": "listing-performance-table",
+   "pct": 0.07,
+   "ok": true,
+   "rules": 179,
+   "level": "page"
+  },
+  "ListingPerformance_src_container_pages_reports_listing-perfo__1": {
+   "component": "listing-performance",
+   "pct": 0.067,
+   "ok": true,
+   "rules": 179,
+   "level": "page"
+  },
+  "Stats_src_components_table_table-components_stats_js__1": {
+   "component": "stats",
+   "pct": 0,
+   "ok": true,
+   "rules": 10,
+   "level": "molecule"
+  },
+  "UserSettings_src_container_pages_user-settings_user-settings__3": {
+   "component": "user-settings",
+   "pct": 2.563,
+   "ok": false,
+   "rules": 359,
+   "level": "page"
+  },
+  "UserSettings_src_container_pages_user-settings_user-settings__1": {
+   "component": "user-settings",
+   "pct": 1.422,
+   "ok": false,
+   "rules": 233,
+   "level": "page"
+  },
+  "UserSettings_src_container_pages_user-settings_user-settings__2": {
+   "component": "user-settings",
+   "pct": 3.545,
+   "ok": false,
+   "rules": 104,
+   "level": "page"
+  },
+  "Navbar_src_components_common_navbar_navbar_js__1": {
+   "component": "navbar",
+   "pct": 0,
+   "ok": true,
+   "rules": 26,
+   "level": "organism"
+  },
+  "SideMenuSetting_src_components_svg_js__1": {
+   "component": "side-menu-setting",
+   "pct": 0,
+   "ok": true,
+   "rules": 8,
+   "level": "atom"
+  },
+  "AgencySettingsPage_src_container_pages_user-settings_agancy-__1": {
+   "component": "agency-settings-page",
+   "pct": 0.075,
+   "ok": true,
+   "rules": 213,
+   "level": "page"
+  },
+  "AgencySettingsPage_src_container_pages_user-settings_agancy-__2": {
+   "component": "agency-settings-page",
+   "pct": 0,
+   "ok": true,
+   "rules": 208,
+   "level": "page"
+  },
+  "AgencySettingsPage_src_container_pages_user-settings_agancy-__3": {
+   "component": "agency-settings-page",
+   "pct": 0,
+   "ok": true,
+   "rules": 223,
+   "level": "page"
+  },
+  "AgencyInfoCard_src_components_agency-staff-header_agency-inf__1": {
+   "component": "agency-info-card",
+   "pct": 0,
+   "ok": true,
+   "rules": 29,
+   "level": "molecule"
+  },
+  "ImageUpload_src_components_image-upload_image-upload_js__2": {
+   "component": "image-upload",
+   "pct": 2.581,
+   "ok": false,
+   "rules": 78,
+   "level": "organism"
+  },
+  "ImageUpload_src_components_image-upload_image-upload_js__1": {
+   "component": "image-upload",
+   "pct": 0,
+   "ok": true,
+   "rules": 55,
+   "level": "organism"
+  },
+  "ImageUpload_src_components_image-upload_image-upload_js__3": {
+   "component": "image-upload",
+   "pct": 0,
+   "ok": true,
+   "rules": 40,
+   "level": "organism"
+  },
+  "ImageUploadItem_src_components_common_image-uploads_image-up__1": {
+   "component": "image-upload-item",
+   "pct": 0,
+   "ok": true,
+   "rules": 50,
+   "level": "organism"
+  },
+  "IconEnlargeImage_src_components_svg_js__1": {
+   "component": "icon-enlarge-image",
+   "pct": 0,
+   "ok": true,
+   "rules": 3,
+   "level": "atom"
+  },
+  "UserPassword_src_container_pages_user-settings_password_js__1": {
+   "component": "user-password",
+   "pct": 0,
+   "ok": true,
+   "rules": 75,
+   "level": "page"
+  },
+  "UserPassword_src_container_pages_user-settings_password_js__2": {
+   "component": "user-password",
+   "pct": 0,
+   "ok": true,
+   "rules": 89,
+   "level": "page"
+  },
+  "UserProfile_src_container_pages_user-settings_profile_js__1": {
+   "component": "user-profile",
+   "pct": 0.041,
+   "ok": true,
+   "rules": 340,
+   "level": "page"
+  },
+  "Progress_src_container_pages_user-settings_profile_js__1": {
+   "component": "progress-user-settings",
+   "pct": 0,
+   "ok": true,
+   "rules": 45,
+   "level": "molecule"
+  },
+  "Progress_src_container_pages_user-settings_profile_js__2": {
+   "component": "progress-user-settings",
+   "pct": 0,
+   "ok": true,
+   "rules": 42,
+   "level": "molecule"
+  },
+  "AgencyIcon_src_components_svg_js__1": {
+   "component": "agency-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "LogoNafaz_src_components_svg_js__1": {
+   "component": "logo-nafaz",
+   "pct": 0,
+   "ok": true,
+   "rules": 3,
+   "level": "atom"
+  },
+  "PhoneIntl_src_components_phone-input_PhoneIntl_js__1": {
+   "component": "phone-intl",
+   "pct": 0,
+   "ok": true,
+   "rules": 30,
+   "level": "molecule"
+  },
+  "GenerateContentField_src_tenant_common_components_post-listi__1": {
+   "component": "generate-content-field",
+   "pct": 0,
+   "ok": true,
+   "rules": 52,
+   "level": "organism"
+  },
+  "Title_src_components_common_title_title_js__1": {
+   "component": "title",
+   "pct": 0,
+   "ok": true,
+   "rules": 12,
+   "level": "atom"
+  },
+  "Title_src_components_common_title_title_js__2": {
+   "component": "title",
+   "pct": 0,
+   "ok": true,
+   "rules": 11,
+   "level": "atom"
+  },
+  "pf-avatar__1": {
+   "component": "antd-avatar",
+   "pct": 0,
+   "ok": true,
+   "rules": 10,
+   "level": "atom"
+  },
+  "pf-upload__1": {
+   "component": "antd-upload",
+   "pct": 0,
+   "ok": true,
+   "rules": 32,
+   "level": "molecule"
+  },
+  "pf-upload__2": {
+   "component": "antd-upload",
+   "pct": 0,
+   "ok": true,
+   "rules": 31,
+   "level": "molecule"
+  },
+  "pf-upload__3": {
+   "component": "antd-upload",
+   "pct": 0,
+   "ok": true,
+   "rules": 29,
+   "level": "molecule"
+  },
+  "FeedbackAttachment_src_components_feedback_FeedbackAttachmen__1": {
+   "component": "feedback-attachment",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "FeedbackImageIcon_src_components_svg_js__1": {
+   "component": "feedback-image-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 2,
+   "level": "atom"
+  },
+  "FeedbackInfoIcon_src_components_svg_js__1": {
+   "component": "feedback-info-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 4,
+   "level": "atom"
+  },
+  "pf-drawer-content-wrapper__1": {
+   "component": "antd-drawer",
+   "pct": 1.859,
+   "ok": false,
+   "rules": 28,
+   "level": "organism"
+  },
+  "pf-select-dropdown__1": {
+   "component": "antd-select-dropdown",
+   "pct": 0,
+   "ok": true,
+   "rules": 18,
+   "level": "molecule"
+  },
+  "pf-select-dropdown__2": {
+   "component": "antd-select-dropdown",
+   "pct": 0,
+   "ok": true,
+   "rules": 21,
+   "level": "molecule"
+  },
+  "pf-select-dropdown__3": {
+   "component": "antd-select-dropdown",
+   "pct": 0.719,
+   "ok": true,
+   "rules": 25,
+   "level": "molecule"
+  },
+  "pf-select-dropdown__4": {
+   "component": "antd-select-dropdown",
+   "pct": 0,
+   "ok": true,
+   "rules": 24,
+   "level": "molecule"
+  },
+  "pf-select-dropdown__5": {
+   "component": "antd-select-dropdown",
+   "pct": 0,
+   "ok": true,
+   "rules": 22,
+   "level": "molecule"
+  },
+  "pf-select-dropdown__6": {
+   "component": "antd-select-dropdown",
+   "pct": 0,
+   "ok": true,
+   "rules": 23,
+   "level": "molecule"
+  },
+  "ErrorMessage_src_components_common_errorMessage_errorMessage__1": {
+   "component": "error-message",
+   "pct": 0,
+   "ok": true,
+   "rules": 12,
+   "level": "atom"
+  },
+  "IconTotalCredit_src_components_svg_js__1": {
+   "component": "icon-total-credit",
+   "pct": 0,
+   "ok": true,
+   "rules": 4,
+   "level": "atom"
+  },
+  "IconTotalCredit_src_components_svg_js__2": {
+   "component": "icon-total-credit",
+   "pct": 0,
+   "ok": true,
+   "rules": 4,
+   "level": "atom"
+  },
+  "pf-modal__1": {
+   "component": "antd-modal",
+   "pct": 0,
+   "ok": true,
+   "rules": 122,
+   "level": "organism"
+  },
+  "pf-modal__2": {
+   "component": "antd-modal",
+   "pct": 0,
+   "ok": true,
+   "rules": 58,
+   "level": "organism"
+  },
+  "pf-modal__3": {
+   "component": "antd-modal",
+   "pct": 0,
+   "ok": true,
+   "rules": 74,
+   "level": "organism"
+  },
+  "CreditIcon_src_components_svg_js__1": {
+   "component": "credit-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 2,
+   "level": "atom"
+  },
+  "CreditAvailableIcon_src_components_svg_js__1": {
+   "component": "credit-available-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 4,
+   "level": "atom"
+  },
+  "CreditUsedIcon_src_components_svg_js__1": {
+   "component": "credit-used-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 4,
+   "level": "atom"
+  },
+  "CreditTimeIcon_src_components_svg_js__1": {
+   "component": "credit-time-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 4,
+   "level": "atom"
+  },
+  "pf-dropdown__1": {
+   "component": "antd-dropdown",
+   "pct": 0,
+   "ok": true,
+   "rules": 26,
+   "level": "molecule"
+  },
+  "AppLink_src_tenant_common_components_layout_app-link_js__1": {
+   "component": "app-link",
+   "pct": 0,
+   "ok": true,
+   "rules": 8,
+   "level": "atom"
+  },
+  "AppLink_src_tenant_common_components_layout_app-link_js__2": {
+   "component": "app-link",
+   "pct": 0.877,
+   "ok": true,
+   "rules": 8,
+   "level": "atom"
+  },
+  "BayutAppStoreIcon_src_components_utilities_icons_js__1": {
+   "component": "bayut-app-store-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 2,
+   "level": "atom"
+  },
+  "PlayStoreBadgeIcon_src_components_utilities_icons_js__1": {
+   "component": "play-store-badge-icon",
+   "pct": 0.877,
+   "ok": true,
+   "rules": 2,
+   "level": "atom"
+  },
+  "pf-divider__1": {
+   "component": "antd-divider",
+   "pct": 0,
+   "ok": true,
+   "rules": 13,
+   "level": "atom"
+  },
+  "CustomCard_src_components_common_custom-card_customCard_js__3": {
+   "component": "custom-card",
+   "pct": 0,
+   "ok": true,
+   "rules": 46,
+   "level": "organism"
+  },
+  "CustomCard_src_components_common_custom-card_customCard_js__5": {
+   "component": "custom-card",
+   "pct": 0,
+   "ok": true,
+   "rules": 38,
+   "level": "organism"
+  },
+  "CustomCard_src_components_common_custom-card_customCard_js__1": {
+   "component": "custom-card",
+   "pct": 6.884,
+   "ok": false,
+   "rules": 35,
+   "level": "organism"
+  },
+  "ProfileIcon_src_components_svg_js__1": {
+   "component": "profile-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 4,
+   "level": "atom"
+  },
+  "IconSwitch_src_components_svg_js__1": {
+   "component": "icon-switch",
+   "pct": 0,
+   "ok": true,
+   "rules": 2,
+   "level": "atom"
+  },
+  "SecurityIcon_src_components_svg_js__1": {
+   "component": "security-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 4,
+   "level": "atom"
+  },
+  "FAQIcon_src_components_svg_js__1": {
+   "component": "faq-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 4,
+   "level": "atom"
+  },
+  "ReportToRegaIcon_src_components_svg_js__1": {
+   "component": "report-to-rega-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 4,
+   "level": "atom"
+  },
+  "Progress_src_tenant_common_components_profile-completion_pro__1": {
+   "component": "progress-profile-completion",
+   "pct": 0,
+   "ok": true,
+   "rules": 41,
+   "level": "molecule"
+  },
+  "pf-popover__1": {
+   "component": "antd-popover",
+   "pct": 0.592,
+   "ok": true,
+   "rules": 68,
+   "level": "molecule"
+  },
+  "pf-popover__2": {
+   "component": "antd-popover",
+   "pct": 0,
+   "ok": true,
+   "rules": 18,
+   "level": "molecule"
+  },
+  "pf-popover__3": {
+   "component": "antd-popover",
+   "pct": 0.238,
+   "ok": true,
+   "rules": 158,
+   "level": "molecule"
+  },
+  "pf-popover__4": {
+   "component": "antd-popover",
+   "pct": 0.136,
+   "ok": true,
+   "rules": 132,
+   "level": "molecule"
+  },
+  "pf-popover__5": {
+   "component": "antd-popover",
+   "pct": 0,
+   "ok": true,
+   "rules": 88,
+   "level": "molecule"
+  },
+  "pf-popover__6": {
+   "component": "antd-popover",
+   "pct": 0.262,
+   "ok": true,
+   "rules": 152,
+   "level": "molecule"
+  },
+  "pf-popover__7": {
+   "component": "antd-popover",
+   "pct": 0,
+   "ok": true,
+   "rules": 34,
+   "level": "molecule"
+  },
+  "pf-popover__8": {
+   "component": "antd-popover",
+   "pct": 0,
+   "ok": true,
+   "rules": 19,
+   "level": "molecule"
+  },
+  "CardComponent_src_components_notification-center_notificatio__1": {
+   "component": "card-component",
+   "pct": 0,
+   "ok": true,
+   "rules": 47,
+   "level": "organism"
+  },
+  "CardComponent_src_components_notification-center_notificatio__2": {
+   "component": "card-component",
+   "pct": 0.227,
+   "ok": true,
+   "rules": 53,
+   "level": "organism"
+  },
+  "NotificationCard_src_components_notification-center_notifica__1": {
+   "component": "notification-card",
+   "pct": 0,
+   "ok": true,
+   "rules": 47,
+   "level": "organism"
+  },
+  "NotificationCard_src_components_notification-center_notifica__2": {
+   "component": "notification-card",
+   "pct": 0.227,
+   "ok": true,
+   "rules": 53,
+   "level": "organism"
+  },
+  "IconReload_src_components_svg_js__1": {
+   "component": "icon-reload",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "Text_src_components_common_text_text_js__1": {
+   "component": "text",
+   "pct": 0.082,
+   "ok": true,
+   "rules": 9,
+   "level": "atom"
+  },
+  "Text_src_components_common_text_text_js__2": {
+   "component": "text",
+   "pct": 3.661,
+   "ok": false,
+   "rules": 8,
+   "level": "atom"
+  },
+  "ImageGallery_src_components_common_image-gallery_image-galle__1": {
+   "component": "image-gallery",
+   "pct": 0,
+   "ok": true,
+   "rules": 50,
+   "level": "organism"
+  },
+  "ListDetail_src_components_list-detail_list-detail_js__1": {
+   "component": "list-detail",
+   "pct": 0.892,
+   "ok": true,
+   "rules": 29,
+   "level": "organism"
+  },
+  "List_src_components_list-detail_list-detail_js__1": {
+   "component": "list-list-detail",
+   "pct": 0.729,
+   "ok": true,
+   "rules": 23,
+   "level": "organism"
+  },
+  "QR_Code_src_components_common_qr-code_qr-code_js__1": {
+   "component": "qr_code",
+   "pct": 70.784,
+   "ok": false,
+   "rules": 2,
+   "level": "atom"
+  },
+  "SvgIcElectricity_src_components_widgets_AmenitiesSvg_js__1": {
+   "component": "svg-ic-electricity",
+   "pct": 10.458,
+   "ok": false,
+   "rules": 4,
+   "level": "atom"
+  },
+  "SvgIcWater_src_components_widgets_AmenitiesSvg_js__1": {
+   "component": "svg-ic-water",
+   "pct": 19.281,
+   "ok": false,
+   "rules": 4,
+   "level": "atom"
+  },
+  "SvgIcSanitation_src_components_widgets_AmenitiesSvg_js__1": {
+   "component": "svg-ic-sanitation",
+   "pct": 14.379,
+   "ok": false,
+   "rules": 4,
+   "level": "atom"
+  },
+  "PostListingForm_src_components_post-listing_post-listing-for__1": {
+   "component": "post-listing-form",
+   "pct": 0,
+   "ok": true,
+   "rules": 46,
+   "level": "atom"
+  },
+  "PostListingSkeleton_src_components_post-listing_post-listing__1": {
+   "component": "post-listing-skeleton",
+   "pct": 0,
+   "ok": true,
+   "rules": 46,
+   "level": "atom"
+  },
+  "PropertyInformationIcon_src_components_svg_js__1": {
+   "component": "property-information-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "RegaCard_src_tenant_bayut_components_post-listing_RegaCard_j__1": {
+   "component": "rega-card",
+   "pct": 0.681,
+   "ok": true,
+   "rules": 37,
+   "level": "atom"
+  },
+  "ListingPreview_src_tenant_bayut_components_post-listing_list__1": {
+   "component": "listing-preview",
+   "pct": 0.671,
+   "ok": true,
+   "rules": 41,
+   "level": "organism"
+  },
+  "CityLocationFilter_src_components_cityLocationFilter_cityLoc__1": {
+   "component": "city-location-filter",
+   "pct": 2.704,
+   "ok": false,
+   "rules": 61,
+   "level": "molecule"
+  },
+  "Switch_src_components_common_switch_switch_js__1": {
+   "component": "switch",
+   "pct": 0,
+   "ok": true,
+   "rules": 25,
+   "level": "atom"
+  },
+  "RangeSlider_src_components_common_rangeSlide_rangeSlider_js__1": {
+   "component": "range-slider",
+   "pct": 0,
+   "ok": true,
+   "rules": 32,
+   "level": "molecule"
+  },
+  "UnitRangeSlider_src_components_common_unitRangeSlider_unitRa__1": {
+   "component": "unit-range-slider",
+   "pct": 0,
+   "ok": true,
+   "rules": 112,
+   "level": "molecule"
+  },
+  "pf-input-number__1": {
+   "component": "antd-input-number",
+   "pct": 0,
+   "ok": true,
+   "rules": 38,
+   "level": "atom"
+  },
+  "pf-switch__1": {
+   "component": "antd-switch",
+   "pct": 0,
+   "ok": true,
+   "rules": 25,
+   "level": "atom"
+  },
+  "pf-slider__1": {
+   "component": "antd-slider",
+   "pct": 0,
+   "ok": true,
+   "rules": 29,
+   "level": "atom"
+  },
+  "Listings_src_container_pages_listings_listings_js__1": {
+   "component": "listings-listings",
+   "pct": 2.346,
+   "ok": false,
+   "rules": 497,
+   "level": "page"
+  },
+  "Listings_src_container_pages_listings_listings_js__2": {
+   "component": "listings-listings",
+   "pct": 0.012,
+   "ok": true,
+   "rules": 481,
+   "level": "page"
+  },
+  "Listings_src_container_pages_listings_listings_js__3": {
+   "component": "listings-listings",
+   "pct": 0,
+   "ok": true,
+   "rules": 294,
+   "level": "page"
+  },
+  "EmptyState_src_components_common_EmptyState_EmptyState_js__1": {
+   "component": "empty-state",
+   "pct": 0,
+   "ok": true,
+   "rules": 37,
+   "level": "molecule"
+  },
+  "EmptyState_src_components_common_EmptyState_EmptyState_js__2": {
+   "component": "empty-state",
+   "pct": 0,
+   "ok": true,
+   "rules": 46,
+   "level": "molecule"
+  },
+  "EmptyStateBlock_src_components_common_EmptyState_EmptyState___1": {
+   "component": "empty-state-block",
+   "pct": 0,
+   "ok": true,
+   "rules": 37,
+   "level": "molecule"
+  },
+  "EmptyStateBlock_src_components_common_EmptyState_EmptyState___2": {
+   "component": "empty-state-block",
+   "pct": 0,
+   "ok": true,
+   "rules": 46,
+   "level": "molecule"
+  },
+  "EmptyListing_src_components_svg_js__1": {
+   "component": "empty-listing",
+   "pct": 0,
+   "ok": true,
+   "rules": 3,
+   "level": "atom"
+  },
+  "pf-spin__1": {
+   "component": "antd-spin",
+   "pct": 0,
+   "ok": true,
+   "rules": 23,
+   "level": "atom"
+  },
+  "IconPropertyBuy_src_components_svg_js__1": {
+   "component": "icon-property-buy",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "IconPropertyRent_src_components_svg_js__1": {
+   "component": "icon-property-rent",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "PostListingButton_src_components_post-listing-button_post-li__1": {
+   "component": "post-listing-button",
+   "pct": 0,
+   "ok": true,
+   "rules": 34,
+   "level": "atom"
+  },
+  "pf-tooltip__1": {
+   "component": "antd-tooltip",
+   "pct": 0.746,
+   "ok": true,
+   "rules": 17,
+   "level": "atom"
+  },
+  "pf-tooltip__2": {
+   "component": "antd-tooltip",
+   "pct": 0,
+   "ok": true,
+   "rules": 22,
+   "level": "atom"
+  },
+  "pf-tooltip__3": {
+   "component": "antd-tooltip",
+   "pct": 0,
+   "ok": true,
+   "rules": 32,
+   "level": "atom"
+  },
+  "pf-tooltip__4": {
+   "component": "antd-tooltip",
+   "pct": 0,
+   "ok": true,
+   "rules": 32,
+   "level": "atom"
+  },
+  "pf-tooltip__5": {
+   "component": "antd-tooltip",
+   "pct": 0,
+   "ok": true,
+   "rules": 24,
+   "level": "atom"
+  },
+  "pf-tooltip__6": {
+   "component": "antd-tooltip",
+   "pct": 0,
+   "ok": true,
+   "rules": 15,
+   "level": "atom"
+  },
+  "InfoIcon_src_components_svg_js__1": {
+   "component": "info-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 4,
+   "level": "atom"
+  },
+  "PopoverContent_src_components_common_listingActionPopover_po__1": {
+   "component": "popover-content",
+   "pct": 4.214,
+   "ok": false,
+   "rules": 20,
+   "level": "molecule"
+  },
+  "PopoverContent_src_components_common_listingActionPopover_po__2": {
+   "component": "popover-content",
+   "pct": 1.944,
+   "ok": false,
+   "rules": 20,
+   "level": "molecule"
+  },
+  "PopoverContent_src_components_common_listingActionPopover_po__3": {
+   "component": "popover-content",
+   "pct": 0,
+   "ok": true,
+   "rules": 12,
+   "level": "molecule"
+  },
+  "PopoverContent_src_components_common_listingActionPopover_po__4": {
+   "component": "popover-content",
+   "pct": 0,
+   "ok": true,
+   "rules": 12,
+   "level": "molecule"
+  },
+  "Alert_src_components_common_alert_alert_js__1": {
+   "component": "alert",
+   "pct": 0,
+   "ok": true,
+   "rules": 22,
+   "level": "molecule"
+  },
+  "Product_src_tenant_common_components_upgrade-listing_product__1": {
+   "component": "product",
+   "pct": 1.361,
+   "ok": false,
+   "rules": 11,
+   "level": "atom"
+  },
+  "pf-alert__1": {
+   "component": "antd-alert",
+   "pct": 0,
+   "ok": true,
+   "rules": 22,
+   "level": "molecule"
+  },
+  "DateSelect_src_components_common_dateSelect_DateSelect_js__1": {
+   "component": "date-select",
+   "pct": 0,
+   "ok": true,
+   "rules": 34,
+   "level": "molecule"
+  },
+  "DateSelect_src_components_common_dateSelect_DateSelect_js__2": {
+   "component": "date-select",
+   "pct": 0,
+   "ok": true,
+   "rules": 30,
+   "level": "molecule"
+  },
+  "pf-picker__1": {
+   "component": "antd-date-picker",
+   "pct": 0,
+   "ok": true,
+   "rules": 31,
+   "level": "molecule"
+  },
+  "pf-picker__2": {
+   "component": "antd-date-picker",
+   "pct": 0,
+   "ok": true,
+   "rules": 33,
+   "level": "molecule"
+  },
+  "SourceContent_src_components_table_table-components_source-c__1": {
+   "component": "source-content",
+   "pct": 0,
+   "ok": true,
+   "rules": 15,
+   "level": "atom"
+  },
+  "LeadDetailDrawerHeader_src_components_leads-management_lead-__1": {
+   "component": "lead-detail-drawer-header",
+   "pct": 14.458,
+   "ok": false,
+   "rules": 100,
+   "level": "organism"
+  },
+  "LeadNameField_src_components_leads-management_lead-name_js__1": {
+   "component": "lead-name-field",
+   "pct": 0,
+   "ok": true,
+   "rules": 6,
+   "level": "atom"
+  },
+  "LocationFilter_src_components_locationFilter_locationFilter___1": {
+   "component": "location-filter",
+   "pct": 5.203,
+   "ok": false,
+   "rules": 61,
+   "level": "molecule"
+  },
+  "pf-tour__1": {
+   "component": "antd-tour",
+   "pct": 0,
+   "ok": true,
+   "rules": 50,
+   "level": "organism"
+  },
+  "LeadsReports_src_container_pages_reports_leads-reports_js__1": {
+   "component": "leads-reports",
+   "pct": 1.562,
+   "ok": false,
+   "rules": 483,
+   "level": "page"
+  },
+  "LeadsReports_src_container_pages_reports_leads-reports_js__2": {
+   "component": "leads-reports",
+   "pct": 0.009,
+   "ok": true,
+   "rules": 483,
+   "level": "page"
+  },
+  "ListingByDateTable_src_tenant_common_components_reports_List__1": {
+   "component": "listing-by-date-table",
+   "pct": 0,
+   "ok": true,
+   "rules": 123,
+   "level": "organism"
+  },
+  "ReportsSummary_src_container_pages_reports_reports-summary_j__1": {
+   "component": "reports-summary",
+   "pct": 0,
+   "ok": true,
+   "rules": 345,
+   "level": "page"
+  },
+  "ProfileStatusPopUp_src_tenant_common_components_profile-comp__1": {
+   "component": "profile-status-pop-up",
+   "pct": 0,
+   "ok": true,
+   "rules": 100,
+   "level": "organism"
+  },
+  "ProfileCompletionList_src_tenant_common_components_profile-c__1": {
+   "component": "profile-completion-list",
+   "pct": 0,
+   "ok": true,
+   "rules": 44,
+   "level": "molecule"
+  },
+  "SvgRadio_src_components_svg_js__1": {
+   "component": "svg-radio",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "SvgIconCheck_src_components_svg_js__1": {
+   "component": "svg-icon-check",
+   "pct": 0,
+   "ok": true,
+   "rules": 5,
+   "level": "atom"
+  },
+  "pf-message-notice__1": {
+   "component": "antd-message",
+   "pct": 0,
+   "ok": true,
+   "rules": 14,
+   "level": "molecule"
+  },
+  "Check3DIcon_src_components_svg_js__1": {
+   "component": "check3-d-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 4,
+   "level": "atom"
+  },
+  "Cross3DIcon_src_components_svg_js__1": {
+   "component": "cross3-d-icon",
+   "pct": 0,
+   "ok": true,
+   "rules": 4,
+   "level": "atom"
+  }
+ }
 }

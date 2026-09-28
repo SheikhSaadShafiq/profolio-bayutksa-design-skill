@@ -1,0 +1,15 @@
+{
+  "finalPath": "/en/lms/leads",
+  "shell": true,
+  "errorCard": false,
+  "overlay": {
+    "modal": false,
+    "drawer": true,
+    "popover": false,
+    "dropdown": false
+  },
+  "spinning": false,
+  "pageHeight": 1051,
+  "note": "the same drawer on its second tab, All Tasks (/lms/tasks) — lead 0 carries one pending and one done task",
+  "url": "http://127.0.0.1:3100/en/lms/leads"
+}

@@ -1,0 +1,15 @@
+{
+  "finalPath": "/en/lms/leads",
+  "shell": true,
+  "errorCard": false,
+  "overlay": {
+    "modal": false,
+    "drawer": false,
+    "popover": false,
+    "dropdown": false
+  },
+  "spinning": false,
+  "pageHeight": 1051,
+  "note": "first visit: the antd Tour over the leads table (useGetTourStepsForLms.js, section \"management\")",
+  "url": "http://127.0.0.1:3100/en/lms/leads"
+}

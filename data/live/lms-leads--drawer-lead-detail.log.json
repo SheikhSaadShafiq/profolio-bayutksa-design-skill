@@ -1,0 +1,15 @@
+{
+  "finalPath": "/en/lms/leads",
+  "shell": true,
+  "errorCard": false,
+  "overlay": {
+    "modal": false,
+    "drawer": true,
+    "popover": false,
+    "dropdown": false
+  },
+  "spinning": false,
+  "pageHeight": 1051,
+  "note": "row 0 clicked → LeadDetailDrawer on its Interactions tab (/lms/leads/:id + /lms/interests)",
+  "url": "http://127.0.0.1:3100/en/lms/leads"
+}

@@ -1,0 +1,409 @@
+{
+ "page": "lms-leads",
+ "route": "/lms/leads",
+ "at": "2026-09-28T12:14:19.904Z",
+ "tried": 59,
+ "states": [
+  {
+   "name": "dropdown-agency-switcher",
+   "kind": "dropdown",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)",
+   "label": "icon",
+   "shell": false,
+   "opened": [
+    {
+     "k": "dropdown",
+     "w": 258,
+     "h": 168
+    }
+   ],
+   "title": "Najd Horizon Real Estate"
+  },
+  {
+   "name": "popover-bayut-match-info",
+   "kind": "popover",
+   "action": "hover",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2)",
+   "label": "Bayut Match 0",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 179,
+     "h": 38
+    }
+   ],
+   "title": "Total number of Bayut"
+  },
+  {
+   "name": "modal-view-trend",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > button:nth-child(1)",
+   "label": "View Trend",
+   "shell": false,
+   "opened": [
+    {
+     "k": "modal",
+     "w": 900,
+     "h": 169
+    }
+   ]
+  },
+  {
+   "name": "popover-insight-info",
+   "kind": "popover",
+   "action": "hover",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > span:nth-child(3)",
+   "label": "icon",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 234,
+     "h": 268
+    }
+   ],
+   "title": "Clicked Total number of"
+  },
+  {
+   "name": "dropdown-listing-id",
+   "kind": "dropdown",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)",
+   "label": "Listing ID",
+   "shell": false,
+   "opened": [
+    {
+     "k": "dropdown",
+     "w": 210,
+     "h": 174
+    }
+   ]
+  },
+  {
+   "name": "popover-date-range",
+   "kind": "popover",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > span:nth-child(2)",
+   "label": "close-circle",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 802,
+     "h": 381
+    }
+   ],
+   "title": "Today Yesterday Last 7"
+  },
+  {
+   "name": "dropdown-select-users",
+   "kind": "dropdown",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)",
+   "label": "Select Users",
+   "shell": false,
+   "opened": [
+    {
+     "k": "dropdown",
+     "w": 207,
+     "h": 174
+    }
+   ]
+  },
+  {
+   "name": "drawer-show-more",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1) > button:nth-child(1)",
+   "label": "Show More",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 450,
+     "h": 900
+    }
+   ]
+  },
+  {
+   "name": "inline-search",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > button:nth-child(3)",
+   "label": "Search",
+   "shell": false,
+   "opened": []
+  },
+  {
+   "name": "drawer-add-new-lead",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > button:nth-child(2)",
+   "label": "Add New Lead",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 720,
+     "h": 900
+    }
+   ]
+  },
+  {
+   "name": "drawer-abdullah-saleh-abdullahsmailexample",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(2)",
+   "label": "Abdullah Saleh abdullah.s@mail.example +",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 720,
+     "h": 900
+    }
+   ]
+  },
+  {
+   "name": "popover-abdullah-saleh",
+   "kind": "popover",
+   "action": "hover",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(2) > td:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)",
+   "label": "Abdullah Saleh",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 392,
+     "h": 195
+    }
+   ]
+  },
+  {
+   "name": "popover-apartment-for-sale",
+   "kind": "popover",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(2) > td:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)",
+   "label": "Apartment for Sale",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 355,
+     "h": 154
+    }
+   ]
+  },
+  {
+   "name": "popover-follow-up-call",
+   "kind": "popover",
+   "action": "hover",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(2) > td:nth-child(4) > div:nth-child(1)",
+   "label": "Follow-up Call",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 392,
+     "h": 168
+    }
+   ]
+  },
+  {
+   "name": "tooltip-whatsapp",
+   "kind": "tooltip",
+   "action": "hover",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(2) > td:nth-child(5)",
+   "label": "icon",
+   "shell": false,
+   "opened": [
+    {
+     "k": "tooltip",
+     "w": 106,
+     "h": 40
+    }
+   ],
+   "title": "Whatsapp"
+  },
+  {
+   "name": "tooltip-email",
+   "kind": "tooltip",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(2) > td:nth-child(5) > div:nth-child(1) > span:nth-child(1) > button:nth-child(1)",
+   "label": "icon",
+   "shell": false,
+   "opened": [
+    {
+     "k": "tooltip",
+     "w": 76,
+     "h": 40
+    }
+   ],
+   "title": "Email"
+  },
+  {
+   "name": "drawer-khalid-al-shammari-khalidalshammari1",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(3)",
+   "label": "Khalid Al-Shammari khalid.alshammari1990",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 720,
+     "h": 900
+    }
+   ]
+  },
+  {
+   "name": "popover-khalid-al-shammari",
+   "kind": "popover",
+   "action": "hover",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(3) > td:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)",
+   "label": "Khalid Al-Shammari",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 392,
+     "h": 195
+    }
+   ]
+  },
+  {
+   "name": "popover-floor-for-sale",
+   "kind": "popover",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(3) > td:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)",
+   "label": "Floor for Sale",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 352,
+     "h": 154
+    }
+   ]
+  },
+  {
+   "name": "popover-1-more-properties",
+   "kind": "popover",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(3) > td:nth-child(3) > div:nth-child(1) > span:nth-child(2)",
+   "label": "+ 1 more properties.",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 32,
+     "h": 32
+    }
+   ]
+  },
+  {
+   "name": "drawer-add-task",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(3) > td:nth-child(4) > div:nth-child(1)",
+   "label": "Add Task",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 720,
+     "h": 900
+    }
+   ]
+  },
+  {
+   "name": "drawer-nourah-al-qahtani-nourahqahtanimaile",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(4)",
+   "label": "Nourah Al-Qahtani nourah.qahtani@mail.ex",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 720,
+     "h": 900
+    }
+   ]
+  },
+  {
+   "name": "popover-nourah-al-qahtani",
+   "kind": "popover",
+   "action": "hover",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(4) > td:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)",
+   "label": "Nourah Al-Qahtani",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 392,
+     "h": 195
+    }
+   ]
+  },
+  {
+   "name": "popover-villa-for-sale",
+   "kind": "popover",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(4) > td:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)",
+   "label": "Villa for Sale",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 352,
+     "h": 154
+    }
+   ]
+  },
+  {
+   "name": "dropdown-rows-per-page",
+   "kind": "dropdown",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)",
+   "label": "10",
+   "shell": false,
+   "opened": [
+    {
+     "k": "dropdown",
+     "w": 72,
+     "h": 174
+    }
+   ],
+   "title": "10 25 10 25"
+  },
+  {
+   "name": "drawer-feedback",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4)",
+   "label": "FEEDBACK",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 400,
+     "h": 900
+    }
+   ]
+  }
+ ],
+ "links": [
+  {
+   "label": "Bayut Match (0)",
+   "to": "/en/lms/leads?tab=bayut_match"
+  },
+  {
+   "label": "Bayut Match (0)",
+   "to": "/en/lms/leads?tab=bayut_match"
+  }
+ ]
+}

@@ -10,6 +10,6 @@
   },
   "spinning": false,
   "pageHeight": 1926,
-  "note": "the action tooltipped \"Preview\" — ListingDrawer, in its loading state (there is no listing-detail fixture yet)",
+  "note": "the action tooltipped \"Preview\" — ListingDrawer, filled from /api/surge/listings/:id/edit (harness/fixtures/listings.mjs answers it with the same real-shaped row)",
   "url": "http://127.0.0.1:3100/en/listings"
 }

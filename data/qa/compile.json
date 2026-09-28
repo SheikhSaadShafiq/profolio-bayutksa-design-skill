@@ -1,11 +1,61 @@
 {
-  "at": "2026-09-28T11:21:59.688Z",
+  "at": "2026-09-28T12:36:08.708Z",
   "bar": 0.5,
   "rows": [
     {
       "name": "ad-license",
       "file": "deliverables/ad-license.html",
-      "kb": 431,
+      "kb": 447,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "ad-license--drawer-feedback",
+      "file": "deliverables/states/ad-license--drawer-feedback.html",
+      "kb": 454,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "ad-license--dropdown-select-property-age",
+      "file": "deliverables/states/ad-license--dropdown-select-property-age.html",
+      "kb": 453,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "ad-license--inline-adjust",
+      "file": "deliverables/states/ad-license--inline-adjust.html",
+      "kb": 446,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "ad-license--inline-continue",
+      "file": "deliverables/states/ad-license--inline-continue.html",
+      "kb": 461,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "ad-license--inline-select-city",
+      "file": "deliverables/states/ad-license--inline-select-city.html",
+      "kb": 447,
       "heights": [
         900,
         900
@@ -15,37 +65,247 @@
     {
       "name": "credits-usage",
       "file": "deliverables/credits-usage.html",
-      "kb": 425,
+      "kb": 458,
       "heights": [
-        982,
-        982
+        1058,
+        1058
       ],
-      "pct": 0.031
+      "pct": 0.029
+    },
+    {
+      "name": "credits-usage--drawer-feedback",
+      "file": "deliverables/states/credits-usage--drawer-feedback.html",
+      "kb": 465,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "credits-usage--drawer-filters-apply-filters-to",
+      "file": "deliverables/states/credits-usage--drawer-filters-apply-filters-to.html",
+      "kb": 488,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "credits-usage--modal-top-up-your-credits",
+      "file": "deliverables/states/credits-usage--modal-top-up-your-credits.html",
+      "kb": 478,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.004
     },
     {
       "name": "dashboard",
       "file": "deliverables/dashboard.html",
-      "kb": 841,
+      "kb": 833,
       "heights": [
-        2656,
-        2656
+        2889,
+        2889
       ],
-      "pct": 0.001
+      "pct": 0.003
     },
     {
-      "name": "listings",
-      "file": "deliverables/listings.html",
-      "kb": 724,
+      "name": "dashboard--drawer-credits-balance",
+      "file": "deliverables/states/dashboard--drawer-credits-balance.html",
+      "kb": 930,
       "heights": [
-        1926,
-        1926
+        900,
+        900
+      ],
+      "pct": 0.003
+    },
+    {
+      "name": "dashboard--dropdown-agency-switcher",
+      "file": "deliverables/states/dashboard--dropdown-agency-switcher.html",
+      "kb": 924,
+      "heights": [
+        2889,
+        2889
+      ],
+      "pct": 0.003
+    },
+    {
+      "name": "dashboard--inline-canvas",
+      "file": "deliverables/states/dashboard--inline-canvas.html",
+      "kb": 918,
+      "heights": [
+        2889,
+        2889
+      ],
+      "pct": 0.003
+    },
+    {
+      "name": "dashboard--inline-clicks-407-3",
+      "file": "deliverables/states/dashboard--inline-clicks-407-3.html",
+      "kb": 920,
+      "heights": [
+        2889,
+        2889
+      ],
+      "pct": 0.003
+    },
+    {
+      "name": "dashboard--inline-emails-2",
+      "file": "deliverables/states/dashboard--inline-emails-2.html",
+      "kb": 919,
+      "heights": [
+        2889,
+        2889
+      ],
+      "pct": 0.003
+    },
+    {
+      "name": "dashboard--inline-leads-13-8",
+      "file": "deliverables/states/dashboard--inline-leads-13-8.html",
+      "kb": 924,
+      "heights": [
+        2889,
+        2889
+      ],
+      "pct": 0.003
+    },
+    {
+      "name": "dashboard--inline-sms-1",
+      "file": "deliverables/states/dashboard--inline-sms-1.html",
+      "kb": 912,
+      "heights": [
+        2889,
+        2889
+      ],
+      "pct": 0.003
+    },
+    {
+      "name": "dashboard--modal-download-app",
+      "file": "deliverables/states/dashboard--modal-download-app.html",
+      "kb": 948,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "dashboard--modal-help-support",
+      "file": "deliverables/states/dashboard--modal-help-support.html",
+      "kb": 939,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "dashboard--modal-profile-completed",
+      "file": "deliverables/states/dashboard--modal-profile-completed.html",
+      "kb": 958,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.191
+    },
+    {
+      "name": "dashboard--modal-top-up-your-credits",
+      "file": "deliverables/states/dashboard--modal-top-up-your-credits.html",
+      "kb": 932,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.004
+    },
+    {
+      "name": "dashboard--popover-account",
+      "file": "deliverables/states/dashboard--popover-account.html",
+      "kb": 935,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "dashboard--popover-calls-clicked-3",
+      "file": "deliverables/states/dashboard--popover-calls-clicked-3.html",
+      "kb": 939,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "dashboard--popover-date-range",
+      "file": "deliverables/states/dashboard--popover-date-range.html",
+      "kb": 953,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "dashboard--popover-listing-timeline",
+      "file": "deliverables/states/dashboard--popover-listing-timeline.html",
+      "kb": 920,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.003
+    },
+    {
+      "name": "dashboard--popover-notifications",
+      "file": "deliverables/states/dashboard--popover-notifications.html",
+      "kb": 936,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.003
+    },
+    {
+      "name": "dashboard--popover-overall-quality",
+      "file": "deliverables/states/dashboard--popover-overall-quality.html",
+      "kb": 934,
+      "heights": [
+        900,
+        900
       ],
       "pct": 0.002
     },
     {
+      "name": "dashboard--popover-whatsapp-clicked-7",
+      "file": "deliverables/states/dashboard--popover-whatsapp-clicked-7.html",
+      "kb": 945,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "listings",
+      "file": "deliverables/listings.html",
+      "kb": 788,
+      "heights": [
+        1926,
+        1926
+      ],
+      "pct": 0.021
+    },
+    {
       "name": "listings--action-detail-drawer",
       "file": "deliverables/states/listings--action-detail-drawer.html",
-      "kb": 749,
+      "kb": 864,
       "heights": [
         900,
         900
@@ -55,17 +315,17 @@
     {
       "name": "listings--action-discount",
       "file": "deliverables/states/listings--action-discount.html",
-      "kb": 730,
+      "kb": 789,
       "heights": [
-        900,
-        900
+        944,
+        944
       ],
-      "pct": 0.01
+      "pct": 0.043
     },
     {
       "name": "listings--date-posted-on",
       "file": "deliverables/states/listings--date-posted-on.html",
-      "kb": 804,
+      "kb": 869,
       "heights": [
         900,
         900
@@ -75,17 +335,17 @@
     {
       "name": "listings--drawer-filters",
       "file": "deliverables/states/listings--drawer-filters.html",
-      "kb": 771,
+      "kb": 838,
       "heights": [
         900,
         900
       ],
-      "pct": 0.07
+      "pct": 0.002
     },
     {
       "name": "listings--error",
       "file": "deliverables/states/listings--error.html",
-      "kb": 395,
+      "kb": 402,
       "heights": [
         900,
         900
@@ -95,17 +355,17 @@
     {
       "name": "listings--loading",
       "file": "deliverables/states/listings--loading.html",
-      "kb": 386,
+      "kb": 392,
       "heights": [
         900,
         900
       ],
-      "pct": 0.01
+      "pct": 0.011
     },
     {
       "name": "listings--modal-booking",
       "file": "deliverables/states/listings--modal-booking.html",
-      "kb": 732,
+      "kb": 794,
       "heights": [
         900,
         900
@@ -115,7 +375,7 @@
     {
       "name": "listings--modal-delete",
       "file": "deliverables/states/listings--modal-delete.html",
-      "kb": 744,
+      "kb": 806,
       "heights": [
         900,
         900
@@ -125,7 +385,7 @@
     {
       "name": "listings--modal-download-app",
       "file": "deliverables/states/listings--modal-download-app.html",
-      "kb": 758,
+      "kb": 820,
       "heights": [
         900,
         900
@@ -133,9 +393,19 @@
       "pct": 0.002
     },
     {
+      "name": "listings--modal-otp",
+      "file": "deliverables/states/listings--modal-otp.html",
+      "kb": 797,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.001
+    },
+    {
       "name": "listings--modal-trucheck",
       "file": "deliverables/states/listings--modal-trucheck.html",
-      "kb": 744,
+      "kb": 806,
       "heights": [
         900,
         900
@@ -145,7 +415,7 @@
     {
       "name": "listings--popover-account",
       "file": "deliverables/states/listings--popover-account.html",
-      "kb": 742,
+      "kb": 806,
       "heights": [
         900,
         900
@@ -155,87 +425,97 @@
     {
       "name": "listings--popover-health",
       "file": "deliverables/states/listings--popover-health.html",
-      "kb": 739,
+      "kb": 807,
       "heights": [
         900,
         900
       ],
-      "pct": 0.004
+      "pct": 0.002
     },
     {
       "name": "listings--popover-leads",
       "file": "deliverables/states/listings--popover-leads.html",
-      "kb": 738,
+      "kb": 804,
       "heights": [
         900,
         900
       ],
-      "pct": 0.003
+      "pct": 0.006
     },
     {
       "name": "listings--popover-notifications",
       "file": "deliverables/states/listings--popover-notifications.html",
-      "kb": 745,
+      "kb": 811,
       "heights": [
         900,
         900
       ],
-      "pct": 0.007
+      "pct": 0.008
     },
     {
       "name": "listings--popover-rega",
       "file": "deliverables/states/listings--popover-rega.html",
-      "kb": 728,
+      "kb": 792,
       "heights": [
         900,
         900
       ],
-      "pct": 0.004
+      "pct": 0.005
     },
     {
       "name": "listings--popover-status-rejected",
       "file": "deliverables/states/listings--popover-status-rejected.html",
-      "kb": 728,
+      "kb": 792,
       "heights": [
         900,
         900
       ],
-      "pct": 0.003
+      "pct": 0.006
     },
     {
       "name": "listings--popover-timeline",
       "file": "deliverables/states/listings--popover-timeline.html",
-      "kb": 728,
+      "kb": 792,
       "heights": [
         900,
         900
       ],
-      "pct": 0.003
+      "pct": 0.006
+    },
+    {
+      "name": "listings--project-units",
+      "file": "deliverables/states/listings--project-units.html",
+      "kb": 743,
+      "heights": [
+        2073,
+        2073
+      ],
+      "pct": 0.004
     },
     {
       "name": "listings--select-property-type",
       "file": "deliverables/states/listings--select-property-type.html",
-      "kb": 729,
+      "kb": 794,
       "heights": [
         1926,
         1926
       ],
-      "pct": 0.002
+      "pct": 0.005
     },
     {
       "name": "listings--select-purpose",
       "file": "deliverables/states/listings--select-purpose.html",
-      "kb": 732,
+      "kb": 796,
       "heights": [
         1926,
         1926
       ],
-      "pct": 0.002
+      "pct": 0.005
     },
     {
       "name": "listings--tab-ad-license-requests",
       "file": "deliverables/states/listings--tab-ad-license-requests.html",
-      "kb": 394,
+      "kb": 400,
       "heights": [
         900,
         900
@@ -245,17 +525,17 @@
     {
       "name": "listings--tab-draft",
       "file": "deliverables/states/listings--tab-draft.html",
-      "kb": 436,
+      "kb": 423,
       "heights": [
         900,
         900
       ],
-      "pct": 0.002
+      "pct": 0.003
     },
     {
       "name": "listings--tab-pending",
       "file": "deliverables/states/listings--tab-pending.html",
-      "kb": 485,
+      "kb": 471,
       "heights": [
         967,
         967
@@ -265,7 +545,7 @@
     {
       "name": "listings--tab-removed",
       "file": "deliverables/states/listings--tab-removed.html",
-      "kb": 396,
+      "kb": 402,
       "heights": [
         900,
         900
@@ -275,97 +555,97 @@
     {
       "name": "listings--tooltip-action",
       "file": "deliverables/states/listings--tooltip-action.html",
-      "kb": 728,
+      "kb": 792,
       "heights": [
         1926,
         1926
       ],
-      "pct": 0.002
+      "pct": 0.005
     },
     {
       "name": "listings--tooltip-booked",
       "file": "deliverables/states/listings--tooltip-booked.html",
-      "kb": 731,
+      "kb": 794,
       "heights": [
         1926,
         1926
       ],
-      "pct": 0.002
+      "pct": 0.005
     },
     {
       "name": "listings--tooltip-upgrade",
       "file": "deliverables/states/listings--tooltip-upgrade.html",
-      "kb": 729,
+      "kb": 792,
       "heights": [
         1926,
         1926
       ],
-      "pct": 0.002
+      "pct": 0.005
     },
     {
       "name": "listings--tooltip-upgrade-applied",
       "file": "deliverables/states/listings--tooltip-upgrade-applied.html",
-      "kb": 728,
+      "kb": 793,
       "heights": [
         1926,
         1926
       ],
-      "pct": 0.002
+      "pct": 0.037
     },
     {
       "name": "listings--tooltip-upgrade-none",
       "file": "deliverables/states/listings--tooltip-upgrade-none.html",
-      "kb": 724,
+      "kb": 788,
       "heights": [
         1926,
         1926
       ],
-      "pct": 0.002
+      "pct": 0.005
     },
     {
       "name": "listings--tooltip-upgrade-pending",
       "file": "deliverables/states/listings--tooltip-upgrade-pending.html",
-      "kb": 728,
+      "kb": 793,
       "heights": [
         1926,
         1926
       ],
-      "pct": 0.002
+      "pct": 0.005
     },
     {
       "name": "listings--tooltip-upgrade-service",
       "file": "deliverables/states/listings--tooltip-upgrade-service.html",
-      "kb": 728,
+      "kb": 792,
       "heights": [
         1926,
         1926
       ],
-      "pct": 0.002
+      "pct": 0.005
     },
     {
       "name": "listings--tooltip-upgrade-unavailable",
       "file": "deliverables/states/listings--tooltip-upgrade-unavailable.html",
-      "kb": 728,
+      "kb": 791,
       "heights": [
         1926,
         1926
       ],
-      "pct": 0.002
+      "pct": 0.005
     },
     {
       "name": "listings--upgrade-hot",
       "file": "deliverables/states/listings--upgrade-hot.html",
-      "kb": 750,
+      "kb": 813,
       "heights": [
         900,
         900
       ],
-      "pct": 0.003
+      "pct": 0.004
     },
     {
       "name": "listings--upgrade-photography",
       "file": "deliverables/states/listings--upgrade-photography.html",
-      "kb": 755,
+      "kb": 814,
       "heights": [
         900,
         900
@@ -375,7 +655,7 @@
     {
       "name": "listings--upgrade-refresh",
       "file": "deliverables/states/listings--upgrade-refresh.html",
-      "kb": 750,
+      "kb": 813,
       "heights": [
         900,
         900
@@ -385,7 +665,7 @@
     {
       "name": "listings--upgrade-signature",
       "file": "deliverables/states/listings--upgrade-signature.html",
-      "kb": 746,
+      "kb": 814,
       "heights": [
         900,
         900
@@ -395,17 +675,327 @@
     {
       "name": "lms-leads",
       "file": "deliverables/lms-leads.html",
-      "kb": 499,
+      "kb": 593,
       "heights": [
-        1165,
-        1165
+        1051,
+        1051
+      ],
+      "pct": 0.001
+    },
+    {
+      "name": "lms-leads--drawer-abdullah-saleh-abdullahsmailexample",
+      "file": "deliverables/states/lms-leads--drawer-abdullah-saleh-abdullahsmailexample.html",
+      "kb": 667,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.001
+    },
+    {
+      "name": "lms-leads--drawer-add-new-lead",
+      "file": "deliverables/states/lms-leads--drawer-add-new-lead.html",
+      "kb": 627,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.001
+    },
+    {
+      "name": "lms-leads--drawer-add-task",
+      "file": "deliverables/states/lms-leads--drawer-add-task.html",
+      "kb": 623,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.001
+    },
+    {
+      "name": "lms-leads--drawer-feedback",
+      "file": "deliverables/states/lms-leads--drawer-feedback.html",
+      "kb": 600,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.001
+    },
+    {
+      "name": "lms-leads--drawer-khalid-al-shammari-khalidalshammari1",
+      "file": "deliverables/states/lms-leads--drawer-khalid-al-shammari-khalidalshammari1.html",
+      "kb": 668,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.001
+    },
+    {
+      "name": "lms-leads--drawer-lead-detail",
+      "file": "deliverables/states/lms-leads--drawer-lead-detail.html",
+      "kb": 667,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.001
+    },
+    {
+      "name": "lms-leads--drawer-lead-tasks",
+      "file": "deliverables/states/lms-leads--drawer-lead-tasks.html",
+      "kb": 644,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.001
+    },
+    {
+      "name": "lms-leads--drawer-nourah-al-qahtani-nourahqahtanimaile",
+      "file": "deliverables/states/lms-leads--drawer-nourah-al-qahtani-nourahqahtanimaile.html",
+      "kb": 677,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.32
+    },
+    {
+      "name": "lms-leads--drawer-show-more",
+      "file": "deliverables/states/lms-leads--drawer-show-more.html",
+      "kb": 612,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.001
+    },
+    {
+      "name": "lms-leads--dropdown-agency-switcher",
+      "file": "deliverables/states/lms-leads--dropdown-agency-switcher.html",
+      "kb": 598,
+      "heights": [
+        1051,
+        1051
+      ],
+      "pct": 0.001
+    },
+    {
+      "name": "lms-leads--dropdown-listing-id",
+      "file": "deliverables/states/lms-leads--dropdown-listing-id.html",
+      "kb": 596,
+      "heights": [
+        1051,
+        1051
+      ],
+      "pct": 0.021
+    },
+    {
+      "name": "lms-leads--dropdown-rows-per-page",
+      "file": "deliverables/states/lms-leads--dropdown-rows-per-page.html",
+      "kb": 596,
+      "heights": [
+        1051,
+        1051
+      ],
+      "pct": 0.001
+    },
+    {
+      "name": "lms-leads--dropdown-select-users",
+      "file": "deliverables/states/lms-leads--dropdown-select-users.html",
+      "kb": 595,
+      "heights": [
+        1051,
+        1051
+      ],
+      "pct": 0.031
+    },
+    {
+      "name": "lms-leads--inline-search",
+      "file": "deliverables/states/lms-leads--inline-search.html",
+      "kb": 592,
+      "heights": [
+        1051,
+        1051
+      ],
+      "pct": 0.001
+    },
+    {
+      "name": "lms-leads--modal-view-trend",
+      "file": "deliverables/states/lms-leads--modal-view-trend.html",
+      "kb": 602,
+      "heights": [
+        900,
+        900
       ],
       "pct": 0.004
     },
     {
+      "name": "lms-leads--popover-1-more-properties",
+      "file": "deliverables/states/lms-leads--popover-1-more-properties.html",
+      "kb": 596,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.001
+    },
+    {
+      "name": "lms-leads--popover-abdullah-saleh",
+      "file": "deliverables/states/lms-leads--popover-abdullah-saleh.html",
+      "kb": 603,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "lms-leads--popover-apartment-for-sale",
+      "file": "deliverables/states/lms-leads--popover-apartment-for-sale.html",
+      "kb": 610,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.001
+    },
+    {
+      "name": "lms-leads--popover-bayut-match-info",
+      "file": "deliverables/states/lms-leads--popover-bayut-match-info.html",
+      "kb": 594,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.001
+    },
+    {
+      "name": "lms-leads--popover-date-range",
+      "file": "deliverables/states/lms-leads--popover-date-range.html",
+      "kb": 623,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.001
+    },
+    {
+      "name": "lms-leads--popover-floor-for-sale",
+      "file": "deliverables/states/lms-leads--popover-floor-for-sale.html",
+      "kb": 610,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.001
+    },
+    {
+      "name": "lms-leads--popover-follow-up-call",
+      "file": "deliverables/states/lms-leads--popover-follow-up-call.html",
+      "kb": 600,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.001
+    },
+    {
+      "name": "lms-leads--popover-insight-info",
+      "file": "deliverables/states/lms-leads--popover-insight-info.html",
+      "kb": 10945,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.03
+    },
+    {
+      "name": "lms-leads--popover-khalid-al-shammari",
+      "file": "deliverables/states/lms-leads--popover-khalid-al-shammari.html",
+      "kb": 603,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.001
+    },
+    {
+      "name": "lms-leads--popover-nourah-al-qahtani",
+      "file": "deliverables/states/lms-leads--popover-nourah-al-qahtani.html",
+      "kb": 603,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.001
+    },
+    {
+      "name": "lms-leads--popover-villa-for-sale",
+      "file": "deliverables/states/lms-leads--popover-villa-for-sale.html",
+      "kb": 610,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.001
+    },
+    {
+      "name": "lms-leads--tooltip-email",
+      "file": "deliverables/states/lms-leads--tooltip-email.html",
+      "kb": 596,
+      "heights": [
+        1051,
+        1051
+      ],
+      "pct": 0.044
+    },
+    {
+      "name": "lms-leads--tooltip-whatsapp",
+      "file": "deliverables/states/lms-leads--tooltip-whatsapp.html",
+      "kb": 595,
+      "heights": [
+        1051,
+        1051
+      ],
+      "pct": 0.001
+    },
+    {
+      "name": "lms-leads--tour",
+      "file": "deliverables/states/lms-leads--tour.html",
+      "kb": 599,
+      "heights": [
+        1051,
+        1051
+      ],
+      "pct": 0.001
+    },
+    {
       "name": "reports-leads-reports",
       "file": "deliverables/reports-leads-reports.html",
-      "kb": 521,
+      "kb": 536,
+      "heights": [
+        1489,
+        1489
+      ],
+      "pct": 0.033
+    },
+    {
+      "name": "reports-leads-reports--drawer-feedback",
+      "file": "deliverables/states/reports-leads-reports--drawer-feedback.html",
+      "kb": 540,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "reports-leads-reports--dropdown-select-purpose",
+      "file": "deliverables/states/reports-leads-reports--dropdown-select-purpose.html",
+      "kb": 544,
       "heights": [
         1489,
         1489
@@ -413,19 +1003,209 @@
       "pct": 0
     },
     {
-      "name": "reports-listing-report",
-      "file": "deliverables/reports-listing-report.html",
+      "name": "reports-leads-reports--inline-4",
+      "file": "deliverables/states/reports-leads-reports--inline-4.html",
+      "kb": 518,
+      "heights": [
+        1004,
+        1004
+      ],
+      "pct": 0
+    },
+    {
+      "name": "reports-leads-reports--inline-canvas",
+      "file": "deliverables/states/reports-leads-reports--inline-canvas.html",
       "kb": 537,
       "heights": [
-        1973,
-        1973
+        1489,
+        1489
       ],
-      "pct": 0.006
+      "pct": 0
+    },
+    {
+      "name": "reports-leads-reports--inline-clicks-407-3",
+      "file": "deliverables/states/reports-leads-reports--inline-clicks-407-3.html",
+      "kb": 539,
+      "heights": [
+        1489,
+        1489
+      ],
+      "pct": 0.033
+    },
+    {
+      "name": "reports-leads-reports--inline-emails-2",
+      "file": "deliverables/states/reports-leads-reports--inline-emails-2.html",
+      "kb": 538,
+      "heights": [
+        1489,
+        1489
+      ],
+      "pct": 0
+    },
+    {
+      "name": "reports-leads-reports--inline-leads-13-8",
+      "file": "deliverables/states/reports-leads-reports--inline-leads-13-8.html",
+      "kb": 544,
+      "heights": [
+        1489,
+        1489
+      ],
+      "pct": 0
+    },
+    {
+      "name": "reports-leads-reports--inline-search",
+      "file": "deliverables/states/reports-leads-reports--inline-search.html",
+      "kb": 534,
+      "heights": [
+        1489,
+        1489
+      ],
+      "pct": 0
+    },
+    {
+      "name": "reports-leads-reports--inline-sms-1",
+      "file": "deliverables/states/reports-leads-reports--inline-sms-1.html",
+      "kb": 531,
+      "heights": [
+        1489,
+        1489
+      ],
+      "pct": 0
+    },
+    {
+      "name": "reports-leads-reports--popover-calls-clicked-3",
+      "file": "deliverables/states/reports-leads-reports--popover-calls-clicked-3.html",
+      "kb": 559,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "reports-leads-reports--popover-date-range",
+      "file": "deliverables/states/reports-leads-reports--popover-date-range.html",
+      "kb": 573,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "reports-leads-reports--popover-date-range-2",
+      "file": "deliverables/states/reports-leads-reports--popover-date-range-2.html",
+      "kb": 568,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "reports-leads-reports--popover-whatsapp-clicked-7",
+      "file": "deliverables/states/reports-leads-reports--popover-whatsapp-clicked-7.html",
+      "kb": 564,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "reports-listing-report",
+      "file": "deliverables/reports-listing-report.html",
+      "kb": 591,
+      "heights": [
+        2077,
+        2077
+      ],
+      "pct": 0.007
+    },
+    {
+      "name": "reports-listing-report--inline-listing-by-date",
+      "file": "deliverables/states/reports-listing-report--inline-listing-by-date.html",
+      "kb": 451,
+      "heights": [
+        1107,
+        1107
+      ],
+      "pct": 0
+    },
+    {
+      "name": "reports-listing-report--popover-overall-quality",
+      "file": "deliverables/states/reports-listing-report--popover-overall-quality.html",
+      "kb": 610,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.001
+    },
+    {
+      "name": "reports-listing-report--popover-overall-quality-2",
+      "file": "deliverables/states/reports-listing-report--popover-overall-quality-2.html",
+      "kb": 610,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.001
+    },
+    {
+      "name": "reports-listing-report--popover-overall-quality-3",
+      "file": "deliverables/states/reports-listing-report--popover-overall-quality-3.html",
+      "kb": 610,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.001
+    },
+    {
+      "name": "reports-listing-report--popover-overall-quality-4",
+      "file": "deliverables/states/reports-listing-report--popover-overall-quality-4.html",
+      "kb": 610,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.001
+    },
+    {
+      "name": "reports-listing-report--popover-overall-quality-5",
+      "file": "deliverables/states/reports-listing-report--popover-overall-quality-5.html",
+      "kb": 610,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
     },
     {
       "name": "reports-summary",
       "file": "deliverables/reports-summary.html",
-      "kb": 509,
+      "kb": 533,
+      "heights": [
+        924,
+        924
+      ],
+      "pct": 0.006
+    },
+    {
+      "name": "reports-summary--drawer-feedback",
+      "file": "deliverables/states/reports-summary--drawer-feedback.html",
+      "kb": 541,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "reports-summary--inline-clicks-407-3",
+      "file": "deliverables/states/reports-summary--inline-clicks-407-3.html",
+      "kb": 537,
       "heights": [
         924,
         924
@@ -433,19 +1213,179 @@
       "pct": 0
     },
     {
-      "name": "user-settings-agency-profile",
-      "file": "deliverables/user-settings-agency-profile.html",
-      "kb": 422,
+      "name": "reports-summary--inline-div",
+      "file": "deliverables/states/reports-summary--inline-div.html",
+      "kb": 552,
       "heights": [
-        1057,
-        1057
+        924,
+        924
       ],
       "pct": 0
     },
     {
+      "name": "reports-summary--inline-emails-2",
+      "file": "deliverables/states/reports-summary--inline-emails-2.html",
+      "kb": 536,
+      "heights": [
+        924,
+        924
+      ],
+      "pct": 0
+    },
+    {
+      "name": "reports-summary--inline-leads-13-8",
+      "file": "deliverables/states/reports-summary--inline-leads-13-8.html",
+      "kb": 542,
+      "heights": [
+        924,
+        924
+      ],
+      "pct": 0
+    },
+    {
+      "name": "reports-summary--inline-sms-1",
+      "file": "deliverables/states/reports-summary--inline-sms-1.html",
+      "kb": 529,
+      "heights": [
+        924,
+        924
+      ],
+      "pct": 0
+    },
+    {
+      "name": "reports-summary--popover-calls-clicked-3",
+      "file": "deliverables/states/reports-summary--popover-calls-clicked-3.html",
+      "kb": 556,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "reports-summary--popover-date-range",
+      "file": "deliverables/states/reports-summary--popover-date-range.html",
+      "kb": 570,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.007
+    },
+    {
+      "name": "reports-summary--popover-whatsapp-clicked-7",
+      "file": "deliverables/states/reports-summary--popover-whatsapp-clicked-7.html",
+      "kb": 562,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.002
+    },
+    {
+      "name": "user-settings-agency-profile",
+      "file": "deliverables/user-settings-agency-profile.html",
+      "kb": 395,
+      "heights": [
+        1106,
+        1106
+      ],
+      "pct": 0
+    },
+    {
+      "name": "user-settings-agency-profile--drawer-feedback",
+      "file": "deliverables/states/user-settings-agency-profile--drawer-feedback.html",
+      "kb": 402,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "user-settings-agency-profile--inline-icon",
+      "file": "deliverables/states/user-settings-agency-profile--inline-icon.html",
+      "kb": 425,
+      "heights": [
+        1057,
+        1057
+      ],
+      "pct": 0.026
+    },
+    {
+      "name": "user-settings-agency-profile--inline-save-changes",
+      "file": "deliverables/states/user-settings-agency-profile--inline-save-changes.html",
+      "kb": 398,
+      "heights": [
+        1136,
+        1136
+      ],
+      "pct": 0
+    },
+    {
+      "name": "user-settings-agency-profile--modal-preview",
+      "file": "deliverables/states/user-settings-agency-profile--modal-preview.html",
+      "kb": 400,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "user-settings-agency-profile--profile-incomplete",
+      "file": "deliverables/states/user-settings-agency-profile--profile-incomplete.html",
+      "kb": 408,
+      "heights": [
+        1106,
+        1106
+      ],
+      "pct": 0.027
+    },
+    {
       "name": "user-settings-change-password",
       "file": "deliverables/user-settings-change-password.html",
+      "kb": 355,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "user-settings-change-password--drawer-feedback",
+      "file": "deliverables/states/user-settings-change-password--drawer-feedback.html",
+      "kb": 362,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "user-settings-change-password--inline-confirm",
+      "file": "deliverables/states/user-settings-change-password--inline-confirm.html",
       "kb": 361,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.08
+    },
+    {
+      "name": "user-settings-change-password--inline-eye-invisible",
+      "file": "deliverables/states/user-settings-change-password--inline-eye-invisible.html",
+      "kb": 354,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.083
+    },
+    {
+      "name": "user-settings-change-password--profile-incomplete",
+      "file": "deliverables/states/user-settings-change-password--profile-incomplete.html",
+      "kb": 367,
       "heights": [
         900,
         900
@@ -455,10 +1395,110 @@
     {
       "name": "user-settings-user-profile",
       "file": "deliverables/user-settings-user-profile.html",
-      "kb": 445,
+      "kb": 512,
       "heights": [
-        1681,
-        1681
+        1662,
+        1662
+      ],
+      "pct": 0.001
+    },
+    {
+      "name": "user-settings-user-profile--drawer-feedback",
+      "file": "deliverables/states/user-settings-user-profile--drawer-feedback.html",
+      "kb": 519,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "user-settings-user-profile--dropdown-experience",
+      "file": "deliverables/states/user-settings-user-profile--dropdown-experience.html",
+      "kb": 517,
+      "heights": [
+        1662,
+        1662
+      ],
+      "pct": 0.001
+    },
+    {
+      "name": "user-settings-user-profile--dropdown-service-areas",
+      "file": "deliverables/states/user-settings-user-profile--dropdown-service-areas.html",
+      "kb": 522,
+      "heights": [
+        1662,
+        1662
+      ],
+      "pct": 0.005
+    },
+    {
+      "name": "user-settings-user-profile--inline-close",
+      "file": "deliverables/states/user-settings-user-profile--inline-close.html",
+      "kb": 510,
+      "heights": [
+        1662,
+        1662
+      ],
+      "pct": 0.039
+    },
+    {
+      "name": "user-settings-user-profile--inline-close-circle",
+      "file": "deliverables/states/user-settings-user-profile--inline-close-circle.html",
+      "kb": 478,
+      "heights": [
+        1662,
+        1662
+      ],
+      "pct": 0.001
+    },
+    {
+      "name": "user-settings-user-profile--inline-generate-agent-description-english",
+      "file": "deliverables/states/user-settings-user-profile--inline-generate-agent-description-english.html",
+      "kb": 512,
+      "heights": [
+        1662,
+        1662
+      ],
+      "pct": 0.39
+    },
+    {
+      "name": "user-settings-user-profile--message-save-changes",
+      "file": "deliverables/states/user-settings-user-profile--message-save-changes.html",
+      "kb": 517,
+      "heights": [
+        1662,
+        1662
+      ],
+      "pct": 0
+    },
+    {
+      "name": "user-settings-user-profile--modal-learn-more",
+      "file": "deliverables/states/user-settings-user-profile--modal-learn-more.html",
+      "kb": 1206,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "user-settings-user-profile--popover-service-areas-more",
+      "file": "deliverables/states/user-settings-user-profile--popover-service-areas-more.html",
+      "kb": 518,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.06
+    },
+    {
+      "name": "user-settings-user-profile--profile-incomplete",
+      "file": "deliverables/states/user-settings-user-profile--profile-incomplete.html",
+      "kb": 522,
+      "heights": [
+        1662,
+        1662
       ],
       "pct": 0
     }
