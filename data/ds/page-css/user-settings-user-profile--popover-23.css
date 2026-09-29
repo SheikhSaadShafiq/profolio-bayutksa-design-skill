@@ -707,13 +707,13 @@ ul { list-style: outside none none; margin: 0px; padding: 0px; }
 .pf-custom-card-card-meta-styled .pf-card-meta-title { font-size: 20px; }
 }
 .pf-custom-card-card-meta-styled .pf-card-meta-description { color: rgb(163, 163, 163); word-break: break-all; font-size: var(--desc-font); }
-.pf-action-button { display: flex; gap: 16px; }
+.pf-upgrade-listing-action-button { display: flex; gap: 16px; }
 @media screen and (min-width: 992px) {
-.pf-action-button { -webkit-box-pack: end; justify-content: end; }
+.pf-upgrade-listing-action-button { -webkit-box-pack: end; justify-content: end; }
 }
 @media screen and (max-width: 991px) {
-.pf-action-button { background-color: rgb(255, 255, 255); position: fixed; bottom: 0px; left: 0px; right: 0px; box-shadow: rgba(0, 0, 0, 0.1) 0px -4px 10px 0px; padding: 16px; z-index: 2; gap: 10px; }
-.pf-action-button > * { -webkit-box-flex: 1; flex-grow: 1; }
+.pf-upgrade-listing-action-button { background-color: rgb(255, 255, 255); position: fixed; bottom: 0px; left: 0px; right: 0px; box-shadow: rgba(0, 0, 0, 0.1) 0px -4px 10px 0px; padding: 16px; z-index: 2; gap: 10px; }
+.pf-upgrade-listing-action-button > * { -webkit-box-flex: 1; flex-grow: 1; }
 }
 .pf-body-scrim { position: fixed; inset: 0px; z-index: 998; background: rgba(0, 0, 0, 0.45); opacity: 0; visibility: hidden; transition: opacity 0.18s; }
 .pf-trigger-wrap { position: relative; z-index: 1001; display: inline-flex; }

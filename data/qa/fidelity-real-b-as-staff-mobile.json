@@ -1,10 +1,10 @@
 {
-  "at": "2026-09-28T19:36:51.784Z",
+  "at": "2026-09-29T07:40:55.963Z",
   "against": "real account",
   "tolerancePx": 1,
   "coverage": 81.4,
-  "fidelity": 78.3,
-  "exact": 49.2,
+  "fidelity": 78.1,
+  "exact": 49.1,
   "rows": [
     {
       "page": "ad-license",
@@ -1090,11 +1090,11 @@
       "live": 338,
       "ours": 332,
       "matched": 301,
-      "clean": 247,
+      "clean": 246,
       "missing": 37,
-      "moved": 52,
+      "moved": 53,
       "painted": 2,
-      "inherited": 100,
+      "inherited": 99,
       "exact": 149,
       "extra": 31,
       "pageHeight": [
@@ -1102,9 +1102,9 @@
         1260
       ],
       "coverage": 89.1,
-      "fidelity": 82.1,
+      "fidelity": 81.7,
       "exactPct": 44.1,
-      "score": 82.1,
+      "score": 81.7,
       "worklist": [
         {
           "kind": "extra",
@@ -1114,7 +1114,7 @@
         },
         {
           "kind": "extra",
-          "at": "div.pf-lead-listings-mobile-table-pagination.has-rows-per-page.no-pager",
+          "at": "div.pf-table-pagination.has-rows-per-page.no-pager",
           "box": "375×25 @0,1215",
           "detail": "we draw it, the product does not"
         },
@@ -1245,6 +1245,12 @@
           "detail": "w 67→72"
         },
         {
+          "kind": "moved",
+          "at": "div.value",
+          "box": "58×16 @230,487",
+          "detail": "w 58→60"
+        },
+        {
           "kind": "extra",
           "at": "div.pf-flex-styled--v91",
           "box": "33×20 @12,406",
@@ -1338,12 +1344,6 @@
           "kind": "extra",
           "at": "svg",
           "box": "12×12 @127,883",
-          "detail": "we draw it, the product does not"
-        },
-        {
-          "kind": "extra",
-          "at": "svg",
-          "box": "9×9 @12,834",
           "detail": "we draw it, the product does not"
         }
       ]
@@ -1493,7 +1493,7 @@
           "kind": "moved",
           "at": "span.ant-statistic-content-value",
           "box": "87×20 @61,117",
-          "detail": "w 87→82"
+          "detail": "w 87→84"
         },
         {
           "kind": "missing",
@@ -1675,19 +1675,19 @@
         {
           "kind": "moved",
           "at": "div.ant-statistic.dXqFXw",
-          "box": "83×38 @12,1389",
-          "detail": "w 83→85"
-        },
-        {
-          "kind": "moved",
-          "at": "div.ant-statistic.dXqFXw",
           "box": "82×38 @12,1262",
-          "detail": "w 82→84"
+          "detail": "w 82→85"
         },
         {
           "kind": "moved",
           "at": "div.ant-statistic.dXqFXw",
-          "box": "82×38 @12,1641",
+          "box": "82×38 @12,1515",
+          "detail": "w 82→85"
+        },
+        {
+          "kind": "moved",
+          "at": "div.ant-statistic.dXqFXw",
+          "box": "82×38 @12,1767",
           "detail": "w 82→86"
         },
         {
@@ -1901,33 +1901,33 @@
       "live": 908,
       "ours": 895,
       "matched": 874,
-      "clean": 734,
+      "clean": 728,
       "missing": 34,
-      "moved": 137,
+      "moved": 143,
       "painted": 3,
       "inherited": 5,
-      "exact": 729,
+      "exact": 723,
       "extra": 21,
       "pageHeight": [
         3089,
         3089
       ],
       "coverage": 96.3,
-      "fidelity": 84,
-      "exactPct": 80.3,
-      "score": 84,
+      "fidelity": 83.3,
+      "exactPct": 79.6,
+      "score": 83.3,
       "worklist": [
         {
           "kind": "moved",
           "at": "div.ant-statistic.dXqFXw",
           "box": "85×38 @12,1995",
-          "detail": "w 85→83"
+          "detail": "w 85→80"
         },
         {
           "kind": "moved",
           "at": "div.ant-statistic.dXqFXw",
           "box": "83×38 @12,2926",
-          "detail": "w 83→86"
+          "detail": "w 83→87"
         },
         {
           "kind": "moved",
@@ -1939,18 +1939,30 @@
           "kind": "moved",
           "at": "div.ant-statistic.dXqFXw",
           "box": "82×38 @12,1063",
-          "detail": "w 82→85"
+          "detail": "w 82→84"
+        },
+        {
+          "kind": "moved",
+          "at": "div.ant-statistic.dXqFXw",
+          "box": "82×38 @12,1296",
+          "detail": "w 82→86"
         },
         {
           "kind": "moved",
           "at": "div.ant-statistic.dXqFXw",
           "box": "82×38 @12,2228",
-          "detail": "w 82→85"
+          "detail": "w 82→86"
         },
         {
           "kind": "moved",
           "at": "div.ant-statistic.dXqFXw",
           "box": "82×38 @12,2460",
+          "detail": "w 82→86"
+        },
+        {
+          "kind": "moved",
+          "at": "div.ant-statistic.dXqFXw",
+          "box": "82×38 @12,2693",
           "detail": "w 82→86"
         },
         {
@@ -2144,18 +2156,6 @@
           "at": "div",
           "box": "54×25 @297,356",
           "detail": "x 297→300 (+3 in its parent) · w 54→51"
-        },
-        {
-          "kind": "extra",
-          "at": "span.pf-typography.pf-typography-secondary",
-          "box": "78×17 @103,1934",
-          "detail": "we draw it, the product does not"
-        },
-        {
-          "kind": "moved",
-          "at": "div.ant-statistic.dXqFXw",
-          "box": "32×38 @166,1296",
-          "detail": "w 32→36"
         }
       ]
     },

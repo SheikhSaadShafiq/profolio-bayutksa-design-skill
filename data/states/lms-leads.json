@@ -473,5 +473,294 @@
    "label": "Bayut Match (0)",
    "to": "/en/lms/leads?tab=bayut_match"
   }
- ]
+ ],
+ "nested": [
+  {
+   "name": "modal-view-trend__popover-today-yesterday-last-7",
+   "parent": "modal-view-trend",
+   "kind": "popover",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span:nth-child(1)",
+   "label": "icon",
+   "title": "Today Yesterday Last 7",
+   "opened": [
+    {
+     "k": "popover",
+     "w": 802,
+     "h": 420
+    }
+   ]
+  },
+  {
+   "name": "drawer-show-more__inline-button",
+   "parent": "drawer-show-more",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > button:nth-child(2)",
+   "label": "button",
+   "title": "",
+   "opened": []
+  },
+  {
+   "name": "drawer-show-more__dropdown-choose-source",
+   "parent": "drawer-show-more",
+   "kind": "dropdown",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)",
+   "label": "Choose Source",
+   "title": "call whatsapp Call WhatsApp",
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 450,
+     "h": 900
+    },
+    {
+     "k": "dropdown",
+     "w": 418,
+     "h": 136
+    }
+   ]
+  },
+  {
+   "name": "drawer-add-new-lead__drawer-add-interest-manually",
+   "parent": "drawer-add-new-lead",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > form:nth-child(1) > div:nth-child(2) > div:nth-child(1) > button:nth-child(2)",
+   "label": "Add Interest Manually",
+   "title": "Add Interest Manually Select",
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 576,
+     "h": 900
+    }
+   ]
+  },
+  {
+   "name": "drawer-add-new-lead__drawer-add-lead",
+   "parent": "drawer-add-new-lead",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > button:nth-child(2)",
+   "label": "Add Lead",
+   "title": "Add New Lead Name",
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 720,
+     "h": 900
+    }
+   ]
+  },
+  {
+   "name": "drawer-abdullah-saleh-abdullahsmailexample__inline-email",
+   "parent": "drawer-abdullah-saleh-abdullahsmailexample",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > button:nth-child(1)",
+   "label": "Email",
+   "title": "",
+   "opened": []
+  },
+  {
+   "name": "drawer-abdullah-saleh-abdullahsmailexample__inline-all-tasks",
+   "parent": "drawer-abdullah-saleh-abdullahsmailexample",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)",
+   "label": "All Tasks",
+   "title": "",
+   "opened": []
+  },
+  {
+   "name": "drawer-abdullah-saleh-abdullahsmailexample__drawer-add-interest-manually",
+   "parent": "drawer-abdullah-saleh-abdullahsmailexample",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > button:nth-child(1)",
+   "label": "Add Interest Manually",
+   "title": "Add Interest Manually Select",
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 576,
+     "h": 900
+    }
+   ]
+  },
+  {
+   "name": "drawer-add-task__dropdown-select-task-type",
+   "parent": "drawer-add-task",
+   "kind": "dropdown",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > form:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)",
+   "label": "Select Task Type",
+   "title": "1 2 Contact Meeting",
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 720,
+     "h": 900
+    },
+    {
+     "k": "dropdown",
+     "w": 314,
+     "h": 250
+    }
+   ]
+  },
+  {
+   "name": "drawer-add-task__picker-select-completion-date-and-time",
+   "parent": "drawer-add-task",
+   "kind": "picker",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > form:nth-child(1) > div:nth-child(5) > div:nth-child(1) > div:nth-child(2)",
+   "label": "Select Completion Date and Time",
+   "title": "Sep2026 Su Mo Tu",
+   "opened": [
+    {
+     "k": "picker",
+     "w": 604,
+     "h": 442
+    }
+   ]
+  },
+  {
+   "name": "drawer-add-task__inline-upload",
+   "parent": "drawer-add-task",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > form:nth-child(1) > div:nth-child(5) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1) > div:nth-child(1) > span:nth-child(1) > button:nth-child(2)",
+   "label": "Upload",
+   "title": "",
+   "opened": []
+  },
+  {
+   "name": "drawer-add-task__drawer-add-interest",
+   "parent": "drawer-add-task",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > form:nth-child(1) > div:nth-child(5) > div:nth-child(3) > button:nth-child(2)",
+   "label": "Add Interest",
+   "title": "Add Interest Select a",
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 576,
+     "h": 900
+    }
+   ]
+  },
+  {
+   "name": "drawer-khalid-al-shammari-khalidalshammari1__inline-email",
+   "parent": "drawer-khalid-al-shammari-khalidalshammari1",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > button:nth-child(1)",
+   "label": "Email",
+   "title": "",
+   "opened": []
+  },
+  {
+   "name": "drawer-khalid-al-shammari-khalidalshammari1__inline-all-tasks",
+   "parent": "drawer-khalid-al-shammari-khalidalshammari1",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)",
+   "label": "All Tasks",
+   "title": "",
+   "opened": []
+  },
+  {
+   "name": "drawer-khalid-al-shammari-khalidalshammari1__drawer-add-interest-manually",
+   "parent": "drawer-khalid-al-shammari-khalidalshammari1",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > button:nth-child(1)",
+   "label": "Add Interest Manually",
+   "title": "Add Interest Manually Select",
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 576,
+     "h": 900
+    }
+   ]
+  },
+  {
+   "name": "drawer-add-name__inline-email",
+   "parent": "drawer-add-name",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > button:nth-child(1)",
+   "label": "Email",
+   "title": "",
+   "opened": []
+  },
+  {
+   "name": "drawer-add-name__inline-all-tasks",
+   "parent": "drawer-add-name",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)",
+   "label": "All Tasks",
+   "title": "",
+   "opened": []
+  },
+  {
+   "name": "drawer-add-name__drawer-add-interest-manually",
+   "parent": "drawer-add-name",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > button:nth-child(1)",
+   "label": "Add Interest Manually",
+   "title": "Add Interest Manually Select",
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 576,
+     "h": 900
+    }
+   ]
+  },
+  {
+   "name": "drawer-nourah-al-qahtani-nourahqahtanimaile__inline-email",
+   "parent": "drawer-nourah-al-qahtani-nourahqahtanimaile",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > button:nth-child(1)",
+   "label": "Email",
+   "title": "",
+   "opened": []
+  },
+  {
+   "name": "drawer-nourah-al-qahtani-nourahqahtanimaile__inline-all-tasks",
+   "parent": "drawer-nourah-al-qahtani-nourahqahtanimaile",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)",
+   "label": "All Tasks",
+   "title": "",
+   "opened": []
+  },
+  {
+   "name": "drawer-nourah-al-qahtani-nourahqahtanimaile__drawer-add-interest-manually",
+   "parent": "drawer-nourah-al-qahtani-nourahqahtanimaile",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > button:nth-child(1)",
+   "label": "Add Interest Manually",
+   "title": "Add Interest Manually Select",
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 576,
+     "h": 900
+    }
+   ]
+  }
+ ],
+ "nestedAt": "2026-09-28T21:29:34.565Z"
 }

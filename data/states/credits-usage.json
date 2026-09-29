@@ -54,5 +54,50 @@
    ]
   }
  ],
- "links": []
+ "links": [],
+ "nested": [
+  {
+   "name": "drawer-filters-apply-filters-to__dropdown-select-upgrades",
+   "parent": "drawer-filters-apply-filters-to",
+   "kind": "dropdown",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)",
+   "label": "Select Upgrades",
+   "title": "No data",
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 450,
+     "h": 900
+    },
+    {
+     "k": "dropdown",
+     "w": 402,
+     "h": 125
+    }
+   ]
+  },
+  {
+   "name": "drawer-filters-apply-filters-to__dropdown-select-users",
+   "parent": "drawer-filters-apply-filters-to",
+   "kind": "dropdown",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)",
+   "label": "Select Users",
+   "title": "88010234 88010241 Faisal Al-Harbi",
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 450,
+     "h": 900
+    },
+    {
+     "k": "dropdown",
+     "w": 402,
+     "h": 174
+    }
+   ]
+  }
+ ],
+ "nestedAt": "2026-09-28T21:21:09.129Z"
 }

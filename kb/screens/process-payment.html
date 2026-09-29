@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Processing payment — Profolio KSA</title>
+<link rel="stylesheet" href="../kb.css">
+</head>
+<body>
+<nav><a href="../index.html">Profolio KSA</a> › <a href="index.html">Screens &amp; states</a> › Processing payment</nav>
+<main>
+<h1>Processing payment</h1>
+<p>Processing payment — where the payment gateway sends the customer back: a full-page spinner while the result is asked for, then Checkout.</p>
+<table>
+<tr><th>route</th><td><code>/content/process-payment</code></td></tr>
+<tr><th>web · 1440</th><td><a href="../../deliverables/process-payment.html">deliverables/process-payment.html</a> <small>(0% from the product)</small></td></tr>
+<tr><th>responsive · 375</th><td><a href="../../deliverables/mobile/process-payment.html">deliverables/mobile/process-payment.html</a> <small>(0% from the product)</small></td></tr>
+<tr><th>states</th><td>2 — 2 web, 2 responsive</td></tr>
+
+</table>
+<p>Open the page and click through it: every trigger that opens one of these states is a link to it, and every state links back. The percentages are the compiled file’s pixel difference from the product it was compiled from.</p>
+<h2>Flows (numbered steps) <small>2</small></h2>
+<table>
+<tr><th>state</th><th>how to reach it</th><th>what it shows</th><th>web</th><th>responsive</th></tr>
+<tr><td><code>flow-buy-package-03-processing</code></td><td>package purchase, step 3 of 5: back from the card gateway, the same processing spinner; next checkout--flow-buy-package-04-success, or packages--flow-buy-package-05-failure</td><td></td><td><a href="../../deliverables/states/process-payment--flow-buy-package-03-processing.html">open</a> <small>0%</small></td><td><a href="../../deliverables/mobile/states/process-payment--flow-buy-package-03-processing.html">open</a> <small>0%</small></td></tr>
+<tr><td><code>flow-top-up-03-processing</code></td><td>credit top-up, step 3 of 5: back from the card gateway (3-D Secure), the processing screen — a full-page spinner while the return is forwarded to the checkout (payment-process.js:53); next checkout--flow-top-up-04-success, or packages--flow-top-up-05-failure</td><td></td><td><a href="../../deliverables/states/process-payment--flow-top-up-03-processing.html">open</a> <small>0%</small></td><td><a href="../../deliverables/mobile/states/process-payment--flow-top-up-03-processing.html">open</a> <small>0%</small></td></tr>
+</table>
+<h2>Made of</h2>
+<p>The components on the page itself, most used first (a state’s own additions are listed beside it above).</p>
+<p><strong>Web:</strong> <a href="../../deliverables/components/payment-process.html">PaymentProcess</a> <small>1×</small> · <a href="../../deliverables/components/spinner.html">Spinner</a> <small>1×</small> · <a href="../../deliverables/components/antd-spin.html">Spin</a> <small>1×</small></p>
+<p><strong>Responsive:</strong> <a href="../../deliverables/components/payment-process.html">PaymentProcess</a> <small>1×</small> · <a href="../../deliverables/components/spinner.html">Spinner</a> <small>1×</small> · <a href="../../deliverables/components/antd-spin.html">Spin</a> <small>1×</small></p>
+
+
+<h2>What the page says</h2>
+<p><small>As rendered on the fixture account — labels are the product’s copy; names, numbers and listings are invented.</small></p>
+<p></p>
+
+</main>
+</body>
+</html>

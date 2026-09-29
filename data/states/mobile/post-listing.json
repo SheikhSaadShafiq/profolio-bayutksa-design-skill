@@ -39,5 +39,7 @@
    "label": "Daily Rental Listing Host guests at your",
    "to": "/en/post-listing?step=permit-number"
   }
- ]
+ ],
+ "nested": [],
+ "nestedAt": "2026-09-29T05:36:49.315Z"
 }

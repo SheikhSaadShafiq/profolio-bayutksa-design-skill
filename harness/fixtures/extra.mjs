@@ -415,8 +415,46 @@ export default (h) => {
     user: { id: l.u.id, name: l.u.name, name_l1: l.u.name_l1, mobile: l.u.mobile },
   }));
 
+  /* ── mode 'individual': the owner's own licence card, as an individual ──
+     An independent broker has no agency, so Licenses asks for HIS licences —
+     users/:id/licenses (license.js:19, type 'User') — not the agency's. One:
+     his own FAL licence, the number profile.mjs gives him (INDIVIDUAL_LICENSE,
+     read from users/current here so the two agree), with his own contacts. */
+  const individualLicences = () => {
+    const me = ask('/api/surge/users/current', 'individual')?.user;
+    const lic = me?.license;
+    if (!me || !lic?.number) return [];
+    return [{
+      id: lic.id, number: lic.number, end_date: `${lic.end_date}T00:00:00.000+03:00`, certificate_link: null,
+      license_type: 'user', is_shareable: false, mobile: me.mobile, email: me.email,
+      broker_name: me.name, broker_name_l1: me.name_l1, advertiser_id: '4460193', is_rega_verified: true,
+      status: VERIFIED, location: { id: 1402, name: 'Al Olaya', name_l1: 'العليا' }, city: CITY,
+      user: { id: me.id, name: me.name, name_l1: me.name_l1, mobile: me.mobile },
+    }];
+  };
+
+  /* ── mode 'empty': a brand-new account ────────────────────────────────
+     No listing has been live, no call or chat tracked, no task done: every
+     badge is locked at zero (calls and WhatsApp null, as the API sends an
+     untracked figure), no TruPoints and no activity, a team of one — the
+     owner — with nothing on his row, and no licence on file yet. The
+     leaderboard is other agencies' TruBrokers and does not change. */
+  const EMPTY_BADGES = {
+    quality_lister: { listing_images: 0, listing_features: 0 },
+    responsive_broker: { call_response_rate: null, whatsapp_response_rate: null, whatsapp_count: null, call_count: null,
+      whatsapp_criteria: CRITERIA.whatsapp, call_criteria: CRITERIA.calls },
+    super_lister: { active_listing_count: 0 },
+  };
+  const emptyTeamRow = (u) => ({
+    ...teamRow(u), badges: { active: [] }, rank: null, tru_points: 0,
+    quality_core: { image_score: 0, feature_score: 0 },
+    responsiveness: { whatsapp_response_rate: 0, call_response_rate: 0 },
+    total_active_listings: { active_listing_count: 0 },
+  });
+
   return [
     [/^\/api\/surge\/users\/user_badge_eligibility$/, (search, mode) => {
+      if (mode === 'empty') return EMPTY_BADGES;
       const who = me(mode);
       const p = perfOf(who.id);
       return {
@@ -430,12 +468,12 @@ export default (h) => {
       };
     }],
     [/^\/api\/surge\/users\/tru_points$/, (search, mode) => {
-      const done = doneBy(me(mode).id);
+      const done = mode === 'empty' ? new Set() : doneBy(me(mode).id);
       return { tru_points: TASKS.map((t) => ({ ...t, is_completed: done.has(t.slug) })) };
     }],
     [/^\/api\/surge\/users\/\d+\/trubroker\/tru_point_activities$/, (search, mode, pathname) => {
       const id = Number((pathname || '').match(/users\/(\d+)\//)?.[1]) || me(mode).id;
-      const all = activitiesOf(id);
+      const all = mode === 'empty' ? [] : activitiesOf(id);
       const { page: p, per } = pageOf(search, 10);
       return { tru_point_activities: all.slice((p - 1) * per, p * per), pagination: pagination(p, per, all.length) };
     }],
@@ -451,16 +489,27 @@ export default (h) => {
       if (isStaff(mode)) return { errors: ['You are not authorized to perform this action'], success: false };
       const { page: p, per, q } = pageOf(search, 5);
       const wanted = q.getAll('badge[]').map((b) => BADGE_FLAG[b]).filter(Boolean);
-      const rows = USERS
-        .filter((u) => wanted.every((flag) => !!u[flag]))
-        .map(teamRow)
-        .sort((a, b) => b.tru_points - a.tru_points);
+      /* a brand-new agency is its owner alone, and nobody has a badge yet */
+      const rows = mode === 'empty'
+        ? (wanted.length ? [] : [emptyTeamRow(OWNER)])
+        : USERS
+          .filter((u) => wanted.every((flag) => !!u[flag]))
+          .map(teamRow)
+          .sort((a, b) => b.tru_points - a.tru_points);
       return { team_performance: rows.slice((p - 1) * per, p * per), pagination: pagination(p, per, rows.length) };
     }],
     [/^\/api\/surge\/packages$/, (search, mode) => {
       const packages = packagesFor(mode);
       return { packages, refundable_amount: null, pagination: pagination(1, 50, packages.length) };
     }],
-    [/^\/api\/surge\/agencies\/\d+\/licenses$/, () => ({ licenses: LICENSES })],
+    [/^\/api\/surge\/agencies\/\d+\/licenses$/, (search, mode) => ({ licenses: mode === 'empty' ? [] : LICENSES })],
+    /* the signed-in user's own licences — asked only by an account with no
+       agency (license.js:19). An agency member's own licence is one of the
+       agency's LICENSES above, so any other mode answers those that are his. */
+    [/^\/api\/surge\/users\/\d+\/licenses$/, (search, mode) => ({
+      licenses: mode === 'empty' ? []
+        : mode === 'individual' ? individualLicences()
+          : LICENSES.filter((l) => l.license_type === 'user' && l.user.id === me(mode)?.id),
+    })],
   ];
 };

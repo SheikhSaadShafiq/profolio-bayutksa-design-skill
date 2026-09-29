@@ -1,10 +1,10 @@
 {
-  "at": "2026-09-28T19:36:51.397Z",
+  "at": "2026-09-29T07:40:55.572Z",
   "against": "real account",
   "tolerancePx": 1,
   "coverage": 88.9,
-  "fidelity": 75.5,
-  "exact": 48.6,
+  "fidelity": 76.2,
+  "exact": 49.3,
   "rows": [
     {
       "page": "ad-license",
@@ -381,7 +381,7 @@
           "kind": "moved",
           "at": "div.ant-col",
           "box": "509×154 @601,1056",
-          "detail": "w 509→504"
+          "detail": "w 509→507"
         },
         {
           "kind": "moved",
@@ -393,19 +393,19 @@
           "kind": "moved",
           "at": "div.ant-col",
           "box": "506×152 @601,602",
-          "detail": "w 506→509"
+          "detail": "w 506→510"
         },
         {
           "kind": "moved",
           "at": "div.ant-col",
           "box": "499×152 @601,152",
-          "detail": "w 499→505"
+          "detail": "w 499→504"
         },
         {
           "kind": "moved",
           "at": "div.ant-col.jDxNbh",
           "box": "149×152 @1117,152",
-          "detail": "x 1117→1123 (+6 in its parent) · w 149→143"
+          "detail": "x 1117→1121 (+4 in its parent) · w 149→145"
         },
         {
           "kind": "moved",
@@ -423,7 +423,7 @@
           "kind": "moved",
           "at": "div.ant-col.jDxNbh",
           "box": "139×154 @1127,1056",
-          "detail": "x 1127→1122 (-5 in its parent) · w 139→144"
+          "detail": "x 1127→1125 (-2 in its parent) · w 139→141"
         },
         {
           "kind": "moved",
@@ -850,19 +850,19 @@
       "page": "listings",
       "live": 1013,
       "ours": 1022,
-      "matched": 724,
-      "clean": 419,
-      "missing": 289,
+      "matched": 725,
+      "clean": 420,
+      "missing": 288,
       "moved": 262,
       "painted": 43,
-      "inherited": 346,
+      "inherited": 347,
       "exact": 116,
-      "extra": 298,
+      "extra": 297,
       "pageHeight": [
         1813,
         1826
       ],
-      "coverage": 71.5,
+      "coverage": 71.6,
       "fidelity": 57.9,
       "exactPct": 11.5,
       "score": 57.9,
@@ -1114,11 +1114,11 @@
       "live": 407,
       "ours": 401,
       "matched": 361,
-      "clean": 262,
+      "clean": 261,
       "missing": 46,
-      "moved": 99,
+      "moved": 100,
       "painted": 0,
-      "inherited": 75,
+      "inherited": 74,
       "exact": 187,
       "extra": 40,
       "pageHeight": [
@@ -1126,9 +1126,9 @@
         1063
       ],
       "coverage": 88.7,
-      "fidelity": 72.6,
+      "fidelity": 72.3,
       "exactPct": 45.9,
-      "score": 72.6,
+      "score": 72.3,
       "worklist": [
         {
           "kind": "extra",
@@ -1331,19 +1331,19 @@
         {
           "kind": "extra",
           "at": "div.pf-text--v11",
-          "box": "72×19 @352,708",
-          "detail": "we draw it, the product does not"
-        },
-        {
-          "kind": "extra",
-          "at": "div.pf-text--v11",
-          "box": "71×19 @352,601",
+          "box": "72×19 @352,601",
           "detail": "we draw it, the product does not"
         },
         {
           "kind": "extra",
           "at": "div.value",
-          "box": "71×19 @988,575",
+          "box": "72×19 @988,575",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-text--v11",
+          "box": "71×19 @352,708",
           "detail": "we draw it, the product does not"
         },
         {
@@ -1505,7 +1505,7 @@
           "kind": "moved",
           "at": "span.ant-statistic-content-value",
           "box": "87×20 @85,132",
-          "detail": "w 87→82"
+          "detail": "w 87→84"
         },
         {
           "kind": "moved",
@@ -1817,21 +1817,21 @@
       "live": 579,
       "ours": 568,
       "matched": 550,
-      "clean": 367,
+      "clean": 398,
       "missing": 29,
-      "moved": 181,
+      "moved": 150,
       "painted": 2,
       "inherited": 14,
-      "exact": 355,
+      "exact": 386,
       "extra": 18,
       "pageHeight": [
         1981,
         1981
       ],
       "coverage": 95,
-      "fidelity": 66.7,
-      "exactPct": 61.3,
-      "score": 66.7,
+      "fidelity": 72.4,
+      "exactPct": 66.7,
+      "score": 72.4,
       "worklist": [
         {
           "kind": "moved",
@@ -1901,81 +1901,75 @@
         },
         {
           "kind": "moved",
+          "at": "div.eolAvG.fz-12.py-2",
+          "box": "331×119 @157,398",
+          "detail": "w 331→329"
+        },
+        {
+          "kind": "moved",
+          "at": "div.eolAvG.fz-12.py-2",
+          "box": "331×119 @157,549",
+          "detail": "w 331→329"
+        },
+        {
+          "kind": "moved",
+          "at": "div.eolAvG.fz-12.py-2",
+          "box": "331×119 @157,700",
+          "detail": "w 331→329"
+        },
+        {
+          "kind": "moved",
+          "at": "div.eolAvG.fz-12.py-2",
+          "box": "331×119 @157,851",
+          "detail": "w 331→329"
+        },
+        {
+          "kind": "moved",
+          "at": "div.eolAvG.fz-12.py-2",
+          "box": "331×119 @157,1002",
+          "detail": "w 331→329"
+        },
+        {
+          "kind": "moved",
+          "at": "div.eolAvG.fz-12.py-2",
+          "box": "331×119 @157,1153",
+          "detail": "w 331→329"
+        },
+        {
+          "kind": "moved",
+          "at": "div.eolAvG.fz-12.py-2",
+          "box": "331×119 @157,1304",
+          "detail": "w 331→329"
+        },
+        {
+          "kind": "moved",
+          "at": "div.eolAvG.fz-12.py-2",
+          "box": "331×119 @157,1455",
+          "detail": "w 331→329"
+        },
+        {
+          "kind": "moved",
+          "at": "div.eolAvG.fz-12.py-2",
+          "box": "331×119 @157,1606",
+          "detail": "w 331→329"
+        },
+        {
+          "kind": "moved",
+          "at": "div.eolAvG.fz-12.py-2",
+          "box": "331×119 @157,1757",
+          "detail": "w 331→329"
+        },
+        {
+          "kind": "moved",
           "at": "th.ant-table-cell.col-property",
           "box": "479×54 @26,327",
           "detail": "w 479→477"
         },
         {
           "kind": "moved",
-          "at": "td.ant-table-cell",
-          "box": "155×151 @504,382",
-          "detail": "x 504→502 (-2 in its parent) · w 155→157"
-        },
-        {
-          "kind": "moved",
-          "at": "td.ant-table-cell",
-          "box": "155×151 @504,533",
-          "detail": "x 504→502 (-2 in its parent) · w 155→157"
-        },
-        {
-          "kind": "moved",
-          "at": "td.ant-table-cell",
-          "box": "155×151 @504,684",
-          "detail": "x 504→502 (-2 in its parent) · w 155→157"
-        },
-        {
-          "kind": "moved",
-          "at": "td.ant-table-cell",
-          "box": "155×151 @504,835",
-          "detail": "x 504→502 (-2 in its parent) · w 155→157"
-        },
-        {
-          "kind": "moved",
-          "at": "td.ant-table-cell",
-          "box": "155×151 @504,986",
-          "detail": "x 504→502 (-2 in its parent) · w 155→157"
-        },
-        {
-          "kind": "moved",
-          "at": "td.ant-table-cell",
-          "box": "155×151 @504,1137",
-          "detail": "x 504→502 (-2 in its parent) · w 155→157"
-        },
-        {
-          "kind": "moved",
-          "at": "td.ant-table-cell",
-          "box": "155×151 @504,1288",
-          "detail": "x 504→502 (-2 in its parent) · w 155→157"
-        },
-        {
-          "kind": "moved",
-          "at": "td.ant-table-cell",
-          "box": "155×151 @504,1439",
-          "detail": "x 504→502 (-2 in its parent) · w 155→157"
-        },
-        {
-          "kind": "moved",
-          "at": "td.ant-table-cell",
-          "box": "155×151 @504,1590",
-          "detail": "x 504→502 (-2 in its parent) · w 155→157"
-        },
-        {
-          "kind": "moved",
-          "at": "td.ant-table-cell",
-          "box": "155×151 @504,1741",
-          "detail": "x 504→502 (-2 in its parent) · w 155→157"
-        },
-        {
-          "kind": "moved",
           "at": "ul.ant-pagination",
           "box": "270×40 @1085,1908",
           "detail": "x 1085→1199 (+114 in its parent) · w 270→156"
-        },
-        {
-          "kind": "moved",
-          "at": "th.ant-table-cell",
-          "box": "155×54 @504,327",
-          "detail": "x 504→502 (-2 in its parent) · w 155→157"
         },
         {
           "kind": "moved",
@@ -2071,6 +2065,12 @@
           "kind": "extra",
           "at": "div.pf-space-item",
           "box": "50×24 @247,853",
+          "detail": "we draw it, the product does not"
+        },
+        {
+          "kind": "extra",
+          "at": "div.pf-space-item",
+          "box": "50×24 @251,1155",
           "detail": "we draw it, the product does not"
         }
       ]

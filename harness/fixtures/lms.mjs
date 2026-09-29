@@ -486,7 +486,13 @@ export default (h) => {
     return current?.[1]('', mode, '/api/surge/users/current', 'GET')?.user ?? U;
   };
   const OWNER = accountOf(U);
-  const accountIn = (mode) => (mode === 'staff' ? (staff ||= accountOf(signedIn('staff'))) : OWNER);
+  /* mode 'empty': a brand-new account has had no enquiry yet — no lead, no
+     interaction, no task. The leads page draws its own empty table and a
+     Total Leads of 0. (Mode 'individual' is the owner's own record without
+     the agency — the same id — so his four leads are the owner's four, and
+     the f[user_id] the product then sends narrows nothing away.) */
+  const NOBODY_YET = { leads: [], tasksOf: [], interests: [] };
+  const accountIn = (mode) => (mode === 'empty' ? NOBODY_YET : mode === 'staff' ? (staff ||= accountOf(signedIn('staff'))) : OWNER);
   const visible = (search, mode) => {
     const all = accountIn(mode).leads;
     const uid = new URLSearchParams(search || '').get('f[user_id]');
@@ -558,6 +564,7 @@ export default (h) => {
       const id = Number(pathname.match(/leads\/(\d+)$/)[1]);
       const { leads } = accountIn(mode);
       const l = leads.find((x) => x.id === id) || leads[0];
+      if (!l) return { leads: null };                   /* no lead to open (mode 'empty') */
       return { leads: {
         id: l.id, name: l.name, created_at: l.created_at, updated_at: l.updated_at,
         call_leads_count: l.call_leads_count, whatsapp_leads_count: l.whatsapp_leads_count,
@@ -569,7 +576,7 @@ export default (h) => {
 
     /* ?q[lead_id_eq]=<lead>&page=n */
     [/^\/api\/surge\/lms\/interests$/, (search, mode) => {
-      const { items, pagination } = paged(forLead(search, 'q[lead_id_eq]', interestsOf, accountIn(mode).leads), search);
+      const { items, pagination } = paged(mode === 'empty' ? [] : forLead(search, 'q[lead_id_eq]', interestsOf, accountIn(mode).leads), search);
       return { interests: items, pagination };
     }],
 
@@ -582,6 +589,7 @@ export default (h) => {
        already is (the product's own comment there says so), the lead's
        distinct ones, newest interaction first. */
     [/^\/api\/surge\/lms\/leads\/\d+\/listings$/, (search, mode, pathname) => {
+      if (mode === 'empty') return { listings: [] };
       const i = Math.max(0, PEOPLE.findIndex((p, k) => leadId(k) === Number(pathname.match(/leads\/(\d+)\//)[1])));
       const seen = new Map(interestsOf[i].map((s) => [s.listing.id, s.listing]));
       return { listings: [...seen.values()] };

@@ -548,13 +548,13 @@ a.pf-btn { padding-block-start: var(--btn-padding-y) !important; line-height: in
 .pf-nav-wrapper { position: relative; }
 .pf-nav-wrapper .pf-btn-link { margin-bottom: 25px; border-radius: 6px; background: rgb(255, 255, 255) !important; color: rgb(0, 97, 105) !important; }
 .pf-nav-wrapper .pf-btn-link:is(:focus,[data-pf-focus]) { color: rgb(0, 97, 105) !important; }
-.pf-action-button { display: flex; gap: 16px; }
+.pf-upgrade-listing-action-button { display: flex; gap: 16px; }
 @media screen and (min-width: 992px) {
-.pf-action-button { justify-content: end; }
+.pf-upgrade-listing-action-button { justify-content: end; }
 }
 @media screen and (max-width: 991px) {
-.pf-action-button { background-color: rgb(255, 255, 255); position: fixed; bottom: 0px; left: 0px; right: 0px; box-shadow: rgba(0, 0, 0, 0.1) 0px -4px 10px 0px; padding: 16px; z-index: 2; gap: 10px; }
-.pf-action-button > * { flex-grow: 1; }
+.pf-upgrade-listing-action-button { background-color: rgb(255, 255, 255); position: fixed; bottom: 0px; left: 0px; right: 0px; box-shadow: rgba(0, 0, 0, 0.1) 0px -4px 10px 0px; padding: 16px; z-index: 2; gap: 10px; }
+.pf-upgrade-listing-action-button > * { flex-grow: 1; }
 }
 .pf-body-scrim { position: fixed; inset: 0px; z-index: 998; background: rgba(0, 0, 0, 0.45); opacity: 0; visibility: hidden; transition: opacity 0.18s; }
 .pf-trigger-wrap { position: relative; z-index: 1001; display: inline-flex; }

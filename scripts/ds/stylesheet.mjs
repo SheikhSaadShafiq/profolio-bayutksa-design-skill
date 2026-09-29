@@ -115,7 +115,7 @@ for (const p of todo) {
   const full = meta ? meta[1] === 'full' : await pg.evaluate(() => ![...document.querySelectorAll('.pf-modal, .pf-drawer-content, .pf-popover:not(.pf-popover-hidden)')]
     .some((el) => el.getBoundingClientRect().width > 0));
   const shot = join(TMP, p.rel.replace(/\.html$/, '.png'));
-  await pg.screenshot({ path: shot, fullPage: full });
+  await pg.screenshot({ path: shot, fullPage: full, animations: 'disabled' });
   await pg.close();
   const live = join(ROOT, 'data', 'live', `${p.name}.png`);
   const d = existsSync(live) ? pixelDiff(live, shot, join(ROOT, 'data', 'qa', 'pixels-linked', `${p.name}.diff.png`)) : { pct: NaN };

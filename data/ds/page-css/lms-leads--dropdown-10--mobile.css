@@ -525,9 +525,9 @@ ul { list-style: outside none none; margin: 0px; padding: 0px; }
 .pf-dropdown-styled.pf-dropdown-trigger span { color: rgb(157, 157, 157); }
 .pf-dropdown-styled .anticon { display: flex; align-items: center; }
 .pf-dropdown-styled:is(:hover,[data-pf-hover]), .pf-dropdown-styled:is(:focus,[data-pf-focus]), .pf-dropdown-styled.pf-dropdown-open { border-color: rgb(0, 97, 105); }
-.pf-listing-detail-compact-thumbnail { display: grid; border-radius: 6px; overflow: hidden; }
-.pf-listing-detail-compact-thumbnail .pf-image { display: block; }
-.pf-listing-detail-compact-thumbnail .pf-image-img { object-fit: cover; width: 100%; aspect-ratio: 1 / 1; }
+.pf-history-breakdown-thumbnail { display: grid; border-radius: 6px; overflow: hidden; }
+.pf-history-breakdown-thumbnail .pf-image { display: block; }
+.pf-history-breakdown-thumbnail .pf-image-img { object-fit: cover; width: 100%; aspect-ratio: 1 / 1; }
 .pf-flex-styled { display: flex; align-items: normal; justify-content: normal; gap: 8px; flex-direction: column; }
 .pf-flex-styled--v73 { display: flex; align-items: center; justify-content: space-between; gap: 6px; flex-wrap: wrap; }
 .pf-flex-styled--v31 { display: flex; align-items: center; justify-content: center; gap: 8px; }
@@ -592,31 +592,31 @@ ul { list-style: outside none none; margin: 0px; padding: 0px; }
 .pf-select-styled--v3.pf-select.pf-select-focused { border-color: transparent; }
 .pf-select-styled--v3.pf-select.pf-select-focused:not(.pf-select-disabled).pf-select:not(.pf-select-customize-input) .pf-select-selector { box-shadow: none; border-color: var(--_accent-color); }
 .pf-popover-styled { line-height: 1; }
-.pf-lead-listings-mobile-table-pagination { display: flex; -webkit-box-align: center; align-items: center; -webkit-box-pack: end; justify-content: flex-end; flex-wrap: wrap; gap: 12px; }
+.pf-table-pagination { display: flex; -webkit-box-align: center; align-items: center; -webkit-box-pack: end; justify-content: flex-end; flex-wrap: wrap; gap: 12px; }
 @media only screen and (max-width: 767px) {
-.pf-lead-listings-mobile-table-pagination { -webkit-box-pack: center; justify-content: center; }
+.pf-table-pagination { -webkit-box-pack: center; justify-content: center; }
 }
 @media only screen and (max-width: 767px) {
-.pf-lead-listings-mobile-table-pagination.has-rows-per-page { flex-wrap: nowrap; margin-bottom: 16px; }
+.pf-table-pagination.has-rows-per-page { flex-wrap: nowrap; margin-bottom: 16px; }
 }
 @media only screen and (max-width: 767px) {
-.pf-lead-listings-mobile-table-pagination.has-rows-per-page.no-pager { -webkit-box-pack: end; justify-content: flex-end; }
-.pf-lead-listings-mobile-table-pagination.has-rows-per-page.no-pager .rows-per-page label { display: inline; }
+.pf-table-pagination.has-rows-per-page.no-pager { -webkit-box-pack: end; justify-content: flex-end; }
+.pf-table-pagination.has-rows-per-page.no-pager .rows-per-page label { display: inline; }
 }
-.pf-lead-listings-mobile-table-pagination .rows-per-page { display: flex; -webkit-box-align: center; align-items: center; }
-.pf-lead-listings-mobile-table-pagination .rows-per-page .pf-row { flex-wrap: nowrap; }
-.pf-lead-listings-mobile-table-pagination .rows-per-page label { font-weight: 500; font-size: 15px; white-space: nowrap; color: rgb(90, 95, 125) !important; }
-.pf-lead-listings-mobile-table-pagination .rows-per-page .pf-select { min-width: 72px; height: 32px !important; }
-.pf-lead-listings-mobile-table-pagination .rows-per-page .pf-select-selector { display: flex; -webkit-box-align: center; align-items: center; height: 32px !important; }
-.pf-lead-listings-mobile-table-pagination .rows-per-page .pf-select-selection-search-input { height: 30px !important; }
-.pf-lead-listings-mobile-table-pagination .rows-per-page .pf-select-selection-item, .pf-lead-listings-mobile-table-pagination .rows-per-page .pf-select-selection-search-input { line-height: 30px !important; }
-.pf-lead-listings-mobile-table-pagination .rows-per-page .pf-select-selection-item { color: rgb(90, 95, 125) !important; }
-.pf-lead-listings-mobile-table-pagination .rows-per-page .pf-select-arrow, .pf-lead-listings-mobile-table-pagination .rows-per-page .pf-select-arrow .anticon { pointer-events: none !important; }
+.pf-table-pagination .rows-per-page { display: flex; -webkit-box-align: center; align-items: center; }
+.pf-table-pagination .rows-per-page .pf-row { flex-wrap: nowrap; }
+.pf-table-pagination .rows-per-page label { font-weight: 500; font-size: 15px; white-space: nowrap; color: rgb(90, 95, 125) !important; }
+.pf-table-pagination .rows-per-page .pf-select { min-width: 72px; height: 32px !important; }
+.pf-table-pagination .rows-per-page .pf-select-selector { display: flex; -webkit-box-align: center; align-items: center; height: 32px !important; }
+.pf-table-pagination .rows-per-page .pf-select-selection-search-input { height: 30px !important; }
+.pf-table-pagination .rows-per-page .pf-select-selection-item, .pf-table-pagination .rows-per-page .pf-select-selection-search-input { line-height: 30px !important; }
+.pf-table-pagination .rows-per-page .pf-select-selection-item { color: rgb(90, 95, 125) !important; }
+.pf-table-pagination .rows-per-page .pf-select-arrow, .pf-table-pagination .rows-per-page .pf-select-arrow .anticon { pointer-events: none !important; }
 @media only screen and (max-width: 767px) {
-.pf-lead-listings-mobile-table-pagination .rows-per-page label { display: none; }
-.pf-lead-listings-mobile-table-pagination .rows-per-page .pf-select, .pf-lead-listings-mobile-table-pagination .rows-per-page .pf-select-selector { height: 25px !important; }
-.pf-lead-listings-mobile-table-pagination .rows-per-page .pf-select-selection-search-input { height: 23px !important; }
-.pf-lead-listings-mobile-table-pagination .rows-per-page .pf-select-selection-item, .pf-lead-listings-mobile-table-pagination .rows-per-page .pf-select-selection-search-input { line-height: 23px !important; }
+.pf-table-pagination .rows-per-page label { display: none; }
+.pf-table-pagination .rows-per-page .pf-select, .pf-table-pagination .rows-per-page .pf-select-selector { height: 25px !important; }
+.pf-table-pagination .rows-per-page .pf-select-selection-search-input { height: 23px !important; }
+.pf-table-pagination .rows-per-page .pf-select-selection-item, .pf-table-pagination .rows-per-page .pf-select-selection-search-input { line-height: 23px !important; }
 }
 .pf-text--v19 { display: inline; color: rgb(34, 34, 34); font-weight: 500; font-size: 12px; }
 .pf-text--v19 .value { font-size: 12px; }

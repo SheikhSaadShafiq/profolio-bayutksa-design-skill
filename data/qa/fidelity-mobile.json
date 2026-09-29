@@ -1,10 +1,10 @@
 {
-  "at": "2026-09-28T19:36:50.935Z",
+  "at": "2026-09-29T07:40:55.057Z",
   "against": "harness",
   "tolerancePx": 1,
   "coverage": 100,
-  "fidelity": 100,
-  "exact": 100,
+  "fidelity": 99.9,
+  "exact": 99.9,
   "rows": [
     {
       "page": "ad-license",
@@ -73,6 +73,53 @@
       "worklist": []
     },
     {
+      "page": "checkout",
+      "live": 50,
+      "ours": 50,
+      "matched": 50,
+      "clean": 46,
+      "missing": 0,
+      "moved": 0,
+      "painted": 4,
+      "inherited": 0,
+      "exact": 46,
+      "extra": 0,
+      "pageHeight": [
+        712,
+        712
+      ],
+      "coverage": 100,
+      "fidelity": 92,
+      "exactPct": 92,
+      "score": 92,
+      "worklist": [
+        {
+          "kind": "painted",
+          "at": "span.ant-skeleton-button",
+          "box": "341×44 @17,337",
+          "detail": "backgroundColor undefined → rgb(241, 242, 246)"
+        },
+        {
+          "kind": "painted",
+          "at": "span.ant-skeleton-input",
+          "box": "341×32 @17,193",
+          "detail": "backgroundColor undefined → rgb(241, 242, 246)"
+        },
+        {
+          "kind": "painted",
+          "at": "span.ant-skeleton-input",
+          "box": "341×32 @17,241",
+          "detail": "backgroundColor undefined → rgb(241, 242, 246)"
+        },
+        {
+          "kind": "painted",
+          "at": "span.ant-skeleton-input",
+          "box": "341×32 @17,289",
+          "detail": "backgroundColor undefined → rgb(241, 242, 246)"
+        }
+      ]
+    },
+    {
       "page": "credits-usage",
       "live": 198,
       "ours": 198,
@@ -124,6 +171,28 @@
       ]
     },
     {
+      "page": "invite",
+      "live": 0,
+      "ours": 0,
+      "matched": 0,
+      "clean": 0,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 0,
+      "extra": 0,
+      "pageHeight": [
+        712,
+        712
+      ],
+      "coverage": 0,
+      "fidelity": 0,
+      "exactPct": 0,
+      "score": 0,
+      "worklist": []
+    },
+    {
       "page": "listings",
       "live": 981,
       "ours": 981,
@@ -168,6 +237,10 @@
       "worklist": []
     },
     {
+      "page": "maintenance",
+      "fault": "no content region on one side"
+    },
+    {
       "page": "packages",
       "live": 491,
       "ours": 491,
@@ -190,6 +263,10 @@
       "worklist": []
     },
     {
+      "page": "post-ad",
+      "fault": "no content region on one side"
+    },
+    {
       "page": "post-listing",
       "live": 38,
       "ours": 38,
@@ -210,6 +287,54 @@
       "exactPct": 100,
       "score": 100,
       "worklist": []
+    },
+    {
+      "page": "post-listing-edit",
+      "live": 350,
+      "ours": 350,
+      "matched": 350,
+      "clean": 350,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 350,
+      "extra": 0,
+      "pageHeight": [
+        3526,
+        3526
+      ],
+      "coverage": 100,
+      "fidelity": 100,
+      "exactPct": 100,
+      "score": 100,
+      "worklist": []
+    },
+    {
+      "page": "post-listing-upgrade",
+      "live": 117,
+      "ours": 117,
+      "matched": 117,
+      "clean": 117,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 117,
+      "extra": 0,
+      "pageHeight": [
+        934,
+        934
+      ],
+      "coverage": 100,
+      "fidelity": 100,
+      "exactPct": 100,
+      "score": 100,
+      "worklist": []
+    },
+    {
+      "page": "process-payment",
+      "fault": "no content region on one side"
     },
     {
       "page": "reports-leads-reports",
@@ -350,6 +475,28 @@
       "pageHeight": [
         1160,
         1160
+      ],
+      "coverage": 100,
+      "fidelity": 100,
+      "exactPct": 100,
+      "score": 100,
+      "worklist": []
+    },
+    {
+      "page": "user-settings-preferences",
+      "live": 44,
+      "ours": 44,
+      "matched": 44,
+      "clean": 44,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 44,
+      "extra": 0,
+      "pageHeight": [
+        712,
+        712
       ],
       "coverage": 100,
       "fidelity": 100,

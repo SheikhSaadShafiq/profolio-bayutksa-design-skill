@@ -670,9 +670,9 @@ ul { list-style: outside none none; margin: 0px; padding: 0px; }
 .pf-button-styled--v17:is(:hover,[data-pf-hover]), .pf-button-styled--v17:is(:focus,[data-pf-focus]), .pf-button-styled--v17:is(:active,[data-pf-active]) { --btn-bg-color: #006169; --btn-content-color: #fff; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
 .pf-button-styled--v17:not(.pf-btn-link) { background-color: var(--btn-bg-color,#fff); color: var(--btn-content-color); }
 .pf-button-styled--v17.pf-btn { display: inline-flex; -webkit-box-align: center; align-items: center; -webkit-box-pack: center; justify-content: center; font-size: 16px; font-weight: 600; padding: var(--btn-padding-y) 1em; text-shadow: none; }
-.pf-list-with-bullet { padding-inline-start: 0px; margin-bottom: 0px; }
-.pf-list-with-bullet li { list-style: none; }
-.pf-list-with-bullet li::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 1rem; background-color: rgb(225, 242, 240); border: 2px solid rgb(85, 150, 155); margin-inline-end: 8px; }
+.pf-agency-staff-user-fields-list-with-bullet { padding-inline-start: 0px; margin-bottom: 0px; }
+.pf-agency-staff-user-fields-list-with-bullet li { list-style: none; }
+.pf-agency-staff-user-fields-list-with-bullet li::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 1rem; background-color: rgb(225, 242, 240); border: 2px solid rgb(85, 150, 155); margin-inline-end: 8px; }
 .pf-label-styled--v2 { color: var(--label-color,#000); font-weight: var(--label-font-weight,600); font-size: 14px; }
 .pf-group-styled { display: grid; gap: var(--gap,24px); grid-template-columns: var(--template,minmax(0,1fr)); grid-auto-rows: minmax(0px, auto); }
 .pf-icon-styled { --icon-bg-color: #F4F5F7; --icon-color: #707070; --icon-radius: 30%; align-self: start; background-color: var(--icon-bg-color); border-radius: var(--icon-radius); display: grid; place-content: center; width: var(--icon-styled-width,32px); aspect-ratio: 1 / 1; }

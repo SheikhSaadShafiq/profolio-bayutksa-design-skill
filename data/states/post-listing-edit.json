@@ -1,0 +1,292 @@
+{
+ "page": "post-listing-edit",
+ "route": "/post-listing/88240117",
+ "device": "web",
+ "at": "2026-09-28T23:34:34.247Z",
+ "tried": 18,
+ "states": [
+  {
+   "name": "modal-cover-add-more",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)",
+   "label": "Cover Add more",
+   "title": "Images (21) Videos (0)",
+   "shell": false,
+   "opened": [
+    {
+     "k": "modal",
+     "w": 964,
+     "h": 628
+    }
+   ]
+  },
+  {
+   "name": "modal-images-21-videos-0",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > img:nth-child(2)",
+   "label": "img",
+   "title": "Images (21) Videos (0)",
+   "shell": false,
+   "opened": [
+    {
+     "k": "modal",
+     "w": 964,
+     "h": 628
+    }
+   ]
+  },
+  {
+   "name": "inline-icon",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > button:nth-child(4)",
+   "label": "icon",
+   "title": "",
+   "shell": false,
+   "opened": []
+  },
+  {
+   "name": "modal-add-amenities",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(13) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > button:nth-child(1)",
+   "label": "Add Amenities",
+   "title": "Features and Amenities Main",
+   "shell": false,
+   "opened": [
+    {
+     "k": "modal",
+     "w": 900,
+     "h": 452
+    }
+   ]
+  },
+  {
+   "name": "inline-svg",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(13) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1) > span:nth-child(3) > svg:nth-child(1)",
+   "label": "svg",
+   "title": "",
+   "shell": false,
+   "opened": []
+  },
+  {
+   "name": "inline-button",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(14) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > button:nth-child(1)",
+   "label": "button",
+   "title": "",
+   "shell": false,
+   "opened": []
+  },
+  {
+   "name": "inline-generate-title",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(14) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > button:nth-child(2)",
+   "label": "Generate Title",
+   "title": "",
+   "shell": false,
+   "opened": []
+  },
+  {
+   "name": "inline-x",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > span:nth-child(1)",
+   "label": "‹",
+   "title": "",
+   "shell": false,
+   "opened": []
+  },
+  {
+   "name": "modal-listing-details-from-rega-ad-license",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)",
+   "label": "Listing Details from REGA Ad License 720",
+   "title": "Listing Details from REGA",
+   "shell": false,
+   "opened": [
+    {
+     "k": "modal",
+     "w": 880,
+     "h": 665
+    }
+   ]
+  },
+  {
+   "name": "drawer-feedback",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4)",
+   "label": "FEEDBACK",
+   "title": "Send us feedback The",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 400,
+     "h": 900
+    }
+   ]
+  },
+  {
+   "name": "modal-images-21-videos-0-2",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(3)",
+   "label": "div",
+   "title": "Images (21) Videos (0)",
+   "shell": false,
+   "opened": [
+    {
+     "k": "modal",
+     "w": 964,
+     "h": 628
+    }
+   ]
+  }
+ ],
+ "links": [
+  {
+   "label": "Update",
+   "to": "/en/listings"
+  }
+ ],
+ "nested": [
+  {
+   "name": "modal-cover-add-more__modal-videos-0",
+   "parent": "modal-cover-add-more",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > button:nth-child(2)",
+   "label": "Videos (0)",
+   "title": "Images (21) Videos (0)",
+   "opened": [
+    {
+     "k": "modal",
+     "w": 964,
+     "h": 628
+    }
+   ]
+  },
+  {
+   "name": "modal-cover-add-more__modal-images-21-videos-0",
+   "parent": "modal-cover-add-more",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > button:nth-child(3)",
+   "label": "icon",
+   "title": "Images (21) Videos (0)",
+   "opened": [
+    {
+     "k": "modal",
+     "w": 964,
+     "h": 628
+    }
+   ]
+  },
+  {
+   "name": "modal-images-21-videos-0__modal-videos-0",
+   "parent": "modal-images-21-videos-0",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > button:nth-child(2)",
+   "label": "Videos (0)",
+   "title": "Images (21) Videos (0)",
+   "opened": [
+    {
+     "k": "modal",
+     "w": 964,
+     "h": 628
+    }
+   ]
+  },
+  {
+   "name": "modal-images-21-videos-0__modal-images-21-videos-0",
+   "parent": "modal-images-21-videos-0",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > button:nth-child(3)",
+   "label": "icon",
+   "title": "Images (21) Videos (0)",
+   "opened": [
+    {
+     "k": "modal",
+     "w": 964,
+     "h": 628
+    }
+   ]
+  },
+  {
+   "name": "modal-add-amenities__modal-rooms",
+   "parent": "modal-add-amenities",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > form:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)",
+   "label": "Rooms",
+   "title": "Features and Amenities Main",
+   "opened": [
+    {
+     "k": "modal",
+     "w": 900,
+     "h": 376
+    }
+   ]
+  },
+  {
+   "name": "modal-add-amenities__modal-building-and-services",
+   "parent": "modal-add-amenities",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > form:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3)",
+   "label": "Building and Services",
+   "title": "Features and Amenities Main",
+   "opened": [
+    {
+     "k": "modal",
+     "w": 900,
+     "h": 386
+    }
+   ]
+  },
+  {
+   "name": "modal-images-21-videos-0-2__modal-videos-0",
+   "parent": "modal-images-21-videos-0-2",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > button:nth-child(2)",
+   "label": "Videos (0)",
+   "title": "Images (21) Videos (0)",
+   "opened": [
+    {
+     "k": "modal",
+     "w": 964,
+     "h": 628
+    }
+   ]
+  },
+  {
+   "name": "modal-images-21-videos-0-2__modal-images-21-videos-0",
+   "parent": "modal-images-21-videos-0-2",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > button:nth-child(3)",
+   "label": "icon",
+   "title": "Images (21) Videos (0)",
+   "opened": [
+    {
+     "k": "modal",
+     "w": 964,
+     "h": 628
+    }
+   ]
+  }
+ ],
+ "nestedAt": "2026-09-29T05:40:31.082Z"
+}

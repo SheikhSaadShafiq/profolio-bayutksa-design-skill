@@ -1,5 +1,5 @@
 {
- "at": "2026-09-28T19:41:38.131Z",
+ "at": "2026-09-29T07:05:52.462Z",
  "byDef": {
   "src/components/utilities/auth-info/info.js": [
    {
@@ -1714,6 +1714,379 @@
     "href": "product/copy/table.html",
     "kind": "copy",
     "title": "Copy — table"
+   }
+  ],
+  "src/components/post-listing/post-listing-form/post-listing-form-sections-layout.js": [
+   {
+    "href": "product/copy/post-listing.html",
+    "kind": "copy",
+    "title": "Copy — post-listing"
+   }
+  ],
+  "src/components/post-listing/image-select/image-select.js": [
+   {
+    "href": "product/copy/post-listing.html",
+    "kind": "copy",
+    "title": "Copy — post-listing"
+   }
+  ],
+  "src/components/common/image-uploads/image-upload-dropzone.js": [
+   {
+    "href": "product/copy/common-image-uploads.html",
+    "kind": "copy",
+    "title": "Copy — common-image-uploads"
+   },
+   {
+    "href": "design/components/image-uploads.html",
+    "kind": "notes",
+    "title": "image-uploads"
+   }
+  ],
+  "src/components/post-listing/video-select/video-select.js": [
+   {
+    "href": "product/copy/post-listing.html",
+    "kind": "copy",
+    "title": "Copy — post-listing"
+   }
+  ],
+  "src/components/post-listing/add-amenities/add-amenities.js": [
+   {
+    "href": "product/copy/post-listing.html",
+    "kind": "copy",
+    "title": "Copy — post-listing"
+   }
+  ],
+  "src/components/widgets/listing-breakdown/listing-breakdown-skeleton.js": [
+   {
+    "href": "product/copy/widgets.html",
+    "kind": "copy",
+    "title": "Copy — widgets"
+   }
+  ],
+  "src/components/convert-to-agency/convert-to-agency.js": [
+   {
+    "href": "product/copy/convert-to-agency.html",
+    "kind": "copy",
+    "title": "Copy — convert-to-agency"
+   },
+   {
+    "href": "design/components/convert-to-agency.html",
+    "kind": "notes",
+    "title": "convert-to-agency"
+   }
+  ],
+  "src/container/pages/payment/checkout.js": [
+   {
+    "href": "product/copy/page-payment.html",
+    "kind": "copy",
+    "title": "Copy — page-payment"
+   },
+   {
+    "href": "design/components/checkout.html",
+    "kind": "notes",
+    "title": "checkout"
+   }
+  ],
+  "src/components/checkout/creditCardItem.js": [
+   {
+    "href": "product/copy/checkout.html",
+    "kind": "copy",
+    "title": "Copy — checkout"
+   },
+   {
+    "href": "design/components/checkout.html",
+    "kind": "notes",
+    "title": "checkout"
+   }
+  ],
+  "src/components/prop-shop/Ordersummary.js": [
+   {
+    "href": "product/copy/prop-shop.html",
+    "kind": "copy",
+    "title": "Copy — prop-shop"
+   },
+   {
+    "href": "design/components/prop-shop.html",
+    "kind": "notes",
+    "title": "prop-shop"
+   }
+  ],
+  "src/container/pages/payment/paymentMethods.js": [
+   {
+    "href": "product/copy/page-payment.html",
+    "kind": "copy",
+    "title": "Copy — page-payment"
+   }
+  ],
+  "src/components/checkout/adLicenseSuccessModal.js": [
+   {
+    "href": "product/copy/checkout.html",
+    "kind": "copy",
+    "title": "Copy — checkout"
+   },
+   {
+    "href": "design/components/checkout.html",
+    "kind": "notes",
+    "title": "checkout"
+   }
+  ],
+  "src/components/success-modal/success-modal.js": [
+   {
+    "href": "design/components/success-modal.html",
+    "kind": "notes",
+    "title": "success-modal"
+   }
+  ],
+  "src/components/common/spinner/spinner.js": [
+   {
+    "href": "design/components/spinner.html",
+    "kind": "notes",
+    "title": "spinner"
+   }
+  ],
+  "src/components/nafath-verification-modal/nafath-verification-modal.js": [
+   {
+    "href": "product/copy/nafath-verification-modal.html",
+    "kind": "copy",
+    "title": "Copy — nafath-verification-modal"
+   },
+   {
+    "href": "design/components/nafath-verification-modal.html",
+    "kind": "notes",
+    "title": "nafath-verification-modal"
+   }
+  ],
+  "src/container/pages/payment/payment-process.js": [
+   {
+    "href": "product/copy/page-payment.html",
+    "kind": "copy",
+    "title": "Copy — page-payment"
+   }
+  ],
+  "src/components/invite-user/otp-verification.js": [
+   {
+    "href": "product/copy/invite-user.html",
+    "kind": "copy",
+    "title": "Copy — invite-user"
+   },
+   {
+    "href": "design/components/invite-user.html",
+    "kind": "notes",
+    "title": "invite-user"
+   }
+  ],
+  "src/components/delete-agency-user/deleteAgencyUserModal.js": [
+   {
+    "href": "product/copy/delete-agency-user.html",
+    "kind": "copy",
+    "title": "Copy — delete-agency-user"
+   },
+   {
+    "href": "design/components/delete-agency-user.html",
+    "kind": "notes",
+    "title": "delete-agency-user"
+   }
+  ],
+  "src/container/pages/invite-user/invite-user.js": [
+   {
+    "href": "product/copy/page-invite-user.html",
+    "kind": "copy",
+    "title": "Copy — page-invite-user"
+   },
+   {
+    "href": "design/components/invite-user.html",
+    "kind": "notes",
+    "title": "invite-user"
+   }
+  ],
+  "src/components/checkout/successfulPaymentModal.js": [
+   {
+    "href": "product/copy/checkout.html",
+    "kind": "copy",
+    "title": "Copy — checkout"
+   },
+   {
+    "href": "design/components/checkout.html",
+    "kind": "notes",
+    "title": "checkout"
+   }
+  ],
+  "src/tenant/common/components/post-listing/national-cr-form.js": [
+   {
+    "href": "product/copy/tenant-post-listing.html",
+    "kind": "copy",
+    "title": "Copy — tenant-post-listing"
+   },
+   {
+    "href": "design/components/post-listing.html",
+    "kind": "notes",
+    "title": "post-listing"
+   }
+  ],
+  "src/tenant/bayut/components/upgrade-listing/upgrade-listing.js": [
+   {
+    "href": "product/copy/tenant-upgrade-listing.html",
+    "kind": "copy",
+    "title": "Copy — tenant-upgrade-listing"
+   }
+  ],
+  "src/components/common/checkbox/checkbox.js": [
+   {
+    "href": "design/components/checkbox.html",
+    "kind": "notes",
+    "title": "Checkbox"
+   }
+  ],
+  "src/components/credits-info/credits-info.js": [
+   {
+    "href": "product/copy/credits-info.html",
+    "kind": "copy",
+    "title": "Copy — credits-info"
+   },
+   {
+    "href": "design/components/credits-info.html",
+    "kind": "notes",
+    "title": "credits-info"
+   }
+  ],
+  "src/container/pages/post-listing/upgrade-listing.js": [
+   {
+    "href": "product/copy/page-post-listing.html",
+    "kind": "copy",
+    "title": "Copy — page-post-listing"
+   },
+   {
+    "href": "design/components/post-listing.html",
+    "kind": "notes",
+    "title": "post-listing"
+   }
+  ],
+  "src/components/common/tabs/tabs.js": [
+   {
+    "href": "design/components/tabs.html",
+    "kind": "notes",
+    "title": "Tabs"
+   }
+  ],
+  "src/components/post-listing/media-gallery/media-gallery-modal.js": [
+   {
+    "href": "product/copy/post-listing.html",
+    "kind": "copy",
+    "title": "Copy — post-listing"
+   }
+  ],
+  "src/tenant/bayut/components/post-listing/listingDetailModal.js": [
+   {
+    "href": "product/copy/tenant-post-listing.html",
+    "kind": "copy",
+    "title": "Copy — tenant-post-listing"
+   },
+   {
+    "href": "design/components/post-listing.html",
+    "kind": "notes",
+    "title": "post-listing"
+   }
+  ],
+  "src/tenant/bayut/components/post-listing/RegaDetailFields.js": [
+   {
+    "href": "product/copy/tenant-post-listing.html",
+    "kind": "copy",
+    "title": "Copy — tenant-post-listing"
+   },
+   {
+    "href": "design/components/post-listing.html",
+    "kind": "notes",
+    "title": "post-listing"
+   }
+  ],
+  "src/tenant/common/components/preference/preference.js": [
+   {
+    "href": "product/copy/tenant-preference.html",
+    "kind": "copy",
+    "title": "Copy — tenant-preference"
+   }
+  ],
+  "src/tenant/common/components/smart-credits-utilisation/smart-credits-utilisation.js": [
+   {
+    "href": "product/copy/tenant-smart-credits-utilisation.html",
+    "kind": "copy",
+    "title": "Copy — tenant-smart-credits-utilisation"
+   }
+  ],
+  "src/container/pages/agent-performance/TruPoints.js": [
+   {
+    "href": "product/copy/page-agent-performance.html",
+    "kind": "copy",
+    "title": "Copy — page-agent-performance"
+   }
+  ],
+  "src/container/pages/agent-performance/AgentPerformanceSkeleton.js": [
+   {
+    "href": "product/copy/page-agent-performance.html",
+    "kind": "copy",
+    "title": "Copy — page-agent-performance"
+   }
+  ],
+  "src/tenant/common/components/layout/layout.js": [
+   {
+    "href": "product/copy/tenant-layout.html",
+    "kind": "copy",
+    "title": "Copy — tenant-layout"
+   },
+   {
+    "href": "design/components/header.html",
+    "kind": "notes",
+    "title": "Header"
+   }
+  ],
+  "src/tenant/common/components/layout/navbar.js": [
+   {
+    "href": "product/copy/tenant-layout.html",
+    "kind": "copy",
+    "title": "Copy — tenant-layout"
+   },
+   {
+    "href": "design/components/navbar.html",
+    "kind": "notes",
+    "title": "navbar"
+   }
+  ],
+  "src/components/common/banner/index.js": [
+   {
+    "href": "product/copy/common-banner.html",
+    "kind": "copy",
+    "title": "Copy — common-banner"
+   },
+   {
+    "href": "design/components/banner.html",
+    "kind": "notes",
+    "title": "Banner"
+   }
+  ],
+  "src/tenant/common/components/layout/footer.js": [
+   {
+    "href": "product/copy/tenant-layout.html",
+    "kind": "copy",
+    "title": "Copy — tenant-layout"
+   }
+  ],
+  "src/components/leads-management/lead-detail-drawer-skeleton.js": [
+   {
+    "href": "product/copy/leads-management.html",
+    "kind": "copy",
+    "title": "Copy — leads-management"
+   },
+   {
+    "href": "design/components/leads-management.html",
+    "kind": "notes",
+    "title": "leads-management"
+   }
+  ],
+  "src/components/common/licenseSkeleton/licenseSkeleton.js": [
+   {
+    "href": "design/components/licenseskeleton.html",
+    "kind": "notes",
+    "title": "licenseSkeleton"
    }
   ]
  },

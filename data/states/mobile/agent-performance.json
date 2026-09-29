@@ -102,5 +102,70 @@
    ]
   }
  ],
- "links": []
+ "links": [],
+ "nested": [
+  {
+   "name": "drawer-not-ranked__inline-2",
+   "parent": "drawer-not-ranked",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > ul:nth-child(1) > li:nth-child(3)",
+   "label": "2",
+   "title": "",
+   "opened": []
+  },
+  {
+   "name": "drawer-not-ranked__inline-3",
+   "parent": "drawer-not-ranked",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > ul:nth-child(1) > li:nth-child(4)",
+   "label": "3",
+   "title": "",
+   "opened": []
+  },
+  {
+   "name": "drawer-not-ranked__inline-4",
+   "parent": "drawer-not-ranked",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > ul:nth-child(1) > li:nth-child(5)",
+   "label": "4",
+   "title": "",
+   "opened": []
+  },
+  {
+   "name": "drawer-learn-more__drawer-how-to-earn-trupointsTM",
+   "parent": "drawer-learn-more",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(5) > button:nth-child(4)",
+   "label": "How to earn TruPoints™",
+   "title": "Get More Visibility with",
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 375,
+     "h": 731
+    }
+   ]
+  },
+  {
+   "name": "drawer-trupointsTM-46__drawer-how-to-earn-trupointsTM",
+   "parent": "drawer-trupointsTM-46",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > button:nth-child(1)",
+   "label": "How to Earn TruPoints™",
+   "title": "Get More Visibility with",
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 375,
+     "h": 731
+    }
+   ]
+  }
+ ],
+ "nestedAt": "2026-09-28T22:49:49.319Z"
 }

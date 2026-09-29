@@ -60,6 +60,15 @@
  * it — with three things the staff account's recording does differently:
  * a null leads trend, six sale and five rent areas in the donuts, and null /
  * zero figures wherever only a tracked number could know the answer.
+ *
+ * ── mode 'empty' ──────────────────────────────────────────────────────────
+ * A brand-new account: no listing has been live, so there has been no
+ * traffic and no lead. Every count is 0; every per-day and per-ad list is
+ * empty, the way the real API spelled the first account's traffic-less
+ * window (product_stats.items {}); nothing has a previous period, so every
+ * trend is null. The Performance card then draws its "View In-Depth
+ * Insights" empty state (utility/utility.js:139 isNoGraph), the donuts
+ * "Not enough data", the report tables their empty tables.
  */
 export default (h) => {
   const { day, iso, num, listings, page, products } = h;
@@ -227,6 +236,7 @@ export default (h) => {
      that table has three pages, as the staff account's does. Owner mode keeps
      every day, as it always has, so its pages do not move. */
   const productStats = (search, mode) => {
+    if (mode === 'empty') return { stats: { items: {}, total: 0, ...totalsOf({}) } };
     const all = itemsFor(search);
     const items = mode === 'staff'
       ? Object.fromEntries(Object.entries(all).filter(([, it]) => SUM_KEYS.some((k) => it[k])))
@@ -272,6 +282,8 @@ export default (h) => {
     basic: products.basic, signature: products.signature, hot: products.hot,
   };
   const DUBIZZLE = { active: 0, rent: 0, sale: 0, basic: 0, boost_to_top: 0, feature: 0 };
+  /* mode 'empty': nothing posted yet */
+  const NONE = Object.fromEntries(Object.keys(KSA).map((k) => [k, 0]));
 
   /* the donuts: four areas each, as on the real account. Counts sum to the
      purpose's listings; percentage is the API's own share of that sum. */
@@ -303,6 +315,8 @@ export default (h) => {
     ['Al Rawabi', 'الروابي', 1], ['Al Sahafa', 'الصحافة', 1],
   ]);
   const staffByArea = { ...byArea, sale_breakdown_by_area: STAFF_SALE_AREAS, rent_breakdown_by_area: STAFF_RENT_AREAS };
+  const emptyByArea = { total: 0, rent: 0, sale: 0, basic: 0, signature: 0, hot: 0, sale_breakdown_by_area: [], rent_breakdown_by_area: [] };
+  const byAreaIn = (mode) => (mode === 'staff' ? staffByArea : mode === 'empty' ? emptyByArea : byArea);
 
   /* ── LMS call tracking ───────────────────────────────────────────────── */
   const callsIn = (ls) => ls.filter((l) => l.ch === 'call');
@@ -328,20 +342,25 @@ export default (h) => {
      What tracking-off takes away is what only a TRACKED number knows: whether
      a call was received, answered or missed, and how fast a chat was
      answered. So those figures are empty; clicks are still counted. */
-  const tracked = (ls, mode) => (mode === 'staff' ? [] : ls);
+  const tracked = (ls, mode) => (mode === 'staff' || mode === 'empty' ? [] : ls);
+  /* every lead and every day's traffic, as this mode has them — a brand-new
+     account has had neither */
+  const leadsIn = (search, mode) => (mode === 'empty' ? [] : leadsInWindow(search));
+  const totalsIn = (search, mode) => (mode === 'empty' ? totalsOf({}) : totalsOf(itemsFor(search)));
 
   return [
     /* Listings card — dashboard and all three reports pages */
-    [/^\/api\/surge\/dashboard\/listing_stats$/, () => ({
-      stats: { ksa: { ...KSA }, platforms: { ksa: { ...KSA }, dubizzle: { ...DUBIZZLE } } },
-    })],
+    [/^\/api\/surge\/dashboard\/listing_stats$/, (search, mode) => {
+      const ksa = mode === 'empty' ? NONE : KSA;
+      return { stats: { ksa: { ...ksa }, platforms: { ksa: { ...ksa }, dubizzle: { ...DUBIZZLE } } } };
+    }],
 
     /* Breakdown By Location. Unanswered, both donuts said "Not enough data". */
     [/^\/api\/surge\/dashboard\/listings_by_area$/, (search, mode) => ({
       listings: {
-        ksa: mode === 'staff' ? staffByArea : byArea,
+        ksa: byAreaIn(mode),
         platforms: {
-          ksa: mode === 'staff' ? staffByArea : byArea,
+          ksa: byAreaIn(mode),
           dubizzle: { total: 0, rent: 0, sale: 0, basic: 0, 'boost-to-top': 0, feature: 0, sale_breakdown_by_area: [], rent_breakdown_by_area: [] },
         },
       },
@@ -350,9 +369,10 @@ export default (h) => {
     /* Listing By Date — the second tab of the listing report
        (bayut/apis/reports.js:147 → transformers/reports.js:247). Newest first,
        ten a page, the account growing to today's 20 active. */
-    [/^\/api\/surge\/dashboard\/listings_history$/, (search) => {
+    [/^\/api\/surge\/dashboard\/listings_history$/, (search, mode) => {
       const q = params(search);
-      const dates = windowOf(search).reverse();
+      /* a brand-new account has no listing history: no dates at all */
+      const dates = mode === 'empty' ? [] : windowOf(search).reverse();
       const perPage = 10, pg = Math.max(1, Number(q.get('page')) || 1);
       const rows = dates.slice((pg - 1) * perPage, pg * perPage);
       const result = Object.fromEntries(rows.map((d) => {
@@ -370,9 +390,9 @@ export default (h) => {
     }],
 
     /* per-listing stats: the listing report's table and the listings table */
-    [/^\/api\/surge\/ovation\/stats$/, (search) => {
+    [/^\/api\/surge\/ovation\/stats$/, (search, mode) => {
       const ids = params(search).getAll('ad_external_ids[]').map(Number).filter(Boolean);
-      const items = (ids.length ? ids : listings.map((l) => l.id)).map((id, i) => statsForAd(id, i));
+      const items = mode === 'empty' ? [] : (ids.length ? ids : listings.map((l) => l.id)).map((id, i) => statsForAd(id, i));
       return { stats: { total: items.length, items } };
     }],
 
@@ -380,7 +400,9 @@ export default (h) => {
     [/^\/api\/surge\/ovation\/stats\/trends$/, (search, mode) => ({
       /* aggregates carry the sixteen keys trends does — not the two
          whatsapp_contact counts, which only product_stats sends */
-      stats: { aggregates: Object.fromEntries(Object.keys(TRENDS).map((k) => [k, totalsOf(itemsFor(search))[k]])), trends: { ...(mode === 'staff' ? STAFF_TRENDS : TRENDS) } },
+      /* nothing has a previous period on a brand-new account: every trend null */
+      stats: { aggregates: Object.fromEntries(Object.keys(TRENDS).map((k) => [k, totalsIn(search, mode)[k]])),
+               trends: mode === 'empty' ? Object.fromEntries(Object.keys(TRENDS).map((k) => [k, null])) : { ...(mode === 'staff' ? STAFF_TRENDS : TRENDS) } },
     })],
 
     /* the Performance chart (per day, per product) and the leads-by-date table */
@@ -388,11 +410,12 @@ export default (h) => {
 
     /* the same, as counted by LMS tracking — requested instead of the ovation
        leads when the user has call or WhatsApp tracking on (reports.js:31) */
-    [/^\/api\/surge\/lms\/stats\/product_stats$/, (search) => productStats(search)],
+    [/^\/api\/surge\/lms\/stats\/product_stats$/, (search, mode) => productStats(search, mode === 'empty' ? mode : undefined)],
 
     /* Calls Received / Answered / Missed in the Leads tab of the chart
        (common/transformers/leads.js:912 phoneStatsMapper) */
-    [/^\/api\/surge\/lms\/stats\/phone_lead_stats$/, (search) => {
+    [/^\/api\/surge\/lms\/stats\/phone_lead_stats$/, (search, mode) => {
+      if (mode === 'empty') return { stats: { items: {}, total: 0, ...phoneRecord([]) } };
       const cats = categoriesOf(search);
       const items = Object.fromEntries(windowOf(search).map((d) => {
         const ls = leadsOn(offsetOf(d), cats);
@@ -407,7 +430,7 @@ export default (h) => {
        every key either identifier is read for. */
     [/^\/api\/surge\/lms\/stats\/insights$/, (search, mode) => {
       const ls = tracked(leadsInWindow(search), mode);
-      const t = totalsOf(itemsFor(search));
+      const t = totalsIn(search, mode);
       const { sum_view_count, sum_search_count, sum_sms_view_count, sum_whatsapp_view_count, sum_email_view_count,
         sum_chat_view_count, sum_phone_view_count, sum_whatsapp_lead_count, sum_email_lead_count, sum_chat_lead_count,
         sum_phone_lead, sum_whatsapp_contact_agent_count, sum_whatsapp_contact_lead_count, chats_initiated } = t;
@@ -423,8 +446,8 @@ export default (h) => {
     /* the cards' stats row — Response Rate, Avg Duration, Avg Resp. Time. The
        values are printed as sent (utils.js:67), so they are sent formatted. */
     [/^\/api\/surge\/lms\/stats\/response_time_metrics$/, (search, mode) => {
-      const ls = leadsInWindow(search);
-      const off = mode === 'staff';                      /* tracking off: see `tracked` */
+      const ls = leadsIn(search, mode);
+      const off = mode === 'staff' || mode === 'empty';  /* tracking off (see `tracked`), or nothing to time */
       /* Clicked is the same click the Performance card counts as Calls /
          WhatsApp (sum_phone_view_count / sum_whatsapp_view_count), so the
          two pages print the same 3 and 7 — with tracking on or off, since a
@@ -447,7 +470,7 @@ export default (h) => {
     /* the View Trend modal behind either card (common/transformers/leads.js:1017,
        which reads a missing rate or time as 0) */
     [/^\/api\/surge\/lms\/stats\/response_time_graph$/, (search, mode) => {
-      const off = mode === 'staff';
+      const off = mode === 'staff' || mode === 'empty';
       const daily_data = windowOf(search).map((d) => {
         const o = offsetOf(d);
         return {

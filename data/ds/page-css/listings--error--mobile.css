@@ -286,7 +286,6 @@
 .pf-tabs-top > .pf-tabs-nav .pf-tabs-nav-wrap::before, .pf-tabs-bottom > .pf-tabs-nav .pf-tabs-nav-wrap::before, .pf-tabs-top > div > .pf-tabs-nav .pf-tabs-nav-wrap::before, .pf-tabs-bottom > div > .pf-tabs-nav .pf-tabs-nav-wrap::before, .pf-tabs-top > .pf-tabs-nav .pf-tabs-nav-wrap::after, .pf-tabs-bottom > .pf-tabs-nav .pf-tabs-nav-wrap::after, .pf-tabs-top > div > .pf-tabs-nav .pf-tabs-nav-wrap::after, .pf-tabs-bottom > div > .pf-tabs-nav .pf-tabs-nav-wrap::after { top: 0px; bottom: 0px; width: var(--pf-control-height); }
 .pf-tabs-top > .pf-tabs-nav .pf-tabs-nav-wrap::before, .pf-tabs-bottom > .pf-tabs-nav .pf-tabs-nav-wrap::before, .pf-tabs-top > div > .pf-tabs-nav .pf-tabs-nav-wrap::before, .pf-tabs-bottom > div > .pf-tabs-nav .pf-tabs-nav-wrap::before { left: 0px; box-shadow: var(--pf-box-shadow-tabs-overflow-left); }
 .pf-tabs-top > .pf-tabs-nav .pf-tabs-nav-wrap::after, .pf-tabs-bottom > .pf-tabs-nav .pf-tabs-nav-wrap::after, .pf-tabs-top > div > .pf-tabs-nav .pf-tabs-nav-wrap::after, .pf-tabs-bottom > div > .pf-tabs-nav .pf-tabs-nav-wrap::after { right: 0px; box-shadow: var(--pf-box-shadow-tabs-overflow-right); }
-.pf-tabs-top > .pf-tabs-nav .pf-tabs-nav-wrap.pf-tabs-nav-wrap-ping-right::after, .pf-tabs-bottom > .pf-tabs-nav .pf-tabs-nav-wrap.pf-tabs-nav-wrap-ping-right::after, .pf-tabs-top > div > .pf-tabs-nav .pf-tabs-nav-wrap.pf-tabs-nav-wrap-ping-right::after, .pf-tabs-bottom > div > .pf-tabs-nav .pf-tabs-nav-wrap.pf-tabs-nav-wrap-ping-right::after { opacity: 1; }
 .pf-tabs-top > .pf-tabs-nav::before, .pf-tabs-top > div > .pf-tabs-nav::before { bottom: 0px; }
 .pf-tabs-top > .pf-tabs-nav .pf-tabs-ink-bar, .pf-tabs-top > div > .pf-tabs-nav .pf-tabs-ink-bar { bottom: 0px; }
 .pf-tabs { box-sizing: border-box; margin: 0px; padding: 0px; color: var(--pf-color-text); font-size: var(--pf-font-size); line-height: var(--pf-line-height); list-style: none; font-family: var(--pf-font-family); display: flex; }
@@ -295,6 +294,7 @@
 .pf-tabs > .pf-tabs-nav .pf-tabs-nav-wrap::before, .pf-tabs > div > .pf-tabs-nav .pf-tabs-nav-wrap::before, .pf-tabs > .pf-tabs-nav .pf-tabs-nav-wrap::after, .pf-tabs > div > .pf-tabs-nav .pf-tabs-nav-wrap::after { position: absolute; z-index: 1; opacity: 0; transition: opacity var(--pf-motion-duration-slow); content: ""; pointer-events: none; }
 .pf-tabs > .pf-tabs-nav .pf-tabs-nav-list, .pf-tabs > div > .pf-tabs-nav .pf-tabs-nav-list { position: relative; display: flex; transition: opacity var(--pf-motion-duration-slow); }
 .pf-tabs > .pf-tabs-nav .pf-tabs-nav-operations, .pf-tabs > div > .pf-tabs-nav .pf-tabs-nav-operations { display: flex; align-self: stretch; }
+.pf-tabs > .pf-tabs-nav .pf-tabs-nav-operations-hidden, .pf-tabs > div > .pf-tabs-nav .pf-tabs-nav-operations-hidden { position: absolute; visibility: hidden; pointer-events: none; }
 .pf-tabs > .pf-tabs-nav .pf-tabs-nav-add:is(:active,[data-pf-active]), .pf-tabs > div > .pf-tabs-nav .pf-tabs-nav-add:is(:active,[data-pf-active]), .pf-tabs > .pf-tabs-nav .pf-tabs-nav-add:is(:focus,[data-pf-focus]):not(:is(:focus-visible,[data-pf-focus-visible])), .pf-tabs > div > .pf-tabs-nav .pf-tabs-nav-add:is(:focus,[data-pf-focus]):not(:is(:focus-visible,[data-pf-focus-visible])) { color: var(--pf-tabs-item-active-color); }
 .pf-tabs .pf-tabs-ink-bar { position: absolute; background: var(--pf-tabs-ink-bar-color); pointer-events: none; }
 .pf-tabs .pf-tabs-tab { position: relative; -webkit-tap-highlight-color: transparent; display: inline-flex; align-items: center; padding: var(--pf-tabs-horizontal-item-padding); font-size: var(--pf-tabs-title-font-size); background: transparent; border: 0px; outline: none; cursor: pointer; color: var(--pf-tabs-item-color); }
@@ -303,7 +303,6 @@
 .pf-tabs .pf-tabs-tab-btn { outline: none; transition: all var(--pf-motion-duration-slow); }
 .pf-tabs .pf-tabs-tab:is(:hover,[data-pf-hover]) { color: var(--pf-tabs-item-hover-color); }
 .pf-tabs .pf-tabs-tab.pf-tabs-tab-active .pf-tabs-tab-btn { color: var(--pf-tabs-item-selected-color); text-shadow: currentcolor 0px 0px 0.25px; }
-.pf-tabs .pf-tabs-tab + .pf-tabs-tab { margin: 0 0 0 var(--pf-tabs-horizontal-item-gutter); }
 .pf-tabs .pf-tabs-content { position: relative; width: 100%; }
 .pf-tabs .pf-tabs-content-holder { flex: 1 1 auto; min-width: 0px; min-height: 0px; }
 .pf-tabs .pf-tabs-tabpane { outline: none; }

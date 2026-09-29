@@ -70,5 +70,28 @@
    ]
   }
  ],
- "links": []
+ "links": [],
+ "nested": [
+  {
+   "name": "modal-set-credits-limit__inline-set-max-credits",
+   "parent": "modal-set-credits-limit",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > form:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > span:nth-child(1)",
+   "label": "Set Max Credits",
+   "title": "",
+   "opened": []
+  },
+  {
+   "name": "drawer-invite-user__inline-confirm",
+   "parent": "drawer-invite-user",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > button:nth-child(1)",
+   "label": "Confirm",
+   "title": "",
+   "opened": []
+  }
+ ],
+ "nestedAt": "2026-09-28T22:47:28.792Z"
 }

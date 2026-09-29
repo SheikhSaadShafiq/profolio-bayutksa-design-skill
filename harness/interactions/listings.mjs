@@ -429,22 +429,28 @@ export default [
      is_package_user:false, which is the whole difference. */
   {
     name: 'member-area',
-    /* KNOWN TO FAIL, and kept because a failed step that says why is worth
-       more than a missing one. With is_package_user:false the app never
-       paints .ant-layout at all: the member area mounts the CLASSIFIED
-       site's header, which calls /api/user/favorites, /api/user/searches/saved
-       and a bookings endpoint that is off-origin and therefore blocked here.
-       Answering the first two is not enough. Reaching this variant is a
-       fixture job of its own, not a selector problem. */
-    note: 'the variant with the banner and the credits widgets and no filter bar (appRoutes.js:83) — does not mount under the harness; see the comment',
+    /* It never mounted because the product sent it AWAY: a member-area user
+       whose origin is not the classified site's is location.replace()d there
+       on every load (useAppRedirection.js getPathToRedirect, via onLanding
+       in router.js), and harness/env leaves the classified URL empty — so
+       the page redirected to itself, 63 times in 50 s. harness/page.mjs now
+       serves a member-area mode on the classified origin (the product's own
+       src/utility/variables.js, answered with this origin as
+       classifiedBaseURL), which is where a member-area user really is; the
+       classified header's three calls (favourites, saved searches, bookings)
+       are answered in harness/fixtures.mjs. Nothing leaves the machine. */
+    note: 'the variant with the classified site\'s header and footer, the "business package" promo banner and the Credits Balance card, and no filter bar and no Upgrades column (appRoutes.js:83, ListingContainer.js:96)',
     mode: 'member',
   },
   {
     name: 'drawer-credit-info',
-    note: 'member area → the BsInfoLg on the CreditsQuota card opens CreditInfoDrawer (credits-quota.js:134-145). Blocked by the same thing as member-area above',
+    /* was `.ant-card button` first: the promo banner and the table are cards
+       too, and the first button in DOM order is not the info button. The
+       one it wants is the Credits Balance card's own circle. */
+    note: 'member area → the BsInfoLg circle beside "Credits Balance" opens CreditInfoDrawer, "Bayut Credits" (credits-quota.js:134-145)',
     mode: 'member',
     do: async (p) => {
-      await p.locator('.ant-card button').filter({ hasNot: p.locator('.ant-tabs') }).first().click({ timeout: 8000 });
+      await p.locator('.ant-card', { hasText: 'Credits Balance' }).locator('button.ant-btn-circle').first().click({ timeout: 8000 });
       await p.waitForSelector('.ant-drawer-content', { timeout: 8000 });
       await p.waitForTimeout(500);
     },
@@ -461,7 +467,7 @@ export default [
   },
   {
     name: 'error',
-    note: '/api/surge/listings answers 500 — the product\'s own error card',
+    note: 'every content request answers 500 (harness/page.mjs, mode error) — the product\'s own error card',
     mode: 'error',
   },
 

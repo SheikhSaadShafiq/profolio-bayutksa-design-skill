@@ -64,11 +64,13 @@ sandbox with no Nexus access and rewrites <code>.env</code> and the lockfile.</p
   <tr><th>command</th><th>what it does</th></tr>
   <tr><td><code>npm run all</code></td><td>everything, in order, then the checks</td></tr>
   <tr><td><code>npm run harness:capture</code></td><td>renders every route on the fixture account (<code>--routes a,b</code>, <code>--states</code>, <code>--list</code>)</td></tr>
-  <tr><td><code>npm run explore</code>, <code>npm run explore:mobile</code></td><td>tries every React click and hover handler on each page — breadth first, one of every kind of control before any repeat, up to 120 — and records every state that opens: <code>data/states/&lt;page&gt;.json</code>, and <a href="../../data/states/mobile/"><code>data/states/mobile/</code></a> for the phone layout</td></tr>
+  <tr><td><code>npm run explore</code>, <code>npm run explore:mobile</code></td><td>tries every React click and hover handler on each page — breadth first, one of every kind of control before any repeat, up to 120 — and records every state that opens: <code>data/states/&lt;page&gt;.json</code>, and <a href="../../data/states/mobile/"><code>data/states/mobile/</code></a> for the phone layout. With <code>-- --nested</code>, it opens each modal and drawer found and does the same inside it — what the overlay leads to, one level down</td></tr>
   <tr><td><code>npm run pages</code>, <code>npm run pages:mobile</code></td><td><code>scripts/compile.mjs --states [--device mobile]</code>: each page and state frozen from the product with exactly the CSS that paints it, re-rendered and pixel-diffed against the product. The two can run at once (the class-name registry is locked)</td></tr>
-  <tr><td><code>npm run ds</code></td><td>the design system: prototype navigation, one stylesheet, the tokens, the knowledge-base links, the component collection (web and responsive), the catalogue and the design knowledge base — each verified</td></tr>
+  <tr><td><code>npm run ds</code></td><td>the design system: prototype navigation, one stylesheet, the tokens, the knowledge-base links, the component collection (web and responsive), the catalogue (with a spec sheet per variant and a state table per interactive family), the design knowledge base and the responsive rules (<a href="../../deliverables/responsive.html"><code>deliverables/responsive.html</code></a>) — each verified</td></tr>
   <tr><td><code>npm run qa</code></td><td>the Design QA: our pages against the live product on both real accounts (web, and responsive for the staff account), then <a href="../../scripts/design-qa.mjs"><code>scripts/design-qa.mjs</code></a> — pixels, components, copy against <code>translation.json</code> and the code, sources, sanity — into <a href="../../deliverables/design-qa.html"><code>deliverables/design-qa.html</code></a></td></tr>
   <tr><td><code>npm run find -- "&lt;words&gt;"</code></td><td>the design knowledge base, searched: the screens, states and components a PRD's words point at, with their files</td></tr>
+  <tr><td><code>npm run brief -- &lt;prd.md&gt;</code></td><td>a PRD turned into a design brief: per requirement, the compiled screens and states to start from (web and 375), what the design must cover — roles, both layouts, loading / empty / error, form and flow states — the shipped copy, the flags, and the gaps, named</td></tr>
+  <tr><td><code>npm run lint -- &lt;design.html&gt; --pair &lt;design-375.html&gt;</code></td><td>an artboard held to the system: classes, colours, icons, copy, currency, shell measurements and nav, type, the 375 pair, disabled dimming — exits 1 on a failure</td></tr>
   <tr><td><code>npm run delta b</code></td><td>what a second real account shows that the first does not — endpoints, keys, enum values, and each screen's classes and counts</td></tr>
   <tr><td><code>npm run combine</code></td><td>everything as three self-contained files — <a href="../../deliverables/profolio-ksa.html"><code>deliverables/profolio-ksa.html</code></a> (web), <code>profolio-ksa-responsive.html</code>, <code>profolio-ksa-components.html</code> — each under GitHub's 50 MB, each opening on the index</td></tr>
   <tr><td><code>npm run check</code></td><td>the invariants, and the capture privacy tests</td></tr>
@@ -81,19 +83,30 @@ sandbox with no Nexus access and rewrites <code>.env</code> and the lockfile.</p
 
 <ul>
   <li><strong><a href="../../deliverables/design-system.html"><code>deliverables/design-system.html</code></a></strong> — foundations measured from
-  the stylesheet, every component as atom, molecule, organism or template (antd's, as the
+  what the compiled pages paint (Figtree and Droid Arabic Kufi, the colour ramps, the type scale, the corners), every component as atom, molecule, organism or template (antd's, as the
   product themes them, and the product's own, named and sourced from its files), every page
   and state, and the product knowledge that goes with them.</li>
   <li><strong><a href="../../deliverables/components/"><code>deliverables/components/</code></a></strong> — a page per component: live
-  variants, markup, exact CSS, forced hover/focus/active, anatomy, usage, source, copy.</li>
+  variants, markup, exact CSS, forced hover/focus/active, anatomy, usage, source, copy; a spec sheet
+  per variant (measured, with its token names) and, for buttons, inputs, selects, pickers,
+  checkboxes, radios and switches, a table of every state — seen, forced or derived.</li>
   <li><strong><code>deliverables/&lt;page&gt;.html</code></strong> and
-  <strong><a href="../../deliverables/states/"><code>deliverables/states/</code></a></strong> — the sixteen pages and every state,
-  compiled, with the account variants (<code>--as-staff</code> on every page,
-  <code>--profile-incomplete</code>, <code>--modal-non-saudi</code>). A clickable prototype: a
-  trigger opens its state, Escape goes back, the rail and menus go to the other pages.</li>
+  <strong><a href="../../deliverables/states/"><code>deliverables/states/</code></a></strong> — the 24 pages and every state,
+  compiled: overlays and what they lead to (<code>--&lt;parent&gt;__&lt;child&gt;</code>), form
+  states (errors, filled, saved, failed), <code>--loading</code> / <code>--empty</code> /
+  <code>--error</code> on every signed-in page, four flows as numbered steps
+  (<code>--flow-&lt;flow&gt;-&lt;nn&gt;-&lt;step&gt;</code>: post a listing, ad licence, buy a
+  package, top up credits), and the account variants (<code>--as-staff</code> and
+  <code>--as-individual</code> on every signed-in page, <code>--profile-incomplete</code>,
+  <code>--modal-non-saudi</code>). A clickable prototype: a trigger opens its state; Escape, ✕,
+  Cancel or the mask go back to where it was opened from; ← and → walk a flow; the rail and
+  menus go to the other pages; <strong>M</strong> opens the same screen in the other layout.</li>
   <li><strong><a href="../../deliverables/mobile/"><code>deliverables/mobile/</code></a></strong> — the <strong>responsive layout</strong>:
   the same pages and states as the product draws them for a phone (375, mobile user agent —
   the product picks its phone layout by device, <code>src/utility/general.js</code>).</li>
+  <li><strong><a href="../../deliverables/responsive.html"><code>deliverables/responsive.html</code></a></strong> — the <strong>responsive
+  rules</strong>, counted from both layouts: which overlays become drawers, which components
+  change size, what only one layout has, screen by screen.</li>
   <li><strong><a href="../../deliverables/design-qa.html"><code>deliverables/design-qa.html</code></a></strong> — every page, state and component
   held to the product's render, the live product on two real accounts, and the code.</li>
   <li><strong><a href="../screens/"><code>kb/screens/</code></a></strong> and <strong><a href="../../data/design-kb.json"><code>data/design-kb.json</code></a></strong> —
@@ -107,9 +120,15 @@ sandbox with no Nexus access and rewrites <code>.env</code> and the lockfile.</p
   area, answering every endpoint in the real API's shape for two real accounts: an agency
   owner (<a href="../../data/api-shapes.json"><code>data/api-shapes.json</code></a>) and an agency staff user
   (<a href="../../data/api-shapes.b.json"><code>data/api-shapes.b.json</code></a>, fixture mode <code>staff</code>) — recorded from
-  signed-in sessions as keys and types only. Modes: <code>staff</code>, <code>incomplete</code>,
-  <code>member</code>, <code>projects</code>, <code>error</code>, <code>slow</code>,
-  <code>non-saudi</code>.</li>
+  signed-in sessions as keys and types only. The individual seller (<code>individual</code>) is
+  the owner's record with the agency taken away, not a recording. Modes: accounts
+  (<code>staff</code>, <code>individual</code>, <code>incomplete</code>, <code>non-saudi</code>,
+  <code>member</code>, <code>projects</code>), data (<code>slow</code>, <code>error</code>,
+  <code>empty</code>), forms (<code>form-fail</code>, <code>lead-duplicate</code>,
+  <code>photo-rejected</code>, <code>preferences-flipped</code>, …), payments
+  (<code>pay-*</code>: a package, an ad licence, declined, cancelled, Tabby refused, Nafath
+  pending, …) and the listing form (<code>lf-*</code>: Nafath, too few credits, a failed
+  upload).</li>
 </ul>
 
 <h2>Where it stands</h2>
@@ -117,13 +136,13 @@ sandbox with no Nexus access and rewrites <code>.env</code> and the lockfile.</p
 <!-- filled in by the pass of 2026-09-28; re-run npm run all for current numbers -->
 <table>
   <tr><th>measure</th><th>where</th></tr>
-  <tr><td>compiled pages and states vs the product</td><td data-fill="pages">325 of 325 within 0.5% pixel difference; worst user-settings-licenses--menu-post-a-listing at 0.226% (2026-09-28)</td></tr>
-  <tr><td>pages on the one stylesheet</td><td data-fill="sheet">504 of 532 pages on the one stylesheet (2313 rules)</td></tr>
-  <tr><td>component variants matching their in-page reference</td><td data-fill="components">1079 of 1223 variants (88.2%) within 1% of their in-page shot</td></tr>
+  <tr><td>compiled pages and states vs the product</td><td data-fill="pages">647 of 647 within 0.5% pixel difference; worst user-settings-licenses--menu-post-a-listing at 0.452% (2026-09-29)</td></tr>
+  <tr><td>pages on the one stylesheet</td><td data-fill="sheet">1164 of 1203 pages on the one stylesheet (2959 rules)</td></tr>
+  <tr><td>component variants matching their in-page reference</td><td data-fill="components">1518 of 1723 variants (88.1%) within 1% of their in-page shot</td></tr>
   <tr><td>fixture endpoints in the real API's shape</td><td data-fill="fixtures">30 of 30 recorded endpoints answered; npm run check-fixtures for their shape</td></tr>
-  <tr><td>responsive pages and states vs the product</td><td data-fill="responsive">207 of 207 within 0.5% pixel difference; worst lms-leads--popover-clicked-total-number-of--mobile at 0.323% (2026-09-28)</td></tr>
-  <tr><td>against the live product (real accounts)</td><td data-fill="live">owner at 1440 75.8% coverage, 23.7% exact · staff at 1440 88.9% coverage, 48.6% exact · staff at 375 81.4% coverage, 49.2% exact</td></tr>
-  <tr><td>interface copy that is the product's own</td><td data-fill="copy">508 of 513 interface strings are in translation.json or the code (99.0%); 5 unmatched</td></tr>
+  <tr><td>responsive pages and states vs the product</td><td data-fill="responsive">556 of 556 within 0.5% pixel difference; worst listings--tab-ad-license-requests--mobile at 0.423% (2026-09-29)</td></tr>
+  <tr><td>against the live product (real accounts)</td><td data-fill="live">owner at 1440 75.8% coverage, 23.7% exact · staff at 1440 88.9% coverage, 49.3% exact · staff at 375 81.4% coverage, 49.1% exact</td></tr>
+  <tr><td>interface copy that is the product's own</td><td data-fill="copy">679 of 685 interface strings are in translation.json or the code (99.1%); 6 unmatched</td></tr>
 </table>
 
 <h3>Known gaps</h3>
@@ -134,12 +153,12 @@ sandbox with no Nexus access and rewrites <code>.env</code> and the lockfile.</p
   <li><strong>The product is wider than a phone.</strong> At 375 its content overflows to about
   433px (<a href="../../deliverables/design-qa.html"><code>deliverables/design-qa.html</code></a> lists where); the compiled pages reproduce
   it, as they reproduce everything.</li>
-  <li><strong>The member-area variant of Listings does not mount under the harness</strong> — it
-  loads the classified site's header from another origin. <code>member-area</code> and
-  <code>drawer-credit-info</code> are known failing states.</li>
-  <li><strong>Algolia is blocked in the harness</strong>, so city selects show their fallback;
-  and <code>/user-settings/preferences</code> crashes for any account without a photo — a
-  product bug at <code>common/transformers/user.js:35</code>.</li>
+  <li><strong><code>/user-settings/preferences</code> crashes for any account without a
+  photo</strong> — a product bug at <code>common/transformers/user.js:35</code>. The harness
+  compiles it on an image record whose sizes are empty, which renders the same.</li>
+  <li><strong>The phone's FEEDBACK tab covers the right edge of most pages</strong> and takes
+  any tap there (<a href="../../deliverables/design-qa.html"><code>deliverables/design-qa.html</code></a>); a state whose control sits under it
+  is reached by tapping the part a person can see.</li>
   <li><strong>A few component cut-outs differ from their in-page shot</strong> — small icons
   and tags where a composited layer snaps to whole pixels. Each says so on its own page.</li>
 </ol>

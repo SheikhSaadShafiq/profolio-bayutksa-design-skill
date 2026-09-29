@@ -991,13 +991,21 @@ export default (h) => {
     dispositions: [{ id: k + 1, name, name_l1, slug, description: null, description_l1: null }],
   }));
 
+  /* ── mode 'empty': a brand-new account ────────────────────────────────
+     Nothing posted, nothing requested: every tab is (0) and holds no row,
+     and there is no ad licence request — My Listings draws the product's own
+     "post your first listing" empty state, and so does the dashboard's
+     Recent Listings. */
+  const NONE = { active: 0, draft: 0, pending: 0, removed: 0 };
+  const summaryIn = (mode) => (mode === 'empty' ? NONE : SUMMARY);
+
   return [
-    [/^\/api\/surge\/listings\/summary$/, () => ({ summary: SUMMARY, statuses_and_dispositions: STATUSES_AND_DISPOSITIONS })],
+    [/^\/api\/surge\/listings\/summary$/, (search, mode) => ({ summary: summaryIn(mode), statuses_and_dispositions: STATUSES_AND_DISPOSITIONS })],
     [/^\/api\/surge\/listings$/, (search, mode) => {
       const q = new URLSearchParams(search || '');
       const slug = q.get('f[nested.platform_listings.status.slug]') || 'active';
-      const set = mode === 'projects' && slug === 'active' ? projectRows : (TAB[slug] || TAB.active)();
-      const total = SUMMARY[slug] ?? SUMMARY.active;
+      const set = mode === 'empty' ? [] : mode === 'projects' && slug === 'active' ? projectRows : (TAB[slug] || TAB.active)();
+      const total = summaryIn(mode)[slug] ?? summaryIn(mode).active;
       const pages = Math.max(1, Math.ceil(total / 10));
       const page = Math.min(pages, Math.max(1, Number(q.get('page')) || 1));
       return {
@@ -1019,11 +1027,11 @@ export default (h) => {
        not an empty state. Four here, one per stage the product draws
        differently — the query's own filters are honoured, so the filter
        drawer's Status select narrows the list. See AD_LICENSE_REQUESTS. */
-    [/^\/api\/surge\/ad_license_requests$/, (search) => {
+    [/^\/api\/surge\/ad_license_requests$/, (search, mode) => {
       const q = new URLSearchParams(search || '');
       const eq = (k) => (q.get(k) ?? '').trim();
       const from = eq('q[created_at_gteq]').slice(0, 10), to = eq('q[created_at_lteq]').slice(0, 10);
-      const list = AD_LICENSE_REQUESTS.filter((r) =>
+      const list = (mode === 'empty' ? [] : AD_LICENSE_REQUESTS).filter((r) =>
         (!eq('q[id_eq]') || String(r.id) === eq('q[id_eq]')) &&
         (!eq('q[deed_number_eq]') || r.deed_number === eq('q[deed_number_eq]')) &&
         (!eq('q[jarvis_stages_eq]') || r.jarvis_stages === eq('q[jarvis_stages_eq]')) &&

@@ -480,7 +480,13 @@ export default (h) => {
       /* read through loginUser.agency (the router merges this answer into it,
          apis/agency.js:16) — the email line under the name in AgencyInfoCard */
       email: 'info@najdhorizon.example',
-      website: 'www.najdhorizon.example',
+      /* the product's own check allows a top-level domain of at most six
+         letters (helpers/validations.js:90 websiteValidation), so .example
+         failed an untouched Agency Settings save with "Enter a valid website
+         address". .test is as reserved as .example (RFC 2606) — never anybody's
+         real site — and passes. Only the Agency Settings Website field shows it
+         (agencySettingsFieldsValues.js:10). */
+      website: 'www.najdhorizon.test',
       entity_type: 'Commercial',
       logo: LOGO,
       created_at: '2021-04-18T10:22:31.000+03:00',
@@ -717,6 +723,170 @@ export default (h) => {
     license: null,
   };
 
+  /* ── users/:id for the agency's other agents ──────────────────────────────
+     Staff › Edit User opens users/:id for the row's user
+     (bayut/apis/agency.js:129 getAgencyUserDetails → agencyStaffUserMapper,
+     common/transformers/agency.js:302): name, contacts, address, licence,
+     short address, description, service areas, languages, experience. It
+     used to get the owner's record for every id, so Noura's row opened with
+     Faisal's details. Each agent now answers as themselves, in the one agent
+     record ever recorded — the staff account's (STAFF_PROFILE: no city, no
+     languages, no description, no address, 50% complete) — with their own
+     identity and what the rest of the fixture already says about them: the
+     credit limit and tracking the agency's users list gives them (USERS),
+     their FAL licence (extra.mjs LICENSES — the same ids and numbers), their
+     TruPoints (extra.mjs's activity log: Noura's six entries are 20, Reem has
+     none yet), the agency's package. Abdullah is STAFF_PROFILE itself. */
+  const agentProfile = (m, { license, service_areas, score }) => ({
+    ...STAFF_PROFILE,
+    id: m.id, name: m.name, name_l1: m.name_l1, email: m.email, mobile: m.mobile,
+    whatsapp: m.whatsapp, phone: null,
+    platform_mapping: mapping(m.id), external_id: String(m.id),
+    permissions: STAFF_CURRENT.permissions,
+    credits: m.credits,
+    package: PROFILE.package,
+    is_call_tracking_enabled: m.is_call_tracking_enabled,
+    is_whatsapp_tracking_enabled: m.is_whatsapp_tracking_enabled,
+    active_listings_count: m.active_listings_count,
+    score, rank: null,
+    service_areas,
+    nudges: [],
+    license: { ...license, license_owner_type: 'User', certificate_link: null },
+  });
+  const memberOf = (id) => USERS.find((u) => u.id === id);
+  const AGENT_PROFILES = {
+    [STAFF.id]: STAFF_PROFILE,
+    88010241: agentProfile(memberOf(88010241), {                      /* Noura Al-Qahtani */
+      license: { id: 6120, number: '1100387642', end_date: '2027-01-14' },
+      service_areas: [SERVICE_AREAS[0], SERVICE_AREAS[1]],             /* Riyadh, Diriyah */
+      score: 20,
+    }),
+    88010263: agentProfile(memberOf(88010263), {                      /* Reem Al-Shehri */
+      license: { id: 6158, number: '1100455318', end_date: '2027-06-20' },
+      service_areas: [SERVICE_AREAS[0]],                               /* Riyadh */
+      score: 0,
+    }),
+  };
+
+  /* ── mode 'individual': an INDEPENDENT broker, no agency ─────────────────
+     The third kind of account beside the agency owner and the agency's
+     staff: a FAL-licensed broker who works alone. No account of this kind was
+     ever recorded, so this is the owner's own record with the agency taken
+     away — the same person, listings, leads, credits and package — which
+     keeps every difference on screen a difference of ROLE, not of data.
+     What decides it, in the product (users/current):
+       agency null          menuList(permissions, user.agency, …) drops every
+                            isAgencyPage item — the Agency Staff rail item
+                            (menuList.js:124/154) — as appRoutes.js:227 drops
+                            the pages; "Individual" instead of "Agency" on
+                            User Settings (profile.js:228) and "Individual"
+                            instead of "Agency User" in the account popover
+                            (auth-info/info.js:35); the Convert to Agency
+                            button (profile.js:274 — CONVERT_TO_AGENCY is
+                            true for bayut); Licenses asks for the user's own,
+                            users/:id/licenses (license.js:19)
+       agency_admin false   → is_agency_admin false (transformers/user.js:98)
+                            → permissions.staff false (:168): no /agency-staff
+                            route (appRoutes.js:114), no Agency Settings
+                            sub-route (:12), the user's Licenses page (:24);
+                            the router never asks for agencies/:id
+                            (router.js:63); the dashboard, reports and LMS
+                            are the user's own (useDashboardData.js:130,
+                            useLeadsDashboardData.js:43, bayut/apis/reports.js:79)
+       role null            neither 'owner' (the owner-only profile-switcher
+                            entries, Change Owner in the listing menu —
+                            leads-summary-header.js:135, unified-listing-table-
+                            actions.js:274) nor 'staff' (Smart Credit
+                            Utilization stays switchable, preference.js:114).
+                            Surge's value for an individual is not recorded;
+                            null is the one that claims neither role.
+     is_package_user stays true: a package-less individual is the member area
+     (mode 'member'), where the same Convert to Agency button asks him to buy a
+     package instead of showing the agency form (convert-to-agency.js:106).
+     His FAL licence is an individual broker's own (11-prefixed, like the
+     agents' in extra.mjs), not the agency's 72-prefixed one; his address and
+     e-mail are his own; his description no longer names the agency. */
+  const INDIVIDUAL_LICENSE = { id: 6190, number: '1100462187', license_owner_type: 'User', end_date: '2027-05-31' };
+  const INDIVIDUAL_ADDRESS = 'Office 14, Al Wurud Business Centre, King Fahd Road, Al Olaya, Riyadh';
+  const INDIVIDUAL_EMAIL = 'faisal.alharbi@mail.example';
+  const INDIVIDUAL = {
+    agency: null,
+    agency_admin: false,
+    role: null,
+    broker_type: null,
+    email: INDIVIDUAL_EMAIL,
+    license: INDIVIDUAL_LICENSE,
+    permissions: { staff: false, listings: true, reports: true, credits: true },
+  };
+  const INDIVIDUAL_CURRENT = { ...CURRENT, ...INDIVIDUAL, address: INDIVIDUAL_ADDRESS };
+  const INDIVIDUAL_PROFILE = {
+    ...PROFILE, ...INDIVIDUAL,
+    address: INDIVIDUAL_ADDRESS,
+    description: DESCRIPTION.replace('is a licensed real estate broker with Najd Horizon Real Estate in Riyadh', 'is an independent, FAL-licensed real estate broker in Riyadh'),
+    description_l1: DESCRIPTION_L1.replace('وسيط عقاري مرخّص لدى نجد هورايزن للعقارات في الرياض', 'وسيط عقاري مستقل مرخّص في الرياض'),
+  };
+
+  /* ── mode 'empty': a BRAND-NEW account ────────────────────────────────────
+     The same owner, the same agency and the same freshly bought package, on
+     the day he signed up: nothing posted, nothing earned, nothing spent. The
+     profile stays complete (mode 'incomplete' is that variant) so the only
+     thing that moves is the data. Every area answers this mode with its own
+     nothing (fixtures/*.mjs), so each page draws its real empty state. */
+  const FRESH = { bayut: credit(pool.allocated, 0) };
+  const fresh = (u) => ({
+    ...u, credits: FRESH, score: 0, active_listings_count: 0, is_quality_lister: false,
+    ...('quality_lister' in u && { quality_lister: null }),
+    ...('unread_notifications_count' in u && { unread_notifications_count: 0 }),
+    ...('is_listing_posted' in u && { is_listing_posted: false }),
+    ...('rank' in u && { rank: null }),
+  });
+  /* the agency with its owner only — no staff yet */
+  const EMPTY_AGENCY_BODY = {
+    agency: {
+      ...AGENCY_BODY.agency,
+      users: [{ ...USERS[0], credits: FRESH, active_listings_count: 0, is_quality_lister: false }],
+      credits: { bayut: credit(pool.allocated, 0), dubizzle: credit(0, 0) },
+    },
+  };
+
+  /* ── mode 'preferences-flipped': the three Preferences switches the other
+     way round — Smart Credit Utilization ON, Push Notification OFF, Image and
+     Details Usage ON. preference.js reads all three off loginUser
+     (users/current): is_auto_utilization_enabled, and the push_notifications
+     and image_detail_usage settings rows (transformers/user.js:130). The
+     default account has them off / on / off, so between the two every switch
+     is drawn both ways. users/:id says the same, so a refetch agrees. Push
+     off also takes the bell out of the header on every page
+     (header-components.js:65) — which is why this is a mode of its own and
+     not the default. */
+  const FLIPPED_SETTINGS = SETTINGS.map((row) => (row.slug === 'image_detail_usage' ? { ...row, value: 'enabled' }
+    : row.slug === 'push_notifications' ? { ...row, value: 'disabled' } : row));
+  const flipped = (u) => ({ ...u, settings: FLIPPED_SETTINGS, is_auto_utilization_enabled: true });
+
+  /* ── the PHOTO, on one page: /user-settings/preferences ───────────────────
+     Every answer above spells "no photo" as null, the real API's spelling
+     (the note at the top of this file). One reader cannot take it:
+     getProfileDetails — bayut/apis/user.js:49 → profileDataMapper,
+     common/transformers/user.js:35 `values.profile_image.sizes.thumbnail`,
+     no optional chaining — and its only caller is the Preferences card
+     (preference.js:37). With null it throws inside the query: RTK logs "An
+     unhandled error occurred processing a request for the endpoint
+     getProfileDetails" and rejects it. The card never reads that query's
+     data (all three switches read loginUser), so the page still draws — the
+     capture log is where it shows, and a refetch after a toggle throws again.
+     No single spelling satisfies every reader: that mapper needs an OBJECT
+     with `sizes`, and the settings form needs an ARRAY or nothing
+     (profile.js:157 `?.[0].gallerythumb`, json-form.js:523 → ImageUpload
+     images.map). So on this one page — the only one that runs the mapper —
+     "no photo" is an image record with empty sizes. Nothing on it reads the
+     photo but the header, whose getUserSettingsDetail keeps the object as it
+     is (thumbnail empty → no conversion, transformers/user.js:233) and whose
+     avatar reads profile_image?.[0]?.gallerythumb → undefined → the same
+     FiUser glyph as every other page. */
+  const PREFERENCES = /^\/user-settings\/preferences\/?$/;
+  const NO_PHOTO = { id: null, sizes: { full: null, large: null, medium: null, small: null, thumbnail: null } };
+  const onPage = (u, page) => (PREFERENCES.test(page || '') && u.profile_image == null ? { ...u, profile_image: NO_PHOTO } : u);
+
   /* COMPLETE BY DEFAULT, as the real account is (score 100: no completeness
      card on the settings pages, a full ring in the header —
      profile-completion.js:59/119). The 90% account, with its card and its
@@ -734,10 +904,31 @@ export default (h) => {
       ? { ...memberUser, user: { ...completion(CURRENT, mode), is_package_user: false } }
       : mode === 'staff'
         ? { ...user, user: STAFF_CURRENT, banners: BANNERS }      /* 50% as recorded — never completed */
-        : { ...user, user: nationality(completion(CURRENT, mode), mode), banners: BANNERS })],
-    /* any id, as in the default mode: in staff mode every users/:id is his */
-    [/^\/api\/surge\/users\/\d+$/, (search, mode) => ({ user: mode === 'staff' ? STAFF_PROFILE : nationality(completion(PROFILE, mode), mode) })],
-    [/^\/api\/surge\/agencies\/\d+$/, () => AGENCY_BODY],
+        : mode === 'individual'
+          ? { ...user, user: completion(INDIVIDUAL_CURRENT, mode), banners: BANNERS }
+          : mode === 'empty'
+            ? { ...user, user: fresh(completion(CURRENT, mode)), banners: BANNERS }
+            : mode === 'preferences-flipped'
+              ? { ...user, user: flipped(completion(CURRENT, mode)), banners: BANNERS }
+              : { ...user, user: nationality(completion(CURRENT, mode), mode), banners: BANNERS })],
+    /* each agent by their own id (AGENT_PROFILES — Staff › Edit User); the
+       owner's id, and any other, as before: in staff mode every other id is
+       his, otherwise the owner's record in this mode (check-fixtures and
+       extra.mjs ask for id 1 and get exactly what they always did).
+       `page` is the route that asked (harness/fixtures.mjs answer) — see
+       NO_PHOTO, the one answer that depends on it */
+    [/^\/api\/surge\/users\/\d+$/, (search, mode, pathname, method, page) => {
+      const id = Number((pathname || '').match(/users\/(\d+)$/)?.[1]);
+      const owner = () => (mode === 'individual' ? completion(INDIVIDUAL_PROFILE, mode)
+        : mode === 'empty' ? fresh(completion(PROFILE, mode))
+          : mode === 'preferences-flipped' ? flipped(completion(PROFILE, mode))
+            : nationality(completion(PROFILE, mode === 'staff' ? null : mode), mode));
+      const record = AGENT_PROFILES[id] || (id === U.id ? owner() : mode === 'staff' ? STAFF_PROFILE : owner());
+      return { user: onPage(record, page) };
+    }],
+    /* never asked in staff or individual mode (router.js:63 asks for an
+       agency admin only); a brand-new agency has its owner and nobody else */
+    [/^\/api\/surge\/agencies\/\d+$/, (search, mode) => (mode === 'empty' ? EMPTY_AGENCY_BODY : AGENCY_BODY)],
     [/^\/api\/surge\/languages$/, () => ({ languages: LANGUAGES })],
     [/^\/api\/surge\/experience_list$/, () => ({ experience: EXPERIENCE })],
     [/^\/api\/surge\/area_units$/, () => ({ area_units: AREA_UNITS })],

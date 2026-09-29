@@ -102,6 +102,9 @@ const QUIET = async () => {
   obs.disconnect();
   document.removeEventListener('scroll', onScroll, true);
 };
+/* clear every timeout and interval the page has set so far (their ids are
+   one counter, from 1 up) */
+const STOP_CLOCK = () => { const last = setTimeout(() => {}, 0); for (let i = 1; i <= last; i++) { clearTimeout(i); clearInterval(i); } return last; };
 /* did the page stay where it was frozen? every scrolled box still at the
    offset freeze.js wrote on it, the window at its own */
 const STILL = (at) => scrollX === at.x && scrollY === at.y
@@ -113,23 +116,46 @@ const snap = async (page, name, meta) => {
      scrolling a control into view. And if it moved anyway (a late scroll the
      product schedules), freeze it again: the copy and its reference must be
      of the same moment. */
-  let raw, cap, shotFull;
+  const { hold, ...info } = meta;
+  let raw, cap, shotFull, viewportOnly = meta.shot === 'viewport';
   for (let attempt = 0; attempt < 3; attempt++) {
     await page.evaluate(QUIET).catch(() => {});
+    /* what the page itself never lets settle — the upgrade page's looping
+       Lottie — is stopped by the page's own `hold` (harness/interactions/
+       <page>.mjs), on every state of the page, the shell's and the
+       explorer's as much as its own */
+    if (hold) await hold(page);
+    /* and time stops: a toast that would leave, a countdown that would tick
+       (the OTP drawer's 00:53 → 00:54), a carousel that would turn — every
+       timer already set is cleared, so the copy and its reference are of the
+       same moment. New timers still run (QUIET's own waits need them). */
+    await page.evaluate(STOP_CLOCK).catch(() => {});
     raw = await page.evaluate(FREEZE);
     /* anything open over the page is placed against the VIEWPORT, and a
        full-page shot resizes it — antd then re-places a dropdown, a select
        list, a picker or a tooltip, and the shot no longer shows what was frozen */
-    shotFull = meta.shot === 'viewport' ? false : !Object.values(raw.overlay).some(Boolean) && !raw.scrolled;
+    shotFull = !viewportOnly && !Object.values(raw.overlay).some(Boolean) && !raw.scrolled;
     mkdirSync(join(ROOT, 'data', 'live'), { recursive: true });
     cap = await page.evaluate(CAPTURE);
-    await page.screenshot({ path: join(ROOT, 'data', 'live', `${dataName(name)}.png`), fullPage: shotFull });
+    /* an infinite animation (a skeleton's shimmer, a spinner) is shot at its
+       start on both sides — the product's shot and the copy's — or the two
+       land at different phases of it */
+    await page.screenshot({ path: join(ROOT, 'data', 'live', `${dataName(name)}.png`), fullPage: shotFull, animations: 'disabled' });
     if (await page.evaluate(STILL, raw.scroll).catch(() => true)) break;
     console.log(`  ${name}: the page moved after it was frozen — again`);
+    /* the full-page shot itself can be what moved it: it resizes the
+       viewport, and a phone answers a resize by scrolling the focused field
+       into view — every attempt then freezes at one offset and shoots at
+       another (post-listing-edit's form states). Put the page back where it
+       was frozen and shoot what is on screen, which resizes nothing */
+    if (shotFull) {
+      viewportOnly = true;
+      await page.evaluate(({ x, y }) => scrollTo(x, y), raw.scroll).catch(() => {});
+    }
   }
   cap.source = 'harness'; cap.locale = 'en'; cap.state = name;
   writeFileSync(join(ROOT, 'data', 'live', `${dataName(name)}.capture.json`), JSON.stringify(cap));
-  frozen.push({ name, ...meta, raw, shotFull });
+  frozen.push({ name, ...info, raw, shotFull });
   console.log(`  froze ${name.padEnd(46)} ${String(raw.css.length).padStart(4)} sheets  ${(raw.html.length / 1024).toFixed(0).padStart(5)} KB dom`);
 };
 
@@ -155,6 +181,29 @@ const clearStates = (slug) => {
   for (const [dir, keep] of dirs) if (existsSync(dir)) for (const f of readdirSync(dir)) if (keep(f)) { unlinkSync(join(dir, f)); n++; }
   return n;
 };
+/* one recorded control: hovered, tapped on a phone (a click leaves the
+   pointer over the control, and the product's :hover then shows in the shot
+   but not in the copy), clicked on the web */
+const ACT = async (p, path, action) => {
+  const loc = p.locator(path).first();
+  await loc.scrollIntoViewIfNeeded({ timeout: 5000 });
+  if (action === 'hover') await loc.hover({ force: true, timeout: 5000 });
+  else if (MOBILE) await loc.tap({ force: true, timeout: 5000, noWaitAfter: true });
+  else await loc.click({ force: true, timeout: 5000, noWaitAfter: true });
+  await p.waitForTimeout(900);
+};
+/* the prototype's links, written into the page before it is frozen: each
+   trigger gets data-pf-go, the first link for an element wins */
+const MARK = async (p, links, triggers = []) => {
+  await p.evaluate((links) => { for (const [path, href] of links) { const el = path && document.querySelector(path); if (el && !el.hasAttribute('data-pf-go')) el.setAttribute('data-pf-go', href); } }, links).catch(() => {});
+  for (const [sel, href] of triggers) {
+    try {
+      const h = await p.locator(sel).first().elementHandle({ timeout: 1500 });
+      if (h) await h.evaluate((el, href) => { if (!el.hasAttribute('data-pf-go')) el.setAttribute('data-pf-go', href); }, href);
+    } catch {}
+  }
+};
+const PUBLIC = new Set(['invite', 'maintenance', 'process-payment', 'post-ad']);
 const compilePage = async (slug) => {
   if (flag('--states') && !ONLY.length) clearStates(slug);
   const M = { v: null };
@@ -167,38 +216,54 @@ const compilePage = async (slug) => {
      the ones harness/explore.mjs found by trying every handler on the page
      (data/states/<page>.json) under names the hand-written list does not use */
   const file = join(ROOT, 'harness', 'interactions', `${slug}.mjs`);
-  let steps = flag('--states') && existsSync(file) ? (await import(file)).default : [];
+  const own = existsSync(file) ? await import(file) : {};
+  let steps = flag('--states') ? [...(own.default || [])] : [];
+  const hold = own.hold || null;
   /* a hand-written click path is written against the WEB layout; on a phone
      only the device-neutral states carry over (fixture modes — loading,
      error, staff, … — and steps that declare devices: ['mobile']) */
   if (MOBILE) steps = steps.filter((st) => !st.do || (st.devices || []).includes('mobile'));
+  /* and the phone's own click paths, written against the phone layout:
+     harness/interactions/<page>.mobile.mjs */
+  const mobileFile = join(ROOT, 'harness', 'interactions', `${slug}.mobile.mjs`);
+  if (MOBILE && flag('--states') && existsSync(mobileFile)) for (const st of (await import(mobileFile)).default) if (!steps.some((s) => s.name === st.name)) steps.push(st);
   const explored = join(ROOT, 'data', 'states', MOBILE ? 'mobile' : '', `${slug}.json`);
   if (flag('--states') && existsSync(explored)) {
-    for (const st of JSON.parse(readFileSync(explored, 'utf8')).states) {
+    const doc = JSON.parse(readFileSync(explored, 'utf8'));
+    for (const st of doc.states) {
       if (steps.some((s) => s.name === st.name)) continue;
       steps.push({
         name: st.name, path: st.path,
         note: `found by harness/explore.mjs: ${st.action} “${st.label}” opens ${st.kind === 'inline' ? 'a change in place' : `a ${st.kind}`}`,
-        do: async (p) => {
-          const loc = p.locator(st.path).first();
-          await loc.scrollIntoViewIfNeeded({ timeout: 5000 });
-          if (st.action === 'hover') await loc.hover({ force: true, timeout: 5000 });
-          /* a phone is tapped: a click leaves the pointer over the control, and the
-             product's :hover then shows in the shot but not in the copy */
-          else if (MOBILE) await loc.tap({ force: true, timeout: 5000, noWaitAfter: true });
-          else await loc.click({ force: true, timeout: 5000, noWaitAfter: true });
-          await p.waitForTimeout(900);
-        },
+        do: async (p) => ACT(p, st.path, st.action),
+      });
+    }
+    /* one level down — what a modal or drawer leads to (explore.mjs
+       --nested): the parent opened, then the control inside it */
+    for (const n of doc.nested || []) {
+      const par = doc.states.find((s) => s.name === n.parent);
+      if (!par || steps.some((s) => s.name === n.name)) continue;
+      steps.push({
+        name: n.name, parent: n.parent, path: n.path,
+        note: `found by harness/explore.mjs --nested: in the ${par.kind} “${par.label}” opens, ${n.action} “${n.label}” opens ${n.kind === 'inline' ? 'a change in place' : `a ${n.kind}`}`,
+        do: async (p) => { await ACT(p, par.path, par.action); await ACT(p, n.path, n.action); },
       });
     }
   }
   /* the shell's states, on every page: harness/interactions/_shell.mjs, and
-     the shell states the explorer found on the dashboard */
-  if (flag('--states')) {
-    const shellFile = join(ROOT, 'harness', 'interactions', MOBILE ? '_mobile.mjs' : '_shell.mjs');
-    const accountsFile = join(ROOT, 'harness', 'interactions', '_accounts.mjs');
-    const shell = [...(existsSync(shellFile) ? (await import(shellFile)).default : []),
-                   ...(existsSync(accountsFile) ? (await import(accountsFile)).default : [])];
+     the shell states the explorer found on the dashboard — but not on the
+     public pages, which have no shell and no account to vary (an invitation,
+     the maintenance page, the payment gateway's return, the magic post-ad
+     link) — a public page lists the shared states it does have itself */
+  if (flag('--states') && !PUBLIC.has(slug)) {
+    /* the layout's shell (_shell.mjs on the web, _mobile.mjs on a phone),
+       then every other _*.mjs — the states every page has: the account
+       variants (_accounts.mjs), the data states (_data.mjs), … */
+    const INT = join(ROOT, 'harness', 'interactions');
+    const shellFile = join(INT, MOBILE ? '_mobile.mjs' : '_shell.mjs');
+    const common = readdirSync(INT).filter((f) => /^_.*\.mjs$/.test(f) && !['_shell.mjs', '_mobile.mjs'].includes(f)).sort();
+    const shell = [...(existsSync(shellFile) ? (await import(shellFile)).default : [])];
+    for (const f of common) for (const st of (await import(join(INT, f))).default) if (!MOBILE || !st.do || (st.devices || []).includes('mobile')) shell.push(st);
     const dash = join(ROOT, 'data', 'states', MOBILE ? 'mobile' : '', 'dashboard.json');
     const explShell = existsSync(dash) ? JSON.parse(readFileSync(dash, 'utf8')).states.filter((st) => st.shell) : [];
     for (const st of shell) if (!steps.some((s) => s.name === st.name)) steps.push(st);
@@ -228,17 +293,22 @@ const compilePage = async (slug) => {
 
   /* the base page, with every trigger that opens a state marked as a link
      to that state's page — the compiled site is a clickable prototype */
+  /* who links to whom: the page to its states; a state to the page's other
+     states and to what it leads to one level down; a nested state to its
+     siblings — and back, on Escape, ✕, Cancel or the mask, to where it was
+     opened from. A mode state (the page as another account, loading, empty…)
+     is a page of its own and links nowhere but back. */
+  const top = steps.filter((s) => !s.parent && !s.mode);
+  const linksFrom = (from) => {
+    const rel = (s) => (from ? `${slug}--${s.name}.html` : `states/${slug}--${s.name}.html`);
+    const kids = from ? steps.filter((s) => s.parent === from.name) : [];
+    const peers = !from ? top : from.parent ? steps.filter((s) => s.parent === from.parent && s !== from) : top.filter((s) => s !== from);
+    return { links: [...kids, ...peers].filter((s) => s.path).map((s) => [s.path, rel(s)]), triggers: peers.filter((s) => s.trigger).map((s) => [s.trigger, rel(s)]) };
+  };
   if (!ONLY.length) {
-    await page.evaluate((links) => { for (const [path, href] of links) { const el = document.querySelector(path); if (el) el.setAttribute('data-pf-go', href); } },
-      steps.filter((s) => s.path).map((s) => [s.path, `states/${slug}--${s.name}.html`]));
-    /* a hand-written state names its trigger with a Playwright selector */
-    for (const st of steps.filter((s) => s.trigger)) {
-      try {
-        const h = await page.locator(st.trigger).first().elementHandle({ timeout: 2000 });
-        if (h) await h.evaluate((el, href) => el.setAttribute('data-pf-go', href), `states/${slug}--${st.name}.html`);
-      } catch {}
-    }
-    await snap(page, slug, { page: slug, state: null });
+    const { links, triggers } = linksFrom(null);
+    await MARK(page, links, triggers);
+    await snap(page, slug, { page: slug, state: null, hold });
   }
 
   if (steps.length) {
@@ -250,11 +320,13 @@ const compilePage = async (slug) => {
            each state starts from none */
         await page.evaluate(() => { for (const k of Object.keys(sessionStorage)) if (k.startsWith('pf-harness-')) sessionStorage.removeItem(k); }).catch(() => {});
         await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60_000 });
-        await page.waitForSelector('.ant-layout', { timeout: 30_000 });
+        /* a public route (/content/process-payment) has no shell to wait for */
+        try { await page.waitForSelector('.ant-layout', { timeout: 30_000 }); } catch {}
         if (step.mode !== 'slow' && step.mode !== 'error') await settle(page);
         if (step.do) await step.do(page);
         await page.waitForTimeout(600);
-        await snap(page, `${slug}--${step.name}`, { page: slug, state: step.name, note: step.note, shot: step.shot });
+        if (!step.mode) { const { links, triggers } = linksFrom(step); await MARK(page, links, triggers); }
+        await snap(page, `${slug}--${step.name}`, { page: slug, state: step.name, note: step.note, shot: step.shot, back: step.parent ? `${slug}--${step.parent}.html` : null, hold });
       } catch (e) {
         console.log(`  FAILED ${slug}--${step.name}: ${String(e).split('\n')[0].slice(0, 110)}`);
         /* a failed state can leave its flag set and a navigation in flight
@@ -441,11 +513,19 @@ for (const f of frozen) {
      and again once the fonts are in: before them the text above reflows, and
      the browser's scroll anchoring moves the box to keep what it showed */
   if (/data-pf-scroll=/.test(body)) body = body.replace(/<\/body>/, `<script>(function(){function s(){document.querySelectorAll('[data-pf-scroll]').forEach(function(e){var p=e.getAttribute('data-pf-scroll').split(',');e.scrollLeft=+p[0];e.scrollTop=+p[1]})}s();addEventListener('load',s);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(s)})()</script></body>`);
-  /* prototype wiring: a base page's triggers open their states; a state goes
-     back to its page on Escape or a click on the mask behind an overlay */
+  /* prototype wiring: a trigger opens its state (data-pf-go, marked before
+     the freeze); a state goes back to where it was opened from — its page,
+     or for a state one level down its parent state — on Escape, a click on
+     the mask behind an overlay, the overlay's ✕, or a button that says
+     Cancel / Close / Back */
+  const back = f.back || `../${f.page}.html`;
+  const GO = `var t=e.target.closest('[data-pf-go]');if(t){e.preventDefault();e.stopPropagation();location.href=t.getAttribute('data-pf-go');return}`;
+  const BACK = `if(e.target.matches('.pf-modal-wrap,.pf-drawer-mask,.pf-modal-mask,.pf-tour-mask')){location.href='${back}';return}`
+    + `var c=e.target.closest('.pf-modal-close,.pf-drawer-close,.pf-tour-close,.pf-message-notice-close,.pf-notification-notice-close,[aria-label="Close"],[aria-label="close"]');if(c){e.preventDefault();e.stopPropagation();location.href='${back}';return}`
+    + `var b=e.target.closest('button,a,[role=button]');if(b&&/^(cancel|close|back|dismiss|not now|skip|later|no|\\u0625\\u0644\\u063a\\u0627\\u0621|\\u0625\\u063a\\u0644\\u0627\\u0642|\\u0631\\u062c\\u0648\\u0639)$/i.test((b.innerText||'').trim())){e.preventDefault();e.stopPropagation();location.href='${back}'}`;
   const nav = f.state
-    ? `<script>addEventListener('keydown',function(e){if(e.key==='Escape')location.href='../${f.page}.html'});addEventListener('click',function(e){if(e.target.matches('.pf-modal-wrap,.pf-drawer-mask,.pf-modal-mask,.pf-tour-mask'))location.href='../${f.page}.html'},true)</script>`
-    : /data-pf-go=/.test(body) ? `<script>addEventListener('click',function(e){var t=e.target.closest('[data-pf-go]');if(t){e.preventDefault();e.stopPropagation();location.href=t.getAttribute('data-pf-go')}},true)</script>` : '';
+    ? `<script>addEventListener('keydown',function(e){if(e.key==='Escape')location.href='${back}'});addEventListener('click',function(e){${GO}${BACK}},true)</script>`
+    : /data-pf-go=/.test(body) ? `<script>addEventListener('click',function(e){${GO}},true)</script>` : '';
   if (nav) body = body.replace(/<\/body>/, `${nav}</body>`);
   /* page-to-page navigation — the rail, the header, every link the explorer
      saw change the URL — is resolved at click time by one shared script
@@ -476,7 +556,7 @@ for (const w of written) {
   await p.waitForTimeout(400);
   await p.evaluate(({ x, y }) => scrollTo(x, y), w.raw.scroll);
   const oursPng = join(ROOT, 'data', 'ours', `${dataName(w.name)}.png`);
-  await p.screenshot({ path: oursPng, fullPage: w.shotFull });
+  await p.screenshot({ path: oursPng, fullPage: w.shotFull, animations: 'disabled' });
   const cap = await p.evaluate(CAPTURE);
   cap.source = 'compiled';
   writeFileSync(join(ROOT, 'data', 'ours', `${dataName(w.name)}.capture.json`), JSON.stringify(cap));

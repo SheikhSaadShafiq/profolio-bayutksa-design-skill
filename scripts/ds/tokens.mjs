@@ -25,6 +25,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { splitRules, preludeOf, declsOf } from './css.mjs';
+import { foundations } from './foundations.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const REPO = join(ROOT, '..', process.env.PROFOLIO_REPO || 'profolio-reactjs');
@@ -158,33 +159,28 @@ ${[...new Set(cssVars)].join('\n')}
 }
 `);
 
-/* ── the Foundations section ──────────────────────────────────────────── */
+/* ── the Foundations section (scripts/ds/foundations.mjs) ──────────────── */
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-const swatch = (c) => `<div class="ds-swatch"><i style="background:${c.value}"></i><b>${esc(c.names[0]?.name || 'unnamed')}</b><span>${esc(c.value)} · ${c.count}×</span><span>${esc(c.use)}</span></div>`;
 const named = colourList.filter((c) => c.names.length);
 const unnamed = colourList.filter((c) => !c.names.length);
 const theme = named.filter((c) => c.names.some((n) => n.source === 'theme'));
 const antdOnly = named.filter((c) => !c.names.some((n) => n.source === 'theme'));
 const table = (head, rows) => `<table class="ds-scale"><thead><tr>${head.map((h) => `<th>${h}</th>`).join('')}</tr></thead><tbody>${rows.join('')}</tbody></table>`;
-const html = `
-<p class="ds-note">Read out of <a href="profolio.css"><code>profolio.css</code></a> — the rules the compiled pages are painted with — and named from the product's theme (<code>src/theme/index.js</code>) and antd's resolved tokens (antd ${esc(antd.antdVersion)}). Counts are declarations in the stylesheet. The named values are also in <a href="tokens.css"><code>tokens.css</code></a>.</p>
-<h3>Colour — the product's theme <small>${theme.length}</small></h3>
-<div class="ds-swatches">${theme.map(swatch).join('')}</div>
-<h3>Colour — antd semantic tokens <small>${antdOnly.length}</small></h3>
-<div class="ds-swatches">${antdOnly.map(swatch).join('')}</div>
-<h3>Typefaces</h3>
-${table(['font-family', 'declarations'], families.map(([f, n]) => `<tr><td style="font-family:${esc(f)}">${esc(f)}</td><td>${n}</td></tr>`))}
-<h3>Type styles <small>size / line height / weight, as rules set them together</small></h3>
-${table(['style', 'rules', 'sample'], typeStyles.slice(0, 40).map(([s, n]) => { const [fs, lh, fw] = s.split(' / '); return `<tr><td><code>${esc(s)}</code></td><td>${n}</td><td style="font-family:Figtree,sans-serif;font-size:${esc(fs)};${lh !== '—' ? `line-height:${esc(lh)};` : ''}${fw !== '—' ? `font-weight:${esc(fw)}` : ''}">Profolio ٣٢١</td></tr>`; }))}
-<h3>Font sizes</h3>
-${table(['size', 'declarations'], sizes.map(([s, n]) => `<tr><td><code>${esc(s)}</code></td><td>${n}</td></tr>`))}
-<h3>Weights and line heights</h3>
-${table(['font-weight', 'declarations'], weights.map(([s, n]) => `<tr><td><code>${esc(s)}</code></td><td>${n}</td></tr>`))}
-${table(['line-height', 'declarations'], lineHeights.slice(0, 30).map(([s, n]) => `<tr><td><code>${esc(s)}</code></td><td>${n}</td></tr>`))}
+/* what the compiled pages paint (scripts/ds/painted.mjs) */
+const paintedFile = join(ROOT, 'data', 'ds', 'painted.json');
+const painted = existsSync(paintedFile) ? JSON.parse(readFileSync(paintedFile, 'utf8')) : null;
+/* the Arabic specimen: the product's own strings for two of its labels */
+const arabic = (() => {
+  try {
+    const flat = (o, p = '', out = {}) => { for (const [k, v] of Object.entries(o)) { const kk = p ? `${p}.${k}` : k; if (v && typeof v === 'object') flat(v, kk, out); else out[kk] = v; } return out; };
+    const en = flat(JSON.parse(readFileSync(join(REPO, 'src', 'locales', 'en', 'translation.json'), 'utf8')));
+    const ar = flat(JSON.parse(readFileSync(join(REPO, 'src', 'locales', 'ar', 'translation.json'), 'utf8')));
+    return ['My Listings', 'Post a Listing', 'Credits Usage'].map((w) => ar[Object.keys(en).find((k) => en[k] === w)]).filter(Boolean);
+  } catch { return []; }
+})();
+const rest = `
 <h3>Spacing <small>padding, margin and gap values up to 96px</small></h3>
 ${table(['value', 'uses', ''], spacing.map(([v, n]) => `<tr><td><code>${v}px</code></td><td>${n}</td><td><span class="ds-bar" style="width:${Math.min(v * 4, 384)}px"></span></td></tr>`))}
-<h3>Corner radius</h3>
-${table(['value', 'uses', ''], radii.slice(0, 24).map(([v, n]) => `<tr><td><code>${esc(v)}</code></td><td>${n}</td><td><span class="ds-radius" style="border-radius:${esc(v)}"></span></td></tr>`))}
 <h3>Elevation</h3>
 ${table(['box-shadow', 'uses', ''], shadows.slice(0, 20).map(([v, n]) => `<tr><td><code>${esc(v)}</code></td><td>${n}</td><td><span class="ds-shadow" style="box-shadow:${esc(v)}"></span></td></tr>`))}
 <h3>Motion</h3>
@@ -195,7 +191,9 @@ ${table(['z-index', 'uses'], zs.map(([v, n]) => `<tr><td><code>${esc(v)}</code><
 <h3>Breakpoints</h3>
 ${table(['media query', 'rules'], bps.slice(0, 24).map(([v, n]) => `<tr><td><code>${esc(v)}</code></td><td>${n}</td></tr>`))}
 `;
+const F = foundations({ norm, key, themeColors, antd, colourList, painted, arabic, rest });
+const html = F.html;
 mkdirSync(join(ROOT, 'data', 'ds'), { recursive: true });
-writeFileSync(join(ROOT, 'data', 'ds', 'tokens.json'), JSON.stringify({ at: new Date().toISOString(), colours: colourList, families, typeStyles, sizes, weights, lineHeights, spacing, radii, shadows, curves, durations, zIndex: zs, breakpoints: bps, html }, null, 1));
+writeFileSync(join(ROOT, 'data', 'ds', 'tokens.json'), JSON.stringify({ at: new Date().toISOString(), colours: colourList, families, typeStyles, sizes, weights, lineHeights, spacing, radii, shadows, curves, durations, zIndex: zs, breakpoints: bps, palettes: F.palettes, typeScale: F.typeScale, paintedStyles: F.typeStyles, corners: F.corners, partialCorners: F.partialCorners, html }, null, 1));
 console.log(`  ${decls.length} declarations · ${colourList.length} colours (${theme.length} theme-named, ${antdOnly.length} antd-named, ${unnamed.length} unnamed) · ${typeStyles.length} type styles · ${spacing.length} spacing values · ${radii.length} radii · ${shadows.length} shadows`);
 console.log(`  wrote deliverables/tokens.css (${[...new Set(cssVars)].length} custom properties) and data/ds/tokens.json`);

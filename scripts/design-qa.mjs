@@ -174,6 +174,14 @@ const summary = {
   source: { refs: allSrc.size, bad: srcBad.length },
   sanity: { withBadText: pagesQA.filter((p) => p.bad.length).length, brokenImages: pagesQA.filter((p) => p.brokenImg.length).length, deadLinks: pagesQA.reduce((a, p) => a + p.deadGo.length, 0), fontErrors: pagesQA.filter((p) => p.fontsBad.length).length },
   overflow: pagesQA.filter((p) => p.device === 'mobile' && p.overflow > 0).map((p) => ({ name: p.name, width: p.width })),
+  /* the prototype: how much of it clicks through */
+  prototype: {
+    links: pagesQA.reduce((a, p) => a + p.links, 0),
+    filesWithLinks: pagesQA.filter((p) => p.links > 0).length,
+    nested: pagesQA.filter((p) => p.name.includes('__')).length,
+    flows: [...new Set(pagesQA.map((p) => (p.name.match(/--flow-([a-z0-9]+(?:-[a-z0-9]+)*?)-\d{2}-/) || [])[1]).filter(Boolean))].length,
+    flowSteps: pagesQA.filter((p) => /--flow-/.test(p.name)).length,
+  },
 };
 const report = { at: new Date().toISOString(), bars: { pixel: PIXEL_BAR, component: COMP_BAR }, summary, pages: pagesQA, srcBad, unmatched: strings.filter((x) => x.cls === 'unmatched').map((x) => ({ s: x.s, where: [...x.where].slice(0, 6) })).slice(0, 300), live };
 writeFileSync(join(ROOT, 'data', 'qa', 'design-qa.json'), JSON.stringify(report, null, 1));
@@ -200,8 +208,17 @@ const FINDINGS = [
   { area: 'Skill', what: 'SKILL.md said the product never writes "SAR" beside a price.', why: 'It does once, in copy: "Get one through Bayut, starting from SAR 250." (ad-license-form.js:106).', status: 'fixed — the rule now names that sentence as the one exception' },
   { area: 'Product', what: 'The package plan icons (Bronze, Silver, Gold, Platinum, Starter…) paint with each other’s gradients on /packages.', why: 'Every one of them uses the same SVG ids — a, b, c, d, e (src/components/svg.js, an optimiser’s output) — and url(#b) resolves to the first id="b" on the page.', status: 'reported — the pages show what the product paints; each icon’s component page shows it with its own gradient, and says it differs from the product' },
   { area: 'Components', what: 'A card with a sticky header came out 44px lower in its example.', why: 'In a short example frame the sticky header sticks; in its page it sat in the flow.', status: 'fixed — a cut-out keeps sticky boxes where they were' },
+  { area: 'Product · phone', what: 'The listings filter “Posted On” cannot open its calendar on a phone.', why: 'listings.js gives every filter an analytics onClick and filters.js spreads it over the date filter’s own; on a phone the calendar sheet follows only that prop, so a tap fires the event and nothing else.', status: 'reported — the web state exists; the phone has none' },
+  { area: 'Product · phone', what: 'The sticky “All Listings” bar never gets its shadow.', why: 'The code compares scrollY with the bar’s offsetTop, and a stuck bar’s offsetTop is always scrollY + 74.', status: 'reported — compiled as it renders (listings--sticky-filters)' },
+  { area: 'Product · phone', what: 'Reports · Leads: the “Traffic and Leads by date” list cannot be filtered on a phone; Reports · Listing: its pagination does nothing.', why: 'The list is given its filters and never renders them; the page change is wired to an empty function.', status: 'reported' },
+  { area: 'Product · phone', what: 'The FEEDBACK tab covers the right edge of most phone pages (x 341–375, y 292–439) and takes any tap there.', why: 'It is fixed over the content; controls under it (the Agent Performance badge filter) cannot be tapped.', status: 'reported' },
+  { area: 'Product', what: 'After a 3-D Secure payment for an ad licence, the product congratulates the user on “Credits Purchased”.', why: 'The 3-D Secure return drops ?ad_license=true (payment-process.js:32), which is what selects the ad-licence success modal.', status: 'reported — the in-page completion path shows the right modal and is what the flow compiles' },
+  { area: 'Product', what: 'The area unit is written three ways: “Sq. M.” in the product’s copy, “sqm” (web) and “sq. m.” (phone) in the listing preview of the discount drawer.', why: 'The preview prints the unit the API sends; the copy writes its own.', status: 'reported — a design writes Sq. M. (design-lint fails anything else); the compiled pages show what the product prints' },
+  { area: 'Skill', what: 'SKILL.md sent designs to start from kb/pages/_shell.html, whose markup fails the design lint (a 74px header, Lato, weight 900, 14 invented classes).', why: 'It was written before the pages were compiled from the product.', status: 'fixed — designs start from a compiled page, cut at div.pf-div' },
   { area: 'Product', what: 'At 375 the product is wider than the phone (about 433px).', why: 'The product\'s own layout; reproduced faithfully.', status: 'reported — listed below for a redesign' },
-  { area: 'Product', what: '/user-settings/preferences crashes for any account without a photo; the member-area listings do not mount in the harness.', why: 'A product bug at common/transformers/user.js:35; the member area loads the classified site\'s header from another origin.', status: 'known gaps — not compiled' },
+  { area: 'Product', what: '/user-settings/preferences crashes for any account without a photo.', why: 'common/transformers/user.js:35 reads profile_image.sizes.thumbnail with no guard.', status: 'reported — compiled on an image record whose sizes are empty, which renders the same' },
+  { area: 'Harness', what: 'The member-area listings did not mount, and the credit-info drawer never opened.', why: 'The member area redirects to the classified site’s origin (it reloaded itself 63 times); the credit-info step clicked the promo banner’s button.', status: 'fixed — the classified origin is answered locally; the step clicks the Credits Balance info button' },
+  { area: 'Product', what: 'In error states the product prints “Error! [object Object]” and “Cannot convert undefined or null to object”.', why: 'Its composite queries read e.error on allSettled results, which is never set, so a failure goes undetected; the mappers then throw on the missing data and the widget prints the thrown object.', status: 'reported — the error states show what the product prints' },
   { area: 'Responsive', what: 'ad-license with the city select open was 2.8% off: the form panel showed its content 42px higher than the product.', why: 'The copy put the panel back at its scroll before the web fonts arrived; they reflowed the text above it, and the browser’s scroll anchoring moved the panel to keep what it showed.', status: 'fixed — scroll offsets are put back again once the fonts are in; the state is now within the bar' },
 ];
 report.findings = FINDINGS;
@@ -246,6 +263,7 @@ const html = `<!doctype html>
 <tr><td>Against the live product — a staff account (as-staff)</td><td>${s.live.staff ? `coverage ${s.live.staff.coverage}% · exact ${s.live.staff.exact}%` : 'not measured'}</td><td>${s.live.staffMobile ? `coverage ${s.live.staffMobile.coverage}% · exact ${s.live.staffMobile.exact}%` : 'not measured'}</td></tr>
 <tr><td>UI strings that are the product's copy or code</td><td colspan="2">${s.copy.copy + s.copy.code} of ${s.copy.strings - s.copy.data} interface strings (${pct(s.copy.copy + s.copy.code, s.copy.strings - s.copy.data)}); ${s.copy.data} more are fixture data — names, numbers, listings</td><td>every label from translation.json or the code</td></tr>
 <tr><td>Source references (<code>data-pf-src</code>) that name a real file and line</td><td colspan="2">${s.source.refs - s.source.bad} of ${s.source.refs}</td><td>all</td></tr>
+<tr><td>The prototype: links between files · files that link onward</td><td colspan="2">${s.prototype.links} links · ${s.prototype.filesWithLinks} of ${s.files.web + s.files.responsive} files · ${s.prototype.flows} flows in ${s.prototype.flowSteps} steps · ${s.prototype.nested} states reached from inside an overlay</td><td>every link lands on a file</td></tr>
 <tr><td>Files rendering undefined / NaN / a raw placeholder</td><td colspan="2">${s.sanity.withBadText}</td><td>0</td></tr>
 <tr><td>Broken images · font errors · state links to nowhere</td><td colspan="2">${s.sanity.brokenImages} · ${s.sanity.fontErrors} · ${s.sanity.deadLinks}</td><td>0 · 0 · 0</td></tr>
 </table>
@@ -295,4 +313,5 @@ console.log(`  live: owner ${s.live.owner ? s.live.owner.coverage + '%' : '—'}
 console.log(`  copy: ${s.copy.copy} copy · ${s.copy.code} code · ${s.copy.data} data · ${s.copy.unmatched} unmatched of ${s.copy.strings}`);
 console.log(`  sources: ${s.source.refs - s.source.bad}/${s.source.refs} resolve · bad text in ${s.sanity.withBadText} files · ${s.sanity.brokenImages} broken images · ${s.sanity.deadLinks} dead links · ${s.sanity.fontErrors} font errors`);
 console.log(`  responsive overflow: ${s.overflow.length} files wider than 375`);
+console.log(`  prototype: ${s.prototype.links} links in ${s.prototype.filesWithLinks} files · ${s.prototype.flows} flows (${s.prototype.flowSteps} steps) · ${s.prototype.nested} nested states`);
 console.log('  deliverables/design-qa.html · data/qa/design-qa.json');

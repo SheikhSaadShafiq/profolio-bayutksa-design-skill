@@ -1,0 +1,77 @@
+{
+ "page": "user-settings-preferences",
+ "route": "/user-settings/preferences",
+ "device": "web",
+ "at": "2026-09-29T00:10:38.059Z",
+ "tried": 10,
+ "states": [
+  {
+   "name": "modal-smart-credits-utilization-maximize",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > button:nth-child(2)",
+   "label": "icon",
+   "title": "Smart Credits Utilization Maximize",
+   "shell": false,
+   "opened": [
+    {
+     "k": "modal",
+     "w": 810,
+     "h": 250
+    }
+   ]
+  },
+  {
+   "name": "message-preference-updated-successfully",
+   "kind": "message",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > button:nth-child(2)",
+   "label": "button",
+   "title": "Preference updated successfully",
+   "shell": false,
+   "opened": [
+    {
+     "k": "message",
+     "w": 1424,
+     "h": 40
+    }
+   ]
+  },
+  {
+   "name": "drawer-feedback",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4)",
+   "label": "FEEDBACK",
+   "title": "Send us feedback The",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 400,
+     "h": 900
+    }
+   ]
+  }
+ ],
+ "links": [
+  {
+   "label": "User Settings",
+   "to": "/en/user-settings/user-profile"
+  },
+  {
+   "label": "Agency Settings",
+   "to": "/en/user-settings/agency-profile"
+  },
+  {
+   "label": "Licenses",
+   "to": "/en/user-settings/licenses"
+  },
+  {
+   "label": "Change Password",
+   "to": "/en/user-settings/change-password"
+  }
+ ],
+ "nested": [],
+ "nestedAt": "2026-09-29T00:14:36.935Z"
+}

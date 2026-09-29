@@ -250,6 +250,86 @@ for (const c of all) {
 }
 /* web first, then responsive — the order every list on a component page keeps */
 for (const c of all) c.variants = [...c.variants.filter((v) => !isMob(v)), ...c.variants.filter(isMob)];
+/* ── THE STATE TABLE of an interactive component ───────────────────────────
+   Rows are the variants the product uses, columns the states a control goes
+   through. Each cell says where it came from:
+     seen     — the product drew it; the example is one of the verified variants
+     forced   — hover / focus / press: the product's own :hover, :focus and
+                :active rules, keyed to a class (states.css)
+     derived  — the product's own state class or attribute put on the default
+                variant, shown only where profolio.css has rules for it
+     —        — the product never draws it, and nothing here invents it */
+const FAMILIES = [
+  { root: 'pf-btn', states: [['disabled', { attr: 'disabled', seen: /\[disabled\]|pf-btn-disabled/, css: /\.pf-btn(?:[\w.-]*)?(?::disabled|\[disabled\])/ }], ['loading', { cls: 'pf-btn-loading', seen: /pf-btn-loading/ }]] },
+  { root: 'pf-input-affix-wrapper', states: [['focused', { cls: 'pf-input-affix-wrapper-focused', seen: /focused/ }], ['disabled', { cls: 'pf-input-affix-wrapper-disabled', seen: /disabled/ }], ['error', { cls: 'pf-input-affix-wrapper-status-error', seen: /status-error/ }], ['warning', { cls: 'pf-input-affix-wrapper-status-warning', seen: /status-warning/ }]] },
+  { root: 'pf-input', states: [['disabled', { cls: 'pf-input-disabled', seen: /pf-input-disabled|\[disabled\]/ }], ['error', { cls: 'pf-input-status-error', seen: /status-error/ }], ['warning', { cls: 'pf-input-status-warning', seen: /status-warning/ }]] },
+  { root: 'pf-input-number', states: [['focused', { cls: 'pf-input-number-focused', seen: /focused/ }], ['disabled', { cls: 'pf-input-number-disabled', seen: /disabled/ }], ['error', { cls: 'pf-input-number-status-error', seen: /status-error/ }]] },
+  { root: 'pf-select', states: [['focused', { cls: 'pf-select-focused', seen: /pf-select-focused/ }], ['open', { cls: 'pf-select-open', seen: /pf-select-open/ }], ['disabled', { cls: 'pf-select-disabled', seen: /pf-select-disabled/ }], ['error', { cls: 'pf-select-status-error', seen: /status-error/ }]] },
+  { root: 'pf-picker', states: [['focused', { cls: 'pf-picker-focused', seen: /pf-picker-focused/ }], ['disabled', { cls: 'pf-picker-disabled', seen: /pf-picker-disabled/ }], ['error', { cls: 'pf-picker-status-error', seen: /status-error/ }]] },
+  { root: 'pf-checkbox-wrapper', states: [['checked', { seen: /checked/ }], ['disabled', { seen: /disabled/ }]] },
+  { root: 'pf-radio-wrapper', states: [['checked', { seen: /checked/ }], ['disabled', { seen: /disabled/ }]] },
+  { root: 'pf-radio-button-wrapper', states: [['checked', { seen: /checked/ }], ['disabled', { seen: /disabled/ }]] },
+  { root: 'pf-switch', states: [['on', { cls: 'pf-switch-checked', seen: /pf-switch-checked|\[aria-checked\]/ }], ['disabled', { cls: 'pf-switch-disabled', seen: /pf-switch-disabled/ }], ['loading', { cls: 'pf-switch-loading', seen: /pf-switch-loading/ }]] },
+];
+const MARKER = /(^|\.)pf-[\w-]*?-(disabled|loading|checked|focused|open|status-error|status-warning|indeterminate)(?=\.|\[|$)|\[(disabled|aria-checked|aria-disabled|checked|aria-selected|aria-expanded)\]/g;
+const hasMarker = (sig) => new RegExp(MARKER.source).test(sig);
+const baseSig = (v) => v.variant.split('|')[1].replace(MARKER, '$1').replace(/\.{2,}/g, '.').replace(/^\.|\.$/g, '');
+const familyOf = (c) => {
+  const v = c.variants.find((x) => !isMob(x));
+  if (!v) return null;
+  const cls = v.variant.split('|')[1].split(/[.[]/);
+  return FAMILIES.find((f) => cls.includes(f.root)) || null;
+};
+/* a state-table row's name: the modifiers that make the variant, without
+   the family's own class, antd's colour/variant bookkeeping or the product's
+   styled-component names */
+const shortLabel = (v, root) => {
+  const [, cls] = v.variant.split('|');
+  const mods = cls.split(/[.[\]]/).filter(Boolean).map((x) => x.replace(/^pf-/, ''))
+    .filter((x) => x !== root.replace(/^pf-/, '') && !/^(theme|.*-styled(--v\d+)?|.*-color-\w+|.*-variant-\w+|styleProfolio)$/.test(x) && !x.startsWith('css-'))
+    .map((x) => x.replace(new RegExp(`^${root.replace(/^pf-/, '')}-`), ''));
+  return `${[...new Set(mods)].slice(0, 4).join(' · ') || 'default'} · ${Math.round(v.w)}×${Math.round(v.h)}`;
+};
+const derive = (v, st, how) => {
+  let html = v.html;
+  if (how.attr) html = html.replace(/^<([a-z0-9-]+)/i, (m) => `${m} ${how.attr}=""`);
+  if (how.cls) html = /^<[^>]+\sclass="/i.test(html) ? html.replace(/^(<[^>]+\sclass=")/i, `$1${how.cls} `) : html.replace(/^<([a-z0-9-]+)/i, (m) => `${m} class="${how.cls}"`);
+  return { ...v, id: `${v.id}--st-${st}`, html };
+};
+const stateTable = (c) => {
+  const fam = familyOf(c);
+  if (!fam) return '';
+  const web = c.variants.filter((v) => !isMob(v));
+  /* rows: the variants without a state of their own, most used first */
+  const groups = new Map();
+  for (const v of web) { const b = baseSig(v); if (!groups.has(b)) groups.set(b, []); groups.get(b).push(v); }
+  const rows = [...groups.values()].map((g) => ({ def: g.find((v) => !hasMarker(v.variant.split('|')[1])) || g[0], all: g })).sort((a, b) => b.def.count - a.def.count).slice(0, 4);
+  const forcedOk = (v) => forced.some((f) => v.variant.split('|')[1].split('.').some((cls) => cls && f.includes('.' + cls)));
+  const cols = [['default'], ['hover', 'hover'], ['focus', 'focus-visible'], ['pressed', 'active'], ...fam.states];
+  const cell = (row, [st, how]) => {
+    const v0 = row.def;
+    if (st === 'default') return [stage(v0, ' ds-stage--state'), 'seen'];
+    if (typeof how === 'string') return forcedOk(v0) ? [stage(v0, ' ds-stage--state', how), 'forced'] : ['', '—'];
+    const seen = row.all.find((v) => v !== v0 && how.seen.test(v.variant.split('|')[1]));
+    if (seen) return [stage(seen, ' ds-stage--state'), 'seen'];
+    const ruleOk = how.css ? how.css.test(CSS) : how.cls ? CSS.includes('.' + how.cls) : false;
+    if ((how.cls || how.attr) && ruleOk) return [stage(derive(v0, st, how), ' ds-stage--state'), 'derived'];
+    return ['', '—'];
+  };
+  const mob = c.variants.filter(isMob);
+  const mobSeen = fam.states.filter(([, how]) => mob.some((v) => how.seen.test(v.variant.split('|')[1]))).map(([st]) => st);
+  return `
+<section class="ds-section" id="states">
+<h2>States <small>web · 1440</small></h2>
+<p class="ds-note">Every state the control goes through, for the variants the product uses. <b>seen</b>: drawn by the product and verified above; <b>forced</b>: the product's own :hover, :focus and :active rules, keyed to a class; <b>derived</b>: the product's own state class on the default variant, shown only where its stylesheet styles it; <b>—</b>: the product never draws it.</p>
+<div class="ds-state-scroll"><table class="ds-state-table">
+<tr><th></th>${cols.map(([st]) => `<th>${st}</th>`).join('')}</tr>
+${rows.map((row) => `<tr><th title="${esc(variantLabel(row.def))}">${esc(shortLabel(row.def, fam.root))}</th>${cols.map((col) => { const [h, how] = cell(row, col); return `<td>${h ? `<div class="ds-state-cell">${h}</div>` : ''}<small class="ds-how ds-how--${how === '—' ? 'none' : how}">${how}</small></td>`; }).join('')}</tr>`).join('\n')}
+</table></div>
+${mob.length ? `<p class="ds-note"><b>Responsive:</b> ${mobSeen.length ? `the phone layout draws it ${mobSeen.join(', ')} as well as by default` : 'the phone layout draws only its default states'} — see the responsive variants above; a phone has no hover.</p>` : ''}
+</section>`;
+};
+
 const pages = [];
 const MOBILE_PAGES = inst.pages.filter((p) => /--mobile$/.test(p)).length;
 const figure = (v, i) => `
@@ -260,6 +340,7 @@ const figure = (v, i) => `
     <span class="ds-meta">${v.count}× · first seen on <a href="${pageLink(v.page)}">${esc(pageTitle(v.page))}</a></span>
     <span class="ds-match" data-ds-match="${v.id}">not yet verified</span>
   </figcaption>
+  <div class="ds-spec" data-ds-spec="${v.id}"></div>
   <details><summary>HTML</summary><pre class="ds-code"><code>${esc(realLinks(clean(v.html)).slice(0, 30000))}${v.html.length > 30000 ? '\n… (truncated — the full markup is in the page it came from)' : ''}</code></pre></details>
   <details><summary>CSS</summary><pre class="ds-code ds-css" data-ds-css="${v.id}"><code>computed at build time</code></pre></details>
 </figure>`;
@@ -296,7 +377,8 @@ ${MOBILE_PAGES ? `
 ${mob.length ? `<p class="ds-note">The product's responsive layout, which it picks by device (a phone's browser), not by window width. Each example is shown in a frame ${PHONE_W}px wide, where the stylesheet's breakpoints match as they did on the phone.</p>
 ${mob.map((v) => figure(v, c.variants.indexOf(v))).join('\n')}` : `<p class="ds-note">${mobUses.length ? `Drawn ${mobUses.reduce((n, [, k]) => n + k, 0)}× in the responsive layout, but no example could be cut out of it.` : `Not drawn in the responsive layout — none of the ${MOBILE_PAGES} responsive pages and states uses it.`}</p>`}
 </section>` : ''}
-${hasStates && lvl !== 'organism' && lvl !== 'template' && v0.w * v0.h < 400 * 200 ? `
+${stateTable(c)}
+${!familyOf(c) && hasStates && lvl !== 'organism' && lvl !== 'template' && v0.w * v0.h < 400 * 200 ? `
 <section class="ds-section">
 <h2>Interaction states</h2>
 <p class="ds-note">Forced with the classes in <code>components/states.css</code> — the product's own <code>:hover</code>, <code>:focus</code> and <code>:active</code> rules, keyed to a class so they can be shown side by side.</p>
@@ -329,6 +411,50 @@ ${c.src.length ? `<h3>Drawn by</h3><ul class="ds-uses">${c.src.map((s) => `<li><
   for (const v of c.variants) { const r = join(DS, 'ref', `${v.id}.png`); if (existsSync(r)) copyFileSync(r, join(COMP, 'img', `${v.id}.png`)); }
   pages.push(c);
 }
+
+/* ── token names for measured values ─────────────────────────────────── */
+const TOKCSS = existsSync(join(DELIV, 'tokens.css')) ? readFileSync(join(DELIV, 'tokens.css'), 'utf8') : '';
+const TOK = [...TOKCSS.matchAll(/(--pf-[\w-]+)\s*:\s*([^;]+);/g)].map((m) => [m[1], m[2].trim().toLowerCase()]);
+const hex = (c) => {
+  const m = String(c || '').match(/rgba?\(([\d.]+),\s*([\d.]+),\s*([\d.]+)(?:,\s*([\d.]+))?\)/);
+  if (!m) return String(c || '').toLowerCase();
+  const h = (x) => Math.round(+x).toString(16).padStart(2, '0');
+  const a = m[4] === undefined ? '' : +m[4] === 1 ? '' : h(+m[4] * 255);
+  return `#${h(m[1])}${h(m[2])}${h(m[3])}${a}`;
+};
+const COLOUR_NAMES = new Map((tokens && tokens.colours ? tokens.colours : []).map((c) => [String(c.value).toLowerCase(), (c.names || []).map((x) => x.name)]));
+const colourName = (c) => {
+  const h = hex(c);
+  const theme = COLOUR_NAMES.get(h);
+  if (theme && theme.length) return theme[0];
+  const t = TOK.find(([, v]) => v === h);
+  return t ? t[0] : null;
+};
+const lengthName = (px, hint) => {
+  if (!px) return null;
+  const t = TOK.find(([k, v]) => v === `${px}px` && k.includes(hint));
+  return t ? t[0] : null;
+};
+const SPECS = {};
+const specHtml = (sp) => {
+  if (!sp) return '';
+  const k = (x) => (x ? ` <code>${esc(x)}</code>` : '');
+  const box = (a) => (a.every((x) => x === a[0]) ? `${a[0]}` : a[0] === a[2] && a[1] === a[3] ? `${a[0]} ${a[1]}` : a.join(' '));
+  const rows = [];
+  rows.push(['size', `${Math.round(sp.size[0] * 10) / 10} × ${Math.round(sp.size[1] * 10) / 10}`]);
+  if (sp.padding.some(Boolean)) rows.push(['padding', box(sp.padding)]);
+  if (sp.gap && (sp.gap[0] || sp.gap[1])) rows.push(['gap', sp.gap[0] === sp.gap[1] ? `${sp.gap[0]}` : `${sp.gap[0]} ${sp.gap[1]}`]);
+  if (sp.radius.some(Boolean)) rows.push(['radius', `${box(sp.radius)}${k(lengthName(sp.radius[0], 'radius'))}`]);
+  /* an edge or a shadow that draws nothing is not part of the spec */
+  const invisible = (c) => /rgba\([^)]*,\s*0\)$|transparent/.test(String(c)) || /^#[0-9a-f]{6}00$/.test(hex(c));
+  if (sp.border.some(Boolean) && sp.borderStyle !== 'none' && !invisible(sp.borderColor)) rows.push(['border', `${box(sp.border)} ${sp.borderStyle} ${hex(sp.borderColor)}${k(colourName(sp.borderColor))}`]);
+  if (!invisible(sp.fill)) rows.push(['fill', `${hex(sp.fill)}${k(colourName(sp.fill))}`]);
+  if (sp.shadow && sp.shadow !== 'none' && /(^|\s)-?[1-9][\d.]*px/.test(sp.shadow)) rows.push(['shadow', esc(sp.shadow)]);
+  if (sp.type) rows.push(['type', `${sp.type.family} ${sp.type.size}/${sp.type.line} · ${sp.type.weight}${sp.type.transform && sp.type.transform !== 'none' ? ` · ${sp.type.transform}` : ''}${k(lengthName(sp.type.size, 'font-size'))}`], ['text', `${hex(sp.type.colour)}${k(colourName(sp.type.colour))}`]);
+  if (sp.icon) rows.push(['icon', `${sp.icon.size[0]} × ${sp.icon.size[1]} · ${hex(sp.icon.colour)}${k(colourName(sp.icon.colour))}`]);
+  if (sp.opacity && +sp.opacity < 1) rows.push(['opacity', sp.opacity]);
+  return `<dl class="ds-spec">${rows.map(([a, b]) => `<div><dt>${a}</dt><dd>${b}</dd></div>`).join('')}</dl>`;
+};
 
 /* ── verify every example against its in-page reference, and fill in CSS ── */
 const browser = await chromium.launch();
@@ -366,6 +492,33 @@ const MATCHED = (rules) => {
 /* land an example on the same fraction of a pixel it had in its page:
    measure where it actually is, and move the margin by the difference —
    to (tx, ty) itself when a placement is being searched for */
+/* THE SPEC — what a designer reads off a variant: its box, its edges, its
+   fill, its type and its icon, measured on the example itself as it
+   renders (not read from a rule, which may be overridden) */
+const SPEC = (id) => {
+  const el = document.querySelector(`[data-ds-example="${id}"]`);
+  if (!el) return null;
+  const cs = getComputedStyle(el);
+  const r = el.getBoundingClientRect();
+  const n = (v) => Math.round((parseFloat(v) || 0) * 100) / 100;
+  const four = (p, q = '') => [`${p}Top${q}`, `${p}Right${q}`, `${p}Bottom${q}`, `${p}Left${q}`].map((k) => n(cs[k]));
+  /* the element that carries the text: the first with a text node of its own */
+  const texty = [el, ...el.querySelectorAll('*')].find((e) => [...e.childNodes].some((c) => c.nodeType === 3 && c.textContent.trim()));
+  const t = texty ? getComputedStyle(texty) : null;
+  const svg = el.matches('svg') ? el : el.querySelector('svg');
+  const sr = svg && svg.getBoundingClientRect();
+  return {
+    size: [n(r.width), n(r.height)],
+    padding: four('padding'),
+    border: four('border', 'Width'), borderColor: cs.borderTopColor, borderStyle: cs.borderTopStyle,
+    radius: [cs.borderTopLeftRadius, cs.borderTopRightRadius, cs.borderBottomRightRadius, cs.borderBottomLeftRadius].map(n),
+    fill: cs.backgroundColor, shadow: cs.boxShadow, display: cs.display,
+    gap: /flex|grid/.test(cs.display) ? [n(cs.rowGap), n(cs.columnGap)] : null,
+    opacity: cs.opacity,
+    type: t ? { size: n(t.fontSize), line: t.lineHeight === 'normal' ? 'normal' : n(t.lineHeight), weight: t.fontWeight, family: t.fontFamily.split(',')[0].replace(/["']/g, '').trim(), colour: t.color, spacing: t.letterSpacing, transform: t.textTransform } : null,
+    icon: sr && sr.width ? { size: [n(sr.width), n(sr.height)], colour: getComputedStyle(svg).color } : null,
+  };
+};
 const PLACE = ({ id, fx, fy }) => {
   const el = document.querySelector(`[data-ds-example="${id}"]`);
   if (!el) return null;
@@ -451,6 +604,8 @@ for (const c of pages) {
     } catch (e) { d = { pct: NaN, error: String(e).split('\n')[0] }; }
     results[v.id] = { component: c.slug, level: levelOf(c), device: v.device || 'web', pct: d.pct, ok: d.pct <= BAR, rules: (matched[v.id] || []).length };
     v.pct = d.pct; v.rules = matched[v.id] || [];
+    v.spec = sc ? await sc.evaluate(SPEC, v.id).catch(() => null) : null;
+    if (v.spec) SPECS[v.id] = { component: c.slug, name: c.name, level: levelOf(c), device: v.device || 'web', variant: variantLabel(v), sig: v.variant.split('|')[1], count: v.count, spec: v.spec };
   }
   await pg.close();
   /* second pass on the file: badges and the CSS each example actually uses.
@@ -465,6 +620,7 @@ for (const c of pages) {
     const ok = v.pct <= BAR;
     html = html.replace(`<span class="ds-match" data-ds-match="${v.id}">not yet verified</span>`,
       `<span class="ds-match ${Number.isNaN(v.pct) ? 'is-unknown' : ok ? 'is-ok' : 'is-off'}" title="the cut-out copy against a screenshot of the same element in ${esc(pageTitle(v.page))}${isMob(v) ? ' (responsive)' : ''}">${Number.isNaN(v.pct) ? 'not measured' : ok ? `matches the product · ${v.pct}%` : `differs from the product · ${v.pct}%`}</span>`);
+    html = html.replace(`<div class="ds-spec" data-ds-spec="${v.id}"></div>`, specHtml(v.spec));
     const css = v.rules.map((i) => rulesOf(v)[i]).join('\n');
     html = html.replace(`<pre class="ds-code ds-css" data-ds-css="${v.id}"><code>computed at build time</code></pre>`,
       `<pre class="ds-code ds-css"><code>${esc(css.length > 40000 ? css.slice(0, 40000) + `\n/* … truncated — every rule is in ${isMob(v) ? MOBILE_SHEET : 'profolio.css'} */` : css) || '/* no rule of its own — it inherits */'}</code></pre>`);
@@ -520,6 +676,7 @@ const index = `<!doctype html>
     <a href="#pages">Pages &amp; states <small>${webNames.length}</small></a>
     ${mobNames.length ? `<a href="#pages-responsive">Responsive <small>${mobNames.length}</small></a>` : ''}
     ${kbIndex ? '<a href="#knowledge">Product knowledge</a>' : ''}
+    <a href="responsive.html">Responsive rules</a>
     <a href="../kb/screens/index.html">Screens &amp; states KB</a>
   </nav>
 </aside>
@@ -547,6 +704,7 @@ ${kbIndex ? `<section class="ds-section" id="knowledge"><h2>Product knowledge</h
 writeFileSync(join(DELIV, 'design-system.html'), index);
 /* which component page each component became, for the design knowledge base
    (scripts/ds/design-kb.mjs) */
+writeFileSync(join(DS, 'specs.json'), JSON.stringify(SPECS));
 writeFileSync(join(DS, 'catalogue.json'), JSON.stringify(pages.map((c) => ({
   key: c.key, slug: c.slug, name: c.name, level: levelOf(c), group: c.group, def: c.def, family: c.family,
   web: c.variants.filter((v) => !isMob(v)).length, mobile: c.variants.filter(isMob).length,

@@ -1,5 +1,5 @@
 {
-  "at": "2026-09-28T19:36:51.154Z",
+  "at": "2026-09-29T07:40:55.274Z",
   "against": "real account",
   "tolerancePx": 1,
   "coverage": 75.8,
@@ -70,21 +70,21 @@
       "live": 229,
       "ours": 227,
       "matched": 215,
-      "clean": 141,
+      "clean": 140,
       "missing": 14,
-      "moved": 74,
+      "moved": 75,
       "painted": 0,
       "inherited": 20,
-      "exact": 122,
+      "exact": 121,
       "extra": 12,
       "pageHeight": [
         958,
         958
       ],
       "coverage": 93.9,
-      "fidelity": 65.6,
-      "exactPct": 53.3,
-      "score": 65.6,
+      "fidelity": 65.1,
+      "exactPct": 52.8,
+      "score": 65.1,
       "worklist": [
         {
           "kind": "moved",
@@ -96,13 +96,13 @@
           "kind": "moved",
           "at": "div.ant-col",
           "box": "503×152 @601,152",
-          "detail": "w 503→510"
+          "detail": "w 503→509"
         },
         {
           "kind": "moved",
           "at": "div.ant-col.jDxNbh",
           "box": "145×152 @1121,152",
-          "detail": "x 1121→1127 (+6 in its parent) · w 145→139"
+          "detail": "x 1121→1126 (+5 in its parent) · w 145→140"
         },
         {
           "kind": "moved",
@@ -250,7 +250,7 @@
         {
           "kind": "extra",
           "at": "div",
-          "box": "1000000×1000000 @-998645,-998886",
+          "box": "1000000×1000000 @-998645,-998887",
           "detail": "we draw it, the product does not"
         },
         {
@@ -1039,7 +1039,7 @@
         {
           "kind": "extra",
           "at": "div",
-          "box": "1000000×1000000 @-998645,-999451",
+          "box": "1000000×1000000 @-998645,-999452",
           "detail": "we draw it, the product does not"
         },
         {
@@ -1332,7 +1332,7 @@
         {
           "kind": "extra",
           "at": "div.pf-group-styled",
-          "box": "444×119 @42,1451",
+          "box": "445×119 @42,1451",
           "detail": "we draw it, the product does not"
         },
         {
@@ -1350,38 +1350,38 @@
         {
           "kind": "extra",
           "at": "td.pf-table-cell",
-          "box": "157×151 @502,1435",
+          "box": "156×151 @503,1435",
           "detail": "we draw it, the product does not"
         },
         {
           "kind": "moved",
           "at": "td.ant-table-cell",
           "box": "153×151 @522,378",
-          "detail": "x 522→502 (-20 in its parent) · w 153→157"
+          "detail": "x 522→503 (-19 in its parent) · w 153→156"
         },
         {
           "kind": "moved",
           "at": "td.ant-table-cell",
           "box": "153×151 @522,529",
-          "detail": "x 522→502 (-20 in its parent) · w 153→157"
+          "detail": "x 522→503 (-19 in its parent) · w 153→156"
         },
         {
           "kind": "extra",
           "at": "td.pf-table-cell",
-          "box": "129×151 @964,1435",
+          "box": "129×151 @963,1435",
           "detail": "we draw it, the product does not"
         },
         {
           "kind": "moved",
           "at": "td.ant-table-cell",
           "box": "126×151 @972,378",
-          "detail": "x 972→964 (-8 in its parent) · w 126→129"
+          "detail": "x 972→963 (-9 in its parent) · w 126→129"
         },
         {
           "kind": "moved",
           "at": "td.ant-table-cell",
           "box": "126×151 @972,529",
-          "detail": "x 972→964 (-8 in its parent) · w 126→129"
+          "detail": "x 972→963 (-9 in its parent) · w 126→129"
         },
         {
           "kind": "extra",
@@ -1507,7 +1507,7 @@
           "kind": "moved",
           "at": "th.ant-table-cell",
           "box": "153×54 @522,323",
-          "detail": "x 522→502 (-20 in its parent) · w 153→157"
+          "detail": "x 522→503 (-19 in its parent) · w 153→156"
         },
         {
           "kind": "extra",
@@ -1525,7 +1525,7 @@
           "kind": "moved",
           "at": "th.ant-table-cell",
           "box": "126×54 @972,323",
-          "detail": "x 972→964 (-8 in its parent) · w 126→129"
+          "detail": "x 972→963 (-9 in its parent) · w 126→129"
         },
         {
           "kind": "extra",
@@ -1565,7 +1565,7 @@
         {
           "kind": "extra",
           "at": "div",
-          "box": "1000000×1000000 @-998645,-999195",
+          "box": "1000000×1000000 @-998645,-999196",
           "detail": "we draw it, the product does not"
         },
         {
@@ -1944,7 +1944,7 @@
         },
         {
           "kind": "extra",
-          "at": "button.pf-btn.pf-btn-primaryOutlined.pf-button-styled--v6",
+          "at": "button.pf-btn.pf-btn-primaryOutlined.pf-button-styled--c",
           "box": "415×44 @441,1359",
           "detail": "we draw it, the product does not"
         },

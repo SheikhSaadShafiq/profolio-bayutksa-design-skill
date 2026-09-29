@@ -704,9 +704,9 @@ ul { list-style: outside none none; margin: 0px; padding: 0px; }
 .pf-dropdown-styled.pf-dropdown-trigger span { color: rgb(157, 157, 157); }
 .pf-dropdown-styled .anticon { display: flex; align-items: center; }
 .pf-dropdown-styled:is(:hover,[data-pf-hover]), .pf-dropdown-styled:is(:focus,[data-pf-focus]), .pf-dropdown-styled.pf-dropdown-open { border-color: rgb(0, 97, 105); }
-.pf-listing-detail-compact-thumbnail { display: grid; border-radius: 6px; overflow: hidden; }
-.pf-listing-detail-compact-thumbnail .pf-image { display: block; }
-.pf-listing-detail-compact-thumbnail .pf-image-img { object-fit: cover; width: 100%; aspect-ratio: 1 / 1; }
+.pf-history-breakdown-thumbnail { display: grid; border-radius: 6px; overflow: hidden; }
+.pf-history-breakdown-thumbnail .pf-image { display: block; }
+.pf-history-breakdown-thumbnail .pf-image-img { object-fit: cover; width: 100%; aspect-ratio: 1 / 1; }
 .pf-flex-styled { display: flex; align-items: normal; justify-content: normal; gap: 8px; flex-direction: column; }
 .pf-flex-styled--v2 { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
 .pf-flex-styled--v31 { display: flex; align-items: center; justify-content: center; gap: 8px; }

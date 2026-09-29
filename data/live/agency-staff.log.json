@@ -18,15 +18,8 @@
     "GET /api/surge/agencies/880042"
   ],
   "unanswered": [],
-  "errors": [
-    "RetryError: Object",
-    "RetryError: Object",
-    "RetryError: Object",
-    "RetryError: Object",
-    "RetryError: Object",
-    "RetryError: Object"
-  ],
-  "blocked": 7,
+  "errors": [],
+  "blocked": 3,
   "fonts": "served from deliverables/fonts.css",
-  "ms": 3089
+  "ms": 2970
 }

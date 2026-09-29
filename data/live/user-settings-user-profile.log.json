@@ -18,12 +18,8 @@
     "GET /api/surge/agencies/880042"
   ],
   "unanswered": [],
-  "errors": [
-    "Failed to fetch city: Unreachable hosts - your application id may be incorrect. If the error persists, please reach out to the Algolia Support team: https://alg.li/support .",
-    "Error fetching cities: {name: RetryError, message: Unreachable hosts - your application id may be inc…he Algolia Support team: https://alg.li/support ., transporterStackTrace: Array(4)}",
-    "Failed to fetch cities: Unreachable hosts - your application id may be incorrect. If the error persists, please reach out to the Algolia Support team: https://alg.li/support ."
-  ],
-  "blocked": 17,
+  "errors": [],
+  "blocked": 3,
   "fonts": "served from deliverables/fonts.css",
-  "ms": 3449
+  "ms": 3254
 }

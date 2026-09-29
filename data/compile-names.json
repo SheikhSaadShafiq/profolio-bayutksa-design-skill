@@ -6,7 +6,9 @@
    "variants": [
     "knBGsu",
     "geVBkd",
-    "ikOAgX"
+    "ikOAgX",
+    "cbjoiA",
+    "bsaulf"
    ]
   },
   "src/components/utilities/auth-info/info.js:159:5": {
@@ -56,7 +58,8 @@
     "kiAcfv",
     "jMXCai",
     "kimuTi",
-    "jZgRee"
+    "jZgRee",
+    "dYSslR"
    ]
   },
   "src/components/common/icon/icon.js:18:9": {
@@ -190,7 +193,11 @@
     "byXBaS",
     "eImiFg",
     "jOyegA",
-    "ekRotw"
+    "ekRotw",
+    "iWnmxq",
+    "bhMXwu",
+    "hPNWZG",
+    "crwmgz"
    ]
   },
   "src/layout/MenueItems.js:99:15": {
@@ -310,7 +317,20 @@
     "gJTHHt",
     "bRlHCI",
     "kNrnuB",
-    "jZhVJj"
+    "jZhVJj",
+    "izjtMF",
+    "nTzxZ",
+    "jODgEo",
+    "csZOkk",
+    "NnRdT",
+    "dwmDsd",
+    "bnUmtt",
+    "krIrsJ",
+    "eTTtra",
+    "eDHoAk",
+    "jdJHuH",
+    "hiiLjG",
+    "jJleCC"
    ]
   },
   "src/container/pages/dashboard/dashboard.js:478:5": {
@@ -360,7 +380,8 @@
    "name": "pf-loader-overlay",
    "base": "loader-overlay",
    "variants": [
-    "kpaUBs"
+    "kpaUBs",
+    "iBOSoB"
    ]
   },
   "src/components/common/loader-wrapper/loader-wrapper.js:39:11": {
@@ -405,7 +426,10 @@
     "zUmMU",
     "kyfCwi",
     "gERWbF",
-    "GlIlw"
+    "GlIlw",
+    "fZGddF",
+    "jSrUMt",
+    "hWgvZL"
    ]
   },
   "src/components/common/statistic/index.js:93:9": {
@@ -440,7 +464,8 @@
    "name": "pf-analytics-styled",
    "base": "analytics-styled",
    "variants": [
-    "fHstRr"
+    "fHstRr",
+    "bBecKm"
    ]
   },
   "src/components/widgets/LeadsStatsGraphWidget.js:325:5": {
@@ -450,7 +475,9 @@
     "kFuhnp",
     "bBecKm",
     "jhEWPH",
-    "jpxNeV"
+    "jpxNeV",
+    "lfJTVF",
+    "eNujPj"
    ]
   },
   "src/components/common/segmented/segmented.js:8:5": {
@@ -486,7 +513,8 @@
     "gzBIlJ",
     "kEIjvN",
     "hzpycc",
-    "jPDrdK"
+    "jPDrdK",
+    "Ntknw"
    ]
   },
   "src/components/common/tag/tag.js:77:5": {
@@ -572,7 +600,8 @@
    "base": "label-styled",
    "variants": [
     "iAAQrM",
-    "ffdMGT"
+    "ffdMGT",
+    "fgcoRV"
    ]
   },
   "src/components/common/select/select.js:73:9": {
@@ -635,14 +664,16 @@
    "name": "pf-empty-state-wrapper",
    "base": "empty-state-wrapper",
    "variants": [
-    "jTFBDo"
+    "jTFBDo",
+    "fyFIwP"
    ]
   },
   "src/components/common/alert/alert.js:20:5": {
    "name": "pf-alert-styled",
    "base": "alert-styled",
    "variants": [
-    "dxBCaS"
+    "dxBCaS",
+    "cPeXtP"
    ]
   },
   "sc-ecPEgm": {
@@ -761,7 +792,26 @@
    "name": "pf-cover",
    "base": "cover",
    "variants": [
-    "iHklRn"
+    "iHklRn",
+    "kpFMpE",
+    "OWebU",
+    "fnyLyv",
+    "gjsyRa",
+    "iJsico",
+    "kBYbQg",
+    "iJvwpW",
+    "bChKNo",
+    "jUPjSQ",
+    "coKtRZ",
+    "cRKeFA",
+    "fjEffI",
+    "fkysTe",
+    "iFfynp",
+    "hNtTuW",
+    "bvLqKD",
+    "gWJerV",
+    "dKdvHQ",
+    "gWlzLE"
    ]
   },
   "src/tenant/bayut/components/post-listing/listing-preview/listing-preview.js:537:13": {
@@ -1012,7 +1062,8 @@
    "name": "pf-image-wrapper",
    "base": "image-wrapper",
    "variants": [
-    "bOySdk"
+    "bOySdk",
+    "iyFoSa"
    ]
   },
   "src/components/common/radio-button/radio-button.js:156:17": {
@@ -1027,7 +1078,8 @@
    "name": "pf-circular-border",
    "base": "circular-border",
    "variants": [
-    "kWBsCH"
+    "kWBsCH",
+    "cMbcca"
    ]
   },
   "src/tenant/bayut/components/ad-license/create-ad-license.js:521:9": {
@@ -1062,7 +1114,8 @@
    "name": "pf-rega-card-card",
    "base": "card",
    "variants": [
-    "eliSiL"
+    "eliSiL",
+    "gFpnpI"
    ]
   },
   "src/tenant/bayut/components/post-listing/RegaCard.js:257:11": {
@@ -1076,7 +1129,8 @@
    "name": "pf-gray-box",
    "base": "gray-box",
    "variants": [
-    "DckqH"
+    "DckqH",
+    "emCPkj"
    ]
   },
   "src/tenant/bayut/components/post-listing/RegaCard.js:313:19": {
@@ -1182,14 +1236,16 @@
    "name": "pf-agancy-staff-main",
    "base": "main",
    "variants": [
-    "dAXlsr"
+    "dAXlsr",
+    "kWpzji"
    ]
   },
   "src/components/agency-staff-header/agancy-staff-header.js:30:5": {
    "name": "pf-user-card",
    "base": "user-card",
    "variants": [
-    "cWSefC"
+    "cWSefC",
+    "fOnZrt"
    ]
   },
   "src/components/listing-container/ListingContainer.js:90:15": {
@@ -2091,6 +2147,590 @@
    "variants": [
     "jpxNeV"
    ]
+  },
+  "src/container/pages/reports/reports-summary.js:28:7": {
+   "name": "pf-reports-summary-main",
+   "base": "main",
+   "variants": [
+    "dAXlsr"
+   ]
+  },
+  "src/container/pages/reports/leads-reports.js:28:7": {
+   "name": "pf-leads-reports-main",
+   "base": "main",
+   "variants": [
+    "dAXlsr"
+   ]
+  },
+  "src/tenant/bayut/components/listing/listings.js:300:9": {
+   "name": "pf-listings-main",
+   "base": "main",
+   "variants": [
+    "dAXlsr"
+   ]
+  },
+  "src/components/utilities/icons.js:921:3": {
+   "name": "pf-icons-has-verified-check",
+   "base": "has-verified-check",
+   "variants": [
+    "jlJmyf"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/RegaCard.js:282:15": {
+   "name": "pf-specs-row",
+   "base": "specs-row",
+   "variants": [
+    "kVryHj"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/RegaCard.js:286:21": {
+   "name": "pf-spec-stack",
+   "base": "spec-stack",
+   "variants": [
+    "ifugrs"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/RegaCard.js:285:31": {
+   "name": "pf-spec-sep",
+   "base": "spec-sep",
+   "variants": [
+    "bMXEEF"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/RegaCard.js:295:13": {
+   "name": "pf-soft-divider",
+   "base": "soft-divider",
+   "variants": [
+    "hRnNSO"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/RegaCard.js:297:13": {
+   "name": "pf-mobile-footer",
+   "base": "mobile-footer",
+   "variants": [
+    "dilnxU"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/RegaCard.js:301:19": {
+   "name": "pf-mobile-location",
+   "base": "mobile-location",
+   "variants": [
+    "eZRtre"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/RegaCard.js:304:15": {
+   "name": "pf-see-more-text",
+   "base": "see-more-text",
+   "variants": [
+    "lcpIRZ"
+   ]
+  },
+  "src/components/post-listing/post-listing-form/post-listing-form.js:770:11": {
+   "name": "pf-post-listing-form-json-form-styled",
+   "base": "json-form-styled",
+   "variants": []
+  },
+  "src/components/post-listing/post-listing-form/post-listing-form-sections-layout.js:36:7": {
+   "name": "pf-post-listing-form-sections-layout-card-listing",
+   "base": "card-listing",
+   "variants": [
+    "aTcRz"
+   ]
+  },
+  "src/components/post-listing/image-select/image-select.js:198:11": {
+   "name": "pf-field-icon-box",
+   "base": "field-icon-box",
+   "variants": [
+    "fcUNBK",
+    "jssOOz"
+   ]
+  },
+  "src/components/post-listing/image-select/image-select.js:410:25": {
+   "name": "pf-images-grid",
+   "base": "images-grid",
+   "variants": [
+    "iOayeU",
+    "gRPZNc"
+   ]
+  },
+  "src/components/common/image-uploads/image-upload-item.js:199:11": {
+   "name": "pf-drag-handle",
+   "base": "drag-handle",
+   "variants": [
+    "hJqJuZ"
+   ]
+  },
+  "src/components/common/image-uploads/image-upload-item.js:275:13": {
+   "name": "pf-cover-chip",
+   "base": "cover-chip",
+   "variants": [
+    "ivZKZT",
+    "hzanbU"
+   ]
+  },
+  "src/components/common/image-uploads/image-upload-dropzone.js:112:7": {
+   "name": "pf-upload-button",
+   "base": "upload-button",
+   "variants": [
+    "kkcZcC"
+   ]
+  },
+  "src/components/post-listing/video-select/video-select.js:179:13": {
+   "name": "pf-video-title",
+   "base": "video-title",
+   "variants": [
+    "eAhrHb"
+   ]
+  },
+  "src/components/post-listing/video-select/video-select.js:180:13": {
+   "name": "pf-video-desc",
+   "base": "video-desc",
+   "variants": [
+    "bAevCB"
+   ]
+  },
+  "src/components/post-listing/video-select/video-select.js:134:5": {
+   "name": "pf-video-card",
+   "base": "video-card",
+   "variants": [
+    "ixpyic"
+   ]
+  },
+  "src/components/post-listing/video-select/video-select.js:135:7": {
+   "name": "pf-video-input-line",
+   "base": "video-input-line",
+   "variants": [
+    "dgceKa"
+   ]
+  },
+  "src/components/post-listing/video-select/video-select.js:137:9": {
+   "name": "pf-video-input-box",
+   "base": "video-input-box",
+   "variants": [
+    "hAQItO"
+   ]
+  },
+  "src/components/post-listing/video-select/video-select.js:149:9": {
+   "name": "pf-delete-video-btn",
+   "base": "delete-video-btn",
+   "variants": [
+    "bRrnOt"
+   ]
+  },
+  "src/container/pages/post-listing/post-listing.js:55:5": {
+   "name": "pf-post-listing-main",
+   "base": "main",
+   "variants": [
+    "dAXlsr"
+   ]
+  },
+  "src/components/widgets/ReportsLeadsTrafficSection.js:39:7": {
+   "name": "pf-reports-leads-traffic-section-performance-chart-wrapper",
+   "base": "performance-chart-wrapper",
+   "variants": [
+    "lfJTVF"
+   ]
+  },
+  "src/container/pages/user-settings/profile.js:219:13": {
+   "name": "pf-profile-card-meta-styled",
+   "base": "card-meta-styled",
+   "variants": [
+    "uyXpa"
+   ]
+  },
+  "src/tenant/bayut/components/ad-license/purpose-radio-button.js:18:22": {
+   "name": "pf-inner-circle",
+   "base": "inner-circle",
+   "variants": [
+    "jHwwNz"
+   ]
+  },
+  "src/tenant/bayut/components/ad-license/create-ad-license.js:433:21": {
+   "name": "pf-price-check-value",
+   "base": "price-check-value",
+   "variants": [
+    "beIpQB"
+   ]
+  },
+  "src/container/pages/payment/checkout.js:438:7": {
+   "name": "pf-checkout-main",
+   "base": "main",
+   "variants": [
+    "dAXlsr"
+   ]
+  },
+  "src/container/pages/payment/paymentMethods.js:46:9": {
+   "name": "pf-payment-methods-payment-container",
+   "base": "payment-container",
+   "variants": [
+    "fOjson",
+    "gSRkko"
+   ]
+  },
+  "src/container/pages/payment/paymentMethods.js:22:7": {
+   "name": "pf-payment-methods-payment-card",
+   "base": "payment-card",
+   "variants": [
+    "lgLjNq",
+    "gKMtMi"
+   ]
+  },
+  "src/components/checkout/creditCardItem.js:361:5": {
+   "name": "pf-credit-card-item-payment-frame",
+   "base": "payment-frame",
+   "variants": [
+    "kFXRDD",
+    "TtthB"
+   ]
+  },
+  "src/components/prop-shop/Ordersummary.js:118:9": {
+   "name": "pf-ordersummary-order-summary-full",
+   "base": "order-summary-full",
+   "variants": [
+    "daWZKx",
+    "gjLfYi"
+   ]
+  },
+  "src/components/checkout/tabby.js:164:7": {
+   "name": "pf-transaction-card",
+   "base": "transaction-card",
+   "variants": [
+    "fRoDbm"
+   ]
+  },
+  "src/components/checkout/tabby.js:170:11": {
+   "name": "pf-tabby-listing-date-select",
+   "base": "listing-date-select",
+   "variants": [
+    "ekZtkY"
+   ]
+  },
+  "src/components/checkout/tabby.js:200:11": {
+   "name": "pf-tabby-stepper",
+   "base": "tabby-stepper",
+   "variants": [
+    "ljuuPn"
+   ]
+  },
+  "src/components/phone-input/PhoneIntl.js:61:7": {
+   "name": "pf-phone-intl-phone-input-style",
+   "base": "phone-input-style",
+   "variants": [
+    "kvTwgY"
+   ]
+  },
+  "src/components/common/checkbox/checkbox.js:34:5": {
+   "name": "pf-checkbox-style",
+   "base": "checkbox-style",
+   "variants": [
+    "dobDuI"
+   ]
+  },
+  "src/container/pages/Maintenance.js:16:5": {
+   "name": "pf-place-center",
+   "base": "place-center",
+   "variants": [
+    "iyFoSa"
+   ]
+  },
+  "src/tenant/common/components/post-listing/license-validation.js:125:5": {
+   "name": "pf-license-validation-main",
+   "base": "main",
+   "variants": [
+    "dAXlsr"
+   ]
+  },
+  "src/tenant/bayut/components/upgrade-listing/upgrade-listing.js:405:7": {
+   "name": "pf-upgrade-listing-main",
+   "base": "main",
+   "variants": [
+    "dAXlsr"
+   ]
+  },
+  "src/tenant/bayut/components/upgrade-listing/upgrade-listing.js:429:19": {
+   "name": "pf-up-sell-image",
+   "base": "up-sell-image",
+   "variants": [
+    "jTpRpR"
+   ]
+  },
+  "src/tenant/bayut/components/upgrade-listing/upgrade-listing.js:449:25": {
+   "name": "pf-collapse-styled",
+   "base": "collapse-styled",
+   "variants": [
+    "cogAaZ"
+   ]
+  },
+  "src/tenant/bayut/components/upgrade-listing/upgrade-listing.js:493:39": {
+   "name": "pf-collapse-radio",
+   "base": "collapse-radio",
+   "variants": [
+    "bhDaHG"
+   ]
+  },
+  "src/tenant/common/components/upgrade-listing/product.js:55:27": {
+   "name": "pf-tag-recommend",
+   "base": "tag-recommend",
+   "variants": [
+    "fcgzFR"
+   ]
+  },
+  "src/components/credits-info/credits-info.js:46:9": {
+   "name": "pf-available-credit",
+   "base": "available-credit",
+   "variants": [
+    "hTNDHV"
+   ]
+  },
+  "src/tenant/bayut/components/upgrade-listing/upgrade-listing.js:600:21": {
+   "name": "pf-upgrade-listing-action-button",
+   "base": "action-button",
+   "variants": [
+    "jUmAXT"
+   ]
+  },
+  "src/components/post-listing/media-gallery/media-gallery-modal.js:317:19": {
+   "name": "pf-media-gallery-modal-nav-arrow",
+   "base": "nav-arrow",
+   "variants": [
+    "exsmhU",
+    "hbPgyY"
+   ]
+  },
+  "src/components/post-listing/image-select/image-select.js:283:23": {
+   "name": "pf-drop-zone-box",
+   "base": "drop-zone-box",
+   "variants": [
+    "jBLTcT",
+    "guxyOP"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/listing-preview/listing-preview.js:536:29": {
+   "name": "pf-cover-placeholder",
+   "base": "cover-placeholder",
+   "variants": [
+    "cXwZWK"
+   ]
+  },
+  "src/components/common/tabs/tabs.js:11:5": {
+   "name": "pf-tab-basic",
+   "base": "tab-basic",
+   "variants": [
+    "gbSIoe"
+   ]
+  },
+  "src/components/common/json-form/json-form.js:647:13": {
+   "name": "pf-amenities-card",
+   "base": "amenities-card",
+   "variants": [
+    "fbBORb"
+   ]
+  },
+  "src/components/common/checkbox/checkbox.js:47:7": {
+   "name": "pf-row-style",
+   "base": "row-style",
+   "variants": [
+    "hsbEaN"
+   ]
+  },
+  "src/components/post-listing/media-gallery/media-gallery-modal.js:360:7": {
+   "name": "pf-body",
+   "base": "body",
+   "variants": [
+    "jxAwNN"
+   ]
+  },
+  "src/components/post-listing/media-gallery/media-gallery-modal.js:361:9": {
+   "name": "pf-close-btn",
+   "base": "close-btn",
+   "variants": [
+    "eOpUAE"
+   ]
+  },
+  "src/components/post-listing/media-gallery/media-gallery-modal.js:264:9": {
+   "name": "pf-media-gallery-modal-tabs",
+   "base": "tabs",
+   "variants": [
+    "cecFip"
+   ]
+  },
+  "src/components/post-listing/media-gallery/media-gallery-modal.js:265:11": {
+   "name": "pf-tab",
+   "base": "tab",
+   "variants": [
+    "QPHNz",
+    "uzSfh"
+   ]
+  },
+  "src/components/post-listing/media-gallery/media-gallery-modal.js:275:9": {
+   "name": "pf-stage",
+   "base": "stage",
+   "variants": [
+    "kzHsdF"
+   ]
+  },
+  "src/components/post-listing/media-gallery/media-gallery-modal.js:314:15": {
+   "name": "pf-stage-counter",
+   "base": "stage-counter",
+   "variants": [
+    "gVygEa"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/listingDetailModal.js:88:7": {
+   "name": "pf-band",
+   "base": "band",
+   "variants": [
+    "fjdWnU"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/RegaDetailFields.js:163:11": {
+   "name": "pf-list-view-styled",
+   "base": "list-view-styled",
+   "variants": [
+    "hwRxKk"
+   ]
+  },
+  "src/container/pages/post-ad/index.js:35:11": {
+   "name": "pf-header-styled",
+   "base": "header-styled",
+   "variants": [
+    "jIJGxz"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/location-select/location-select.js:504:13": {
+   "name": "pf-location-select-icon-styled",
+   "base": "icon-styled",
+   "variants": [
+    "ilewrA"
+   ]
+  },
+  "src/components/common/drawerModal/drawerModal.js:27:7": {
+   "name": "pf-drawer-modal-bottom-sheet-drawer",
+   "base": "bottom-sheet-drawer",
+   "variants": [
+    "gMYluK"
+   ]
+  },
+  "src/components/post-listing/media-gallery/media-gallery-modal.js:344:7": {
+   "name": "pf-sheet-overlay",
+   "base": "sheet-overlay",
+   "variants": [
+    "dSEzWJ"
+   ]
+  },
+  "src/components/post-listing/media-gallery/media-gallery-modal.js:345:9": {
+   "name": "pf-sheet",
+   "base": "sheet",
+   "variants": [
+    "eIVUYV"
+   ]
+  },
+  "src/components/post-listing/media-gallery/media-gallery-modal.js:346:11": {
+   "name": "pf-sheet-header",
+   "base": "sheet-header",
+   "variants": [
+    "jKOqUi"
+   ]
+  },
+  "src/components/post-listing/media-gallery/media-gallery-modal.js:352:11": {
+   "name": "pf-sheet-body",
+   "base": "sheet-body",
+   "variants": [
+    "cYZuvP"
+   ]
+  },
+  "src/container/pages/agent-performance/TruPoints.js:51:7": {
+   "name": "pf-modal-info-banner",
+   "base": "modal-info-banner",
+   "variants": [
+    "kFWywy",
+    "gpkckF"
+   ]
+  },
+  "src/container/pages/agent-performance/TruPoints.js:58:7": {
+   "name": "pf-tasks-grid",
+   "base": "tasks-grid",
+   "variants": [
+    "jlxaZM",
+    "GpHWN"
+   ]
+  },
+  "src/container/pages/agent-performance/TruPoints.js:63:13": {
+   "name": "pf-task-card",
+   "base": "task-card",
+   "variants": [
+    "knEJet",
+    "HDBqE"
+   ]
+  },
+  "src/container/pages/agent-performance/TruPoints.js:66:17": {
+   "name": "pf-task-points",
+   "base": "task-points",
+   "variants": [
+    "FNrfA"
+   ]
+  },
+  "src/container/pages/agent-performance/TruPoints.js:68:15": {
+   "name": "pf-task-title",
+   "base": "task-title",
+   "variants": [
+    "ekcBap",
+    "hkbJH"
+   ]
+  },
+  "src/tenant/common/components/layout/navbar.js:284:9": {
+   "name": "pf-bayut-ksa-header-wrapper",
+   "base": "bayut-ksa-header-wrapper",
+   "variants": [
+    "hPXScn"
+   ]
+  },
+  "src/tenant/bayut/components/listing/listings.js:276:11": {
+   "name": "pf-listing-banner",
+   "base": "listing-banner",
+   "variants": [
+    "hdhXXj"
+   ]
+  },
+  "src/components/common/banner/index.js:44:5": {
+   "name": "pf-banner-styled",
+   "base": "banner-styled",
+   "variants": [
+    "gjUjkT"
+   ]
+  },
+  "src/tenant/common/components/layout/footer.js:166:5": {
+   "name": "pf-footer-styled",
+   "base": "footer-styled",
+   "variants": [
+    "faxqEj"
+   ]
+  },
+  "src/tenant/bayut/components/upgrade-listing/upgrade-listing.js:546:35": {
+   "name": "pf-collapse-card",
+   "base": "collapse-card",
+   "variants": [
+    "jOBssw"
+   ]
+  },
+  "src/container/pages/agent-performance/TruPoints.js:36:9": {
+   "name": "pf-modal-header-wrapper",
+   "base": "modal-header-wrapper",
+   "variants": [
+    "jJyscR"
+   ]
+  },
+  "src/container/pages/agent-performance/TruPoints.js:38:13": {
+   "name": "pf-tru-points-modal-title",
+   "base": "modal-title",
+   "variants": [
+    "fvSqjt"
+   ]
+  },
+  "src/tenant/common/components/layout/footer.js:227:17": {
+   "name": "pf-dropdown-country",
+   "base": "dropdown-country",
+   "variants": []
   }
  }
 }

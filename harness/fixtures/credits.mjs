@@ -385,6 +385,13 @@ export default (h) => {
     };
   };
 
+  /* ── mode 'empty': a brand-new account ────────────────────────────────
+     The package was bought today and nothing has been spent: the pool is
+     whole (allocated = available, 0 used), every product's consumption is 0
+     and the history has no card in it — Credits Usage draws its empty states
+     and the Credits Balance card a full, untouched package. */
+  const FRESH = { allocated, available: allocated, used: 0, expiring: 0, percentage_used: 0 };
+
   const PER_PAGE = 10;
   /* the page's own filters — creditsUsageFilters.js: listing id, upgrade, user */
   const filtered = (search, set, by) => {
@@ -403,7 +410,7 @@ export default (h) => {
       const staff = mode === 'staff';
       const by = staff ? staffPerformer() : performer;
       const item = historyItem(by, staff ? SATELLITE : undefined);
-      const set = filtered(search, staff ? staffEvents : events, by);
+      const set = mode === 'empty' ? [] : filtered(search, staff ? staffEvents : events, by);
       const total_pages = Math.max(1, Math.ceil(set.length / PER_PAGE));
       const page = Math.min(Math.max(1, Number(new URLSearchParams(search || '').get('page')) || 1), total_pages);
       return {
@@ -425,8 +432,10 @@ export default (h) => {
         bayut: {
           ...(mode === 'staff'
             ? { available: STAFF.available, expiring: 0, allocated: STAFF.allocated, used: STAFF.used, percentage_used: STAFF.percentage_used }
-            : { available, expiring: 0, allocated, used, percentage_used }),
-          product_wise: (mode === 'staff' ? STAFF_BREAKDOWN : BREAKDOWN).map(([slug, consumed_credits]) => ({
+            : mode === 'empty'
+              ? { available: FRESH.available, expiring: 0, allocated, used: 0, percentage_used: 0 }
+              : { available, expiring: 0, allocated, used, percentage_used }),
+          product_wise: (mode === 'staff' ? STAFF_BREAKDOWN : BREAKDOWN).map(([slug, used_credits]) => [slug, mode === 'empty' ? 0 : used_credits]).map(([slug, consumed_credits]) => ({
             id: PRODUCTS[slug].id,
             title: PRODUCTS[slug].name,
             title_l1: PRODUCTS[slug].name_l1,
@@ -446,7 +455,9 @@ export default (h) => {
     [/^\/api\/surge\/credits\/summary$/, (search, mode) => {
       const pool = mode === 'staff'
         ? { allocated: STAFF.allocated, available: STAFF.available, used: STAFF.used, expiring: 0, percentage_used: STAFF.percentage_used, top_up_credits: 0 }
-        : { allocated, available, used, expiring: 0, percentage_used, top_up_credits: 0 };
+        : mode === 'empty'
+          ? { ...FRESH, top_up_credits: 0 }
+          : { allocated, available, used, expiring: 0, percentage_used, top_up_credits: 0 };
       return {
         credits_summary: {
           bayut: {
@@ -465,10 +476,12 @@ export default (h) => {
        (common/transformers/quotaCredits.js:225), which destructures
        body[platform.slug] with no guard — so it is answered keyed 'ksa' with
        {quota, credits} rather than {}, which would throw there. */
-    [/^\/api\/surge\/dashboard\/qc_summary$/, () => ({
+    [/^\/api\/surge\/dashboard\/qc_summary$/, (search, mode) => ({
       ksa: {
         quota: { id: 1, name: 'Basic Listing', available: 0, used: 0, total: 0 },
-        credits: [{ id: 7, name: 'Credit', available, used, total: allocated }],
+        credits: [mode === 'empty'
+          ? { id: 7, name: 'Credit', available: FRESH.available, used: 0, total: allocated }
+          : { id: 7, name: 'Credit', available, used, total: allocated }],
       },
     })],
   ];

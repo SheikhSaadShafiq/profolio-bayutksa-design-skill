@@ -18,10 +18,8 @@
     "GET /api/surge/agencies/880042"
   ],
   "unanswered": [],
-  "errors": [
-    "An unhandled error occurred processing a request for the endpoint \"getProfileDetails\".\nIn the case of an unhandled error, no tags will be \"provided\" or \"invalidated\". TypeError: Cannot read properties of null (reading 'sizes')\n    at Object.profileDataMapper (http://127.0.0.1:3100/src/tenant/common/"
-  ],
+  "errors": [],
   "blocked": 3,
   "fonts": "served from deliverables/fonts.css",
-  "ms": 2944
+  "ms": 2842
 }

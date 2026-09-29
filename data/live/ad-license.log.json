@@ -21,12 +21,11 @@
   ],
   "unanswered": [],
   "errors": [
-    "Failed to fetch cities: Unreachable hosts - your application id may be incorrect. If the error persists, please reach out to the Algolia Support team: https://alg.li/support .",
     "Failed to load Google Maps script, retrying in 2 ms.",
     "Failed to load Google Maps script, retrying in 8 ms.",
     "Failed to load Google Maps script, retrying in 24 ms."
   ],
-  "blocked": 13,
+  "blocked": 7,
   "fonts": "served from deliverables/fonts.css",
-  "ms": 3418
+  "ms": 2996
 }

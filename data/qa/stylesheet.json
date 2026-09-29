@@ -1,9 +1,9 @@
 {
-  "at": "2026-09-28T20:13:37.433Z",
-  "rules": 2313,
-  "rulesMobile": 2209,
-  "conflicts": 40379,
-  "conflictsMobile": 41299,
+  "at": "2026-09-29T07:04:33.522Z",
+  "rules": 2959,
+  "rulesMobile": 2983,
+  "conflicts": 73308,
+  "conflictsMobile": 109043,
   "rows": [
     {
       "name": "ad-license",
@@ -20,7 +20,13 @@
     {
       "name": "agent-performance",
       "device": "web",
-      "pct": 0.001,
+      "pct": 0.004,
+      "ok": true
+    },
+    {
+      "name": "checkout",
+      "device": "web",
+      "pct": 0,
       "ok": true
     },
     {
@@ -36,15 +42,27 @@
       "ok": true
     },
     {
+      "name": "invite",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "listings",
       "device": "web",
-      "pct": 0.009,
+      "pct": 0.053,
       "ok": true
     },
     {
       "name": "lms-leads",
       "device": "web",
-      "pct": 0.028,
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "maintenance",
+      "device": "web",
+      "pct": 0,
       "ok": true
     },
     {
@@ -54,7 +72,31 @@
       "ok": true
     },
     {
+      "name": "post-ad",
+      "device": "web",
+      "pct": 0.007,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit",
+      "device": "web",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "post-listing",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "process-payment",
       "device": "web",
       "pct": 0,
       "ok": true
@@ -68,13 +110,13 @@
     {
       "name": "reports-listing-report",
       "device": "web",
-      "pct": 0.004,
+      "pct": 0.001,
       "ok": true
     },
     {
       "name": "reports-summary",
       "device": "web",
-      "pct": 0.03,
+      "pct": 0,
       "ok": true
     },
     {
@@ -92,7 +134,13 @@
     {
       "name": "user-settings-licenses",
       "device": "web",
-      "pct": 0.023,
+      "pct": 0.046,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences",
+      "device": "web",
+      "pct": 0,
       "ok": true
     },
     {
@@ -110,13 +158,19 @@
     {
       "name": "agency-staff--mobile",
       "device": "mobile",
-      "pct": 0.197,
+      "pct": 0.315,
       "ok": true
     },
     {
       "name": "agent-performance--mobile",
       "device": "mobile",
-      "pct": 0.001,
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "checkout--mobile",
+      "device": "mobile",
+      "pct": 0,
       "ok": true
     },
     {
@@ -132,15 +186,27 @@
       "ok": true
     },
     {
+      "name": "invite--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "listings--mobile",
       "device": "mobile",
-      "pct": 0.033,
+      "pct": 0.006,
       "ok": true
     },
     {
       "name": "lms-leads--mobile",
       "device": "mobile",
-      "pct": 0.099,
+      "pct": 0.192,
+      "ok": true
+    },
+    {
+      "name": "maintenance--mobile",
+      "device": "mobile",
+      "pct": 0,
       "ok": true
     },
     {
@@ -150,7 +216,31 @@
       "ok": true
     },
     {
+      "name": "post-ad--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--mobile",
+      "device": "mobile",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
       "name": "post-listing--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "process-payment--mobile",
       "device": "mobile",
       "pct": 0,
       "ok": true
@@ -170,7 +260,7 @@
     {
       "name": "reports-summary--mobile",
       "device": "mobile",
-      "pct": 0,
+      "pct": 0.044,
       "ok": true
     },
     {
@@ -188,13 +278,25 @@
     {
       "name": "user-settings-licenses--mobile",
       "device": "mobile",
-      "pct": 0.099,
+      "pct": 0.211,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--mobile",
+      "device": "mobile",
+      "pct": 0,
       "ok": true
     },
     {
       "name": "user-settings-user-profile--mobile",
       "device": "mobile",
-      "pct": 0.003,
+      "pct": 0.004,
+      "ok": true
+    },
+    {
+      "name": "ad-license--as-individual",
+      "device": "web",
+      "pct": 0,
       "ok": true
     },
     {
@@ -216,6 +318,72 @@
       "ok": true
     },
     {
+      "name": "ad-license--empty",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--error",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--flow-ad-license-01-property-information",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--flow-ad-license-02-property-location",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--flow-ad-license-03-contact-information",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--form-city-options",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "ad-license--form-deed-number-invalid",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--form-district-options",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--form-errors-on-submit",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--form-property-sub-type-options",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--form-purpose-and-type-selected",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "ad-license--inline-adjust",
       "device": "web",
       "pct": 0,
@@ -228,7 +396,19 @@
       "ok": true
     },
     {
+      "name": "ad-license--loading",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "ad-license--menu-post-a-listing",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--message-submit-failed",
       "device": "web",
       "pct": 0,
       "ok": true
@@ -264,6 +444,12 @@
       "ok": true
     },
     {
+      "name": "agency-staff--as-individual",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "agency-staff--as-staff",
       "device": "web",
       "pct": 0,
@@ -276,7 +462,103 @@
       "ok": true
     },
     {
+      "name": "agency-staff--empty",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--error",
+      "device": "web",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--form-credits-limit-errors",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--form-credits-limit-filled",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--form-edit-user-errors",
+      "device": "web",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--form-edit-user-filled",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--form-invite-user-errors",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--form-invite-user-filled",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--form-invite-user-otp-errors",
+      "device": "web",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--loading",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "agency-staff--menu-post-a-listing",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--message-credits-limit-failed",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--message-delete-user-failed",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--message-edit-user-failed",
+      "device": "web",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--message-invite-user-failed",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--message-invite-user-saved",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--modal-delete-user",
       "device": "web",
       "pct": 0,
       "ok": true
@@ -294,7 +576,43 @@
       "ok": true
     },
     {
+      "name": "agency-staff--modal-edit-user-title-english__inline-browse-and-upload",
+      "device": "web",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--modal-edit-user-title-english__inline-close-circle",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--modal-edit-user-title-english__inline-close",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--modal-edit-user-title-english__modal-learn-more",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "agency-staff--modal-help-support-profolio",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--modal-invite-user-otp",
+      "device": "web",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--modal-invite-user-sent",
       "device": "web",
       "pct": 0,
       "ok": true
@@ -306,7 +624,19 @@
       "ok": true
     },
     {
+      "name": "agency-staff--modal-invite-user__inline-confirm",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "agency-staff--modal-set-credits-limit",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--modal-set-credits-limit__inline-set-max-credits",
       "device": "web",
       "pct": 0,
       "ok": true
@@ -330,55 +660,121 @@
       "ok": true
     },
     {
+      "name": "agent-performance--as-individual",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "agent-performance--as-staff",
       "device": "web",
-      "pct": 0.001,
+      "pct": 0.002,
       "ok": true
     },
     {
       "name": "agent-performance--drawer-feedback",
       "device": "web",
-      "pct": 0,
+      "pct": 0.001,
       "ok": true
     },
     {
       "name": "agent-performance--drawer-learn-more",
       "device": "web",
-      "pct": 0.001,
+      "pct": 0.007,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--drawer-learn-more__modal-how-to-earn-trupointsTM",
+      "device": "web",
+      "pct": 0.002,
       "ok": true
     },
     {
       "name": "agent-performance--drawer-trupointsTM-46",
       "device": "web",
-      "pct": 0,
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--drawer-trupointsTM-46__modal-how-to-earn-trupointsTM",
+      "device": "web",
+      "pct": 0.002,
       "ok": true
     },
     {
       "name": "agent-performance--dropdown-filter-by-badges",
       "device": "web",
-      "pct": 0.001,
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--empty",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--error",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--loading",
+      "device": "web",
+      "pct": 0,
       "ok": true
     },
     {
       "name": "agent-performance--menu-post-a-listing",
       "device": "web",
-      "pct": 0,
+      "pct": 0.003,
       "ok": true
     },
     {
       "name": "agent-performance--modal-download-app",
       "device": "web",
-      "pct": 0,
+      "pct": 0.001,
       "ok": true
     },
     {
       "name": "agent-performance--modal-help-support-profolio",
       "device": "web",
-      "pct": 0.011,
+      "pct": 0.026,
       "ok": true
     },
     {
       "name": "agent-performance--modal-not-ranked",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--modal-not-ranked__inline-2",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--modal-not-ranked__inline-3",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--modal-not-ranked__inline-4",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--modal-not-ranked__inline-5",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--modal-not-ranked__inline-next-5-pages",
       "device": "web",
       "pct": 0,
       "ok": true
@@ -392,25 +788,193 @@
     {
       "name": "agent-performance--popover-calls-received-9-calls",
       "device": "web",
-      "pct": 0,
+      "pct": 0.003,
       "ok": true
     },
     {
       "name": "agent-performance--popover-faisal-al-harbi-agency-user",
       "device": "web",
-      "pct": 0.002,
+      "pct": 0.001,
       "ok": true
     },
     {
       "name": "agent-performance--popover-notifications-mark-all-as",
       "device": "web",
-      "pct": 0.001,
+      "pct": 0.003,
       "ok": true
     },
     {
       "name": "agent-performance--rail-expanded",
       "device": "web",
+      "pct": 0.055,
+      "ok": true
+    },
+    {
+      "name": "checkout--as-individual",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--as-staff",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--drawer-feedback",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--empty",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--error",
+      "device": "web",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "checkout--flow-ad-license-04-review-and-pay",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--flow-ad-license-05-success",
+      "device": "web",
       "pct": 0.05,
+      "ok": true
+    },
+    {
+      "name": "checkout--flow-buy-package-02-checkout",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "checkout--flow-buy-package-04-success",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "checkout--flow-top-up-02-checkout",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--flow-top-up-04-success",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "checkout--form-method-tabby",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--form-tabby-date-of-birth-filled",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--form-tabby-date-of-birth-open",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--form-tabby-date-of-birth-required",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--inline-tabby",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--loading",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--menu-post-a-listing",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--message-payment-could-not-process",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--message-tabby-unable-to-approve",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--modal-download-app",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--modal-help-support-profolio",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--modal-nafath-verification",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "checkout--modal-purchase-not-permitted",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--popover-faisal-al-harbi-agency-user",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--popover-notifications-mark-all-as",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--rail-expanded",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "credits-usage--as-individual",
+      "device": "web",
+      "pct": 0,
       "ok": true
     },
     {
@@ -432,6 +996,42 @@
       "ok": true
     },
     {
+      "name": "credits-usage--drawer-filters-apply-filters-to__dropdown-select-upgrades",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "credits-usage--drawer-filters-apply-filters-to__dropdown-select-users",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "credits-usage--empty",
+      "device": "web",
+      "pct": 0.012,
+      "ok": true
+    },
+    {
+      "name": "credits-usage--error",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "credits-usage--flow-top-up-01-choose-amount",
+      "device": "web",
+      "pct": 0.004,
+      "ok": true
+    },
+    {
+      "name": "credits-usage--loading",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "credits-usage--menu-post-a-listing",
       "device": "web",
       "pct": 0,
@@ -446,7 +1046,7 @@
     {
       "name": "credits-usage--modal-help-support-profolio",
       "device": "web",
-      "pct": 0.028,
+      "pct": 0.027,
       "ok": true
     },
     {
@@ -470,7 +1070,13 @@
     {
       "name": "credits-usage--rail-expanded",
       "device": "web",
-      "pct": 0.083,
+      "pct": 0.054,
+      "ok": true
+    },
+    {
+      "name": "dashboard--as-individual",
+      "device": "web",
+      "pct": 0,
       "ok": true
     },
     {
@@ -495,6 +1101,18 @@
       "name": "dashboard--dropdown-najd-horizon-real-estate",
       "device": "web",
       "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--empty",
+      "device": "web",
+      "pct": 0.01,
+      "ok": true
+    },
+    {
+      "name": "dashboard--error",
+      "device": "web",
+      "pct": 0.113,
       "ok": true
     },
     {
@@ -528,6 +1146,12 @@
       "ok": true
     },
     {
+      "name": "dashboard--loading",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "dashboard--menu-post-a-listing",
       "device": "web",
       "pct": 0,
@@ -548,13 +1172,19 @@
     {
       "name": "dashboard--modal-profile-completed",
       "device": "web",
-      "pct": 0.188,
+      "pct": 0.149,
       "ok": true
     },
     {
       "name": "dashboard--modal-publish-now",
       "device": "web",
-      "pct": 0.84,
+      "pct": 0.837,
+      "ok": false
+    },
+    {
+      "name": "dashboard--modal-publish-now__message-verify",
+      "device": "web",
+      "pct": 0.986,
       "ok": false
     },
     {
@@ -572,19 +1202,19 @@
     {
       "name": "dashboard--popover-1104-am-sep-26",
       "device": "web",
-      "pct": 0.013,
+      "pct": 0.011,
       "ok": true
     },
     {
       "name": "dashboard--popover-31",
       "device": "web",
-      "pct": 1.724,
+      "pct": 1.725,
       "ok": false
     },
     {
       "name": "dashboard--popover-33",
       "device": "web",
-      "pct": 1.687,
+      "pct": 1.688,
       "ok": false
     },
     {
@@ -596,37 +1226,37 @@
     {
       "name": "dashboard--popover-39",
       "device": "web",
-      "pct": 1.672,
+      "pct": 1.671,
       "ok": false
     },
     {
       "name": "dashboard--popover-43",
       "device": "web",
-      "pct": 1.711,
+      "pct": 1.713,
       "ok": false
     },
     {
       "name": "dashboard--popover-46",
       "device": "web",
-      "pct": 1.761,
+      "pct": 1.764,
       "ok": false
     },
     {
       "name": "dashboard--popover-50",
       "device": "web",
-      "pct": 1.7,
+      "pct": 1.702,
       "ok": false
     },
     {
       "name": "dashboard--popover-54",
       "device": "web",
-      "pct": 0.005,
+      "pct": 0.007,
       "ok": true
     },
     {
       "name": "dashboard--popover-62",
       "device": "web",
-      "pct": 1.524,
+      "pct": 1.527,
       "ok": false
     },
     {
@@ -668,19 +1298,43 @@
     {
       "name": "dashboard--tooltip-50-off",
       "device": "web",
-      "pct": 1.529,
+      "pct": 1.534,
       "ok": false
     },
     {
       "name": "dashboard--tooltip-booked",
       "device": "web",
-      "pct": 1.609,
+      "pct": 1.618,
       "ok": false
     },
     {
       "name": "dashboard--tooltip-mark-signature",
       "device": "web",
       "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "invite--message-accept-failed",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "invite--message-accept",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "invite--message-invite-expired",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "invite--message-reject",
+      "device": "web",
+      "pct": 0,
       "ok": true
     },
     {
@@ -692,19 +1346,31 @@
     {
       "name": "listings--action-discount",
       "device": "web",
-      "pct": 0.043,
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "listings--as-individual",
+      "device": "web",
+      "pct": 0.011,
       "ok": true
     },
     {
       "name": "listings--as-staff",
       "device": "web",
-      "pct": 0.009,
+      "pct": 0.011,
       "ok": true
     },
     {
       "name": "listings--date-posted-on",
       "device": "web",
-      "pct": 0.004,
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "listings--drawer-credit-info",
+      "device": "web",
+      "pct": 0.006,
       "ok": true
     },
     {
@@ -726,39 +1392,69 @@
       "ok": true
     },
     {
+      "name": "listings--drawer-show-more__inline-button",
+      "device": "web",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "listings--drawer-show-more__popover-select-date-range",
+      "device": "web",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "listings--drawer-show-more__tooltip-0-1-billion",
+      "device": "web",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
       "name": "listings--dropdown-select-property-types",
       "device": "web",
-      "pct": 0.031,
+      "pct": 0.033,
       "ok": true
     },
     {
       "name": "listings--dropdown-select-purpose",
       "device": "web",
-      "pct": 0.009,
+      "pct": 0.011,
+      "ok": true
+    },
+    {
+      "name": "listings--empty",
+      "device": "web",
+      "pct": 0.007,
       "ok": true
     },
     {
       "name": "listings--error",
       "device": "web",
-      "pct": 0.007,
+      "pct": 0.004,
       "ok": true
     },
     {
       "name": "listings--inline-search",
       "device": "web",
-      "pct": 0.025,
+      "pct": 0.011,
       "ok": true
     },
     {
       "name": "listings--loading",
       "device": "web",
-      "pct": 0.014,
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "listings--member-area",
+      "device": "web",
+      "pct": 0.032,
       "ok": true
     },
     {
       "name": "listings--menu-post-a-listing",
       "device": "web",
-      "pct": 0.007,
+      "pct": 0.008,
       "ok": true
     },
     {
@@ -776,25 +1472,31 @@
     {
       "name": "listings--modal-download-app",
       "device": "web",
-      "pct": 0.002,
+      "pct": 0.003,
       "ok": true
     },
     {
       "name": "listings--modal-help-support-profolio",
       "device": "web",
-      "pct": 0.002,
+      "pct": 0.003,
       "ok": true
     },
     {
       "name": "listings--modal-otp",
       "device": "web",
-      "pct": 0.005,
+      "pct": 0.004,
       "ok": true
     },
     {
       "name": "listings--modal-publish-now",
       "device": "web",
       "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "listings--modal-publish-now__message-verify",
+      "device": "web",
+      "pct": 0.005,
       "ok": true
     },
     {
@@ -806,157 +1508,157 @@
     {
       "name": "listings--modal-trucheck-eligible-trucheck-is",
       "device": "web",
-      "pct": 0.005,
+      "pct": 0.006,
       "ok": true
     },
     {
       "name": "listings--modal-trucheck",
       "device": "web",
-      "pct": 0.005,
+      "pct": 0.006,
       "ok": true
     },
     {
       "name": "listings--popover-1104-am-sep-26",
       "device": "web",
-      "pct": 0.015,
+      "pct": 0.014,
       "ok": true
     },
     {
       "name": "listings--popover-31",
       "device": "web",
-      "pct": 0.005,
+      "pct": 0.007,
       "ok": true
     },
     {
       "name": "listings--popover-33",
       "device": "web",
-      "pct": 0.006,
+      "pct": 0.009,
       "ok": true
     },
     {
       "name": "listings--popover-34",
       "device": "web",
-      "pct": 0.007,
+      "pct": 0.008,
       "ok": true
     },
     {
       "name": "listings--popover-39",
       "device": "web",
-      "pct": 0.008,
+      "pct": 0.01,
       "ok": true
     },
     {
       "name": "listings--popover-43",
       "device": "web",
-      "pct": 0.005,
+      "pct": 0.008,
       "ok": true
     },
     {
       "name": "listings--popover-46",
       "device": "web",
-      "pct": 0.007,
+      "pct": 0.01,
       "ok": true
     },
     {
       "name": "listings--popover-50",
       "device": "web",
-      "pct": 0.006,
+      "pct": 0.008,
       "ok": true
     },
     {
       "name": "listings--popover-54",
       "device": "web",
-      "pct": 0.006,
+      "pct": 0.008,
       "ok": true
     },
     {
       "name": "listings--popover-62",
       "device": "web",
-      "pct": 0.004,
+      "pct": 0.006,
       "ok": true
     },
     {
       "name": "listings--popover-account",
       "device": "web",
-      "pct": 0.009,
+      "pct": 0.011,
       "ok": true
     },
     {
       "name": "listings--popover-faisal-al-harbi-agency-user",
       "device": "web",
-      "pct": 0.009,
+      "pct": 0.011,
       "ok": true
     },
     {
       "name": "listings--popover-health",
       "device": "web",
-      "pct": 0.004,
+      "pct": 0.006,
       "ok": true
     },
     {
       "name": "listings--popover-images-do-not-match",
       "device": "web",
-      "pct": 0.012,
+      "pct": 0.011,
       "ok": true
     },
     {
       "name": "listings--popover-leads",
       "device": "web",
-      "pct": 0.014,
+      "pct": 0.012,
       "ok": true
     },
     {
       "name": "listings--popover-notifications-mark-all-as",
       "device": "web",
-      "pct": 0.009,
+      "pct": 0.008,
       "ok": true
     },
     {
       "name": "listings--popover-notifications",
       "device": "web",
-      "pct": 0.009,
+      "pct": 0.008,
       "ok": true
     },
     {
       "name": "listings--popover-rega",
       "device": "web",
-      "pct": 0.012,
+      "pct": 0.017,
       "ok": true
     },
     {
       "name": "listings--popover-status-rejected",
       "device": "web",
-      "pct": 0.012,
+      "pct": 0.011,
       "ok": true
     },
     {
       "name": "listings--popover-timeline",
       "device": "web",
-      "pct": 0.015,
+      "pct": 0.014,
       "ok": true
     },
     {
       "name": "listings--project-units",
       "device": "web",
-      "pct": 0.004,
+      "pct": 0.003,
       "ok": true
     },
     {
       "name": "listings--rail-expanded",
       "device": "web",
-      "pct": 0.009,
+      "pct": 0.011,
       "ok": true
     },
     {
       "name": "listings--select-property-type",
       "device": "web",
-      "pct": 0.031,
+      "pct": 0.011,
       "ok": true
     },
     {
       "name": "listings--select-purpose",
       "device": "web",
-      "pct": 0.009,
+      "pct": 0.011,
       "ok": true
     },
     {
@@ -968,7 +1670,7 @@
     {
       "name": "listings--tab-draft",
       "device": "web",
-      "pct": 0.003,
+      "pct": 0.002,
       "ok": true
     },
     {
@@ -992,61 +1694,61 @@
     {
       "name": "listings--tooltip-action",
       "device": "web",
-      "pct": 0.013,
+      "pct": 0.012,
       "ok": true
     },
     {
       "name": "listings--tooltip-booked",
       "device": "web",
-      "pct": 0.008,
+      "pct": 0.014,
       "ok": true
     },
     {
       "name": "listings--tooltip-upgrade-applied",
       "device": "web",
-      "pct": 0.01,
+      "pct": 0.013,
       "ok": true
     },
     {
       "name": "listings--tooltip-upgrade-none",
       "device": "web",
-      "pct": 0.041,
+      "pct": 0.012,
       "ok": true
     },
     {
       "name": "listings--tooltip-upgrade-pending",
       "device": "web",
-      "pct": 0.01,
+      "pct": 0.013,
       "ok": true
     },
     {
       "name": "listings--tooltip-upgrade-service",
       "device": "web",
-      "pct": 0.013,
+      "pct": 0.012,
       "ok": true
     },
     {
       "name": "listings--tooltip-upgrade-unavailable",
       "device": "web",
-      "pct": 0.009,
+      "pct": 0.014,
       "ok": true
     },
     {
       "name": "listings--tooltip-upgrade",
       "device": "web",
-      "pct": 0.013,
+      "pct": 0.012,
       "ok": true
     },
     {
       "name": "listings--upgrade-hot",
       "device": "web",
-      "pct": 0.004,
+      "pct": 0.003,
       "ok": true
     },
     {
       "name": "listings--upgrade-photography",
       "device": "web",
-      "pct": 0.003,
+      "pct": 0.002,
       "ok": true
     },
     {
@@ -1062,6 +1764,12 @@
       "ok": true
     },
     {
+      "name": "lms-leads--as-individual",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
       "name": "lms-leads--as-staff",
       "device": "web",
       "pct": 0.001,
@@ -1074,7 +1782,49 @@
       "ok": true
     },
     {
+      "name": "lms-leads--drawer-abdullah-saleh-abdullahsmailexample__drawer-add-interest-manually",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-abdullah-saleh-abdullahsmailexample__inline-all-tasks",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-abdullah-saleh-abdullahsmailexample__inline-email",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-add-interest",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
       "name": "lms-leads--drawer-add-name",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-add-name__drawer-add-interest-manually",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-add-name__inline-all-tasks",
+      "device": "web",
+      "pct": 0.006,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-add-name__inline-email",
       "device": "web",
       "pct": 0.001,
       "ok": true
@@ -1086,7 +1836,43 @@
       "ok": true
     },
     {
+      "name": "lms-leads--drawer-add-new-lead__drawer-add-interest-manually",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-add-new-lead__drawer-add-lead",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
       "name": "lms-leads--drawer-add-task",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-add-task__drawer-add-interest",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-add-task__dropdown-select-task-type",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-add-task__inline-upload",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-add-task__picker-select-completion-date-and-time",
       "device": "web",
       "pct": 0.001,
       "ok": true
@@ -1099,6 +1885,24 @@
     },
     {
       "name": "lms-leads--drawer-khalid-al-shammari-khalidalshammari1",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-khalid-al-shammari-khalidalshammari1__drawer-add-interest-manually",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-khalid-al-shammari-khalidalshammari1__inline-all-tasks",
+      "device": "web",
+      "pct": 0.006,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-khalid-al-shammari-khalidalshammari1__inline-email",
       "device": "web",
       "pct": 0.001,
       "ok": true
@@ -1122,7 +1926,37 @@
       "ok": true
     },
     {
+      "name": "lms-leads--drawer-nourah-al-qahtani-nourahqahtanimaile__drawer-add-interest-manually",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-nourah-al-qahtani-nourahqahtanimaile__inline-all-tasks",
+      "device": "web",
+      "pct": 0.006,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-nourah-al-qahtani-nourahqahtanimaile__inline-email",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
       "name": "lms-leads--drawer-show-more",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-show-more__dropdown-choose-source",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-show-more__inline-button",
       "device": "web",
       "pct": 0.001,
       "ok": true
@@ -1152,13 +1986,115 @@
       "ok": true
     },
     {
+      "name": "lms-leads--empty",
+      "device": "web",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--error",
+      "device": "web",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--form-add-lead-duplicate",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--form-add-lead-errors",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--form-add-lead-filled",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--form-add-task-errors",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--form-add-task-filled",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--form-lead-name-filled",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
       "name": "lms-leads--inline-search",
       "device": "web",
       "pct": 0.001,
       "ok": true
     },
     {
+      "name": "lms-leads--loading",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
       "name": "lms-leads--menu-post-a-listing",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--message-add-interest-failed",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--message-add-interest-saved",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--message-add-lead-failed",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--message-add-lead-saved",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--message-add-task-failed",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--message-add-task-saved",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--message-lead-name-failed",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--message-lead-name-saved",
       "device": "web",
       "pct": 0.001,
       "ok": true
@@ -1177,6 +2113,12 @@
     },
     {
       "name": "lms-leads--modal-view-trend",
+      "device": "web",
+      "pct": 0.004,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--modal-view-trend__popover-today-yesterday-last-7",
       "device": "web",
       "pct": 0.004,
       "ok": true
@@ -1214,7 +2156,7 @@
     {
       "name": "lms-leads--popover-clicked-total-number-of",
       "device": "web",
-      "pct": 0.001,
+      "pct": 0.009,
       "ok": true
     },
     {
@@ -1296,9 +2238,15 @@
       "ok": true
     },
     {
+      "name": "packages--as-individual",
+      "device": "web",
+      "pct": 0.017,
+      "ok": true
+    },
+    {
       "name": "packages--as-staff",
       "device": "web",
-      "pct": 0.039,
+      "pct": 0.014,
       "ok": true
     },
     {
@@ -1314,15 +2262,69 @@
       "ok": true
     },
     {
+      "name": "packages--empty",
+      "device": "web",
+      "pct": 0.017,
+      "ok": true
+    },
+    {
+      "name": "packages--error",
+      "device": "web",
+      "pct": 0.009,
+      "ok": true
+    },
+    {
+      "name": "packages--flow-ad-license-06-failure",
+      "device": "web",
+      "pct": 0.02,
+      "ok": true
+    },
+    {
+      "name": "packages--flow-buy-package-01-choose-package",
+      "device": "web",
+      "pct": 0.008,
+      "ok": true
+    },
+    {
+      "name": "packages--flow-buy-package-05-failure",
+      "device": "web",
+      "pct": 0.02,
+      "ok": true
+    },
+    {
+      "name": "packages--flow-top-up-05-failure",
+      "device": "web",
+      "pct": 0.02,
+      "ok": true
+    },
+    {
+      "name": "packages--form-credit-top-up-priced",
+      "device": "web",
+      "pct": 0.009,
+      "ok": true
+    },
+    {
       "name": "packages--inline-icon",
       "device": "web",
       "pct": 0.015,
       "ok": true
     },
     {
+      "name": "packages--loading",
+      "device": "web",
+      "pct": 0.048,
+      "ok": true
+    },
+    {
       "name": "packages--menu-post-a-listing",
       "device": "web",
       "pct": 0.01,
+      "ok": true
+    },
+    {
+      "name": "packages--message-payment-cancelled",
+      "device": "web",
+      "pct": 0.02,
       "ok": true
     },
     {
@@ -1358,7 +2360,103 @@
     {
       "name": "packages--rail-expanded",
       "device": "web",
-      "pct": 0.039,
+      "pct": 0.028,
+      "ok": true
+    },
+    {
+      "name": "post-ad--error",
+      "device": "web",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "post-ad--form-errors-empty",
+      "device": "web",
+      "pct": 0.007,
+      "ok": true
+    },
+    {
+      "name": "post-ad--loading",
+      "device": "web",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "post-ad--message-post-failed",
+      "device": "web",
+      "pct": 0.007,
+      "ok": true
+    },
+    {
+      "name": "post-ad--modal-add-amenities",
+      "device": "web",
+      "pct": 0.01,
+      "ok": true
+    },
+    {
+      "name": "post-ad--modal-add-amenities__modal-building-and-services",
+      "device": "web",
+      "pct": 0.008,
+      "ok": true
+    },
+    {
+      "name": "post-ad--modal-add-amenities__modal-rooms",
+      "device": "web",
+      "pct": 0.007,
+      "ok": true
+    },
+    {
+      "name": "post-ad--modal-cover-add-more",
+      "device": "web",
+      "pct": 0.008,
+      "ok": true
+    },
+    {
+      "name": "post-ad--modal-cover-add-more__modal-images-8-videos-0",
+      "device": "web",
+      "pct": 0.008,
+      "ok": true
+    },
+    {
+      "name": "post-ad--modal-cover-add-more__modal-videos-0",
+      "device": "web",
+      "pct": 0.008,
+      "ok": true
+    },
+    {
+      "name": "post-ad--modal-images-8-videos-0",
+      "device": "web",
+      "pct": 0.008,
+      "ok": true
+    },
+    {
+      "name": "post-ad--modal-images-8-videos-0__modal-images-8-videos-0",
+      "device": "web",
+      "pct": 0.008,
+      "ok": true
+    },
+    {
+      "name": "post-ad--modal-images-8-videos-0__modal-videos-0",
+      "device": "web",
+      "pct": 0.008,
+      "ok": true
+    },
+    {
+      "name": "post-ad--modal-listing-details-from-rega-ad-license",
+      "device": "web",
+      "pct": 0.008,
+      "ok": true
+    },
+    {
+      "name": "post-ad--modal-post-listing",
+      "device": "web",
+      "pct": 0.057,
+      "ok": true
+    },
+    {
+      "name": "post-listing--as-individual",
+      "device": "web",
+      "pct": 0,
       "ok": true
     },
     {
@@ -1374,13 +2472,79 @@
       "ok": true
     },
     {
+      "name": "post-listing--empty",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--error",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--flow-post-listing-01-license-number",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--flow-post-listing-02-otp",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--form-cr-number",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--form-license-invalid",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--form-national-id-invalid",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--form-national-id",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "post-listing--inline-continue",
       "device": "web",
       "pct": 0,
       "ok": true
     },
     {
+      "name": "post-listing--loading",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "post-listing--menu-post-a-listing",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--message-license-not-found",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--message-otp-incorrect",
       "device": "web",
       "pct": 0,
       "ok": true
@@ -1428,6 +2592,414 @@
       "ok": true
     },
     {
+      "name": "post-listing-edit--as-individual",
+      "device": "web",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--as-staff",
+      "device": "web",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--drawer-feedback",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--empty",
+      "device": "web",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--error",
+      "device": "web",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--flow-post-listing-03-details",
+      "device": "web",
+      "pct": 0.013,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--flow-post-listing-04-images",
+      "device": "web",
+      "pct": 0.006,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--flow-post-listing-05-specs",
+      "device": "web",
+      "pct": 0.006,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--flow-post-listing-06-amenities",
+      "device": "web",
+      "pct": 0.009,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--flow-post-listing-07-description",
+      "device": "web",
+      "pct": 0.02,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--flow-post-listing-08-review",
+      "device": "web",
+      "pct": 0.006,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--form-errors-empty",
+      "device": "web",
+      "pct": 0.012,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--form-errors-invalid",
+      "device": "web",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--inline-button",
+      "device": "web",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--inline-generate-title",
+      "device": "web",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--inline-icon",
+      "device": "web",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--inline-images-failed",
+      "device": "web",
+      "pct": 0.007,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--inline-images-uploading",
+      "device": "web",
+      "pct": 0.007,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--inline-svg",
+      "device": "web",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--inline-x",
+      "device": "web",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--loading",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--menu-post-a-listing",
+      "device": "web",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--message-image-too-small",
+      "device": "web",
+      "pct": 0.013,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--message-save-failed",
+      "device": "web",
+      "pct": 0.006,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--message-saved",
+      "device": "web",
+      "pct": 0.006,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--message-update-failed",
+      "device": "web",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--modal-add-amenities",
+      "device": "web",
+      "pct": 0.009,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--modal-add-amenities__modal-building-and-services",
+      "device": "web",
+      "pct": 0.007,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--modal-add-amenities__modal-rooms",
+      "device": "web",
+      "pct": 0.006,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--modal-cover-add-more",
+      "device": "web",
+      "pct": 0.007,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--modal-cover-add-more__modal-images-21-videos-0",
+      "device": "web",
+      "pct": 0.007,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--modal-cover-add-more__modal-videos-0",
+      "device": "web",
+      "pct": 0.006,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--modal-download-app",
+      "device": "web",
+      "pct": 0.007,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--modal-help-support-profolio",
+      "device": "web",
+      "pct": 0.07,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--modal-images-21-videos-0-2",
+      "device": "web",
+      "pct": 0.007,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--modal-images-21-videos-0-2__modal-images-21-videos-0",
+      "device": "web",
+      "pct": 0.006,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--modal-images-21-videos-0-2__modal-videos-0",
+      "device": "web",
+      "pct": 0.006,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--modal-images-21-videos-0",
+      "device": "web",
+      "pct": 0.007,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--modal-images-21-videos-0__modal-images-21-videos-0",
+      "device": "web",
+      "pct": 0.007,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--modal-images-21-videos-0__modal-videos-0",
+      "device": "web",
+      "pct": 0.006,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--modal-listing-details-from-rega-ad-license",
+      "device": "web",
+      "pct": 0.007,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--modal-nafath",
+      "device": "web",
+      "pct": 0.01,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--modal-non-saudi",
+      "device": "web",
+      "pct": 0.008,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--popover-faisal-al-harbi-agency-user",
+      "device": "web",
+      "pct": 0.012,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--popover-notifications-mark-all-as",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--rail-expanded",
+      "device": "web",
+      "pct": 0.151,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--as-individual",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--as-staff",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--drawer-feedback",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--empty",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--error",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--flow-post-listing-09-posted",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--flow-post-listing-10-upgrade",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--inline-basic-listing-get-standard-visibilit",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--inline-insufficient-credits",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--inline-service-options",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--loading",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--menu-post-a-listing",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--message-post-listing",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--message-upgrade-failed",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--modal-download-app",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--modal-help-support-profolio",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--popover-faisal-al-harbi-agency-user",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--popover-notifications-mark-all-as",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--rail-expanded",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "process-payment--flow-buy-package-03-processing",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "process-payment--flow-top-up-03-processing",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--as-individual",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "reports-leads-reports--as-staff",
       "device": "web",
       "pct": 0,
@@ -1443,6 +3015,18 @@
       "name": "reports-leads-reports--dropdown-select-purpose",
       "device": "web",
       "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--empty",
+      "device": "web",
+      "pct": 0.007,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--error",
+      "device": "web",
+      "pct": 0.003,
       "ok": true
     },
     {
@@ -1483,6 +3067,12 @@
     },
     {
       "name": "reports-leads-reports--inline-sms-1",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--loading",
       "device": "web",
       "pct": 0,
       "ok": true
@@ -1548,9 +3138,15 @@
       "ok": true
     },
     {
+      "name": "reports-listing-report--as-individual",
+      "device": "web",
+      "pct": 0.018,
+      "ok": true
+    },
+    {
       "name": "reports-listing-report--as-staff",
       "device": "web",
-      "pct": 0.003,
+      "pct": 0.004,
       "ok": true
     },
     {
@@ -1560,7 +3156,25 @@
       "ok": true
     },
     {
+      "name": "reports-listing-report--empty",
+      "device": "web",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--error",
+      "device": "web",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
       "name": "reports-listing-report--inline-listing-by-date",
+      "device": "web",
+      "pct": 0.019,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--loading",
       "device": "web",
       "pct": 0,
       "ok": true
@@ -1628,25 +3242,25 @@
     {
       "name": "reports-listing-report--popover-54",
       "device": "web",
-      "pct": 0.01,
+      "pct": 0.008,
       "ok": true
     },
     {
       "name": "reports-listing-report--popover-62",
       "device": "web",
-      "pct": 0.001,
+      "pct": 0.013,
       "ok": true
     },
     {
       "name": "reports-listing-report--popover-faisal-al-harbi-agency-user",
       "device": "web",
-      "pct": 0.016,
+      "pct": 0.021,
       "ok": true
     },
     {
       "name": "reports-listing-report--popover-notifications-mark-all-as",
       "device": "web",
-      "pct": 0.03,
+      "pct": 0.001,
       "ok": true
     },
     {
@@ -1656,9 +3270,15 @@
       "ok": true
     },
     {
-      "name": "reports-summary--as-staff",
+      "name": "reports-summary--as-individual",
       "device": "web",
       "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--as-staff",
+      "device": "web",
+      "pct": 0.001,
       "ok": true
     },
     {
@@ -1668,31 +3288,49 @@
       "ok": true
     },
     {
+      "name": "reports-summary--empty",
+      "device": "web",
+      "pct": 0.011,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--error",
+      "device": "web",
+      "pct": 0.031,
+      "ok": true
+    },
+    {
       "name": "reports-summary--inline-clicks-407-3",
-      "device": "web",
-      "pct": 0.02,
-      "ok": true
-    },
-    {
-      "name": "reports-summary--inline-div",
-      "device": "web",
-      "pct": 0.03,
-      "ok": true
-    },
-    {
-      "name": "reports-summary--inline-emails-2",
       "device": "web",
       "pct": 0.003,
       "ok": true
     },
     {
+      "name": "reports-summary--inline-div",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--inline-emails-2",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "reports-summary--inline-leads-13-8",
       "device": "web",
-      "pct": 0.015,
+      "pct": 0,
       "ok": true
     },
     {
       "name": "reports-summary--inline-sms-1",
+      "device": "web",
+      "pct": 0.028,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--loading",
       "device": "web",
       "pct": 0,
       "ok": true
@@ -1700,25 +3338,25 @@
     {
       "name": "reports-summary--menu-post-a-listing",
       "device": "web",
-      "pct": 0.012,
+      "pct": 0,
       "ok": true
     },
     {
       "name": "reports-summary--modal-download-app",
       "device": "web",
-      "pct": 0.013,
+      "pct": 0,
       "ok": true
     },
     {
       "name": "reports-summary--modal-help-support-profolio",
       "device": "web",
-      "pct": 0,
+      "pct": 0.001,
       "ok": true
     },
     {
       "name": "reports-summary--popover-calls-3",
       "device": "web",
-      "pct": 0.034,
+      "pct": 0,
       "ok": true
     },
     {
@@ -1730,31 +3368,37 @@
     {
       "name": "reports-summary--popover-notifications-mark-all-as",
       "device": "web",
-      "pct": 0.027,
+      "pct": 0,
       "ok": true
     },
     {
       "name": "reports-summary--popover-today-yesterday-last-7",
       "device": "web",
-      "pct": 0,
+      "pct": 0.021,
       "ok": true
     },
     {
       "name": "reports-summary--popover-whatsapp-7",
       "device": "web",
-      "pct": 0.012,
+      "pct": 0.004,
       "ok": true
     },
     {
       "name": "reports-summary--rail-expanded",
       "device": "web",
-      "pct": 0.009,
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--as-individual",
+      "device": "web",
+      "pct": 0.001,
       "ok": true
     },
     {
       "name": "user-settings-agency-profile--as-staff",
       "device": "web",
-      "pct": 0.001,
+      "pct": 0.002,
       "ok": true
     },
     {
@@ -1764,19 +3408,61 @@
       "ok": true
     },
     {
-      "name": "user-settings-agency-profile--inline-icon",
+      "name": "user-settings-agency-profile--empty",
+      "device": "web",
+      "pct": 0.055,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--error",
       "device": "web",
       "pct": 0.002,
       "ok": true
     },
     {
+      "name": "user-settings-agency-profile--form-agency-errors",
+      "device": "web",
+      "pct": 0.053,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--form-agency-filled",
+      "device": "web",
+      "pct": 0.055,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--inline-icon",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
       "name": "user-settings-agency-profile--inline-save-changes",
       "device": "web",
-      "pct": 0.027,
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--loading",
+      "device": "web",
+      "pct": 0,
       "ok": true
     },
     {
       "name": "user-settings-agency-profile--menu-post-a-listing",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--message-agency-failed",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--modal-agency-saved",
       "device": "web",
       "pct": 0,
       "ok": true
@@ -1790,7 +3476,7 @@
     {
       "name": "user-settings-agency-profile--modal-help-support-profolio",
       "device": "web",
-      "pct": 0.009,
+      "pct": 0.001,
       "ok": true
     },
     {
@@ -1820,7 +3506,13 @@
     {
       "name": "user-settings-agency-profile--rail-expanded",
       "device": "web",
-      "pct": 0.028,
+      "pct": 0.03,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--as-individual",
+      "device": "web",
+      "pct": 0,
       "ok": true
     },
     {
@@ -1836,6 +3528,42 @@
       "ok": true
     },
     {
+      "name": "user-settings-change-password--empty",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--error",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--form-password-errors",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--form-password-filled",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--form-password-mismatch",
+      "device": "web",
+      "pct": 0.02,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--form-password-weak",
+      "device": "web",
+      "pct": 0.016,
+      "ok": true
+    },
+    {
       "name": "user-settings-change-password--inline-confirm",
       "device": "web",
       "pct": 0,
@@ -1848,7 +3576,25 @@
       "ok": true
     },
     {
+      "name": "user-settings-change-password--loading",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "user-settings-change-password--menu-post-a-listing",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--message-password-failed",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--message-password-saved",
       "device": "web",
       "pct": 0,
       "ok": true
@@ -1890,9 +3636,15 @@
       "ok": true
     },
     {
+      "name": "user-settings-licenses--as-individual",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "user-settings-licenses--as-staff",
       "device": "web",
-      "pct": 0.023,
+      "pct": 0.047,
       "ok": true
     },
     {
@@ -1902,9 +3654,39 @@
       "ok": true
     },
     {
+      "name": "user-settings-licenses--empty",
+      "device": "web",
+      "pct": 0.008,
+      "ok": true
+    },
+    {
+      "name": "user-settings-licenses--error",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-licenses--loading",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "user-settings-licenses--menu-post-a-listing",
       "device": "web",
-      "pct": 0.226,
+      "pct": 0.452,
+      "ok": true
+    },
+    {
+      "name": "user-settings-licenses--message-share-license-failed",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-licenses--message-share-license-saved",
+      "device": "web",
+      "pct": 0,
       "ok": true
     },
     {
@@ -1916,7 +3698,7 @@
     {
       "name": "user-settings-licenses--modal-help-support-profolio",
       "device": "web",
-      "pct": 0.004,
+      "pct": 0.012,
       "ok": true
     },
     {
@@ -1929,6 +3711,12 @@
       "name": "user-settings-licenses--modal-share-license-by-enabling",
       "device": "web",
       "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-licenses--modal-share-license-by-enabling__message-share",
+      "device": "web",
+      "pct": 0.046,
       "ok": true
     },
     {
@@ -1946,7 +3734,133 @@
     {
       "name": "user-settings-licenses--rail-expanded",
       "device": "web",
-      "pct": 0.029,
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--as-individual",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--as-staff",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--drawer-feedback",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--empty",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--error",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--loading",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--menu-post-a-listing",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--message-preference-updated-successfully",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--message-push-notification-failed",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--modal-download-app",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--modal-help-support-profolio",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--modal-smart-credits-utilization-maximize",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--modal-smart-credits",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--popover-faisal-al-harbi-agency-user",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--popover-notifications-mark-all-as",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--rail-expanded",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--saved-image-details",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--saved-push-notification",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--saved-smart-credit",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--switches-flipped",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--as-individual",
+      "device": "web",
+      "pct": 0.002,
       "ok": true
     },
     {
@@ -1974,6 +3888,42 @@
       "ok": true
     },
     {
+      "name": "user-settings-user-profile--empty",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--error",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--form-profile-errors",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--form-profile-filled",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--form-profile-photo-rejected",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--form-profile-photo",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "user-settings-user-profile--inline-close-circle",
       "device": "web",
       "pct": 0.001,
@@ -1982,11 +3932,17 @@
     {
       "name": "user-settings-user-profile--inline-close",
       "device": "web",
-      "pct": 0.001,
+      "pct": 0,
       "ok": true
     },
     {
       "name": "user-settings-user-profile--inline-generate-agent-description-english",
+      "device": "web",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--loading",
       "device": "web",
       "pct": 0.001,
       "ok": true
@@ -1994,13 +3950,31 @@
     {
       "name": "user-settings-user-profile--menu-post-a-listing",
       "device": "web",
-      "pct": 0,
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--message-profile-failed",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--message-profile-saved",
+      "device": "web",
+      "pct": 0.001,
       "ok": true
     },
     {
       "name": "user-settings-user-profile--message-save-changes",
       "device": "web",
-      "pct": 0.001,
+      "pct": 0.037,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--modal-convert-to-agency",
+      "device": "web",
+      "pct": 0.017,
       "ok": true
     },
     {
@@ -2017,6 +3991,12 @@
     },
     {
       "name": "user-settings-user-profile--modal-learn-more",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--modal-profile-photo-crop",
       "device": "web",
       "pct": 0,
       "ok": true
@@ -2042,12 +4022,18 @@
     {
       "name": "user-settings-user-profile--profile-incomplete",
       "device": "web",
-      "pct": 0.002,
+      "pct": 0,
       "ok": true
     },
     {
       "name": "user-settings-user-profile--rail-expanded",
       "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--as-individual--mobile",
+      "device": "mobile",
       "pct": 0,
       "ok": true
     },
@@ -2082,6 +4068,72 @@
       "ok": true
     },
     {
+      "name": "ad-license--empty--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--error--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--flow-ad-license-01-property-information--mobile",
+      "device": "mobile",
+      "pct": 0.014,
+      "ok": true
+    },
+    {
+      "name": "ad-license--flow-ad-license-02-property-location--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--flow-ad-license-03-contact-information--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--form-city-options--mobile",
+      "device": "mobile",
+      "pct": 0.012,
+      "ok": true
+    },
+    {
+      "name": "ad-license--form-deed-number-invalid--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--form-district-options--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--form-errors-on-submit--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--form-property-sub-type-options--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--form-purpose-and-type-selected--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "ad-license--inline-adjust--mobile",
       "device": "mobile",
       "pct": 0,
@@ -2100,7 +4152,25 @@
       "ok": true
     },
     {
+      "name": "ad-license--loading--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--message-submit-failed--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "ad-license--mobile-menu--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--as-individual--mobile",
       "device": "mobile",
       "pct": 0,
       "ok": true
@@ -2112,6 +4182,12 @@
       "ok": true
     },
     {
+      "name": "agency-staff--drawer-delete-user--mobile",
+      "device": "mobile",
+      "pct": 0.06,
+      "ok": true
+    },
+    {
       "name": "agency-staff--drawer-feedback--mobile",
       "device": "mobile",
       "pct": 0,
@@ -2119,6 +4195,12 @@
     },
     {
       "name": "agency-staff--drawer-invite-user--mobile",
+      "device": "mobile",
+      "pct": 0.06,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--drawer-invite-user__inline-confirm--mobile",
       "device": "mobile",
       "pct": 0.06,
       "ok": true
@@ -2142,9 +4224,111 @@
       "ok": true
     },
     {
+      "name": "agency-staff--empty--mobile",
+      "device": "mobile",
+      "pct": 0.089,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--error--mobile",
+      "device": "mobile",
+      "pct": 0.008,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--form-credits-limit-errors--mobile",
+      "device": "mobile",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--form-credits-limit-filled--mobile",
+      "device": "mobile",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--form-edit-user-errors--mobile",
+      "device": "mobile",
+      "pct": 0.011,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--form-edit-user-filled--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--form-invite-user-errors--mobile",
+      "device": "mobile",
+      "pct": 0.06,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--form-invite-user-filled--mobile",
+      "device": "mobile",
+      "pct": 0.06,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--form-invite-user-otp-errors--mobile",
+      "device": "mobile",
+      "pct": 0.06,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--loading--mobile",
+      "device": "mobile",
+      "pct": 0.035,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--message-credits-limit-failed--mobile",
+      "device": "mobile",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--message-delete-user-saved--mobile",
+      "device": "mobile",
+      "pct": 0.331,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--message-edit-user-failed--mobile",
+      "device": "mobile",
+      "pct": 0.009,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--message-invite-user-failed--mobile",
+      "device": "mobile",
+      "pct": 0.067,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--message-invite-user-saved--mobile",
+      "device": "mobile",
+      "pct": 0.239,
+      "ok": true
+    },
+    {
       "name": "agency-staff--mobile-menu--mobile",
       "device": "mobile",
       "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--modal-invite-user-otp--mobile",
+      "device": "mobile",
+      "pct": 0.076,
+      "ok": true
+    },
+    {
+      "name": "agency-staff--modal-invite-user-sent--mobile",
+      "device": "mobile",
+      "pct": 0.04,
       "ok": true
     },
     {
@@ -2154,19 +4338,61 @@
       "ok": true
     },
     {
+      "name": "agency-staff--modal-set-credits-limit__inline-set-max-credits--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--as-individual--mobile",
+      "device": "mobile",
+      "pct": 0.004,
+      "ok": true
+    },
+    {
       "name": "agent-performance--as-staff--mobile",
       "device": "mobile",
-      "pct": 0.002,
+      "pct": 0.006,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--drawer-feedback--mobile",
+      "device": "mobile",
+      "pct": 0,
       "ok": true
     },
     {
       "name": "agent-performance--drawer-learn-more--mobile",
       "device": "mobile",
-      "pct": 0.005,
+      "pct": 0.014,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--drawer-learn-more__drawer-how-to-earn-trupointsTM--mobile",
+      "device": "mobile",
+      "pct": 0.007,
       "ok": true
     },
     {
       "name": "agent-performance--drawer-not-ranked--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--drawer-not-ranked__inline-2--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--drawer-not-ranked__inline-3--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--drawer-not-ranked__inline-4--mobile",
       "device": "mobile",
       "pct": 0,
       "ok": true
@@ -2196,9 +4422,33 @@
       "ok": true
     },
     {
+      "name": "agent-performance--drawer-trupointsTM-46__drawer-how-to-earn-trupointsTM--mobile",
+      "device": "mobile",
+      "pct": 0.007,
+      "ok": true
+    },
+    {
       "name": "agent-performance--dropdown-filter-by-badges--mobile",
       "device": "mobile",
-      "pct": 0.015,
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--empty--mobile",
+      "device": "mobile",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--error--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--loading--mobile",
+      "device": "mobile",
+      "pct": 0,
       "ok": true
     },
     {
@@ -2210,13 +4460,163 @@
     {
       "name": "agent-performance--modal-quality-lister--mobile",
       "device": "mobile",
-      "pct": 0.017,
+      "pct": 0.005,
       "ok": true
     },
     {
       "name": "agent-performance--popover-calls-received-9-calls--mobile",
       "device": "mobile",
-      "pct": 0.013,
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--as-individual--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--as-staff--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--drawer-feedback--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--drawer-notifications-mark-all-as--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--drawer-profile-information-faisal-al-harbi--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--empty--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--error--mobile",
+      "device": "mobile",
+      "pct": 0.007,
+      "ok": true
+    },
+    {
+      "name": "checkout--flow-ad-license-04-review-and-pay--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--flow-ad-license-05-success--mobile",
+      "device": "mobile",
+      "pct": 0.098,
+      "ok": true
+    },
+    {
+      "name": "checkout--flow-buy-package-02-checkout--mobile",
+      "device": "mobile",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "checkout--flow-buy-package-04-success--mobile",
+      "device": "mobile",
+      "pct": 0.038,
+      "ok": true
+    },
+    {
+      "name": "checkout--flow-top-up-02-checkout--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--flow-top-up-04-success--mobile",
+      "device": "mobile",
+      "pct": 0.038,
+      "ok": true
+    },
+    {
+      "name": "checkout--form-method-tabby--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--form-tabby-date-of-birth-filled--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--form-tabby-date-of-birth-open--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--form-tabby-date-of-birth-required--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--inline-tabby--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--loading--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--message-payment-could-not-process--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--message-tabby-unable-to-approve--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--mobile-menu--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "checkout--modal-nafath-verification--mobile",
+      "device": "mobile",
+      "pct": 0.088,
+      "ok": true
+    },
+    {
+      "name": "checkout--modal-purchase-not-permitted--mobile",
+      "device": "mobile",
+      "pct": 0.062,
+      "ok": true
+    },
+    {
+      "name": "credits-usage--as-individual--mobile",
+      "device": "mobile",
+      "pct": 0,
       "ok": true
     },
     {
@@ -2250,7 +4650,43 @@
       "ok": true
     },
     {
+      "name": "credits-usage--empty--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "credits-usage--error--mobile",
+      "device": "mobile",
+      "pct": 0.225,
+      "ok": true
+    },
+    {
+      "name": "credits-usage--flow-top-up-01-choose-amount--mobile",
+      "device": "mobile",
+      "pct": 0.047,
+      "ok": true
+    },
+    {
+      "name": "credits-usage--loading--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "credits-usage--mobile-menu--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--app-banner-closed--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--as-individual--mobile",
       "device": "mobile",
       "pct": 0,
       "ok": true
@@ -2268,7 +4704,19 @@
       "ok": false
     },
     {
+      "name": "dashboard--drawer-31__drawer-refresh--mobile",
+      "device": "mobile",
+      "pct": 0.056,
+      "ok": true
+    },
+    {
       "name": "dashboard--drawer-33--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--drawer-33__drawer-refresh--mobile",
       "device": "mobile",
       "pct": 0,
       "ok": true
@@ -2278,6 +4726,12 @@
       "device": "mobile",
       "pct": 0.731,
       "ok": false
+    },
+    {
+      "name": "dashboard--drawer-34__drawer-refresh--mobile",
+      "device": "mobile",
+      "pct": 0.045,
+      "ok": true
     },
     {
       "name": "dashboard--drawer-39--mobile",
@@ -2292,10 +4746,22 @@
       "ok": false
     },
     {
+      "name": "dashboard--drawer-43__drawer-refresh--mobile",
+      "device": "mobile",
+      "pct": 0.045,
+      "ok": true
+    },
+    {
       "name": "dashboard--drawer-46--mobile",
       "device": "mobile",
       "pct": 0.99,
       "ok": false
+    },
+    {
+      "name": "dashboard--drawer-46__drawer-refresh--mobile",
+      "device": "mobile",
+      "pct": 0.045,
+      "ok": true
     },
     {
       "name": "dashboard--drawer-50--mobile",
@@ -2304,10 +4770,22 @@
       "ok": false
     },
     {
+      "name": "dashboard--drawer-50__drawer-refresh--mobile",
+      "device": "mobile",
+      "pct": 0.045,
+      "ok": true
+    },
+    {
       "name": "dashboard--drawer-54--mobile",
       "device": "mobile",
       "pct": 0.666,
       "ok": false
+    },
+    {
+      "name": "dashboard--drawer-54__drawer-refresh--mobile",
+      "device": "mobile",
+      "pct": 0.03,
+      "ok": true
     },
     {
       "name": "dashboard--drawer-62--mobile",
@@ -2318,7 +4796,7 @@
     {
       "name": "dashboard--drawer-booked--mobile",
       "device": "mobile",
-      "pct": 4.348,
+      "pct": 4.35,
       "ok": false
     },
     {
@@ -2348,17 +4826,47 @@
     {
       "name": "dashboard--drawer-publish-now--mobile",
       "device": "mobile",
-      "pct": 2.233,
+      "pct": 2.232,
+      "ok": false
+    },
+    {
+      "name": "dashboard--drawer-publish-now__message-verify--mobile",
+      "device": "mobile",
+      "pct": 2.22,
       "ok": false
     },
     {
       "name": "dashboard--drawer-request-signature-upgrade-the--mobile",
       "device": "mobile",
-      "pct": 1.76,
+      "pct": 1.764,
       "ok": false
     },
     {
       "name": "dashboard--drawer-search-by-calendar-today--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--drawer-search-by-calendar-today__drawer-last-3-months--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--drawer-search-by-calendar-today__drawer-last-6-months--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--drawer-search-by-calendar-today__drawer-today--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--drawer-search-by-calendar-today__inline-last-30-days--mobile",
       "device": "mobile",
       "pct": 0,
       "ok": true
@@ -2382,22 +4890,58 @@
       "ok": true
     },
     {
+      "name": "dashboard--dropdown-trucheck-eligible-view-on--mobile",
+      "device": "mobile",
+      "pct": 7.172,
+      "ok": false
+    },
+    {
+      "name": "dashboard--empty--mobile",
+      "device": "mobile",
+      "pct": 0.014,
+      "ok": true
+    },
+    {
+      "name": "dashboard--error--mobile",
+      "device": "mobile",
+      "pct": 0.025,
+      "ok": true
+    },
+    {
       "name": "dashboard--inline-canvas--mobile",
       "device": "mobile",
-      "pct": 6.47,
+      "pct": 6.501,
       "ok": false
     },
     {
       "name": "dashboard--inline-clicks-407-3--mobile",
       "device": "mobile",
-      "pct": 6.13,
+      "pct": 6.158,
+      "ok": false
+    },
+    {
+      "name": "dashboard--inline-emails-2--mobile",
+      "device": "mobile",
+      "pct": 4.779,
       "ok": false
     },
     {
       "name": "dashboard--inline-leads-13-8--mobile",
       "device": "mobile",
-      "pct": 6.412,
+      "pct": 6.455,
       "ok": false
+    },
+    {
+      "name": "dashboard--inline-sms-1--mobile",
+      "device": "mobile",
+      "pct": 4.585,
+      "ok": false
+    },
+    {
+      "name": "dashboard--loading--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
     },
     {
       "name": "dashboard--mobile-menu--mobile",
@@ -2408,19 +4952,85 @@
     {
       "name": "dashboard--modal-profile-completed--mobile",
       "device": "mobile",
-      "pct": 0,
+      "pct": 0.218,
       "ok": true
+    },
+    {
+      "name": "dashboard--modal-trucheck-eligible-trucheck-is--mobile",
+      "device": "mobile",
+      "pct": 0.963,
+      "ok": false
+    },
+    {
+      "name": "dashboard--popover-calls-3--mobile",
+      "device": "mobile",
+      "pct": 4.864,
+      "ok": false
+    },
+    {
+      "name": "dashboard--popover-today-yesterday-last-7--mobile",
+      "device": "mobile",
+      "pct": 2.501,
+      "ok": false
+    },
+    {
+      "name": "dashboard--popover-whatsapp-7--mobile",
+      "device": "mobile",
+      "pct": 5.044,
+      "ok": false
     },
     {
       "name": "dashboard--tooltip-50-off--mobile",
       "device": "mobile",
-      "pct": 0.007,
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "invite--message-accept-failed--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "invite--message-accept--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "invite--message-invite-expired--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "invite--message-reject--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "listings--action-detail-drawer--mobile",
+      "device": "mobile",
+      "pct": 0.008,
+      "ok": true
+    },
+    {
+      "name": "listings--action-discount--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "listings--as-individual--mobile",
+      "device": "mobile",
+      "pct": 0.006,
       "ok": true
     },
     {
       "name": "listings--as-staff--mobile",
       "device": "mobile",
-      "pct": 0.033,
+      "pct": 0.006,
       "ok": true
     },
     {
@@ -2430,15 +5040,33 @@
       "ok": true
     },
     {
+      "name": "listings--drawer-31__drawer-refresh--mobile",
+      "device": "mobile",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
       "name": "listings--drawer-33--mobile",
       "device": "mobile",
       "pct": 0.003,
       "ok": true
     },
     {
+      "name": "listings--drawer-33__drawer-refresh--mobile",
+      "device": "mobile",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
       "name": "listings--drawer-34--mobile",
       "device": "mobile",
       "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "listings--drawer-34__drawer-refresh--mobile",
+      "device": "mobile",
+      "pct": 0.001,
       "ok": true
     },
     {
@@ -2454,9 +5082,21 @@
       "ok": true
     },
     {
+      "name": "listings--drawer-43__drawer-refresh--mobile",
+      "device": "mobile",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
       "name": "listings--drawer-46--mobile",
       "device": "mobile",
       "pct": 0.004,
+      "ok": true
+    },
+    {
+      "name": "listings--drawer-46__drawer-refresh--mobile",
+      "device": "mobile",
+      "pct": 0.001,
       "ok": true
     },
     {
@@ -2466,9 +5106,21 @@
       "ok": true
     },
     {
+      "name": "listings--drawer-50__drawer-refresh--mobile",
+      "device": "mobile",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
       "name": "listings--drawer-54--mobile",
       "device": "mobile",
       "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "listings--drawer-54__drawer-refresh--mobile",
+      "device": "mobile",
+      "pct": 0.001,
       "ok": true
     },
     {
@@ -2496,6 +5148,24 @@
       "ok": true
     },
     {
+      "name": "listings--drawer-filters-apply-filters-to__dropdown-select-purpose--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "listings--drawer-filters-apply-filters-to__inline-button--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "listings--drawer-filters--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "listings--drawer-notifications-mark-all-as--mobile",
       "device": "mobile",
       "pct": 0.009,
@@ -2510,7 +5180,13 @@
     {
       "name": "listings--drawer-publish-now--mobile",
       "device": "mobile",
-      "pct": 0.02,
+      "pct": 0.018,
+      "ok": true
+    },
+    {
+      "name": "listings--drawer-publish-now__message-verify--mobile",
+      "device": "mobile",
+      "pct": 0.009,
       "ok": true
     },
     {
@@ -2520,9 +5196,33 @@
       "ok": true
     },
     {
+      "name": "listings--drawer-show-more--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "listings--dropdown-select-property-types--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "listings--dropdown-select-purpose--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "listings--dropdown-trucheck-eligible-view-on--mobile",
       "device": "mobile",
-      "pct": 0.017,
+      "pct": 0.018,
+      "ok": true
+    },
+    {
+      "name": "listings--empty--mobile",
+      "device": "mobile",
+      "pct": 0.041,
       "ok": true
     },
     {
@@ -2532,9 +5232,21 @@
       "ok": true
     },
     {
+      "name": "listings--inline-search--mobile",
+      "device": "mobile",
+      "pct": 0.059,
+      "ok": true
+    },
+    {
       "name": "listings--loading--mobile",
       "device": "mobile",
       "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "listings--member-area--mobile",
+      "device": "mobile",
+      "pct": 0.093,
       "ok": true
     },
     {
@@ -2544,15 +5256,147 @@
       "ok": true
     },
     {
-      "name": "listings--project-units--mobile",
+      "name": "listings--modal-booking--mobile",
+      "device": "mobile",
+      "pct": 0.009,
+      "ok": true
+    },
+    {
+      "name": "listings--modal-delete--mobile",
+      "device": "mobile",
+      "pct": 0.009,
+      "ok": true
+    },
+    {
+      "name": "listings--modal-otp--mobile",
+      "device": "mobile",
+      "pct": 0.02,
+      "ok": true
+    },
+    {
+      "name": "listings--modal-trucheck-eligible-trucheck-is--mobile",
       "device": "mobile",
       "pct": 0.036,
       "ok": true
     },
     {
+      "name": "listings--modal-trucheck--mobile",
+      "device": "mobile",
+      "pct": 0.036,
+      "ok": true
+    },
+    {
+      "name": "listings--popover-account--mobile",
+      "device": "mobile",
+      "pct": 0.009,
+      "ok": true
+    },
+    {
+      "name": "listings--popover-health--mobile",
+      "device": "mobile",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "listings--popover-notifications--mobile",
+      "device": "mobile",
+      "pct": 0.009,
+      "ok": true
+    },
+    {
+      "name": "listings--project-units--mobile",
+      "device": "mobile",
+      "pct": 0.065,
+      "ok": true
+    },
+    {
+      "name": "listings--select-property-type--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "listings--select-purpose--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "listings--sticky-filters--mobile",
+      "device": "mobile",
+      "pct": 0.017,
+      "ok": true
+    },
+    {
+      "name": "listings--tab-ad-license-requests--mobile",
+      "device": "mobile",
+      "pct": 0.423,
+      "ok": true
+    },
+    {
+      "name": "listings--tab-draft--mobile",
+      "device": "mobile",
+      "pct": 0.307,
+      "ok": true
+    },
+    {
+      "name": "listings--tab-pending--mobile",
+      "device": "mobile",
+      "pct": 0.162,
+      "ok": true
+    },
+    {
+      "name": "listings--tab-removed--mobile",
+      "device": "mobile",
+      "pct": 0.041,
+      "ok": true
+    },
+    {
       "name": "listings--tooltip-50-off--mobile",
       "device": "mobile",
+      "pct": 0.019,
+      "ok": true
+    },
+    {
+      "name": "listings--tooltip-upgrade-none--mobile",
+      "device": "mobile",
+      "pct": 0.021,
+      "ok": true
+    },
+    {
+      "name": "listings--tooltip-upgrade-unavailable--mobile",
+      "device": "mobile",
       "pct": 0.022,
+      "ok": true
+    },
+    {
+      "name": "listings--upgrade-hot--mobile",
+      "device": "mobile",
+      "pct": 0.009,
+      "ok": true
+    },
+    {
+      "name": "listings--upgrade-photography--mobile",
+      "device": "mobile",
+      "pct": 0.009,
+      "ok": true
+    },
+    {
+      "name": "listings--upgrade-refresh--mobile",
+      "device": "mobile",
+      "pct": 0.009,
+      "ok": true
+    },
+    {
+      "name": "listings--upgrade-signature--mobile",
+      "device": "mobile",
+      "pct": 0.009,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--as-individual--mobile",
+      "device": "mobile",
+      "pct": 0.004,
       "ok": true
     },
     {
@@ -2580,13 +5424,49 @@
       "ok": true
     },
     {
+      "name": "lms-leads--drawer-add-interest--mobile",
+      "device": "mobile",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
       "name": "lms-leads--drawer-add-name--mobile",
       "device": "mobile",
       "pct": 0,
       "ok": true
     },
     {
+      "name": "lms-leads--drawer-add-name__drawer-add-interest-manually--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-add-name__inline-all-tasks--mobile",
+      "device": "mobile",
+      "pct": 0.025,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-add-name__inline-email--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "lms-leads--drawer-add-new-lead--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-add-new-lead__drawer-add-interest-manually--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-add-new-lead__drawer-add-lead--mobile",
       "device": "mobile",
       "pct": 0,
       "ok": true
@@ -2646,9 +5526,39 @@
       "ok": true
     },
     {
+      "name": "lms-leads--drawer-view-detail__drawer-add-interest-manually--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-view-detail__inline-all-tasks--mobile",
+      "device": "mobile",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-view-detail__inline-email--mobile",
+      "device": "mobile",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-view-detail__popover-apartment-for-sale--mobile",
+      "device": "mobile",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
       "name": "lms-leads--drawer-view-trend--mobile",
       "device": "mobile",
       "pct": 0.011,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--drawer-view-trend__drawer-search-by-calendar-today--mobile",
+      "device": "mobile",
+      "pct": 0,
       "ok": true
     },
     {
@@ -2670,9 +5580,111 @@
       "ok": true
     },
     {
+      "name": "lms-leads--empty--mobile",
+      "device": "mobile",
+      "pct": 0.033,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--error--mobile",
+      "device": "mobile",
+      "pct": 0.316,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--form-add-lead-duplicate--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--form-add-lead-errors--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--form-add-lead-filled--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--form-add-task-errors--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--form-add-task-filled--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--form-lead-name-filled--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "lms-leads--inline-email--mobile",
       "device": "mobile",
       "pct": 0.004,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--loading--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--message-add-interest-failed--mobile",
+      "device": "mobile",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--message-add-interest-saved--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--message-add-lead-failed--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--message-add-lead-saved--mobile",
+      "device": "mobile",
+      "pct": 0.004,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--message-add-task-failed--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--message-add-task-saved--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--message-lead-name-failed--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "lms-leads--message-lead-name-saved--mobile",
+      "device": "mobile",
+      "pct": 0.351,
       "ok": true
     },
     {
@@ -2696,7 +5708,7 @@
     {
       "name": "lms-leads--popover-clicked-total-number-of--mobile",
       "device": "mobile",
-      "pct": 0.323,
+      "pct": 0,
       "ok": true
     },
     {
@@ -2713,6 +5725,12 @@
     },
     {
       "name": "lms-leads--tour--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "packages--as-individual--mobile",
       "device": "mobile",
       "pct": 0,
       "ok": true
@@ -2754,13 +5772,109 @@
       "ok": true
     },
     {
+      "name": "packages--empty--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "packages--error--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "packages--flow-ad-license-06-failure--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "packages--flow-buy-package-01-choose-package--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "packages--flow-buy-package-05-failure--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "packages--flow-top-up-05-failure--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "packages--form-credit-top-up-priced--mobile",
+      "device": "mobile",
+      "pct": 0.047,
+      "ok": true
+    },
+    {
       "name": "packages--inline-icon--mobile",
       "device": "mobile",
       "pct": 0,
       "ok": true
     },
     {
+      "name": "packages--loading--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "packages--message-payment-cancelled--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "packages--mobile-menu--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-ad--drawer-listing-details-from-rega-ad-license--mobile",
+      "device": "mobile",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "post-ad--error--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-ad--form-errors-empty--mobile",
+      "device": "mobile",
+      "pct": 5.204,
+      "ok": false
+    },
+    {
+      "name": "post-ad--loading--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-ad--message-post-failed--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-ad--modal-post-listing--mobile",
+      "device": "mobile",
+      "pct": 0.08,
+      "ok": true
+    },
+    {
+      "name": "post-listing--as-individual--mobile",
       "device": "mobile",
       "pct": 0,
       "ok": true
@@ -2790,6 +5904,78 @@
       "ok": true
     },
     {
+      "name": "post-listing--empty--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--error--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--flow-post-listing-01-license-number--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--flow-post-listing-02-otp--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--form-cr-number--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--form-license-invalid--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--form-national-id-invalid--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--form-national-id--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--inline-continue--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--loading--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--message-license-not-found--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--message-otp-incorrect--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "post-listing--mobile-menu--mobile",
       "device": "mobile",
       "pct": 0,
@@ -2799,6 +5985,342 @@
       "name": "post-listing--modal-non-saudi--mobile",
       "device": "mobile",
       "pct": 0.033,
+      "ok": true
+    },
+    {
+      "name": "post-listing--page-license-number--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--as-individual--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--as-staff--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--drawer-add-amenities--mobile",
+      "device": "mobile",
+      "pct": 0.011,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--drawer-add-amenities__drawer-building-and-services--mobile",
+      "device": "mobile",
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--drawer-add-amenities__drawer-rooms--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--drawer-feedback--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--drawer-listing-details-from-rega-ad-license--mobile",
+      "device": "mobile",
+      "pct": 0.008,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--drawer-notifications-mark-all-as--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--drawer-profile-information-faisal-al-harbi--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--empty--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--error--mobile",
+      "device": "mobile",
+      "pct": 0.007,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--flow-post-listing-03-details--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--flow-post-listing-04-images--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--flow-post-listing-05-specs--mobile",
+      "device": "mobile",
+      "pct": 4.417,
+      "ok": false
+    },
+    {
+      "name": "post-listing-edit--flow-post-listing-06-amenities--mobile",
+      "device": "mobile",
+      "pct": 0.008,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--flow-post-listing-07-description--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--flow-post-listing-08-review--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--form-errors-empty--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--form-errors-invalid--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--inline-button--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--inline-cover--mobile",
+      "device": "mobile",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--inline-generate-title--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--inline-icon--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--inline-images-failed--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--inline-images-uploading--mobile",
+      "device": "mobile",
+      "pct": 0.083,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--inline-img--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--inline-see-preview--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--inline-svg--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--loading--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--message-image-too-small--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--message-save-failed--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--message-saved--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--message-update-failed--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--mobile-menu--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--modal-nafath--mobile",
+      "device": "mobile",
+      "pct": 0.069,
+      "ok": true
+    },
+    {
+      "name": "post-listing-edit--modal-non-saudi--mobile",
+      "device": "mobile",
+      "pct": 0.033,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--as-individual--mobile",
+      "device": "mobile",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--as-staff--mobile",
+      "device": "mobile",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--drawer-feedback--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--drawer-notifications-mark-all-as--mobile",
+      "device": "mobile",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--drawer-profile-information-faisal-al-harbi--mobile",
+      "device": "mobile",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--empty--mobile",
+      "device": "mobile",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--error--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--flow-post-listing-09-posted--mobile",
+      "device": "mobile",
+      "pct": 0.009,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--flow-post-listing-10-upgrade--mobile",
+      "device": "mobile",
+      "pct": 0.009,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--inline-basic-listing-get-standard-visibilit--mobile",
+      "device": "mobile",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--inline-insufficient-credits--mobile",
+      "device": "mobile",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--inline-service-options--mobile",
+      "device": "mobile",
+      "pct": 0.004,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--loading--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--message-post-listing--mobile",
+      "device": "mobile",
+      "pct": 0.024,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--message-upgrade-failed--mobile",
+      "device": "mobile",
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--mobile-menu--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "process-payment--flow-buy-package-03-processing--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "process-payment--flow-top-up-03-processing--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--as-individual--mobile",
+      "device": "mobile",
+      "pct": 0,
       "ok": true
     },
     {
@@ -2832,21 +6354,57 @@
       "ok": true
     },
     {
+      "name": "reports-leads-reports--drawer-search-by-calendar-today__drawer-last-3-months--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--drawer-search-by-calendar-today__drawer-last-6-months--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--drawer-search-by-calendar-today__drawer-today--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--drawer-search-by-calendar-today__inline-last-30-days--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "reports-leads-reports--dropdown-all--mobile",
       "device": "mobile",
       "pct": 0,
       "ok": true
     },
     {
+      "name": "reports-leads-reports--empty--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--error--mobile",
+      "device": "mobile",
+      "pct": 0.008,
+      "ok": true
+    },
+    {
       "name": "reports-leads-reports--inline-2--mobile",
       "device": "mobile",
-      "pct": 1.962,
+      "pct": 1.951,
       "ok": false
     },
     {
       "name": "reports-leads-reports--inline-3--mobile",
       "device": "mobile",
-      "pct": 1.842,
+      "pct": 1.849,
       "ok": false
     },
     {
@@ -2868,7 +6426,25 @@
       "ok": true
     },
     {
+      "name": "reports-leads-reports--inline-emails-2--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "reports-leads-reports--inline-leads-13-8--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--inline-sms-1--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--loading--mobile",
       "device": "mobile",
       "pct": 0,
       "ok": true
@@ -2880,9 +6456,33 @@
       "ok": true
     },
     {
+      "name": "reports-leads-reports--popover-calls-3--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--popover-today-yesterday-last-7--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-leads-reports--popover-whatsapp-7--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--as-individual--mobile",
+      "device": "mobile",
+      "pct": 0.06,
+      "ok": true
+    },
+    {
       "name": "reports-listing-report--as-staff--mobile",
       "device": "mobile",
-      "pct": 0.033,
+      "pct": 0.037,
       "ok": true
     },
     {
@@ -2900,17 +6500,41 @@
     {
       "name": "reports-listing-report--drawer-profile-information-faisal-al-harbi--mobile",
       "device": "mobile",
-      "pct": 0.004,
+      "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--empty--mobile",
+      "device": "mobile",
+      "pct": 0.01,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--error--mobile",
+      "device": "mobile",
+      "pct": 0.009,
       "ok": true
     },
     {
       "name": "reports-listing-report--inline-listing-by-date--mobile",
       "device": "mobile",
-      "pct": 0.029,
+      "pct": 0.137,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--loading--mobile",
+      "device": "mobile",
+      "pct": 0,
       "ok": true
     },
     {
       "name": "reports-listing-report--mobile-menu--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--as-individual--mobile",
       "device": "mobile",
       "pct": 0,
       "ok": true
@@ -2930,13 +6554,13 @@
     {
       "name": "reports-summary--drawer-notifications-mark-all-as--mobile",
       "device": "mobile",
-      "pct": 0.052,
+      "pct": 0,
       "ok": true
     },
     {
       "name": "reports-summary--drawer-profile-information-faisal-al-harbi--mobile",
       "device": "mobile",
-      "pct": 0.02,
+      "pct": 0,
       "ok": true
     },
     {
@@ -2946,13 +6570,61 @@
       "ok": true
     },
     {
-      "name": "reports-summary--dropdown-all--mobile",
+      "name": "reports-summary--drawer-search-by-calendar-today__drawer-last-3-months--mobile",
+      "device": "mobile",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--drawer-search-by-calendar-today__drawer-last-6-months--mobile",
       "device": "mobile",
       "pct": 0,
       "ok": true
     },
     {
+      "name": "reports-summary--drawer-search-by-calendar-today__drawer-today--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--drawer-search-by-calendar-today__inline-last-30-days--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--dropdown-all--mobile",
+      "device": "mobile",
+      "pct": 0.075,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--empty--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--error--mobile",
+      "device": "mobile",
+      "pct": 0.01,
+      "ok": true
+    },
+    {
       "name": "reports-summary--inline-clicks-407-3--mobile",
+      "device": "mobile",
+      "pct": 0.045,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--inline-div--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--inline-emails-2--mobile",
       "device": "mobile",
       "pct": 0,
       "ok": true
@@ -2960,7 +6632,19 @@
     {
       "name": "reports-summary--inline-leads-13-8--mobile",
       "device": "mobile",
-      "pct": 0.021,
+      "pct": 0.005,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--inline-sms-1--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--loading--mobile",
+      "device": "mobile",
+      "pct": 0,
       "ok": true
     },
     {
@@ -2970,9 +6654,33 @@
       "ok": true
     },
     {
+      "name": "reports-summary--popover-calls-3--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--popover-today-yesterday-last-7--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "reports-summary--popover-whatsapp-7--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--as-individual--mobile",
+      "device": "mobile",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
       "name": "user-settings-agency-profile--as-staff--mobile",
       "device": "mobile",
-      "pct": 0.004,
+      "pct": 0.003,
       "ok": true
     },
     {
@@ -3000,13 +6708,49 @@
       "ok": true
     },
     {
-      "name": "user-settings-agency-profile--inline-icon--mobile",
+      "name": "user-settings-agency-profile--empty--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--error--mobile",
       "device": "mobile",
       "pct": 0.004,
       "ok": true
     },
     {
+      "name": "user-settings-agency-profile--form-agency-errors--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--form-agency-filled--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--inline-icon--mobile",
+      "device": "mobile",
+      "pct": 0.009,
+      "ok": true
+    },
+    {
       "name": "user-settings-agency-profile--inline-save-changes--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--loading--mobile",
+      "device": "mobile",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--message-agency-failed--mobile",
       "device": "mobile",
       "pct": 0,
       "ok": true
@@ -3018,7 +6762,19 @@
       "ok": true
     },
     {
+      "name": "user-settings-agency-profile--modal-agency-saved--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "user-settings-agency-profile--profile-incomplete--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--as-individual--mobile",
       "device": "mobile",
       "pct": 0,
       "ok": true
@@ -3048,6 +6804,42 @@
       "ok": true
     },
     {
+      "name": "user-settings-change-password--empty--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--error--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--form-password-errors--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--form-password-filled--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--form-password-mismatch--mobile",
+      "device": "mobile",
+      "pct": 0.085,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--form-password-weak--mobile",
+      "device": "mobile",
+      "pct": 0.068,
+      "ok": true
+    },
+    {
       "name": "user-settings-change-password--inline-confirm--mobile",
       "device": "mobile",
       "pct": 0,
@@ -3055,6 +6847,24 @@
     },
     {
       "name": "user-settings-change-password--inline-eye-invisible--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--loading--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--message-password-failed--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-change-password--message-password-saved--mobile",
       "device": "mobile",
       "pct": 0,
       "ok": true
@@ -3072,9 +6882,15 @@
       "ok": true
     },
     {
+      "name": "user-settings-licenses--as-individual--mobile",
+      "device": "mobile",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
       "name": "user-settings-licenses--as-staff--mobile",
       "device": "mobile",
-      "pct": 0.084,
+      "pct": 0.192,
       "ok": true
     },
     {
@@ -3108,15 +6924,159 @@
       "ok": true
     },
     {
+      "name": "user-settings-licenses--drawer-share-license-by-enabling__message-share--mobile",
+      "device": "mobile",
+      "pct": 0.21,
+      "ok": true
+    },
+    {
+      "name": "user-settings-licenses--empty--mobile",
+      "device": "mobile",
+      "pct": 0.035,
+      "ok": true
+    },
+    {
+      "name": "user-settings-licenses--error--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-licenses--loading--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-licenses--message-share-license-failed--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-licenses--message-share-license-saved--mobile",
+      "device": "mobile",
+      "pct": 0.015,
+      "ok": true
+    },
+    {
       "name": "user-settings-licenses--mobile-menu--mobile",
       "device": "mobile",
       "pct": 0,
       "ok": true
     },
     {
+      "name": "user-settings-preferences--as-individual--mobile",
+      "device": "mobile",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--as-staff--mobile",
+      "device": "mobile",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--drawer-feedback--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--drawer-notifications-mark-all-as--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--drawer-profile-information-faisal-al-harbi--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--drawer-smart-credits-utilization-maximize--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--empty--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--error--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--loading--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--message-preference-updated-successfully--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--message-push-notification-failed--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--mobile-menu--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--modal-smart-credits--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--saved-image-details--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--saved-push-notification--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--saved-smart-credit--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--switches-flipped--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--as-individual--mobile",
+      "device": "mobile",
+      "pct": 0.004,
+      "ok": true
+    },
+    {
       "name": "user-settings-user-profile--as-staff--mobile",
       "device": "mobile",
-      "pct": 0.002,
+      "pct": 0.004,
       "ok": true
     },
     {
@@ -3146,7 +7106,7 @@
     {
       "name": "user-settings-user-profile--dropdown-1-2-riyadh-diriyah--mobile",
       "device": "mobile",
-      "pct": 0,
+      "pct": 0.181,
       "ok": true
     },
     {
@@ -3162,27 +7122,81 @@
       "ok": true
     },
     {
-      "name": "user-settings-user-profile--inline-close-circle--mobile",
+      "name": "user-settings-user-profile--empty--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--error--mobile",
+      "device": "mobile",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--form-profile-errors--mobile",
       "device": "mobile",
       "pct": 0.001,
       "ok": true
     },
     {
+      "name": "user-settings-user-profile--form-profile-filled--mobile",
+      "device": "mobile",
+      "pct": 0.004,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--form-profile-photo-rejected--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--form-profile-photo--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--inline-close-circle--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "user-settings-user-profile--inline-close--mobile",
       "device": "mobile",
-      "pct": 0.005,
+      "pct": 0,
       "ok": true
     },
     {
       "name": "user-settings-user-profile--inline-generate-agent-description-english--mobile",
       "device": "mobile",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--loading--mobile",
+      "device": "mobile",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--message-profile-failed--mobile",
+      "device": "mobile",
       "pct": 0.002,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--message-profile-saved--mobile",
+      "device": "mobile",
+      "pct": 0.001,
       "ok": true
     },
     {
       "name": "user-settings-user-profile--message-save-changes--mobile",
       "device": "mobile",
-      "pct": 0.002,
+      "pct": 0.006,
       "ok": true
     },
     {
@@ -3192,9 +7206,21 @@
       "ok": true
     },
     {
+      "name": "user-settings-user-profile--modal-convert-to-agency--mobile",
+      "device": "mobile",
+      "pct": 0.266,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--modal-profile-photo-crop--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "user-settings-user-profile--profile-incomplete--mobile",
       "device": "mobile",
-      "pct": 0.001,
+      "pct": 0.003,
       "ok": true
     }
   ]

@@ -34,7 +34,7 @@ const list = (dir, rel = '') => (existsSync(join(D, dir)) ? readdirSync(join(D, 
 
 /* the documents: the index, every compiled page, every state, every component */
 const isCompiled = (rel) => /<meta name="pf-compiled"/.test(readFileSync(join(D, rel), 'utf8').slice(0, 8000));
-const HOME = ['design-system.html'];
+const HOME = ['design-system.html', ...(existsSync(join(D, 'responsive.html')) ? ['responsive.html'] : [])];
 /* Three files, not one: packed together the site is ~87 MB — over what
    GitHub will take without complaint (50 MB) and heading for its hard limit
    (100 MB). Each file is whole on its own (the index opens in every one of
@@ -58,7 +58,7 @@ const viaViewer = (js) => js.replace(/location\.href\s*=\s*([^;}\n]+)/g, 'window
    fraction of the size. The compiled pages keep it. */
 const pack = (rel, html) => html
   .replace(/ data-pf-(src|c|i)="[^"]*"/g, '')
-  .replace(/<script src="(\.\.\/)*prototype\.js"><\/script>/, () => `<script>${viaViewer(PROTO.replace(/var root = [^;]+;/, `var root = '${/(^|\/)states\//.test(rel) ? '../' : ''}';`))}</script>`)
+  .replace(/<script src="(\.\.\/)*prototype\.js"><\/script>/, () => `<script>window.PF_SELF=${JSON.stringify(rel)};${viaViewer(PROTO)}</script>`)
   .replace(/<script>([\s\S]*?)<\/script>/g, (m, js) => `<script>${viaViewer(js)}</script>`);
 
 /* the stylesheets — ds.css imports fonts.css, which a blob URL cannot resolve, so inline it */

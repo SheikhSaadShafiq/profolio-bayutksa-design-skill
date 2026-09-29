@@ -1,5 +1,5 @@
 {
-  "at": "2026-09-28T19:36:50.596Z",
+  "at": "2026-09-29T07:40:54.718Z",
   "against": "harness",
   "tolerancePx": 1,
   "coverage": 100,
@@ -73,6 +73,53 @@
       "worklist": []
     },
     {
+      "page": "checkout",
+      "live": 51,
+      "ours": 51,
+      "matched": 51,
+      "clean": 47,
+      "missing": 0,
+      "moved": 0,
+      "painted": 4,
+      "inherited": 0,
+      "exact": 47,
+      "extra": 0,
+      "pageHeight": [
+        800,
+        800
+      ],
+      "coverage": 100,
+      "fidelity": 92.2,
+      "exactPct": 92.2,
+      "score": 92.2,
+      "worklist": [
+        {
+          "kind": "painted",
+          "at": "span.ant-skeleton-button",
+          "box": "803×44 @61,378",
+          "detail": "backgroundColor undefined → rgb(241, 242, 246)"
+        },
+        {
+          "kind": "painted",
+          "at": "span.ant-skeleton-input",
+          "box": "803×32 @61,234",
+          "detail": "backgroundColor undefined → rgb(241, 242, 246)"
+        },
+        {
+          "kind": "painted",
+          "at": "span.ant-skeleton-input",
+          "box": "803×32 @61,282",
+          "detail": "backgroundColor undefined → rgb(241, 242, 246)"
+        },
+        {
+          "kind": "painted",
+          "at": "span.ant-skeleton-input",
+          "box": "803×32 @61,330",
+          "detail": "backgroundColor undefined → rgb(241, 242, 246)"
+        }
+      ]
+    },
+    {
       "page": "credits-usage",
       "live": 227,
       "ours": 227,
@@ -124,6 +171,28 @@
       ]
     },
     {
+      "page": "invite",
+      "live": 0,
+      "ours": 0,
+      "matched": 0,
+      "clean": 0,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 0,
+      "extra": 0,
+      "pageHeight": [
+        800,
+        800
+      ],
+      "coverage": 0,
+      "fidelity": 0,
+      "exactPct": 0,
+      "score": 0,
+      "worklist": []
+    },
+    {
       "page": "listings",
       "live": 1022,
       "ours": 1022,
@@ -168,6 +237,10 @@
       "worklist": []
     },
     {
+      "page": "maintenance",
+      "fault": "no content region on one side"
+    },
+    {
       "page": "packages",
       "live": 404,
       "ours": 404,
@@ -190,6 +263,10 @@
       "worklist": []
     },
     {
+      "page": "post-ad",
+      "fault": "no content region on one side"
+    },
+    {
       "page": "post-listing",
       "live": 26,
       "ours": 26,
@@ -210,6 +287,54 @@
       "exactPct": 100,
       "score": 100,
       "worklist": []
+    },
+    {
+      "page": "post-listing-edit",
+      "live": 390,
+      "ours": 390,
+      "matched": 390,
+      "clean": 390,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 390,
+      "extra": 0,
+      "pageHeight": [
+        3921,
+        3921
+      ],
+      "coverage": 100,
+      "fidelity": 100,
+      "exactPct": 100,
+      "score": 100,
+      "worklist": []
+    },
+    {
+      "page": "post-listing-upgrade",
+      "live": 116,
+      "ours": 116,
+      "matched": 116,
+      "clean": 116,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 116,
+      "extra": 0,
+      "pageHeight": [
+        935,
+        935
+      ],
+      "coverage": 100,
+      "fidelity": 100,
+      "exactPct": 100,
+      "score": 100,
+      "worklist": []
+    },
+    {
+      "page": "process-payment",
+      "fault": "no content region on one side"
     },
     {
       "page": "reports-leads-reports",
@@ -350,6 +475,28 @@
       "pageHeight": [
         1242,
         1242
+      ],
+      "coverage": 100,
+      "fidelity": 100,
+      "exactPct": 100,
+      "score": 100,
+      "worklist": []
+    },
+    {
+      "page": "user-settings-preferences",
+      "live": 58,
+      "ours": 58,
+      "matched": 58,
+      "clean": 58,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 58,
+      "extra": 0,
+      "pageHeight": [
+        800,
+        800
       ],
       "coverage": 100,
       "fidelity": 100,

@@ -4,7 +4,7 @@
   "shell": true,
   "errorCard": false,
   "spinning": false,
-  "pageHeight": 1681,
+  "pageHeight": 1662,
   "answered": [
     "GET /api/surge/users/current",
     "GET /api/surge/notifications/stats",
@@ -18,12 +18,8 @@
     "GET /api/surge/agencies/880042"
   ],
   "unanswered": [],
-  "errors": [
-    "Failed to fetch city: Unreachable hosts - your application id may be incorrect. If the error persists, please reach out to the Algolia Support team: https://alg.li/support .",
-    "Error fetching cities: {name: RetryError, message: Unreachable hosts - your application id may be inc…he Algolia Support team: https://alg.li/support ., transporterStackTrace: Array(4)}",
-    "Failed to fetch cities: Unreachable hosts - your application id may be incorrect. If the error persists, please reach out to the Algolia Support team: https://alg.li/support ."
-  ],
-  "blocked": 16,
+  "errors": [],
+  "blocked": 3,
   "fonts": "served from deliverables/fonts.css",
-  "ms": 3285
+  "ms": 3218
 }

@@ -26,6 +26,7 @@
  *
  *   node harness/explore.mjs                    the eleven pages
  *   node harness/explore.mjs --pages dashboard
+ *   node harness/explore.mjs --nested           inside every modal and drawer found: what it leads to
  *   node harness/explore.mjs --max 80           candidates tried per page (default 120),
  *                                               breadth first: one of every kind of control before any repeat
  *
@@ -33,7 +34,7 @@
  * it after the hand-written ones in harness/interactions/<page>.mjs.
  */
 import pkg from 'playwright';
-import { writeFileSync, mkdirSync } from 'node:fs';
+import { writeFileSync, mkdirSync, readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { serve } from './serve.mjs';
@@ -56,7 +57,7 @@ const SHELL_ON = 'dashboard';
 const SKIP = /log ?out|sign ?out|العربية|arabic|^ar$|language/i;
 
 /* ── in the page: the candidates, straight from React's props ──────────── */
-const CANDIDATES = (includeShell) => {
+const CANDIDATES = ({ shell: includeShell, root }) => {
   const propsOf = (el) => { const k = Object.keys(el).find((x) => x.startsWith('__reactProps$')); return k ? el[k] : null; };
   const pathOf = (el) => {
     const parts = [];
@@ -86,7 +87,10 @@ const CANDIDATES = (includeShell) => {
   const inShell = (el) => !!el.closest('.ant-layout-header, .ant-layout-sider, footer');
   const out = [];
   const seen = new Set();
-  for (const el of document.querySelectorAll('body *')) {
+  /* inside one overlay only, when exploring what an open modal or drawer
+     leads to (--nested) */
+  const scope = root ? document.querySelector(root) : document.body;
+  for (const el of scope ? scope.querySelectorAll('*') : []) {
     const pr = propsOf(el);
     if (!pr) continue;
     const click = pr.onClick || pr.onMouseDown;
@@ -114,7 +118,7 @@ const CANDIDATES = (includeShell) => {
 };
 
 /* what is on screen now, as a comparable signature */
-const OBSERVE = () => {
+const OBSERVE = (rootSel = null) => {
   const vis = (el) => { const r = el.getBoundingClientRect(); const s = getComputedStyle(el); return r.width > 0 && r.height > 0 && s.visibility !== 'hidden' && s.opacity !== '0'; };
   const kinds = {
     modal: '.ant-modal-wrap:not([style*="display: none"]) .ant-modal',
@@ -132,10 +136,96 @@ const OBSERVE = () => {
   /* the content region's shape — text and structure, not pixels — so a tab
      switch or an expanded panel shows up, and a caret blink does not */
   const shape = content ? `${content.querySelectorAll('*').length}:${content.innerText.length}:${[...content.querySelectorAll('.ant-tabs-tab-active, .ant-segmented-item-selected, .ant-radio-button-wrapper-checked, [aria-selected="true"], [aria-expanded="true"]')].map((e) => e.innerText.trim()).join('|')}` : '';
-  return { url: location.pathname + location.search, open, shape };
+  /* and, when an overlay is being explored, that overlay's own shape — a tab
+     or a step switching inside a drawer changes it */
+  const root = rootSel ? document.querySelector(rootSel) : null;
+  const rootShape = root ? `${root.querySelectorAll('*').length}:${root.innerText.length}:${[...root.querySelectorAll('.ant-tabs-tab-active, .ant-segmented-item-selected, .ant-radio-button-wrapper-checked, .ant-steps-item-active, [aria-selected="true"], [aria-expanded="true"]')].map((e) => e.innerText.trim()).join('|')}` : '';
+  return { url: location.pathname + location.search, open, shape, rootShape, rootVisible: !!root && vis(root) };
 };
 
 const kebab = (s) => s.toLowerCase().normalize('NFKD').replace(/[^\w\s-]/g, '').trim().replace(/[\s_]+/g, '-').replace(/-+/g, '-').slice(0, 36).replace(/-$/, '') || 'x';
+
+/* ── --nested: what the page's modals and drawers lead to ─────────────────
+   A state one level down: a tab inside a drawer, a confirm modal a drawer's
+   button opens, a picker inside a modal. For every modal and drawer the page
+   explore found (data/states/<page>.json), open it, try the controls INSIDE
+   it — breadth first, at most --nested-max — and keep what opens or changes
+   in it, under <parent>__<kind>-<name>. A control that just closes the
+   overlay (Cancel, ✕) is not a state. Written into the same file, `nested`. */
+const NESTED = process.argv.includes('--nested');
+const NMAX = Number(arg('--nested-max', 12));
+const OVERLAY_SEL = {
+  modal: '.ant-modal-wrap:not([style*="display: none"]) .ant-modal',
+  drawer: '.ant-drawer-open .ant-drawer-content, .ant-drawer-content-wrapper:not([style*="display: none"]) .ant-drawer-content',
+};
+const ROOT_SEL = '[data-pf-explore-root]';
+const exploreNested = async (slug, page, fresh) => {
+  const file = join(OUTDIR, `${slug}.json`);
+  if (!existsSync(file)) { console.log(`  ${slug.padEnd(32)} no states yet — explore it first`); return; }
+  const doc = JSON.parse(readFileSync(file, 'utf8'));
+  const parents = doc.states.filter((st) => OVERLAY_SEL[st.kind] && !st.shell);
+  const act = async (path, action) => {
+    const loc = page.locator(path).first();
+    await loc.scrollIntoViewIfNeeded({ timeout: 3000 });
+    if (action === 'hover') await loc.hover({ force: true, timeout: 3000 });
+    else if (DEVICE === 'mobile') await loc.tap({ force: true, timeout: 3000, noWaitAfter: true });
+    else await loc.click({ force: true, timeout: 3000, noWaitAfter: true });
+    await page.waitForTimeout(900);
+  };
+  /* the parent open, and its overlay marked as the place to look */
+  const openParent = async (par) => {
+    await fresh();
+    await act(par.path, par.action);
+    return page.evaluate((sel) => {
+      const vis = (el) => { const r = el.getBoundingClientRect(); return r.width > 0 && r.height > 0; };
+      document.querySelectorAll('[data-pf-explore-root]').forEach((e) => e.removeAttribute('data-pf-explore-root'));
+      const els = [...document.querySelectorAll(sel)].filter(vis);
+      const root = els[els.length - 1];
+      if (!root) return false;
+      root.setAttribute('data-pf-explore-root', '');
+      return true;
+    }, OVERLAY_SEL[par.kind]);
+  };
+  const nested = [];
+  for (const par of parents) {
+    try {
+      if (!(await openParent(par))) continue;
+      const base = await page.evaluate(OBSERVE, ROOT_SEL);
+      const all = (await page.evaluate(CANDIDATES, { shell: false, root: ROOT_SEL })).filter((c) => !SKIP.test(c.label));
+      const groups = new Map();
+      for (const c of all) { if (!groups.has(c.group)) groups.set(c.group, []); groups.get(c.group).push(c); }
+      const cands = [];
+      for (let i = 0; cands.length < all.length; i++) for (const g of groups.values()) if (g[i]) cands.push(g[i]);
+      cands.splice(NMAX);
+      const seen = new Set();
+      for (const c of cands) {
+        try {
+          if (!(await openParent(par))) continue;
+          await act(c.path, c.action);
+          const now = await page.evaluate(OBSERVE, ROOT_SEL);
+          if (now.url !== base.url) continue;                        /* a link, not a state */
+          const opened = now.open.filter((o) => !base.open.some((b) => b.k === o.k && b.text === o.text));
+          if (!now.rootVisible && !opened.length) continue;           /* it closed the overlay */
+          const kind = opened.length ? opened[opened.length - 1].k : now.rootShape !== base.rootShape ? 'inline' : null;
+          if (!kind) continue;
+          const sig = opened.length ? opened.map((o) => `${o.k}:${o.w}x${o.h}:${o.text}`).join('|') : `inline:${now.rootShape}`;
+          if (seen.has(sig)) continue;
+          seen.add(sig);
+          const title = opened.length ? opened[opened.length - 1].text.split(/\s+/).slice(0, 4).join(' ') : '';
+          const generic = /^(icon|svg|div|span|img|button|a|li|p|x|i|input|textarea|label|select)$/i.test(c.label) || c.label.length < 2;
+          const stem = kebab(generic && title ? title : c.label);
+          let name = `${par.name}__${kind}-${stem}`;
+          for (let k = 2; nested.some((n) => n.name === name); k++) name = `${par.name}__${kind}-${stem}-${k}`;
+          nested.push({ name, parent: par.name, kind, action: c.action, path: c.path, label: c.label, title, opened: opened.map(({ k, w, h }) => ({ k, w, h })) });
+        } catch (e) { if (process.env.EXPLORE_DEBUG) console.log(`    ! ${par.name} › ${c.label} — ${String(e).split('\n')[0].slice(0, 120)}`); }
+      }
+    } catch (e) { if (process.env.EXPLORE_DEBUG) console.log(`    ! ${par.name} — ${String(e).split('\n')[0].slice(0, 120)}`); }
+  }
+  doc.nested = nested;
+  doc.nestedAt = new Date().toISOString();
+  writeFileSync(file, JSON.stringify(doc, null, 1));
+  console.log(`  ${slug.padEnd(32)} overlays ${String(parents.length).padStart(3)}  nested ${String(nested.length).padStart(3)}   ${nested.map((n) => n.name).join(' ').slice(0, 150)}`);
+};
 
 const app = await serve();
 const browser = await chromium.launch();
@@ -150,12 +240,13 @@ for (const slug of want) {
     try { await page.waitForSelector('.ant-layout', { timeout: 30_000 }); } catch {}
     await settle(page);
   };
+  if (NESTED) { await exploreNested(slug, page, fresh); await ctx.close(); continue; }
   await fresh();
   const base = await page.evaluate(OBSERVE);
   /* breadth first: one control of every kind, then the second of every
      kind, … — so a page whose rows repeat a control fifty times still has
      every OTHER control tried before the cap is reached */
-  const all = (await page.evaluate(CANDIDATES, slug === SHELL_ON)).filter((c) => !SKIP.test(c.label));
+  const all = (await page.evaluate(CANDIDATES, { shell: slug === SHELL_ON, root: null })).filter((c) => !SKIP.test(c.label));
   const groups = new Map();
   for (const c of all) { if (!groups.has(c.group)) groups.set(c.group, []); groups.get(c.group).push(c); }
   const cands = [];
@@ -194,7 +285,10 @@ for (const slug of want) {
       if (process.env.EXPLORE_DEBUG) console.log(`    ! ${c.action} “${c.label}” — ${String(e).split('\n')[0].slice(0, 140)}`);
     }
   }
-  writeFileSync(join(OUTDIR, `${slug}.json`), JSON.stringify({ page: slug, route: PAGES[slug], device: DEVICE, at: new Date().toISOString(), tried: cands.length, states, links }, null, 1));
+  /* a re-run keeps what --nested found under parents that are still here */
+  let kept = [];
+  try { const prev = JSON.parse(readFileSync(join(OUTDIR, `${slug}.json`), 'utf8')); kept = (prev.nested || []).filter((n) => states.some((s) => s.name === n.parent)); } catch {}
+  writeFileSync(join(OUTDIR, `${slug}.json`), JSON.stringify({ page: slug, route: PAGES[slug], device: DEVICE, at: new Date().toISOString(), tried: cands.length, states, links, ...(kept.length ? { nested: kept } : {}) }, null, 1));
   console.log(`  ${slug.padEnd(32)} tried ${String(cands.length).padStart(3)}  states ${String(states.length).padStart(3)}  links ${links.length}   ${states.map((s) => s.name).join(' ').slice(0, 150)}`);
   await ctx.close();
 }

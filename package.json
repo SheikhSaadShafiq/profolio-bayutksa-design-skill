@@ -20,7 +20,7 @@
     "receive-real": "node scripts/receive-real.mjs",
     "qa-pixels": "node scripts/qa-pixels.mjs",
     "qa-fidelity": "node scripts/qa-fidelity.mjs",
-    "ds": "node scripts/ds/prototype.mjs && node scripts/ds/stylesheet.mjs && node scripts/ds/tokens.mjs && node scripts/ds/kb-links.mjs && node scripts/ds/collect.mjs && node scripts/ds/catalogue.mjs && node scripts/ds/design-kb.mjs",
+    "ds": "node scripts/ds/prototype.mjs && node scripts/ds/stylesheet.mjs && node scripts/ds/painted.mjs && node scripts/ds/tokens.mjs && node scripts/ds/kb-links.mjs && node scripts/ds/collect.mjs && node scripts/ds/catalogue.mjs && node scripts/ds/design-kb.mjs && node scripts/ds/responsive.mjs",
     "combine": "node scripts/combine.mjs",
     "check-fixtures": "node scripts/check-fixtures.mjs",
     "check": "node scripts/check.mjs && node scripts/test-capture.mjs",
@@ -30,6 +30,8 @@
     "explore:mobile": "node harness/explore.mjs --device mobile",
     "design-kb": "node scripts/ds/design-kb.mjs",
     "find": "node scripts/design-find.mjs",
+    "brief": "node scripts/design-brief.mjs",
+    "lint": "node scripts/design-lint.mjs",
     "qa": "node scripts/qa-fidelity.mjs && node scripts/qa-fidelity.mjs --mobile && node scripts/qa-fidelity.mjs --real && node scripts/qa-fidelity.mjs --real --account b --state as-staff && node scripts/qa-fidelity.mjs --real --account b --state as-staff --mobile && node scripts/design-qa.mjs"
   },
   "devDependencies": {

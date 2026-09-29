@@ -361,5 +361,144 @@
    "label": "Bayut Match (0)",
    "to": "/en/lms/leads?tab=bayut_match"
   }
- ]
+ ],
+ "nested": [
+  {
+   "name": "drawer-view-trend__drawer-search-by-calendar-today",
+   "parent": "drawer-view-trend",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > span:nth-child(1)",
+   "label": "icon",
+   "title": "Search by Calendar Today",
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 375,
+     "h": 456
+    }
+   ]
+  },
+  {
+   "name": "drawer-add-new-lead__drawer-add-interest-manually",
+   "parent": "drawer-add-new-lead",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > form:nth-child(1) > div:nth-child(2) > div:nth-child(1) > button:nth-child(2)",
+   "label": "Add Interest Manually",
+   "title": "Add Interest Manually Select",
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 375,
+     "h": 812
+    }
+   ]
+  },
+  {
+   "name": "drawer-add-new-lead__drawer-add-lead",
+   "parent": "drawer-add-new-lead",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > button:nth-child(2)",
+   "label": "Add Lead",
+   "title": "Add New Lead Name",
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 375,
+     "h": 812
+    }
+   ]
+  },
+  {
+   "name": "drawer-view-detail__inline-email",
+   "parent": "drawer-view-detail",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > button:nth-child(1)",
+   "label": "Email",
+   "title": "",
+   "opened": []
+  },
+  {
+   "name": "drawer-view-detail__inline-all-tasks",
+   "parent": "drawer-view-detail",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)",
+   "label": "All Tasks",
+   "title": "",
+   "opened": []
+  },
+  {
+   "name": "drawer-view-detail__drawer-add-interest-manually",
+   "parent": "drawer-view-detail",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > button:nth-child(1)",
+   "label": "Add Interest Manually",
+   "title": "Add Interest Manually Select",
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 375,
+     "h": 812
+    }
+   ]
+  },
+  {
+   "name": "drawer-view-detail__popover-apartment-for-sale",
+   "parent": "drawer-view-detail",
+   "kind": "popover",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)",
+   "label": "Apartment for Sale",
+   "title": "1 1,049,000 Apartment for",
+   "opened": [
+    {
+     "k": "popover",
+     "w": 355,
+     "h": 154
+    }
+   ]
+  },
+  {
+   "name": "drawer-add-name__inline-email",
+   "parent": "drawer-add-name",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > button:nth-child(1)",
+   "label": "Email",
+   "title": "",
+   "opened": []
+  },
+  {
+   "name": "drawer-add-name__inline-all-tasks",
+   "parent": "drawer-add-name",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)",
+   "label": "All Tasks",
+   "title": "",
+   "opened": []
+  },
+  {
+   "name": "drawer-add-name__drawer-add-interest-manually",
+   "parent": "drawer-add-name",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > button:nth-child(1)",
+   "label": "Add Interest Manually",
+   "title": "Add Interest Manually Select",
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 375,
+     "h": 812
+    }
+   ]
+  }
+ ],
+ "nestedAt": "2026-09-28T21:49:15.270Z"
 }

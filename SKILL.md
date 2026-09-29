@@ -25,12 +25,15 @@ pages with one linked stylesheet, so a page costs about what its prose weighs.
 | `kb/screens/index.html` | **Always, when a PRD names a feature.** The design knowledge base: every compiled screen and every state of it — web and responsive — in words: what it is for, how each state is reached, what it shows, which components it adds, and the file to open. |
 | `node scripts/design-find.mjs "<words>"` | **To find the design a PRD needs.** Give it the PRD's own words ("mark a daily rental as booked", "staff can't see agency settings"); it returns the matching screens, states and components, best first, with their web and responsive files. Searches `data/design-kb.json`. |
 | `kb/screens/<page>.html` | The screen you are designing: every state, grouped by kind, with its trigger, its controls and its files. |
-| `kb/pages/_shell.html` | Always. Real measurements, the nav in order, and copy-paste starting markup. |
+| `kb/pages/_shell.html` | The nav in order and why the shell is what it is. Its starting markup predates the compiled pages and fails `design-lint` — start a design from a compiled page instead (below). |
+| `node scripts/design-brief.mjs <prd.md>` | **First, for every PRD.** Per requirement: the compiled screens and states that match (web and 375 files, with a confidence), what the design must cover (roles, both layouts, loading/empty/error, form and flow states), the shipped copy in English and Arabic, the flags involved — and the gaps, named. |
+| `node scripts/design-lint.mjs <design.html> --pair <design-375.html>` | **Last, on every artboard, before you show it.** The pre-flight below, automated: classes, colours, icons, copy, currency, shell measurements and nav, type, the 375 pair, disabled dimming. |
+| `deliverables/responsive.html` | **Making a screen responsive.** The rules the product follows from web to phone, counted from both layouts: which overlays become drawers, which components change size, what only one layout has. |
 | `kb/product/screens.html` | To find which screen the request is about. |
 | `kb/pages/<route>.html` | The one screen you are working on. 30 of 31 routes have one. |
 | `kb/design/components.html` | To find a component by design name. |
 | `kb/design/components/<id>.html` | Only the components this screen uses. 179 entries — canvas-documented ones carry prose, feature ones carry measured CSS from their own source. |
-| `kb/design/foundations.html` | Where the design-system index's *Foundations* (measured from the compiled stylesheet) and this page disagree, the index wins. **All** colour, typography, spacing, radius, elevation, iconography, breakpoints and z-index. Complete — read to the bottom before calling anything undocumented. |
+| `kb/design/foundations.html` | Where the design-system index's *Foundations* (measured from what the compiled pages paint) and this page disagree, the index wins. **All** colour, typography, spacing, radius, elevation, iconography, breakpoints and z-index. Complete — read to the bottom before calling anything undocumented. |
 | `kb/product/copy.html` | To find which copy page covers your area. |
 | `kb/product/copy/<area>.html` | **The real shipped strings**, English beside Arabic. Load the area you are designing. |
 | `kb/product/flags.html` | When a surface may be switched off or altered. |
@@ -43,9 +46,9 @@ pages with one linked stylesheet, so a page costs about what its prose weighs.
 | `kb/design/antd-tokens.html` | When a value looks like an antd default and you want the global token scale. |
 | `kb/design/antd-css.html` | When a value looks like an antd default and you want what the component actually paints — Badge is 20px, not `controlHeightXS`. This wins over the token scale. |
 | `deliverables/design-system.html` | **Start here for anything visual.** Foundations (every colour, type style, space, radius, shadow and curve the product actually paints with, named from its theme and antd's), then every component as an atom, molecule, organism or template, then every page and state. All of it cut out of the product's own render — nothing redrawn. |
-| `deliverables/components/<slug>.html` | **One component**: each variant live — **web** and **responsive** in separate sections, the responsive ones in a frame as wide as the phone — the markup to copy, the exact `profolio.css` rules it uses, its hover/focus/active states, what it is made of, where it is used, the product file that defines it, and its copy in `kb/`. Each variant carries a badge saying whether the cut-out matches the product. |
-| `deliverables/<page>.html` | **The sixteen pages, compiled from the product** (`scripts/compile.mjs`) — pixel-identical to the running product at 1440 on the fixture account. Every trigger that opens a state is a link to it, and the rail and menus go to the other pages. Start a redesign from the page, not from a blank canvas. |
-| `deliverables/states/<page>--<state>.html` | **Every state** the harness can reach: modals, drawers, popovers, tooltips, dropdowns, pickers, tabs, tours, empty, loading, error — and the **account variants**: `--as-staff` (an agency staff user: 9 rail items, no agency settings, own leads only), `--profile-incomplete`, `--modal-non-saudi`. Escape goes back to the page. |
+| `deliverables/components/<slug>.html` | **One component**: each variant live — **web** and **responsive** in separate sections, the responsive ones in a frame as wide as the phone — the markup to copy, the exact `profolio.css` rules it uses, its hover/focus/active states, what it is made of, where it is used, the product file that defines it, and its copy in `kb/`. Each variant carries a badge saying whether the cut-out matches the product, and a **spec sheet** — size, padding, gap, radius, border, fill, shadow, type, text and icon colour, measured from its render, each with its token name where one exists. An interactive family (buttons, inputs, selects, pickers, checkboxes, radios, switches) also has a **state table**: every state it can be in — default, hover, focus, active, disabled, error, checked … — and whether the product was seen in it, it was forced, or it follows from the product's own CSS. |
+| `deliverables/<page>.html` | **The 24 pages, compiled from the product** (`scripts/compile.mjs`) — pixel-identical to the running product at 1440 on the fixture account. A clickable prototype: every trigger that opens a state is a link to it, the rail and menus go to the other pages, and **M** opens the same screen in the other layout (web ↔ responsive). Start a redesign from the page, not from a blank canvas. |
+| `deliverables/states/<page>--<state>.html` | **Every state** the harness can reach: modals, drawers, popovers, tooltips, dropdowns, pickers, tabs, tours — and one level down, what a modal or drawer leads to (`--<parent>__<child>`). **Forms**: errors, filled, saved and failed (`--form-<form>-<state>`, `--saved-*`, `--message-*`). **Data**, on every signed-in page: `--loading`, `--empty`, `--error`. **Flows** as numbered steps (`--flow-<flow>-<nn>-<step>`: post a listing, ad licence, buy a package, top up credits) — ← and → walk a flow, and its primary button goes to the next step. The **account variants**: `--as-staff` (an agency staff user: 9 rail items, no agency settings, own leads only), `--as-individual` (an individual seller, no agency), `--profile-incomplete`, `--modal-non-saudi`. Escape, ✕, Cancel or the mask go back to where the state was opened from. |
 | `deliverables/mobile/<page>.html`, `deliverables/mobile/states/…` | **The responsive layout** — the same pages and states as the product draws them for a phone (375 wide, chosen by the device's user agent, not the window width): a header with a menu button and the page title, the rail as a drawer it opens, listings as cards instead of a table, on the dashboard an app-install banner, and some segmented controls as selects. Open them at phone width. |
 | `deliverables/design-qa.html` | **Before you call anything pixel-perfect.** Every page, state and component held to the product's render, to the live product on two real accounts, and to its code (copy, sources). Names what is off, and by how much. |
 | `deliverables/profolio.css` | The stylesheet every web page and component uses — the product's own CSS, `ant-*` renamed `pf-*`, styled-components named after the JSX the product wrote. `deliverables/profolio.mobile.css` is the responsive layout's: the same rules in the order a phone's pages paint them. Generated; never edit either by hand. |
@@ -67,16 +70,25 @@ about 92,000 tokens between them. Everything in them that you need is already in
 
 Two steps, always in this order.
 
-**1 — Propose, then stop.** Fill in the page template's header: shell variant, route, roles,
-flags, components, states. Show it to the designer and wait. Do not produce artboards on the
-same turn as the proposal.
+**1 — Propose, then stop.** Run `node scripts/design-brief.mjs <prd.md>` on the PRD and build the
+proposal from it: shell variant, route, roles, flags, components, states — web and 375. Put its
+gaps to the designer as questions; never fill a gap silently. Show the proposal and wait. Do not
+produce artboards on the same turn as the proposal.
 
-**2 — Produce, once approved.** Design on top of the shell, composing documented components.
-Cite token names, never raw hex.
+**2 — Produce, once approved.** Start from a compiled page — `deliverables/<page>.html`, or the
+state nearest to what you design; for a new screen, the page cut at `div.pf-div` (the shell and an
+empty content area) — and compose documented components on it. Cite token names, never raw hex.
+Mark data (names, listing titles) with `data-pf-data` and copy the PRD needs but the product does
+not ship with `data-pf-new-copy`. Design the 375 layout too (`deliverables/responsive.html`).
+
+**3 — Lint, then show.** Run `node scripts/design-lint.mjs <design.html> --pair <design-375.html>`
+on every artboard. Fix every ✗; answer every ! with a fix or a sentence saying why it stands.
+New copy it reports goes to the designer for sign-off in English and Arabic.
 
 ## Pre-flight — run this before you output a single artboard
 
-Nine checks. Each one has been failed in a real session; each takes seconds.
+Nine checks. Each one has been failed in a real session; `scripts/design-lint.mjs` runs all of
+them — this is what it checks, and why.
 
 1. **Nav.** Count your sidebar items against the table in `kb/pages/_shell.html`. Labels must match
    character for character — **TruLeads**, not "Leads"; **Credits & Packages**, not "Packages".
@@ -116,7 +128,10 @@ Nine checks. Each one has been failed in a real session; each takes seconds.
    popover or tab is a link to `deliverables/states/<page>--<state>.html`, compiled from the
    running product. `kb/screens/<page>.html` lists them all with how each is reached; a PRD's
    feature is found with `scripts/design-find.mjs`. Design the **responsive** state too
-   (`deliverables/mobile/…`) and the **staff** variant (`--as-staff`) when the PRD touches roles. Two rules hold for your work
+   (`deliverables/mobile/…`), the page's **loading, empty and error** (`--loading`, `--empty`,
+   `--error`), every **form** state the product has for the same kind of form (`--form-*`,
+   `--saved-*`, `--message-*`), and the **staff** and **individual** variants (`--as-staff`,
+   `--as-individual`) when the PRD touches roles. Two rules hold for your work
    too: **a disabled control is dimmed to 0.54** (`utils.less:142`, it is global), and **a failed
    list query shows the same “No Record Found” empty state as an empty one** — Profolio has no
    separate error card for a table.
@@ -133,11 +148,14 @@ than a gap that is named.
    the screen itself on its design name in `kb/product/screens.html`; the repo path is
    provenance, not the key.
 2. **No match?** Ask the designer: remake it, or will they supply it? Never improvise a screen.
-3. **Start from the shell** either way — paste the markup from `kb/pages/_shell.html` rather than
-   redrawing it from the description. There is no blank canvas in Profolio.
+3. **Start from a compiled page** either way — `deliverables/<page>.html`, or for a new screen the
+   page cut at `div.pf-div` — rather than redrawing the shell from a description. There is no
+   blank canvas in Profolio. (`kb/pages/_shell.html`'s starting markup predates the compiled
+   pages and fails the lint.)
 4. **Check the flags.** A surface behind a false flag does not exist for this market.
 5. **Check the roles.** Agency owner, agency staff and individual seller often see different
-   versions of one screen. Say which you are designing.
+   versions of one screen — compiled as the page itself, `--as-staff` and `--as-individual`.
+   Say which you are designing.
 
 ## Hard constraints
 
@@ -184,14 +202,17 @@ Hand-written prose lives in `authoring/` — the KSA rules and the working guide
 renders every route in a headless browser from a fixture account. Re-run it after any
 product change; nothing in it was clicked by a person. The pages, states and components in
 `deliverables/` are compiled from that same render (`npm run explore` and `npm run
-explore:mobile` find the states, `npm run pages` and `npm run pages:mobile` compile them,
-then `npm run ds` builds the stylesheet, the components and the design knowledge base) and
+explore:mobile` find the states — with `--nested`, what each modal and drawer leads to —
+`npm run pages` and `npm run pages:mobile` compile them, then `npm run ds` builds the
+stylesheet, the components, the design knowledge base and the responsive rules) and
 each is scored against it; `npm run qa` holds everything to the live product and the code
 and writes `deliverables/design-qa.html`. `data/qa/` holds the scores.
 
 The fixture account answers every endpoint the real API was seen to serve, in its shape, for
 two real accounts: an agency owner (`data/api-shapes.json`) and an agency staff user
 (`data/api-shapes.b.json`, fixture mode `staff`). `node scripts/check-fixtures.mjs` proves it.
+The individual seller (fixture mode `individual`) was not recorded from a real account: it is
+the owner's own record with the agency taken away, so only what the role changes moves.
 
 Every generated page carries the commit it was built from. If a generated page disagrees
 with the code, the code is right and the generator needs re-running: `npm run all`.

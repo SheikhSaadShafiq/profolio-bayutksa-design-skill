@@ -1,0 +1,38 @@
+{
+ "page": "checkout",
+ "route": "/checkout?cart_id=4410231",
+ "device": "mobile",
+ "at": "2026-09-28T22:59:14.585Z",
+ "tried": 3,
+ "states": [
+  {
+   "name": "drawer-feedback",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4)",
+   "label": "FEEDBACK",
+   "title": "Send us feedback The",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 375,
+     "h": 812
+    }
+   ]
+  },
+  {
+   "name": "inline-tabby",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)",
+   "label": "Tabby",
+   "title": "",
+   "shell": false,
+   "opened": []
+  }
+ ],
+ "links": [],
+ "nested": [],
+ "nestedAt": "2026-09-29T00:16:53.818Z"
+}

@@ -60,10 +60,18 @@ const PURPOSE = {
   packages: 'Credits & Packages — the current package and its credits, the packages on offer by duration, and credit top-ups.',
   'post-listing': 'Post a Listing — begins with the REGA Ad License Number; without one, the way to get an Ad License through Bayut.',
   'user-settings-licenses': 'Licenses — the FAL brokerage licences of the user and the agency; adding one earns the Verified badge.',
+  'user-settings-preferences': 'Preferences — three switches, each saved the moment it is flipped: Smart Credit Utilization, Push Notification, and Image and Details Usage (Bayut’s marketing campaigns).',
+  'post-listing-edit': 'Post a Listing · the form — the listing as its REGA licence filled it in: property type, images and videos, the map pin, specifications, amenities, title and description; a live listing ends in Update, a draft in Save Changes and Post Listing with the credits it needs.',
+  'post-listing-upgrade': 'Post a Listing · upgrade — how the listing is published (Basic, Hot or Signature Listing) and the services added to it (photography, videography, drone footage), paid in credits; once posted, the congratulations and the upsell.',
+  'post-ad': 'Magic Post Ad — a public link to a listing draft already written for the agent (photos, title, description): the listing form under the lite Bayut header, sent with Post Listing, no sign-in.',
+  checkout: 'Checkout — where every purchase ends (credits, a package, an ad licence): the payment methods, the chosen method’s form, the Order Summary with Pay, and the result — purchased, declined or cancelled.',
+  'process-payment': 'Processing payment — where the payment gateway sends the customer back: a full-page spinner while the result is asked for, then Checkout.',
+  invite: 'Agency Invitation — an agent invited to join an agency: who invited them, Accept or Reject; an expired link says so.',
+  maintenance: 'Maintenance — the public page shown while Profolio is under scheduled maintenance.',
 };
 /* the state KINDS, in the order a screen's table lists them */
-const KIND_ORDER = ['modal', 'drawer', 'popover', 'dropdown', 'select', 'picker', 'tooltip', 'tour', 'message', 'tab', 'inline', 'data', 'account', 'shell', 'other'];
-const KIND_TITLE = { modal: 'Modals', drawer: 'Drawers', popover: 'Popovers', dropdown: 'Dropdowns & menus', select: 'Select lists', picker: 'Date pickers', tooltip: 'Tooltips', tour: 'Tours', message: 'Messages', tab: 'Tabs', inline: 'Changes in place', data: 'Data states (loading, error, empty, variants of the data)', account: 'Account variants (who is signed in)', shell: 'The shell (header, rail, menus)', other: 'Other' };
+const KIND_ORDER = ['flow', 'form', 'modal', 'drawer', 'popover', 'dropdown', 'select', 'picker', 'tooltip', 'tour', 'message', 'tab', 'inline', 'data', 'account', 'shell', 'other'];
+const KIND_TITLE = { flow: 'Flows (numbered steps)', form: 'Forms (errors, filled, saved, failed)', modal: 'Modals', drawer: 'Drawers', popover: 'Popovers', dropdown: 'Dropdowns & menus', select: 'Select lists', picker: 'Date pickers', tooltip: 'Tooltips', tour: 'Tours', message: 'Messages', tab: 'Tabs', inline: 'Changes in place', data: 'Data states (loading, empty, error, variants of the data)', account: 'Account variants (who is signed in)', shell: 'The shell (header, rail, menus)', other: 'Other' };
 /* the fixture modes, and what each says about the account or the data */
 const MODE_TEXT = {
   staff: 'signed in as an agency STAFF user (not the agency admin): titanium package, profile 50%, call and WhatsApp tracking off',
@@ -73,7 +81,14 @@ const MODE_TEXT = {
   error: 'the list query failed',
   slow: 'the data is still loading',
   'non-saudi': 'the user is not a Saudi national',
+  individual: 'signed in as an INDIVIDUAL broker — no agency: no Agency Staff, no Agency Settings, the broker’s own FAL licence, Convert to Agency',
+  empty: 'the account is brand new — no listings, leads, traffic, credit spend, licences or staff yet',
+  'preferences-flipped': 'every preference switch is the other way round',
 };
+/* a mode that is an ANSWER rather than an account or its data — a save
+   refused, a payment declined, an upload failed: the state is what the
+   answer opens (a toast, a modal, a form's errors), and its note says how */
+const RESPONSE_MODE = /^(form-fail|lead-duplicate|photo-rejected|pay-|lf-)/;
 
 /* ── what is on disk ─────────────────────────────────────────────────── */
 const compiledIn = (rel) => (existsSync(join(D, rel)) ? readdirSync(join(D, rel)).filter((f) => f.endsWith('.html')).map((f) => rel + f) : [])
@@ -85,9 +100,13 @@ const nameOf = (rel) => rel.split('/').pop().replace(/\.html$/, '');
 const HAND = {};
 for (const f of readdirSync(join(ROOT, 'harness', 'interactions')).filter((f) => f.endsWith('.mjs'))) {
   const list = (await import(pathToFileURL(join(ROOT, 'harness', 'interactions', f)).href)).default || [];
-  const scope = f.replace(/\.mjs$/, '');
-  for (const st of list) HAND[`${scope}|${st.name}`] = { note: st.note || '', mode: st.mode || null, shell: scope.startsWith('_') };
+  /* <page>.mobile.mjs holds the page's phone-only steps: they are the page's */
+  const scope = f.replace(/\.mjs$/, '').replace(/\.mobile$/, '');
+  for (const st of list) HAND[`${scope}|${st.name}`] ||= { note: st.note || '', mode: st.mode || null, shell: scope.startsWith('_') };
 }
+/* the states every page has (harness/interactions/_*.mjs): the shell's,
+   then the rest — accounts, data, … */
+const SHARED = ['_shell', '_mobile', ...[...new Set(Object.keys(HAND).map((k) => k.split('|')[0]))].filter((x) => x.startsWith('_') && x !== '_shell' && x !== '_mobile').sort()];
 /* the ones the explorer found carry the trigger: what was clicked or hovered */
 const EXPLORED = {};
 for (const [dev, dir] of [['web', 'data/states'], ['mobile', 'data/states/mobile']]) {
@@ -95,6 +114,8 @@ for (const [dev, dir] of [['web', 'data/states'], ['mobile', 'data/states/mobile
   for (const f of readdirSync(join(ROOT, dir)).filter((f) => f.endsWith('.json'))) {
     const d = JSON.parse(readFileSync(join(ROOT, dir, f), 'utf8'));
     for (const st of d.states || []) EXPLORED[`${dev}|${d.page}|${st.name}`] = st;
+    /* one level down (explore.mjs --nested): the parent's own record rides along */
+    for (const n of d.nested || []) EXPLORED[`${dev}|${d.page}|${n.name}`] = { ...n, parentState: (d.states || []).find((x) => x.name === n.parent) };
     if (d.page === 'dashboard') for (const st of (d.states || []).filter((s) => s.shell)) EXPLORED[`${dev}|*|${st.name}`] = st;
   }
 }
@@ -166,9 +187,14 @@ await browser.close();
 /* ── one record per screen, one per state, web and responsive merged ──── */
 const compOf = (name) => catalogue.filter((c) => c.pages[name]).map((c) => ({ slug: c.slug, name: c.name, level: c.level, count: c.pages[name] }));
 const scoreOf = (name) => { const r = compileRows.get(name); return r ? r.pct : null; };
-const kindOf = (name, hand, expl, r) => {
-  if (hand && hand.mode === 'staff') return 'account';
-  if (hand && hand.mode) return 'data';
+const kindOf = (full, hand, expl, r) => {
+  /* a state one level down is the kind of what it opened */
+  const name = full.includes('__') ? full.split('__').pop() : full;
+  if (/^flow-/.test(full)) return 'flow';
+  if (/^form-/.test(name)) return 'form';
+  if (/^message-/.test(name)) return 'message';
+  if (hand && /^(staff|individual)$/.test(hand.mode || '')) return 'account';
+  if (hand && hand.mode && !RESPONSE_MODE.test(hand.mode)) return 'data';
   if (/^(loading|error|empty)/.test(name)) return 'data';
   if (hand && hand.shell) return 'shell';
   if (expl && expl.shell) return 'shell';
@@ -184,15 +210,18 @@ for (const [slug, route] of Object.entries(ALL)) {
   const states = [];
   for (const st of stateNames) {
     const r = { web: read[`web|${slug}--${st}`], mobile: read[`mobile|${slug}--${st}`] };
-    const hand = HAND[`${slug}|${st}`] || HAND[`_shell|${st}`] || HAND[`_mobile|${st}`] || HAND[`_accounts|${st}`];
+    const hand = HAND[`${slug}|${st}`] || SHARED.map((x) => HAND[`${x}|${st}`]).find(Boolean);
     const expl = EXPLORED[`web|${slug}|${st}`] || EXPLORED[`mobile|${slug}|${st}`] || EXPLORED[`web|*|${st}`] || EXPLORED[`mobile|*|${st}`];
     const any = r.web || r.mobile;
     const top = any.open.length ? any.open[any.open.length - 1] : null;
     /* how the page reaches it: the trigger the explorer used, else the
        compiled page's own link to it, else the hand-written note */
     const link = (base.web || base.mobile).go.find((g) => g.href.endsWith(`${slug}--${st}.html`));
-    const trig = expl && !/^(icon|svg|div|span|img|button|a|li|p|x|i|input|textarea|label|select)$/i.test(expl.label || '') ? `${expl.action} “${expl.label}”` : link && link.label !== 'an icon' ? `click “${link.label}”` : expl ? `${expl.action} an icon${expl.title ? ` (opens “${expl.title}”)` : ''}` : null;
-    const how = hand && hand.mode ? `the page as it renders when ${MODE_TEXT[hand.mode] || `the fixture is in mode “${hand.mode}”`}`
+    let trig = expl && !/^(icon|svg|div|span|img|button|a|li|p|x|i|input|textarea|label|select)$/i.test(expl.label || '') ? `${expl.action} “${expl.label}”` : link && link.label !== 'an icon' ? `click “${link.label}”` : expl ? `${expl.action} an icon${expl.title ? ` (opens “${expl.title}”)` : ''}` : null;
+    if (trig && expl && expl.parentState) trig = `in the ${expl.parentState.kind} “${expl.parentState.label || expl.parent}” opens: ${trig}`;
+    const how = hand && hand.mode && MODE_TEXT[hand.mode] ? `the page as it renders when ${MODE_TEXT[hand.mode]}`
+      : hand && hand.mode && hand.note ? hand.note
+      : hand && hand.mode ? `the page as it renders when the fixture is in mode “${hand.mode}”`
       : trig ? `${trig}${link ? ` in the ${link.region}` : ''}` : (hand && hand.note) || '';
     /* what it shows: the overlay's title and its first lines; for a change
        in place, the lines the page did not have before */
@@ -219,8 +248,12 @@ for (const [slug, route] of Object.entries(ALL)) {
      after what was clicked, so the two carry the same stem — one state,
      two layouts. */
   const stem = (n) => n.replace(/^(modal|drawer|popover|dropdown|select|picker|tooltip|inline|tab|message)-/, '');
+  /* the shell's states the phone names differently: the rail is the menu
+     drawer, the account popover is the profile drawer */
+  const ALIAS = [[/^rail-expanded$/, /^mobile-menu$/], [/^popover-[a-z-]+-agency-user$/, /^drawer-profile-information-/], [/^popover-account$/, /^drawer-profile-information-/]];
   for (const w of states.filter((x) => x.files.web && !x.files.responsive)) {
-    const m = states.find((x) => x !== w && !x.files.web && x.files.responsive && stem(x.name) === stem(w.name) && stem(x.name) !== x.name);
+    const m = states.find((x) => x !== w && !x.files.web && x.files.responsive && stem(x.name) === stem(w.name) && stem(x.name) !== x.name)
+      || states.find((x) => x !== w && !x.files.web && x.files.responsive && ALIAS.some(([a, b]) => a.test(w.name) && b.test(x.name)));
     if (!m) continue;
     w.files.responsive = m.files.responsive;
     w.score.responsive = m.score.responsive;
@@ -231,6 +264,8 @@ for (const [slug, route] of Object.entries(ALL)) {
     states.splice(states.indexOf(m), 1);
   }
   states.sort((a, b) => KIND_ORDER.indexOf(a.kind) - KIND_ORDER.indexOf(b.kind) || a.name.localeCompare(b.name));
+  /* flows: flow-<flow>-<nn>-<what> steps, in order, wherever they land */
+  for (const x of states) { const m = x.name.match(/^flow-([a-z0-9]+(?:-[a-z0-9]+)*?)-(\d{2})-(.+)$/); if (m) { x.flow = m[1]; x.step = Number(m[2]); x.stepName = m[3].replace(/-/g, ' '); } }
   const comps = compOf(slug).sort((a, b) => b.count - a.count);
   const compsM = compOf(`${slug}--mobile`).sort((a, b) => b.count - a.count);
   screens.push({
@@ -252,11 +287,15 @@ const components = catalogue.map((c) => ({
   screens: [...new Set(Object.keys(c.pages).map((p) => p.replace(/--mobile$/, '').split('--')[0]))],
   states: Object.keys(c.pages).filter((p) => p.includes('--') && !/^[^-]+(-[^-]+)*--mobile$/.test(p)).slice(0, 60),
 }));
+/* every flow, across the screens its steps land on */
+const flows = {};
+for (const s of screens) for (const x of s.states) if (x.flow) (flows[x.flow] ||= []).push({ step: x.step, what: x.stepName, screen: s.slug, state: x.name, files: x.files, shows: x.shows });
+for (const k of Object.keys(flows)) flows[k].sort((a, b) => a.step - b.step);
 const kb = {
   at: new Date().toISOString(),
   about: 'Every compiled screen and state of Profolio KSA (web at 1440, responsive at 375), what each shows and how it is reached, with the file to open. Text is as rendered on the fixture account: labels are the product copy, names and numbers are invented. Search it with: node scripts/design-find.mjs "<words>".',
-  counts: { screens: screens.length, states: screens.reduce((a, s) => a + s.states.length, 0), web: files.web.length, responsive: files.mobile.length, components: components.length },
-  screens, components,
+  counts: { screens: screens.length, states: screens.reduce((a, s) => a + s.states.length, 0), web: files.web.length, responsive: files.mobile.length, components: components.length, flows: Object.keys(flows).length },
+  screens, components, flows,
 };
 writeFileSync(join(ROOT, 'data', 'design-kb.json'), JSON.stringify(kb, null, 1));
 
@@ -320,6 +359,12 @@ const idx = `<h1>Screens &amp; states</h1>
 <tr><th>screen</th><th>route</th><th>what it is for</th><th>states</th><th>web</th><th>responsive</th></tr>
 ${screens.map((s) => `<tr><td><a href="${s.slug}.html">${esc(s.title)}</a></td><td><code>${esc(s.route)}</code></td><td>${esc(s.purpose.split(' — ').slice(1).join(' — ') || s.purpose)}</td><td>${s.states.length}</td><td>${fileLink(s.files.web, 'page')}</td><td>${fileLink(s.files.responsive, 'page')}</td></tr>`).join('\n')}
 </table>
+${Object.keys(flows).length ? `<h2>Flows</h2>
+<p>End-to-end journeys, step by step. Open a step and press → / ← (or its primary button) to walk the flow in the prototype.</p>
+<table>
+<tr><th>flow</th><th>steps</th></tr>
+${Object.entries(flows).map(([k, st]) => `<tr><td><strong>${esc(k.replace(/-/g, ' '))}</strong></td><td>${st.map((x) => `${String(x.step).padStart(2, '0')} ${x.files.web ? fileLink(x.files.web, x.what) : esc(x.what)}${x.files.responsive ? ` <small>(${fileLink(x.files.responsive, 'phone')})</small>` : ''} <small>on ${esc(x.screen)}</small>`).join('<br>')}</td></tr>`).join('\n')}
+</table>` : ''}
 <h2>By kind</h2>
 <table>
 <tr><th>kind</th><th>states</th><th>where</th></tr>

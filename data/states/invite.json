@@ -1,0 +1,47 @@
+{
+ "page": "invite",
+ "route": "/invite?token=b6f1e2c4-7a39-4d85-9e0f-3c2a8d71f5b4",
+ "device": "web",
+ "at": "2026-09-28T21:16:30.719Z",
+ "tried": 6,
+ "states": [
+  {
+   "name": "message-reject",
+   "kind": "message",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > button:nth-child(1)",
+   "label": "Reject",
+   "title": "Invite Rejected Successfully",
+   "shell": false,
+   "opened": [
+    {
+     "k": "message",
+     "w": 1424,
+     "h": 40
+    }
+   ]
+  },
+  {
+   "name": "message-accept",
+   "kind": "message",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > button:nth-child(2)",
+   "label": "Accept",
+   "title": "Invite Accepted Successfully",
+   "shell": false,
+   "opened": [
+    {
+     "k": "message",
+     "w": 1424,
+     "h": 40
+    }
+   ]
+  }
+ ],
+ "links": [
+  {
+   "label": "Close",
+   "to": "/en/dashboard"
+  }
+ ]
+}
