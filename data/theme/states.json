@@ -1,0 +1,1368 @@
+{
+ "mobile:case-all-bad": {
+  "file": "deliverables/new-theme/mobile/states/listings--case-all-bad.html",
+  "note": "The list with one case pinned first: all bad",
+  "how": "02 · All bad",
+  "group": "cases",
+  "frame": "360x800",
+  "hash": "2f3c39f0f6b18a59c68de32ba652984d128ea936",
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:case-daily-rental": {
+  "file": "deliverables/new-theme/mobile/states/listings--case-daily-rental.html",
+  "note": "The list with one case pinned first: daily rental",
+  "how": "02 · Daily rental",
+  "group": "cases",
+  "frame": "360x800",
+  "hash": "5e899edb89fb7528712618082597e1c61f69cdb0",
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:case-everything-unfinished": {
+  "file": "deliverables/new-theme/mobile/states/listings--case-everything-unfinished.html",
+  "note": "The list with one case pinned first: everything unfinished",
+  "how": "02 · Everything unfinished",
+  "group": "cases",
+  "frame": "360x800",
+  "hash": "3305d89ff87f12d794a2fe5b9b7494ec1a29a310",
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:case-happy": {
+  "file": "deliverables/new-theme/mobile/states/listings--case-happy.html",
+  "note": "The list with one case pinned first: happy",
+  "how": "02 · Happy case",
+  "group": "cases",
+  "frame": "360x800",
+  "hash": "95b7027b72cad6841d35b2928758dd8b376be944",
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:case-high-impression-low-leads": {
+  "same": "mobile:page",
+  "note": "The list with one case pinned first: high impression, low leads",
+  "how": "02 · High impression, low leads",
+  "group": "cases"
+ },
+ "mobile:case-just-posted": {
+  "file": "deliverables/new-theme/mobile/states/listings--case-just-posted.html",
+  "note": "The list with one case pinned first: just posted",
+  "how": "02 · Just posted",
+  "group": "cases",
+  "frame": "360x800",
+  "hash": "d69146c0a5c9baa8e28a567e443363fb199d4900",
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:case-low-impression-high-conversion": {
+  "file": "deliverables/new-theme/mobile/states/listings--case-low-impression-high-conversion.html",
+  "note": "The list with one case pinned first: low impression, high conversion",
+  "how": "02 · Low impression, high conversion",
+  "group": "cases",
+  "frame": "360x800",
+  "hash": "d35f8c488c567dddea400ea84add3074d540b58f",
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:case-off-plan": {
+  "file": "deliverables/new-theme/mobile/states/listings--case-off-plan.html",
+  "note": "The list with one case pinned first: off-plan initial sale",
+  "how": "02 · Off-plan initial sale",
+  "group": "cases",
+  "frame": "360x800",
+  "hash": "937ba286d8cfdbb8d12a337c255355ee573df4ba",
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:case-rank-pending": {
+  "file": "deliverables/new-theme/mobile/states/listings--case-rank-pending.html",
+  "note": "The list with one case pinned first: rank pending",
+  "how": "02 · Rank pending",
+  "group": "cases",
+  "frame": "360x800",
+  "hash": "fec250dcfa2584b3b1d5ded4d789b16d4377da81",
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:empty-active": {
+  "file": "deliverables/new-theme/mobile/states/listings--empty-active.html",
+  "note": "Empty: no active listings yet — Post a Listing, See how scores work",
+  "how": "02 · No active listings",
+  "group": "empty",
+  "frame": "360x800",
+  "hash": "fdf3f2d41e4b37d949a1173ed52da745de0c9bb5",
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:empty-draft": {
+  "file": "deliverables/new-theme/mobile/states/listings--empty-draft.html",
+  "note": "Empty: no drafts saved",
+  "how": "02 · No drafts",
+  "group": "empty",
+  "frame": "360x800",
+  "hash": "82ee8d7c654d538172b74a2d3c410e57ef5e562d",
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:empty-filter": {
+  "file": "deliverables/new-theme/mobile/states/listings--empty-filter.html",
+  "note": "Empty: no listings match these filters",
+  "how": "02 · No filter results",
+  "group": "empty",
+  "frame": "360x800",
+  "hash": "341e5134fd5ff61782daf33903a0f5ec223fbb71",
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:empty-pending": {
+  "file": "deliverables/new-theme/mobile/states/listings--empty-pending.html",
+  "note": "Empty: nothing waiting for approval",
+  "how": "02 · No pending listings",
+  "group": "empty",
+  "frame": "360x800",
+  "hash": "3be4061c41ccb82d921dcd809081e988f4f1879e",
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:empty-removed": {
+  "file": "deliverables/new-theme/mobile/states/listings--empty-removed.html",
+  "note": "Empty: no removed listings",
+  "how": "02 · No removed listings",
+  "group": "empty",
+  "frame": "360x800",
+  "hash": "b055d82ba5c8bfb303567f19f2bc0c9fd04858ff",
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:full": {
+  "file": "deliverables/new-theme/mobile/states/listings--full.html",
+  "note": "My Listings, Active tab — the whole list, every case",
+  "how": "02 · Listing list",
+  "group": "list",
+  "frame": "360x2934",
+  "hash": "ce320c8d910ef123b2ec916ec7869e5f1ce4927b",
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:non-package": {
+  "file": "deliverables/new-theme/mobile/states/listings--non-package.html",
+  "note": "Not a package user — the package upsell",
+  "how": "02 · Not a package user",
+  "group": "empty",
+  "frame": "360x800",
+  "hash": "56cfc03fc340d9730f9028f26d8c934f2e831313",
+  "pct": 0.001,
+  "ok": true
+ },
+ "mobile:non-package-empty": {
+  "file": "deliverables/new-theme/mobile/states/listings--non-package-empty.html",
+  "note": "Not a package user, and no listings",
+  "how": "02 · Not a package user, no listings",
+  "group": "empty",
+  "frame": "360x800",
+  "hash": "a8a6022bf3a363462cd662065599763e3c543d3a",
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:offline": {
+  "file": "deliverables/new-theme/mobile/states/listings--offline.html",
+  "note": "Error: no internet connection",
+  "how": "02 · No internet",
+  "group": "empty",
+  "frame": "360x800",
+  "hash": "399140cf0efccb67171f0b7478eb3a7ccaf831eb",
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:page": {
+  "file": "deliverables/new-theme/mobile/listings.html",
+  "note": "My Listings, Active tab — as an agent lands on it",
+  "how": "02 · Listing list",
+  "group": "list",
+  "frame": "360x800",
+  "hash": "c2a78701aa4cd517aa1f29639caad1cdbb3629c7",
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:sheet-amenities": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-amenities.html",
+  "note": "Add Amenities picker, open in the quality block",
+  "how": "02 · Amenities picker, then the build set as the note says",
+  "group": "sheets",
+  "frame": "360x800",
+  "hash": "82e049abee0d57a61ce8ac62be56b656f3a47db5",
+  "pct": 0.095,
+  "ok": true
+ },
+ "mobile:sheet-amenities-full": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-amenities-full.html",
+  "note": "Add Amenities picker, open in the quality block — the whole sheet",
+  "how": "02 · Amenities picker, then the build set as the note says",
+  "group": "sheets",
+  "frame": "360x3979",
+  "hash": "6b5a462288d47533424254b9cb8e2c5d4e10078d",
+  "pct": 0.019,
+  "ok": true
+ },
+ "mobile:sheet-case-all-bad": {
+  "same": "mobile:sheet-improve-quality",
+  "note": "Performance sheet — case: all bad",
+  "how": "prototype · tap the All bad card",
+  "group": "cases"
+ },
+ "mobile:sheet-case-daily-rental": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-case-daily-rental.html",
+  "note": "Performance sheet — case: daily rental",
+  "how": "prototype · tap the Daily rental card",
+  "group": "cases",
+  "frame": "360x800",
+  "hash": "25dea71b3d297f1ce01549dcf44bf3e4647fdbe5",
+  "pct": 0.095,
+  "ok": true
+ },
+ "mobile:sheet-case-everything-unfinished": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-case-everything-unfinished.html",
+  "note": "Performance sheet — case: everything unfinished",
+  "how": "prototype · tap the Everything unfinished card",
+  "group": "cases",
+  "frame": "360x800",
+  "hash": "b30049deafbbbd0e68b300cbc19aa30244c52538",
+  "pct": 0.095,
+  "ok": true
+ },
+ "mobile:sheet-case-happy": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-case-happy.html",
+  "note": "Performance sheet — case: happy",
+  "how": "prototype · tap the Happy case card",
+  "group": "cases",
+  "frame": "360x800",
+  "hash": "14fe6b0e3c9ed1ea4c07c596b824b1742d27e8e6",
+  "pct": 0.099,
+  "ok": true
+ },
+ "mobile:sheet-case-high-impression-low-leads": {
+  "same": "mobile:sheet-performance",
+  "note": "Performance sheet — case: high impression, low leads",
+  "how": "prototype · tap the High impression, low leads card",
+  "group": "cases"
+ },
+ "mobile:sheet-case-just-posted": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-case-just-posted.html",
+  "note": "Performance sheet — case: just posted",
+  "how": "prototype · tap the Just posted card",
+  "group": "cases",
+  "frame": "360x800",
+  "hash": "675985e450032c6b3d41d68086c0da68e476e88f",
+  "pct": 0.095,
+  "ok": true
+ },
+ "mobile:sheet-case-low-impression-high-conversion": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-case-low-impression-high-conversion.html",
+  "note": "Performance sheet — case: low impression, high conversion",
+  "how": "prototype · tap the Low impression, high conversion card",
+  "group": "cases",
+  "frame": "360x800",
+  "hash": "a2cd846db7d724ba314f2ef251269176fcad04f1",
+  "pct": 0.095,
+  "ok": true
+ },
+ "mobile:sheet-case-off-plan": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-case-off-plan.html",
+  "note": "Performance sheet — case: off-plan initial sale",
+  "how": "prototype · tap the Off-plan initial sale card",
+  "group": "cases",
+  "frame": "360x800",
+  "hash": "52a5dde7b057414e9bffc845d6c86bf5d5013196",
+  "pct": 0.095,
+  "ok": true
+ },
+ "mobile:sheet-case-rank-pending": {
+  "same": "mobile:sheet-trend-no-data",
+  "note": "Performance sheet — case: rank pending",
+  "how": "prototype · tap the Rank pending card",
+  "group": "cases"
+ },
+ "mobile:sheet-delete": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-delete.html",
+  "note": "Delete listing — the reasons",
+  "how": "prototype · the first card’s row menu → Delete Listing",
+  "group": "prototype",
+  "frame": "360x800",
+  "hash": "63ce8d6a1082dc49674178d0cafc934f6d0684fe",
+  "pct": 0.197,
+  "ok": true
+ },
+ "mobile:sheet-filters": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-filters.html",
+  "note": "Filter sheet",
+  "how": "02 · Filter sheet",
+  "group": "filtering",
+  "frame": "360x800",
+  "hash": "460f55507498b379385f90dad1db058c813d576a",
+  "pct": 0.197,
+  "ok": true
+ },
+ "mobile:sheet-filters-full": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-filters-full.html",
+  "note": "Filter sheet — the whole sheet, down to the price and area ranges",
+  "how": "02 · Filter sheet",
+  "group": "filtering",
+  "frame": "360x2934",
+  "hash": "3dc824d4e72578f821ef0ab0644efdf95e89d9c5",
+  "pct": 0.054,
+  "ok": true
+ },
+ "mobile:sheet-improve-quality": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-improve-quality.html",
+  "note": "Improve Quality — the all-bad listing’s sheet, its first fix expanded (the fix list is below the fold)",
+  "how": "02 · Improve Quality",
+  "group": "sheets",
+  "frame": "360x800",
+  "hash": "4dc091a34fa4348b5c8e51fa1d0c493955e45711",
+  "pct": 0.095,
+  "ok": true
+ },
+ "mobile:sheet-improve-quality-full": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-improve-quality-full.html",
+  "note": "Improve Quality — the all-bad listing’s whole sheet, down to its fix list",
+  "how": "02 · Improve Quality",
+  "group": "sheets",
+  "frame": "360x3004",
+  "hash": "c58a5d27271b5403c0e4f1eaf1b86693239d00ca",
+  "pct": 0.025,
+  "ok": true
+ },
+ "mobile:sheet-location-no-match": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-location-no-match.html",
+  "note": "Location search — no match",
+  "how": "02 · Location: no match",
+  "group": "filtering",
+  "frame": "360x800",
+  "hash": "155ff6d876bd934229c3d457f191748b04924578",
+  "pct": 0.197,
+  "ok": true
+ },
+ "mobile:sheet-location-search": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-location-search.html",
+  "note": "Location search",
+  "how": "02 · Location search",
+  "group": "filtering",
+  "frame": "360x800",
+  "hash": "4ccb616006c3ef5837029366d54f4bdcd18cd284",
+  "pct": 0.197,
+  "ok": true
+ },
+ "mobile:sheet-performance": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-performance.html",
+  "note": "Listing Performance bottom sheet",
+  "how": "02 · Performance sheet",
+  "group": "sheets",
+  "frame": "360x800",
+  "hash": "4337887f1ed132c0bfde7ce63f8414ed6b8b6609",
+  "pct": 0.095,
+  "ok": true
+ },
+ "mobile:sheet-performance-full": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-performance-full.html",
+  "note": "Listing Performance bottom sheet — the whole sheet",
+  "how": "02 · Performance sheet",
+  "group": "sheets",
+  "frame": "360x2934",
+  "hash": "b681852900ece4ae2c92051464f2adc8a75b4524",
+  "pct": 0.026,
+  "ok": true
+ },
+ "mobile:sheet-quality-score": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-quality-score.html",
+  "note": "How to Earn Quality Score sheet",
+  "how": "02 · How the score works",
+  "group": "sheets",
+  "frame": "360x800",
+  "hash": "bf60d9b6d3d682e8cd1dff0ee39bfc43466fc754",
+  "pct": 0.201,
+  "ok": true
+ },
+ "mobile:sheet-quality-score-full": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-quality-score-full.html",
+  "note": "How to Earn Quality Score sheet — the whole explainer",
+  "how": "02 · How the score works",
+  "group": "sheets",
+  "frame": "360x2588",
+  "hash": "cb8d3fb50556caa095aa1e12e0af539d7a35c922",
+  "pct": 0.064,
+  "ok": true
+ },
+ "mobile:sheet-range": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-range.html",
+  "note": "The performance sheet's date range",
+  "how": "prototype · Last 30 Days, in the performance sheet",
+  "group": "prototype",
+  "frame": "360x800",
+  "hash": "d7279aa965e93ed715653d7223f260a8a085edfd",
+  "pct": 0.197,
+  "ok": true
+ },
+ "mobile:sheet-request-services": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-request-services.html",
+  "note": "Request Services sheet",
+  "how": "02 · Request Services",
+  "group": "sheets",
+  "frame": "360x800",
+  "hash": "cbbde78f9cb3fee7e423359db8a6c8f06977d9b6",
+  "pct": 0.199,
+  "ok": true
+ },
+ "mobile:sheet-row-menu": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-row-menu.html",
+  "note": "A card's row menu — a bottom sheet, not a popover",
+  "how": "02 · Row menu",
+  "group": "sheets",
+  "frame": "360x800",
+  "hash": "dca510e54203b6e2501b0459c7d8ec1458eca2ad",
+  "pct": 0.197,
+  "ok": true
+ },
+ "mobile:sheet-services-requested": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-services-requested.html",
+  "note": "Services requested",
+  "how": "02 · Services requested",
+  "group": "sheets",
+  "frame": "360x800",
+  "hash": "eb461e86b03542d1f65c5406c6c4890e14fb3060",
+  "pct": 0.199,
+  "ok": true
+ },
+ "mobile:sheet-share": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-share.html",
+  "note": "Share sheet — Copy Bayut Link",
+  "how": "02 · Copy Bayut Link",
+  "group": "sheets",
+  "frame": "360x800",
+  "hash": "2c4671ccd296f0343ce7a5078586f3ab5383465a",
+  "pct": 0.197,
+  "ok": true
+ },
+ "mobile:sheet-sort": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-sort.html",
+  "note": "Sort sheet",
+  "how": "02 · Sort sheet",
+  "group": "filtering",
+  "frame": "360x800",
+  "hash": "10f4d59b31af9f4e9edda66ff6f160b0100a8002",
+  "pct": 0.197,
+  "ok": true
+ },
+ "mobile:sheet-trend-drop": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-trend-drop.html",
+  "note": "Performance sheet — the trend with a sudden drop",
+  "how": "02 · Trend: sudden drop",
+  "group": "trend",
+  "frame": "360x800",
+  "hash": "bc99808faa0e2718060bc459573687787c125a6c",
+  "pct": 0.095,
+  "ok": true
+ },
+ "mobile:sheet-trend-no-data": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-trend-no-data.html",
+  "note": "Performance sheet — no trend data yet",
+  "how": "02 · Trend: no data yet",
+  "group": "trend",
+  "frame": "360x800",
+  "hash": "69dc5c7a6c57ff23e7811416efc53242ed38ad5b",
+  "pct": 0.095,
+  "ok": true
+ },
+ "mobile:sheet-trend-recover": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-trend-recover.html",
+  "note": "Performance sheet — the trend down, then back up",
+  "how": "02 · Trend: down then back up",
+  "group": "trend",
+  "frame": "360x800",
+  "hash": "3cc7618e3c1ddc432604e94539b0b3410cbee311",
+  "pct": 0.095,
+  "ok": true
+ },
+ "mobile:sheet-trend-spike": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-trend-spike.html",
+  "note": "Performance sheet — the trend with a one-day spike",
+  "how": "02 · Trend: one day spike",
+  "group": "trend",
+  "frame": "360x800",
+  "hash": "b1e1289c44133f2ecb80a19843e322b1758aa426",
+  "pct": 0.095,
+  "ok": true
+ },
+ "mobile:sheet-trucheck": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-trucheck.html",
+  "note": "TruCheck — the first card, not yet verified",
+  "how": "prototype · TruCheck on the first card",
+  "group": "prototype",
+  "frame": "360x800",
+  "hash": "59136e350a87c07f509b005b89f4746ca4366f13",
+  "pct": 0.197,
+  "ok": true
+ },
+ "mobile:sheet-trucheck-rejected": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-trucheck-rejected.html",
+  "note": "TruCheck — a request that was rejected",
+  "how": "prototype · TruCheck on the All bad card (the second)",
+  "group": "prototype",
+  "frame": "360x800",
+  "hash": "81c59c92067c9cbd6639a0f0bd3e6be0c6fb2f9c",
+  "pct": 0.197,
+  "ok": true
+ },
+ "mobile:skeleton-filtering": {
+  "file": "deliverables/new-theme/mobile/states/listings--skeleton-filtering.html",
+  "note": "Filtering skeleton — replaces the card list for 1.8s, \"Filtering 65 listings...\" (02’s Filtering skeleton chip shows the sort skeleton instead)",
+  "how": "prototype · apply a filter (the build runs its 1.8s filtering state)",
+  "group": "filtering",
+  "frame": "360x800",
+  "hash": "c37c777a23e3df41c06d94a1a51dc1b7eeb01602",
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:tab-draft": {
+  "file": "deliverables/new-theme/mobile/states/listings--tab-draft.html",
+  "note": "Draft tab — completion",
+  "how": "02 · Draft tab",
+  "group": "tabs",
+  "frame": "360x800",
+  "hash": "87901e113c720abad1f042c266ecf10ba6942243",
+  "pct": 0.001,
+  "ok": true
+ },
+ "mobile:tab-draft-full": {
+  "file": "deliverables/new-theme/mobile/states/listings--tab-draft-full.html",
+  "note": "Draft tab — every draft",
+  "how": "02 · Draft tab",
+  "group": "tabs",
+  "frame": "360x1924",
+  "hash": "6eb0ef84276ac7a48d7704b2628cdcbffe3ec08b",
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:tab-pending": {
+  "file": "deliverables/new-theme/mobile/states/listings--tab-pending.html",
+  "note": "Pending tab — waiting",
+  "how": "02 · Pending tab",
+  "group": "tabs",
+  "frame": "360x800",
+  "hash": "16cce9eb6c811e403afc3e7a2f57d7524bd97334",
+  "pct": 0.001,
+  "ok": true
+ },
+ "mobile:tab-pending-full": {
+  "file": "deliverables/new-theme/mobile/states/listings--tab-pending-full.html",
+  "note": "Pending tab — every listing waiting",
+  "how": "02 · Pending tab",
+  "group": "tabs",
+  "frame": "360x1997",
+  "hash": "780475268dbb051ed3d7d5d8b2cbf8f3cbf338f3",
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:tab-removed": {
+  "file": "deliverables/new-theme/mobile/states/listings--tab-removed.html",
+  "note": "Removed tab — recovery",
+  "how": "02 · Removed tab",
+  "group": "tabs",
+  "frame": "360x800",
+  "hash": "e2b1197c3381fcb0f38abbf727d0c891159b67b5",
+  "pct": 0.001,
+  "ok": true
+ },
+ "mobile:tab-removed-full": {
+  "file": "deliverables/new-theme/mobile/states/listings--tab-removed-full.html",
+  "note": "Removed tab — every removed listing",
+  "how": "02 · Removed tab",
+  "group": "tabs",
+  "frame": "360x2976",
+  "hash": "11fbb35dcc8364e257f0995e907506daedd18e2f",
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:tour": {
+  "file": "deliverables/new-theme/mobile/states/listings--tour.html",
+  "note": "Onboarding tour, the intro card — My Listings has a new look",
+  "how": "02 · Onboarding tour",
+  "group": "onboarding",
+  "frame": "360x800",
+  "hash": "d329b237fb6fc530481d53786b39b18cc4b5ed7f",
+  "pct": 0.191,
+  "ok": true
+ },
+ "mobile:tour-2": {
+  "file": "deliverables/new-theme/mobile/states/listings--tour-2.html",
+  "note": "Onboarding tour, spotlight 1 / 4 — Performance and improvements",
+  "how": "prototype · the onboarding tour, step 2 of 5",
+  "group": "prototype",
+  "frame": "360x800",
+  "hash": "ab08749fe087ca242268a7041da467b7f8d3e570",
+  "pct": 0.188,
+  "ok": true
+ },
+ "mobile:tour-3": {
+  "file": "deliverables/new-theme/mobile/states/listings--tour-3.html",
+  "note": "Onboarding tour, spotlight 2 / 4 — Filter and sort from one bar",
+  "how": "prototype · the onboarding tour, step 3 of 5",
+  "group": "prototype",
+  "frame": "360x800",
+  "hash": "161fac928b00d150b652adcbcc40d64cf3fe86a7",
+  "pct": 0.188,
+  "ok": true
+ },
+ "mobile:tour-4": {
+  "file": "deliverables/new-theme/mobile/states/listings--tour-4.html",
+  "note": "Onboarding tour, spotlight 3 / 4 — Sort by what matters",
+  "how": "prototype · the onboarding tour, step 4 of 5",
+  "group": "prototype",
+  "frame": "360x800",
+  "hash": "4940aa3c6d76d23c0654036f8ea48a4b27c00ff7",
+  "pct": 0.188,
+  "ok": true
+ },
+ "mobile:tour-5": {
+  "file": "deliverables/new-theme/mobile/states/listings--tour-5.html",
+  "note": "Onboarding tour, spotlight 4 / 4 — See how the score works",
+  "how": "prototype · the onboarding tour, step 5 of 5",
+  "group": "prototype",
+  "frame": "360x800",
+  "hash": "9fd122853a2f8e2d61f0c23ba5cbe733d91391cc",
+  "pct": 0.19,
+  "ok": true
+ },
+ "mobile:tour-no-listings": {
+  "file": "deliverables/new-theme/mobile/states/listings--tour-no-listings.html",
+  "note": "Onboarding tour with no listings, the intro card — My Listings has a new look",
+  "how": "02 · Tour with no listings",
+  "group": "onboarding",
+  "frame": "360x800",
+  "hash": "df17e9578e890f91a5ecf2a2081de0cf7b1ab7a4",
+  "pct": 0.183,
+  "ok": true
+ },
+ "mobile:tour-no-listings-2": {
+  "file": "deliverables/new-theme/mobile/states/listings--tour-no-listings-2.html",
+  "note": "Onboarding tour with no listings, spotlight 1 / 3 — Filter and sort from one bar",
+  "how": "prototype · the onboarding tour with no listings, step 2 of 4",
+  "group": "prototype",
+  "frame": "360x800",
+  "hash": "1aba02db30a827965cbdcac8875a4dd04a939375",
+  "pct": 0.185,
+  "ok": true
+ },
+ "mobile:tour-no-listings-3": {
+  "file": "deliverables/new-theme/mobile/states/listings--tour-no-listings-3.html",
+  "note": "Onboarding tour with no listings, a full card — Post your first listing",
+  "how": "prototype · the onboarding tour with no listings, step 3 of 4",
+  "group": "prototype",
+  "frame": "360x800",
+  "hash": "a03bef84909ce69a355cdfcff60a28172956d995",
+  "pct": 0.183,
+  "ok": true
+ },
+ "mobile:tour-no-listings-4": {
+  "file": "deliverables/new-theme/mobile/states/listings--tour-no-listings-4.html",
+  "note": "Onboarding tour with no listings, a full card — See how the score works",
+  "how": "prototype · the onboarding tour with no listings, step 4 of 4",
+  "group": "prototype",
+  "frame": "360x800",
+  "hash": "1bbd0d1821949a2b5a92dbad2f1df5300914b13f",
+  "pct": 0.183,
+  "ok": true
+ },
+ "web:drawer-amenities": {
+  "file": "deliverables/new-theme/states/listings--drawer-amenities.html",
+  "note": "Add Amenities picker, over the Listing Performance drawer",
+  "how": "02c · Amenities picker",
+  "group": "drawer",
+  "frame": "1440x900",
+  "hash": "3bb01a14da3f9c11dd13d22db9ab26689b1e1be8",
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-case-all-bad": {
+  "file": "deliverables/new-theme/states/listings--drawer-case-all-bad.html",
+  "note": "Listing Performance drawer — case: all bad",
+  "how": "prototype · the All bad row → its drawer",
+  "group": "cases",
+  "frame": "1440x900",
+  "hash": "88837b5817c76d7830d3dba6cb14ecdaf9a160d6",
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-case-all-bad-full": {
+  "file": "deliverables/new-theme/states/listings--drawer-case-all-bad-full.html",
+  "note": "Listing Performance drawer, whole — case: all bad",
+  "how": "prototype · the All bad row → its drawer, whole",
+  "group": "cases",
+  "frame": "1440x2231",
+  "hash": "ba4cb85f766525c18030c7c5248e7cd1fb87306e",
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-case-daily-rental": {
+  "file": "deliverables/new-theme/states/listings--drawer-case-daily-rental.html",
+  "note": "Listing Performance drawer — case: daily rental",
+  "how": "prototype · the Daily rental row → its drawer",
+  "group": "cases",
+  "frame": "1440x900",
+  "hash": "fb4f7e5f3a8f6404ae2fab5c18c67ade8c485ee9",
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-case-daily-rental-full": {
+  "file": "deliverables/new-theme/states/listings--drawer-case-daily-rental-full.html",
+  "note": "Listing Performance drawer, whole — case: daily rental",
+  "how": "prototype · the Daily rental row → its drawer, whole",
+  "group": "cases",
+  "frame": "1440x2231",
+  "hash": "f00b4ee3b7efc5958d8d376db4b588771fd5c5b9",
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-case-everything-unfinished": {
+  "file": "deliverables/new-theme/states/listings--drawer-case-everything-unfinished.html",
+  "note": "Listing Performance drawer — case: everything unfinished",
+  "how": "prototype · the Everything unfinished row → its drawer",
+  "group": "cases",
+  "frame": "1440x900",
+  "hash": "9b27125f70dbbf8e37a00f6d45929c23f72d52c0",
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-case-everything-unfinished-full": {
+  "file": "deliverables/new-theme/states/listings--drawer-case-everything-unfinished-full.html",
+  "note": "Listing Performance drawer, whole — case: everything unfinished",
+  "how": "prototype · the Everything unfinished row → its drawer, whole",
+  "group": "cases",
+  "frame": "1440x2231",
+  "hash": "c07fe4afd9405d989a19775988c1c4e5a083f6d8",
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-case-happy": {
+  "same": "web:drawer-listing-performance-perfect",
+  "note": "Listing Performance drawer — case: happy",
+  "how": "prototype · the Happy case row → its drawer",
+  "group": "cases"
+ },
+ "web:drawer-case-happy-full": {
+  "file": "deliverables/new-theme/states/listings--drawer-case-happy-full.html",
+  "note": "Listing Performance drawer, whole — case: happy",
+  "how": "prototype · the Happy case row → its drawer, whole",
+  "group": "cases",
+  "frame": "1440x2231",
+  "hash": "b5188e5464631844ad1e97c042ea3433b87be0d7",
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-case-high-impression-low-leads": {
+  "same": "web:drawer-listing-performance",
+  "note": "Listing Performance drawer — case: high impression, low leads",
+  "how": "prototype · the High impression, low leads row → its drawer",
+  "group": "cases"
+ },
+ "web:drawer-case-high-impression-low-leads-full": {
+  "same": "web:drawer-listing-performance-full",
+  "note": "Listing Performance drawer, whole — case: high impression, low leads",
+  "how": "prototype · the High impression, low leads row → its drawer, whole",
+  "group": "cases"
+ },
+ "web:drawer-case-just-posted": {
+  "file": "deliverables/new-theme/states/listings--drawer-case-just-posted.html",
+  "note": "Listing Performance drawer — case: just posted",
+  "how": "prototype · the Just posted row → its drawer",
+  "group": "cases",
+  "frame": "1440x900",
+  "hash": "9dafa5add61b4e8e50d7f11e21e3d0f233ad6368",
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-case-just-posted-full": {
+  "file": "deliverables/new-theme/states/listings--drawer-case-just-posted-full.html",
+  "note": "Listing Performance drawer, whole — case: just posted",
+  "how": "prototype · the Just posted row → its drawer, whole",
+  "group": "cases",
+  "frame": "1440x2231",
+  "hash": "301924c0f8d37ce84360e42b183fb3da55c6b3c2",
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-case-low-impression-high-conversion": {
+  "file": "deliverables/new-theme/states/listings--drawer-case-low-impression-high-conversion.html",
+  "note": "Listing Performance drawer — case: low impression, high conversion",
+  "how": "prototype · the Low impression, high conversion row → its drawer",
+  "group": "cases",
+  "frame": "1440x900",
+  "hash": "1de7f3f3333a597381e60492d3aa06d3e6980f9a",
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-case-low-impression-high-conversion-full": {
+  "file": "deliverables/new-theme/states/listings--drawer-case-low-impression-high-conversion-full.html",
+  "note": "Listing Performance drawer, whole — case: low impression, high conversion",
+  "how": "prototype · the Low impression, high conversion row → its drawer, whole",
+  "group": "cases",
+  "frame": "1440x2231",
+  "hash": "2580b7667dca7f31647c96331dca472ee9369621",
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-case-off-plan": {
+  "file": "deliverables/new-theme/states/listings--drawer-case-off-plan.html",
+  "note": "Listing Performance drawer — case: off-plan initial sale",
+  "how": "prototype · the Off-plan initial sale row → its drawer",
+  "group": "cases",
+  "frame": "1440x900",
+  "hash": "357f9921c4225411fa86937777ca1daf5af09d51",
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-case-off-plan-full": {
+  "file": "deliverables/new-theme/states/listings--drawer-case-off-plan-full.html",
+  "note": "Listing Performance drawer, whole — case: off-plan initial sale",
+  "how": "prototype · the Off-plan initial sale row → its drawer, whole",
+  "group": "cases",
+  "frame": "1440x2231",
+  "hash": "1251ddce8ffe4d03df698a1f09794edde031e3ca",
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-case-rank-pending": {
+  "file": "deliverables/new-theme/states/listings--drawer-case-rank-pending.html",
+  "note": "Listing Performance drawer — case: rank pending",
+  "how": "prototype · the Rank pending row → its drawer",
+  "group": "cases",
+  "frame": "1440x900",
+  "hash": "7f287ec75de36aa1ee223730508669199cea98d6",
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-case-rank-pending-full": {
+  "file": "deliverables/new-theme/states/listings--drawer-case-rank-pending-full.html",
+  "note": "Listing Performance drawer, whole — case: rank pending",
+  "how": "prototype · the Rank pending row → its drawer, whole",
+  "group": "cases",
+  "frame": "1440x2231",
+  "hash": "b386f46bc79cba047b286cb8f16f03e725e1ca1a",
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-listing-performance": {
+  "file": "deliverables/new-theme/states/listings--drawer-listing-performance.html",
+  "note": "Listing Performance drawer, 780px, over the Active tab — a listing that needs fixes",
+  "how": "03 · F · Needs fixes",
+  "group": "screens",
+  "frame": "1440x900",
+  "hash": "828f5898fda9a2dfefb0bf5831344576d17049d7",
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-listing-performance-default": {
+  "same": "web:drawer-listing-performance",
+  "note": "Listing Performance drawer, as the state panel opens it",
+  "how": "02c · Performance drawer",
+  "group": "drawer"
+ },
+ "web:drawer-listing-performance-full": {
+  "file": "deliverables/new-theme/states/listings--drawer-listing-performance-full.html",
+  "note": "Listing Performance drawer — the whole drawer, every section",
+  "how": "03 · F · Needs fixes, the whole drawer",
+  "group": "screens",
+  "frame": "1440x2231",
+  "hash": "529a24498c9b60e1c508151ee7c8e513d6aabc0e",
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-listing-performance-perfect": {
+  "file": "deliverables/new-theme/states/listings--drawer-listing-performance-perfect.html",
+  "note": "Listing Performance drawer — a perfect score, no fix list",
+  "how": "03 · F · Perfect score",
+  "group": "screens",
+  "frame": "1440x900",
+  "hash": "8af9ab45cac7d74fb01bd9b1572552401ae1c157",
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-menu-range": {
+  "file": "deliverables/new-theme/states/listings--drawer-menu-range.html",
+  "note": "The Listing Performance drawer's date range menu",
+  "how": "prototype · Last 30 Days, in the drawer",
+  "group": "prototype",
+  "frame": "1440x900",
+  "hash": "a399ca3bb038d41077a792b2cb26751be68a3f88",
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-more-filters": {
+  "file": "deliverables/new-theme/states/listings--drawer-more-filters.html",
+  "note": "More Filters drawer, 450px, over the Active tab",
+  "how": "03 · H",
+  "group": "screens",
+  "frame": "1440x900",
+  "hash": "10cc96d8af4521c02a4e4f3aeb5f8e441e54322a",
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-more-filters-panel": {
+  "same": "web:drawer-more-filters",
+  "note": "More Filters drawer, as the state panel opens it",
+  "how": "02c · More Filters",
+  "group": "overlays"
+ },
+ "web:drawer-quality-score": {
+  "file": "deliverables/new-theme/states/listings--drawer-quality-score.html",
+  "note": "How to Earn Quality Score drawer, 680px — the second layer, over the Listing Performance drawer",
+  "how": "03 · G",
+  "group": "screens",
+  "frame": "1440x900",
+  "hash": "117b1c5519422d30c7cb164615a68f4c12a3405e",
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-quality-score-full": {
+  "file": "deliverables/new-theme/states/listings--drawer-quality-score-full.html",
+  "note": "How to Earn Quality Score drawer — the whole explainer",
+  "how": "03 · G, the whole drawer",
+  "group": "screens",
+  "frame": "1440x2136",
+  "hash": "48839639be0ed5356efd4d13046db4d228af53f7",
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-quality-score-panel": {
+  "same": "web:drawer-quality-score",
+  "note": "How to Earn Quality Score drawer, as the state panel opens it",
+  "how": "02c · Quality explainer",
+  "group": "drawer"
+ },
+ "web:drawer-rank-updating": {
+  "file": "deliverables/new-theme/states/listings--drawer-rank-updating.html",
+  "note": "Rank updating inside the Listing Performance drawer",
+  "how": "prototype · Refresh inside the Listing Performance drawer",
+  "group": "prototype",
+  "frame": "1440x900",
+  "hash": "383f94aa051980b3c5a88d4fef68875b6c476faa",
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-trend-drop": {
+  "file": "deliverables/new-theme/states/listings--drawer-trend-drop.html",
+  "note": "Listing Performance drawer — the trend with a sudden drop",
+  "how": "02c · Trend: sudden drop",
+  "group": "drawer",
+  "frame": "1440x900",
+  "hash": "905d80bd6345b531cdb5a3abaeb2d46a40c300b8",
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-trend-no-data": {
+  "same": "web:drawer-case-rank-pending",
+  "note": "Listing Performance drawer — no trend data yet",
+  "how": "02c · Trend: no data yet",
+  "group": "drawer"
+ },
+ "web:drawer-trend-recover": {
+  "file": "deliverables/new-theme/states/listings--drawer-trend-recover.html",
+  "note": "Listing Performance drawer — the trend down, then back up",
+  "how": "02c · Trend: down then back up",
+  "group": "drawer",
+  "frame": "1440x900",
+  "hash": "8f92874856ed5d07ee8ba5e1bddb7f856b513ecf",
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-trend-spike": {
+  "file": "deliverables/new-theme/states/listings--drawer-trend-spike.html",
+  "note": "Listing Performance drawer — the trend with a one-day spike",
+  "how": "02c · Trend: one day spike",
+  "group": "drawer",
+  "frame": "1440x900",
+  "hash": "44cd1736ce47672467549fa737bdd3254fb5233e",
+  "pct": 0,
+  "ok": true
+ },
+ "web:empty-active": {
+  "file": "deliverables/new-theme/states/listings--empty-active.html",
+  "note": "Empty: no active listings yet — Post a Listing, See how scores work",
+  "how": "02c · No active listings",
+  "group": "empty",
+  "frame": "1440x900",
+  "hash": "c7c6e1fa1a1a5b6b00689063789ad13be4b5a779",
+  "pct": 0,
+  "ok": true
+ },
+ "web:empty-draft": {
+  "file": "deliverables/new-theme/states/listings--empty-draft.html",
+  "note": "Empty: no drafts saved",
+  "how": "02c · No drafts",
+  "group": "empty",
+  "frame": "1440x900",
+  "hash": "ee55b8ab8f66db2b6d52a96067181315054ea067",
+  "pct": 0,
+  "ok": true
+ },
+ "web:empty-filter": {
+  "file": "deliverables/new-theme/states/listings--empty-filter.html",
+  "note": "Empty: no listings match these filters — the only action that clears the filters",
+  "how": "02c · No filter results",
+  "group": "empty",
+  "frame": "1440x900",
+  "hash": "1f2968f377a9183cd8481c746efb8fafb79d237d",
+  "pct": 0,
+  "ok": true
+ },
+ "web:empty-pending": {
+  "file": "deliverables/new-theme/states/listings--empty-pending.html",
+  "note": "Empty: nothing waiting for approval",
+  "how": "02c · No pending listings",
+  "group": "empty",
+  "frame": "1440x900",
+  "hash": "5dc1f16c8fa2a3a2b3fc5657a41e3d5685eeaeff",
+  "pct": 0,
+  "ok": true
+ },
+ "web:empty-removed": {
+  "file": "deliverables/new-theme/states/listings--empty-removed.html",
+  "note": "Empty: no removed listings",
+  "how": "02c · No removed listings",
+  "group": "empty",
+  "frame": "1440x900",
+  "hash": "70805bbe2db2e0b2764b65a5f9a5ca0eea1a82d4",
+  "pct": 0,
+  "ok": true
+ },
+ "web:full": {
+  "file": "deliverables/new-theme/states/listings--full.html",
+  "note": "My Listings, Active tab — the whole list: the nine cases, one row each",
+  "how": "03 · A · Default, the whole list",
+  "group": "screens",
+  "frame": "1440x2231",
+  "hash": "74648ff06921f4e069d49af1513078636141b825",
+  "pct": 0,
+  "ok": true
+ },
+ "web:menu-row": {
+  "file": "deliverables/new-theme/states/listings--menu-row.html",
+  "note": "A row's ⋮ menu",
+  "how": "prototype · ⋮ on the first row",
+  "group": "prototype",
+  "frame": "1440x900",
+  "hash": "c183d9f072b5c87609e2be63446175cc3a862eee",
+  "pct": 0,
+  "ok": true
+ },
+ "web:menu-sort": {
+  "file": "deliverables/new-theme/states/listings--menu-sort.html",
+  "note": "The sort menu",
+  "how": "prototype · Newest First",
+  "group": "prototype",
+  "frame": "1440x900",
+  "hash": "f2cc97bc0e61edc127085f22fc4ee09edc82835a",
+  "pct": 0,
+  "ok": true
+ },
+ "web:modal-change-ownership": {
+  "file": "deliverables/new-theme/states/listings--modal-change-ownership.html",
+  "note": "Change ownership",
+  "how": "prototype · ⋮ → Change Ownership",
+  "group": "prototype",
+  "frame": "1440x900",
+  "hash": "0622b220188cc07a713930f4ba0a009206ed05fd",
+  "pct": 0,
+  "ok": true
+ },
+ "web:modal-delete": {
+  "file": "deliverables/new-theme/states/listings--modal-delete.html",
+  "note": "Delete listing — the reasons",
+  "how": "prototype · ⋮ → Delete",
+  "group": "prototype",
+  "frame": "1440x900",
+  "hash": "ce699824a1591bc97fe621ff8071b9e2bde82b21",
+  "pct": 0,
+  "ok": true
+ },
+ "web:modal-request-services": {
+  "file": "deliverables/new-theme/states/listings--modal-request-services.html",
+  "note": "Request Services modal, 520px — Drone, Photography, Videography",
+  "how": "03 · K",
+  "group": "screens",
+  "frame": "1440x900",
+  "hash": "2cccf309047d26d0f76b87a22898d65c1244499a",
+  "pct": 0,
+  "ok": true
+ },
+ "web:modal-request-services-panel": {
+  "same": "web:modal-request-services",
+  "note": "Request Services modal, as the state panel opens it",
+  "how": "02c · Request Services",
+  "group": "overlays"
+ },
+ "web:modal-share": {
+  "file": "deliverables/new-theme/states/listings--modal-share.html",
+  "note": "Share Listing modal, 520px — Copy Bayut Link",
+  "how": "03 · I",
+  "group": "screens",
+  "frame": "1440x900",
+  "hash": "4de3037782bce0b20a2fd6e1506bd4106e7d7cb1",
+  "pct": 0,
+  "ok": true
+ },
+ "web:modal-share-panel": {
+  "file": "deliverables/new-theme/states/listings--modal-share-panel.html",
+  "note": "Share Listing modal, as the state panel opens it",
+  "how": "02c · Copy Bayut Link",
+  "group": "overlays",
+  "frame": "1440x900",
+  "hash": "87554c894ace7d307b4219cb6d34bc5ad93a5db6",
+  "pct": 0,
+  "ok": true
+ },
+ "web:modal-trucheck": {
+  "file": "deliverables/new-theme/states/listings--modal-trucheck.html",
+  "note": "TruCheck verification",
+  "how": "prototype · TruCheck on the first row",
+  "group": "prototype",
+  "frame": "1440x900",
+  "hash": "0f0c9793c29009b47140da4d9833ea88d77c1f7e",
+  "pct": 0,
+  "ok": true
+ },
+ "web:non-package": {
+  "file": "deliverables/new-theme/states/listings--non-package.html",
+  "note": "Not a package user — the package upsell banner",
+  "how": "02c · Not a package user",
+  "group": "empty",
+  "frame": "1440x900",
+  "hash": "ba8a5691411ca1dd4d5d93e0be2004a1a0ea2653",
+  "pct": 0,
+  "ok": true
+ },
+ "web:non-package-empty": {
+  "file": "deliverables/new-theme/states/listings--non-package-empty.html",
+  "note": "Not a package user, and no listings",
+  "how": "02c · Not a package user, no listings",
+  "group": "empty",
+  "frame": "1440x900",
+  "hash": "050dfd5b32735627b2b91a7798361bb2321bee72",
+  "pct": 0,
+  "ok": true
+ },
+ "web:offline": {
+  "file": "deliverables/new-theme/states/listings--offline.html",
+  "note": "Error: no internet — suppresses the rows and any empty state",
+  "how": "02c · No internet",
+  "group": "empty",
+  "frame": "1440x900",
+  "hash": "d2a880c692da68595271fc0dbe1a311ae604d9c9",
+  "pct": 0,
+  "ok": true
+ },
+ "web:page": {
+  "file": "deliverables/new-theme/listings.html",
+  "note": "My Listings, Active tab — the nine seeded cases",
+  "how": "03 · A · Default",
+  "group": "screens",
+  "frame": "1440x900",
+  "hash": "6947ae92c60fdf8931bab3dc1ba0e5f465c13b12",
+  "pct": 0,
+  "ok": true
+ },
+ "web:rank-updating": {
+  "file": "deliverables/new-theme/states/listings--rank-updating.html",
+  "note": "Rank updating — the rank tile while the new position is fetched (1.8s, then the new rank)",
+  "how": "prototype · Refresh on the first row",
+  "group": "prototype",
+  "frame": "1440x900",
+  "hash": "60d420d72ec35ab3b2916a01f6833b2cebca3b53",
+  "pct": 0,
+  "ok": true
+ },
+ "web:skeleton-filtering": {
+  "file": "deliverables/new-theme/states/listings--skeleton-filtering.html",
+  "note": "Filtering skeleton — replaces the row list for 1.8s, \"Filtering 65 listings...\" (02c’s Filtering skeleton chip shows the sort skeleton instead)",
+  "how": "prototype · apply a filter (the build runs its 1.8s busy state)",
+  "group": "overlays",
+  "frame": "1440x900",
+  "hash": "d78eaffb652f8c3b7c70dfa0c3049073777fddca",
+  "pct": 0,
+  "ok": true
+ },
+ "web:skeleton-sorting": {
+  "file": "deliverables/new-theme/states/listings--skeleton-sorting.html",
+  "note": "Sorting and filtering skeleton — replaces the row list",
+  "how": "03 · L · Sorting",
+  "group": "screens",
+  "frame": "1440x900",
+  "hash": "6cffc7b4fbee23393a9eb188cfd8e68b07066be4",
+  "pct": 0,
+  "ok": true
+ },
+ "web:sorting": {
+  "file": "deliverables/new-theme/states/listings--sorting.html",
+  "note": "While a sort is applied — the rows give way to the skeleton, \"Sorting 65 listings...\"",
+  "how": "03 · A · Sorting",
+  "group": "screens",
+  "frame": "1440x900",
+  "hash": "8b342c39af1e3d357a7281626568a628553a782e",
+  "pct": 0,
+  "ok": true
+ },
+ "web:tab-ad-license-requests": {
+  "file": "deliverables/new-theme/states/listings--tab-ad-license-requests.html",
+  "note": "Ad License Requests tab — five statuses, its own filter bar",
+  "how": "03 · E · All five statuses",
+  "group": "screens",
+  "frame": "1440x900",
+  "hash": "4ae643d74113725bc794c7206ca7c2d09e6c3b84",
+  "pct": 0,
+  "ok": true
+ },
+ "web:tab-ad-license-requests-full": {
+  "file": "deliverables/new-theme/states/listings--tab-ad-license-requests-full.html",
+  "note": "Ad License Requests tab — every request",
+  "how": "03 · E · All five statuses, the whole list",
+  "group": "screens",
+  "frame": "1440x1311",
+  "hash": "cf50e7809f409e98872d2edcd0e959baf152ed70",
+  "pct": 0,
+  "ok": true
+ },
+ "web:tab-ad-license-requests-panel": {
+  "same": "web:tab-ad-license-requests",
+  "note": "Ad License Requests tab, as the state panel opens it",
+  "how": "02c · Ad License Requests",
+  "group": "tabs"
+ },
+ "web:tab-draft": {
+  "file": "deliverables/new-theme/states/listings--tab-draft.html",
+  "note": "Draft tab — six drafts (Listing incomplete, Ready to publish, Not enough credits … the first three in frame)",
+  "how": "03 · B · Both rows",
+  "group": "screens",
+  "frame": "1440x900",
+  "hash": "f92178f67279500203fa0d13e225778b41473e8d",
+  "pct": 0,
+  "ok": true
+ },
+ "web:tab-draft-full": {
+  "file": "deliverables/new-theme/states/listings--tab-draft-full.html",
+  "note": "Draft tab — every draft",
+  "how": "03 · B · Both rows, the whole list",
+  "group": "screens",
+  "frame": "1440x1500",
+  "hash": "255a8f68bc39b8c13371efad9393ed3b8bc99a30",
+  "pct": 0,
+  "ok": true
+ },
+ "web:tab-draft-panel": {
+  "same": "web:tab-draft",
+  "note": "Draft tab, as the state panel opens it",
+  "how": "02c · Draft tab",
+  "group": "tabs"
+ },
+ "web:tab-pending": {
+  "file": "deliverables/new-theme/states/listings--tab-pending.html",
+  "note": "Pending tab — seven listings waiting: in review, changes in review, a license or a payment (the first three in frame)",
+  "how": "03 · C · All three states",
+  "group": "screens",
+  "frame": "1440x900",
+  "hash": "30003762489ac5ce89a8c2a2a9fe93fa2b18d22b",
+  "pct": 0,
+  "ok": true
+ },
+ "web:tab-pending-full": {
+  "file": "deliverables/new-theme/states/listings--tab-pending-full.html",
+  "note": "Pending tab — every listing waiting",
+  "how": "03 · C · All three states, the whole list",
+  "group": "screens",
+  "frame": "1440x1689",
+  "hash": "6b2ff69675d052939f586097c654882912d118a1",
+  "pct": 0,
+  "ok": true
+ },
+ "web:tab-pending-panel": {
+  "same": "web:tab-pending",
+  "note": "Pending tab, as the state panel opens it",
+  "how": "02c · Pending tab",
+  "group": "tabs"
+ },
+ "web:tab-removed": {
+  "file": "deliverables/new-theme/states/listings--tab-removed.html",
+  "note": "Removed tab — twelve removed listings: rejected, expired, sold, removed by Bayut … (the first three in frame)",
+  "how": "03 · D · All four reasons",
+  "group": "screens",
+  "frame": "1440x900",
+  "hash": "8bb8bd747ca92840ea7b30e0047c0c2810dc1ca8",
+  "pct": 0,
+  "ok": true
+ },
+ "web:tab-removed-full": {
+  "file": "deliverables/new-theme/states/listings--tab-removed-full.html",
+  "note": "Removed tab — every removed listing",
+  "how": "03 · D · All four reasons, the whole list",
+  "group": "screens",
+  "frame": "1440x2648",
+  "hash": "ce9c778e68e68ce43a1f8fc8e3e4f3eb10c76c37",
+  "pct": 0,
+  "ok": true
+ },
+ "web:tab-removed-panel": {
+  "same": "web:tab-removed",
+  "note": "Removed tab, as the state panel opens it",
+  "how": "02c · Removed tab",
+  "group": "tabs"
+ },
+ "web:tour-1": {
+  "file": "deliverables/new-theme/states/listings--tour-1.html",
+  "note": "Onboarding tour, the intro card — My Listings has a new look",
+  "how": "prototype · the onboarding tour, step 1 of 5",
+  "group": "prototype",
+  "frame": "1440x900",
+  "hash": "5576fd37234e38c71a7d18d1a8e16166149daec5",
+  "pct": 0,
+  "ok": true
+ },
+ "web:tour-2": {
+  "file": "deliverables/new-theme/states/listings--tour-2.html",
+  "note": "Onboarding tour, spotlight 1 / 4 — Performance and improvements",
+  "how": "prototype · the onboarding tour, step 2 of 5",
+  "group": "prototype",
+  "frame": "1440x900",
+  "hash": "29178de02724e39ab4c9c1dc54770eecb7fd5b75",
+  "pct": 0.123,
+  "ok": true
+ },
+ "web:tour-3": {
+  "file": "deliverables/new-theme/states/listings--tour-3.html",
+  "note": "Onboarding tour, spotlight 2 / 4 — Split the list by performance",
+  "how": "prototype · the onboarding tour, step 3 of 5",
+  "group": "prototype",
+  "frame": "1440x900",
+  "hash": "b81354d7380c375f838cff76b0b413dc26404cb0",
+  "pct": 0,
+  "ok": true
+ },
+ "web:tour-4": {
+  "file": "deliverables/new-theme/states/listings--tour-4.html",
+  "note": "Onboarding tour, spotlight 3 / 4 — Sort by what matters",
+  "how": "prototype · the onboarding tour, step 4 of 5",
+  "group": "prototype",
+  "frame": "1440x900",
+  "hash": "eb6ff310cdd6cdae25db70fb672e8fa86166fbd0",
+  "pct": 0,
+  "ok": true
+ },
+ "web:tour-5": {
+  "file": "deliverables/new-theme/states/listings--tour-5.html",
+  "note": "Onboarding tour, spotlight 4 / 4 — See how the score works",
+  "how": "prototype · the onboarding tour, step 5 of 5",
+  "group": "prototype",
+  "frame": "1440x900",
+  "hash": "7449cd71c074f760f7a41d54ec2d71f35d07970a",
+  "pct": 0.063,
+  "ok": true
+ }
+}

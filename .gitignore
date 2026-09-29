@@ -31,3 +31,8 @@ data/qa/pixels/
 data/qa/pixels-linked/
 data/qa/components/
 data/qa/pairs-*.json
+
+# the new theme's reference and re-render shots — regenerated from the
+# handover by npm run theme (scripts/theme/capture.mjs)
+data/theme/live/
+data/theme/ours/

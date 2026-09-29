@@ -1,0 +1,550 @@
+{
+ "meta": {
+  "name": "Bayut KSA Profolio 2.0: My Listings mobile",
+  "base": "360pt",
+  "updated": "2026-09-16"
+ },
+ "states": {
+  "web": 62,
+  "phone": 65
+ },
+ "families": [
+  {
+   "family": "Geist",
+   "share": "93.9%",
+   "devices": [
+    "web",
+    "mobile"
+   ]
+  },
+  {
+   "family": "Figtree",
+   "share": "6%",
+   "devices": [
+    "web",
+    "mobile"
+   ]
+  },
+  {
+   "family": "Lato",
+   "share": "0.1%",
+   "devices": [
+    "mobile"
+   ]
+  },
+  {
+   "family": "ui-monospace",
+   "share": "0%",
+   "devices": [
+    "web"
+   ]
+  }
+ ],
+ "colours": [
+  {
+   "token": "color.primary.0",
+   "css": "--pf-ml-primary-0",
+   "value": "#E9F7F0",
+   "uses": 12
+  },
+  {
+   "token": "color.primary.1",
+   "css": "--pf-ml-primary-1",
+   "value": "#D4EFE2",
+   "uses": 15
+  },
+  {
+   "token": "color.primary.2",
+   "css": "--pf-ml-primary-2",
+   "value": "#BEE8D3",
+   "uses": 7
+  },
+  {
+   "token": "color.primary.3",
+   "css": "--pf-ml-primary-3",
+   "value": "#A9E0C5",
+   "uses": 2
+  },
+  {
+   "token": "color.primary.4",
+   "css": "--pf-ml-primary-4",
+   "value": "#93D8B6",
+   "uses": 0
+  },
+  {
+   "token": "color.primary.5",
+   "css": "--pf-ml-primary-5",
+   "value": "#7ED0A7",
+   "uses": 0
+  },
+  {
+   "token": "color.primary.6",
+   "css": "--pf-ml-primary-6",
+   "value": "#69C899",
+   "uses": 2
+  },
+  {
+   "token": "color.primary.7",
+   "css": "--pf-ml-primary-7",
+   "value": "#53C18A",
+   "uses": 0
+  },
+  {
+   "token": "color.primary.8",
+   "css": "--pf-ml-primary-8",
+   "value": "#28B16D",
+   "uses": 34
+  },
+  {
+   "token": "color.primary.9",
+   "css": "--pf-ml-primary-9",
+   "value": "#249F62",
+   "uses": 29
+  },
+  {
+   "token": "color.primary.10",
+   "css": "--pf-ml-primary-10",
+   "value": "#208E57",
+   "uses": 18
+  },
+  {
+   "token": "color.primary.11",
+   "css": "--pf-ml-primary-11",
+   "value": "#10603A",
+   "uses": 22
+  },
+  {
+   "token": "color.primary.-1",
+   "css": "--pf-ml-primary-m1",
+   "value": "#F0FAF5",
+   "uses": 14
+  },
+  {
+   "token": "color.brand.green",
+   "css": "--pf-ml-brand-green",
+   "value": "#28B16D",
+   "uses": 34
+  },
+  {
+   "token": "color.brand.greenPressed",
+   "css": "--pf-ml-brand-green-pressed",
+   "value": "#208E57",
+   "uses": 18
+  },
+  {
+   "token": "color.brand.greenInk",
+   "css": "--pf-ml-brand-green-ink",
+   "value": "#249F62",
+   "uses": 29
+  },
+  {
+   "token": "color.brand.greenDeep",
+   "css": "--pf-ml-brand-green-deep",
+   "value": "#10603A",
+   "uses": 22
+  },
+  {
+   "token": "color.tint.green050",
+   "css": "--pf-ml-tint-green-050",
+   "value": "#F0FAF5",
+   "uses": 14
+  },
+  {
+   "token": "color.tint.green100",
+   "css": "--pf-ml-tint-green-100",
+   "value": "#E9F7F0",
+   "uses": 12
+  },
+  {
+   "token": "color.tint.green200",
+   "css": "--pf-ml-tint-green-200",
+   "value": "#D4EFE2",
+   "uses": 15
+  },
+  {
+   "token": "color.tint.teal050",
+   "css": "--pf-ml-tint-teal-050",
+   "value": "#F7FCFC",
+   "uses": 2
+  },
+  {
+   "token": "color.tint.blue050",
+   "css": "--pf-ml-tint-blue-050",
+   "value": "#F0F7FC",
+   "uses": 3
+  },
+  {
+   "token": "color.tint.amber050",
+   "css": "--pf-ml-tint-amber-050",
+   "value": "#FEF8F0",
+   "uses": 6
+  },
+  {
+   "token": "color.tint.amber100",
+   "css": "--pf-ml-tint-amber-100",
+   "value": "#FCEDD9",
+   "uses": 4
+  },
+  {
+   "token": "color.tint.red050",
+   "css": "--pf-ml-tint-red-050",
+   "value": "#FFF2F2",
+   "uses": 6
+  },
+  {
+   "token": "color.tint.red100",
+   "css": "--pf-ml-tint-red-100",
+   "value": "#FFE0E0",
+   "uses": 4
+  },
+  {
+   "token": "color.status.good",
+   "css": "--pf-ml-status-good",
+   "value": "#249F62",
+   "uses": 29
+  },
+  {
+   "token": "color.status.warn",
+   "css": "--pf-ml-status-warn",
+   "value": "#C88B37",
+   "uses": 12
+  },
+  {
+   "token": "color.status.bad",
+   "css": "--pf-ml-status-bad",
+   "value": "#CE2929",
+   "uses": 10
+  },
+  {
+   "token": "color.status.info",
+   "css": "--pf-ml-status-info",
+   "value": "#3B84C4",
+   "uses": 6
+  },
+  {
+   "token": "color.status.neutral",
+   "css": "--pf-ml-status-neutral",
+   "value": "#707070",
+   "uses": 29
+  },
+  {
+   "token": "color.text.primary",
+   "css": "--pf-ml-text-primary",
+   "value": "#222222",
+   "uses": 39
+  },
+  {
+   "token": "color.text.secondary",
+   "css": "--pf-ml-text-secondary",
+   "value": "#4F4F4F",
+   "uses": 25
+  },
+  {
+   "token": "color.text.tertiary",
+   "css": "--pf-ml-text-tertiary",
+   "value": "#626262",
+   "uses": 22
+  },
+  {
+   "token": "color.text.muted",
+   "css": "--pf-ml-text-muted",
+   "value": "#707070",
+   "uses": 29
+  },
+  {
+   "token": "color.text.faint",
+   "css": "--pf-ml-text-faint",
+   "value": "#9D9D9D",
+   "uses": 32
+  },
+  {
+   "token": "color.text.onBrand",
+   "css": "--pf-ml-text-on-brand",
+   "value": "#FFFFFF",
+   "uses": 76
+  },
+  {
+   "token": "color.border.strong",
+   "css": "--pf-ml-border-strong",
+   "value": "#DEDEDE",
+   "uses": 12
+  },
+  {
+   "token": "color.border.base",
+   "css": "--pf-ml-border-base",
+   "value": "#E6E6E6",
+   "uses": 21
+  },
+  {
+   "token": "color.border.soft",
+   "css": "--pf-ml-border-soft",
+   "value": "#F0F0F0",
+   "uses": 29
+  },
+  {
+   "token": "color.surface.page",
+   "css": "--pf-ml-surface-page",
+   "value": "#F3F4F5",
+   "uses": 2
+  },
+  {
+   "token": "color.surface.card",
+   "css": "--pf-ml-surface-card",
+   "value": "#FFFFFF",
+   "uses": 76
+  },
+  {
+   "token": "color.surface.sheet",
+   "css": "--pf-ml-surface-sheet",
+   "value": "#FFFFFF",
+   "uses": 76
+  },
+  {
+   "token": "color.surface.scrim",
+   "css": "--pf-ml-surface-scrim",
+   "value": "rgba(0,0,0,0.42)",
+   "uses": 0
+  },
+  {
+   "token": "color.gradient.signature",
+   "css": "--pf-ml-gradient-signature",
+   "value": "linear-gradient(46deg,#696EFF 0%,#D466DE 100%)",
+   "uses": 4
+  },
+  {
+   "token": "color.gradient.hot",
+   "css": "--pf-ml-gradient-hot",
+   "value": "linear-gradient(244deg,#DD5050 0%,#AB251D 100%)",
+   "uses": 4
+  }
+ ],
+ "teal": [
+  {
+   "hex": "#006169",
+   "uses": 4,
+   "parts": [
+    "web:My Listings page",
+    "web:How to Earn Quality Score drawer"
+   ],
+   "names": [
+    "primaryColor (current theme)"
+   ]
+  },
+  {
+   "hex": "#F2FAFA",
+   "uses": 5,
+   "parts": [
+    "web:My Listings page",
+    "web:Listing Performance drawer",
+    "web:How to Earn Quality Score drawer",
+    "mobile:Listing Performance bottom sheet",
+    "mobile:How to Earn Quality Score sheet"
+   ],
+   "names": [
+    "primaryLight4 (current theme)"
+   ]
+  },
+  {
+   "hex": "#F7FCFC",
+   "uses": 2,
+   "parts": [
+    "web:Listing Performance drawer",
+    "mobile:Listing Performance bottom sheet"
+   ],
+   "names": [
+    "primaryLight (current theme)",
+    "tint.teal050 (new)"
+   ]
+  },
+  {
+   "hex": "#4F7B7D",
+   "uses": 1,
+   "parts": [
+    "web:How to Earn Quality Score drawer"
+   ],
+   "names": []
+  }
+ ],
+ "radius": {
+  "xs": 4,
+  "sm": 6,
+  "md": 8,
+  "lg": 12,
+  "sheet": 20,
+  "pill": 999
+ },
+ "space": {
+  "xxs": 2,
+  "xs": 4,
+  "sm": 6,
+  "md": 8,
+  "lg": 12,
+  "xl": 16,
+  "xxl": 20,
+  "section": 24
+ },
+ "type": {
+  "family": {
+   "ui": "Geist",
+   "app": "Lato",
+   "chrome": "Figtree",
+   "mono": "JetBrains Mono"
+  },
+  "price": {
+   "size": 17,
+   "weight": 700,
+   "line": 22
+  },
+  "subtype": {
+   "size": 12,
+   "weight": 600,
+   "line": 16,
+   "color": "#249F62"
+  },
+  "location": {
+   "size": 12,
+   "weight": 400,
+   "line": 16,
+   "color": "#707070"
+  },
+  "stat": {
+   "size": 14,
+   "weight": 700,
+   "line": 18
+  },
+  "label": {
+   "size": 11,
+   "weight": 500,
+   "line": 14,
+   "color": "#9D9D9D"
+  },
+  "sheetTitle": {
+   "size": 18,
+   "weight": 700,
+   "line": 24,
+   "family": "Figtree"
+  },
+  "body": {
+   "size": 13,
+   "weight": 400,
+   "line": 20
+  }
+ },
+ "motion": {
+  "sheetIn": {
+   "duration": 340,
+   "curve": "cubic-bezier(.32,.72,0,1)"
+  },
+  "sheetOut": {
+   "duration": 260,
+   "curve": "cubic-bezier(.32,.72,0,1)"
+  },
+  "chipPress": {
+   "duration": 120,
+   "curve": "ease-out"
+  },
+  "scoreBar": {
+   "duration": 640,
+   "curve": "cubic-bezier(.22,1,.36,1)"
+  },
+  "skeleton": {
+   "duration": 1800,
+   "curve": "linear",
+   "note": "filter simulation hold"
+  },
+  "toast": {
+   "duration": 3200,
+   "curve": "ease",
+   "note": "in 200 / hold 2800 / out 200"
+  }
+ },
+ "elevation": {
+  "sheet": "0 -8px 32px rgba(0,0,0,0.16)",
+  "card": "0 1px 2px rgba(0,0,0,0.04)",
+  "toast": "0 14px 34px rgba(0,0,0,0.22)",
+  "rankBad": "0 0 2px rgba(255,0,0,0.12) inset"
+ },
+ "target": {
+  "min": 44,
+  "iconButton": 44,
+  "chip": 32,
+  "row": 88
+ },
+ "mismatch": [
+  {
+   "token": "elevation.sheet",
+   "declared": "0 -8px 32px rgba(0,0,0,0.16)",
+   "painted": "not painted as declared — at that offset the build paints rgba(23, 26, 31, 0.18) 0px -8px 40px 0px on Listing Performance bottom sheet, Delete listing sheet, Filters sheet, Filter value sheet, Request Services sheet, Listing actions sheet, Date range sheet, Share sheet, Sort sheet, TruCheck sheet"
+  },
+  {
+   "token": "elevation.card",
+   "declared": "0 1px 2px rgba(0,0,0,0.04)",
+   "painted": "not painted as declared — at that offset the build paints rgba(0, 0, 0, 0.25) 0px 1px 3px 0px on More Filters drawer, Filters sheet; rgba(0, 0, 0, 0.08) 0px 1px 2px 0px on Listing Performance drawer; rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px on Request Services modal; rgba(23, 26, 31, 0.24) 0px 1px 3px 0px on screen; rgba(23, 26, 31, 0.26) 0px 1px 4px 0px on Filters sheet"
+  },
+  {
+   "token": "elevation.toast",
+   "declared": "0 14px 34px rgba(0,0,0,0.22)",
+   "painted": "painted nowhere in the compiled states"
+  },
+  {
+   "token": "type.price",
+   "declared": "Geist 17/22 · 700",
+   "painted": "the phone draws it as Geist 16/normal · 700 ×123 (screen, Listing Performance bottom sheet; \"1,500,000\")"
+  },
+  {
+   "token": "type.subtype",
+   "declared": "Geist 12/16 · 600 · #249F62",
+   "painted": "the phone draws it as Geist 11/normal · 600 · #10603A ×176 (screen, Listing Performance bottom sheet; \"Apartment for Sale\"); Geist 12/normal · 600 · #249F62 ×3 (Delete listing sheet, TruCheck sheet; \"Apartment for Sale\")"
+  },
+  {
+   "token": "type.location",
+   "declared": "Geist 12/16 · 400 · #707070",
+   "painted": "the phone draws it as Geist 12/normal · 400 · #626262 ×153 (screen, Listing Performance bottom sheet; \"Al Hazm, West Riyadh\"); Geist 12/normal · 400 · #222222 ×27 (screen; \"Al Malqa, North Riyadh\"); Geist 12/normal · 400 · #707070 ×3 (Delete listing sheet, TruCheck sheet; \"Al Hazm, West Riyadh\")"
+  },
+  {
+   "token": "type.stat",
+   "declared": "Geist 14/18 · 700",
+   "painted": "the phone draws it as Geist 12/normal · 700 ×126 (screen; \"1,288\"); Geist 16/normal · 700 ×8 (Listing Performance bottom sheet; \"4,180\")"
+  },
+  {
+   "token": "type.label",
+   "declared": "Geist 11/14 · 500 · #9D9D9D",
+   "painted": "the phone draws it as Geist 11/normal · 300 · #4F4F4F ×450 (screen; \"Views\"); Geist 11/normal · 400 · #626262 ×54 (Listing Performance bottom sheet; \"Views\")"
+  },
+  {
+   "token": "type.sheetTitle",
+   "declared": "Figtree 18/24 · 700",
+   "painted": "the phone draws it as Geist 18/normal · 700 ×18 (Listing Performance bottom sheet; \"Listing Performance\"); Figtree 17/normal · 700 ×11 (Delete listing sheet, Filters sheet, Request Services sheet; \"Delete this listing?\"); Figtree 17/24 · 700 ×2 (How to Earn Quality Score sheet; \"How to Earn Quality Score?\")"
+  },
+  {
+   "token": "radius.sheet",
+   "declared": "20px (top corners)",
+   "painted": "16px on Delete listing sheet, Filter value sheet, Listing actions sheet, Date range sheet, Share sheet, Sort sheet, TruCheck sheet; 20px on How to Earn Quality Score sheet, Listing Performance bottom sheet, Filters sheet, Request Services sheet"
+  },
+  {
+   "token": "target.iconButton",
+   "declared": "44px (target.min 44px)",
+   "painted": "the phone's icon buttons are 32x32 (screen), 40x40 (screen), 24x24 (How to Earn Quality Score sheet)"
+  },
+  {
+   "token": "color.surface.scrim",
+   "declared": "rgba(0,0,0,0.42)",
+   "painted": "not painted — the build's 42% layer is #171A1F 42% (3 uses)"
+  },
+  {
+   "token": "color.surface.page",
+   "declared": "#F3F4F5",
+   "painted": "the phone page is #F6F7FB (the screen, 65 states)"
+  },
+  {
+   "token": "type.family.mono",
+   "declared": "JetBrains Mono",
+   "painted": "not painted"
+  },
+  {
+   "token": "currency",
+   "declared": "the product writes the riyal as its icon glyph, never \"SAR\"",
+   "painted": "\"SAR\" as text in Listing Performance drawer (web), More Filters drawer (web), Change ownership modal (web), Delete listing modal (web), TruCheck modal (web), Request Services modal (web), My Listings page (web), Delete listing sheet (phone), Filters sheet (phone), Request Services sheet (phone), TruCheck sheet (phone) — e.g. \"…ompetitive price of SAR 225,000, this propert…\", \"SAR 0\", \"SAR 10,000,000+\", \"SAR\""
+  }
+ ]
+}
