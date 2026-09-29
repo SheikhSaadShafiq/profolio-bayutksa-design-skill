@@ -659,6 +659,11 @@ const pageList = (names, mob) => {
   return `<div class="ds-pages">${tops.map((p) => `<div class="ds-page"><a class="ds-page-name" href="${href(p)}">${esc(p)}</a>${!mob && kbIndex && kbIndex.byPage[p] ? ` <small><a href="../kb/${kbIndex.byPage[p].href}">route notes</a></small>` : ''}${statesOf(p).length ? `<ul>${statesOf(p).map((s) => `<li><a href="${href(s)}">${esc(s.slice(p.length + 2))}</a></li>`).join('')}</ul>` : ''}</div>`).join('\n')}</div>`;
 };
 const foundations = tokens ? tokens.html : '<p class="ds-note">Run <code>node scripts/ds/tokens.mjs</code> to derive the foundations from the stylesheet.</p>';
+/* the new My Listings (scripts/theme/): its tokens under Foundations, after
+   the current ones, and its pages and states as a section of their own */
+const THEME = join(ROOT, 'data', 'theme');
+const newTokens = existsSync(join(THEME, 'foundations.html')) ? readFileSync(join(THEME, 'foundations.html'), 'utf8') : '';
+const newTheme = existsSync(join(THEME, 'section.html')) ? readFileSync(join(THEME, 'section.html'), 'utf8') : '';
 const index = `<!doctype html>
 <html lang="en">
 <head>
@@ -666,6 +671,7 @@ const index = `<!doctype html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Profolio KSA — design system</title>
 <link rel="stylesheet" href="ds.css">
+${newTokens ? '<link rel="stylesheet" href="new-theme/fonts.css">' : ''}
 </head>
 <body class="ds ds-index">
 <aside class="ds-side">
@@ -675,6 +681,7 @@ const index = `<!doctype html>
     ${LEVELS.map((l) => `<a href="#${l}">${LEVEL_TITLE[l]} <small>${pages.filter((c) => levelOf(c) === l).length}</small></a>`).join('\n    ')}
     <a href="#pages">Pages &amp; states <small>${webNames.length}</small></a>
     ${mobNames.length ? `<a href="#pages-responsive">Responsive <small>${mobNames.length}</small></a>` : ''}
+    ${newTheme ? '<a href="#new-theme">My Listings — new theme</a>' : ''}
     ${kbIndex ? '<a href="#knowledge">Product knowledge</a>' : ''}
     <a href="responsive.html">Responsive rules</a>
     <a href="../kb/screens/index.html">Screens &amp; states KB</a>
@@ -686,7 +693,7 @@ const index = `<!doctype html>
   <h1>Profolio KSA design system</h1>
   <p class="ds-lede">Every page, state and component here was cut out of the product's own render (profolio-reactjs, Bayut KSA tenant, fixture account) — nothing was redrawn. ${pages.length} components in ${compiledPages.length} pages and ${webNames.length - compiledPages.length} states${mobNames.length ? `, and the responsive layout (a phone, ${PHONE_W} wide) in ${mobNames.filter((p) => !p.includes('--')).length} pages and ${mobNames.filter((p) => p.includes('--')).length} states` : ''}; ${ok} of ${measured} component variants render identically to where they came from (≤${BAR}% pixel difference). One stylesheet per layout: <a href="profolio.css"><code>profolio.css</code></a> for the web${MOBILE_SHEET !== 'profolio.css' ? `, <a href="${MOBILE_SHEET}"><code>${MOBILE_SHEET}</code></a> for the responsive layout` : ''}. Every screen and state in words, to find the one a PRD needs: <a href="../kb/screens/index.html">the design knowledge base</a>.</p>
 </header>
-<section class="ds-section" id="foundations"><h2>Foundations</h2>${foundations}</section>
+<section class="ds-section" id="foundations"><h2>Foundations</h2>${foundations}${newTokens}</section>
 ${LEVELS.map((l) => `<section class="ds-section" id="${l}"><h2>${LEVEL_TITLE[l]}</h2>${groups(l) || '<p class="ds-note">None.</p>'}</section>`).join('\n')}
 <section class="ds-section" id="pages"><h2>Pages &amp; states</h2>
 <p class="ds-note">Each page is the product's own render, pixel for pixel, with every state the harness could reach: open menus, modals, drawers, popovers, tooltips, tabs, empty, loading and error. Every page and state links to the next the way the product does — click through them like the product.</p>
@@ -696,6 +703,7 @@ ${mobNames.length ? `<h3 id="pages-responsive">Responsive <small>${PHONE_W} wide
 <p class="ds-note">The layout the product draws for a phone's browser (it decides by device, not by window width): a header with a menu button and the page title, the rail as a drawer that button opens, listings as cards instead of a table, an app-install banner on the dashboard, and some segmented controls as selects. Open these at phone width — the browser's device toolbar, or a window ${PHONE_W}px wide.</p>
 ${pageList(mobNames, true)}` : ''}
 </section>
+${newTheme}
 ${kbIndex ? `<section class="ds-section" id="knowledge"><h2>Product knowledge</h2>${kbIndex.html}</section>` : ''}
 </main>
 </body>
