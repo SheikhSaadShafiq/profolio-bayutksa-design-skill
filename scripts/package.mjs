@@ -60,7 +60,7 @@ const PRODUCT = process.argv.includes('--repo') ? process.argv[process.argv.inde
 need(join(PRODUCT, 'src/tenant/bayut/constants/constants.js'), 'pass --repo <path to profolio-reactjs>');
 
 /* the derived parts are rebuilt from nothing every time */
-for (const d of ['atoms', 'molecules', 'organisms', 'pages', 'css', 'product', 'registry.json', 'tokens.md']) rmSync(join(SKILL, d), { recursive: true, force: true });
+for (const d of ['atoms', 'molecules', 'organisms', 'pages', 'css', 'product', 'kb', 'registry.json', 'tokens.md', 'qa/lib']) rmSync(join(SKILL, d), { recursive: true, force: true });
 
 const catalogue = json(join(DS, 'catalogue.json'));
 const inst = json(join(DS, 'instances.json'));
@@ -395,7 +395,7 @@ const registry = {
   /* antd writes these elements' position inline at runtime; qa/validate.py check 1 lets a design re-measure them (left, width, height, transform, in px or %) */
   runtime_geometry: ['.pf-tabs-ink-bar', '.pf-tabs-nav-list'],
   /* where a core install fetches what it lacks: the public repo, at the branch this was built on */
-  source: { repo: 'SheikhSaadShafiq/profolio-bayutksa-design-skill', ref: (() => { try { return execSync('git rev-parse --abbrev-ref HEAD', { cwd: ROOT }).toString().trim(); } catch { return 'main'; } })() },
+  source: { repo: 'SheikhSaadShafiq/profolio-bayutksa-design-skill', ref: process.env.SKILL_REF || (() => { try { return execSync('git rev-parse --abbrev-ref HEAD', { cwd: ROOT }).toString().trim(); } catch { return 'main'; } })() },
 };
 /* the registry's promises about usage (#4, #21) — qa/validate.py check 7 says the same */
 { const bad = checkUsage(registry); if (bad.length) { console.error(`  usage check — ${bad.length} failure(s):\n    ${bad.slice(0, 20).join('\n    ')}`); process.exit(1); } }
@@ -550,7 +550,7 @@ product. At launch the product is compiled again and compared.
   product's own header, and every web screen its rail — the current theme — in place of the
   handover's. On a phone the product's 60px header replaces the artboard's status bar and title
   (its rail is the header menu's drawer). Design inside it; never restyle it.
-- The intake asks which theme when a PRD touches My Listings (SKILL.md, row 13).
+- The intake asks every PRD for its design language — current Profolio or Profolio 2.0 (INTAKE.md, D4); 2.0 exists only for My Listings.
 - A page that has not been redesigned (dashboard, leads, reports …) is never drawn in the new
   theme — there are no new tokens for it.
 
@@ -684,6 +684,47 @@ ${nt.join('\n')}
   const copyGates = copyAreaGates({ repo: PRODUCT, flagsMd: read(join(REFS, 'flags.md')), areas: areas.map((f) => f.replace(/\.md$/, '')), drawn: rc.drawn });
   write('product/copy.md', copyMd({ areas: areas.map((f) => ({ area: f.replace(/\.md$/, ''), strings: copyCount(f) })), gates: copyGates, pages: rc.pages }));
   console.log(`  rendered copy — ${rc.stats.pages} pages · ${rc.stats.rows} rows (${Object.entries(rc.stats.byIs).map(([k, n]) => `${k} ${n}`).join(' · ')}) · ${(Object.values(rc.files).reduce((n, b) => n + Buffer.byteLength(b), 0) / 1048576).toFixed(2)} MB · ${[...copyGates.values()].filter((g) => g.hidden).length} copy area(s) hidden by a flag`);
+}
+
+/* ── 13 · the design knowledge base: kb/design-kb.json, searched by qa/find.mjs ── */
+/* every screen's purpose and copy, every state's trigger, title, controls and strings
+   (data/design-kb.json, scripts/ds/design-kb.mjs), with the skill's own paths — so a
+   session goes from a PRD's words to the files, and fetches them from the public repo.
+   The new My Listings joins it from its ledger. */
+{
+  const skillPath = (f) => {
+    if (!f) return null;
+    let m = f.match(/^deliverables\/(mobile\/)?states\/([a-z0-9-]+?)--(.+)\.html$/);
+    if (m) return `pages/${m[2]}/${m[3]}${m[1] ? '.mobile' : ''}.html`;
+    m = f.match(/^deliverables\/(mobile\/)?([a-z0-9-]+)\.html$/);
+    if (m) return `pages/${m[2]}${m[1] ? '.mobile' : ''}.html`;
+    return f;
+  };
+  const files = (x) => ({ web: skillPath(x && x.web), responsive: skillPath(x && x.responsive) });
+  const cap = (a, n) => (Array.isArray(a) ? a.slice(0, n) : []);
+  const screens = kb.screens.filter((s) => registry.pages[s.slug]).map((s) => ({
+    slug: s.slug, route: registry.pages[s.slug].route, title: s.title, purpose: s.purpose, lines: cap(s.lines, 150), files: files(s.files),
+    states: (s.states || []).map((x) => ({ name: x.name, kind: x.kind, how: x.how || '', title: x.title || '', shows: x.shows || '', lines: cap(x.lines, 60), buttons: cap(x.buttons, 20), note: x.note || '', mode: x.mode || null, ...(x.responsiveName ? { responsiveName: x.responsiveName, responsiveKind: x.responsiveKind } : {}), files: files(x.files) })),
+  }));
+  if (registry.pages['listings-new'] && themeStates) {
+    const byName = new Map();
+    for (const [key, e] of Object.entries(themeStates)) {
+      if (!e.file) continue;
+      const [device, name] = key.split(':');
+      if (name === 'page') continue;
+      const x = byName.get(name) || byName.set(name, { name, kind: (name.match(/^(drawer|sheet|modal|menu|tab|toast|empty|tour|skeleton|case)/) || ['', 'screen'])[1], how: e.how || '', title: '', shows: `${e.note}${e.derived && !/\[derived\]/.test(e.note || '') ? ' [derived]' : ''}`, lines: [], buttons: [], note: e.note || '', mode: null, files: { web: null, responsive: null } }).get(name);
+      x.files[device === 'mobile' ? 'responsive' : 'web'] = `pages/listings-new/${name}${device === 'mobile' ? '.mobile' : ''}.html`;
+    }
+    screens.push({ slug: 'listings-new', route: '/listings', title: 'My Listings — Profolio 2.0 (new theme, not yet live)', purpose: `${(themeStates['web:page'] || {}).note || 'The redesigned My Listings'} — the designer's handover, compiled; My Listings only`, lines: ['Profolio 2.0', 'new theme', 'Listing Performance', 'Quality Score', 'rank'], files: { web: 'pages/listings-new.html', responsive: 'pages/listings-new.mobile.html' }, states: [...byName.values()] });
+  }
+  const comps = (kb.components || []).filter((c) => registry.components[c.slug] || /Icon$/.test(c.name || '')).map((c) => ({ slug: c.slug, name: c.name, level: c.level, group: c.group, def: c.def, web: c.web, responsive: c.responsive, screens: cap(c.screens, 30), file: registry.components[c.slug] ? registry.components[c.slug].file : `atoms/icon.html#${c.slug}` }));
+  const out = { at: kb.at, about: 'The design knowledge base: every screen and state, what it is for, how it is reached, what it shows; paths are the skill\'s. Search it with node qa/find.mjs "<words>".', screens, components: comps, flows: kb.flows || {} };
+  write('kb/design-kb.json', JSON.stringify(out));
+  /* the search engine, the generator's own (scripts/lib/design-search.mjs), pointed at kb/ */
+  write('qa/lib/design-search.mjs', read(join(ROOT, 'scripts', 'lib', 'design-search.mjs'))
+    .replace("export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');", "export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');                /* skill/ */")
+    .replace("export const KB_PATH = join(ROOT, 'data', 'design-kb.json');", "export const KB_PATH = join(ROOT, 'kb', 'design-kb.json');"));
+  console.log(`  design knowledge base — ${screens.length} screens · ${screens.reduce((n, s) => n + s.states.length, 0)} states · ${comps.length} components · ${Math.round(JSON.stringify(out).length / 1024)} KB`);
 }
 
 /* ── the count ──────────────────────────────────────────────────────── */

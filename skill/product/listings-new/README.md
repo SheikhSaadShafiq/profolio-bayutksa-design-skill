@@ -12,7 +12,7 @@ product. At launch the product is compiled again and compared.
   product's own header, and every web screen its rail — the current theme — in place of the
   handover's. On a phone the product's 60px header replaces the artboard's status bar and title
   (its rail is the header menu's drawer). Design inside it; never restyle it.
-- The intake asks which theme when a PRD touches My Listings (SKILL.md, row 13).
+- The intake asks every PRD for its design language — current Profolio or Profolio 2.0 (INTAKE.md, D4); 2.0 exists only for My Listings.
 - A page that has not been redesigned (dashboard, leads, reports …) is never drawn in the new
   theme — there are no new tokens for it.
 

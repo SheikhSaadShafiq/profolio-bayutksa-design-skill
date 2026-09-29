@@ -30,6 +30,38 @@ it got against the product it came from.
 | `data/` | Machine inputs and scores: `live/` (the product, harness and real-account geometry), `ours/` (the compiled files, re-rendered), `qa/` (every score), `states/` (every state the explorer found, web and `mobile/`), `api-shapes.json` and `api-shapes.b.json` (two real accounts' API keys and types, no values). |
 | `authoring/` | The only hand-written prose: the KSA rules and the working guide. Rendered into `kb/`. |
 
+## Use the skill
+
+The skill designs Profolio KSA screens from a PRD. It asks the PM and the designer only what the
+PRD leaves open (goal and metric, stories, scope and release, roles, flags; pages, design
+language, states, copy), works out the edge cases itself, and composes the design from the
+product's own compiled HTML. That HTML stays here on GitHub: the skill finds what a PRD needs
+in its design knowledge base (`node qa/find.mjs "<PRD words>"`) and fetches just those files
+(`python3 qa/fetch.py <page> <state>`).
+
+**Claude Code** — the core (about 7 MB); pages are fetched on demand:
+
+```bash
+git clone --depth 1 --filter=blob:none --sparse https://github.com/SheikhSaadShafiq/profolio-bayutksa-design-skill.git profolio-skill
+cd profolio-skill
+git sparse-checkout set --no-cone /skill/SKILL.md /skill/INTAKE.md /skill/registry.json /skill/tokens.md \
+  '/skill/kb/' '/skill/product/' '/skill/css/' '/skill/qa/' /skill/examples/worked-example.md /skill/pages/prototype.js
+mkdir -p ~/.claude/skills && ln -s "$PWD/skill" ~/.claude/skills/profolio-ksa-design
+```
+
+Until the skill is merged into `main`, add `--branch claude/theme-refresh` to the clone. Then, in any Claude Code session, paste a PRD ("design this for Profolio KSA: …").
+(`git sparse-checkout set skill` instead installs the whole package, about 450 MB, with every
+page local.)
+
+**claude.ai** — upload `dist/profolio-ksa-design.zip` under Settings → Capabilities → Skills
+(code execution on). To fetch pages, the chat's code execution needs network access to
+`raw.githubusercontent.com`; without it the skill still plans from its registry, labels and
+copy index, and says which files it could not open.
+
+Pages are fetched from the branch in `skill/registry.json` → `source.ref`. Build with
+`SKILL_REF=main npm run package` once the skill is on `main`, so every install fetches from
+the default branch.
+
 ## Running it
 
 The product (`profolio-reactjs`) must sit beside this repo — `../profolio-reactjs` — installed

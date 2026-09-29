@@ -20,8 +20,8 @@ demand, so the package can be installed whole or with only its core.
 git clone --depth 1 --branch claude/theme-refresh --filter=blob:none --sparse \
   https://github.com/SheikhSaadShafiq/profolio-bayutksa-design-skill.git profolio-skill
 cd profolio-skill
-git sparse-checkout set --no-cone /skill/SKILL.md /skill/registry.json /skill/tokens.md \
-  '/skill/product/' '/skill/css/' '/skill/qa/' /skill/examples/worked-example.md /skill/pages/prototype.js
+git sparse-checkout set --no-cone /skill/SKILL.md /skill/INTAKE.md /skill/registry.json /skill/tokens.md \
+  '/skill/kb/' '/skill/product/' '/skill/css/' '/skill/qa/' /skill/examples/worked-example.md /skill/pages/prototype.js
 # or the whole package (about 450 MB): git sparse-checkout set skill
 
 mkdir -p ~/.claude/skills && ln -s "$PWD/skill" ~/.claude/skills/profolio-ksa-design
@@ -31,7 +31,7 @@ Then open a new Claude Code session **in an empty folder** — not this repo, an
 that has seen this conversation — and paste one PRD below. On a core install the session
 fetches the pages it needs with `python3 qa/fetch.py <page> [<state>…]`.
 
-**claude.ai.** Start a new chat and attach: `SKILL.md`, `registry.json`, `tokens.md`,
+**claude.ai.** Upload `dist/profolio-ksa-design.zip` under Settings → Capabilities → Skills, or start a new chat and attach: `SKILL.md`, `INTAKE.md`, `registry.json`, `tokens.md`,
 `product/flags.md`, `product/roles.md`, `product/routes.md`, `product/copy.md`, and the
 `product/copy/rendered/<page>.md` and `product/pages/<page>.md` of the pages the PRD names.
 Page files are 0.3–1.5 MB each; attach one only if the session asks for it by path.
@@ -79,56 +79,65 @@ Page files are 0.3–1.5 MB each; attach one only if the session asks for it by 
 
 ## 3 · What a correct intake looks like
 
-Every run: reads `registry.json` first; never reads `css/profolio.css` or `product/flags.md`
-whole (grep); presents the 13-row table with a proposal and a confidence in every row; asks
-only rows it could not fill or filled at low confidence, plus what a row's own text orders (2
-when ambiguous, 6 a new empty, 8 Arabic timing, 9 regenerate, 11 another meaning), with
-"asked" after the confidence; asks nothing else; at most one question per row, each with a
-proposal; says what it assumes for a medium row; produces nothing before the designer replies.
+Every run: reads `registry.json` first, then `INTAKE.md`; never reads `css/profolio.css` or
+`product/flags.md` whole (grep); shows the PRD gap check (§ 0); finds the screens with
+`node qa/find.mjs` (§ 1); presents the product table (P1–P8) and the design table (D1–D9) with
+a proposal and a confidence in every row; asks only rows it could not fill or filled at low
+confidence, plus what a row's own text orders (D2 when ambiguous, D4 2.0 off My Listings, D5 a
+new empty, D7 Arabic timing, D8 regenerate, P8 another meaning), with "asked" after the
+confidence, grouped **For the PM** and **For the designer**; asks nothing else; at most one
+question per row, each with a proposal; says what it assumes for a medium row; lists the edge
+cases and scenarios itself and never asks for them (§ 3); produces nothing before the reply.
+
+In every PRD below: **P1** (the metric), **P3** (scope) and **P4** (release) are not in the
+PRD — P1 and P4 asked (low), P3 proposed or asked; **P2** restated as user stories with the
+PRD's requirements as acceptance criteria (high); **D4** design language answered — current
+Profolio for A and B, and for C the new theme (Profolio 2.0), which exists only for My
+Listings.
 
 **A · credits**
 
 | # | a correct proposal | confidence |
 |---|---|---|
-| 1 | A change across existing pages, with a new composition (the request) | medium |
-| 2 | Candidates, asked: `post-listing-upgrade` — the draft page ("Almost There!" · Post Listing), state `inline-insufficient-credits` and, for staff, `inline-insufficient-credits-as-staff` (not flow step 09, the posted upsell); `agency-staff` (`modal-set-credits-limit`); the shell's notifications (`listings/popover-notifications`, a drawer at 375; empty: `popover-notifications-empty@web`, `drawer-notifications-empty@375`) | medium; asked (ambiguous) |
-| 3 | Staff: the insufficient-credits moment, compiled as staff (`pages/post-listing-upgrade/inline-insufficient-credits-as-staff.html`: Available Credits 1, "Pay 900 for the additional 9 credits at checkout"). Admin: the notifications bell | high |
-| 4 | Staff asks; the owner approves. **An individual has no admin** — no prompt (`product/roles.md`). Staff cannot open Set Credits Limit (roles.md: states a role cannot open) | high |
-| 5 | `agency-staff`: `IS_CREDIT_CAPPING_ENABLED=true` (Gates: `<AgencyHeader>`, the credit-limit Button, `<SetCreditsLimit>` [set-staff-credit-limit]), its Referenced-in files quoted; any effect the Gates column does not give is [TBC] at medium — never an invented flag or effect | high |
-| 6 | `post-listing-upgrade`: `loading`, `empty`, `error`, `message-post-listing`, `message-upgrade-failed`; ask only about pending (R3) and the admin's side; **the PRD is silent on a new empty — asked**; flag-off and no-permission answered | high; the new empty asked |
-| 7 | The request (probably a modal composed from existing ones) and a new notification item | medium |
-| 8 | New strings are new copy; Arabic now or deferred — asked | medium; Arabic timing asked |
-| 9 | If the admin raises the limit in the existing modal: `set-staff-credit-limit` (its rows `set-capping-limit`, part of it), `used_on` `agency-staff`, pasted verbatim; `notification-card` is a shell component (20 page ids, pasted, or "every signed-in page") — asked whether to regenerate | medium; regenerate asked |
-| 10 | Web and 375 — proposed | medium |
-| 11 | The product's words win: "Set Credits Limit", "Insufficient Credits" | high |
-| 12 | Credits: which products (Hot, Signature upgrades; posting), expiry of a raised limit, payment methods (`product/ksa.md`, `PAYMENT_METHODS`) — the open ones asked | low; asked |
-| 13 | Not asked (the PRD doesn't touch My Listings), or "current — not My Listings" | high |
+| D1 | A change across existing pages, with a new composition (the request) | medium |
+| D2 | Candidates, asked: `post-listing-upgrade` — the draft page ("Almost There!" · Post Listing), state `inline-insufficient-credits` and, for staff, `inline-insufficient-credits-as-staff` (not flow step 09, the posted upsell); `agency-staff` (`modal-set-credits-limit`); the shell's notifications (`listings/popover-notifications`, a drawer at 375; empty: `popover-notifications-empty@web`, `drawer-notifications-empty@375`) | medium; asked (ambiguous) |
+| D3 | Staff: the insufficient-credits moment, compiled as staff (`pages/post-listing-upgrade/inline-insufficient-credits-as-staff.html`: Available Credits 1, "Pay 900 for the additional 9 credits at checkout"). Admin: the notifications bell | high |
+| P5 | Staff asks; the owner approves. **An individual has no admin** — no prompt (`product/roles.md`). Staff cannot open Set Credits Limit (roles.md: states a role cannot open) | high |
+| P6 | `agency-staff`: `IS_CREDIT_CAPPING_ENABLED=true` (Gates: `<AgencyHeader>`, the credit-limit Button, `<SetCreditsLimit>` [set-staff-credit-limit]), its Referenced-in files quoted; any effect the Gates column does not give is [TBC] at medium — never an invented flag or effect | high |
+| D5 | `post-listing-upgrade`: `loading`, `empty`, `error`, `message-post-listing`, `message-upgrade-failed`; ask only about pending (R3) and the admin's side; **the PRD is silent on a new empty — asked**; flag-off and no-permission answered | high; the new empty asked |
+| D6 | The request (probably a modal composed from existing ones) and a new notification item | medium |
+| D7 | New strings are new copy; Arabic now or deferred — asked | medium; Arabic timing asked |
+| D8 | If the admin raises the limit in the existing modal: `set-staff-credit-limit` (its rows `set-capping-limit`, part of it), `used_on` `agency-staff`, pasted verbatim; `notification-card` is a shell component (20 page ids, pasted, or "every signed-in page") — asked whether to regenerate | medium; regenerate asked |
+| D9 | Web and 375 — proposed | medium |
+| P8 | The product's words win: "Set Credits Limit", "Insufficient Credits" | high |
+| P7 | Credits: which products (Hot, Signature upgrades; posting), expiry of a raised limit, payment methods (`product/ksa.md`, `PAYMENT_METHODS`) — the open ones asked | low; asked |
+| D4 | Current Profolio — the pages are not My Listings, and 2.0 exists only there; existing components, the pages' own density, no illustration | high |
 
 **B · leads**
 
 | # | a correct proposal | confidence |
 |---|---|---|
-| 1 | A change to an existing page | high |
-| 2 | `lms-leads`, route `/lms/leads` | high |
-| 4 | Staff: own leads only — already shipped (`product/roles.md`); staff and individual have no Users filter (`pages['lms-leads'].labels.staff.filters`) | high |
-| 5 | `lms-leads`: `IS_LMS_ENABLED=true (route)`, `LMS_ENABLED.IS_BAYUT_MATCH_ENABLED=true` for the Bayut Match tab — **not** `BAYUT_MATCHING_LEAD` (it gates the badge, and is not in lms-leads' flags) | high |
-| 6 | `loading`, `empty`, `error` compiled; the filter's own empty — asked | high; the new empty asked |
-| 9 | `lead-listings-table` (web), `lead-listings-mobile` (375), `used_on` `lms-leads` — never "also the Overview, My Listings…" | high |
-| 11 | **The table already has Last Interaction and Next Planned Task, and a Last Interaction date filter** (`pages['lms-leads'].labels`); the phone card shows the next task's date and time. "Last contacted" may not mean "Last Interaction" — asked. Relative time ("3 days ago", "a day ago") ships in the notification cards (`copy/rendered/`) | medium; another meaning asked |
-| 12 | No | high |
-| 13 | Not asked, or "not My Listings" | high |
+| D1 | A change to an existing page | high |
+| D2 | `lms-leads`, route `/lms/leads` | high |
+| P5 | Staff: own leads only — already shipped (`product/roles.md`); staff and individual have no Users filter (`pages['lms-leads'].labels.staff.filters`) | high |
+| P6 | `lms-leads`: `IS_LMS_ENABLED=true (route)`, `LMS_ENABLED.IS_BAYUT_MATCH_ENABLED=true` for the Bayut Match tab — **not** `BAYUT_MATCHING_LEAD` (it gates the badge, and is not in lms-leads' flags) | high |
+| D5 | `loading`, `empty`, `error` compiled; the filter's own empty — asked | high; the new empty asked |
+| D8 | `lead-listings-table` (web), `lead-listings-mobile` (375), `used_on` `lms-leads` — never "also the Overview, My Listings…" | high |
+| P8 | **The table already has Last Interaction and Next Planned Task, and a Last Interaction date filter** (`pages['lms-leads'].labels`); the phone card shows the next task's date and time. "Last contacted" may not mean "Last Interaction" — asked. Relative time ("3 days ago", "a day ago") ships in the notification cards (`copy/rendered/`) | medium; another meaning asked |
+| P7 | No | high |
+| D4 | Current Profolio — the pages are not My Listings, and 2.0 exists only there; existing components, the pages' own density, no illustration | high |
 
 **C · the new My Listings**
 
 | # | a correct proposal | confidence |
 |---|---|---|
-| 1 | A change to an existing page, with a new component (the reminder control, the row marker) | medium |
-| 2 | `listings-new`: the web Listing Performance drawer (`drawer-listing-performance@web`, its fixes; `drawer-listing-performance-perfect@web` has none) and the phone performance sheet (`sheet-performance@360`, `sheet-improve-quality@360`); the list rows on `pages/listings-new.html` / `.mobile.html` | high |
-| 4 | Only the owner is compiled (`registry.pages['listings-new'].roles`); staff and individual [TBC] | medium |
-| 5 | None known — `listings-new` carries no flags (the handover is not the product); [TBC], never invented | medium |
-| 6 | The drawer's no-fixes state is `drawer-listing-performance-perfect@web`; loading (`skeleton-filtering`, `rank-updating@web`), offline; the reminder's own empty asked | high; the new empty asked |
-| 10 | Web 1440 and phone **360** (the new theme's base, not 375) | high |
-| 13 | **The new theme** — the performance drawer exists only in `listings-new` (the current `listings` has none); proposed with that reason, or asked | medium; or low, asked |
+| D1 | A change to an existing page, with a new component (the reminder control, the row marker) | medium |
+| D2 | `listings-new`: the web Listing Performance drawer (`drawer-listing-performance@web`, its fixes; `drawer-listing-performance-perfect@web` has none) and the phone performance sheet (`sheet-performance@360`, `sheet-improve-quality@360`); the list rows on `pages/listings-new.html` / `.mobile.html` | high |
+| P5 | Only the owner is compiled (`registry.pages['listings-new'].roles`); staff and individual [TBC] | medium |
+| P6 | None known — `listings-new` carries no flags (the handover is not the product); [TBC], never invented | medium |
+| D5 | The drawer's no-fixes state is `drawer-listing-performance-perfect@web`; loading (`skeleton-filtering`, `rank-updating@web`), offline; the reminder's own empty asked | high; the new empty asked |
+| D9 | Web 1440 and phone **360** (the new theme's base, not 375) | high |
+| D4 | **The new theme** — the performance drawer exists only in `listings-new` (the current `listings` has none); proposed with that reason, or asked | medium; or low, asked |
 
 ---
 

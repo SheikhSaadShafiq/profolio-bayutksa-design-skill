@@ -14,7 +14,7 @@ at 1440 (web) and 375 (phone). You compose from it. You never redraw it.
    tokens, used_on, used_in_states, part_of, anatomy, source) and every page (route, file,
    aliases, atoms / molecules / organisms — what it draws —, flags, roles, states, labels —
    what it shows —, source), the shell, the flows, the fixture's clock, the utility classes.
-2. `tokens.md` — before any styling decision.
+2. `INTAKE.md` — when a PRD arrives, before your first reply. `tokens.md` — before any styling decision.
 3. Only the files the task names — `registry.pages[x].file`, `registry.components[x].file`.
 
 - `examples/` holds the worked example — read it when you reach HOW A DESIGN IS MADE, not before.
@@ -23,8 +23,8 @@ at 1440 (web) and 375 (phone). You compose from it. You never redraw it.
 - A page file is the product's whole DOM: grep it for the part you need.
 
 **A file the registry names is not here?** The package is public. A core install (`SKILL.md`,
-`registry.json`, `tokens.md`, `product/`, `css/`, `qa/`, `examples/worked-example.md`,
-`pages/prototype.js`) fetches what a task needs, links intact:
+`INTAKE.md`, `registry.json`, `tokens.md`, `kb/`, `product/`, `css/`, `qa/`,
+`examples/worked-example.md`, `pages/prototype.js`) fetches what a task needs, links intact:
 `python3 qa/fetch.py <page> [<state>…] [--375] [--roles] [--dry-run]` (or `--flow`, `--component`).
 A state id ending `@web` is only `pages/<page>/<state>.html`, `@375` (`@360` in the new theme)
 only `<state>.mobile.html`, the suffix dropped from the file name; any other has both.
@@ -34,6 +34,7 @@ only `<state>.mobile.html`, the suffix dropped from the file name; any other has
 | asked | go to |
 |---|---|
 | colour · size · spacing · radius · shadow | `tokens.md` — complete (a `--x` inside `.y` row is a component's own reset) |
+| which screens and states a PRD needs | `node qa/find.mjs "<PRD words>"` — the design knowledge base, best first |
 | "what does X look like" | `registry.json` → `components[X].file` or `pages[X].file` (match `aliases`) |
 | what a page already shows — columns, filters, tabs, card fields | `pages[X].labels` (‹…› is data; `375`, `staff`, `individual` only what differs) → `product/pages/<X>.md` |
 | "change page X" | `registry.pages[X].file` → copy it into `designs/`, change the copy |
@@ -114,36 +115,14 @@ pages are static screens, one file per state (no `prototype.js`); a value you ad
 (Mark as Booked) are composed, not drawn by the build — say so.
 Read `product/listings-new/README.md` before designing in it.
 
-## INTAKE GATE — mandatory, before producing anything
+## INTAKE — mandatory, before producing anything
 
-Read the PRD. Fill in every row you can, with a proposed answer and a confidence: high,
-medium or low. Present the table. Then ask only:
-- a row you could not fill, or filled at low confidence;
-- what a row's own text orders you to ask — row 2 when the PRD is ambiguous, row 6's new
-  empty state, row 8's Arabic timing, row 9's regenerate, row 11's other meaning.
-Write "asked" after the confidence ("high; regenerate asked"). Ask nothing else; a medium
-row states what you will assume. Never ask what this file already decides: shipped copy
-wins, the design is English (Arabic RTL is not compiled). At most one question per row,
-naming its row and carrying your proposed answer, so the designer can reply yes.
-The designer's one reply confirms every row you didn't ask: don't re-ask it. After it, the
-first text of your next turn — before any tool call that writes to `designs/` — is the plan,
-as ONE prose paragraph (no bullets, no table). Then build.
-
-| # | question | proposed from PRD | confidence |
-|---|---|---|---|
-| 1 | New page, change to an existing page, or a new cross-page component? | | |
-| 2 | If a change: which page(s)? Route + registry id. If the PRD is ambiguous, list the candidates and ask. | | |
-| 3 | Entry point — how does the user arrive here? | | |
-| 4 | Which roles see this — owner, staff, individual? Does it differ by role? | | |
-| 5 | Which tenant flags gate it? Each with the page whose `pages[x].flags` (or `shell.flags`) carries it; grep its row in `product/flags.md`, quote its Referenced-in files. An effect its Gates column does not give is [TBC], at most medium; a condition `(ORed with X)` needs both. | | |
-| 6 | States: for each page in row 2, name its compiled loading, empty, error and message-* from `pages[x].states` (or "none"); `empty` is a new account, not the feature's empty. Ask only about states with no compiled file — always about a new empty state the PRD is silent on. Answer flag-off and no-permission ("not drawn" if so). | | |
-| 7 | Any component the catalogue lacks? List what you think is missing. | | |
-| 8 | Is the copy final or placeholder? Arabic now or deferred? | | |
-| 9 | Does it change an existing component? Paste the page ids in its `used_on` verbatim — never a count; a `registry.shell` component reaches every signed-in page. Ask whether to regenerate them. | | |
-| 10 | Responsive scope — web only, or web and 375? | | |
-| 11 | Anything in the PRD contradicting the shipped product? For each key noun, the shipped field that covers it (`pages[x].labels`, `copy/rendered/`). Same meaning: the shipped string wins, flag it. Maybe another meaning: ask; a new meaning is new copy. | | |
-| 12 | Touches credits, packages or tiers? The products and tiers affected, expiry, payment methods (`product/ksa.md`, `PAYMENT_METHODS`). | | |
-| 13 | Only if the PRD touches My Listings: the current theme, or the new one (`listings-new`)? | | |
+A PRD arrives: read `INTAKE.md` and follow it before your first reply —
+0 · the PRD gap check; 1 · the screens it needs (`node qa/find.mjs "<PRD words>"`);
+2 · the questions, product (P1–P8, for the PM) and design (D1–D9, for the designer), each
+with a proposed answer and a confidence, asking only what it allows; 3 · the edge cases and
+scenarios, which you work out yourself and never ask; 4 · after the one reply, the plan as ONE
+paragraph, before any file is written. Then build.
 
 ## HOW A DESIGN IS MADE
 
@@ -154,7 +133,8 @@ as ONE prose paragraph (no bullets, no table). Then build.
    compiled file a block comes from in `<meta name="pf-also" content="a, b">`. Point the
    script at `src="../pages/prototype.js"`; it resolves the copied links from pf-base. A state
    file sits one folder deeper (`pages/<page>/<state>.html`): its `../../css/` becomes `../css/`.
-   `examples/worked-example.md` is one whole trace, PRD to output contract.
+   `examples/worked-example.md` is one whole trace, PRD to output contract (a full install
+   also has its designs).
 2. Compose with the registry's classes and the component files' own markup (each variant
    has its HTML). Mark new copy `data-pf-new-copy`. Fixture values copied unchanged stay
    unmarked; only values you change or make up get `data-pf-data`, each listed under [TBC].
@@ -179,6 +159,7 @@ as ONE prose paragraph (no bullets, no table). Then build.
 - **The plan** — the paragraph you sent before building, unchanged.
 - **Components used** — registry ids, by level.
 - **Components added, and why** — each one, with the gap it fills.
+- **Edge cases and scenarios** — each one (INTAKE.md § 3), and the state or file that covers it.
 - **Layout differences** — per state, what the 375 file has or lacks against web.
 - **PRD deviations** — each requirement or string drawn differently from the PRD, and why.
 - **Every [TBC]** — each value, string or icon you could not source, and where you looked.
@@ -189,6 +170,8 @@ as ONE prose paragraph (no bullets, no table). Then build.
   `fixture_url`), the account (owner, staff or individual), the state, and the overlay command.
   A flag-off state: name the build (constant flipped) or the compiled reference, never an
   account — flags are compile-time constants.
+- **Handoff notes** — for the developers, per state: the components (registry ids), the copy
+  (English, Arabic or new), the flags, the APIs and data it needs, and every open item.
 
 ## THE PROTOTYPE
 
