@@ -9,16 +9,17 @@ it got against the product it came from.
 
 | Path | What |
 |---|---|
-| `skill/` | **The skill package — install this.** `SKILL.md` (routing, intake gate, output contract), `registry.json` (every component and page), `tokens.md`, a file per component in `atoms/` `molecules/` `organisms/`, every page and state in `pages/`, the locked `css/`, `product/` (flags, copy, roles, routes, KSA), `qa/validate.py` and `qa/overlay.html`, `examples/`. Built by `npm run package` from the compiled design system; `npm run validate` checks it. |
+| `skill/` | **The skill package — install this.** `SKILL.md` (routing, intake gate, output contract), `registry.json` (every component and page), `tokens.md`, a file per component in `atoms/` `molecules/` `organisms/`, every page and state in `pages/`, the locked `css/`, `product/` (flags with what each gates, copy — translations and `copy/rendered/`, what every screen draws —, roles, routes, KSA, `usage.md`, `pages/` — what each page shows), `qa/validate.py`, `qa/fetch.py` (fetch a page and its states by path on a core install), `qa/measure.mjs` and `qa/overlay.html`, `examples/`. Built by `npm run package` from the compiled design system and the product's source (flags, routes, translations: `scripts/skill/`); `npm run validate` checks it. |
 | `MAINTAINING.md` | How the generator repo is laid out and how each part is made — for whoever regenerates the skill. |
 | `deliverables/design-system.html` | **The design system.** Foundations (what the compiled pages paint: the two typefaces, colour ramps, the type scale, the corners), atoms, molecules, organisms, templates, then every compiled page and state, and the product knowledge that goes with them. |
 | `deliverables/components/` | One page per component: live variants, markup, the exact CSS, forced interaction states, anatomy, usage, source file, copy — a spec sheet per variant (measured, with token names), and for buttons, inputs, selects, pickers, checkboxes, radios and switches a table of every state. |
-| `deliverables/<page>.html`, `deliverables/states/` | The 24 pages and every reachable state, compiled from the product, pixel-identical at 1440: overlays and what they lead to (`--<parent>__<child>`), form states, loading / empty / error on every signed-in page, four flows as numbered steps (`--flow-<flow>-<nn>-<step>`), and the account variants (`--as-staff`, `--as-individual`, `--profile-incomplete`, `--modal-non-saudi`). A clickable prototype: triggers link to their states, Escape / ✕ / Cancel go back, ← → walk a flow, the rail and menus go to the other pages, and **M** switches between web and responsive. |
+| `deliverables/<page>.html`, `deliverables/states/` | The 24 pages and every reachable state, compiled from the product, pixel-identical at 1440: overlays and what they lead to (`--<parent>__<child>`), form states, loading / empty / error on every signed-in page, four flows as numbered steps (`--flow-<flow>-<nn>-<step>`), and the account variants (`--as-staff`, `--as-individual`, `--profile-incomplete`, `--modal-non-saudi`) and the role variants of the credit states (`--<state>-as-staff`, `--<state>-as-individual`). A clickable prototype: triggers link to their states, Escape / ✕ / Cancel go back, ← → walk a flow, the rail and menus go to the other pages, and **M** switches between web and responsive. |
 | `deliverables/mobile/` | The **responsive layout**: the same pages and states as the product draws them for a phone, at 375. |
 | `deliverables/responsive.html` | **The responsive rules**, counted from both layouts: how the product picks its phone layout, which overlays become drawers, which components change size, what only one layout has — screen by screen. |
 | `deliverables/design-qa.html` | **Design QA**: every page, state and component against the product's render, the live product on two real accounts, and the product's code. |
 | `deliverables/profolio.css`, `profolio.mobile.css`, `tokens.css` | One stylesheet per layout (the product's own CSS, renamed) and the named tokens. |
-| `deliverables/profolio-ksa.html` (+ `-2`, `-3`, `-4`), `profolio-ksa-responsive.html` (+ `-2`), `profolio-ksa-components.html` | Everything above as seven self-contained files — the web pages and states in four parts, the responsive layout in two, the components in one — each under GitHub's recommended 50 MB, each part holding whole pages with all their states, each opening on the index; a link into another part opens that part at the page. |
+| `deliverables/new-theme/` | **My Listings — the new theme** (Profolio 2.0, not yet live): every state of the redesigned My Listings, compiled from the designer's handover (`authoring/themes/new/`), with the designer's decisions applied — the product's own header and rail kept, the riyal as a glyph, Mark as Booked derived from the builds' own data — each held to what the browser drew within 0.5%; its tokens (`tokens.css`, `--pf-ml-*`, My Listings only, following the build, with tokens.json's originals in `tokens.resolved.json`) and a current-vs-new page (`compare.html`). The current theme is untouched; `design-system.html` shows both. |
+| `deliverables/profolio-ksa.html` (+ `-2`…`-4`), `profolio-ksa-responsive.html` (+ `-2`, `-3`), `profolio-ksa-components.html`, `profolio-ksa-new-theme.html` | Everything above as nine self-contained files — the web pages and states in four parts, the responsive layout in three, the components in one, the new My Listings in one — each under GitHub's recommended 50 MB, each part holding whole pages with all their states, each opening on the index; a link into another part opens that part at the page. |
 | `kb/` | **The knowledge base.** Product (KSA rules, screens, flags, copy by area), a page per route, and the working guide. Generated from the product's source. |
 | `kb/screens/`, `data/design-kb.json` | **The design knowledge base**: every compiled screen and state, web and responsive — what it is for, how each state is reached, what it shows, the components it adds, the file to open. `node scripts/design-find.mjs "<words from a PRD>"` searches it. |
 | `scripts/design-brief.mjs`, `scripts/design-lint.mjs` | **PRD → design brief**: per requirement, the screens and states to start from, what the design must cover and the gaps (`npm run brief -- <prd.md>`). **Design lint**: an artboard held to the system — classes, colours, icons, copy, currency, shell, type, the 375 pair, disabled dimming (`npm run lint -- <design.html>`). |
@@ -28,6 +29,47 @@ it got against the product it came from.
 | `scripts/design-qa.mjs`, `scripts/qa-fidelity.mjs` | Design QA: pixels, the live product (`--real`, `--account b`, `--mobile`), copy and sources. |
 | `data/` | Machine inputs and scores: `live/` (the product, harness and real-account geometry), `ours/` (the compiled files, re-rendered), `qa/` (every score), `states/` (every state the explorer found, web and `mobile/`), `api-shapes.json` and `api-shapes.b.json` (two real accounts' API keys and types, no values). |
 | `authoring/` | The only hand-written prose: the KSA rules and the working guide. Rendered into `kb/`. |
+
+## Use the skill
+
+The skill designs Profolio KSA screens from a PRD. It asks the PM and the designer only what the
+PRD leaves open (goal and metric, stories, scope and release, roles, flags; pages, design
+language, states, copy), works out the edge cases itself, and composes the design from the
+product's own compiled HTML. That HTML stays here on GitHub: the skill finds what a PRD needs
+in its design knowledge base (`node qa/find.mjs "<PRD words>"`) and fetches just those files
+(`python3 qa/fetch.py <page> <state>`).
+
+**Get it** — download
+[`profolio-ksa-design.skill`](https://github.com/SheikhSaadShafiq/profolio-bayutksa-design-skill/releases/latest/download/profolio-ksa-design.skill)
+from the [latest release](https://github.com/SheikhSaadShafiq/profolio-bayutksa-design-skill/releases/latest).
+It carries the instructions, the registry, the tokens and the product and design knowledge
+bases. The stylesheets and pages stay here, and the skill fetches only what a PRD needs.
+
+**claude.ai** — upload the `.skill` file under Settings → Capabilities → Skills (code execution
+on). The skill downloads pages from `raw.githubusercontent.com`, so the chat's code execution needs
+network access to that domain. Without it the skill still runs the intake (the gap check, the
+questions, the edge cases and the plan) and says which pages it could not open.
+
+**Claude Code** — a `.skill` file is a zip; unzip it into your skills folder:
+
+```bash
+mkdir -p ~/.claude/skills && unzip -o profolio-ksa-design.skill -d ~/.claude/skills/
+```
+
+Then, in any session, paste a PRD ("design this for Profolio KSA: …"). To have every page local
+instead (about 450 MB), clone this repo and link its `skill/` folder:
+`ln -s "$PWD/skill" ~/.claude/skills/profolio-ksa-design`.
+
+**Build a release** — pages are fetched from `skill/registry.json` → `source.ref`, so build
+from `main`:
+
+```bash
+SKILL_REF=main npm run package && npm run skill:file
+```
+
+```bash
+gh release create skill-vX.Y dist/profolio-ksa-design.skill --title "Profolio KSA design skill vX.Y"
+```
 
 ## Running it
 

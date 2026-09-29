@@ -1,0 +1,176 @@
+{
+  "$meta": {
+    "name": "Bayut KSA Profolio 2.0: My Listings mobile",
+    "base": "360pt",
+    "updated": "2026-09-16"
+  },
+  "color": {
+    "primary": {
+      "0": "#E9F7F0",
+      "1": "#D4EFE2",
+      "2": "#BEE8D3",
+      "3": "#A9E0C5",
+      "4": "#93D8B6",
+      "5": "#7ED0A7",
+      "6": "#69C899",
+      "7": "#53C18A",
+      "8": "#28B16D",
+      "9": "#249F62",
+      "10": "#208E57",
+      "11": "#10603A",
+      "-1": "#F0FAF5"
+    },
+    "brand": {
+      "green": "#28B16D",
+      "greenPressed": "#208E57",
+      "greenInk": "#249F62",
+      "greenDeep": "#10603A"
+    },
+    "tint": {
+      "green050": "#F0FAF5",
+      "green100": "#E9F7F0",
+      "green200": "#D4EFE2",
+      "teal050": "#F7FCFC",
+      "blue050": "#F0F7FC",
+      "amber050": "#FEF8F0",
+      "amber100": "#FCEDD9",
+      "red050": "#FFF2F2",
+      "red100": "#FFE0E0"
+    },
+    "status": {
+      "good": "#249F62",
+      "warn": "#C88B37",
+      "bad": "#CE2929",
+      "info": "#3B84C4",
+      "neutral": "#707070"
+    },
+    "text": {
+      "primary": "#222222",
+      "secondary": "#4F4F4F",
+      "tertiary": "#626262",
+      "muted": "#707070",
+      "faint": "#9D9D9D",
+      "onBrand": "#FFFFFF"
+    },
+    "border": {
+      "strong": "#DEDEDE",
+      "base": "#E6E6E6",
+      "soft": "#F0F0F0"
+    },
+    "surface": {
+      "page": "#F3F4F5",
+      "card": "#FFFFFF",
+      "sheet": "#FFFFFF",
+      "scrim": "rgba(0,0,0,0.42)"
+    },
+    "gradient": {
+      "signature": "linear-gradient(46deg,#696EFF 0%,#D466DE 100%)",
+      "hot": "linear-gradient(244deg,#DD5050 0%,#AB251D 100%)"
+    }
+  },
+  "radius": {
+    "xs": 4,
+    "sm": 6,
+    "md": 8,
+    "lg": 12,
+    "sheet": 20,
+    "pill": 999
+  },
+  "space": {
+    "xxs": 2,
+    "xs": 4,
+    "sm": 6,
+    "md": 8,
+    "lg": 12,
+    "xl": 16,
+    "xxl": 20,
+    "section": 24
+  },
+  "type": {
+    "family": {
+      "ui": "Geist",
+      "app": "Lato",
+      "chrome": "Figtree",
+      "mono": "JetBrains Mono"
+    },
+    "price": {
+      "size": 17,
+      "weight": 700,
+      "line": 22
+    },
+    "subtype": {
+      "size": 12,
+      "weight": 600,
+      "line": 16,
+      "color": "#249F62"
+    },
+    "location": {
+      "size": 12,
+      "weight": 400,
+      "line": 16,
+      "color": "#707070"
+    },
+    "stat": {
+      "size": 14,
+      "weight": 700,
+      "line": 18
+    },
+    "label": {
+      "size": 11,
+      "weight": 500,
+      "line": 14,
+      "color": "#9D9D9D"
+    },
+    "sheetTitle": {
+      "size": 18,
+      "weight": 700,
+      "line": 24,
+      "family": "Figtree"
+    },
+    "body": {
+      "size": 13,
+      "weight": 400,
+      "line": 20
+    }
+  },
+  "motion": {
+    "sheetIn": {
+      "duration": 340,
+      "curve": "cubic-bezier(.32,.72,0,1)"
+    },
+    "sheetOut": {
+      "duration": 260,
+      "curve": "cubic-bezier(.32,.72,0,1)"
+    },
+    "chipPress": {
+      "duration": 120,
+      "curve": "ease-out"
+    },
+    "scoreBar": {
+      "duration": 640,
+      "curve": "cubic-bezier(.22,1,.36,1)"
+    },
+    "skeleton": {
+      "duration": 1800,
+      "curve": "linear",
+      "note": "filter simulation hold"
+    },
+    "toast": {
+      "duration": 3200,
+      "curve": "ease",
+      "note": "in 200 / hold 2800 / out 200"
+    }
+  },
+  "elevation": {
+    "sheet": "0 -8px 32px rgba(0,0,0,0.16)",
+    "card": "0 1px 2px rgba(0,0,0,0.04)",
+    "toast": "0 14px 34px rgba(0,0,0,0.22)",
+    "rankBad": "0 0 2px rgba(255,0,0,0.12) inset"
+  },
+  "target": {
+    "min": 44,
+    "iconButton": 44,
+    "chip": 32,
+    "row": 88
+  }
+}

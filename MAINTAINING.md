@@ -52,7 +52,8 @@ pages with one linked stylesheet, so a page costs about what its prose weighs.
 | `deliverables/design-qa.html` | **Before you call anything pixel-perfect.** Every page, state and component held to the product's render, to the live product on two real accounts, and to its code (copy, sources). Names what is off, and by how much. |
 | `deliverables/profolio.css` | The stylesheet every web page and component uses — the product's own CSS, `ant-*` renamed `pf-*`, styled-components named after the JSX the product wrote. `deliverables/profolio.mobile.css` is the responsive layout's: the same rules in the order a phone's pages paint them. Generated; never edit either by hand. |
 | `deliverables/tokens.css` | The named tokens as custom properties (`--pf-primary`, `--pf-color-text`…). Cite these names in a spec, never raw hex. |
-| `deliverables/profolio-ksa.html` (+ `-2`…`-4`, `-responsive`, `-responsive-2`, `-components`) | Everything above as seven self-contained files, each under 50 MB (`scripts/combine.mjs` splits by packed size, whole pages per part) — for handing over, not for reading into context. |
+| `deliverables/profolio-ksa.html` (+ `-2`…`-4`, `-responsive`, `-responsive-2`, `-responsive-3`, `-components`, `-new-theme`) | Everything above as nine self-contained files, each under 50 MB (`scripts/combine.mjs` splits by packed size, whole pages per part) — for handing over, not for reading into context. |
+| `deliverables/new-theme/`, `scripts/theme/` | The new My Listings (Profolio 2.0): `npm run theme` cuts the product shell out (`shell.mjs`), lifts every state out of the designer's handover (`capture.mjs` + `states.mjs`, with the designer's decisions applied in the build before each shot and the derived screens from `derive.mjs`), holds the shell to the product's (`check-shell.mjs`), measures what the build paints, writes the tokens following the build (`foundations.mjs`), the spec in words, and the index section. At launch, compile the live page instead and compare. |
 | `deliverables/sprite.svg` | **The product's real icons**, each named as the codebase names it. Reference one with `<use href="#pf-SideMenuDashboard">`. Never draw a glyph yourself. |
 | `kb/guide/recipe.html` | **Building a whole page?** Follow it — the order exists because each step cost real rework when skipped. |
 
@@ -213,6 +214,15 @@ two real accounts: an agency owner (`data/api-shapes.json`) and an agency staff 
 (`data/api-shapes.b.json`, fixture mode `staff`). `node scripts/check-fixtures.mjs` proves it.
 The individual seller (fixture mode `individual`) was not recorded from a real account: it is
 the owner's own record with the agency taken away, so only what the role changes moves.
+A state compiled for another role uses a compound mode, `'<state mode>+<account mode>'`
+(`lf-low-credits+staff`): each request is answered in the account's mode with the state
+mode's own changes laid over it (`harness/fixtures.mjs` `compound()`, `overlay()`), and the
+state is named `<state>-as-staff` / `<state>-as-individual` — the skill reads a state's role
+from its name.
+
+`npm run package` reads the product's source too (`../profolio-reactjs`, or `--repo`): the
+flags and what each gates, the route patterns, and every translation for
+`product/copy/rendered/` come from it (`scripts/skill/`).
 
 Every generated page carries the commit it was built from. If a generated page disagrees
 with the code, the code is right and the generator needs re-running: `npm run all`.

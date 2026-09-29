@@ -1301,7 +1301,25 @@
    "user-settings-user-profile--empty": 1,
    "user-settings-user-profile--error": 1,
    "user-settings-user-profile--loading": 1,
-   "user-settings-user-profile--modal-convert-to-agency": 1
+   "user-settings-user-profile--modal-convert-to-agency": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "listings--popover-notifications-empty": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "listings--drawer-notifications-empty--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 1
   }
  },
  "MainRouter@src/router.js": {
@@ -2606,7 +2624,25 @@
    "user-settings-user-profile--empty": 1,
    "user-settings-user-profile--error": 1,
    "user-settings-user-profile--loading": 1,
-   "user-settings-user-profile--modal-convert-to-agency": 1
+   "user-settings-user-profile--modal-convert-to-agency": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "listings--popover-notifications-empty": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "listings--drawer-notifications-empty--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 1
   }
  },
  "AuthInfo@src/components/utilities/auth-info/info.js": {
@@ -3871,7 +3907,25 @@
    "user-settings-user-profile--empty": 1,
    "user-settings-user-profile--error": 1,
    "user-settings-user-profile--loading": 1,
-   "user-settings-user-profile--modal-convert-to-agency": 1
+   "user-settings-user-profile--modal-convert-to-agency": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "listings--popover-notifications-empty": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "listings--drawer-notifications-empty--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 1
   }
  },
  "HeaderComponent@src/tenant/common/components/header-component/header-components.js": {
@@ -5132,7 +5186,25 @@
    "user-settings-user-profile--empty": 1,
    "user-settings-user-profile--error": 1,
    "user-settings-user-profile--loading": 1,
-   "user-settings-user-profile--modal-convert-to-agency": 1
+   "user-settings-user-profile--modal-convert-to-agency": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "listings--popover-notifications-empty": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "listings--drawer-notifications-empty--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 1
   }
  },
  "PostListingMenuScrim@src/components/post-listing-menu/post-listing-menu.js": {
@@ -5846,7 +5918,16 @@
    "user-settings-user-profile--empty": 1,
    "user-settings-user-profile--error": 1,
    "user-settings-user-profile--loading": 1,
-   "user-settings-user-profile--modal-convert-to-agency": 1
+   "user-settings-user-profile--modal-convert-to-agency": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "listings--popover-notifications-empty": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1
   }
  },
  "Button@src/components/common/button/button.js": {
@@ -6827,7 +6908,7 @@
    "post-listing-upgrade--flow-post-listing-09-posted--mobile": 4,
    "post-listing-upgrade--flow-post-listing-10-upgrade--mobile": 4,
    "post-listing-upgrade--inline-basic-listing-get-standard-visibilit--mobile": 3,
-   "post-listing-upgrade--inline-insufficient-credits--mobile": 3,
+   "post-listing-upgrade--inline-insufficient-credits--mobile": 4,
    "post-listing-upgrade--loading--mobile": 3,
    "post-listing-upgrade--message-post-listing--mobile": 5,
    "post-listing-upgrade--message-upgrade-failed--mobile": 4,
@@ -7143,7 +7224,25 @@
    "user-settings-user-profile--empty": 10,
    "user-settings-user-profile--error": 10,
    "user-settings-user-profile--loading": 9,
-   "user-settings-user-profile--modal-convert-to-agency": 14
+   "user-settings-user-profile--modal-convert-to-agency": 14,
+   "credits-usage--modal-top-up-your-credits-as-individual": 7,
+   "credits-usage--modal-top-up-your-credits-as-staff": 8,
+   "dashboard--drawer-credits-balance-as-individual": 111,
+   "dashboard--drawer-credits-balance-as-staff": 113,
+   "dashboard--modal-top-up-your-credits-as-individual": 109,
+   "dashboard--modal-top-up-your-credits-as-staff": 111,
+   "listings--popover-notifications-empty": 9,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 5,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 5,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 7,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 7,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 57,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 60,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 58,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 60,
+   "listings--drawer-notifications-empty--mobile": 7,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 3,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 3
   }
  },
  "Icon@src/components/common/icon/icon.js": {
@@ -8440,7 +8539,25 @@
    "user-settings-user-profile--empty": 36,
    "user-settings-user-profile--error": 36,
    "user-settings-user-profile--loading": 36,
-   "user-settings-user-profile--modal-convert-to-agency": 37
+   "user-settings-user-profile--modal-convert-to-agency": 37,
+   "credits-usage--modal-top-up-your-credits-as-individual": 52,
+   "credits-usage--modal-top-up-your-credits-as-staff": 52,
+   "dashboard--drawer-credits-balance-as-individual": 224,
+   "dashboard--drawer-credits-balance-as-staff": 224,
+   "dashboard--modal-top-up-your-credits-as-individual": 225,
+   "dashboard--modal-top-up-your-credits-as-staff": 225,
+   "listings--popover-notifications-empty": 30,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 32,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 32,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 40,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 40,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 183,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 183,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 184,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 184,
+   "listings--drawer-notifications-empty--mobile": 18,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 24,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 24
   }
  },
  "LinkWithIcon@src/components/common/link-with-icon/link-with-icon.js": {
@@ -9231,7 +9348,20 @@
    "user-settings-user-profile--empty": 1,
    "user-settings-user-profile--error": 1,
    "user-settings-user-profile--loading": 1,
-   "user-settings-user-profile--modal-convert-to-agency": 1
+   "user-settings-user-profile--modal-convert-to-agency": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual": 2,
+   "dashboard--drawer-credits-balance-as-staff": 2,
+   "dashboard--modal-top-up-your-credits-as-individual": 2,
+   "dashboard--modal-top-up-your-credits-as-staff": 2,
+   "listings--popover-notifications-empty": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 2,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 2,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 2,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 2
   }
  },
  "SidebarClassifiedLinkIcon@src/components/svg.js": {
@@ -9965,7 +10095,16 @@
    "user-settings-user-profile--empty": 1,
    "user-settings-user-profile--error": 1,
    "user-settings-user-profile--loading": 1,
-   "user-settings-user-profile--modal-convert-to-agency": 1
+   "user-settings-user-profile--modal-convert-to-agency": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "listings--popover-notifications-empty": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1
   }
  },
  "PostListingIcon@src/components/svg.js": {
@@ -11227,7 +11366,25 @@
    "user-settings-user-profile--empty": 2,
    "user-settings-user-profile--error": 2,
    "user-settings-user-profile--loading": 2,
-   "user-settings-user-profile--modal-convert-to-agency": 2
+   "user-settings-user-profile--modal-convert-to-agency": 2,
+   "credits-usage--modal-top-up-your-credits-as-individual": 2,
+   "credits-usage--modal-top-up-your-credits-as-staff": 2,
+   "dashboard--drawer-credits-balance-as-individual": 2,
+   "dashboard--drawer-credits-balance-as-staff": 2,
+   "dashboard--modal-top-up-your-credits-as-individual": 2,
+   "dashboard--modal-top-up-your-credits-as-staff": 2,
+   "listings--popover-notifications-empty": 2,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 2,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 2,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "listings--drawer-notifications-empty--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 1
   }
  },
  "PostListingMenu@src/components/post-listing-menu/post-listing-menu.js": {
@@ -11941,7 +12098,16 @@
    "user-settings-user-profile--empty": 2,
    "user-settings-user-profile--error": 2,
    "user-settings-user-profile--loading": 2,
-   "user-settings-user-profile--modal-convert-to-agency": 2
+   "user-settings-user-profile--modal-convert-to-agency": 2,
+   "credits-usage--modal-top-up-your-credits-as-individual": 2,
+   "credits-usage--modal-top-up-your-credits-as-staff": 2,
+   "dashboard--drawer-credits-balance-as-individual": 2,
+   "dashboard--drawer-credits-balance-as-staff": 2,
+   "dashboard--modal-top-up-your-credits-as-individual": 2,
+   "dashboard--modal-top-up-your-credits-as-staff": 2,
+   "listings--popover-notifications-empty": 2,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 2,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 2
   }
  },
  "PropertyIcon@src/components/svg.js": {
@@ -12666,7 +12832,16 @@
    "user-settings-user-profile--empty": 2,
    "user-settings-user-profile--error": 2,
    "user-settings-user-profile--loading": 2,
-   "user-settings-user-profile--modal-convert-to-agency": 2
+   "user-settings-user-profile--modal-convert-to-agency": 2,
+   "credits-usage--modal-top-up-your-credits-as-individual": 2,
+   "credits-usage--modal-top-up-your-credits-as-staff": 2,
+   "dashboard--drawer-credits-balance-as-individual": 2,
+   "dashboard--drawer-credits-balance-as-staff": 2,
+   "dashboard--modal-top-up-your-credits-as-individual": 2,
+   "dashboard--modal-top-up-your-credits-as-staff": 2,
+   "listings--popover-notifications-empty": 2,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 2,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 2
   }
  },
  "PostListingLicenseIcon@src/components/svg.js": {
@@ -13391,7 +13566,16 @@
    "user-settings-user-profile--empty": 2,
    "user-settings-user-profile--error": 2,
    "user-settings-user-profile--loading": 2,
-   "user-settings-user-profile--modal-convert-to-agency": 2
+   "user-settings-user-profile--modal-convert-to-agency": 2,
+   "credits-usage--modal-top-up-your-credits-as-individual": 2,
+   "credits-usage--modal-top-up-your-credits-as-staff": 2,
+   "dashboard--drawer-credits-balance-as-individual": 2,
+   "dashboard--drawer-credits-balance-as-staff": 2,
+   "dashboard--modal-top-up-your-credits-as-individual": 2,
+   "dashboard--modal-top-up-your-credits-as-staff": 2,
+   "listings--popover-notifications-empty": 2,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 2,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 2
   }
  },
  "RentalIcon@src/components/svg.js": {
@@ -14116,7 +14300,16 @@
    "user-settings-user-profile--empty": 2,
    "user-settings-user-profile--error": 2,
    "user-settings-user-profile--loading": 2,
-   "user-settings-user-profile--modal-convert-to-agency": 2
+   "user-settings-user-profile--modal-convert-to-agency": 2,
+   "credits-usage--modal-top-up-your-credits-as-individual": 2,
+   "credits-usage--modal-top-up-your-credits-as-staff": 2,
+   "dashboard--drawer-credits-balance-as-individual": 2,
+   "dashboard--drawer-credits-balance-as-staff": 2,
+   "dashboard--modal-top-up-your-credits-as-individual": 2,
+   "dashboard--modal-top-up-your-credits-as-staff": 2,
+   "listings--popover-notifications-empty": 2,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 2,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 2
   }
  },
  "Popover@src/components/common/popup/popup.js": {
@@ -15024,7 +15217,20 @@
    "user-settings-user-profile--empty": 3,
    "user-settings-user-profile--error": 2,
    "user-settings-user-profile--loading": 2,
-   "user-settings-user-profile--modal-convert-to-agency": 3
+   "user-settings-user-profile--modal-convert-to-agency": 3,
+   "credits-usage--modal-top-up-your-credits-as-individual": 2,
+   "credits-usage--modal-top-up-your-credits-as-staff": 2,
+   "dashboard--drawer-credits-balance-as-individual": 38,
+   "dashboard--drawer-credits-balance-as-staff": 38,
+   "dashboard--modal-top-up-your-credits-as-individual": 38,
+   "dashboard--modal-top-up-your-credits-as-staff": 38,
+   "listings--popover-notifications-empty": 2,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 2,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 2,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 3,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 3,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 3,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 3
   }
  },
  "Progress@src/components/utilities/auth-info/info.js": {
@@ -16289,7 +16495,25 @@
    "user-settings-user-profile--empty": 1,
    "user-settings-user-profile--error": 1,
    "user-settings-user-profile--loading": 1,
-   "user-settings-user-profile--modal-convert-to-agency": 1
+   "user-settings-user-profile--modal-convert-to-agency": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "listings--popover-notifications-empty": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "listings--drawer-notifications-empty--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 1
   }
  },
  "Avatar@src/components/common/avatar/avatar.js": {
@@ -17554,7 +17778,25 @@
    "user-settings-user-profile--empty": 2,
    "user-settings-user-profile--error": 2,
    "user-settings-user-profile--loading": 2,
-   "user-settings-user-profile--modal-convert-to-agency": 2
+   "user-settings-user-profile--modal-convert-to-agency": 2,
+   "credits-usage--modal-top-up-your-credits-as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 2,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 2,
+   "listings--popover-notifications-empty": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 2,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 3,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 2,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 3,
+   "listings--drawer-notifications-empty--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 1
   }
  },
  "ChevronRightIcon@src/components/svg.js": {
@@ -18213,7 +18455,16 @@
    "user-settings-user-profile--empty": 1,
    "user-settings-user-profile--error": 1,
    "user-settings-user-profile--loading": 1,
-   "user-settings-user-profile--modal-convert-to-agency": 1
+   "user-settings-user-profile--modal-convert-to-agency": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "listings--popover-notifications-empty": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1
   }
  },
  "Logo@src/tenant/common/components/logo/Logo.js": {
@@ -19478,7 +19729,25 @@
    "user-settings-user-profile--empty": 1,
    "user-settings-user-profile--error": 1,
    "user-settings-user-profile--loading": 1,
-   "user-settings-user-profile--modal-convert-to-agency": 1
+   "user-settings-user-profile--modal-convert-to-agency": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "listings--popover-notifications-empty": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "listings--drawer-notifications-empty--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 1
   }
  },
  "ProfolioLogo@src/components/svg.js": {
@@ -20743,7 +21012,25 @@
    "user-settings-user-profile--empty": 1,
    "user-settings-user-profile--error": 1,
    "user-settings-user-profile--loading": 1,
-   "user-settings-user-profile--modal-convert-to-agency": 1
+   "user-settings-user-profile--modal-convert-to-agency": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "listings--popover-notifications-empty": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "listings--drawer-notifications-empty--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 1
   }
  },
  "SideMenuDashboard@src/components/svg.js": {
@@ -22002,7 +22289,25 @@
    "user-settings-user-profile--empty": 1,
    "user-settings-user-profile--error": 1,
    "user-settings-user-profile--loading": 1,
-   "user-settings-user-profile--modal-convert-to-agency": 1
+   "user-settings-user-profile--modal-convert-to-agency": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "listings--popover-notifications-empty": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "listings--drawer-notifications-empty--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 1
   }
  },
  "MyListingIcon@src/components/svg.js": {
@@ -23261,7 +23566,25 @@
    "user-settings-user-profile--empty": 1,
    "user-settings-user-profile--error": 1,
    "user-settings-user-profile--loading": 1,
-   "user-settings-user-profile--modal-convert-to-agency": 1
+   "user-settings-user-profile--modal-convert-to-agency": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "listings--popover-notifications-empty": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "listings--drawer-notifications-empty--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 1
   }
  },
  "SideMenuQuota@src/components/svg.js": {
@@ -24520,7 +24843,25 @@
    "user-settings-user-profile--empty": 1,
    "user-settings-user-profile--error": 1,
    "user-settings-user-profile--loading": 1,
-   "user-settings-user-profile--modal-convert-to-agency": 1
+   "user-settings-user-profile--modal-convert-to-agency": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "listings--popover-notifications-empty": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "listings--drawer-notifications-empty--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 1
   }
  },
  "DashboardLmsIcon@src/components/svg.js": {
@@ -25779,7 +26120,25 @@
    "user-settings-user-profile--empty": 1,
    "user-settings-user-profile--error": 1,
    "user-settings-user-profile--loading": 1,
-   "user-settings-user-profile--modal-convert-to-agency": 1
+   "user-settings-user-profile--modal-convert-to-agency": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "listings--popover-notifications-empty": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "listings--drawer-notifications-empty--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 1
   }
  },
  "AgentPerformanceIcon@src/components/svg.js": {
@@ -27038,7 +27397,25 @@
    "user-settings-user-profile--empty": 1,
    "user-settings-user-profile--error": 1,
    "user-settings-user-profile--loading": 1,
-   "user-settings-user-profile--modal-convert-to-agency": 1
+   "user-settings-user-profile--modal-convert-to-agency": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "listings--popover-notifications-empty": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "listings--drawer-notifications-empty--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 1
   }
  },
  "SideMenuReports@src/components/svg.js": {
@@ -28297,7 +28674,25 @@
    "user-settings-user-profile--empty": 1,
    "user-settings-user-profile--error": 1,
    "user-settings-user-profile--loading": 1,
-   "user-settings-user-profile--modal-convert-to-agency": 1
+   "user-settings-user-profile--modal-convert-to-agency": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "listings--popover-notifications-empty": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "listings--drawer-notifications-empty--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 1
   }
  },
  "SideMenuAgency@src/components/svg.js": {
@@ -29470,7 +29865,9 @@
    "user-settings-preferences--saved-smart-credit": 1,
    "user-settings-user-profile--empty": 1,
    "user-settings-user-profile--error": 1,
-   "user-settings-user-profile--loading": 1
+   "user-settings-user-profile--loading": 1,
+   "listings--popover-notifications-empty": 1,
+   "listings--drawer-notifications-empty--mobile": 1
   }
  },
  "SideMenuPropShop@src/components/svg.js": {
@@ -30729,7 +31126,25 @@
    "user-settings-user-profile--empty": 1,
    "user-settings-user-profile--error": 1,
    "user-settings-user-profile--loading": 1,
-   "user-settings-user-profile--modal-convert-to-agency": 1
+   "user-settings-user-profile--modal-convert-to-agency": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "listings--popover-notifications-empty": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "listings--drawer-notifications-empty--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 1
   }
  },
  "Flex@src/components/common/flex/index.js": {
@@ -32026,7 +32441,25 @@
    "user-settings-user-profile--empty": 16,
    "user-settings-user-profile--error": 16,
    "user-settings-user-profile--loading": 16,
-   "user-settings-user-profile--modal-convert-to-agency": 24
+   "user-settings-user-profile--modal-convert-to-agency": 24,
+   "credits-usage--modal-top-up-your-credits-as-individual": 18,
+   "credits-usage--modal-top-up-your-credits-as-staff": 18,
+   "dashboard--drawer-credits-balance-as-individual": 110,
+   "dashboard--drawer-credits-balance-as-staff": 110,
+   "dashboard--modal-top-up-your-credits-as-individual": 109,
+   "dashboard--modal-top-up-your-credits-as-staff": 109,
+   "listings--popover-notifications-empty": 5,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 2,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 2,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 16,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 16,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 83,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 84,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 83,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 84,
+   "listings--drawer-notifications-empty--mobile": 3,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 2,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 2
   }
  },
  "LanguageSwitcherIcon@src/components/svg.js": {
@@ -33291,7 +33724,25 @@
    "user-settings-user-profile--empty": 1,
    "user-settings-user-profile--error": 1,
    "user-settings-user-profile--loading": 1,
-   "user-settings-user-profile--modal-convert-to-agency": 1
+   "user-settings-user-profile--modal-convert-to-agency": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "listings--popover-notifications-empty": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "listings--drawer-notifications-empty--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 1
   }
  },
  "HelpSupportIcon@src/components/svg.js": {
@@ -34550,7 +35001,25 @@
    "user-settings-user-profile--empty": 1,
    "user-settings-user-profile--error": 1,
    "user-settings-user-profile--loading": 1,
-   "user-settings-user-profile--modal-convert-to-agency": 1
+   "user-settings-user-profile--modal-convert-to-agency": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "listings--popover-notifications-empty": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "listings--drawer-notifications-empty--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 1
   }
  },
  "Home@src/home.js": {
@@ -35810,7 +36279,25 @@
    "user-settings-user-profile--empty": 1,
    "user-settings-user-profile--error": 1,
    "user-settings-user-profile--loading": 1,
-   "user-settings-user-profile--modal-convert-to-agency": 1
+   "user-settings-user-profile--modal-convert-to-agency": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "listings--popover-notifications-empty": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "listings--drawer-notifications-empty--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 1
   }
  },
  "Dashboard@src/container/pages/dashboard/dashboard.js": {
@@ -35922,7 +36409,15 @@
    "dashboard--empty": 1,
    "dashboard--error": 1,
    "dashboard--loading": 1,
-   "dashboard--modal-publish-now__message-verify": 1
+   "dashboard--modal-publish-now__message-verify": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1
   }
  },
  "Group@src/components/common/group/group.js": {
@@ -37143,7 +37638,25 @@
    "user-settings-user-profile--empty": 22,
    "user-settings-user-profile--error": 22,
    "user-settings-user-profile--loading": 22,
-   "user-settings-user-profile--modal-convert-to-agency": 39
+   "user-settings-user-profile--modal-convert-to-agency": 39,
+   "credits-usage--modal-top-up-your-credits-as-individual": 5,
+   "credits-usage--modal-top-up-your-credits-as-staff": 5,
+   "dashboard--drawer-credits-balance-as-individual": 71,
+   "dashboard--drawer-credits-balance-as-staff": 71,
+   "dashboard--modal-top-up-your-credits-as-individual": 72,
+   "dashboard--modal-top-up-your-credits-as-staff": 72,
+   "listings--popover-notifications-empty": 6,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 7,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 7,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 4,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 4,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 81,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 81,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 81,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 81,
+   "listings--drawer-notifications-empty--mobile": 2,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 7,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 7
   }
  },
  "Dropdown@src/components/common/dropdown/dropdown.js": {
@@ -37480,7 +37993,11 @@
    "lms-leads--empty": 1,
    "lms-leads--error": 1,
    "lms-leads--loading": 1,
-   "lms-leads--modal-view-trend__popover-today-yesterday-last-7": 1
+   "lms-leads--modal-view-trend__popover-today-yesterday-last-7": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 10,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 10,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 10,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 10
   }
  },
  "ListingBreakdown@src/components/widgets/listing-breakdown/listing-breakdown.js": {
@@ -37682,7 +38199,15 @@
    "reports-summary--as-individual": 1,
    "reports-summary--empty": 1,
    "reports-summary--error": 1,
-   "reports-summary--loading": 1
+   "reports-summary--loading": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1
   }
  },
  "LoaderWrapper@src/components/common/loader-wrapper/loader-wrapper.js": {
@@ -38174,7 +38699,21 @@
    "user-settings-user-profile--empty": 1,
    "user-settings-user-profile--error": 1,
    "user-settings-user-profile--loading": 1,
-   "user-settings-user-profile--modal-convert-to-agency": 1
+   "user-settings-user-profile--modal-convert-to-agency": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 2,
+   "credits-usage--modal-top-up-your-credits-as-staff": 2,
+   "dashboard--drawer-credits-balance-as-individual": 2,
+   "dashboard--drawer-credits-balance-as-staff": 2,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "listings--popover-notifications-empty": 1,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 2,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 2,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 3,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 3,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 3,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 3,
+   "listings--drawer-notifications-empty--mobile": 1
   }
  },
  "Card@src/components/common/cards/Card.js": {
@@ -39372,7 +39911,24 @@
    "user-settings-user-profile--empty": 3,
    "user-settings-user-profile--error": 2,
    "user-settings-user-profile--loading": 3,
-   "user-settings-user-profile--modal-convert-to-agency": 3
+   "user-settings-user-profile--modal-convert-to-agency": 3,
+   "credits-usage--modal-top-up-your-credits-as-individual": 11,
+   "credits-usage--modal-top-up-your-credits-as-staff": 12,
+   "dashboard--drawer-credits-balance-as-individual": 7,
+   "dashboard--drawer-credits-balance-as-staff": 8,
+   "dashboard--modal-top-up-your-credits-as-individual": 4,
+   "dashboard--modal-top-up-your-credits-as-staff": 5,
+   "listings--popover-notifications-empty": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 2,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 2,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 10,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 10,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 16,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 17,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 13,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 14,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 2,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 2
   }
  },
  "TextWithIcon@src/components/common/textWithIcon/textWithIcon.js": {
@@ -40272,7 +40828,19 @@
    "user-settings-user-profile--empty": 1,
    "user-settings-user-profile--error": 1,
    "user-settings-user-profile--loading": 1,
-   "user-settings-user-profile--modal-convert-to-agency": 1
+   "user-settings-user-profile--modal-convert-to-agency": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 10,
+   "credits-usage--modal-top-up-your-credits-as-staff": 10,
+   "dashboard--drawer-credits-balance-as-individual": 33,
+   "dashboard--drawer-credits-balance-as-staff": 33,
+   "dashboard--modal-top-up-your-credits-as-individual": 32,
+   "dashboard--modal-top-up-your-credits-as-staff": 32,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 8,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 8,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 42,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 43,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 42,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 42
   }
  },
  "Statistic@src/components/common/statistic/index.js": {
@@ -40746,7 +41314,19 @@
    "reports-listing-report--menu-post-a-listing": 7,
    "reports-summary--as-individual": 14,
    "reports-summary--empty": 14,
-   "reports-summary--error": 7
+   "reports-summary--error": 7,
+   "credits-usage--modal-top-up-your-credits-as-individual": 3,
+   "credits-usage--modal-top-up-your-credits-as-staff": 3,
+   "dashboard--drawer-credits-balance-as-individual": 17,
+   "dashboard--drawer-credits-balance-as-staff": 17,
+   "dashboard--modal-top-up-your-credits-as-individual": 17,
+   "dashboard--modal-top-up-your-credits-as-staff": 17,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 3,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 3,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 43,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 43,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 43,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 43
   }
  },
  "ActiveListingIcon@src/components/svg.js": {
@@ -40856,7 +41436,15 @@
    "dashboard--as-individual": 1,
    "dashboard--empty": 1,
    "dashboard--error": 1,
-   "dashboard--modal-publish-now__message-verify": 1
+   "dashboard--modal-publish-now__message-verify": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1
   }
  },
  "IconForSale@src/components/svg.js": {
@@ -41055,7 +41643,15 @@
    "reports-listing-report--error": 1,
    "reports-summary--as-individual": 1,
    "reports-summary--empty": 1,
-   "reports-summary--error": 1
+   "reports-summary--error": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1
   }
  },
  "IconForRent@src/components/svg.js": {
@@ -41254,7 +41850,15 @@
    "reports-listing-report--error": 1,
    "reports-summary--as-individual": 1,
    "reports-summary--empty": 1,
-   "reports-summary--error": 1
+   "reports-summary--error": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1
   }
  },
  "IconRental@src/components/svg.js": {
@@ -41459,7 +42063,15 @@
    "reports-listing-report--error": 1,
    "reports-summary--as-individual": 1,
    "reports-summary--empty": 1,
-   "reports-summary--error": 1
+   "reports-summary--error": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1
   }
  },
  "IconSuperHot@src/components/svg.js": {
@@ -41895,7 +42507,23 @@
    "reports-listing-report--error": 1,
    "reports-summary--as-individual": 2,
    "reports-summary--empty": 1,
-   "reports-summary--error": 1
+   "reports-summary--error": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual": 11,
+   "dashboard--drawer-credits-balance-as-staff": 11,
+   "dashboard--modal-top-up-your-credits-as-individual": 11,
+   "dashboard--modal-top-up-your-credits-as-staff": 11,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 11,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 11,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 11,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 11,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 1
   }
  },
  "IconBasic@src/components/svg.js": {
@@ -42327,7 +42955,23 @@
    "reports-listing-report--error": 1,
    "reports-summary--as-individual": 2,
    "reports-summary--empty": 1,
-   "reports-summary--error": 1
+   "reports-summary--error": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-staff": 2,
+   "dashboard--drawer-credits-balance-as-individual": 4,
+   "dashboard--drawer-credits-balance-as-staff": 4,
+   "dashboard--modal-top-up-your-credits-as-individual": 4,
+   "dashboard--modal-top-up-your-credits-as-staff": 4,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 4,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 4,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 4,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 4,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 1
   }
  },
  "CreditsQuota@src/components/widgets/credits-quota/credits-quota.js": {
@@ -42437,7 +43081,15 @@
    "dashboard--loading": 1,
    "dashboard--modal-publish-now__message-verify": 1,
    "listings--drawer-credit-info": 1,
-   "listings--member-area": 1
+   "listings--member-area": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1
   }
  },
  "QuotaCreditsStatsWidget@src/components/widgets/QuotaCreditsStatWidget.js": {
@@ -42649,7 +43301,15 @@
    "packages--as-individual": 1,
    "packages--empty": 1,
    "packages--error": 1,
-   "packages--loading": 1
+   "packages--loading": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1
   }
  },
  "ReportsLeadsSection@src/components/widgets/ReportsLeadsTrafficSection.js": {
@@ -42844,7 +43504,10 @@
    "reports-leads-reports--error": 1,
    "reports-summary--empty": 1,
    "reports-summary--error": 1,
-   "reports-summary--loading": 1
+   "reports-summary--loading": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1
   }
  },
  "TextInput@src/components/common/textInput/textInput.js": {
@@ -43617,7 +44280,16 @@
    "user-settings-user-profile--empty": 7,
    "user-settings-user-profile--error": 7,
    "user-settings-user-profile--loading": 7,
-   "user-settings-user-profile--modal-convert-to-agency": 14
+   "user-settings-user-profile--modal-convert-to-agency": 14,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "listings--popover-notifications-empty": 2,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1
   }
  },
  "ProductTag@src/components/common/product-tag/index.js": {
@@ -43983,7 +44655,19 @@
    "lms-leads--drawer-khalid-al-shammari-khalidalshammari1__drawer-add-interest-manually": 1,
    "lms-leads--drawer-nourah-al-qahtani-nourahqahtanimaile__drawer-add-interest-manually": 1,
    "reports-leads-reports--as-individual": 3,
-   "reports-summary--as-individual": 3
+   "reports-summary--as-individual": 3,
+   "credits-usage--modal-top-up-your-credits-as-individual": 5,
+   "credits-usage--modal-top-up-your-credits-as-staff": 5,
+   "dashboard--drawer-credits-balance-as-individual": 14,
+   "dashboard--drawer-credits-balance-as-staff": 14,
+   "dashboard--modal-top-up-your-credits-as-individual": 14,
+   "dashboard--modal-top-up-your-credits-as-staff": 14,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 4,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 4,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 14,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 14,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 14,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 14
   }
  },
  "Tag@src/components/common/tag/tag.js": {
@@ -44747,7 +45431,23 @@
    "user-settings-user-profile--empty": 2,
    "user-settings-user-profile--error": 2,
    "user-settings-user-profile--loading": 2,
-   "user-settings-user-profile--modal-convert-to-agency": 2
+   "user-settings-user-profile--modal-convert-to-agency": 2,
+   "credits-usage--modal-top-up-your-credits-as-individual": 10,
+   "credits-usage--modal-top-up-your-credits-as-staff": 10,
+   "dashboard--drawer-credits-balance-as-individual": 35,
+   "dashboard--drawer-credits-balance-as-staff": 35,
+   "dashboard--modal-top-up-your-credits-as-individual": 35,
+   "dashboard--modal-top-up-your-credits-as-staff": 35,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 8,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 8,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 25,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 25,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 25,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 25,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 1
   }
  },
  "ChartjsAreaChart@src/components/charts/chartjs.js": {
@@ -44950,7 +45650,15 @@
    "dashboard--as-individual": 1,
    "dashboard--modal-publish-now__message-verify": 1,
    "reports-leads-reports--as-individual": 1,
-   "reports-summary--as-individual": 1
+   "reports-summary--as-individual": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1
   }
  },
  "ListingContainer@src/components/listing-container/ListingContainer.js": {
@@ -45267,7 +45975,12 @@
    "reports-listing-report--as-individual": 1,
    "reports-listing-report--empty": 1,
    "reports-listing-report--error": 1,
-   "reports-listing-report--loading": 1
+   "reports-listing-report--loading": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "listings--popover-notifications-empty": 1
   }
  },
  "DataTable@src/components/common/dataTable/dataTable.js": {
@@ -45609,7 +46322,12 @@
    "reports-listing-report--as-individual": 1,
    "reports-listing-report--empty": 1,
    "reports-listing-report--error": 1,
-   "reports-listing-report--loading": 1
+   "reports-listing-report--loading": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "listings--popover-notifications-empty": 1
   }
  },
  "Image@src/components/common/image/image.js": {
@@ -46147,7 +46865,19 @@
    "lms-leads--modal-view-trend__popover-today-yesterday-last-7": 4,
    "reports-listing-report--as-individual": 10,
    "user-settings-agency-profile--empty": 1,
-   "user-settings-agency-profile--error": 1
+   "user-settings-agency-profile--error": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 5,
+   "credits-usage--modal-top-up-your-credits-as-staff": 5,
+   "dashboard--drawer-credits-balance-as-individual": 10,
+   "dashboard--drawer-credits-balance-as-staff": 10,
+   "dashboard--modal-top-up-your-credits-as-individual": 10,
+   "dashboard--modal-top-up-your-credits-as-staff": 10,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 4,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 4,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 10,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 10,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 10,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 10
   }
  },
  "Number@src/components/common/number/number.js": {
@@ -46643,7 +47373,19 @@
    "reports-listing-report--as-individual": 42,
    "reports-listing-report--empty": 2,
    "reports-summary--as-individual": 2,
-   "reports-summary--empty": 2
+   "reports-summary--empty": 2,
+   "credits-usage--modal-top-up-your-credits-as-individual": 12,
+   "credits-usage--modal-top-up-your-credits-as-staff": 12,
+   "dashboard--drawer-credits-balance-as-individual": 34,
+   "dashboard--drawer-credits-balance-as-staff": 34,
+   "dashboard--modal-top-up-your-credits-as-individual": 34,
+   "dashboard--modal-top-up-your-credits-as-staff": 34,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 11,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 11,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 10,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 10,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 10,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 10
   }
  },
  "Health@src/tenant/common/components/listing/health/health.js": {
@@ -46899,7 +47641,15 @@
    "listings--drawer-show-more__tooltip-0-1-billion": 10,
    "listings--member-area": 10,
    "listings--modal-publish-now__message-verify": 10,
-   "reports-listing-report--as-individual": 10
+   "reports-listing-report--as-individual": 10,
+   "dashboard--drawer-credits-balance-as-individual": 10,
+   "dashboard--drawer-credits-balance-as-staff": 10,
+   "dashboard--modal-top-up-your-credits-as-individual": 10,
+   "dashboard--modal-top-up-your-credits-as-staff": 10,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 10,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 10,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 10,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 10
   }
  },
  "ListingHealth@src/components/listing-health/listing-health.js": {
@@ -47152,7 +47902,15 @@
    "listings--member-area": 10,
    "listings--modal-publish-now__message-verify": 10,
    "reports-listing-report--as-individual": 10,
-   "reports-listing-report--menu-post-a-listing": 10
+   "reports-listing-report--menu-post-a-listing": 10,
+   "dashboard--drawer-credits-balance-as-individual": 10,
+   "dashboard--drawer-credits-balance-as-staff": 10,
+   "dashboard--modal-top-up-your-credits-as-individual": 10,
+   "dashboard--modal-top-up-your-credits-as-staff": 10,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 10,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 10,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 10,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 10
   }
  },
  "IconBedroom@src/components/svg.js": {
@@ -47468,7 +48226,19 @@
    "lms-leads--drawer-add-task__drawer-add-interest": 2,
    "lms-leads--drawer-khalid-al-shammari-khalidalshammari1__drawer-add-interest-manually": 6,
    "lms-leads--drawer-nourah-al-qahtani-nourahqahtanimaile__drawer-add-interest-manually": 6,
-   "reports-listing-report--as-individual": 9
+   "reports-listing-report--as-individual": 9,
+   "credits-usage--modal-top-up-your-credits-as-individual": 5,
+   "credits-usage--modal-top-up-your-credits-as-staff": 5,
+   "dashboard--drawer-credits-balance-as-individual": 9,
+   "dashboard--drawer-credits-balance-as-staff": 9,
+   "dashboard--modal-top-up-your-credits-as-individual": 9,
+   "dashboard--modal-top-up-your-credits-as-staff": 9,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 4,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 4,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 9,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 9,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 9,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 9
   }
  },
  "IconBathroom@src/components/svg.js": {
@@ -47750,7 +48520,15 @@
    "lms-leads--drawer-add-task__drawer-add-interest": 2,
    "lms-leads--drawer-khalid-al-shammari-khalidalshammari1__drawer-add-interest-manually": 6,
    "lms-leads--drawer-nourah-al-qahtani-nourahqahtanimaile__drawer-add-interest-manually": 6,
-   "reports-listing-report--as-individual": 9
+   "reports-listing-report--as-individual": 9,
+   "dashboard--drawer-credits-balance-as-individual": 9,
+   "dashboard--drawer-credits-balance-as-staff": 9,
+   "dashboard--modal-top-up-your-credits-as-individual": 9,
+   "dashboard--modal-top-up-your-credits-as-staff": 9,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 9,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 9,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 9,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 9
   }
  },
  "IconAreaSize@src/components/svg.js": {
@@ -48122,7 +48900,19 @@
    "lms-leads--drawer-add-task__drawer-add-interest": 2,
    "lms-leads--drawer-khalid-al-shammari-khalidalshammari1__drawer-add-interest-manually": 7,
    "lms-leads--drawer-nourah-al-qahtani-nourahqahtanimaile__drawer-add-interest-manually": 7,
-   "reports-listing-report--as-individual": 10
+   "reports-listing-report--as-individual": 10,
+   "credits-usage--modal-top-up-your-credits-as-individual": 5,
+   "credits-usage--modal-top-up-your-credits-as-staff": 5,
+   "dashboard--drawer-credits-balance-as-individual": 10,
+   "dashboard--drawer-credits-balance-as-staff": 10,
+   "dashboard--modal-top-up-your-credits-as-individual": 10,
+   "dashboard--modal-top-up-your-credits-as-staff": 10,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 4,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 4,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 20,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 20,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 20,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 20
   }
  },
  "ExpiryRenewal@src/components/table/table-components/expiry-renewal.js": {
@@ -48243,7 +49033,11 @@
    "listings--drawer-show-more__popover-select-date-range": 10,
    "listings--drawer-show-more__tooltip-0-1-billion": 10,
    "listings--member-area": 10,
-   "listings--modal-publish-now__message-verify": 10
+   "listings--modal-publish-now__message-verify": 10,
+   "dashboard--drawer-credits-balance-as-individual": 10,
+   "dashboard--drawer-credits-balance-as-staff": 10,
+   "dashboard--modal-top-up-your-credits-as-individual": 10,
+   "dashboard--modal-top-up-your-credits-as-staff": 10
   }
  },
  "ListingStats@src/components/table/table-components/listing-stats.js": {
@@ -48463,7 +49257,11 @@
    "listings--drawer-show-more__popover-select-date-range": 10,
    "listings--drawer-show-more__tooltip-0-1-billion": 10,
    "listings--member-area": 10,
-   "listings--modal-publish-now__message-verify": 10
+   "listings--modal-publish-now__message-verify": 10,
+   "dashboard--drawer-credits-balance-as-individual": 10,
+   "dashboard--drawer-credits-balance-as-staff": 10,
+   "dashboard--modal-top-up-your-credits-as-individual": 10,
+   "dashboard--modal-top-up-your-credits-as-staff": 10
   }
  },
  "PlatformListingActions@src/components/table/table-components/platform-listing-actions.js": {
@@ -48584,7 +49382,11 @@
    "listings--drawer-show-more__popover-select-date-range": 10,
    "listings--drawer-show-more__tooltip-0-1-billion": 10,
    "listings--member-area": 10,
-   "listings--modal-publish-now__message-verify": 10
+   "listings--modal-publish-now__message-verify": 10,
+   "dashboard--drawer-credits-balance-as-individual": 10,
+   "dashboard--drawer-credits-balance-as-staff": 10,
+   "dashboard--modal-top-up-your-credits-as-individual": 10,
+   "dashboard--modal-top-up-your-credits-as-staff": 10
   }
  },
  "PlatformActions@src/tenant/bayut/components/listing/listing-platform-actions/platformActions.js": {
@@ -48814,7 +49616,15 @@
    "listings--drawer-show-more__popover-select-date-range": 10,
    "listings--drawer-show-more__tooltip-0-1-billion": 10,
    "listings--member-area": 10,
-   "listings--modal-publish-now__message-verify": 10
+   "listings--modal-publish-now__message-verify": 10,
+   "dashboard--drawer-credits-balance-as-individual": 10,
+   "dashboard--drawer-credits-balance-as-staff": 10,
+   "dashboard--modal-top-up-your-credits-as-individual": 10,
+   "dashboard--modal-top-up-your-credits-as-staff": 10,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 10,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 10,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 10,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 10
   }
  },
  "RenderUpgradeIcons@src/components/common/upgrade-icons/upgrade-icons.js": {
@@ -49039,7 +49849,15 @@
    "listings--drawer-show-more__popover-select-date-range": 48,
    "listings--drawer-show-more__tooltip-0-1-billion": 48,
    "listings--member-area": 48,
-   "listings--modal-publish-now__message-verify": 48
+   "listings--modal-publish-now__message-verify": 48,
+   "dashboard--drawer-credits-balance-as-individual": 48,
+   "dashboard--drawer-credits-balance-as-staff": 48,
+   "dashboard--modal-top-up-your-credits-as-individual": 48,
+   "dashboard--modal-top-up-your-credits-as-staff": 48,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 48,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 48,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 48,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 48
   }
  },
  "DroneIcon@src/components/svg.js": {
@@ -49299,7 +50117,19 @@
    "listings--drawer-show-more__tooltip-0-1-billion": 8,
    "listings--member-area": 8,
    "listings--modal-publish-now__message-verify": 8,
-   "post-listing-upgrade--inline-service-options": 1
+   "post-listing-upgrade--inline-service-options": 1,
+   "dashboard--drawer-credits-balance-as-individual": 8,
+   "dashboard--drawer-credits-balance-as-staff": 8,
+   "dashboard--modal-top-up-your-credits-as-individual": 8,
+   "dashboard--modal-top-up-your-credits-as-staff": 8,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 8,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 8,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 8,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 8,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 1
   }
  },
  "TableListingActions@src/components/table/table-components/table-listing-actions.js": {
@@ -49420,7 +50250,11 @@
    "listings--drawer-show-more__popover-select-date-range": 10,
    "listings--drawer-show-more__tooltip-0-1-billion": 10,
    "listings--member-area": 10,
-   "listings--modal-publish-now__message-verify": 10
+   "listings--modal-publish-now__message-verify": 10,
+   "dashboard--drawer-credits-balance-as-individual": 10,
+   "dashboard--drawer-credits-balance-as-staff": 10,
+   "dashboard--modal-top-up-your-credits-as-individual": 10,
+   "dashboard--modal-top-up-your-credits-as-staff": 10
   }
  },
  "RowActions@src/tenant/bayut/components/listing/listing-row-actions/listing-row-actions.js": {
@@ -49648,7 +50482,15 @@
    "listings--drawer-show-more__popover-select-date-range": 10,
    "listings--drawer-show-more__tooltip-0-1-billion": 10,
    "listings--member-area": 10,
-   "listings--modal-publish-now__message-verify": 10
+   "listings--modal-publish-now__message-verify": 10,
+   "dashboard--drawer-credits-balance-as-individual": 10,
+   "dashboard--drawer-credits-balance-as-staff": 10,
+   "dashboard--modal-top-up-your-credits-as-individual": 10,
+   "dashboard--modal-top-up-your-credits-as-staff": 10,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 10,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 10,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 10,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 10
   }
  },
  "ListingsRowActions@src/tenant/bayut/components/listing/listing-row-actions/listing-row-actions.js": {
@@ -49877,7 +50719,15 @@
    "listings--drawer-show-more__popover-select-date-range": 10,
    "listings--drawer-show-more__tooltip-0-1-billion": 10,
    "listings--member-area": 10,
-   "listings--modal-publish-now__message-verify": 10
+   "listings--modal-publish-now__message-verify": 10,
+   "dashboard--drawer-credits-balance-as-individual": 10,
+   "dashboard--drawer-credits-balance-as-staff": 10,
+   "dashboard--modal-top-up-your-credits-as-individual": 10,
+   "dashboard--modal-top-up-your-credits-as-staff": 10,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 10,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 10,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 10,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 10
   }
  },
  "TableActions@src/components/table/table-actions/table-actions.js": {
@@ -50174,7 +51024,15 @@
    "listings--drawer-show-more__tooltip-0-1-billion": 10,
    "listings--member-area": 10,
    "listings--modal-publish-now__message-verify": 10,
-   "lms-leads--as-individual": 4
+   "lms-leads--as-individual": 4,
+   "dashboard--drawer-credits-balance-as-individual": 10,
+   "dashboard--drawer-credits-balance-as-staff": 10,
+   "dashboard--modal-top-up-your-credits-as-individual": 10,
+   "dashboard--modal-top-up-your-credits-as-staff": 10,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 10,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 10,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 10,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 10
   }
  },
  "TrucheckSubIcon@src/components/utilities/icons.js": {
@@ -50301,7 +51159,11 @@
    "listings--drawer-show-more__popover-select-date-range": 8,
    "listings--drawer-show-more__tooltip-0-1-billion": 8,
    "listings--member-area": 8,
-   "listings--modal-publish-now__message-verify": 8
+   "listings--modal-publish-now__message-verify": 8,
+   "dashboard--drawer-credits-balance-as-individual": 8,
+   "dashboard--drawer-credits-balance-as-staff": 8,
+   "dashboard--modal-top-up-your-credits-as-individual": 8,
+   "dashboard--modal-top-up-your-credits-as-staff": 8
   }
  },
  "TruCheckIcon@src/components/svg.js": {
@@ -50428,7 +51290,11 @@
    "listings--drawer-show-more__popover-select-date-range": 8,
    "listings--drawer-show-more__tooltip-0-1-billion": 8,
    "listings--member-area": 8,
-   "listings--modal-publish-now__message-verify": 8
+   "listings--modal-publish-now__message-verify": 8,
+   "dashboard--drawer-credits-balance-as-individual": 8,
+   "dashboard--drawer-credits-balance-as-staff": 8,
+   "dashboard--modal-top-up-your-credits-as-individual": 8,
+   "dashboard--modal-top-up-your-credits-as-staff": 8
   }
  },
  "EligibleIcon@src/components/svg.js": {
@@ -50555,7 +51421,11 @@
    "listings--drawer-show-more__popover-select-date-range": 8,
    "listings--drawer-show-more__tooltip-0-1-billion": 8,
    "listings--member-area": 8,
-   "listings--modal-publish-now__message-verify": 8
+   "listings--modal-publish-now__message-verify": 8,
+   "dashboard--drawer-credits-balance-as-individual": 8,
+   "dashboard--drawer-credits-balance-as-staff": 8,
+   "dashboard--modal-top-up-your-credits-as-individual": 8,
+   "dashboard--modal-top-up-your-credits-as-staff": 8
   }
  },
  "IconSellRentListing@src/components/svg.js": {
@@ -50683,7 +51553,11 @@
    "listings--drawer-show-more__popover-select-date-range": 8,
    "listings--drawer-show-more__tooltip-0-1-billion": 8,
    "listings--member-area": 8,
-   "listings--modal-publish-now__message-verify": 8
+   "listings--modal-publish-now__message-verify": 8,
+   "dashboard--drawer-credits-balance-as-individual": 8,
+   "dashboard--drawer-credits-balance-as-staff": 8,
+   "dashboard--modal-top-up-your-credits-as-individual": 8,
+   "dashboard--modal-top-up-your-credits-as-staff": 8
   }
  },
  "RequestedStateIcon@src/components/svg.js": {
@@ -50908,7 +51782,15 @@
    "listings--drawer-show-more__popover-select-date-range": 1,
    "listings--drawer-show-more__tooltip-0-1-billion": 1,
    "listings--member-area": 1,
-   "listings--modal-publish-now__message-verify": 1
+   "listings--modal-publish-now__message-verify": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1
   }
  },
  "BookedBadge@src/components/svg.js": {
@@ -51133,7 +52015,15 @@
    "listings--drawer-show-more__popover-select-date-range": 1,
    "listings--drawer-show-more__tooltip-0-1-billion": 1,
    "listings--member-area": 1,
-   "listings--modal-publish-now__message-verify": 1
+   "listings--modal-publish-now__message-verify": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1
   }
  },
  "FeedbackPlaneIcon@src/components/svg.js": {
@@ -51924,7 +52814,12 @@
    "user-settings-user-profile--as-individual": 1,
    "user-settings-user-profile--empty": 1,
    "user-settings-user-profile--error": 1,
-   "user-settings-user-profile--loading": 1
+   "user-settings-user-profile--loading": 1,
+   "listings--popover-notifications-empty": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 1
   }
  },
  "CreateAdLicense@src/container/pages/ad-license/index.js": {
@@ -52459,7 +53354,17 @@
    "user-settings-agency-profile--empty": 1,
    "user-settings-agency-profile--error": 1,
    "user-settings-licenses--empty": 1,
-   "user-settings-user-profile--modal-convert-to-agency": 2
+   "user-settings-user-profile--modal-convert-to-agency": 2,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "listings--popover-notifications-empty": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 3,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 3,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "listings--drawer-notifications-empty--mobile": 3,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 3,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 3
   }
  },
  "CreateAdLicense@src/tenant/bayut/components/ad-license/create-ad-license.js": {
@@ -53519,7 +54424,8 @@
    "user-settings-user-profile--empty": 13,
    "user-settings-user-profile--error": 14,
    "user-settings-user-profile--loading": 13,
-   "user-settings-user-profile--modal-convert-to-agency": 26
+   "user-settings-user-profile--modal-convert-to-agency": 26,
+   "listings--popover-notifications-empty": 4
   }
  },
  "IconHome@src/components/svg.js": {
@@ -54524,7 +55430,12 @@
    "user-settings-user-profile--empty": 4,
    "user-settings-user-profile--error": 4,
    "user-settings-user-profile--loading": 4,
-   "user-settings-user-profile--modal-convert-to-agency": 5
+   "user-settings-user-profile--modal-convert-to-agency": 5,
+   "listings--popover-notifications-empty": 2,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1
   }
  },
  "IconPropertySubType@src/components/svg.js": {
@@ -55803,7 +56714,16 @@
    "user-settings-user-profile--as-individual": 1,
    "user-settings-user-profile--empty": 1,
    "user-settings-user-profile--error": 1,
-   "user-settings-user-profile--modal-convert-to-agency": 1
+   "user-settings-user-profile--modal-convert-to-agency": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "listings--popover-notifications-empty": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1
   }
  },
  "NotificationCentre@src/components/notification-center/notification-center.js": {
@@ -56958,7 +57878,25 @@
    "user-settings-user-profile--as-individual": 1,
    "user-settings-user-profile--empty": 1,
    "user-settings-user-profile--error": 1,
-   "user-settings-user-profile--modal-convert-to-agency": 1
+   "user-settings-user-profile--modal-convert-to-agency": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "listings--popover-notifications-empty": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "listings--drawer-notifications-empty--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 1
   }
  },
  "FeedbackTab@src/components/feedback/FeedbackTab.js": {
@@ -57433,7 +58371,9 @@
    "user-settings-preferences--saved-image-details": 1,
    "user-settings-user-profile--error": 1,
    "user-settings-user-profile--popover-23": 1,
-   "user-settings-user-profile--popover-faisal-al-harbi-agency-user": 1
+   "user-settings-user-profile--popover-faisal-al-harbi-agency-user": 1,
+   "post-listing-upgrade--inline-insufficient-credits": 1,
+   "post-listing-upgrade--inline-insufficient-credits--mobile": 1
   }
  },
  "FeedbackAttachment@src/components/feedback/FeedbackAttachment.js": {
@@ -57780,7 +58720,11 @@
    "credits-usage--drawer-filters-apply-filters-to__dropdown-select-upgrades": 1,
    "credits-usage--drawer-filters-apply-filters-to__dropdown-select-users": 1,
    "credits-usage--empty": 1,
-   "credits-usage--error": 1
+   "credits-usage--error": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-staff": 1,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 1
   }
  },
  "ChartjsDonutChart@src/components/charts/chartjs.js": {
@@ -57893,7 +58837,11 @@
    "reports-listing-report--empty": 2,
    "reports-listing-report--menu-post-a-listing": 2,
    "reports-summary--as-individual": 2,
-   "reports-summary--empty": 2
+   "reports-summary--empty": 2,
+   "credits-usage--modal-top-up-your-credits-as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-staff": 1,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 1
   }
  },
  "ProductBreakdown@src/components/credits-usage/product-breakdown.js": {
@@ -57925,7 +58873,11 @@
    "credits-usage--as-individual": 7,
    "credits-usage--drawer-filters-apply-filters-to__dropdown-select-upgrades": 7,
    "credits-usage--drawer-filters-apply-filters-to__dropdown-select-users": 7,
-   "credits-usage--empty": 7
+   "credits-usage--empty": 7,
+   "credits-usage--modal-top-up-your-credits-as-individual": 7,
+   "credits-usage--modal-top-up-your-credits-as-staff": 7,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 7,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 7
   }
  },
  "InfiniteScroll@src/components/common/infinite-scroll/infinite-scroll.js": {
@@ -58029,7 +58981,11 @@
    "lms-leads--drawer-view-detail__popover-apartment-for-sale--mobile": 1,
    "credits-usage--as-individual": 1,
    "credits-usage--drawer-filters-apply-filters-to__dropdown-select-upgrades": 1,
-   "credits-usage--drawer-filters-apply-filters-to__dropdown-select-users": 1
+   "credits-usage--drawer-filters-apply-filters-to__dropdown-select-users": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-staff": 1,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 1
   }
  },
  "List@src/components/common/infinite-scroll/infinite-scroll.js": {
@@ -58125,7 +59081,9 @@
    "lms-leads--drawer-view-detail__inline-all-tasks--mobile": 1,
    "lms-leads--drawer-view-detail__inline-email--mobile": 1,
    "lms-leads--drawer-view-detail__popover-apartment-for-sale--mobile": 1,
-   "credits-usage--as-individual": 1
+   "credits-usage--as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-staff": 1
   }
  },
  "HistoryBreakdown@src/components/credits-usage/history-breakdown.js": {
@@ -58158,7 +59116,11 @@
    "credits-usage--as-individual--mobile": 4,
    "credits-usage--as-individual": 5,
    "credits-usage--drawer-filters-apply-filters-to__dropdown-select-upgrades": 5,
-   "credits-usage--drawer-filters-apply-filters-to__dropdown-select-users": 5
+   "credits-usage--drawer-filters-apply-filters-to__dropdown-select-users": 5,
+   "credits-usage--modal-top-up-your-credits-as-individual": 5,
+   "credits-usage--modal-top-up-your-credits-as-staff": 5,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 4,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 4
   }
  },
  "Title@src/components/common/title/title.js": {
@@ -58626,7 +59588,8 @@
    "lms-leads--modal-view-trend__popover-today-yesterday-last-7": 1,
    "reports-leads-reports--as-individual": 1,
    "reports-leads-reports--empty": 1,
-   "reports-leads-reports--error": 1
+   "reports-leads-reports--error": 1,
+   "listings--popover-notifications-empty": 1
   }
  },
  "Modal@src/components/common/modals/antd-modals.js": {
@@ -58808,7 +59771,11 @@
    "post-listing-edit--modal-images-21-videos-0-2__modal-videos-0": 1,
    "user-settings-agency-profile--inline-save-changes": 1,
    "user-settings-licenses--modal-share-license-by-enabling__message-share": 2,
-   "user-settings-user-profile--modal-convert-to-agency": 1
+   "user-settings-user-profile--modal-convert-to-agency": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1
   }
  },
  "IconTotalCredit@src/components/svg.js": {
@@ -58890,7 +59857,15 @@
    "packages--as-individual": 10,
    "packages--empty": 10,
    "packages--error": 2,
-   "packages--loading": 1
+   "packages--loading": 1,
+   "credits-usage--modal-top-up-your-credits-as-individual": 1,
+   "credits-usage--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1
   }
  },
  "DashboardPromoBanner@src/components/dashboard-promo-banner/dashboard-promo-banner.js": {
@@ -58985,7 +59960,12 @@
    "dashboard--popover-34": 1,
    "dashboard--popover-43": 1,
    "dashboard--popover-faisal-al-harbi-agency-user": 1,
-   "dashboard--popover-notifications-mark-all-as": 1
+   "dashboard--popover-notifications-mark-all-as": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1
   }
  },
  "IconPkgPlatinumPlus@src/components/svg.js": {
@@ -59229,7 +60209,13 @@
    "packages--as-individual": 2,
    "packages--empty": 2,
    "packages--error": 1,
-   "post-listing-upgrade--inline-service-options": 1
+   "post-listing-upgrade--inline-service-options": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 1
   }
  },
  "LeadsViewsWidget@src/components/widgets/LeadsStatsGraphWidget.js": {
@@ -59428,7 +60414,15 @@
    "reports-leads-reports--as-individual": 1,
    "reports-leads-reports--as-staff": 1,
    "reports-leads-reports--empty": 1,
-   "reports-summary--empty": 1
+   "reports-summary--empty": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1
   }
  },
  "Segmented@src/components/common/segmented/segmented.js": {
@@ -59553,7 +60547,11 @@
    "dashboard--tooltip-booked": 1,
    "packages--as-individual": 1,
    "packages--empty": 1,
-   "packages--error": 1
+   "packages--error": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1
   }
  },
  "DateFilter@src/components/common/dateFilter/DateFilter.js": {
@@ -59845,7 +60843,15 @@
    "reports-leads-reports--as-individual": 1,
    "reports-leads-reports--empty": 1,
    "reports-leads-reports--error": 1,
-   "reports-leads-reports--loading": 1
+   "reports-leads-reports--loading": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1
   }
  },
  "CreditIcon@src/components/svg.js": {
@@ -59856,7 +60862,11 @@
    "packages--drawer-what-are-credits": 1,
    "packages--drawer-what-are-credits--mobile": 1,
    "dashboard--drawer-credits-balance--mobile": 1,
-   "listings--drawer-credit-info": 1
+   "listings--drawer-credit-info": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1
   }
  },
  "CreditAvailableIcon@src/components/svg.js": {
@@ -59867,7 +60877,11 @@
    "packages--drawer-what-are-credits": 1,
    "packages--drawer-what-are-credits--mobile": 1,
    "dashboard--drawer-credits-balance--mobile": 1,
-   "listings--drawer-credit-info": 1
+   "listings--drawer-credit-info": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1
   }
  },
  "CreditUsedIcon@src/components/svg.js": {
@@ -59882,7 +60896,11 @@
    "user-settings-preferences--modal-smart-credits--mobile": 1,
    "user-settings-preferences--modal-smart-credits": 1,
    "user-settings-preferences--modal-smart-credits-utilization-maximize": 1,
-   "listings--drawer-credit-info": 1
+   "listings--drawer-credit-info": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1
   }
  },
  "CreditTimeIcon@src/components/svg.js": {
@@ -59893,7 +60911,11 @@
    "packages--drawer-what-are-credits": 1,
    "packages--drawer-what-are-credits--mobile": 1,
    "dashboard--drawer-credits-balance--mobile": 1,
-   "listings--drawer-credit-info": 1
+   "listings--drawer-credit-info": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1
   }
  },
  "DiscountTag@src/components/discount-tag/DiscountTag.js": {
@@ -60114,7 +61136,15 @@
    "listings--drawer-show-more__popover-select-date-range": 1,
    "listings--drawer-show-more__tooltip-0-1-billion": 1,
    "listings--member-area": 1,
-   "listings--modal-publish-now__message-verify": 1
+   "listings--modal-publish-now__message-verify": 1,
+   "dashboard--drawer-credits-balance-as-individual": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-individual": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1
   }
  },
  "ListingPurpose@src/components/table/table-components/listing-purpose.js": {
@@ -61112,7 +62142,11 @@
    "user-settings-user-profile--empty": 1,
    "user-settings-user-profile--error": 1,
    "user-settings-user-profile--loading": 1,
-   "user-settings-user-profile--modal-convert-to-agency": 2
+   "user-settings-user-profile--modal-convert-to-agency": 2,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 1
   }
  },
  "Progress@src/tenant/common/components/profile-completion/profile-completion-popup.js": {
@@ -61763,7 +62797,8 @@
    "listings--drawer-show-more__tooltip-0-1-billion": 1,
    "listings--empty": 1,
    "listings--member-area": 1,
-   "listings--modal-publish-now__message-verify": 1
+   "listings--modal-publish-now__message-verify": 1,
+   "listings--popover-notifications-empty": 1
   }
  },
  "LmsShowMoreArrowIcon@src/components/svg.js": {
@@ -61926,7 +62961,8 @@
    "lms-leads--empty": 1,
    "lms-leads--error": 1,
    "lms-leads--loading": 1,
-   "lms-leads--modal-view-trend__popover-today-yesterday-last-7": 1
+   "lms-leads--modal-view-trend__popover-today-yesterday-last-7": 1,
+   "listings--popover-notifications-empty": 1
   }
  },
  "ImageGallery@src/components/common/image-gallery/image-gallery.js": {
@@ -63212,7 +64248,8 @@
    "listings--popover-1104-am-sep-26": 1,
    "listings--popover-images-do-not-match": 1,
    "listings--tooltip-50-off": 1,
-   "listings--drawer-publish-now__message-verify--mobile": 1
+   "listings--drawer-publish-now__message-verify--mobile": 1,
+   "listings--drawer-notifications-empty--mobile": 1
   }
  },
  "EmptyState@src/components/common/EmptyState/EmptyState.js": {
@@ -63259,7 +64296,9 @@
    "reports-listing-report--error": 1,
    "reports-summary--empty": 1,
    "user-settings-licenses--empty": 1,
-   "user-settings-licenses--error": 1
+   "user-settings-licenses--error": 1,
+   "listings--popover-notifications-empty": 2,
+   "listings--drawer-notifications-empty--mobile": 2
   }
  },
  "EmptyStateBlock@src/components/common/EmptyState/EmptyState.js": {
@@ -63313,7 +64352,9 @@
    "reports-listing-report--error": 1,
    "reports-summary--empty": 1,
    "user-settings-licenses--empty": 1,
-   "user-settings-licenses--error": 1
+   "user-settings-licenses--error": 1,
+   "listings--popover-notifications-empty": 2,
+   "listings--drawer-notifications-empty--mobile": 2
   }
  },
  "EmptyListing@src/components/svg.js": {
@@ -63339,7 +64380,9 @@
    "lms-leads--drawer-nourah-al-qahtani-nourahqahtanimaile__inline-all-tasks": 1,
    "lms-leads--empty": 1,
    "reports-listing-report--empty": 1,
-   "user-settings-licenses--error": 1
+   "user-settings-licenses--error": 1,
+   "listings--popover-notifications-empty": 1,
+   "listings--drawer-notifications-empty--mobile": 1
   }
  },
  "RenderTextLtr@src/components/render-text/render-text.js": {
@@ -63703,7 +64746,8 @@
    "dashboard--error--mobile": 1,
    "listings--empty--mobile": 1,
    "credits-usage--empty": 1,
-   "dashboard--empty": 1
+   "dashboard--empty": 1,
+   "listings--drawer-notifications-empty--mobile": 1
   }
  },
  "InfoIcon@src/components/svg.js": {
@@ -63748,7 +64792,11 @@
    "listings--upgrade-signature--mobile": 1,
    "agency-staff--message-delete-user-failed": 1,
    "post-listing-upgrade--inline-insufficient-credits": 1,
-   "post-listing-upgrade--inline-insufficient-credits--mobile": 1
+   "post-listing-upgrade--inline-insufficient-credits--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 1
   }
  },
  "Product@src/tenant/common/components/upgrade-listing/product.js": {
@@ -63813,7 +64861,11 @@
    "listings--drawer-50__drawer-refresh--mobile": 2,
    "listings--drawer-54__drawer-refresh--mobile": 2,
    "post-listing-upgrade--inline-service-options--mobile": 4,
-   "post-listing-upgrade--inline-service-options": 4
+   "post-listing-upgrade--inline-service-options": 4,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 6,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 6,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 6,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 6
   }
  },
  "DateSelect@src/components/common/dateSelect/DateSelect.js": {
@@ -72815,7 +73867,11 @@
    "dashboard--drawer-search-by-calendar-today__drawer-today--mobile": 1,
    "dashboard--drawer-search-by-calendar-today__inline-last-30-days--mobile": 1,
    "dashboard--empty--mobile": 1,
-   "dashboard--error--mobile": 1
+   "dashboard--error--mobile": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1
   }
  },
  "Rate@src/components/common/rate/rate.js": {
@@ -72874,7 +73930,11 @@
    "dashboard--drawer-search-by-calendar-today__drawer-today--mobile": 1,
    "dashboard--drawer-search-by-calendar-today__inline-last-30-days--mobile": 1,
    "dashboard--empty--mobile": 1,
-   "dashboard--error--mobile": 1
+   "dashboard--error--mobile": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1
   }
  },
  "MobileSidebarMenuIcon@src/components/svg.js": {
@@ -73431,7 +74491,16 @@
    "user-settings-user-profile--empty--mobile": 1,
    "user-settings-user-profile--error--mobile": 1,
    "user-settings-user-profile--loading--mobile": 1,
-   "user-settings-user-profile--modal-convert-to-agency--mobile": 1
+   "user-settings-user-profile--modal-convert-to-agency--mobile": 1,
+   "credits-usage--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "credits-usage--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "listings--drawer-notifications-empty--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 1
   }
  },
  "ListingCardContainer@src/components/listing-card-container/ListingCardContainer.js": {
@@ -73549,7 +74618,12 @@
    "listings--popover-notifications--mobile": 1,
    "listings--select-purpose--mobile": 1,
    "listings--tooltip-50-off--mobile": 1,
-   "listings--upgrade-hot--mobile": 1
+   "listings--upgrade-hot--mobile": 1,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "listings--drawer-notifications-empty--mobile": 1
   }
  },
  "ListingCard@src/components/listing-card/ListingCard.js": {
@@ -73665,7 +74739,11 @@
    "listings--drawer-filters-apply-filters-to__dropdown-select-purpose--mobile": 10,
    "listings--drawer-filters-apply-filters-to__inline-button--mobile": 10,
    "listings--drawer-publish-now__message-verify--mobile": 10,
-   "listings--member-area--mobile": 10
+   "listings--member-area--mobile": 10,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 10,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 10,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 10,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 10
   }
  },
  "ListingCard@src/tenant/bayut/components/listing/listingCard.js": {
@@ -73781,7 +74859,11 @@
    "listings--drawer-filters-apply-filters-to__dropdown-select-purpose--mobile": 10,
    "listings--drawer-filters-apply-filters-to__inline-button--mobile": 10,
    "listings--drawer-publish-now__message-verify--mobile": 10,
-   "listings--member-area--mobile": 10
+   "listings--member-area--mobile": 10,
+   "dashboard--drawer-credits-balance-as-individual--mobile": 10,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 10,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 10,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 10
   }
  },
  "AgencyStaffMobilePage@src/container/pages/agancy-staff/agency-staff-mobile.js": {
@@ -74207,7 +75289,10 @@
    "dashboard--dropdown-najd-horizon-real-estate--mobile": 1,
    "dashboard--empty--mobile": 1,
    "dashboard--modal-trucheck-eligible-trucheck-is--mobile": 1,
-   "dashboard--popover-calls-3--mobile": 1
+   "dashboard--popover-calls-3--mobile": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-individual--mobile": 1
   }
  },
  "ProfileCompletionBanner@src/tenant/common/components/profile-completion/profile-completion-banner.js": {
@@ -74215,7 +75300,11 @@
   "def": "src/tenant/common/components/profile-completion/profile-completion-banner.js",
   "in": {
    "dashboard--as-staff--mobile": 1,
-   "dashboard--as-staff": 1
+   "dashboard--as-staff": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1
   }
  },
  "Progress@src/tenant/common/components/profile-completion/profile-completion-banner.js": {
@@ -74223,7 +75312,11 @@
   "def": "src/tenant/common/components/profile-completion/profile-completion-banner.js",
   "in": {
    "dashboard--as-staff--mobile": 1,
-   "dashboard--as-staff": 1
+   "dashboard--as-staff": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1
   }
  },
  "TitleDescriptionWithAnimation@src/components/common/success-animation-card/success-animation-card.js": {
@@ -74550,7 +75643,13 @@
    "packages--as-individual--mobile": 1,
    "packages--empty--mobile": 1,
    "packages--as-individual": 1,
-   "packages--empty": 1
+   "packages--empty": 1,
+   "dashboard--drawer-credits-balance-as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 1
   }
  },
  "IconPkgPlatinum@src/components/svg.js": {
@@ -74944,7 +76043,10 @@
   "def": "src/components/tru-broker/tru-broker-and-profile-cards.js",
   "in": {
    "dashboard--as-staff--mobile": 1,
-   "dashboard--as-staff": 1
+   "dashboard--as-staff": 1,
+   "dashboard--modal-top-up-your-credits-as-staff": 1,
+   "dashboard--drawer-credits-balance-as-staff--mobile": 1,
+   "dashboard--drawer-top-up-your-credits-as-staff--mobile": 1
   }
  },
  "CardListingPerformance@src/tenant/common/components/reports/CardListingPerformance.js": {
@@ -77623,7 +78725,11 @@
    "post-listing-upgrade--message-upgrade-failed--mobile": 1,
    "post-listing-upgrade--mobile-menu--mobile": 1,
    "post-listing-upgrade--inline-service-options--mobile": 1,
-   "post-listing-upgrade--inline-service-options": 1
+   "post-listing-upgrade--inline-service-options": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 1
   }
  },
  "Checkbox@src/components/common/checkbox/checkbox.js": {
@@ -77689,7 +78795,11 @@
    "post-ad--modal-add-amenities__modal-rooms": 9,
    "post-listing-edit--modal-add-amenities__modal-building-and-services": 8,
    "post-listing-edit--modal-add-amenities__modal-rooms": 9,
-   "post-listing-upgrade--inline-service-options": 3
+   "post-listing-upgrade--inline-service-options": 3,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 3,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 3,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 3,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 3
   }
  },
  "CreditInfo@src/components/credits-info/credits-info.js": {
@@ -77756,7 +78866,11 @@
    "post-listing-upgrade--message-upgrade-failed--mobile": 1,
    "post-listing-upgrade": 1,
    "post-listing-upgrade--as-staff": 1,
-   "post-listing-upgrade--flow-post-listing-10-upgrade": 1
+   "post-listing-upgrade--flow-post-listing-10-upgrade": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile": 1,
+   "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile": 1
   }
  },
  "ImagesSVG@src/components/post-listing/image-select/image-select.js": {

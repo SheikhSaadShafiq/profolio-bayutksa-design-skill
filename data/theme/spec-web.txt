@@ -1,0 +1,964 @@
+00 · SUMMARY
+Listing Performance Drawer · Bayut KSA
+An agent opens My Listings, sees every listing's rank and quality score in the row, and clicks a row to open a right-side drawer that explains why that listing performs the way it does and what to fix. The drawer is one component for all nine listing cases: rank card, trend chart, fix list and upsells all read from the listing, so a perfect listing shows no fix list and a just-posted one shows an empty trend.
+product
+Bayut KSA
+platform
+Web, 1440
+scope
+Phase 1
+version
+Draft 3
+date
+15 Sep 2026
+ticket
+not supplied!
+owner
+not supplied!
+measured from
+My Listing Web.dc.html
+00
+Summary
+01
+Screen index
+02
+Prototype
+02b
+Button states
+02c
+Cases and states
+03
+Screens & states
+04
+Interaction & motion
+05
+Assets
+06
+Edge cases
+07
+Acceptance criteria
+08
+Dev checklist
+09
+Changelog
+10
+Appendix
+Phase rule
+The drawer explains and links out. It does not edit the listing: every fix card ends in a CTA that hands off to the existing edit or purchase flow, and nothing inside the drawer writes to the listing except Apply Signature and Refresh, which only trigger the rank-updating state.
+
+────────
+
+01 · SCREEN INDEX
+A
+My Listings, Active tab
+default, 9 seeded cases
+B
+Draft tab
+2 rows, one incomplete
+C
+Pending tab
+3 rows, three review states
+D
+Removed tab
+4 rows, four removal reasons
+E
+Ad License Requests tab
+5 rows, own filter bar
+F
+Listing Performance drawer
+per-case, open over A
+G
+How to Earn Quality Score drawer
+second layer over F
+H
+More Filters drawer
+450px, over A
+I
+Share Listing modal
+520px
+J
+Mark as Booked modal
+520px, daily rental only
+K
+Request Services modal
+520px
+L
+Sorting and filtering skeleton
+replaces the row list
+
+────────
+
+02 · PROTOTYPE
+The real build, embedded. Click a row to open the drawer, switch tabs, open any modal.
+Reload build
+Fit
+75%
+100%
+Live build at 1440 x 1100, scaled to fit. Everything in it is real: five tabs, nine listing cases, the drawer, the explainer, filters, share, booking and services.
+→
+This is the production build embedded in full, not a recreation. Click any row to open the drawer, switch tabs, open More Filters, or use a row menu. Section 03 below shows each screen isolated with its own state chips.
+
+────────
+
+02b · BUTTON STATES: APPLIED AND UNAPPLIED
+The real desktop components, lifted from the build at 1:1. Every action has a resting state and an applied state: the applied state stays in place, reads grey, and says what happened.
+Upgrades column
+Signature
+Full width, first row of the Upgrades cell
+UNAPPLIED
+Apply Signature
+Gradient tint at 10%, gradient sparkle, #222222 14/500 label. Hover lifts the outline to rgba(105,110,255,0.35).
+APPLIED
+Signature Applied
+Grey #F5F5F5 fill, #F0F0F0 outline, #626262 label, not clickable. The Hot action beside it goes disabled.
+Hot
+Second slot of the same row
+UNAPPLIED
+Hot Listing
+White fill, flame glyph, #222222 14/500. Disabled at 55% opacity when Signature is applied.
+APPLIED
+Hot Applied
+Grey fill plus an info icon whose hover tooltip carries the expiry timestamp.
+Row action tiles
+Services
+Text button, full width of the second row
+UNAPPLIED
+Services
+White fill, #E6E6E6 outline, no icons. Opens the Request Services modal.
+APPLIED
+Services
+Stays white and clickable, since more services can be added. One grey glyph per booked service, 6px overlap, 2px white ring. Hover opens the booking popup.
+Discount
+40px tile beside Services
+UNAPPLIED
+White tile, green tag glyph. Opens the discount flow.
+APPLIED
+Muted tile, grey glyph, no pointer events. The red discount tag appears in the badge row instead.
+Refresh
+40px tile with a state badge
+UNAPPLIED
+White tile, blue #479EEB glyph, tooltip "Apply Refresh".
+APPLIED
+Grey glyph plus a green tick badge, tooltip "Already refreshed today". The drawer card shows the Refreshed Today chip.
+Drawer: fixes and saving
+Fix weight
+Fix card header, right side
+UNAPPLIED
++20%
+Green tint pill carrying the score weight in per cent, never points.
+APPLIED
+Fixed
+Weight is replaced by Fixed, the card collapses and stops counting toward the save bar.
+Save bar
+Sticky footer inside the 780px drawer
+UNAPPLIED
+Not rendered
+Hidden until a fix is touched, so the drawer ends on content.
+APPLIED
+1 change ready to save
+Discard
+Save changes
+Full-width sticky footer with the change count, the gain chip, Discard and the green CTA.
+
+────────
+
+02c · CASES, STATES AND EMPTY STATES
+Every case and every state the build can be in, one click each. The frame below is the live build, driven by the same scenario props engineering will read.
+LIST
+Listing list
+NINE CASES
+Happy case
+High impression, low leads
+All bad
+Everything unfinished
+Low impression, high conversion
+Daily rental
+Off-plan initial sale
+Rank pending
+Just posted
+DRAWER
+Performance drawer
+Amenities picker
+Quality explainer
+TREND
+Trend: sudden drop
+Trend: one day spike
+Trend: down then back up
+Trend: no data yet
+OVERLAYS
+More Filters
+Copy Bayut Link
+Request Services
+Mark as Booked
+Filtering skeleton
+EMPTY STATES
+No active listings
+No drafts
+No pending listings
+No removed listings
+No filter results
+No internet
+Not a package user
+Not a package user, no listings
+TABS
+Draft tab
+Pending tab
+Removed tab
+Ad License Requests
+CURRENT SCENARIO
+Listing list
+The Active tab as it loads: nine listing cases, rank and quality on every row.
+
+────────
+
+03 · SCREENS & STATES
+Twelve screens. Element tables carry the measured values; rules carry what a table cannot say.
+Show redlines
+A
+My Listings, Active tab
+default, 9 seeded cases
+The row is 1274px across four columns: Property Details 300, Performance 294, Quality 229, Actions 340. Every row carries a badge line, the price with its optional Night suffix, the green subtype line, location, and the Bayut ID and REGA ID meta. Clicking anywhere in the row opens F. The Performance and Quality column headers each carry an info icon that opens G, so the explainer is reachable without opening a listing.
+Default
+Sorting
+Rank updating
+Redlines
+Load screen
+A
+Renders the real build at this state
+ELEMENT
+SPEC
+Row
+1274 wide, 20px vertical padding, 1px #F0F0F0 bottom border
+Thumbnail
+96 x 96, radius 6, count badges bottom-left on rgba(0,0,0,0.70)
+Live chip
+padding 2/6, radius 4, #E9F7F0 on #28B16D
+Booked chip
+padding 2/6, radius 4, #F0F7FC on #3B84C4
+Discount tag
+padding 3/6, radius 4, #FFF2F2 on #CE2929, tag glyph 10
+Hot badge
+radius 4, linear-gradient(244deg, #DD5050, #AB251D), white 10/700 Figtree
+Signature badge
+radius 4, linear-gradient(46deg, #696EFF, #D466DE), white 10/700
+Price
+20/700 #222222, SAR glyph 11 x 12
+Subtype line
+11/600 #28B16D
+Rank card
+radius 8, 1px #F0F0F0, inset shadow by tone (bad 0 0 2px rgba(255,0,0,0.12))
+Quality bar
+20 tall, radius 6, track and fill by tone
+Action buttons
+40 x 40, radius 8, 1px #E6E6E6
+Status chips
+grey F5F5F5/707070, green E9F7F0/249F62, amber FEF8F0/C88B37, orange FCEDD9/C88B37, blue F0F7FC/3B84C4, red FFF2F2/CE2929
+RULES
+Hot and Signature are mutually exclusive. Signature is senior: its upsell is hidden when applied and the Hot action is disabled on a Signature listing.
+Cases with no data show a dash for Views, Clicks and Leads and sink to the bottom of any sort, keeping their relative order.
+The tab strip sits inside the list card above the column header, and does not change the filter bar except on tab E.
+B
+Draft tab
+2 rows, one incomplete
+Columns: Property, Timeline, Status, Publish, Actions. Timeline reads Created on and Last updated on, following getDateFieldsByStatus.
+Both rows
+Redlines
+Load screen
+B
+Renders the real build at this state
+ELEMENT
+SPEC
+Status chip
+Not Posted, grey F5F5F5 on 707070
+Missing details
+amber 11/600 count, first two items, then +N more
+Publish CTA
+incomplete: Complete Listing. complete: Publish Now with All required details added
+Actions
+edit + delete, 40 x 40
+C
+Pending tab
+3 rows, three review states
+Columns: Property, Timeline, Status, Actions. Timeline reads Uploaded on. Each status carries a one-line explanation under the chip so the agent knows whether anything is expected of them.
+All three states
+Redlines
+Load screen
+C
+Renders the real build at this state
+ELEMENT
+SPEC
+Ad In Review
+blue chip. Moderation usually takes up to 24 hours. No action needed from you.
+Changes In Review
+blue chip. Your edits are being reviewed. The live version stays visible to buyers.
+Payment Pending
+red chip + Pay Now button. Nothing is published until payment clears.
+Actions
+preview only
+D
+Removed tab
+4 rows, four removal reasons
+Columns: Property, Timeline, Performance, Status, Actions. Timeline reads Posted on and Removed on. The reason lives in the Status card; the earlier full-width strip was removed.
+All four reasons
+Redlines
+Load screen
+D
+Renders the real build at this state
+ELEMENT
+SPEC
+Thumbnail
+filter: grayscale(1)
+Final stats
+Views / Clicks / Leads shown muted, no deltas
+Reason card
+red inset shadow for rejected and expired
+Recovery CTA
+in Actions above the icon buttons: Fix and Republish, Renew License, Publish Again, Contact Support
+E
+Ad License Requests tab
+5 rows, own filter bar
+Columns: Property Listing, Deed Number, Request ID, Status, Actions. Entering or leaving the tab clears the listing filters and swaps the bar to Request ID, Deed Number, Status, Created On. The performance segment and the sort control are hidden.
+All five statuses
+Redlines
+Load screen
+E
+Renders the real build at this state
+ELEMENT
+SPEC
+Property cell
+price + Location: x + green pill with the combined type title. No photo.
+Requested on
+moved into the property cell meta, above the fee line
+Statuses
+Payment Pending (Pay Now), Verifying Details, Preparing Contract, License Ready (Post Listing), Request Cancelled
+F
+Listing Performance drawer
+per-case, open over A
+680px, full height, white. Header repeats the listing identity including the discount tag. Sections in order: Performance with three stat cards and the trend chart, Listing Rank, Quality Score with the fix list, then the upsells.
+Needs fixes
+Perfect score
+Redlines
+Load screen
+F
+Renders the real build at this state
+ELEMENT
+SPEC
+Width
+680
+Shadow
+-12px 0 48px rgba(23,26,31,0.16)
+Backdrop
+rgba(23,26,31,0.34), 240ms ease
+Fix cards
+only the first expanded by default
+Trend compare
+All / You vs Top / You vs Average
+Trend tooltip
+date + three series + delta line
+No own data
+axis and dashed area lines stay, with a Your line starts tomorrow overlay
+Quality 100%
+no fix list, Perfect Quality Score panel instead
+RULES
+The drawer never writes to the listing. Every fix card CTA hands off to the existing edit or purchase flow.
+G
+How to Earn Quality Score drawer
+second layer over F
+680px, slides in over F, which eases back 28px at 45% opacity. Copy is generic for every user: no per-listing numbers, no agent-specific values. Sections: Listing Rank, Similar listings Top and Average, Fair comparison per day, Views Clicks and Leads, Quality Score, Boost your score, Refresh and Auto-Refresh, Hot and Signature, Export PDF.
+Default
+Redlines
+Load screen
+G
+Renders the real build at this state
+ELEMENT
+SPEC
+Card padding
+22px vertical
+Section gap
+32px
+Title
+Figtree 22/700 #000000
+Rank chart
+numberless field bar chart, one listing marked amber, ends labelled seen the most and seen the least
+Chips
+three teal chips: Lower is better, Once a day, After day one
+RULES
+Animations reset and re-arm on every open so the reveal always replays.
+H
+More Filters drawer
+450px, over A
+Matches the live filters.js drawer. Title Filters over the muted Apply filters to organize data accordingly, and a flat single-column field list in listingFilters.js order.
+Default
+Redlines
+Load screen
+H
+Renders the real build at this state
+ELEMENT
+SPEC
+Width
+450
+Field
+muted 12px label over a 44px select, 1px #E6E6E6
+Multi-select values
+small green removable chips under the field
+Toggle row
+44 min height, label left, switch right 44 x 24
+Range rows
+label + Reset link, then Min / To / Max inputs, then the track with end marks
+Area unit
+text dropdown beside the label. Switching it resets the range.
+Footer
+right-aligned, grey #9D9D9D Reset Filters + green Search
+RULES
+The card-grouped version was tried and reverted for not matching live.
+Off-plan filters are excluded: OFFPLAN_ENABLED is false for KSA.
+I
+Share Listing modal
+520px
+Opens from Share Listing in the row menu, on every listing.
+Default
+Redlines
+Load screen
+I
+Renders the real build at this state
+ELEMENT
+SPEC
+Modal
+520 wide, radius 12, shadow 0 24px 60px rgba(23,26,31,0.28)
+Preview card
+64px thumb, price + Night suffix, green subtype line, location
+Link field
+read-only, bayut.sa/property/details-<bayutId>.html
+Copy button
+flips to a green Copied for 2s
+Channels
+3-across grid: WhatsApp, Facebook, Instagram, X, Email, SMS in brand colours
+Footer
+Last shared on ... line plus a green Done
+J
+Mark as Booked modal
+520px, daily rental only
+Mirrors the repo booking row action, which only appears for listing_purpose daily-rental.
+Default
+Redlines
+Load screen
+J
+Renders the real build at this state
+ELEMENT
+SPEC
+Kind
+segmented Booked by guest / Blocked (unavailable)
+Calendar
+month view, Sep 2026 default, prev and next
+Past days
+muted
+Booked nights
+green
+Blocked nights
+grey
+Selection
+green ends, tinted middle
+Hint
+Pick the check in date, then Now pick the check out date, then N nights: Sep 11 to Sep 14
+Footer
+Cancel + Mark as Booked / Block These Dates
+Confirm
+adds the range and raises a centre-bottom green toast for 3.2s
+K
+Request Services modal
+520px
+Drone, Photography and Videography offered as selectable cards.
+Default
+Redlines
+Load screen
+K
+Renders the real build at this state
+ELEMENT
+SPEC
+Modal
+520 wide, radius 12
+Options
+Drone, Photography, Videography
+L
+Sorting and filtering skeleton
+replaces the row list
+Rows are replaced by shimmering skeletons with a pulsing status line, and the page is locked for the duration.
+Sorting
+Redlines
+Load screen
+L
+Renders the real build at this state
+ELEMENT
+SPEC
+Sort
+4.5s, Sorting 65 listings...
+Filter
+1.8s, Filtering 65 listings...
+Shimmer
+linear-gradient 400% background-size, dlSkel 1.4s ease-in-out infinite
+Status line
+statusPulse 1.4s ease-in-out infinite
+RULES
+Both flows lock the page. No row is clickable while the skeleton shows.
+
+────────
+
+04 · INTERACTION & MOTION
+Every row replays the real CSS. Nothing here is a description of an animation that does not exist.
+04.1
+Click row
+Drawer F enters from the right
+340 ms
+cubic-bezier(.32,.72,0,1)
+backdrop fades 240 ms ease
+04.1
+Replay
+04.2
+How it's calculated
+Drawer G enters over F
+340 ms
+cubic-bezier(.32,.72,0,1)
+F eases back 28px at 45% opacity
+04.2
+Replay
+04.3
+G scrolls into view
+Section content reveals
+480 to 1100 ms
+cubic-bezier(.2,.8,.2,1)
+IntersectionObserver scoped to G, re-armed on every open
+04.3
+Replay
+04.4
+Apply Signature or Refresh
+Rank tile enters the updating state
+1.8s / 1.5s x2
+cubic-bezier(.4,0,.2,1)
+previous rank hidden, other stats stay live
+04.4
+Replay
+04.5
+Pick a sort
+Rows swap to skeletons, then rise
+440 ms, 90 ms stagger
+cubic-bezier(.2,.8,.2,1)
+4.5s skeleton first
+04.5
+Replay
+04.6
+Apply a filter
+Same skeleton, shorter
+1800 ms
+linear
+Filtering 65 listings...
+04.6
+Replay
+04.7
+Open any dropdown
+Chevron flips
+180 ms
+ease
+dropdowns and the range unit
+04.7
+Replay
+04.8
+Discount toggle
+Knob slides, track recolours
+180 ms
+ease
+transform translateX 0 to 20px
+04.8
+Replay
+POINTER BEHAVIOURS
+INTERACTION
+BEHAVIOUR
+CONFLICTS WITH
+Click anywhere in a row
+opens the performance drawer for that listing
+row action buttons and the 3-dot menu, which stop propagation
+Click the column header info icon
+opens the generic explainer drawer
+column sort, which is not on these two headers
+Click outside a drawer
+closes the top layer only
+the second-layer explainer returns to the performance drawer, not to the page
+Drag a range slider handle
+moves that end only, clamped one step from the other
+text selection, suppressed by touch-action: none
+CSS
+Everything above is CSS transitions and keyframes. The six illustration and sequence moments that do ship as files are in section 05.3, and the rows here that one of them replaces are tagged. Every keyframe is disabled under prefers-reduced-motion, and the end state is shown immediately.
+
+────────
+
+05 · ASSETS
+Every icon is inline SVG. Click a tile to copy its markup.
+05.1 VECTOR
+icon-sar
+11 x 12
+Copy SVG
+icon-pin
+12 x 12
+Copy SVG
+icon-hot
+14 x 14
+Copy SVG
+icon-signature
+14 x 14
+Copy SVG
+icon-discount
+12 x 12
+Copy SVG
+icon-photo-count
+10 x 9
+Copy SVG
+icon-video-count
+11 x 9
+Copy SVG
+icon-info
+16 x 16
+Copy SVG
+icon-more-filters
+16 x 16
+Copy SVG
+icon-sort
+16 x 16
+Copy SVG
+icon-share
+16 x 16
+Copy SVG
+icon-calendar
+16 x 16
+Copy SVG
+icon-services
+16 x 16
+Copy SVG
+icon-edit
+16 x 16
+Copy SVG
+icon-preview
+16 x 16
+Copy SVG
+icon-delete
+16 x 16
+Copy SVG
+icon-chevron
+16 x 16
+Copy SVG
+05.2 RASTER
+!
+No production imagery in this delivery
+Every thumbnail is a striped CSS placeholder: repeating-linear-gradient(135deg, #EDEDED 0 6px, #F6F6F6 6px 12px). Real listing photography is required before ship. Web needs 1x and 2x; there are no density folders on this platform.
+A listing with no photos, and a photo that fails to load, both fall back to the same box: #F5F5F5, a centred camera-slash glyph in #9D9D9D, no count badge, and the words No photos. That state is specified in 06.10 and 06.11 but is not drawn in either build yet.
+05.3 DOTLOTTIE
+Six moments ship as files, because they are illustrations or multi-shape sequences rather than one property moving. Each tile below plays the real animation data.
+Replay all
+Download all .lottie
+Rank updating
+LOOPS
+Rank tile, drawer and row, while the new position is fetched
+1200ms
+200x120
+rank_updating.lottie
+Replay
+.lottie
+.json
+Quality score fill
+ONCE
+Quality section, once when it first scrolls into view
+640ms
+200x120
+quality_fill.lottie
+Replay
+.lottie
+.json
+Fix applied
+ONCE
+Fix card, on confirm, before the row collapses
+900ms
+200x120
+fix_applied.lottie
+Replay
+.lottie
+.json
+Rank explainer bars
+ONCE
+Mobile explainer banner tile, grows once on mount
+800ms
+200x120
+rank_bars.lottie
+Replay
+.lottie
+.json
+No internet
+LOOPS
+List area, both surfaces, while offline
+2000ms
+240x140
+no_internet.lottie
+Replay
+.lottie
+.json
+No listings yet
+LOOPS
+Empty state on every tab, and after a filter returns nothing
+2400ms
+240x140
+empty_listings.lottie
+Replay
+.lottie
+.json
+USE
+60fps, brand palette baked in, no text layers, so the same file works in EN and AR. Loop files run until their state ends; one-shot files play once on the trigger and hold the last frame. Under prefers-reduced-motion do not mount the player: render the last frame as a still. Everything else in section 04 stays CSS.
+
+────────
+
+06 · EDGE CASES & ERROR STATES
+Unresolved rows are flagged, never dropped.
+Show unresolved only
+#
+CASE
+EXPECTED BEHAVIOUR
+COPY
+06.1
+Listing posted minutes ago
+Rank card reads the pending message, stats show a dash
+Your rank against similar listings will be available within 1 hour.
+06.2
+Quality score 100%
+Fix list is replaced by the perfect-score panel
+Perfect Quality Score. Keep it fresh to maintain the rank, so buyers keep seeing it at the top.
+06.9
+Connection drops mid-session
+The list area swaps to the no-internet state, filters and tab stay as they were, and the rows return on a successful retry
+No internet connection. Try Again.
+06.10
+!
+Listing with no photos
+Not designed yet, documented only. Today a zero-photo listing renders the striped placeholder with a count badge reading 0, which is indistinguishable from a listing that has photos. Proposed: #F5F5F5 box, centred camera-slash glyph in #9D9D9D, no count badge, and the words No photos below the glyph. Most common on Draft rows, where missing photos is the usual blocker.
+✎
+No photos
+06.11
+!
+Photo fails to load on a live listing
+Not designed yet, documented only. Same treatment as a listing with no photos: the box falls back to the camera-slash placeholder rather than a broken image or an empty frame. No retry affordance on the thumbnail.
+✎
+No photos
+06.12
+!
+Images fix card at zero images
+Not designed yet, documented only. The drawer's Images card would read 0 of 50 images with an empty fill bar and no existing-image grid, leaving only the dashed add tile. Needs a first-upload state with Add Images as the primary action.
+✎
+0 of 50 images
+06.3
+No own trend data
+Axis and dashed area lines stay, overlay explains
+Your line starts tomorrow
+06.4
+Sort with no-data listings
+They sink to the bottom, relative order preserved
+—
+06.5
+Switch to or from Ad License tab
+Listing filters clear
+—
+06.6
+Signature already applied
+Upsell hidden, Hot action disabled grey
+—
+06.7
+Draft with missing details
+Publish reads Complete Listing. Two items listed, rest as +N more
+—
+06.8
+!
+Copy link unsupported
+Unresolved. Default: the button still flips to Copied
+—
+06.9
+!
+Booking range crosses a blocked night
+Unresolved. Options: reject the range, or split around it
+—
+06.10
+!
+Zero listings after filtering
+Not designed. An empty state is needed
+✎
+Needs real copy
+
+────────
+
+07 · ACCEPTANCE CRITERIA
+Verifiable without opening Figma. QA and the ticket cite these numbers.
+07.1
+Open the drawer
+GIVEN
+the Active tab with listings
+WHEN
+the user clicks anywhere in a row
+THEN
+the drawer opens from the right with that listing's rank, quality, fixes and upsells, and the page behind stays scrolled where it was
+07.2
+Reach the explainer without a listing
+GIVEN
+the Active tab
+WHEN
+the user clicks the info icon on the Performance or Quality column header
+THEN
+the generic explainer drawer opens, with no per-listing values anywhere in it
+07.3
+Rank updating
+GIVEN
+an open drawer on a listing with a rank
+WHEN
+the user applies Signature or taps Refresh
+THEN
+the rank tile shows the pulsing spark, the shimmer sweep and Your rank is being updated, the previous rank is hidden, and Views, Clicks and Leads keep their live values
+07.4
+Sorting
+GIVEN
+any sort option
+WHEN
+the user picks it
+THEN
+rows are replaced by skeletons with Sorting 65 listings for 4.5s, the page is locked, then the sorted rows rise in with a 90ms stagger, listings with no data last
+07.5
+Tab column sets
+GIVEN
+each of the five tabs
+WHEN
+the tab is active
+THEN
+the column set, timeline labels and row actions match section 03 for that tab, and no other tab's columns appear
+07.6
+Ad License filter swap
+GIVEN
+the Ad License Requests tab
+WHEN
+it becomes active
+THEN
+the filter bar shows Request ID, Deed Number, Status and Created On, listing filters are cleared, and the sort control and performance segment are hidden
+07.7
+Perfect score
+GIVEN
+a listing at 100% quality
+WHEN
+the drawer opens
+THEN
+no fix list renders and no Signature upsell renders
+07.8
+Reduced motion
+GIVEN
+prefers-reduced-motion: reduce
+WHEN
+any screen opens
+THEN
+all content is present at its end state with no animation, and no Lottie player is mounted: the last frame renders as a still
+07.9
+No internet
+GIVEN
+the list area on any tab
+WHEN
+the connection drops
+THEN
+the crossed-cloud state replaces the rows with Try Again, which reads Retrying for 1.5s, plus an I am back online link, and the ordinary empty state does not also render
+07.10
+TruCheck state
+GIVEN
+a row or card action bar
+WHEN
+the listing has a TruCheck state
+THEN
+the state reads as a 16px badge on the top-right corner of the TruCheck button, green tick verified, grey clock visit pending, grey plus eligible, red ! rejected, grey ! expired, the tooltip names the state, and off-plan carries no badge with the button disabled
+07.11
+Explainer reachability
+GIVEN
+the Active tab
+WHEN
+the user opens the score explainer
+THEN
+it opens from the banner after the second listing or from either column-header info icon, and it never shows per-listing values
+
+────────
+
+08 · DEV CHECKLIST
+0 of 18 ticked
+Shared
+Tokens wired: no hard-coded hex outside the palette in section 03
+Copy strings externalised, EN + AR
+RTL mirrored: drawers enter from the left, chevrons and arrows flip, the SAR glyph and numerals do not
+!
+Column widths hold at 1274. Below that the row scrolls horizontally
+Every keyframe gated on prefers-reduced-motion
+Header info icons keyboard reachable, open the explainer on Enter
+!
+Drawer traps focus and closes on Escape
+!
+Real listing photography replaces the striped placeholders
+Data
+Rank, total, quality score and fix list come from the listing payload, not the client
+Discount tag renders from the live discount flag, no client-side price maths
+Ad License statuses map to adLicenseFilters.js
+Tab counts come from the same source as the tab list
+Sort applies server-side. No-data listings sort last
+Review
+!
+Ticket number supplied
+!
+Owner named on the cover
+!
+Empty state designed for zero filter results
+!
+Copy-link fallback decided
+!
+Booking across an already-blocked night decided
+
+────────
+
+09 · CHANGELOG
+Append only. A dev who built against Draft 1 must be able to see exactly what moved.
+VERSION
+DATE
+CHANGE
+BY
+Draft 1
+31 Aug 2026
+First handoff: five tabs, nine cases, drawer, explainer, filters, share, booking, services.
+not supplied
+Draft 2
+09 Sep 2026
+Drawer to 780px with one authored fix card. Fix weights read as %. Title and description word counters, real image flow with a 50-image cap, amenity chips plus the picker modal. Discount pill loses its icon. Row stat tooltips rebuilt against the listing's own previous 7 days. REGA line reads expires in N days. Share Listing renamed Copy Bayut Link. Draft status card shows the x of y disposition. Trend gains a data-state picker and a derived axis. All 25 dispositions present across Draft, Pending and Removed.
+not supplied
+Draft 3
+15 Sep 2026
+Web and mobileweb brought to parity: TruCheck state moves onto the icon button as a corner badge, the score explainer leaves the header for a banner after the second Active listing, a No internet state covers the list area on both surfaces, the sort step joins the tour, removed cards drop the status widget and keep the reason as a plain line, quick filters move into All Filters, and the final numbers caption is gone. Six motion moments now ship as .lottie files: section 05.3.
+not supplied
+
+────────
+
+10 · APPENDIX
+Measured from My Listing Web.dc.html, 15 Sep 2026. Values are read off the build, not redrawn.
+FILE
+WHAT IT IS
+My Listing Web.dc.html
+the web build, source of truth for values
+My Listing Mobileweb.dc.html
+the 360px companion, at parity
+design_handoff_listing_performance/lottie/
+six .lottie bundles plus their raw .json, and one combined bundle
+lottie-assets.js
+the animation source both deliverables play from
+design_handoff_listing_performance/README.md
+long-form spec
+design_handoff_listing_performance/DECISIONS.md
+why things are the way they are
+design_handoff_listing_performance/DESKTOP_VS_MOBILE_DELTA.md
+what differs between the two surfaces, and why
+DESIGN SYSTEM
+Bayut KSA Profolio 2.0
+Tokens and fonts listed in CLAUDE.md. Geist for UI, Figtree for headers and product chrome. Radii 4 / 6 / 8.
+BEHAVIOUR SOURCE
+chaudhary-umair-ahmad/profolio-reactjs-copy @ main
+Screen-to-file mapping is in github.md. Columns from listingUtilities.js, filters from listingFilters.js and adLicenseFilters.js.
+COPY RULE
+No em dashes anywhere in product copy. Use a colon, comma or full stop.

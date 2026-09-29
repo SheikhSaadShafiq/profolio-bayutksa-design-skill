@@ -7,9 +7,10 @@
  * component, the compiled pages and every state, one stylesheet. This packs
  * it into files that open from file:// with no network and nothing beside
  * them — the thing to hand to someone who just wants to open one thing: the
- * web pages and states (profolio-ksa.html, -2, -3, -4), the responsive layout
- * (profolio-ksa-responsive.html, -2), the components
- * (profolio-ksa-components.html). Each is under GitHub's recommended 50 MB.
+ * web pages and states (profolio-ksa.html, -2 …), the responsive layout
+ * (profolio-ksa-responsive.html, -2 …), the components
+ * (profolio-ksa-components.html) and the new My Listings
+ * (profolio-ksa-new-theme.html). Each is under GitHub's recommended 50 MB.
  *
  * HOW
  *   · every document is gzipped and stored as base64; the browser inflates the
@@ -68,18 +69,21 @@ const sheets = {
   'fonts.css': fonts,
   'tokens.css': existsSync(join(D, 'tokens.css')) ? readFileSync(join(D, 'tokens.css'), 'utf8') : '',
   'components/states.css': existsSync(join(D, 'components', 'states.css')) ? readFileSync(join(D, 'components', 'states.css'), 'utf8') : '',
+  /* the new My Listings' faces and tokens (scripts/theme/) — the index's Foundations use them too */
+  'new-theme/fonts.css': existsSync(join(D, 'new-theme', 'fonts.css')) ? readFileSync(join(D, 'new-theme', 'fonts.css'), 'utf8') : '',
+  'new-theme/tokens.css': existsSync(join(D, 'new-theme', 'tokens.css')) ? readFileSync(join(D, 'new-theme', 'tokens.css'), 'utf8') : '',
 };
 
 /* …and a file that would still pass 50 MB is split again, into parts that
    each hold whole pages — a page with every one of its states. The budget is
    what a document weighs PACKED (gzip, then base64 — pages compress very
    differently, so their HTML size says little), and every part also carries
-   the index, the stylesheets and the index's pictures (about 12 MB), so a
-   part's own documents stop at 34 MB packed. The first part keeps the file's
-   name; the others add -2, -3. */
+   the index, the stylesheets and the index's pictures (about 16 MB, the new
+   theme’s thumbnails included), so a part’s own documents stop at 27 MB
+   packed. The first part keeps the file's name; the others add -2, -3. */
 const PACKED = new Map();
 const packed = (rel) => { if (!PACKED.has(rel)) PACKED.set(rel, gzipSync(Buffer.from(pack(rel, readFileSync(join(D, rel), 'utf8')), 'utf8'), { level: 9 }).toString('base64')); return PACKED.get(rel); };
-const BUDGET = 34 * 1024 * 1024;
+const BUDGET = 27 * 1024 * 1024;
 const parts = (out, title, docs) => {
   const byPage = new Map();
   for (const d of docs) { const page = d.split('/').pop().replace(/\.html$/, '').split('--')[0]; (byPage.get(page) || byPage.set(page, []).get(page)).push(d); }
@@ -97,6 +101,9 @@ const BUNDLES = [
   ...parts('profolio-ksa.html', 'web pages & states', [...list('').filter((f) => !HOME.includes(f) && isCompiled(f)), ...list('states', 'states/')]),
   ...parts('profolio-ksa-responsive.html', 'responsive pages & states', [...list('mobile', 'mobile/').filter(isCompiled), ...list('mobile/states', 'mobile/states/')]),
   ...parts('profolio-ksa-components.html', 'components', list('components', 'components/')),
+  /* the new My Listings (Profolio 2.0, the designer's handover, compiled), with
+     its current-and-new page (pictures, and links into the other bundles) */
+  ...(existsSync(join(D, 'new-theme', 'listings.html')) ? parts('profolio-ksa-new-theme.html', 'My Listings — new theme', ['new-theme/listings.html', 'new-theme/compare.html', ...list('new-theme/states', 'new-theme/states/'), 'new-theme/mobile/listings.html', ...list('new-theme/mobile/states', 'new-theme/mobile/states/')]) : []),
 ];
 const home = {};                                     /* doc → the bundle it lives in (the index: the first) */
 for (const b of BUNDLES) for (const d of b.docs) if (!HOME.includes(d)) home[d] = b.out;
@@ -177,7 +184,7 @@ const html = `<!doctype html>
     current = path;
     document.getElementById('back').disabled = !history.length;
     document.getElementById('where').textContent = path;
-    const phone = path.startsWith('mobile/');
+    const phone = path.split('/').includes('mobile');
     view.classList.toggle('pk-phone', phone);
     document.body.classList.toggle('pk-has-phone', phone);
     view.onload = () => {
@@ -209,6 +216,9 @@ const html = `<!doctype html>
 </body>
 </html>
 `;
+  /* the viewer is written inside a template literal, where an escape can quietly vanish:
+     it must still parse before it ships */
+  for (const [, js] of html.matchAll(/<script>([\s\S]*?)<\/script>/g)) if (!js.startsWith('window.') && js.length < 200000) new Function(js);
   writeFileSync(join(D, B.out), html);
   console.log(`  deliverables/${B.out} — ${B.docs.length} documents (${(raw / 1048576).toFixed(1)} MB of HTML) in ${(html.length / 1048576).toFixed(1)} MB`);
 }

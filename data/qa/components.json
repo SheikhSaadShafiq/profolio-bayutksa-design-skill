@@ -1,8 +1,8 @@
 {
- "at": "2026-09-29T07:38:40.138Z",
+ "at": "2026-09-29T14:38:19.598Z",
  "bar": 1,
- "ok": 1518,
- "measured": 1723,
+ "ok": 1519,
+ "measured": 1726,
  "results": {
   "AuthInfo_src_components_utilities_auth-info_info_js__1": {
    "component": "auth-info",
@@ -4940,15 +4940,15 @@
    "ok": false,
    "rules": 216
   },
-  "CreditsUsage_src_container_pages_credits-usage_credits-usage__2": {
+  "CreditsUsage_src_container_pages_credits-usage_credits-usage__4": {
    "component": "credits-usage",
    "level": "page",
    "device": "web",
-   "pct": 12.831,
+   "pct": 14.822,
    "ok": false,
-   "rules": 134
+   "rules": 216
   },
-  "CreditsUsage_src_container_pages_credits-usage_credits-usage__m4": {
+  "CreditsUsage_src_container_pages_credits-usage_credits-usage__m5": {
    "component": "credits-usage",
    "level": "page",
    "device": "mobile",
@@ -4956,7 +4956,7 @@
    "ok": true,
    "rules": 219
   },
-  "CreditsUsage_src_container_pages_credits-usage_credits-usage__m5": {
+  "CreditsUsage_src_container_pages_credits-usage_credits-usage__m6": {
    "component": "credits-usage",
    "level": "page",
    "device": "mobile",
@@ -4964,7 +4964,7 @@
    "ok": true,
    "rules": 185
   },
-  "CreditsUsage_src_container_pages_credits-usage_credits-usage__m6": {
+  "CreditsUsage_src_container_pages_credits-usage_credits-usage__m7": {
    "component": "credits-usage",
    "level": "page",
    "device": "mobile",
@@ -5052,14 +5052,6 @@
    "ok": true,
    "rules": 53
   },
-  "InfiniteScroll_src_components_common_infinite-scroll_infinit__m5": {
-   "component": "infinite-scroll",
-   "level": "molecule",
-   "device": "mobile",
-   "pct": 11.891,
-   "ok": false,
-   "rules": 63
-  },
   "InfiniteScroll_src_components_common_infinite-scroll_infinit__m3": {
    "component": "infinite-scroll",
    "level": "molecule",
@@ -5067,6 +5059,14 @@
    "pct": 0,
    "ok": true,
    "rules": 94
+  },
+  "InfiniteScroll_src_components_common_infinite-scroll_infinit__m5": {
+   "component": "infinite-scroll",
+   "level": "molecule",
+   "device": "mobile",
+   "pct": 11.891,
+   "ok": false,
+   "rules": 63
   },
   "List_src_components_common_infinite-scroll_infinite-scroll_j__2": {
    "component": "list",
@@ -5124,13 +5124,13 @@
    "ok": true,
    "rules": 89
   },
-  "HistoryBreakdown_src_components_credits-usage_history-breakd__4": {
+  "HistoryBreakdown_src_components_credits-usage_history-breakd__3": {
    "component": "history-breakdown",
    "level": "organism",
    "device": "web",
-   "pct": 0,
+   "pct": 0.444,
    "ok": true,
-   "rules": 88
+   "rules": 89
   },
   "HistoryBreakdown_src_components_credits-usage_history-breakd__m7": {
    "component": "history-breakdown",
@@ -5580,14 +5580,6 @@
    "ok": true,
    "rules": 19
   },
-  "ListingBreakdown_src_components_widgets_listing-breakdown_li__2": {
-   "component": "listing-breakdown",
-   "level": "organism",
-   "device": "web",
-   "pct": 1.132,
-   "ok": false,
-   "rules": 98
-  },
   "ListingBreakdown_src_components_widgets_listing-breakdown_li__1": {
    "component": "listing-breakdown",
    "level": "organism",
@@ -5595,6 +5587,14 @@
    "pct": 0.052,
    "ok": true,
    "rules": 120
+  },
+  "ListingBreakdown_src_components_widgets_listing-breakdown_li__2": {
+   "component": "listing-breakdown",
+   "level": "organism",
+   "device": "web",
+   "pct": 1.13,
+   "ok": false,
+   "rules": 98
   },
   "ListingBreakdown_src_components_widgets_listing-breakdown_li__3": {
    "component": "listing-breakdown",
@@ -5848,7 +5848,7 @@
    "component": "leads-views-widget",
    "level": "organism",
    "device": "mobile",
-   "pct": 0,
+   "pct": 0.185,
    "ok": true,
    "rules": 235
   },
@@ -6232,17 +6232,17 @@
    "component": "listings",
    "level": "page",
    "device": "mobile",
-   "pct": 0,
-   "ok": true,
-   "rules": 325
+   "pct": 24.857,
+   "ok": false,
+   "rules": 107
   },
   "Listings_src_container_pages_listings_listings_js__m7": {
    "component": "listings",
    "level": "page",
    "device": "mobile",
-   "pct": 24.857,
-   "ok": false,
-   "rules": 107
+   "pct": 0,
+   "ok": true,
+   "rules": 325
   },
   "Listings_src_tenant_bayut_components_listing_listings_js__1": {
    "component": "listings-listing",
@@ -7124,14 +7124,6 @@
    "ok": true,
    "rules": 15
   },
-  "EmptyState_src_components_common_EmptyState_EmptyState_js__m10": {
-   "component": "empty-state",
-   "level": "molecule",
-   "device": "mobile",
-   "pct": 0,
-   "ok": true,
-   "rules": 45
-  },
   "EmptyState_src_components_common_EmptyState_EmptyState_js__m11": {
    "component": "empty-state",
    "level": "molecule",
@@ -7139,6 +7131,14 @@
    "pct": 0,
    "ok": true,
    "rules": 38
+  },
+  "EmptyState_src_components_common_EmptyState_EmptyState_js__m10": {
+   "component": "empty-state",
+   "level": "molecule",
+   "device": "mobile",
+   "pct": 0,
+   "ok": true,
+   "rules": 45
   },
   "EmptyStateBlock_src_components_common_EmptyState_EmptyState___2": {
    "component": "empty-state-block",
@@ -7164,14 +7164,6 @@
    "ok": true,
    "rules": 37
   },
-  "EmptyStateBlock_src_components_common_EmptyState_EmptyState___m9": {
-   "component": "empty-state-block",
-   "level": "molecule",
-   "device": "mobile",
-   "pct": 0,
-   "ok": true,
-   "rules": 15
-  },
   "EmptyStateBlock_src_components_common_EmptyState_EmptyState___m11": {
    "component": "empty-state-block",
    "level": "molecule",
@@ -7179,6 +7171,14 @@
    "pct": 0,
    "ok": true,
    "rules": 38
+  },
+  "EmptyStateBlock_src_components_common_EmptyState_EmptyState___m9": {
+   "component": "empty-state-block",
+   "level": "molecule",
+   "device": "mobile",
+   "pct": 0,
+   "ok": true,
+   "rules": 15
   },
   "EmptyStateBlock_src_components_common_EmptyState_EmptyState___m10": {
    "component": "empty-state-block",
@@ -8668,14 +8668,6 @@
    "ok": false,
    "rules": 170
   },
-  "UpgradeListing_src_container_pages_post-listing_upgrade-list__m5": {
-   "component": "upgrade-listing",
-   "level": "page",
-   "device": "mobile",
-   "pct": 0,
-   "ok": true,
-   "rules": 49
-  },
   "UpgradeListing_src_container_pages_post-listing_upgrade-list__m6": {
    "component": "upgrade-listing",
    "level": "page",
@@ -8683,6 +8675,14 @@
    "pct": 5.087,
    "ok": false,
    "rules": 185
+  },
+  "UpgradeListing_src_container_pages_post-listing_upgrade-list__m5": {
+   "component": "upgrade-listing",
+   "level": "page",
+   "device": "mobile",
+   "pct": 0,
+   "ok": true,
+   "rules": 49
   },
   "UpgradeListingPage_src_tenant_bayut_components_upgrade-listi__1": {
    "component": "upgrade-listing-page",
@@ -8692,14 +8692,6 @@
    "ok": false,
    "rules": 177
   },
-  "UpgradeListingPage_src_tenant_bayut_components_upgrade-listi__2": {
-   "component": "upgrade-listing-page",
-   "level": "page",
-   "device": "web",
-   "pct": 0.429,
-   "ok": true,
-   "rules": 27
-  },
   "UpgradeListingPage_src_tenant_bayut_components_upgrade-listi__3": {
    "component": "upgrade-listing-page",
    "level": "page",
@@ -8707,6 +8699,14 @@
    "pct": 0.015,
    "ok": true,
    "rules": 192
+  },
+  "UpgradeListingPage_src_tenant_bayut_components_upgrade-listi__2": {
+   "component": "upgrade-listing-page",
+   "level": "page",
+   "device": "web",
+   "pct": 0.429,
+   "ok": true,
+   "rules": 27
   },
   "UpgradeListingPage_src_tenant_bayut_components_upgrade-listi__m5": {
    "component": "upgrade-listing-page",
@@ -8716,6 +8716,14 @@
    "ok": false,
    "rules": 170
   },
+  "UpgradeListingPage_src_tenant_bayut_components_upgrade-listi__m7": {
+   "component": "upgrade-listing-page",
+   "level": "page",
+   "device": "mobile",
+   "pct": 5.088,
+   "ok": false,
+   "rules": 185
+  },
   "UpgradeListingPage_src_tenant_bayut_components_upgrade-listi__m6": {
    "component": "upgrade-listing-page",
    "level": "page",
@@ -8723,14 +8731,6 @@
    "pct": 0,
    "ok": true,
    "rules": 49
-  },
-  "UpgradeListingPage_src_tenant_bayut_components_upgrade-listi__m7": {
-   "component": "upgrade-listing-page",
-   "level": "page",
-   "device": "mobile",
-   "pct": 5.087,
-   "ok": false,
-   "rules": 185
   },
   "Product_src_tenant_common_components_upgrade-listing_product__1": {
    "component": "product",
@@ -11676,6 +11676,14 @@
    "ok": true,
    "rules": 35
   },
+  "PostListingButton_src_components_post-listing-button_post-li__m3": {
+   "component": "post-listing-button",
+   "level": "atom",
+   "device": "mobile",
+   "pct": 0,
+   "ok": true,
+   "rules": 35
+  },
   "ProfileCompletionBanner_src_tenant_common_components_profile__1": {
    "component": "profile-completion-banner",
    "level": "organism",
@@ -12107,6 +12115,22 @@
    "pct": 0,
    "ok": true,
    "rules": 102
+  },
+  "TruBrokerAndProfileCard_src_components_tru-broker_tru-broker__1": {
+   "component": "tru-broker-and-profile-card",
+   "level": "organism",
+   "device": "web",
+   "pct": 0,
+   "ok": true,
+   "rules": 105
+  },
+  "TruBrokerAndProfileCard_src_components_tru-broker_tru-broker__m2": {
+   "component": "tru-broker-and-profile-card",
+   "level": "organism",
+   "device": "mobile",
+   "pct": 1.05,
+   "ok": false,
+   "rules": 107
   },
   "pf-tooltip__1": {
    "component": "antd-tooltip",
@@ -13532,13 +13556,13 @@
    "ok": false,
    "rules": 324
   },
-  "ListingCardContainer_src_components_listing-card-container_L__m3": {
+  "ListingCardContainer_src_components_listing-card-container_L__m4": {
    "component": "listing-card-container",
    "level": "organism",
    "device": "mobile",
-   "pct": 0,
-   "ok": true,
-   "rules": 23
+   "pct": 25.301,
+   "ok": false,
+   "rules": 106
   },
   "ListingCard_src_components_listing-card_ListingCard_js__m1": {
    "component": "listing-card",

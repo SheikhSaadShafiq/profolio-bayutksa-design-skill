@@ -1,0 +1,2000 @@
+{
+ "mobile:case-all-bad": {
+  "file": "deliverables/new-theme/mobile/states/listings--case-all-bad.html",
+  "note": "The list with one case pinned first: all bad",
+  "how": "02 · All bad",
+  "group": "cases",
+  "frame": "360x800",
+  "hash": "085c0e39675581a2022b8e6f18cadd29cfe962be",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:case-daily-rental": {
+  "file": "deliverables/new-theme/mobile/states/listings--case-daily-rental.html",
+  "note": "The list with one case pinned first: daily rental",
+  "how": "02 · Daily rental",
+  "group": "cases",
+  "frame": "360x800",
+  "hash": "a7839dd59a48e180e184b18c85f5944867432578",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:case-everything-unfinished": {
+  "file": "deliverables/new-theme/mobile/states/listings--case-everything-unfinished.html",
+  "note": "The list with one case pinned first: everything unfinished",
+  "how": "02 · Everything unfinished",
+  "group": "cases",
+  "frame": "360x800",
+  "hash": "9ab9368110dae80e1150efbd64f7b1cd2e819eb4",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:case-happy": {
+  "file": "deliverables/new-theme/mobile/states/listings--case-happy.html",
+  "note": "The list with one case pinned first: happy",
+  "how": "02 · Happy case",
+  "group": "cases",
+  "frame": "360x800",
+  "hash": "821d8e8267114db647a479018db546ce8638ac01",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:case-high-impression-low-leads": {
+  "same": "mobile:page",
+  "note": "The list with one case pinned first: high impression, low leads",
+  "how": "02 · High impression, low leads",
+  "group": "cases"
+ },
+ "mobile:case-just-posted": {
+  "file": "deliverables/new-theme/mobile/states/listings--case-just-posted.html",
+  "note": "The list with one case pinned first: just posted",
+  "how": "02 · Just posted",
+  "group": "cases",
+  "frame": "360x800",
+  "hash": "67ceb935872e36c1f32a40fbf8e61d4a21234334",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:case-low-impression-high-conversion": {
+  "file": "deliverables/new-theme/mobile/states/listings--case-low-impression-high-conversion.html",
+  "note": "The list with one case pinned first: low impression, high conversion",
+  "how": "02 · Low impression, high conversion",
+  "group": "cases",
+  "frame": "360x800",
+  "hash": "7acf25cb0b26bef39f9867c7c62cb03900e06eb5",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:case-off-plan": {
+  "file": "deliverables/new-theme/mobile/states/listings--case-off-plan.html",
+  "note": "The list with one case pinned first: off-plan initial sale",
+  "how": "02 · Off-plan initial sale",
+  "group": "cases",
+  "frame": "360x800",
+  "hash": "fc1d8d652ba45b23bb5060e42236c2f4144ff021",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:case-rank-pending": {
+  "file": "deliverables/new-theme/mobile/states/listings--case-rank-pending.html",
+  "note": "The list with one case pinned first: rank pending",
+  "how": "02 · Rank pending",
+  "group": "cases",
+  "frame": "360x800",
+  "hash": "1ac33aa93cf696bec0f439cdb38421fa355bb283",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:empty-active": {
+  "file": "deliverables/new-theme/mobile/states/listings--empty-active.html",
+  "note": "Empty: no active listings yet — Post a Listing, See how scores work",
+  "how": "02 · No active listings",
+  "group": "empty",
+  "frame": "360x800",
+  "hash": "36451ed647590ff3ff05ce7275b528344d615c39",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:empty-draft": {
+  "file": "deliverables/new-theme/mobile/states/listings--empty-draft.html",
+  "note": "Empty: no drafts saved",
+  "how": "02 · No drafts",
+  "group": "empty",
+  "frame": "360x800",
+  "hash": "ec749f08526f78e16b077fb821bd4014dd33e918",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:empty-filter": {
+  "file": "deliverables/new-theme/mobile/states/listings--empty-filter.html",
+  "note": "Empty: no listings match these filters",
+  "how": "02 · No filter results",
+  "group": "empty",
+  "frame": "360x800",
+  "hash": "a1d64884119d5bec11554dbaa4ca84c782358037",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:empty-pending": {
+  "file": "deliverables/new-theme/mobile/states/listings--empty-pending.html",
+  "note": "Empty: nothing waiting for approval",
+  "how": "02 · No pending listings",
+  "group": "empty",
+  "frame": "360x800",
+  "hash": "37d428de089732acc989c5ce3ea3839f18a4fcfb",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:empty-removed": {
+  "file": "deliverables/new-theme/mobile/states/listings--empty-removed.html",
+  "note": "Empty: no removed listings",
+  "how": "02 · No removed listings",
+  "group": "empty",
+  "frame": "360x800",
+  "hash": "fc82214e37d82469531cdf18871eca5040150a3a",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:full": {
+  "file": "deliverables/new-theme/mobile/states/listings--full.html",
+  "note": "My Listings, Active tab — the whole list, every case",
+  "how": "02 · Listing list",
+  "group": "list",
+  "frame": "360x2937",
+  "hash": "9472fa728bb9bba3e9bae2d77b4fd576bf27b6b9",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:non-package": {
+  "file": "deliverables/new-theme/mobile/states/listings--non-package.html",
+  "note": "Not a package user — the package upsell",
+  "how": "02 · Not a package user",
+  "group": "empty",
+  "frame": "360x800",
+  "hash": "31547c554a872ef27fede10612cb1dd4c93b0984",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.001,
+  "ok": true
+ },
+ "mobile:non-package-empty": {
+  "file": "deliverables/new-theme/mobile/states/listings--non-package-empty.html",
+  "note": "Not a package user, and no listings",
+  "how": "02 · Not a package user, no listings",
+  "group": "empty",
+  "frame": "360x800",
+  "hash": "0fd70efa5d5971226f43998767891324993a0d90",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:offline": {
+  "file": "deliverables/new-theme/mobile/states/listings--offline.html",
+  "note": "Error: no internet connection",
+  "how": "02 · No internet",
+  "group": "empty",
+  "frame": "360x800",
+  "hash": "57742cbc726833db5b6ce6f57435ef5371186367",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:page": {
+  "file": "deliverables/new-theme/mobile/listings.html",
+  "note": "My Listings, Active tab — as an agent lands on it",
+  "how": "02 · Listing list",
+  "group": "list",
+  "frame": "360x800",
+  "hash": "9dfbc50e3d947e64d9340dbba220ca84e27f0616",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:sheet-amenities": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-amenities.html",
+  "note": "Add Amenities picker, open in the quality block",
+  "how": "02 · Amenities picker, then the build set as the note says",
+  "group": "sheets",
+  "frame": "360x800",
+  "hash": "6becb2fd257db1e7a928d963a9087ebbcfbcfa4c",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.095,
+  "ok": true
+ },
+ "mobile:sheet-amenities-full": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-amenities-full.html",
+  "note": "Add Amenities picker, open in the quality block — the whole sheet",
+  "how": "02 · Amenities picker, then the build set as the note says",
+  "group": "sheets",
+  "frame": "360x3982",
+  "hash": "b09f11001043941ad687171706f6af55731e36c5",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.019,
+  "ok": true
+ },
+ "mobile:sheet-case-all-bad": {
+  "same": "mobile:sheet-improve-quality",
+  "note": "Performance sheet — case: all bad",
+  "how": "prototype · tap the All bad card",
+  "group": "cases"
+ },
+ "mobile:sheet-case-daily-rental": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-case-daily-rental.html",
+  "note": "Performance sheet — case: daily rental",
+  "how": "prototype · tap the Daily rental card",
+  "group": "cases",
+  "frame": "360x800",
+  "hash": "3ca85269adc94d885b0a6ec94dc47e927a0e493c",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.095,
+  "ok": true
+ },
+ "mobile:sheet-case-everything-unfinished": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-case-everything-unfinished.html",
+  "note": "Performance sheet — case: everything unfinished",
+  "how": "prototype · tap the Everything unfinished card",
+  "group": "cases",
+  "frame": "360x800",
+  "hash": "88d88590026717580d00e22bb4d77d5e745c4dc7",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.095,
+  "ok": true
+ },
+ "mobile:sheet-case-happy": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-case-happy.html",
+  "note": "Performance sheet — case: happy",
+  "how": "prototype · tap the Happy case card",
+  "group": "cases",
+  "frame": "360x800",
+  "hash": "0c94ef477ee2c4ea55c8e24af7b40dffcebba56b",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.099,
+  "ok": true
+ },
+ "mobile:sheet-case-high-impression-low-leads": {
+  "same": "mobile:sheet-performance",
+  "note": "Performance sheet — case: high impression, low leads",
+  "how": "prototype · tap the High impression, low leads card",
+  "group": "cases"
+ },
+ "mobile:sheet-case-just-posted": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-case-just-posted.html",
+  "note": "Performance sheet — case: just posted",
+  "how": "prototype · tap the Just posted card",
+  "group": "cases",
+  "frame": "360x800",
+  "hash": "e46065bcc161cf4f17c8d101be1e0d131cc5030c",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.095,
+  "ok": true
+ },
+ "mobile:sheet-case-low-impression-high-conversion": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-case-low-impression-high-conversion.html",
+  "note": "Performance sheet — case: low impression, high conversion",
+  "how": "prototype · tap the Low impression, high conversion card",
+  "group": "cases",
+  "frame": "360x800",
+  "hash": "20b909f2abb97e7ba7670f9d3fd2d6c9f4966961",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.095,
+  "ok": true
+ },
+ "mobile:sheet-case-off-plan": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-case-off-plan.html",
+  "note": "Performance sheet — case: off-plan initial sale",
+  "how": "prototype · tap the Off-plan initial sale card",
+  "group": "cases",
+  "frame": "360x800",
+  "hash": "c20bf378443c7f17d54c9959edee9008419cef18",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.095,
+  "ok": true
+ },
+ "mobile:sheet-case-rank-pending": {
+  "same": "mobile:sheet-trend-no-data",
+  "note": "Performance sheet — case: rank pending",
+  "how": "prototype · tap the Rank pending card",
+  "group": "cases"
+ },
+ "mobile:sheet-delete": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-delete.html",
+  "note": "Delete listing — the reasons",
+  "how": "prototype · the first card’s row menu → Delete Listing",
+  "group": "prototype",
+  "frame": "360x800",
+  "hash": "2dc57974e89b90649e56009efc30709ab8598e7e",
+  "decisions": [
+   "header",
+   "riyal ×1"
+  ],
+  "pct": 0.197,
+  "ok": true
+ },
+ "mobile:sheet-filters": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-filters.html",
+  "note": "Filter sheet",
+  "how": "02 · Filter sheet",
+  "group": "filtering",
+  "frame": "360x800",
+  "hash": "bc0c92b397eac18c6e7eeb4f7901a05c52ed2895",
+  "decisions": [
+   "header",
+   "riyal ×1"
+  ],
+  "pct": 0.197,
+  "ok": true
+ },
+ "mobile:sheet-filters-full": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-filters-full.html",
+  "note": "Filter sheet — the whole sheet, down to the price and area ranges",
+  "how": "02 · Filter sheet",
+  "group": "filtering",
+  "frame": "360x2937",
+  "hash": "8a373d8d510e3e5c5882daccc744136216983692",
+  "decisions": [
+   "header",
+   "riyal ×1"
+  ],
+  "pct": 0.054,
+  "ok": true
+ },
+ "mobile:sheet-improve-quality": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-improve-quality.html",
+  "note": "Improve Quality — the all-bad listing’s sheet, its first fix expanded (the fix list is below the fold)",
+  "how": "02 · Improve Quality",
+  "group": "sheets",
+  "frame": "360x800",
+  "hash": "88ab22addf9c06f913eac76bad28e8c6d9b8c375",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.095,
+  "ok": true
+ },
+ "mobile:sheet-improve-quality-full": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-improve-quality-full.html",
+  "note": "Improve Quality — the all-bad listing’s whole sheet, down to its fix list",
+  "how": "02 · Improve Quality",
+  "group": "sheets",
+  "frame": "360x3007",
+  "hash": "3e82118afe29309c8d9cf9da5a50205c1accae37",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.025,
+  "ok": true
+ },
+ "mobile:sheet-location-no-match": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-location-no-match.html",
+  "note": "Location search — no match",
+  "how": "02 · Location: no match",
+  "group": "filtering",
+  "frame": "360x800",
+  "hash": "6f1417f5cb49c3920fcd7ec9c8b8a572563057d4",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.197,
+  "ok": true
+ },
+ "mobile:sheet-location-search": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-location-search.html",
+  "note": "Location search",
+  "how": "02 · Location search",
+  "group": "filtering",
+  "frame": "360x800",
+  "hash": "ee65b2fe29b515d6624c4d292e9a4c404582bcec",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.197,
+  "ok": true
+ },
+ "mobile:sheet-mark-as-booked": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-mark-as-booked.html",
+  "note": "Mark as Booked sheet — daily rentals only: pick the check-in date [derived]",
+  "how": "derived · the daily rental card's row menu → Mark as Booked (the build has its logic, not its template)",
+  "group": "sheets",
+  "frame": "360x800",
+  "hash": "9511121f746f2d87ed245a6617bcc15345dca8f5",
+  "decisions": [
+   "header"
+  ],
+  "derived": "derived: neither build draws Mark as Booked (spec 03 · J; the phone row menu). Composed in the Request Services sheet's chrome from the build's own booking values (renderVals: bookKinds, bookCells, weekDays, bookMonthLabel, bookHint, confirmLabel, confirmOpacity); laid out per the spec's element table. Composed, not the build's: the arrangement, the chevrons, the title, the month and weekday type, the day cells' size and type, the band corners. Replace when the handover draws it.",
+  "pct": 0.199,
+  "ok": true
+ },
+ "mobile:sheet-mark-as-booked-range": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-mark-as-booked-range.html",
+  "note": "Mark as Booked sheet — a stay picked: Sep 11 to Sep 14 [derived]",
+  "how": "derived · the daily rental card's row menu → Mark as Booked (the build has its logic, not its template)",
+  "group": "sheets",
+  "frame": "360x800",
+  "hash": "8a5e26df306f3d623731ee0a4511792bb53f30fe",
+  "decisions": [
+   "header"
+  ],
+  "derived": "derived: neither build draws Mark as Booked (spec 03 · J; the phone row menu). Composed in the Request Services sheet's chrome from the build's own booking values (renderVals: bookKinds, bookCells, weekDays, bookMonthLabel, bookHint, confirmLabel, confirmOpacity); laid out per the spec's element table. Composed, not the build's: the arrangement, the chevrons, the title, the month and weekday type, the day cells' size and type, the band corners. Replace when the handover draws it.",
+  "pct": 0.199,
+  "ok": true
+ },
+ "mobile:sheet-performance": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-performance.html",
+  "note": "Listing Performance bottom sheet",
+  "how": "02 · Performance sheet",
+  "group": "sheets",
+  "frame": "360x800",
+  "hash": "d2cc804ffeec9821361d5c3b3d9f3057a1c11a24",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.095,
+  "ok": true
+ },
+ "mobile:sheet-performance-full": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-performance-full.html",
+  "note": "Listing Performance bottom sheet — the whole sheet",
+  "how": "02 · Performance sheet",
+  "group": "sheets",
+  "frame": "360x2937",
+  "hash": "595e1aed64327a21f26291839edc1f9e20775a9a",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.026,
+  "ok": true
+ },
+ "mobile:sheet-quality-score": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-quality-score.html",
+  "note": "How to Earn Quality Score sheet",
+  "how": "02 · How the score works",
+  "group": "sheets",
+  "frame": "360x800",
+  "hash": "875690e888e464088f8b7908e06bf014cfabd461",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.201,
+  "ok": true
+ },
+ "mobile:sheet-quality-score-full": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-quality-score-full.html",
+  "note": "How to Earn Quality Score sheet — the whole explainer",
+  "how": "02 · How the score works",
+  "group": "sheets",
+  "frame": "360x2588",
+  "hash": "85eba1b515f709a31f8ab498fa200bbd96363505",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.064,
+  "ok": true
+ },
+ "mobile:sheet-range": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-range.html",
+  "note": "The performance sheet's date range",
+  "how": "prototype · Last 30 Days, in the performance sheet",
+  "group": "prototype",
+  "frame": "360x800",
+  "hash": "e5eb92d425712be7f99885c1cc574dbad381e525",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.197,
+  "ok": true
+ },
+ "mobile:sheet-request-services": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-request-services.html",
+  "note": "Request Services sheet",
+  "how": "02 · Request Services",
+  "group": "sheets",
+  "frame": "360x800",
+  "hash": "6f72ce2339af1d27d7fdda9a7d83777fb7ea616d",
+  "decisions": [
+   "header",
+   "riyal ×1"
+  ],
+  "pct": 0.199,
+  "ok": true
+ },
+ "mobile:sheet-row-menu": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-row-menu.html",
+  "note": "A card's row menu — a bottom sheet, not a popover",
+  "how": "02 · Row menu",
+  "group": "sheets",
+  "frame": "360x800",
+  "hash": "4afb77ae4e831ff18e54305434a141823e9a0c6a",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.197,
+  "ok": true
+ },
+ "mobile:sheet-services-requested": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-services-requested.html",
+  "note": "Services requested",
+  "how": "02 · Services requested",
+  "group": "sheets",
+  "frame": "360x800",
+  "hash": "abb926151dfc637db212291a082db69d91fbae07",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.199,
+  "ok": true
+ },
+ "mobile:sheet-share": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-share.html",
+  "note": "Share sheet — Copy Bayut Link",
+  "how": "02 · Copy Bayut Link",
+  "group": "sheets",
+  "frame": "360x800",
+  "hash": "9ae03120629d443c91d09d08d7b9ff32dc6fa826",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.197,
+  "ok": true
+ },
+ "mobile:sheet-sort": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-sort.html",
+  "note": "Sort sheet",
+  "how": "02 · Sort sheet",
+  "group": "filtering",
+  "frame": "360x800",
+  "hash": "5f74199e7548305a24e6e187db8bf4b7f5e086d4",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.197,
+  "ok": true
+ },
+ "mobile:sheet-trend-drop": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-trend-drop.html",
+  "note": "Performance sheet — the trend with a sudden drop",
+  "how": "02 · Trend: sudden drop",
+  "group": "trend",
+  "frame": "360x800",
+  "hash": "ea292cd5c9446df4fe19d3337b2e6cec2aac2b2b",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.095,
+  "ok": true
+ },
+ "mobile:sheet-trend-no-data": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-trend-no-data.html",
+  "note": "Performance sheet — no trend data yet",
+  "how": "02 · Trend: no data yet",
+  "group": "trend",
+  "frame": "360x800",
+  "hash": "e50891f8c2dad396b4af993bd3b47c1baa66a948",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.095,
+  "ok": true
+ },
+ "mobile:sheet-trend-recover": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-trend-recover.html",
+  "note": "Performance sheet — the trend down, then back up",
+  "how": "02 · Trend: down then back up",
+  "group": "trend",
+  "frame": "360x800",
+  "hash": "42c905f383b0a70208d8f06c762592ab4d15fbaf",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.095,
+  "ok": true
+ },
+ "mobile:sheet-trend-spike": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-trend-spike.html",
+  "note": "Performance sheet — the trend with a one-day spike",
+  "how": "02 · Trend: one day spike",
+  "group": "trend",
+  "frame": "360x800",
+  "hash": "1fa0f23cf9fedad2440bdb98da06058e02097830",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.095,
+  "ok": true
+ },
+ "mobile:sheet-trucheck": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-trucheck.html",
+  "note": "TruCheck — the first card, not yet verified",
+  "how": "prototype · TruCheck on the first card",
+  "group": "prototype",
+  "frame": "360x800",
+  "hash": "e3ba73c938110d52fffb5d538b8f9b23e3bf8a26",
+  "decisions": [
+   "header",
+   "riyal ×1"
+  ],
+  "pct": 0.197,
+  "ok": true
+ },
+ "mobile:sheet-trucheck-rejected": {
+  "file": "deliverables/new-theme/mobile/states/listings--sheet-trucheck-rejected.html",
+  "note": "TruCheck — a request that was rejected",
+  "how": "prototype · TruCheck on the All bad card (the second)",
+  "group": "prototype",
+  "frame": "360x800",
+  "hash": "2a04fb1cd1958af22e6ca72ab573b0b3e5ecc9ad",
+  "decisions": [
+   "header",
+   "riyal ×1"
+  ],
+  "pct": 0.197,
+  "ok": true
+ },
+ "mobile:skeleton-filtering": {
+  "file": "deliverables/new-theme/mobile/states/listings--skeleton-filtering.html",
+  "note": "Filtering skeleton — replaces the card list for 1.8s, \"Filtering 65 listings...\" (02’s Filtering skeleton chip shows the sort skeleton instead)",
+  "how": "prototype · apply a filter (the build runs its 1.8s filtering state)",
+  "group": "filtering",
+  "frame": "360x800",
+  "hash": "5426858c8177aa40fd4c4dff858afb759a7a383d",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:tab-ad-license-requests": {
+  "file": "deliverables/new-theme/mobile/states/listings--tab-ad-license-requests.html",
+  "note": "Ad License tab — process: five requests, their status, Request ID and Deed",
+  "how": "prototype · the Ad License tab (02’s chip selects \"license\", a tab the build does not have)",
+  "group": "tabs",
+  "frame": "360x800",
+  "hash": "57309edd921d85ed68ce96ac493919fb118acac9",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.001,
+  "ok": true
+ },
+ "mobile:tab-ad-license-requests-full": {
+  "file": "deliverables/new-theme/mobile/states/listings--tab-ad-license-requests-full.html",
+  "note": "Ad License tab — every request",
+  "how": "prototype · the Ad License tab (02’s chip selects \"license\", a tab the build does not have)",
+  "group": "tabs",
+  "frame": "360x1298",
+  "hash": "9e657c96d22f975745ec34656205f163ecf9248c",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:tab-draft": {
+  "file": "deliverables/new-theme/mobile/states/listings--tab-draft.html",
+  "note": "Draft tab — completion",
+  "how": "02 · Draft tab",
+  "group": "tabs",
+  "frame": "360x800",
+  "hash": "2995338ff1cbd1a1a5ba3f51c2a0538def0cb7d1",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.001,
+  "ok": true
+ },
+ "mobile:tab-draft-full": {
+  "file": "deliverables/new-theme/mobile/states/listings--tab-draft-full.html",
+  "note": "Draft tab — every draft",
+  "how": "02 · Draft tab",
+  "group": "tabs",
+  "frame": "360x1927",
+  "hash": "2beca89c48b92639803480ef1c4b31a5993b5d1a",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:tab-pending": {
+  "file": "deliverables/new-theme/mobile/states/listings--tab-pending.html",
+  "note": "Pending tab — waiting",
+  "how": "02 · Pending tab",
+  "group": "tabs",
+  "frame": "360x800",
+  "hash": "d96ffd244a7063debdbf716d0ba56b8492d648b1",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.001,
+  "ok": true
+ },
+ "mobile:tab-pending-full": {
+  "file": "deliverables/new-theme/mobile/states/listings--tab-pending-full.html",
+  "note": "Pending tab — every listing waiting",
+  "how": "02 · Pending tab",
+  "group": "tabs",
+  "frame": "360x2000",
+  "hash": "730ccd4865da3ad6ecd85d74b602eb6d2ce49c9e",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:tab-removed": {
+  "file": "deliverables/new-theme/mobile/states/listings--tab-removed.html",
+  "note": "Removed tab — recovery",
+  "how": "02 · Removed tab",
+  "group": "tabs",
+  "frame": "360x800",
+  "hash": "b3cdf77683b85a31d7790c79fcd7bdfca67c8d1b",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.001,
+  "ok": true
+ },
+ "mobile:tab-removed-full": {
+  "file": "deliverables/new-theme/mobile/states/listings--tab-removed-full.html",
+  "note": "Removed tab — every removed listing",
+  "how": "02 · Removed tab",
+  "group": "tabs",
+  "frame": "360x2979",
+  "hash": "e8b2973a452e7eeefcb2243b9c53d7733b699dbd",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:toast-booked": {
+  "file": "deliverables/new-theme/mobile/states/listings--toast-booked.html",
+  "note": "After Mark as Booked: the build's dark toast (#1D1D1F, white text)",
+  "how": "prototype · Mark as Booked → confirm (the build's own toast)",
+  "group": "sheets",
+  "frame": "360x800",
+  "hash": "ed60812656a876552657007d935a9efd505c926b",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "mobile:tour": {
+  "file": "deliverables/new-theme/mobile/states/listings--tour.html",
+  "note": "Onboarding tour, the intro card — My Listings has a new look",
+  "how": "02 · Onboarding tour",
+  "group": "onboarding",
+  "frame": "360x800",
+  "hash": "cb243ffa6b4aaf66e1b40439ce1c1cfb44f80415",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.193,
+  "ok": true
+ },
+ "mobile:tour-2": {
+  "file": "deliverables/new-theme/mobile/states/listings--tour-2.html",
+  "note": "Onboarding tour, spotlight 1 / 4 — Performance and improvements",
+  "how": "prototype · the onboarding tour, step 2 of 5",
+  "group": "prototype",
+  "frame": "360x800",
+  "hash": "551e174098b7603c75fa1bc39f56bbb97f0f0a22",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.188,
+  "ok": true
+ },
+ "mobile:tour-3": {
+  "file": "deliverables/new-theme/mobile/states/listings--tour-3.html",
+  "note": "Onboarding tour, spotlight 2 / 4 — Filter and sort from one bar",
+  "how": "prototype · the onboarding tour, step 3 of 5",
+  "group": "prototype",
+  "frame": "360x800",
+  "hash": "8f960f9800437a6a1a0a645d87a7d4035447ef10",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.188,
+  "ok": true
+ },
+ "mobile:tour-4": {
+  "file": "deliverables/new-theme/mobile/states/listings--tour-4.html",
+  "note": "Onboarding tour, spotlight 3 / 4 — Sort by what matters",
+  "how": "prototype · the onboarding tour, step 4 of 5",
+  "group": "prototype",
+  "frame": "360x800",
+  "hash": "6dfa1e9fdce35adf15b125d101756127ca4f83bd",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.188,
+  "ok": true
+ },
+ "mobile:tour-5": {
+  "file": "deliverables/new-theme/mobile/states/listings--tour-5.html",
+  "note": "Onboarding tour, spotlight 4 / 4 — See how the score works",
+  "how": "prototype · the onboarding tour, step 5 of 5",
+  "group": "prototype",
+  "frame": "360x800",
+  "hash": "733dea39acd5249f26f974d82cc7c7861164e56b",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.19,
+  "ok": true
+ },
+ "mobile:tour-no-listings": {
+  "file": "deliverables/new-theme/mobile/states/listings--tour-no-listings.html",
+  "note": "Onboarding tour with no listings, the intro card — My Listings has a new look",
+  "how": "02 · Tour with no listings",
+  "group": "onboarding",
+  "frame": "360x800",
+  "hash": "371d475ca233f2d8faf6d123e74e109e159ec6fa",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.184,
+  "ok": true
+ },
+ "mobile:tour-no-listings-2": {
+  "file": "deliverables/new-theme/mobile/states/listings--tour-no-listings-2.html",
+  "note": "Onboarding tour with no listings, spotlight 1 / 3 — Filter and sort from one bar",
+  "how": "prototype · the onboarding tour with no listings, step 2 of 4",
+  "group": "prototype",
+  "frame": "360x800",
+  "hash": "b156d73b4b5766346645d1e3485c5553b1f5875c",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.185,
+  "ok": true
+ },
+ "mobile:tour-no-listings-3": {
+  "file": "deliverables/new-theme/mobile/states/listings--tour-no-listings-3.html",
+  "note": "Onboarding tour with no listings, a full card — Post your first listing",
+  "how": "prototype · the onboarding tour with no listings, step 3 of 4",
+  "group": "prototype",
+  "frame": "360x800",
+  "hash": "c220853559aef65da966156a32c66303705ffd11",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.184,
+  "ok": true
+ },
+ "mobile:tour-no-listings-4": {
+  "file": "deliverables/new-theme/mobile/states/listings--tour-no-listings-4.html",
+  "note": "Onboarding tour with no listings, a full card — See how the score works",
+  "how": "prototype · the onboarding tour with no listings, step 4 of 4",
+  "group": "prototype",
+  "frame": "360x800",
+  "hash": "1363dfa234d82bc0489ac20af16b8672590f032b",
+  "decisions": [
+   "header"
+  ],
+  "pct": 0.184,
+  "ok": true
+ },
+ "web:drawer-amenities": {
+  "file": "deliverables/new-theme/states/listings--drawer-amenities.html",
+  "note": "Add Amenities picker, over the Listing Performance drawer",
+  "how": "02c · Amenities picker",
+  "group": "drawer",
+  "frame": "1440x900",
+  "hash": "6bcbd809661bf47bf7a89e472f7499baaf59446d",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-case-all-bad": {
+  "file": "deliverables/new-theme/states/listings--drawer-case-all-bad.html",
+  "note": "Listing Performance drawer — case: all bad",
+  "how": "prototype · the All bad row → its drawer",
+  "group": "cases",
+  "frame": "1440x900",
+  "hash": "c38fe674fc5e3a32ff65096daa7d6ab033b9d1ab",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-case-all-bad-full": {
+  "file": "deliverables/new-theme/states/listings--drawer-case-all-bad-full.html",
+  "note": "Listing Performance drawer, whole — case: all bad",
+  "how": "prototype · the All bad row → its drawer, whole",
+  "group": "cases",
+  "frame": "1440x2231",
+  "hash": "5cb6d0a1d02571702316897767c8791793c6b57c",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-case-daily-rental": {
+  "file": "deliverables/new-theme/states/listings--drawer-case-daily-rental.html",
+  "note": "Listing Performance drawer — case: daily rental",
+  "how": "prototype · the Daily rental row → its drawer",
+  "group": "cases",
+  "frame": "1440x900",
+  "hash": "7269a2792cdf2beb71240c851dce28487a4cf6a4",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-case-daily-rental-full": {
+  "file": "deliverables/new-theme/states/listings--drawer-case-daily-rental-full.html",
+  "note": "Listing Performance drawer, whole — case: daily rental",
+  "how": "prototype · the Daily rental row → its drawer, whole",
+  "group": "cases",
+  "frame": "1440x2231",
+  "hash": "b6dd7de15fbdc5da8749424d1dd82da39d015591",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-case-everything-unfinished": {
+  "file": "deliverables/new-theme/states/listings--drawer-case-everything-unfinished.html",
+  "note": "Listing Performance drawer — case: everything unfinished",
+  "how": "prototype · the Everything unfinished row → its drawer",
+  "group": "cases",
+  "frame": "1440x900",
+  "hash": "bf5f061f329b93c69a75673fec0b18c907dfa0f1",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-case-everything-unfinished-full": {
+  "file": "deliverables/new-theme/states/listings--drawer-case-everything-unfinished-full.html",
+  "note": "Listing Performance drawer, whole — case: everything unfinished",
+  "how": "prototype · the Everything unfinished row → its drawer, whole",
+  "group": "cases",
+  "frame": "1440x2231",
+  "hash": "b131b1ca95a2b3b319da6abc5b20e3d7f0d784da",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-case-happy": {
+  "same": "web:drawer-listing-performance-perfect",
+  "note": "Listing Performance drawer — case: happy",
+  "how": "prototype · the Happy case row → its drawer",
+  "group": "cases"
+ },
+ "web:drawer-case-happy-full": {
+  "file": "deliverables/new-theme/states/listings--drawer-case-happy-full.html",
+  "note": "Listing Performance drawer, whole — case: happy",
+  "how": "prototype · the Happy case row → its drawer, whole",
+  "group": "cases",
+  "frame": "1440x2231",
+  "hash": "3c63e4a06782c15128dab288eb348362f2385522",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-case-high-impression-low-leads": {
+  "same": "web:drawer-listing-performance",
+  "note": "Listing Performance drawer — case: high impression, low leads",
+  "how": "prototype · the High impression, low leads row → its drawer",
+  "group": "cases"
+ },
+ "web:drawer-case-high-impression-low-leads-full": {
+  "same": "web:drawer-listing-performance-full",
+  "note": "Listing Performance drawer, whole — case: high impression, low leads",
+  "how": "prototype · the High impression, low leads row → its drawer, whole",
+  "group": "cases"
+ },
+ "web:drawer-case-just-posted": {
+  "file": "deliverables/new-theme/states/listings--drawer-case-just-posted.html",
+  "note": "Listing Performance drawer — case: just posted",
+  "how": "prototype · the Just posted row → its drawer",
+  "group": "cases",
+  "frame": "1440x900",
+  "hash": "db3853d8868c790cd38a7e1e29db71eeb923f43b",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-case-just-posted-full": {
+  "file": "deliverables/new-theme/states/listings--drawer-case-just-posted-full.html",
+  "note": "Listing Performance drawer, whole — case: just posted",
+  "how": "prototype · the Just posted row → its drawer, whole",
+  "group": "cases",
+  "frame": "1440x2231",
+  "hash": "8937353f011861ad7b58e4813c80266552a436c0",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-case-low-impression-high-conversion": {
+  "file": "deliverables/new-theme/states/listings--drawer-case-low-impression-high-conversion.html",
+  "note": "Listing Performance drawer — case: low impression, high conversion",
+  "how": "prototype · the Low impression, high conversion row → its drawer",
+  "group": "cases",
+  "frame": "1440x900",
+  "hash": "fdee9353e38423b613c4dceefd4b13750fcff33e",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-case-low-impression-high-conversion-full": {
+  "file": "deliverables/new-theme/states/listings--drawer-case-low-impression-high-conversion-full.html",
+  "note": "Listing Performance drawer, whole — case: low impression, high conversion",
+  "how": "prototype · the Low impression, high conversion row → its drawer, whole",
+  "group": "cases",
+  "frame": "1440x2231",
+  "hash": "df3d0076c7dbaa14edcd0a42308717178e4e5272",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-case-off-plan": {
+  "file": "deliverables/new-theme/states/listings--drawer-case-off-plan.html",
+  "note": "Listing Performance drawer — case: off-plan initial sale",
+  "how": "prototype · the Off-plan initial sale row → its drawer",
+  "group": "cases",
+  "frame": "1440x900",
+  "hash": "d610849ca32d343f88ac8389eb1f17d386a8618f",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-case-off-plan-full": {
+  "file": "deliverables/new-theme/states/listings--drawer-case-off-plan-full.html",
+  "note": "Listing Performance drawer, whole — case: off-plan initial sale",
+  "how": "prototype · the Off-plan initial sale row → its drawer, whole",
+  "group": "cases",
+  "frame": "1440x2231",
+  "hash": "4ca837a5e9c85046354b8c9872a838a934e8839a",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-case-rank-pending": {
+  "file": "deliverables/new-theme/states/listings--drawer-case-rank-pending.html",
+  "note": "Listing Performance drawer — case: rank pending",
+  "how": "prototype · the Rank pending row → its drawer",
+  "group": "cases",
+  "frame": "1440x900",
+  "hash": "aea3a77a02a137dd3c1c1e5b6ae82343cec33a38",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-case-rank-pending-full": {
+  "file": "deliverables/new-theme/states/listings--drawer-case-rank-pending-full.html",
+  "note": "Listing Performance drawer, whole — case: rank pending",
+  "how": "prototype · the Rank pending row → its drawer, whole",
+  "group": "cases",
+  "frame": "1440x2231",
+  "hash": "326299fec34a94d65131ace9a26dbb535cce8fd8",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-listing-performance": {
+  "file": "deliverables/new-theme/states/listings--drawer-listing-performance.html",
+  "note": "Listing Performance drawer, 780px, over the Active tab — a listing that needs fixes",
+  "how": "03 · F · Needs fixes",
+  "group": "screens",
+  "frame": "1440x900",
+  "hash": "192a1acbbad52ee95d1971134351899f2ac16c72",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-listing-performance-default": {
+  "same": "web:drawer-listing-performance",
+  "note": "Listing Performance drawer, as the state panel opens it",
+  "how": "02c · Performance drawer",
+  "group": "drawer"
+ },
+ "web:drawer-listing-performance-full": {
+  "file": "deliverables/new-theme/states/listings--drawer-listing-performance-full.html",
+  "note": "Listing Performance drawer — the whole drawer, every section",
+  "how": "03 · F · Needs fixes, the whole drawer",
+  "group": "screens",
+  "frame": "1440x2231",
+  "hash": "e0cf39bbf40b2990ba827b0aed6e56fa4aa74953",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-listing-performance-perfect": {
+  "file": "deliverables/new-theme/states/listings--drawer-listing-performance-perfect.html",
+  "note": "Listing Performance drawer — a perfect score, no fix list",
+  "how": "03 · F · Perfect score",
+  "group": "screens",
+  "frame": "1440x900",
+  "hash": "78c6842e36dd8ba8838e1de6b73a53982dc588e7",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-menu-range": {
+  "file": "deliverables/new-theme/states/listings--drawer-menu-range.html",
+  "note": "The Listing Performance drawer's date range menu",
+  "how": "prototype · Last 30 Days, in the drawer",
+  "group": "prototype",
+  "frame": "1440x900",
+  "hash": "8ca5bc6dd9620c5ab62abb19ed65e038592ca3e0",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-more-filters": {
+  "file": "deliverables/new-theme/states/listings--drawer-more-filters.html",
+  "note": "More Filters drawer, 450px, over the Active tab",
+  "how": "03 · H",
+  "group": "screens",
+  "frame": "1440x900",
+  "hash": "278e062bd0d2cfa07c3d939b6a88eacbbebf41cc",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-more-filters-panel": {
+  "same": "web:drawer-more-filters",
+  "note": "More Filters drawer, as the state panel opens it",
+  "how": "02c · More Filters",
+  "group": "overlays"
+ },
+ "web:drawer-quality-score": {
+  "file": "deliverables/new-theme/states/listings--drawer-quality-score.html",
+  "note": "How to Earn Quality Score drawer, 680px — the second layer, over the Listing Performance drawer",
+  "how": "03 · G",
+  "group": "screens",
+  "frame": "1440x900",
+  "hash": "392f74b43c3903bf1d315dc913cc6bc7773ca5ba",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-quality-score-full": {
+  "file": "deliverables/new-theme/states/listings--drawer-quality-score-full.html",
+  "note": "How to Earn Quality Score drawer — the whole explainer",
+  "how": "03 · G, the whole drawer",
+  "group": "screens",
+  "frame": "1440x2136",
+  "hash": "cc5c7c5681097a0b46cd311b7ad9a7315ea8d51a",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-quality-score-panel": {
+  "same": "web:drawer-quality-score",
+  "note": "How to Earn Quality Score drawer, as the state panel opens it",
+  "how": "02c · Quality explainer",
+  "group": "drawer"
+ },
+ "web:drawer-rank-updating": {
+  "file": "deliverables/new-theme/states/listings--drawer-rank-updating.html",
+  "note": "Rank updating inside the Listing Performance drawer",
+  "how": "prototype · Refresh inside the Listing Performance drawer",
+  "group": "prototype",
+  "frame": "1440x900",
+  "hash": "08e1f546e8037071b8669932a630267f30622b61",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-trend-drop": {
+  "file": "deliverables/new-theme/states/listings--drawer-trend-drop.html",
+  "note": "Listing Performance drawer — the trend with a sudden drop",
+  "how": "02c · Trend: sudden drop",
+  "group": "drawer",
+  "frame": "1440x900",
+  "hash": "fbcda1fb026f86ebc112ad26733b13c1b6a8efdb",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-trend-no-data": {
+  "same": "web:drawer-case-rank-pending",
+  "note": "Listing Performance drawer — no trend data yet",
+  "how": "02c · Trend: no data yet",
+  "group": "drawer"
+ },
+ "web:drawer-trend-recover": {
+  "file": "deliverables/new-theme/states/listings--drawer-trend-recover.html",
+  "note": "Listing Performance drawer — the trend down, then back up",
+  "how": "02c · Trend: down then back up",
+  "group": "drawer",
+  "frame": "1440x900",
+  "hash": "b21afb3213c98ac5a8722611b04ae59f56c318da",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:drawer-trend-spike": {
+  "file": "deliverables/new-theme/states/listings--drawer-trend-spike.html",
+  "note": "Listing Performance drawer — the trend with a one-day spike",
+  "how": "02c · Trend: one day spike",
+  "group": "drawer",
+  "frame": "1440x900",
+  "hash": "975316877882cb27a7cb9dc843111f91022da096",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:empty-active": {
+  "file": "deliverables/new-theme/states/listings--empty-active.html",
+  "note": "Empty: no active listings yet — Post a Listing, See how scores work",
+  "how": "02c · No active listings",
+  "group": "empty",
+  "frame": "1440x900",
+  "hash": "0787342f5b81693dd5236470df16423a49287ec9",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:empty-draft": {
+  "file": "deliverables/new-theme/states/listings--empty-draft.html",
+  "note": "Empty: no drafts saved",
+  "how": "02c · No drafts",
+  "group": "empty",
+  "frame": "1440x900",
+  "hash": "97449d910211890e1b5ec3f50f3972cf561055c5",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:empty-filter": {
+  "file": "deliverables/new-theme/states/listings--empty-filter.html",
+  "note": "Empty: no listings match these filters — the only action that clears the filters",
+  "how": "02c · No filter results",
+  "group": "empty",
+  "frame": "1440x900",
+  "hash": "935f9efd29787a2eb8204890223c83fc62d76a18",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:empty-pending": {
+  "file": "deliverables/new-theme/states/listings--empty-pending.html",
+  "note": "Empty: nothing waiting for approval",
+  "how": "02c · No pending listings",
+  "group": "empty",
+  "frame": "1440x900",
+  "hash": "4747462505d5edf13c90ae43dc2289d323be9ba1",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:empty-removed": {
+  "file": "deliverables/new-theme/states/listings--empty-removed.html",
+  "note": "Empty: no removed listings",
+  "how": "02c · No removed listings",
+  "group": "empty",
+  "frame": "1440x900",
+  "hash": "ef7ebce1ba0b57210752f5c7e87330b4f9b48fcd",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:full": {
+  "file": "deliverables/new-theme/states/listings--full.html",
+  "note": "My Listings, Active tab — the whole list: the nine cases, one row each",
+  "how": "03 · A · Default, the whole list",
+  "group": "screens",
+  "frame": "1440x2231",
+  "hash": "2f271c265ecfdb90e48d70978ddba07ef364c213",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:menu-row": {
+  "file": "deliverables/new-theme/states/listings--menu-row.html",
+  "note": "A row's ⋮ menu",
+  "how": "prototype · ⋮ on the first row",
+  "group": "prototype",
+  "frame": "1440x900",
+  "hash": "f03a02a0c788ff49b3449ed24cb2ee48ab117ec7",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:menu-sort": {
+  "file": "deliverables/new-theme/states/listings--menu-sort.html",
+  "note": "The sort menu",
+  "how": "prototype · Newest First",
+  "group": "prototype",
+  "frame": "1440x900",
+  "hash": "499c1f3089da97ccfdcffeba6f70be3244e8dd88",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:modal-change-ownership": {
+  "file": "deliverables/new-theme/states/listings--modal-change-ownership.html",
+  "note": "Change ownership",
+  "how": "prototype · ⋮ → Change Ownership",
+  "group": "prototype",
+  "frame": "1440x900",
+  "hash": "cd47fd3b014a88841b3248577cb3323458c758bf",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×3"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:modal-delete": {
+  "file": "deliverables/new-theme/states/listings--modal-delete.html",
+  "note": "Delete listing — the reasons",
+  "how": "prototype · ⋮ → Delete",
+  "group": "prototype",
+  "frame": "1440x900",
+  "hash": "d48a2f3b02ef0eaaed6a30da53ac10f6350adad5",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×3"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:modal-mark-as-booked": {
+  "file": "deliverables/new-theme/states/listings--modal-mark-as-booked.html",
+  "note": "Mark as Booked modal, 520px — daily rentals only: pick the check-in date [derived]",
+  "how": "derived · the daily rental row → Mark as Booked (the build has its logic, not its template)",
+  "group": "overlays",
+  "frame": "1440x900",
+  "hash": "698c4dd4b587b8895cde010771f2e721298bf938",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "derived": "derived: neither build draws Mark as Booked (spec 03 · J). Composed in the Request Services modal's chrome from the build's own booking values (renderVals: bookKinds, bookCells, weekDays, bookMonthLabel, selHint / selSummary, confirmLabel, confirmBg); laid out per the spec's element table. Composed, not the build's: the arrangement, the chevrons, the title, the month and weekday type, the day cells' size and type, the band corners. Replace when the handover draws it.",
+  "pct": 0,
+  "ok": true
+ },
+ "web:modal-mark-as-booked-blocked": {
+  "file": "deliverables/new-theme/states/listings--modal-mark-as-booked-blocked.html",
+  "note": "Mark as Booked modal — the nights blocked instead: Block These Dates [derived]",
+  "how": "derived · the daily rental row → Mark as Booked (the build has its logic, not its template)",
+  "group": "overlays",
+  "frame": "1440x900",
+  "hash": "9c233c0afd512fbf2fa9e3013a9fcaab52a782df",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "derived": "derived: neither build draws Mark as Booked (spec 03 · J). Composed in the Request Services modal's chrome from the build's own booking values (renderVals: bookKinds, bookCells, weekDays, bookMonthLabel, selHint / selSummary, confirmLabel, confirmBg); laid out per the spec's element table. Composed, not the build's: the arrangement, the chevrons, the title, the month and weekday type, the day cells' size and type, the band corners. Replace when the handover draws it.",
+  "pct": 0,
+  "ok": true
+ },
+ "web:modal-mark-as-booked-range": {
+  "file": "deliverables/new-theme/states/listings--modal-mark-as-booked-range.html",
+  "note": "Mark as Booked modal — a stay picked, 3 nights: Sep 11 to Sep 14 [derived]",
+  "how": "derived · the daily rental row → Mark as Booked (the build has its logic, not its template)",
+  "group": "overlays",
+  "frame": "1440x900",
+  "hash": "3c9dd4474405c30e1d9ac4ad07b86d7e6d2b5e0d",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "derived": "derived: neither build draws Mark as Booked (spec 03 · J). Composed in the Request Services modal's chrome from the build's own booking values (renderVals: bookKinds, bookCells, weekDays, bookMonthLabel, selHint / selSummary, confirmLabel, confirmBg); laid out per the spec's element table. Composed, not the build's: the arrangement, the chevrons, the title, the month and weekday type, the day cells' size and type, the band corners. Replace when the handover draws it.",
+  "pct": 0,
+  "ok": true
+ },
+ "web:modal-request-services": {
+  "file": "deliverables/new-theme/states/listings--modal-request-services.html",
+  "note": "Request Services modal, 520px — Drone, Photography, Videography",
+  "how": "03 · K",
+  "group": "screens",
+  "frame": "1440x900",
+  "hash": "ee2f37e417548b2311b46ee7151240d39a65b0ef",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×3"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:modal-request-services-panel": {
+  "same": "web:modal-request-services",
+  "note": "Request Services modal, as the state panel opens it",
+  "how": "02c · Request Services",
+  "group": "overlays"
+ },
+ "web:modal-share": {
+  "file": "deliverables/new-theme/states/listings--modal-share.html",
+  "note": "Share Listing modal, 520px — Copy Bayut Link",
+  "how": "03 · I",
+  "group": "screens",
+  "frame": "1440x900",
+  "hash": "333ad7930f19ba8f101c2113bc2912de6913b567",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:modal-share-panel": {
+  "file": "deliverables/new-theme/states/listings--modal-share-panel.html",
+  "note": "Share Listing modal, as the state panel opens it",
+  "how": "02c · Copy Bayut Link",
+  "group": "overlays",
+  "frame": "1440x900",
+  "hash": "767b37016c1cfcdc9e6349211e64391b2425756f",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:modal-trucheck": {
+  "file": "deliverables/new-theme/states/listings--modal-trucheck.html",
+  "note": "TruCheck verification",
+  "how": "prototype · TruCheck on the first row",
+  "group": "prototype",
+  "frame": "1440x900",
+  "hash": "a368fec87e4fa81971ecf5e889b429c52d9d7d1e",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×3"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:non-package": {
+  "file": "deliverables/new-theme/states/listings--non-package.html",
+  "note": "Not a package user — the package upsell banner",
+  "how": "02c · Not a package user",
+  "group": "empty",
+  "frame": "1440x900",
+  "hash": "962e09aefe8cb1d141bdc61d2ac65c72397bc0ae",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:non-package-empty": {
+  "file": "deliverables/new-theme/states/listings--non-package-empty.html",
+  "note": "Not a package user, and no listings",
+  "how": "02c · Not a package user, no listings",
+  "group": "empty",
+  "frame": "1440x900",
+  "hash": "9cbc263455f10ce1942270f839189a8f8636a292",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:offline": {
+  "file": "deliverables/new-theme/states/listings--offline.html",
+  "note": "Error: no internet — suppresses the rows and any empty state",
+  "how": "02c · No internet",
+  "group": "empty",
+  "frame": "1440x900",
+  "hash": "1b76123f1c556da92679892f770d778f94843e81",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:page": {
+  "file": "deliverables/new-theme/listings.html",
+  "note": "My Listings, Active tab — the nine seeded cases",
+  "how": "03 · A · Default",
+  "group": "screens",
+  "frame": "1440x900",
+  "hash": "b19e1ed753f87ab95c89666b531d86c4f60ff926",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:rank-updating": {
+  "file": "deliverables/new-theme/states/listings--rank-updating.html",
+  "note": "Rank updating — the rank tile while the new position is fetched (1.8s, then the new rank)",
+  "how": "prototype · Refresh on the first row",
+  "group": "prototype",
+  "frame": "1440x900",
+  "hash": "26bfd6ce7e23e2f54c1d9a0c6a792f50bbae87de",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:skeleton-filtering": {
+  "file": "deliverables/new-theme/states/listings--skeleton-filtering.html",
+  "note": "Filtering skeleton — replaces the row list for 1.8s, \"Filtering 65 listings...\" (02c’s Filtering skeleton chip shows the sort skeleton instead)",
+  "how": "prototype · apply a filter (the build runs its 1.8s busy state)",
+  "group": "overlays",
+  "frame": "1440x900",
+  "hash": "6162a9fb76c8317f87a9d30207a3a080e527d068",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:skeleton-sorting": {
+  "same": "web:sorting",
+  "note": "Sorting and filtering skeleton — replaces the row list",
+  "how": "03 · L · Sorting",
+  "group": "screens"
+ },
+ "web:sorting": {
+  "file": "deliverables/new-theme/states/listings--sorting.html",
+  "note": "While a sort is applied — the rows give way to the skeleton, \"Sorting 65 listings...\"",
+  "how": "03 · A · Sorting",
+  "group": "screens",
+  "frame": "1440x900",
+  "hash": "e5121de4034cc2243cda3c3bfdce7bf32f6245bc",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:tab-ad-license-requests": {
+  "file": "deliverables/new-theme/states/listings--tab-ad-license-requests.html",
+  "note": "Ad License Requests tab — five statuses, its own filter bar",
+  "how": "03 · E · All five statuses",
+  "group": "screens",
+  "frame": "1440x900",
+  "hash": "a9ebbb70c44f581652044af53de4f412f20338ae",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×7"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:tab-ad-license-requests-full": {
+  "file": "deliverables/new-theme/states/listings--tab-ad-license-requests-full.html",
+  "note": "Ad License Requests tab — every request",
+  "how": "03 · E · All five statuses, the whole list",
+  "group": "screens",
+  "frame": "1440x1311",
+  "hash": "3d0ef6e9591f0d3c35bdba6f8ce67115dba7df2b",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×7"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:tab-ad-license-requests-panel": {
+  "same": "web:tab-ad-license-requests",
+  "note": "Ad License Requests tab, as the state panel opens it",
+  "how": "02c · Ad License Requests",
+  "group": "tabs"
+ },
+ "web:tab-draft": {
+  "file": "deliverables/new-theme/states/listings--tab-draft.html",
+  "note": "Draft tab — six drafts (Listing incomplete, Ready to publish, Not enough credits … the first three in frame)",
+  "how": "03 · B · Both rows",
+  "group": "screens",
+  "frame": "1440x900",
+  "hash": "5358b355ce5df640c1bb85be50e0f5d087721483",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:tab-draft-full": {
+  "file": "deliverables/new-theme/states/listings--tab-draft-full.html",
+  "note": "Draft tab — every draft",
+  "how": "03 · B · Both rows, the whole list",
+  "group": "screens",
+  "frame": "1440x1500",
+  "hash": "7bf410724969db4af9630ed1f324a6e32123f62b",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:tab-draft-panel": {
+  "same": "web:tab-draft",
+  "note": "Draft tab, as the state panel opens it",
+  "how": "02c · Draft tab",
+  "group": "tabs"
+ },
+ "web:tab-pending": {
+  "file": "deliverables/new-theme/states/listings--tab-pending.html",
+  "note": "Pending tab — seven listings waiting: in review, changes in review, a license or a payment (the first three in frame)",
+  "how": "03 · C · All three states",
+  "group": "screens",
+  "frame": "1440x900",
+  "hash": "d302f48b01dcaf0547352309302e6eabe32c8eaa",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×3"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:tab-pending-full": {
+  "file": "deliverables/new-theme/states/listings--tab-pending-full.html",
+  "note": "Pending tab — every listing waiting",
+  "how": "03 · C · All three states, the whole list",
+  "group": "screens",
+  "frame": "1440x1689",
+  "hash": "e23944734e6d22d295141e482eca8b3640459d9a",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×3"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:tab-pending-panel": {
+  "same": "web:tab-pending",
+  "note": "Pending tab, as the state panel opens it",
+  "how": "02c · Pending tab",
+  "group": "tabs"
+ },
+ "web:tab-removed": {
+  "file": "deliverables/new-theme/states/listings--tab-removed.html",
+  "note": "Removed tab — twelve removed listings: rejected, expired, sold, removed by Bayut … (the first three in frame)",
+  "how": "03 · D · All four reasons",
+  "group": "screens",
+  "frame": "1440x900",
+  "hash": "15e3dc4b640ca1aad37d8757080b6b698d500b63",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:tab-removed-full": {
+  "file": "deliverables/new-theme/states/listings--tab-removed-full.html",
+  "note": "Removed tab — every removed listing",
+  "how": "03 · D · All four reasons, the whole list",
+  "group": "screens",
+  "frame": "1440x2648",
+  "hash": "49dcd603858833f91ee58c563645b3ad50e0e2c3",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:tab-removed-panel": {
+  "same": "web:tab-removed",
+  "note": "Removed tab, as the state panel opens it",
+  "how": "02c · Removed tab",
+  "group": "tabs"
+ },
+ "web:toast-booked": {
+  "file": "deliverables/new-theme/states/listings--toast-booked.html",
+  "note": "After Mark as Booked: the build's dark toast (#1D1D1F, white text), centre-bottom, 3.2s — \"3 nights marked as booked: Sep 11 to Sep 14\" (the spec says green)",
+  "how": "prototype · Mark as Booked → confirm (the build's own toast)",
+  "group": "overlays",
+  "frame": "1440x900",
+  "hash": "4ac9cdf4535009b134fd31296447c05f09aa6477",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:tour-1": {
+  "file": "deliverables/new-theme/states/listings--tour-1.html",
+  "note": "Onboarding tour, the intro card — My Listings has a new look",
+  "how": "prototype · the onboarding tour, step 1 of 5",
+  "group": "prototype",
+  "frame": "1440x900",
+  "hash": "82c15d725eda3bf4cdb8b7360bf4bf3aadc7ed1e",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:tour-2": {
+  "file": "deliverables/new-theme/states/listings--tour-2.html",
+  "note": "Onboarding tour, spotlight 1 / 4 — Performance and improvements",
+  "how": "prototype · the onboarding tour, step 2 of 5",
+  "group": "prototype",
+  "frame": "1440x900",
+  "hash": "90b3e03352f94a584e89be689db11535d4c7ad3d",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0.123,
+  "ok": true
+ },
+ "web:tour-3": {
+  "file": "deliverables/new-theme/states/listings--tour-3.html",
+  "note": "Onboarding tour, spotlight 2 / 4 — Split the list by performance",
+  "how": "prototype · the onboarding tour, step 3 of 5",
+  "group": "prototype",
+  "frame": "1440x900",
+  "hash": "87c559fb7b5887319dbd325d2e6bbb0d3dd68ab5",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:tour-4": {
+  "file": "deliverables/new-theme/states/listings--tour-4.html",
+  "note": "Onboarding tour, spotlight 3 / 4 — Sort by what matters",
+  "how": "prototype · the onboarding tour, step 4 of 5",
+  "group": "prototype",
+  "frame": "1440x900",
+  "hash": "d42e980a366e5d42ab4fbc303c904ec8a898cd03",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0,
+  "ok": true
+ },
+ "web:tour-5": {
+  "file": "deliverables/new-theme/states/listings--tour-5.html",
+  "note": "Onboarding tour, spotlight 4 / 4 — See how the score works",
+  "how": "prototype · the onboarding tour, step 5 of 5",
+  "group": "prototype",
+  "frame": "1440x900",
+  "hash": "c7bdd4544552e2c106df528ad4c307a338e23ab2",
+  "decisions": [
+   "header",
+   "rail",
+   "riyal ×2"
+  ],
+  "pct": 0.063,
+  "ok": true
+ }
+}

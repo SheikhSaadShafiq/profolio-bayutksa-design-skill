@@ -26,7 +26,7 @@
     "validate": "cd skill && python3 qa/validate.py",
     "check-fixtures": "node scripts/check-fixtures.mjs",
     "check": "node scripts/check.mjs && node scripts/test-capture.mjs",
-    "all": "npm run icons && npm run fonts && npm run antd && npm run antd-css && npm run layers && npm run build && npm run kb && npm run harness:capture && npm run pages && npm run pages:mobile && npm run ds && npm run combine && npm run package && npm run qa && npm run check",
+    "all": "npm run icons && npm run fonts && npm run antd && npm run antd-css && npm run layers && npm run build && npm run kb && npm run harness:capture && npm run pages && npm run pages:mobile && npm run theme && npm run ds && npm run combine && npm run package && npm run qa && npm run check",
     "delta": "node scripts/delta-accounts.mjs",
     "pages:mobile": "node scripts/compile.mjs --device mobile --states",
     "explore:mobile": "node harness/explore.mjs --device mobile",
@@ -34,7 +34,9 @@
     "find": "node scripts/design-find.mjs",
     "brief": "node scripts/design-brief.mjs",
     "lint": "node scripts/design-lint.mjs",
-    "qa": "node scripts/qa-fidelity.mjs && node scripts/qa-fidelity.mjs --mobile && node scripts/qa-fidelity.mjs --real && node scripts/qa-fidelity.mjs --real --account b --state as-staff && node scripts/qa-fidelity.mjs --real --account b --state as-staff --mobile && node scripts/design-qa.mjs"
+    "qa": "node scripts/qa-fidelity.mjs && node scripts/qa-fidelity.mjs --mobile && node scripts/qa-fidelity.mjs --real && node scripts/qa-fidelity.mjs --real --account b --state as-staff && node scripts/qa-fidelity.mjs --real --account b --state as-staff --mobile && node scripts/design-qa.mjs",
+    "theme": "node scripts/theme/shell.mjs && node scripts/theme/capture.mjs && node scripts/theme/check-shell.mjs && node scripts/theme/painted.mjs && node scripts/theme/foundations.mjs && node scripts/theme/spec.mjs && node scripts/theme/index.mjs && node scripts/theme/embed.mjs",
+    "skill:file": "node scripts/skill-file.mjs"
   },
   "devDependencies": {
     "antd": "5.22.1",

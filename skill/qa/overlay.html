@@ -55,7 +55,7 @@
   <h1>Overlay QA</h1>
   <label>Page <select id="pick"><option value="">— from registry.json —</option></select></label>
   <input id="path" type="text" placeholder="or a path, e.g. pages/dashboard.html" spellcheck="false">
-  <label>Width <select id="width"><option value="auto">auto</option><option value="1440">1440 web</option><option value="375">375 phone</option></select></label>
+  <label>Width <select id="width"><option value="auto">auto</option><option value="1440">1440 web</option><option value="375">375 phone</option><option value="360">360 phone (new My Listings)</option></select></label>
   <button id="choose">Screenshot…</button><input id="file" type="file" accept="image/*" hidden>
   <span class="seg" role="group" aria-label="Mode"><button data-mode="side" aria-pressed="false">Side by side</button><button data-mode="overlay" aria-pressed="true">Overlay</button><button data-mode="wipe" aria-pressed="false">Wipe</button></span>
   <label id="opacity-l">Opacity <input id="opacity" type="range" min="0" max="100" value="50"></label>
@@ -67,7 +67,7 @@
   <span id="status"></span>
 </header>
 <main id="main">
-  <p id="empty">Choose a page, then a screenshot of the same screen from the live product (web shots at 1440 wide, phone shots at 375). Drop an image anywhere to load it.</p>
+  <p id="empty">Choose a page, then a screenshot of the same screen from the live product (web shots at 1440 wide, phone shots at 375 — 360 for the new My Listings). Drop an image anywhere to load it.</p>
   <div id="stage" hidden>
     <div class="pane" id="pane-page"><iframe id="frame" title="page"></iframe><div id="grid" hidden></div></div>
     <div class="pane" id="pane-shot"><img id="shot" alt=""></div>
@@ -81,6 +81,8 @@
   var $ = function (id) { return document.getElementById(id); };
   var state = { mode: 'overlay', diff: false, grid: false, outlines: false, width: 1440, pageH: 900, shotW: 0, shotH: 0 };
   var frame = $('frame'), shot = $('shot'), stage = $('stage');
+  /* a page's phone width: 375 for the product, the frame the registry gives otherwise (the new My Listings: 360) */
+  var phoneWidth = {};
 
   /* the pages and their states, from the registry */
   fetch('../registry.json').then(function (r) { return r.json(); }).then(function (reg) {
@@ -89,12 +91,13 @@
       var p = reg.pages[slug], g = document.createElement('optgroup');
       g.label = slug;
       var add = function (v, t) { var o = document.createElement('option'); o.value = v; o.textContent = t; g.appendChild(o); };
+      var pw = p.frame && p.frame.mobile ? +p.frame.mobile.split('x')[0] : 375, phoneOnly = function (o) { return o === '375' || o === '360'; };
       add(p.file, slug + ' · web');
-      if (p.mobile) add(p.mobile, slug + ' · 375');
+      if (p.mobile) { add(p.mobile, slug + ' · ' + pw); phoneWidth[p.mobile] = pw; }
       (p.states || []).forEach(function (s) {
         var name = s.split('@')[0], only = s.split('@')[1], dir = p.file.replace(/\.html$/, '/');
-        if (only !== '375') add(dir + name + '.html', '  ' + name);
-        if (only === '375' || (!only && p.mobile)) add(dir + name + '.mobile.html', '  ' + name + ' · 375');
+        if (!phoneOnly(only)) add(dir + name + '.html', '  ' + name);
+        if (phoneOnly(only) || (!only && p.mobile)) { add(dir + name + '.mobile.html', '  ' + name + ' · ' + pw); phoneWidth[dir + name + '.mobile.html'] = pw; }
       });
       pick.appendChild(g);
     });
@@ -103,11 +106,14 @@
   function load(path) {
     if (!path) return;
     $('path').value = path;
-    state.width = $('width').value === 'auto' ? (/\.mobile\.html$/.test(path) ? 375 : 1440) : +$('width').value;
+    state.width = $('width').value === 'auto' ? (/\.mobile\.html$/.test(path) ? phoneWidth[path] || (/listings-new/.test(path) ? 360 : 375) : 1440) : +$('width').value;
     frame.style.width = state.width + 'px';
     frame.onload = function () {
       var d = frame.contentDocument;
       if (!d) { $('status').textContent = 'the page could not be read — serve the skill folder'; return; }
+      /* a page that names its frame (the new My Listings, and designs made from it) is drawn at it */
+      var fm = d.querySelector('meta[name="pf-frame"]');
+      if ($('width').value === 'auto' && fm && +fm.content.split('x')[0] && +fm.content.split('x')[0] !== state.width) { state.width = +fm.content.split('x')[0]; frame.style.width = state.width + 'px'; }
       state.pageH = Math.max(d.documentElement.scrollHeight, d.body ? d.body.scrollHeight : 0);
       frame.style.height = state.pageH + 'px';
       wireOutlines(d);

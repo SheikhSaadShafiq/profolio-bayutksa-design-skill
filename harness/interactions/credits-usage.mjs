@@ -56,7 +56,36 @@ export const topUpToCheckout = async (p) => {
   await quiet(p);
 };
 
+/* ── the top-up, as the other two accounts ────────────────────────────────
+   The owner's empty top-up modal (drawer on a phone) is the explorer's find
+   (modal-top-up-your-credits / drawer-top-up-your-credits), by a position
+   path that fits the owner's layout only. The button reads no role — on this
+   page `ALLOW_CREDITS_TOPTUP && !isUnifiedCreditsUsage`
+   (container/pages/credits-usage/credits-usage.js:320), on the dashboard's
+   Credits Balance card the same for any credit user outside the member area
+   (components/widgets/credits-quota/credits-quota.js:258-270) — and neither
+   does the modal (prop-shop/credit-top-ups/creditTopUps.js reads the user
+   only for is_custom_package_allowed and the analytics event); its cart goes
+   to /checkout, a route with no permission (tenant/common/routes/
+   appRoutes.js:210). So the STAFF user and the INDIVIDUAL broker open the
+   same modal over their own page. Whether Surge accepts a staff member's
+   top-up is the API's answer and is not recorded. */
+export const ACCOUNTS = [
+  ['staff', 'an agency STAFF user (mode staff: Abdullah Al-Otaibi, Titanium — 3,750 of 5,000 credits, 9 rail items)'],
+  ['individual', 'an INDIVIDUAL broker (mode individual: no agency — no Agency Staff in the rail)'],
+];
+/** `<name>-as-staff`, `<name>-as-individual`: the empty top-up opened by the
+    page's own "Top-Up your Credits". `devices` as compile.mjs reads it — a
+    phone's drawer-… states live in <page>.mobile.mjs */
+export const topUpStates = (name, where) => ACCOUNTS.map(([mode, who]) => ({
+  name: `${name}-as-${mode}`,
+  mode,
+  note: `"Top-Up your Credits" ${where} opens the credit top-up, empty — the number of credits to enter and Get Top-up disabled — as ${who}. Neither the button nor the top-up reads a role (credits-quota.js:258-270, credits-usage.js:320, creditTopUps.js)`,
+  do: openTopUp,
+}));
+
 export default [
+  ...topUpStates('modal-top-up-your-credits', 'in the Credits Usage card header'),
   {
     name: 'flow-top-up-01-choose-amount',
     devices: ['web', 'mobile'],

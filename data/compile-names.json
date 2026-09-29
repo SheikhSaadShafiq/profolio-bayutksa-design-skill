@@ -2731,6 +2731,20 @@
    "name": "pf-dropdown-country",
    "base": "dropdown-country",
    "variants": []
+  },
+  "src/tenant/common/components/profile-completion/profile-completion-banner.js:99:11": {
+   "name": "pf-profile-completion-banner-card-meta-styled",
+   "base": "card-meta-styled",
+   "variants": [
+    "uyXpa"
+   ]
+  },
+  "src/components/listing-container/ListingContainer.js:127:5": {
+   "name": "pf-listing-container-main",
+   "base": "main",
+   "variants": [
+    "dAXlsr"
+   ]
   }
  }
 }

@@ -155,10 +155,20 @@ export default [
   },
   {
     name: 'popover-notifications',
-    note: 'header bell — 590×330 popover, NOT a drawer. Empty state: “No notifications found”',
+    note: 'header bell — the notification centre as a popover, NOT a drawer: the account\'s three notifications and Mark all as read (notification-center.js). Its empty state is popover-notifications-empty',
     do: async (p) => {
       await p.locator('.ant-layout-header button.ant-btn-default').first().click();
       await p.waitForSelector('.ant-popover', { timeout: 8000 });
+    },
+  },
+  {
+    name: 'popover-notifications-empty',
+    mode: 'empty',
+    note: 'header bell on a brand-new account (mode empty: no notifications, no badge on the bell, and no listings under the popover): the notification centre\'s own empty state — “No notifications found”, “Your notifications will appear here”, no Mark all as read and no Retry (notification-center.js:103-114, EmptyState hideRetryButton)',
+    do: async (p) => {
+      await p.locator('.ant-layout-header button.ant-btn-default').first().click();
+      await p.locator('.ant-popover', { hasText: 'No notifications found' }).first().waitFor({ state: 'visible', timeout: 10000 });
+      await p.waitForTimeout(600);
     },
   },
   {

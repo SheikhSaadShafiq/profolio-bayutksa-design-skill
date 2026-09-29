@@ -283,6 +283,16 @@ export default [
     do: async (p) => { await p.locator('.ant-layout-header button.ant-btn-default').first().tap({ timeout: 8000 }); await drawer(p); },
   },
   {
+    name: 'drawer-notifications-empty',
+    mode: 'empty',
+    note: 'phone: the header bell on a brand-new account (mode empty: no notifications, no badge, no listings under the sheet) — the notification centre\'s bottom sheet in its own empty state: “No notifications found”, “Your notifications will appear here”, no Retry (notification-center.js:103-114). The web\'s is popover-notifications-empty',
+    do: async (p) => {
+      await p.locator('.ant-layout-header button.ant-btn-default').first().tap({ timeout: 8000 });
+      await p.locator('.ant-drawer-content', { hasText: 'No notifications found' }).first().waitFor({ state: 'visible', timeout: 10000 });
+      await drawer(p);
+    },
+  },
+  {
     name: 'popover-account',
     note: 'phone: the header avatar — the account panel (profile information, Account Settings, Sign Out) as a drawer, not the web’s 400×233 popover',
     do: async (p) => { await p.locator('.ant-layout-header button.ant-btn-round').first().tap({ timeout: 8000 }); await drawer(p); },
