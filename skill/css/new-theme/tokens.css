@@ -1,7 +1,7 @@
 /* My Listings — new theme (Profolio 2.0, not yet live) · [design]
    The designer's tokens (authoring/themes/new/my-listings.tokens.json, "Bayut KSA Profolio 2.0: My Listings mobile",
    base 360pt, updated 2026-09-16), following the build where the two
-   disagreed (the designer's decision, 2026-09-29): 13 adjusted, 8 variants.
+   disagreed (the designer's decision, 2026-09-29): 12 adjusted, 14 variants.
    tokens.json's own values: tokens.resolved.json → $adjusted.
    MY LISTINGS ONLY — every other page keeps ../tokens.css (the current theme).
    Written by scripts/theme/foundations.mjs. */
@@ -57,7 +57,8 @@
   --pf-ml-surface-card: #FFFFFF;
   --pf-ml-surface-sheet: #FFFFFF;
   --pf-ml-surface-scrim: rgba(23,26,31,0.42); /* tokens.json: rgba(0,0,0,0.42) — follows the build */
-  --pf-ml-surface-page-web: #F3F4F5; /* variant of color.surface.page: the web page, 66 states */
+  --pf-ml-surface-scrim-drawer: rgba(23,26,31,0.34); /* variant of color.surface.scrim: the web drawers' backdrop, 27 states; also 4 other states (the phone onboarding tour) */
+  --pf-ml-surface-page-web: #F3F4F5; /* variant of color.surface.page: the web page, 65 states */
   /* gradient */
   --pf-ml-gradient-signature: linear-gradient(46deg,#696EFF 0%,#D466DE 100%);
   --pf-ml-gradient-hot: linear-gradient(244deg,#DD5050 0%,#AB251D 100%);
@@ -66,9 +67,9 @@
   --pf-ml-radius-sm: 6px;
   --pf-ml-radius-md: 8px;
   --pf-ml-radius-lg: 12px;
-  --pf-ml-radius-sheet: 20px; /* tokens.json: 20px — follows the build */
+  --pf-ml-radius-sheet: 20px;
   --pf-ml-radius-pill: 999px;
-  --pf-ml-radius-sheet-action: 16px; /* variant of radius.sheet: Filter value sheet, Delete listing sheet, Share sheet, Listing actions sheet, Date range sheet, Sort sheet, TruCheck sheet */
+  --pf-ml-radius-sheet-action: 16px; /* variant of radius.sheet: Delete listing sheet, Filter value sheet, Sort sheet, Share sheet, Listing actions sheet, Date range sheet, TruCheck sheet */
   /* space, px */
   --pf-ml-space-xxs: 2px;
   --pf-ml-space-xs: 4px;
@@ -93,12 +94,19 @@
   --pf-ml-type-label-color: #4F4F4F;
   --pf-ml-type-sheet-title: 700 17px/normal var(--pf-ml-font-chrome); /* tokens.json: Figtree 18/24 · 700 — follows the build */
   --pf-ml-type-body: 400 13px/20px var(--pf-ml-font-ui);
+  --pf-ml-type-price-web: 700 20px/normal var(--pf-ml-font-ui); /* variant of type.price: the web: My Listings page, Listing Performance drawer (40 states) */
+  --pf-ml-type-subtype-web: 600 11px/normal var(--pf-ml-font-ui); /* variant of type.subtype: the web: My Listings page, Share Listing modal (43 states) */
+  --pf-ml-type-subtype-web-color: #208E57;
   --pf-ml-type-location-not-live: 400 12px/normal var(--pf-ml-font-ui); /* variant of type.location: the list (tab-draft, tab-pending, tab-removed) */
   --pf-ml-type-location-not-live-color: #222222;
-  --pf-ml-type-stat-performance: 700 16px/normal var(--pf-ml-font-ui); /* variant of type.stat: Listing Performance bottom sheet (sheet-case-happy, sheet-case-daily-rental, sheet-improve-quality) */
-  --pf-ml-type-label-performance: 400 11px/normal var(--pf-ml-font-ui); /* variant of type.label: Listing Performance bottom sheet */
+  --pf-ml-type-location-web: 400 14px/normal var(--pf-ml-font-ui); /* variant of type.location: the web: My Listings page (43 states) */
+  --pf-ml-type-location-web-color: #222222;
+  --pf-ml-type-stat-performance: 700 16px/normal var(--pf-ml-font-ui); /* variant of type.stat: Listing Performance bottom sheet (13 states); the web: My Listings page (40 states) */
+  --pf-ml-type-label-performance: 400 11px/normal var(--pf-ml-font-ui); /* variant of type.label: Listing Performance bottom sheet (15 states) */
   --pf-ml-type-label-performance-color: #626262;
-  --pf-ml-type-sheet-title-performance: 700 18px/normal var(--pf-ml-font-ui); /* variant of type.sheetTitle: Listing Performance bottom sheet */
+  --pf-ml-type-label-web: 300 12px/normal var(--pf-ml-font-ui); /* variant of type.label: the web: My Listings page (40 states) */
+  --pf-ml-type-label-web-color: #4F4F4F;
+  --pf-ml-type-sheet-title-performance: 700 18px/normal var(--pf-ml-font-ui); /* variant of type.sheetTitle: Listing Performance bottom sheet (15 states) */
   /* motion */
   --pf-ml-motion-sheet-in: 340ms cubic-bezier(.32,.72,0,1);
   --pf-ml-motion-sheet-out: 260ms cubic-bezier(.32,.72,0,1);
@@ -111,6 +119,7 @@
   --pf-ml-elevation-card: none; /* tokens.json: 0 1px 2px rgba(0,0,0,0.04) — follows the build */
   --pf-ml-elevation-toast: 0 10px 30px rgba(23,26,31,0.22); /* tokens.json: 0 14px 34px rgba(0,0,0,0.22) — follows the build */
   --pf-ml-elevation-rank-bad: 0 0 2px rgba(255,0,0,0.12) inset;
+  --pf-ml-elevation-sheet-explainer: 0 -10px 40px rgba(23,26,31,0.2); /* variant of elevation.sheet: How to Earn Quality Score sheet */
   /* touch targets, px */
   --pf-ml-target-min: 44px; /* a rule the build breaks — [TBC] */
   --pf-ml-target-icon-button: 40px; /* tokens.json: 44px — follows the build */

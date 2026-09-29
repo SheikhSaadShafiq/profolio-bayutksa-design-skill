@@ -9,10 +9,10 @@ product. At launch the product is compiled again and compared.
 
 - **Only My Listings** (`/listings`) has a new theme. Every other page stays the current theme.
 - **The shell stays the product's** (the designer's decision, 29 Sep 2026): every screen draws the
-  product's own header and rail — the current theme — in place of the handover's. On a phone the
-  product's 60px header replaces the artboard's status bar and title. Design inside it; never
-  restyle it.
-- The intake asks which theme when a PRD touches My Listings (SKILL.md, row 12).
+  product's own header, and every web screen its rail — the current theme — in place of the
+  handover's. On a phone the product's 60px header replaces the artboard's status bar and title
+  (its rail is the header menu's drawer). Design inside it; never restyle it.
+- The intake asks which theme when a PRD touches My Listings (SKILL.md, row 13).
 - A page that has not been redesigned (dashboard, leads, reports …) is never drawn in the new
   theme — there are no new tokens for it.
 
@@ -20,21 +20,29 @@ product. At launch the product is compiled again and compared.
 
 - **Tokens**: `tokens.md` → *My Listings — new theme*; as CSS, `css/new-theme/tokens.css`
   (`--pf-ml-*`), My Listings' only. They **follow the build** where tokens.json and the build
-  disagreed (the designer's decision): 13 adjusted, 8 named variants added,
-  tokens.json's own values kept in `tokens.md` and `css/new-theme/tokens.resolved.json`.
+  disagreed (the designer's decision): 12 adjusted, 14 named variants added,
+  tokens.json's own values kept in `tokens.md` and `css/new-theme/tokens.resolved.json`. The type
+  roles are the phone's (tokens.json is the phone's, 360pt); the web's card roles are the `*Web`
+  variants, and the web's card stat is `type.statPerformance` (16 · 700).
 - **Primary is the green**: a ramp −1…11 around `#28B16D` (8). The current theme's teal primary
   and `colorPrimaryActive` are gone from My Listings; the green was `secondaryColor`.
 - **Teal stays in the rank and Quality Score explainers** — the How to Earn Quality Score drawer
   (web) and sheet (phone), the rank and quality cards (`tint.teal050`). It also shows on the
   TruCheck glyph, the trend's selected metric pill, and the onboarding tour's hero card (a
   `#F2FAFA` → `#F0FAF5` gradient).
-- **Geist is the UI face, on My Listings only.** Figtree draws the web page title, the empty
-  states, the modals and most sheet and drawer titles; the Listing Performance drawer and sheet
-  titles are Geist. Arabic is not in the handover.
+- **Geist is the UI face, on My Listings only.** Figtree draws the empty states, the modals and
+  most sheet and drawer titles (the web page title is the product header's — the current theme);
+  the Listing Performance drawer and sheet titles are Geist. Arabic is not in the handover.
 - **The riyal is a glyph** — never "SAR": the screens draw the build's own riyal glyph wherever the
-  handover wrote "SAR" (the designer's decision).
+  handover wrote "SAR" (the designer's decision). An amount you add: copy the build's
+  `svg[data-pf-riyal]` (or a card price's glyph) from a `listings-new` file and put it before the
+  number, sized to it: height max(7px, 0.6 × the amount's font-size), width height × 11/12, fill
+  `currentColor`, `vertical-align: baseline`, `margin-inline-end: 0.22em` only where a space
+  followed — the current theme's icon-font class (`.currency-Saudi_Riyal_Symbol`) does not load here.
+  A user's own text (a listing description) keeps "SAR" as they typed it.
 - **Markup**: the handover's build writes its styles inline. A block copied from a
-  `listings-new` file keeps them; a value you add is `var(--pf-ml-…)`, or [TBC].
+  `listings-new` file keeps them (name that file in pf-base or pf-also); a value you add is
+  `var(--pf-ml-…)`, or [TBC].
 - **Web 1440 × 900 and phone 360 × 800** (the designer's base, not the product's 375).
 - **The Listing Performance drawer is 780px** — both builds, and 02b; 03 · F's table says 680,
   which is the Quality Score drawer's width.
@@ -65,10 +73,12 @@ product. At launch the product is compiled again and compared.
   removed listings, and the phone build on No drafts.
 - 03's cards B–D describe the tabs as 2, 3 and 4 rows; the build lists 6, 7 and 12 (the
   `tab-*-full` states show every row).
+- 03 · J says confirming Mark as Booked raises a green toast; both builds draw it dark (#1D1D1F,
+  white text) — `toast-booked` is the build's.
 - 02c's nine case chips on the web only tint a row; each case's drawer is its own state
   (`drawer-case-*`). On the phone the chips pin that case first in the list (`case-*`); each
   case's performance sheet is its own state (`sheet-case-*`).
-- `target.min` 44px: a rule, not a size: the build's icon buttons are below it (32, 40, 24px) — accessibility, [TBC] with the designer.
+- `target.min` 44px: a rule, not a size: the build's icon buttons are below it (40, 32, 24px) — accessibility, [TBC] with the designer.
 
 ## States — web, 1440 × 900 (`-full`: the whole screen, grown until nothing scrolls)
 
@@ -93,7 +103,7 @@ product. At launch the product is compiled again and compared.
 | `tab-pending-full` | Pending tab — every listing waiting | `pages/listings-new/tab-pending-full.html` |
 | `tab-removed` | Removed tab — twelve removed listings: rejected, expired, sold, removed by Bayut … (the first three in frame) | `pages/listings-new/tab-removed.html` |
 | `tab-removed-full` | Removed tab — every removed listing | `pages/listings-new/tab-removed-full.html` |
-| `toast-booked` | After Mark as Booked: a green toast, centre-bottom, 3.2s — "3 nights marked as booked: Sep 11 to Sep 14" | `pages/listings-new/toast-booked.html` |
+| `toast-booked` | After Mark as Booked: the build's dark toast (#1D1D1F, white text), centre-bottom, 3.2s — "3 nights marked as booked: Sep 11 to Sep 14" (the spec says green) | `pages/listings-new/toast-booked.html` |
 | `tour-2` | Onboarding tour, spotlight 1 / 4 — Performance and improvements | `pages/listings-new/tour-2.html` |
 | `tour-3` | Onboarding tour, spotlight 2 / 4 — Split the list by performance | `pages/listings-new/tour-3.html` |
 | `tour-4` | Onboarding tour, spotlight 3 / 4 — Sort by what matters | `pages/listings-new/tour-4.html` |
@@ -137,7 +147,6 @@ product. At launch the product is compiled again and compared.
 | `modal-share-panel` | Share Listing modal, as the state panel opens it | `pages/listings-new/modal-share-panel.html` |
 | `modal-trucheck` | TruCheck verification | `pages/listings-new/modal-trucheck.html` |
 | `rank-updating` | Rank updating — the rank tile while the new position is fetched (1.8s, then the new rank) | `pages/listings-new/rank-updating.html` |
-| `skeleton-sorting` | Sorting and filtering skeleton — replaces the row list | `pages/listings-new/skeleton-sorting.html` |
 | `sorting` | While a sort is applied — the rows give way to the skeleton, "Sorting 65 listings..." | `pages/listings-new/sorting.html` |
 | `tour-1` | Onboarding tour, the intro card — My Listings has a new look | `pages/listings-new/tour-1.html` |
 
@@ -205,7 +214,7 @@ product. At launch the product is compiled again and compared.
 | `tab-pending-full` | Pending tab — every listing waiting | `pages/listings-new/tab-pending-full.mobile.html` |
 | `tab-removed` | Removed tab — recovery | `pages/listings-new/tab-removed.mobile.html` |
 | `tab-removed-full` | Removed tab — every removed listing | `pages/listings-new/tab-removed-full.mobile.html` |
-| `toast-booked` | After Mark as Booked: the build's toast | `pages/listings-new/toast-booked.mobile.html` |
+| `toast-booked` | After Mark as Booked: the build's dark toast (#1D1D1F, white text) | `pages/listings-new/toast-booked.mobile.html` |
 | `tour` | Onboarding tour, the intro card — My Listings has a new look | `pages/listings-new/tour.mobile.html` |
 | `tour-2` | Onboarding tour, spotlight 1 / 4 — Performance and improvements | `pages/listings-new/tour-2.mobile.html` |
 | `tour-3` | Onboarding tour, spotlight 2 / 4 — Filter and sort from one bar | `pages/listings-new/tour-3.mobile.html` |
@@ -216,7 +225,7 @@ product. At launch the product is compiled again and compared.
 | `tour-no-listings-3` | Onboarding tour with no listings, a full card — Post your first listing | `pages/listings-new/tour-no-listings-3.mobile.html` |
 | `tour-no-listings-4` | Onboarding tour with no listings, a full card — See how the score works | `pages/listings-new/tour-no-listings-4.mobile.html` |
 
-Reached two ways, kept once: mobile case-high-impression-low-leads = mobile page; mobile sheet-case-all-bad = mobile sheet-improve-quality; mobile sheet-case-high-impression-low-leads = mobile sheet-performance; mobile sheet-case-rank-pending = mobile sheet-trend-no-data; web drawer-case-happy = web drawer-listing-performance-perfect; web drawer-case-high-impression-low-leads = web drawer-listing-performance; web drawer-case-high-impression-low-leads-full = web drawer-listing-performance-full; web drawer-listing-performance-default = web drawer-listing-performance; web drawer-more-filters-panel = web drawer-more-filters; web drawer-quality-score-panel = web drawer-quality-score; web drawer-trend-no-data = web drawer-case-rank-pending; web modal-request-services-panel = web modal-request-services; web tab-ad-license-requests-panel = web tab-ad-license-requests; web tab-draft-panel = web tab-draft; web tab-pending-panel = web tab-pending; web tab-removed-panel = web tab-removed.
+Reached two ways, kept once: mobile case-high-impression-low-leads = mobile page; mobile sheet-case-all-bad = mobile sheet-improve-quality; mobile sheet-case-high-impression-low-leads = mobile sheet-performance; mobile sheet-case-rank-pending = mobile sheet-trend-no-data; web drawer-case-happy = web drawer-listing-performance-perfect; web drawer-case-high-impression-low-leads = web drawer-listing-performance; web drawer-case-high-impression-low-leads-full = web drawer-listing-performance-full; web drawer-listing-performance-default = web drawer-listing-performance; web drawer-more-filters-panel = web drawer-more-filters; web drawer-quality-score-panel = web drawer-quality-score; web drawer-trend-no-data = web drawer-case-rank-pending; web modal-request-services-panel = web modal-request-services; web skeleton-sorting = web sorting; web tab-ad-license-requests-panel = web tab-ad-license-requests; web tab-draft-panel = web tab-draft; web tab-pending-panel = web tab-pending; web tab-removed-panel = web tab-removed.
 
 ## The spec, in the designer's words
 

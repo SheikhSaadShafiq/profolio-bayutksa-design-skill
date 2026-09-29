@@ -3,7 +3,7 @@
 > The designer's handover for the new My Listings (Profolio 2.0, not yet live), in the
 > designer's own words — laid out by `scripts/theme/spec.mjs` from
 > `authoring/themes/new/my-listings-web.handover.html`, nothing rewritten. Its screens and states, compiled:
-> `pages/listings/new/`. Its tokens: `tokens.md` → *My Listings — new theme*.
+> `pages/listings-new.html`, `pages/listings-new.mobile.html` and `pages/listings-new/`. Its tokens: `tokens.md` → *My Listings — new theme*.
 > Where this spec and the compiled states disagree, the compiled states are the build as
 > drawn; flag the difference [TBC].
 
