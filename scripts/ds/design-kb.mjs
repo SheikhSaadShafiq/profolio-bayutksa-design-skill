@@ -193,7 +193,7 @@ const kindOf = (full, hand, expl, r) => {
   if (/^flow-/.test(full)) return 'flow';
   if (/^form-/.test(name)) return 'form';
   if (/^message-/.test(name)) return 'message';
-  if (hand && /^(staff|individual)$/.test(hand.mode || '')) return 'account';
+  if (hand && /^(staff|individual)$/.test(hand.mode || '') && !/-as-(staff|individual)$/.test(name)) return 'account';
   if (hand && hand.mode && !RESPONSE_MODE.test(hand.mode)) return 'data';
   if (/^(loading|error|empty)/.test(name)) return 'data';
   if (hand && hand.shell) return 'shell';
@@ -219,7 +219,7 @@ for (const [slug, route] of Object.entries(ALL)) {
     const link = (base.web || base.mobile).go.find((g) => g.href.endsWith(`${slug}--${st}.html`));
     let trig = expl && !/^(icon|svg|div|span|img|button|a|li|p|x|i|input|textarea|label|select)$/i.test(expl.label || '') ? `${expl.action} “${expl.label}”` : link && link.label !== 'an icon' ? `click “${link.label}”` : expl ? `${expl.action} an icon${expl.title ? ` (opens “${expl.title}”)` : ''}` : null;
     if (trig && expl && expl.parentState) trig = `in the ${expl.parentState.kind} “${expl.parentState.label || expl.parent}” opens: ${trig}`;
-    const how = hand && hand.mode && MODE_TEXT[hand.mode] ? `the page as it renders when ${MODE_TEXT[hand.mode]}`
+    const how = hand && hand.mode && MODE_TEXT[hand.mode] && !/-as-(staff|individual)$/.test(st) ? `the page as it renders when ${MODE_TEXT[hand.mode]}`
       : hand && hand.mode && hand.note ? hand.note
       : hand && hand.mode ? `the page as it renders when the fixture is in mode “${hand.mode}”`
       : trig ? `${trig}${link ? ` in the ${link.region}` : ''}` : (hand && hand.note) || '';

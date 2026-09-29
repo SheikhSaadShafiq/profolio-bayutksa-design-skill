@@ -214,6 +214,15 @@ two real accounts: an agency owner (`data/api-shapes.json`) and an agency staff 
 (`data/api-shapes.b.json`, fixture mode `staff`). `node scripts/check-fixtures.mjs` proves it.
 The individual seller (fixture mode `individual`) was not recorded from a real account: it is
 the owner's own record with the agency taken away, so only what the role changes moves.
+A state compiled for another role uses a compound mode, `'<state mode>+<account mode>'`
+(`lf-low-credits+staff`): each request is answered in the account's mode with the state
+mode's own changes laid over it (`harness/fixtures.mjs` `compound()`, `overlay()`), and the
+state is named `<state>-as-staff` / `<state>-as-individual` — the skill reads a state's role
+from its name.
+
+`npm run package` reads the product's source too (`../profolio-reactjs`, or `--repo`): the
+flags and what each gates, the route patterns, and every translation for
+`product/copy/rendered/` come from it (`scripts/skill/`).
 
 Every generated page carries the commit it was built from. If a generated page disagrees
 with the code, the code is right and the generator needs re-running: `npm run all`.

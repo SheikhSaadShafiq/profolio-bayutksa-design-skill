@@ -1,9 +1,9 @@
 {
-  "at": "2026-09-29T07:04:33.522Z",
-  "rules": 2959,
-  "rulesMobile": 2983,
-  "conflicts": 73308,
-  "conflictsMobile": 109043,
+  "at": "2026-09-29T14:04:10.334Z",
+  "rules": 2995,
+  "rulesMobile": 3010,
+  "conflicts": 74371,
+  "conflictsMobile": 111500,
   "rows": [
     {
       "name": "ad-license",
@@ -1050,6 +1050,18 @@
       "ok": true
     },
     {
+      "name": "credits-usage--modal-top-up-your-credits-as-individual",
+      "device": "web",
+      "pct": 0.004,
+      "ok": true
+    },
+    {
+      "name": "credits-usage--modal-top-up-your-credits-as-staff",
+      "device": "web",
+      "pct": 0.004,
+      "ok": true
+    },
+    {
       "name": "credits-usage--modal-top-up-your-credits",
       "device": "web",
       "pct": 0.004,
@@ -1083,6 +1095,18 @@
       "name": "dashboard--as-staff",
       "device": "web",
       "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--drawer-credits-balance-as-individual",
+      "device": "web",
+      "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "dashboard--drawer-credits-balance-as-staff",
+      "device": "web",
+      "pct": 0.003,
       "ok": true
     },
     {
@@ -1186,6 +1210,18 @@
       "device": "web",
       "pct": 0.986,
       "ok": false
+    },
+    {
+      "name": "dashboard--modal-top-up-your-credits-as-individual",
+      "device": "web",
+      "pct": 0.004,
+      "ok": true
+    },
+    {
+      "name": "dashboard--modal-top-up-your-credits-as-staff",
+      "device": "web",
+      "pct": 0.004,
+      "ok": true
     },
     {
       "name": "dashboard--modal-top-up-your-credits",
@@ -1605,6 +1641,12 @@
       "name": "listings--popover-leads",
       "device": "web",
       "pct": 0.012,
+      "ok": true
+    },
+    {
+      "name": "listings--popover-notifications-empty",
+      "device": "web",
+      "pct": 0.014,
       "ok": true
     },
     {
@@ -2911,6 +2953,18 @@
     },
     {
       "name": "post-listing-upgrade--inline-basic-listing-get-standard-visibilit",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--inline-insufficient-credits-as-individual",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--inline-insufficient-credits-as-staff",
       "device": "web",
       "pct": 0,
       "ok": true
@@ -4644,6 +4698,18 @@
       "ok": true
     },
     {
+      "name": "credits-usage--drawer-top-up-your-credits-as-individual--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "credits-usage--drawer-top-up-your-credits-as-staff--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "credits-usage--drawer-top-up-your-credits--mobile",
       "device": "mobile",
       "pct": 0,
@@ -4800,6 +4866,18 @@
       "ok": false
     },
     {
+      "name": "dashboard--drawer-credits-balance-as-individual--mobile",
+      "device": "mobile",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
+      "name": "dashboard--drawer-credits-balance-as-staff--mobile",
+      "device": "mobile",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
       "name": "dashboard--drawer-credits-balance--mobile",
       "device": "mobile",
       "pct": 0.001,
@@ -4870,6 +4948,18 @@
       "device": "mobile",
       "pct": 0,
       "ok": true
+    },
+    {
+      "name": "dashboard--drawer-top-up-your-credits-as-individual--mobile",
+      "device": "mobile",
+      "pct": 3.156,
+      "ok": false
+    },
+    {
+      "name": "dashboard--drawer-top-up-your-credits-as-staff--mobile",
+      "device": "mobile",
+      "pct": 2.662,
+      "ok": false
     },
     {
       "name": "dashboard--drawer-top-up-your-credits--mobile",
@@ -5163,6 +5253,12 @@
       "name": "listings--drawer-filters--mobile",
       "device": "mobile",
       "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "listings--drawer-notifications-empty--mobile",
+      "device": "mobile",
+      "pct": 0.042,
       "ok": true
     },
     {
@@ -6270,9 +6366,21 @@
       "ok": true
     },
     {
+      "name": "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile",
+      "device": "mobile",
+      "pct": 0.004,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile",
+      "device": "mobile",
+      "pct": 0.004,
+      "ok": true
+    },
+    {
       "name": "post-listing-upgrade--inline-insufficient-credits--mobile",
       "device": "mobile",
-      "pct": 0.002,
+      "pct": 0.004,
       "ok": true
     },
     {

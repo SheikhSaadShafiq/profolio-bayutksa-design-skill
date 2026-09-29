@@ -899,8 +899,23 @@ export default (h) => {
      Post Listing" (LimitNonSaudiNationalModal.js:21), so that modal is a
      state of its own rather than a fixture accident on every /post-listing */
   const nationality = (u, mode) => (mode === 'non-saudi' ? { ...u, is_saudi_national: false } : u);
+  /* mode 'lf-low-credits' (listing-form.mjs): the account has 1 credit left.
+     The upgrade page reads the balance twice — the Insufficient Credits alert
+     from applicable_products (upgrade-listing.js:349, listing-form.mjs
+     `applicable`), the Available Credits card beside it from users/current
+     (credits-info.js:85 user.credits.ksa ?? .bayut → transformers/user.js:105-120,
+     `available` copied as it comes). Only listing-form answered the mode, so
+     the card read the full pool — "Available Credits: 72,880" beside "Pay 900
+     for the additional 9 credits". Now both say 1. `available` alone moves:
+     nothing on that page reads the rest of the pool, and a compound mode
+     (harness/fixtures.mjs overlay — 'lf-low-credits+staff') then lays exactly
+     that one field over another account's record. */
+  const lowCredits = (u, mode) => (mode === 'lf-low-credits' && u.credits?.bayut
+    ? { ...u, credits: { ...u.credits, bayut: { ...u.credits.bayut, available: 1 } } } : u);
   return [
-    [/^\/api\/surge\/users\/current$/, (search, mode) => (mode === 'member'
+    [/^\/api\/surge\/users\/current$/, (search, mode) => (mode === 'lf-low-credits'
+      ? { ...user, user: lowCredits(completion(CURRENT, mode), mode), banners: BANNERS }
+      : mode === 'member'
       ? { ...memberUser, user: { ...completion(CURRENT, mode), is_package_user: false } }
       : mode === 'staff'
         ? { ...user, user: STAFF_CURRENT, banners: BANNERS }      /* 50% as recorded — never completed */

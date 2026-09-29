@@ -548,7 +548,48 @@ const ROUTES = [
 const H = { user, U, AGENCY, AVATAR, page, day, iso, num, listings, clean, STATUSES, SUMMARY, statsItems, items, aggregates, C, products, purposes, memberUser, purposeOf };
 let ALL = null;
 let PAGE = '';                  /* the page of the outermost call in progress (see @param page) */
+
+/* ── a COMPOUND mode: '<state mode>+<account mode>' ─────────────────────────
+   A state compiled for another account — 'lf-low-credits+staff' is the
+   upgrade page's Insufficient Credits as an agency STAFF user sees it
+   (harness/interactions/post-listing-upgrade.mjs …-as-staff). Every handler
+   tests ONE mode (`mode === 'staff'`, 49 of them), so a compound mode is never
+   handed to a handler: each request is answered three times — in the account
+   mode (A), in the state mode (B) and in no mode (N) — and the answer is the
+   account's with the state's own changes laid over it, A ⊕ (B − N): wherever
+   the state mode's answer differs from the default one, the state's value;
+   everywhere else, the account's. An array or a scalar is one value (the
+   state's list, if its list differs). A request only the account mode moves
+   (the rail's users/current, the bell's count) is the account's; one only the
+   state mode moves (applicable_products' available credits) is the state's;
+   one both move (users/current in lf-low-credits: the pool's `available`) is
+   the account's record with the state's field in it. A write is answered once,
+   in the state mode — a handler with a side effect (an upload counter, a cart)
+   must not run three times. */
+const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+const isObj = (x) => !!x && typeof x === 'object' && !Array.isArray(x);
+export function overlay(account, dflt, state) {
+  if (same(state, dflt)) return account;
+  if (!isObj(state) || !isObj(dflt) || !isObj(account)) return state;
+  const out = { ...account };
+  for (const k of new Set([...Object.keys(dflt), ...Object.keys(state)])) {
+    if (!(k in state)) { delete out[k]; continue; }
+    const v = overlay(account[k], dflt[k], state[k]);
+    if (v === undefined) delete out[k]; else out[k] = v;
+  }
+  return out;
+}
+export const compound = (mode) => (typeof mode === 'string' && mode.includes('+') ? mode.split('+') : null);
+
 export function answer(method, pathname, search = '', mode = null, page = undefined) {
+  const parts = compound(mode);
+  if (parts) {
+    const [state, account] = parts;
+    if (String(method).toUpperCase() !== 'GET') return answer(method, pathname, search, state, page);
+    return overlay(answer(method, pathname, search, account || null, page),
+      answer(method, pathname, search, null, page),
+      answer(method, pathname, search, state, page));
+  }
   /* the second pass's modules first: form submissions, the listing form,
      payments, settings — each answers only what nobody else does, or only
      in a mode of its own */

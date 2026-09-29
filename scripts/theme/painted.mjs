@@ -42,8 +42,9 @@ const SCAN = () => {
   const partOf = (el) => { const l = el.closest('[data-screen-label]'); return l ? l.getAttribute('data-screen-label') : 'screen'; };
   for (const el of document.querySelectorAll('[data-pf-theme-root] *')) {
     if (/^(script|style|template|defs|clippath|lineargradient|stop|use|symbol)$/i.test(el.tagName)) continue;
-    /* the product's own shell, swapped in by the designer's decision, is not the new theme */
-    if (el.closest('[data-pf-shell]')) continue;
+    /* the product's own shell, swapped in by the designer's decision, is not the new theme; nor
+       is a derived screen (composed by derive.mjs, drawn by neither build) evidence of it */
+    if (el.closest('[data-pf-shell], [data-pf-derived]')) continue;
     const cs = getComputedStyle(el);
     if (cs.display === 'none' || cs.visibility === 'hidden' || +cs.opacity === 0) continue;
     const r = el.getBoundingClientRect();
@@ -52,7 +53,10 @@ const SCAN = () => {
     const svg = el instanceof SVGElement;
     const words = svg ? '' : [...el.childNodes].filter((n) => n.nodeType === 3).map((n) => n.textContent).join('').replace(/\s+/g, ' ').trim();
     if (words && /[\p{L}\p{N}]/u.test(words)) {
-      text.push([cs.fontFamily.split(',')[0].replace(/["']/g, '').trim(), parseFloat(cs.fontSize), cs.lineHeight === 'normal' ? 'normal' : parseFloat(cs.lineHeight), +cs.fontWeight, hex(cs.color), words.slice(0, 200), part]);
+      /* a stat: a figure whose block names its metric (Views, Clicks, Leads) */
+      let hint = '';
+      if (/^[\d,.]+[KkMm%]?$/.test(words)) for (let x = el.parentElement, i = 0; x && i < 3 && !hint; x = x.parentElement, i++) if ([...x.children].some((c) => c !== el && !c.contains(el) && /^(Views|Clicks|Leads)$/.test((c.innerText || '').trim()))) hint = 'stat';
+      text.push([cs.fontFamily.split(',')[0].replace(/["']/g, '').trim(), parseFloat(cs.fontSize), cs.lineHeight === 'normal' ? 'normal' : parseFloat(cs.lineHeight), +cs.fontWeight, hex(cs.color), words.slice(0, 200), part, hint]);
       const c = hex(cs.color); if (c) colours.push([c, 'ink', part]);
     }
     if (svg) {
@@ -88,9 +92,17 @@ const SCAN = () => {
   const firstCard = Math.min(...cards.map((c) => c.getBoundingClientRect().top), Infinity);
   const placeOf = (el, r) => (cards.some((c) => c.contains(el)) ? 'listing card' : partOf(el) !== 'screen' ? partOf(el) : r.bottom <= firstCard ? 'list header' : 'screen');
   for (const el of document.querySelectorAll('[data-pf-theme-root] *')) {
-    if (el instanceof SVGElement || el.closest('[data-pf-shell]')) continue;
+    if (el instanceof SVGElement || el.closest('[data-pf-shell], [data-pf-derived]')) continue;
     const cs = getComputedStyle(el);
-    if (cs.cursor !== 'pointer' || (el.parentElement && getComputedStyle(el.parentElement).cursor === 'pointer')) continue;
+    if (cs.cursor !== 'pointer') continue;
+    /* the outermost clickable box — and a control inside a clickable card (its own inline
+       pointer, not a same-size wrapper), which the card's pointer would otherwise hide */
+    let up = null;
+    for (let x = el.parentElement; x && !up; x = x.parentElement) if (getComputedStyle(x).cursor === 'pointer') up = x;
+    if (up) {
+      const q = up.getBoundingClientRect(), r0 = el.getBoundingClientRect();
+      if (el.style.cursor !== 'pointer' || (Math.abs(q.width - r0.width) <= 2 && Math.abs(q.height - r0.height) <= 2)) continue;
+    }
     if (!el.checkVisibility({ checkOpacity: true, checkVisibilityCSS: true })) continue;
     const r = el.getBoundingClientRect();
     if (r.width < 1 || r.height < 1 || r.bottom <= 0 || r.top >= innerHeight || r.right <= 0 || r.left >= innerWidth) continue;
@@ -102,7 +114,7 @@ const SCAN = () => {
   const boxOf = (e, test) => { for (let x = e; x && x !== document.body; x = x.parentElement) { if (x.closest('[data-pf-shell]')) return null; if (test(x.getBoundingClientRect(), getComputedStyle(x))) return x; } return null; };
   for (const e of document.querySelectorAll('[data-pf-theme-root] *')) {
     const own = [...e.childNodes].filter((n) => n.nodeType === 3).map((n) => n.textContent).join('').trim();
-    if (!own || !e.checkVisibility({ checkOpacity: true, checkVisibilityCSS: true })) continue;
+    if (!own || e.closest('[data-pf-derived]') || !e.checkVisibility({ checkOpacity: true, checkVisibilityCSS: true })) continue;
     if (/^(Apartment|Villa|Townhouse) for (Sale|Rent|Daily Rental)$/.test(own)) { const card = boxOf(e, (r, cs) => r.width >= 300 && cs.backgroundColor === 'rgb(255, 255, 255)'); if (card) named.push(['card', getComputedStyle(card).boxShadow, partOf(card)]); }
     if (/marked as booked|blocked:|^Shared on |link sent|Listing deleted|saved/i.test(own)) { const toast = boxOf(e, (r, cs) => cs.boxShadow !== 'none' && r.height < 120); if (toast) named.push(['toast', getComputedStyle(toast).boxShadow, partOf(toast)]); }
   }
@@ -133,9 +145,9 @@ await Promise.all(Array.from({ length: 6 }, async () => {
     for (const [w, h, label, part, place] of targets) { const e = bump(TARGETS, `${device}|${w}x${h}`, () => ({ n: 0, labels: new Set(), parts: new Set(), places: new Map() })); e.n++; if (label) e.labels.add(label); e.parts.add(part); e.places.set(place, (e.places.get(place) || 0) + 1); }
     for (const [label, c] of grounds) bump(GROUND, `${device}|${label}|${c}`, () => new Set()).add(state);
     const where = `${device}:${state}`;
-    for (const [family, size, lh, weight, colour, full, part] of text) {
+    for (const [family, size, lh, weight, colour, full, part, hint] of text) {
       const words = full.slice(0, 50);
-      if (full.length <= 60) { const k = [full, device, part, family, size, lh, weight, colour].join('\u0001'); const e = STRINGS.get(k) || STRINGS.set(k, { n: 0, states: new Set() }).get(k); e.n++; e.states.add(state); }
+      if (full.length <= 60) { const k = [full, device, part, family, size, lh, weight, colour, hint].join('\u0001'); const e = STRINGS.get(k) || STRINGS.set(k, { n: 0, states: new Set() }).get(k); e.n++; e.states.add(state); }
       bump(FAM, family, () => ({ uses: new Set(), devices: new Set(), parts: new Set() })).uses.add(`${device}|${part}|${words}`);
       FAM.get(family).devices.add(device); FAM.get(family).parts.add(part);
       const e = bump(T, `${device}|${family}|${size}|${lh}|${weight}`, () => ({ uses: new Set(), words: new Map(), colours: new Map(), devices: new Set() }));
@@ -167,10 +179,10 @@ const out = {
   families: [...FAM.entries()].map(([f, e]) => ({ family: f, uses: e.uses.size, devices: [...e.devices], parts: [...e.parts] })).sort((a, b) => b.uses - a.uses),
   text: [...T.entries()].map(([k, e]) => { const [device, family, size, lh, weight] = k.split('|'); return { device, family, size: +size, lh: lh === 'normal' ? lh : +lh, weight: +weight, uses: e.uses.size, words: [...e.words.entries()].sort((a, b) => b[1] - a[1]).slice(0, 8).map(([w]) => w), colours: [...e.colours.entries()].sort((a, b) => b[1] - a[1]).slice(0, 3).map(([c]) => c), devices: [...e.devices] }; }).sort((a, b) => b.uses - a.uses),
   radii: [...RAD.entries()].map(([v, s]) => ({ value: v, uses: s.size, parts: [...s].map((x) => x.replace('|', ':')) })).sort((a, b) => b.uses - a.uses),
-  strings: [...STRINGS.entries()].map(([k, e]) => { const [w, device, part, family, size, lh, weight, colour] = k.split('\u0001'); return { w, device, part, family, size: +size, lh: lh === 'normal' ? lh : +lh, weight: +weight, colour, n: e.n, states: [...e.states].slice(0, 8) }; }),
+  strings: [...STRINGS.entries()].map(([k, e]) => { const [w, device, part, family, size, lh, weight, colour, hint] = k.split('\u0001'); return { w, device, part, family, size: +size, lh: lh === 'normal' ? lh : +lh, weight: +weight, colour, ...(hint ? { hint } : {}), n: e.n, states: [...e.states].sort() }; }),
   named: [...NAMED.entries()].map(([k, e]) => { const [kind, device, value] = k.split('|'); return { kind, device, value, n: e.n, parts: [...e.parts] }; }),
   targets: [...TARGETS.entries()].map(([k, e]) => { const [device, size] = k.split('|'); return { device, size, n: e.n, labels: [...e.labels].slice(0, 6), parts: [...e.parts], places: Object.fromEntries(e.places) }; }).sort((a, b) => b.n - a.n),
-  colours: [...COL.entries()].map(([c, e]) => ({ value: c, uses: e.uses.size, roles: Object.fromEntries(e.roles), parts: [...e.parts], states: [...e.states].length })).sort((a, b) => b.uses - a.uses),
+  colours: [...COL.entries()].map(([c, e]) => ({ value: c, uses: e.uses.size, roles: Object.fromEntries(e.roles), parts: [...e.parts], states: [...e.states].length, ...(/ \d+%$/.test(c) ? { stateList: [...e.states].sort() } : {}) })).sort((a, b) => b.uses - a.uses),
   shadows: [...SH.entries()].map(([v, s]) => ({ value: v, uses: s.size, parts: [...s].map((x) => x.replace('|', ':')) })).sort((a, b) => b.uses - a.uses),
   grounds: [...GROUND.entries()].map(([k, s]) => { const [device, label, colour] = k.split('|'); return { device, label, colour, states: s.size }; }),
   sar: [...new Map(SAR.map((x) => [`${x.device}|${x.part}|${x.words}`, x])).values()].map((x) => ({ ...x, states: SAR.filter((y) => y.device === x.device && y.part === x.part && y.words === x.words).length })),

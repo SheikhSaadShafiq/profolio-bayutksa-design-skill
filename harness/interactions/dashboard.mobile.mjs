@@ -25,6 +25,26 @@
  *     drawer-request-signature-upgrade-the
  */
 import { card, bring, drawer, menuItem, opened } from './listings.mobile.mjs';
+import { topUpStates, openTopUp } from './credits-usage.mjs';
+
+/** the top-up sheet, opened with the Listings card — the card above Credits
+    Balance — at the top of the screen, its button then in view without a
+    scroll. Not from where press() leaves the page (the button scrolled to
+    the middle): there the screen's top edge cuts through the Listings
+    card's figures, which reflow when the compiled file's web fonts load (the
+    card is 17px taller with them), and the browser's scroll anchoring moved
+    the file 8px off the scroll it restores (654 → 662 as staff, 500 → 508 as
+    the individual: 2.7% and 3.2% of the pixels, against the bar of 0.5%).
+    The card's own top edge moves with nothing: the file opens where it was
+    frozen. compile.mjs restores the window's scroll once, before the fonts —
+    every other file frozen mid-scroll has the same drift until it restores it
+    again once they are in, as it already does for data-pf-scroll */
+const topUpFromListings = async (p) => {
+  const listings = p.locator('.ant-card').filter({ hasText: 'View All Listings' }).first();
+  await listings.evaluate((el) => window.scrollTo(0, Math.round(el.getBoundingClientRect().top + window.scrollY)));
+  await p.waitForTimeout(300);
+  await openTopUp(p);
+};
 
 /** wait out the chart's refetch: no spinner or skeleton on screen */
 const still = async (p) => {
@@ -88,6 +108,11 @@ export const leadsStates = [
 
 export default [
   ...leadsStates,
+  /* the Credits Balance card's top-up as the other two accounts — a bottom
+     sheet on a phone, named as the explorer named the owner's
+     (drawer-top-up-your-credits); the info drawer's -as-* are dashboard.mjs's,
+     one name on both devices */
+  ...topUpStates('drawer-top-up-your-credits', 'on the Credits Balance card').map((s) => ({ ...s, do: topUpFromListings })),
   {
     name: 'modal-trucheck-eligible-trucheck-is',
     note: 'phone: Recent Listings, card 0 ⋮ → “TruCheck Eligible” — TruCheckModal as a bottom sheet',

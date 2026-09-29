@@ -181,6 +181,43 @@
   },
   "$variants": [
     {
+      "token": "elevation.sheetExplainer",
+      "css": "--pf-ml-elevation-sheet-explainer",
+      "value": "0 -10px 40px rgba(23,26,31,0.2)",
+      "of": "elevation.sheet",
+      "where": "How to Earn Quality Score sheet",
+      "uses": 1
+    },
+    {
+      "token": "type.priceWeb",
+      "css": "--pf-ml-type-price-web",
+      "value": {
+        "family": "Geist",
+        "size": 20,
+        "line": "normal",
+        "weight": 700
+      },
+      "of": "type.price",
+      "where": "the web: My Listings page, Listing Performance drawer (40 states)",
+      "uses": 187,
+      "sample": "1,500,000"
+    },
+    {
+      "token": "type.subtypeWeb",
+      "css": "--pf-ml-type-subtype-web",
+      "value": {
+        "family": "Geist",
+        "size": 11,
+        "line": "normal",
+        "weight": 600,
+        "color": "#208E57"
+      },
+      "of": "type.subtype",
+      "where": "the web: My Listings page, Share Listing modal (43 states)",
+      "uses": 239,
+      "sample": "Apartment for Sale"
+    },
+    {
       "token": "type.locationNotLive",
       "css": "--pf-ml-type-location-not-live",
       "value": {
@@ -192,7 +229,23 @@
       },
       "of": "type.location",
       "where": "the list (tab-draft, tab-pending, tab-removed)",
-      "uses": 27
+      "uses": 27,
+      "sample": "Al Malqa, North Riyadh"
+    },
+    {
+      "token": "type.locationWeb",
+      "css": "--pf-ml-type-location-web",
+      "value": {
+        "family": "Geist",
+        "size": 14,
+        "line": "normal",
+        "weight": 400,
+        "color": "#222222"
+      },
+      "of": "type.location",
+      "where": "the web: My Listings page (43 states)",
+      "uses": 244,
+      "sample": "Al Hazm, West Riyadh"
     },
     {
       "token": "type.statPerformance",
@@ -204,8 +257,9 @@
         "weight": 700
       },
       "of": "type.stat",
-      "where": "Listing Performance bottom sheet (sheet-case-happy, sheet-case-daily-rental, sheet-improve-quality)",
-      "uses": 8
+      "where": "Listing Performance bottom sheet (13 states); the web: My Listings page (40 states)",
+      "uses": 48,
+      "sample": "4,180"
     },
     {
       "token": "type.labelPerformance",
@@ -218,8 +272,24 @@
         "color": "#626262"
       },
       "of": "type.label",
-      "where": "Listing Performance bottom sheet",
-      "uses": 54
+      "where": "Listing Performance bottom sheet (15 states)",
+      "uses": 54,
+      "sample": "Views"
+    },
+    {
+      "token": "type.labelWeb",
+      "css": "--pf-ml-type-label-web",
+      "value": {
+        "family": "Geist",
+        "size": 12,
+        "line": "normal",
+        "weight": 300,
+        "color": "#4F4F4F"
+      },
+      "of": "type.label",
+      "where": "the web: My Listings page (40 states)",
+      "uses": 675,
+      "sample": "Views"
     },
     {
       "token": "type.sheetTitlePerformance",
@@ -231,15 +301,16 @@
         "weight": 700
       },
       "of": "type.sheetTitle",
-      "where": "Listing Performance bottom sheet",
-      "uses": 18
+      "where": "Listing Performance bottom sheet (15 states)",
+      "uses": 18,
+      "sample": "Listing Performance"
     },
     {
       "token": "radius.sheetAction",
       "css": "--pf-ml-radius-sheet-action",
       "value": 16,
       "of": "radius.sheet",
-      "where": "Filter value sheet, Delete listing sheet, Share sheet, Listing actions sheet, Date range sheet, Sort sheet, TruCheck sheet",
+      "where": "Delete listing sheet, Filter value sheet, Sort sheet, Share sheet, Listing actions sheet, Date range sheet, TruCheck sheet",
       "uses": 7
     },
     {
@@ -259,12 +330,20 @@
       "uses": 2
     },
     {
-      "token": "surface.pageWeb",
+      "token": "color.surface.scrimDrawer",
+      "css": "--pf-ml-surface-scrim-drawer",
+      "value": "rgba(23,26,31,0.34)",
+      "of": "color.surface.scrim",
+      "where": "the web drawers' backdrop, 27 states; also 4 other states (the phone onboarding tour)",
+      "uses": 31
+    },
+    {
+      "token": "color.surface.pageWeb",
       "css": "--pf-ml-surface-page-web",
       "value": "#F3F4F5",
       "of": "color.surface.page",
-      "where": "the web page, 66 states",
-      "uses": 66
+      "where": "the web page, 65 states",
+      "uses": 65
     }
   ],
   "$adjusted": [
@@ -272,48 +351,58 @@
       "token": "elevation.sheet",
       "declared": "0 -8px 32px rgba(0,0,0,0.16)",
       "value": "0 -8px 40px rgba(23,26,31,0.18)",
-      "basis": "the build paints it on Listing Performance bottom sheet, Filter value sheet, Delete listing sheet, Filters sheet, Mark as Booked sheet, Share sheet, Request Services sheet, Listing actions sheet, Date range sheet, Sort sheet, TruCheck sheet"
+      "basis": "the build paints it on Listing Performance bottom sheet, Delete listing sheet, Filter value sheet, Filters sheet, Sort sheet, Share sheet, Request Services sheet, Listing actions sheet, Date range sheet, TruCheck sheet",
+      "variants": [
+        "elevation.sheetExplainer"
+      ]
     },
     {
       "token": "elevation.card",
       "declared": "0 1px 2px rgba(0,0,0,0.04)",
       "value": "none",
-      "basis": "no listing card paints a shadow"
+      "basis": "no listing card paints a shadow",
+      "variants": []
     },
     {
       "token": "elevation.toast",
       "declared": "0 14px 34px rgba(0,0,0,0.22)",
       "value": "0 10px 30px rgba(23,26,31,0.22)",
-      "basis": "the build paints it on screen"
+      "basis": "the build paints it on screen",
+      "variants": []
     },
     {
       "token": "type.price",
       "declared": "Geist 17/22 · 700",
       "value": "Geist 16/normal · 700",
-      "basis": "the phone draws it so ×129 (screen, Listing Performance bottom sheet; \"1,500,000\"); also, rarely, Geist 13/normal · 700 ×3 (Delete listing sheet, TruCheck sheet)",
-      "variants": []
+      "basis": "the phone draws it so ×129 (screen, Listing Performance bottom sheet; \"1,500,000\"); also, rarely, Geist 13/normal · 700 ×3 (Delete listing sheet, TruCheck sheet); the web draws it Geist 20/normal · 700 ×187",
+      "variants": [
+        "type.priceWeb"
+      ]
     },
     {
       "token": "type.subtype",
       "declared": "Geist 12/16 · 600 · #249F62",
       "value": "Geist 11/normal · 600 · #10603A",
-      "basis": "the phone draws it so ×182 (screen, Listing Performance bottom sheet; \"Apartment for Sale\"); also, rarely, Geist 12/normal · 600 · #249F62 ×3 (Delete listing sheet, TruCheck sheet); Geist 10/normal · 700 · #10603A ×8 (screen)",
-      "variants": []
+      "basis": "the phone draws it so ×182 (screen, Listing Performance bottom sheet; \"Apartment for Daily Rental\"); also, rarely, Geist 12/normal · 600 · #249F62 ×3 (Delete listing sheet, TruCheck sheet); Geist 10/normal · 700 · #10603A ×8 (screen); the web draws it Geist 11/normal · 600 · #208E57 ×239",
+      "variants": [
+        "type.subtypeWeb"
+      ]
     },
     {
       "token": "type.location",
       "declared": "Geist 12/16 · 400 · #707070",
       "value": "Geist 12/normal · 400 · #626262",
-      "basis": "the phone draws it so ×159 (screen, Listing Performance bottom sheet; \"Al Hazm, West Riyadh\"); also, rarely, Geist 12/normal · 400 · #707070 ×3 (Delete listing sheet, TruCheck sheet); Geist 11/normal · 400 · #222222 ×7 (screen)",
+      "basis": "the phone draws it so ×159 (screen, Listing Performance bottom sheet; \"Abu Markha, Madinah\"); also, rarely, Geist 12/normal · 400 · #707070 ×3 (Delete listing sheet, TruCheck sheet); Geist 11/normal · 400 · #222222 ×7 (screen); the web draws it Geist 14/normal · 400 · #222222 ×244",
       "variants": [
-        "type.locationNotLive"
+        "type.locationNotLive",
+        "type.locationWeb"
       ]
     },
     {
       "token": "type.stat",
       "declared": "Geist 14/18 · 700",
       "value": "Geist 12/normal · 700",
-      "basis": "the phone draws it so ×132 (screen; \"1,288\")",
+      "basis": "the phone draws it so ×423 (screen; \"4,180\"); the web draws it Geist 16/normal · 700 ×609",
       "variants": [
         "type.statPerformance"
       ]
@@ -322,34 +411,26 @@
       "token": "type.label",
       "declared": "Geist 11/14 · 500 · #9D9D9D",
       "value": "Geist 11/normal · 300 · #4F4F4F",
-      "basis": "the phone draws it so ×468 (screen; \"Views\")",
+      "basis": "the phone draws it so ×468 (screen; \"Views\"); the web draws it Geist 12/normal · 300 · #4F4F4F ×675",
       "variants": [
-        "type.labelPerformance"
+        "type.labelPerformance",
+        "type.labelWeb"
       ]
     },
     {
       "token": "type.sheetTitle",
       "declared": "Figtree 18/24 · 700",
       "value": "Figtree 17/normal · 700",
-      "basis": "the phone draws it so ×13 (Delete listing sheet, Filters sheet, Mark as Booked sheet, Share sheet, Request Services sheet, Listing actions sheet, Date range sheet, Sort sheet, TruCheck sheet; \"Delete this listing?\"); also, rarely, Figtree 17/24 · 700 ×2 (How to Earn Quality Score sheet)",
+      "basis": "the phone draws it so ×11 (Delete listing sheet, Filters sheet, Sort sheet, Share sheet, Request Services sheet, Listing actions sheet, Date range sheet, TruCheck sheet; \"Delete this listing?\"); also, rarely, Figtree 17/24 · 700 ×2 (How to Earn Quality Score sheet); the web draws it Figtree 20/normal · 700 ×3",
       "variants": [
         "type.sheetTitlePerformance"
-      ]
-    },
-    {
-      "token": "radius.sheet",
-      "declared": "20px",
-      "value": "20px",
-      "basis": "20px on How to Earn Quality Score sheet, Listing Performance bottom sheet, Filters sheet, Mark as Booked sheet, Request Services sheet — as declared",
-      "variants": [
-        "radius.sheetAction"
       ]
     },
     {
       "token": "target.iconButton",
       "declared": "44px",
       "value": "40px",
-      "basis": "the build draws a listing card's icon buttons at 40x40 ×22; elsewhere 32x32 ×136 (the list header (filter, sort)), 24x24 ×2 (the How to Earn Quality Score sheet)",
+      "basis": "the build draws a listing card's icon buttons at 40x40 ×435; elsewhere 32x32 ×136 (the list header (filter, sort)), 24x24 ×2 (the How to Earn Quality Score sheet)",
       "variants": [
         "target.iconButtonHeader",
         "target.iconButtonSheet"
@@ -359,7 +440,10 @@
       "token": "color.surface.scrim",
       "declared": "rgba(0,0,0,0.42)",
       "value": "rgba(23,26,31,0.42)",
-      "basis": "the build's 42% layer, 3 uses"
+      "basis": "the build's 42% layer (its modals' and sheets' backdrop), 45 states",
+      "variants": [
+        "color.surface.scrimDrawer"
+      ]
     },
     {
       "token": "color.surface.page",
@@ -367,25 +451,33 @@
       "value": "#F6F7FB",
       "basis": "the phone's page, 70 states (tokens.json is the phone's)",
       "variants": [
-        "surface.pageWeb"
+        "color.surface.pageWeb"
       ]
     }
   ],
   "$kept": [
     {
+      "token": "radius.sheet",
+      "value": "20px",
+      "why": "as declared — 20px on How to Earn Quality Score sheet, Listing Performance bottom sheet, Filters sheet, Request Services sheet; the action sheets draw 16px (a variant)",
+      "variants": [
+        "radius.sheetAction"
+      ]
+    },
+    {
       "token": "target.min",
       "value": "44px",
-      "why": "a rule, not a size: the build's icon buttons are below it (32, 40, 24px) — accessibility, [TBC] with the designer"
+      "why": "a rule, not a size: the build's icon buttons are below it (40, 32, 24px) — accessibility, [TBC] with the designer"
     },
     {
       "token": "type.family.app",
       "value": "Lato",
-      "why": "painted nowhere — nothing to follow"
+      "why": "painted nowhere — the phone header that drew it is the product's now (the shell is kept)"
     },
     {
       "token": "type.family.mono",
       "value": "JetBrains Mono",
-      "why": "painted nowhere — nothing to follow"
+      "why": "not painted; the build's only monospace text (ui-monospace, 1 use) is the photo placeholder's caption, a stand-in for the listing photo — nothing to follow"
     }
   ]
 }

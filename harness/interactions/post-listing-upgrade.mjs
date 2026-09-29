@@ -102,7 +102,34 @@ export default [
     name: 'inline-insufficient-credits',
     mode: 'lf-low-credits',
     devices: both,
-    note: 'the account has fewer credits than the chosen product needs (listing-form.mjs lf-low-credits: 1 credit): "Insufficient Credits. Pay … for the additional … credits at checkout" (upgrade-listing.js renderAlert)',
+    note: 'the agency OWNER has fewer credits than the chosen product needs (listing-form.mjs lf-low-credits: 1 credit, and users/current says 1 too — profile.mjs lowCredits — so the Available Credits card and the alert agree): Signature preselected, 10 credits, "Insufficient Credits. Pay … for the additional 9 credits at checkout" (upgrade-listing.js renderAlert)',
+    do: async (p) => { await loaded(p); await still(p); },
+  },
+  /* ── the same alert for the other two accounts ──────────────────────────
+     The page is the same for every account: upgrade_listing has no permission
+     and is a member-area route too (tenant/common/routes/appRoutes.js:105),
+     and upgrade-listing.js reads no role — the alert is
+     `availableCredits && total > availableCredits` (:349) for whoever is
+     signed in, and Post Listing past it goes to checkout for everyone
+     (handleCheckout :307 → createUpsellCart → /checkout, a route with no
+     permission, appRoutes.js:210). What differs is the account around it:
+     the rail, the bell and the Available Credits card's package
+     (credits-info.js: user.package, user.credits). Compound modes
+     (harness/fixtures.mjs overlay): the account's answers with 1 credit laid
+     over them. Whether Surge accepts a staff member's checkout is the API's
+     answer and is not recorded. */
+  {
+    name: 'inline-insufficient-credits-as-staff',
+    mode: 'lf-low-credits+staff',
+    devices: both,
+    note: 'Insufficient Credits as an agency STAFF user sees it (mode staff: Abdullah Al-Otaibi, Titanium, 9 rail items) with 1 credit left (lf-low-credits laid over the staff account — harness/fixtures.mjs overlay): Available Credits 1, Signature 10 credits, "Pay … for the additional 9 credits at checkout" — the alert reads no role (upgrade-listing.js:349)',
+    do: async (p) => { await loaded(p); await still(p); },
+  },
+  {
+    name: 'inline-insufficient-credits-as-individual',
+    mode: 'lf-low-credits+individual',
+    devices: both,
+    note: 'Insufficient Credits as an INDIVIDUAL broker sees it (mode individual: no agency, no Agency Staff in the rail) with 1 credit left (lf-low-credits laid over the individual account — harness/fixtures.mjs overlay): Available Credits 1, Signature 10 credits, "Pay … for the additional 9 credits at checkout" — the alert reads no role (upgrade-listing.js:349)',
     do: async (p) => { await loaded(p); await still(p); },
   },
   {

@@ -17,8 +17,11 @@
  *   · a declared value the build paints nowhere gives way to the build's main
  *     value — the one on the most layers, then the most uses — and the rest
  *     become variants;
- *   · a rule (target.min) or a value painted nowhere at all (no toast, no mono
- *     text) is kept, and says why.
+ *   · a rule (target.min), or a value with nothing in the build to follow (Lato;
+ *     JetBrains Mono — the build's only mono text is a photo placeholder's
+ *     caption), is kept, and says why.
+ * A derived screen (Mark as Booked, composed by derive.mjs) is never evidence:
+ * painted.mjs leaves it out.
  * tokens.json's own values are kept beside them (tokens.resolved.json, the
  * Foundations' table), so the designer can see every change.
  *
@@ -78,30 +81,8 @@ const R = structuredClone(T);                            /* the tokens, adjusted
 const variants = [];                                     /* { token, css, value, of, where, uses } */
 const adjusted = [];                                     /* { token, declared, value, basis, variants } */
 const kept = [];                                         /* { token, value, why } */
-const addVariant = (group, name, value, of, where, uses, css) => { variants.push({ token: `${group}.${name}`, css: css || `--pf-ml-${kebab(group === 'type' ? `type-${name}` : `${group}-${name}`)}`, value, of, where, uses }); return `${group}.${name}`; };
+const addVariant = (group, name, value, of, where, uses, css, sample) => { variants.push({ token: `${group}.${name}`, css: css || `--pf-ml-${kebab(group === 'type' ? `type-${name}` : `${group}-${name}`)}`, value, of, where, uses, ...(sample ? { sample } : {}) }); return `${group}.${name}`; };
 
-/* elevation: each token held to the thing it names — the phone's sheets, a listing card, a toast */
-for (const [k, v] of Object.entries(T.elevation)) {
-  if (P.shadows.some((s) => shadow(s.value) === shadow(v))) continue;
-  let found = null;
-  if (k === 'sheet') found = P.shadows.filter((s) => (s.parts || []).some((p) => /^mobile:.*sheet$/i.test(p))).sort((a, b) => b.uses - a.uses)[0];
-  else if (P.named && P.named.some((x) => x.kind === k)) { const n = P.named.filter((x) => x.kind === k).sort((a, b) => b.n - a.n)[0]; found = { value: n.value, parts: n.parts.map((p) => `${n.device}:${p}`), uses: n.n }; }
-  if (!found) { kept.push({ token: `elevation.${k}`, value: v, why: 'painted nowhere in the compiled states — nothing to follow' }); continue; }
-  const value = shadowToken(found.value);
-  R.elevation[k] = value;
-  adjusted.push({ token: `elevation.${k}`, declared: v, value, basis: value === 'none' ? `no ${k === 'card' ? 'listing card' : k} paints a shadow` : `the build paints it on ${partsText(found.parts)}` });
-}
-
-/* type roles: the style the phone draws each role's own words in */
-const ROLE_WORDS = {
-  price: /^(1,500,000|640,000|960,000|895,000|850,000)$/,
-  subtype: /^(Apartment|Villa|Townhouse) for (Sale|Rent|Daily Rental)$/,
-  location: /^[A-Z][a-z]+ ?[A-Za-z]*, (North |South |East |West |Central )?(Riyadh|Jeddah|Madinah)$/,
-  stat: /^(1,288|988|4,180|1,640|22,412|12,855)$/,
-  label: /^(Views|Clicks|Leads)$/,
-  sheetTitle: /^(Listing Performance|Filters|Sort listings|Share Bayut Link|Request Services|Listing actions|Delete this listing\?|TruCheck|How to Earn Quality Score\?|Date range|Mark as Booked)$/,
-};
-const FACE = { Figtree: 'chrome', Geist: 'ui', Lato: 'app' };
 /* a variant's name, from where it is drawn */
 const suffixOf = (g) => {
   const parts = [...g.parts];
@@ -112,36 +93,77 @@ const suffixOf = (g) => {
   if ([...g.states].every((s) => /^tab-(draft|pending|removed)/.test(s))) return 'NotLive';
   return 'Card';
 };
+
+/* elevation: each token held to the thing it names — the phone's sheets, a listing card, a toast */
+for (const [k, v] of Object.entries(T.elevation)) {
+  if (P.shadows.some((s) => shadow(s.value) === shadow(v))) continue;
+  let found = null;
+  if (k === 'sheet') found = P.shadows.filter((s) => (s.parts || []).some((p) => /^mobile:.*sheet$/i.test(p))).sort((a, b) => b.uses - a.uses)[0];
+  else if (P.named && P.named.some((x) => x.kind === k)) { const n = P.named.filter((x) => x.kind === k).sort((a, b) => b.n - a.n)[0]; found = { value: n.value, parts: n.parts.map((p) => `${n.device}:${p}`), uses: n.n }; }
+  if (!found) { kept.push({ token: `elevation.${k}`, value: v, why: 'painted nowhere in the compiled states — nothing to follow' }); continue; }
+  const value = shadowToken(found.value);
+  R.elevation[k] = value;
+  /* another sheet that casts its own shadow is a variant, named by the sheet */
+  /* a sheet's own shadow is cast upward (negative y); a shadow inside a sheet (a knob, a card) is not one */
+  const upward = (v) => (String(v).replace(/rgba?\([^)]*\)/, '').trim().split(/\s+/).map(parseFloat)[1] || 0) < 0;
+  const extra = k !== 'sheet' ? [] : P.shadows.filter((s) => s !== found && upward(s.value) && (s.parts || []).length && s.parts.every((p) => /^mobile:.*sheet$/i.test(p))).map((s) => addVariant('elevation', `sheet${suffixOf({ parts: new Set(s.parts.map((p) => p.slice(7))), states: new Set() })}`, shadowToken(s.value), 'elevation.sheet', partsText(s.parts), s.uses));
+  adjusted.push({ token: `elevation.${k}`, declared: v, value, basis: value === 'none' ? `no ${k === 'card' ? 'listing card' : k} paints a shadow` : `the build paints it on ${partsText(found.parts)}`, variants: extra });
+}
+
+/* type roles: the style each role's own words are drawn in — the phone's (tokens.json is the
+   phone's, 360pt), and the web's where it differs, as a variant */
+const ROLE_WORDS = {
+  price: /^(1,500,000|640,000|960,000|895,000|850,000)$/,
+  subtype: /^(Apartment|Villa|Townhouse) for (Sale|Rent|Daily Rental)$/,
+  location: /^[A-Z][a-z]+ ?[A-Za-z]*, (North |South |East |West |Central )?(Riyadh|Jeddah|Madinah)$/,
+  stat: /^(1,288|988|4,180|1,640|22,412|12,855)$/,
+  label: /^(Views|Clicks|Leads)$/,
+  sheetTitle: /^(Listing Performance|Filters|Sort listings|Share Bayut Link|Request Services|Listing actions|Delete this listing\?|TruCheck|How to Earn Quality Score\?|Date range|Mark as Booked)$/,
+};
+const FACE = { Figtree: 'chrome', Geist: 'ui', Lato: 'app' };
 /* where a variant is drawn, in words: its parts, and the screens when there are few */
-const whereOf = (g) => { const states = [...g.states].map((s) => s.replace(/-full$/, '')).filter((s, i, a) => a.indexOf(s) === i); return `${[...g.parts].map((p) => (p === 'screen' ? 'the list' : p)).join(', ')}${states.length <= 6 ? ` (${states.join(', ')})` : ''}`; };
+const whereOf = (g) => { const states = [...g.states].map((s) => s.replace(/-full$/, '')).filter((s, i, a) => a.indexOf(s) === i); return `${[...g.parts].map((p) => (p === 'screen' ? 'the list' : p)).join(', ')}${states.length <= 6 ? ` (${states.join(', ')})` : ` (${states.length} states)`}`; };
 const styleKey = (x, withColour) => `${x.family}|${x.size}|${x.lh}|${x.weight}|${withColour ? x.colour : ''}`;
+/* a title is a title's size (a menu item with a title's words is not one); a stat label sits
+   over its value at 11px on the phone, 12px on the web (the phone trend's Views / Clicks / Leads
+   switch, 12px, is a control); a stat is a figure whose block names its metric */
+const isRole = (k, x) => (ROLE_WORDS[k].test(x.w) || (k === 'stat' && x.hint === 'stat')) && (k !== 'sheetTitle' || x.size >= 16) && (k !== 'label' || x.size <= (x.device === 'web' ? 12 : 11));
+const groupsOf = (k, dev, withColour) => {
+  const groups = new Map();
+  for (const x of (P.strings || []).filter((y) => y.device === dev && isRole(k, y))) { const key = styleKey(x, withColour); const g = groups.get(key) || groups.set(key, { x, n: 0, parts: new Set(), states: new Set(), w: x.w }).get(key); g.n += x.n; g.parts.add(x.part); (x.states || []).forEach((s) => g.states.add(s)); }
+  return groups;
+};
 for (const [k, r] of Object.entries(T.type)) {
   if (k === 'family' || !ROLE_WORDS[k]) continue;
   const face = r.family || 'Geist';
-  /* a title is a title's size (a menu item with a title's words is not one); a stat label sits
-     over its value at 11px (the trend's Views / Clicks / Leads switch, 12px, is a control) */
-  const own = (P.strings || []).filter((x) => x.device === 'mobile' && ROLE_WORDS[k].test(x.w) && (k !== 'sheetTitle' || x.size >= 16) && (k !== 'label' || x.size <= 11));
-  if (!own.length) continue;
-  const groups = new Map();
-  for (const x of own) { const key = styleKey(x, !!r.color); const g = groups.get(key) || groups.set(key, { x, n: 0, parts: new Set(), states: new Set(), w: x.w }).get(key); g.n += x.n; g.parts.add(x.part); (x.states || []).forEach((s) => g.states.add(s)); }
+  const groups = groupsOf(k, 'mobile', !!r.color);
+  if (!groups.size) continue;
   const declaredKey = `${face}|${r.size}|${r.line}|${r.weight}|${r.color ? r.color.toUpperCase() : ''}`;
-  if ([...groups.keys()].every((g) => g === declaredKey)) continue;
-  const ranked = [...groups.values()].sort((a, b) => (groups.has(declaredKey) ? 0 : 0) || b.parts.size - a.parts.size || b.n - a.n);
+  const ranked = [...groups.values()].sort((a, b) => b.parts.size - a.parts.size || b.n - a.n);
   const main = groups.get(declaredKey) || ranked[0];
   const role = (g) => ({ family: g.x.family, size: g.x.size, line: g.x.lh, weight: g.x.weight, ...(r.color ? { color: g.x.colour } : {}) });
   const styleText = (s) => `${s.family} ${s.size}/${s.line} · ${s.weight}${s.color ? ` · ${s.color}` : ''}`;
   R.type[k] = role(main);
-  const extra = [], minor = [];
+  const extra = [], minor = [], roles = [main];
   const used = new Set();
   for (const g of ranked) {
     if (g === main) continue;
     /* a style drawn on four screens or more is a role of its own; fewer is an exception, noted */
     if (g.states.size >= 4) {
       let name = `${k}${suffixOf(g)}`; while (used.has(name)) name += 'Alt'; used.add(name);
-      extra.push(addVariant('type', name, role(g), `type.${k}`, whereOf(g), g.n));
+      extra.push(addVariant('type', name, role(g), `type.${k}`, whereOf(g), g.n, undefined, g.w));
+      roles.push(g);
     } else minor.push(`${styleText(role(g))} ×${g.n} (${[...g.parts].join(', ')})`);
   }
-  adjusted.push({ token: `type.${k}`, declared: styleText({ family: face, size: r.size, line: r.line, weight: r.weight, color: r.color }), value: styleText(R.type[k]), basis: `the phone draws it so ×${main.n} (${[...main.parts].join(', ')}; "${main.w}")${minor.length ? `; also, rarely, ${minor.join('; ')}` : ''}`, variants: extra });
+  /* the web's own: its main style for the role, when no phone token already holds it */
+  const webMain = [...groupsOf(k, 'web', !!r.color).values()].sort((a, b) => b.parts.size - a.parts.size || b.n - a.n)[0];
+  const heldBy = webMain && roles.find((g) => styleKey(g.x, !!r.color) === styleKey(webMain.x, !!r.color));
+  if (webMain && heldBy && heldBy !== main) { const v = variants.find((x) => x.token === `type.${k}${suffixOf(heldBy)}`); if (v) v.where += `; the web: ${whereOf(webMain)}`; }
+  else if (webMain && !heldBy && webMain.states.size >= 4) extra.push(addVariant('type', `${k}Web`, role(webMain), `type.${k}`, `the web: ${whereOf(webMain)}`, webMain.n, undefined, webMain.w));
+  const basis = `the phone draws it so ×${main.n} (${[...main.parts].join(', ')}; "${main.w}")${minor.length ? `; also, rarely, ${minor.join('; ')}` : ''}${webMain ? `; the web draws it ${styleText(role(webMain))} ×${webMain.n}` : ''}`;
+  /* a declared style the build draws stays as it is: kept, with its variants */
+  if (main === groups.get(declaredKey)) kept.push({ token: `type.${k}`, value: styleText(R.type[k]), why: `as declared — ${basis}`, variants: extra });
+  else adjusted.push({ token: `type.${k}`, declared: styleText({ family: face, size: r.size, line: r.line, weight: r.weight, color: r.color }), value: styleText(R.type[k]), basis, variants: extra });
 }
 
 /* a sheet's corners: the top-only radii of the phone's sheets */
@@ -153,7 +175,8 @@ for (const [k, r] of Object.entries(T.type)) {
     const main = declared || tops[0];
     R.radius.sheet = main.px;
     const extra = others.filter((x) => x !== main).map((x, i) => addVariant('radius', i ? `sheetAction${i + 1}` : 'sheetAction', x.px, 'radius.sheet', x.parts.join(', '), x.parts.length));
-    adjusted.push({ token: 'radius.sheet', declared: `${T.radius.sheet}px`, value: `${main.px}px`, basis: `${main.px}px on ${main.parts.join(', ')}${declared ? ' — as declared' : ''}`, variants: extra });
+    if (declared) kept.push({ token: 'radius.sheet', value: `${main.px}px`, why: `as declared — ${main.px}px on ${main.parts.join(', ')}; the action sheets draw ${others.map((x) => `${x.px}px`).join(', ')} (a variant)`, variants: extra });
+    else adjusted.push({ token: 'radius.sheet', declared: `${T.radius.sheet}px`, value: `${main.px}px`, basis: `${main.px}px on ${main.parts.join(', ')}`, variants: extra });
   }
 }
 
@@ -184,27 +207,43 @@ for (const [g, vals] of Object.entries(T.color)) for (const [k, v] of Object.ent
   const near = P.colours.filter((c) => c.value.endsWith(` ${alpha}`)).sort((a, b) => b.uses - a.uses)[0];
   if (!near) { kept.push({ token: `color.${g}.${k}`, value: v, why: 'painted nowhere' }); continue; }
   R.color[g][k] = hexPctRgba(near.value);
-  adjusted.push({ token: `color.${g}.${k}`, declared: v, value: R.color[g][k], basis: `the build's ${alpha} layer, ${plural(near.uses, 'use')}` });
+  /* the same colour at another strength, laid over ten states or more, is a variant — named by
+     what it dims (the web's drawers dim less than its modals) */
+  const base = near.value.split(' ')[0];
+  const extra = P.colours.filter((c) => c !== near && c.value.startsWith(`${base} `) && (c.roles || {}).ground && c.states >= 10).map((c) => {
+    const list = c.stateList || [];
+    const drawers = list.length && list.filter((x) => /^web:drawer-/.test(x)).length >= list.length * 0.6;
+    const nDrawers = list.filter((x) => /^web:drawer-/.test(x)).length, rest = list.length - nDrawers;
+    return addVariant('color', `${g}.${k}${drawers ? 'Drawer' : c.value.split(' ')[1].replace('%', '')}`, hexPctRgba(c.value), `color.${g}.${k}`, drawers ? `the web drawers' backdrop, ${plural(nDrawers, 'state')}${rest ? `; also ${plural(rest, 'other state')} (${[...new Set(list.filter((x) => !/^web:drawer-/.test(x)).map((x) => x.replace(/-\d+$/, '').replace(/-no-listings.*$/, '').replace(/^mobile:tour$/, 'the phone onboarding tour')))].join(', ')})` : ''}` : `${plural(c.states, 'state')}`, c.states, `--pf-ml-${kebab(g)}-${kebab(k)}${drawers ? '-drawer' : `-${c.value.split(' ')[1].replace('%', '')}`}`);
+  });
+  adjusted.push({ token: `color.${g}.${k}`, declared: v, value: R.color[g][k], basis: `the build's ${alpha} layer (its modals' and sheets' backdrop), ${plural(near.states, 'state')}`, variants: extra });
 }
 {
   const ground = (dev) => (P.grounds || []).filter((x) => x.device === dev).sort((a, b) => b.states - a.states)[0];
   const ph = ground('mobile'), wb = ground('web');
   if (ph && ph.colour !== T.color.surface.page.toUpperCase()) {
     R.color.surface.page = ph.colour;
-    const extra = wb && wb.colour !== ph.colour ? [addVariant('surface', 'pageWeb', wb.colour, 'color.surface.page', `the web page, ${wb.states} states`, wb.states, '--pf-ml-surface-page-web')] : [];
+    const extra = wb && wb.colour !== ph.colour ? [addVariant('color', 'surface.pageWeb', wb.colour, 'color.surface.page', `the web page, ${wb.states} states`, wb.states, '--pf-ml-surface-page-web')] : [];
     adjusted.push({ token: 'color.surface.page', declared: T.color.surface.page, value: ph.colour, basis: `the phone's page, ${ph.states} states (tokens.json is the phone's)`, variants: extra });
   }
 }
 const fam = P.families.filter((f) => f.uses > 0);
-for (const [k, f] of Object.entries(T.type.family)) if (!fam.some((x) => x.family === f)) kept.push({ token: `type.family.${k}`, value: f, why: 'painted nowhere — nothing to follow' });
+for (const [k, f] of Object.entries(T.type.family)) {
+  if (fam.some((x) => x.family === f)) continue;
+  const mono = k === 'mono' && fam.find((x) => /mono/i.test(x.family));
+  kept.push({ token: `type.family.${k}`, value: f, why: mono ? `not painted; the build's only monospace text (${mono.family}, ${plural(mono.uses, 'use')}) is the photo placeholder's caption, a stand-in for the listing photo — nothing to follow` : k === 'app' ? 'painted nowhere — the phone header that drew it is the product\'s now (the shell is kept)' : 'painted nowhere — nothing to follow' });
+}
 
 /* the designer's decisions applied to the screens themselves */
 const riyal = states.reduce((n, s) => n + ((s.decisions || []).map((d) => +((d.match(/riyal ×(\d+)/) || [])[1] || 0)).reduce((a, b) => a + b, 0)), 0);
 const riyalStates = states.filter((s) => (s.decisions || []).some((d) => /riyal/.test(d))).length;
+/* "SAR" the capture left as typed: inside an editable field (a user's own text) */
+const sarKept = states.filter((s) => existsSync(join(ROOT, s.file)) && /contenteditable="true"[^>]*>[^<]*\bSAR\b/.test(readFileSync(join(ROOT, s.file), 'utf8'))).length;
 const shellStates = states.filter((s) => (s.decisions || []).includes('header')).length;
+const railStates = states.filter((s) => (s.decisions || []).includes('rail')).length;
 const decisions = [
-  { what: 'The product shell is kept', how: `every screen (${shellStates} of ${states.length}) draws the product's own header and rail in place of the handover's (scripts/theme/shell.mjs); the new theme is measured without them` },
-  { what: 'The riyal is a glyph', how: `"SAR" written out became the build's own riyal glyph in ${plural(riyal, 'place')} across ${plural(riyalStates, 'state')}${(P.sar || []).length ? ` — ${P.sar.length} still written out` : ''}` },
+  { what: 'The product shell is kept', how: `every screen (${shellStates} of ${states.length}) draws the product's own header, and every web screen (${railStates} of ${web}) its rail, in place of the handover's (scripts/theme/shell.mjs) — on a phone the rail is the header menu's drawer; the new theme is measured without them` },
+  { what: 'The riyal is a glyph', how: `"SAR" written out became the build's own riyal glyph in ${plural(riyal, 'place')} across ${plural(riyalStates, 'state')}${sarKept ? ` — kept as typed inside the agent's own listing description (an editable field) in ${plural(sarKept, 'state')}, by decision` : ''}` },
   { what: 'The drawer is 780px', how: 'both builds draw the Listing Performance drawer 780 wide (spec 02b agrees); 03 · F’s 680 is the Quality Score drawer’s width' },
   { what: 'Mark as Booked is derived', how: `${plural(derived.length, 'screen')} composed in the build from its own booking values, tagged [derived], until the handover draws it` },
 ];
@@ -218,7 +257,7 @@ for (const k of Object.keys(C.primary).sort((a, b) => +a - +b)) vars.push(`  --p
 for (const g of ['brand', 'tint', 'status', 'text', 'border', 'surface', 'gradient']) {
   vars.push(`  /* ${g} */`);
   for (const [k, v] of Object.entries(C[g])) vars.push(`  --pf-ml-${g}-${kebab(k)}: ${v};${note(`color.${g}.${k}`)}`);
-  for (const x of variants.filter((x) => x.token.startsWith(`${g}.`))) vars.push(`  ${x.css}: ${x.value}; /* variant of ${x.of}: ${x.where} */`);
+  for (const x of variants.filter((x) => x.token.startsWith(`color.${g}.`))) vars.push(`  ${x.css}: ${x.value}; /* variant of ${x.of}: ${x.where} */`);
 }
 vars.push('  /* radius, px */');
 for (const [k, v] of Object.entries(R.radius)) vars.push(`  --pf-ml-radius-${k}: ${v}px;${note(`radius.${k}`)}`);
@@ -232,6 +271,7 @@ for (const [k, r] of Object.entries(R.type)) if (k !== 'family') { const lines =
 for (const x of variants.filter((x) => x.token.startsWith('type.'))) { const lines = typeVar(x.css, x.value); lines[0] += ` /* variant of ${x.of}: ${x.where} */`; vars.push(...lines); }
 vars.push('  /* motion */'); for (const [k, m] of Object.entries(R.motion)) vars.push(`  --pf-ml-motion-${kebab(k)}: ${m.duration}ms ${m.curve};${m.note ? ` /* ${m.note} */` : ''}`);
 vars.push('  /* elevation */'); for (const [k, v] of Object.entries(R.elevation)) vars.push(`  --pf-ml-elevation-${kebab(k)}: ${v};${note(`elevation.${k}`)}`);
+for (const x of variants.filter((x) => x.token.startsWith('elevation.'))) vars.push(`  ${x.css}: ${x.value}; /* variant of ${x.of}: ${x.where} */`);
 vars.push('  /* touch targets, px */');
 for (const [k, v] of Object.entries(R.target)) vars.push(`  --pf-ml-target-${kebab(k)}: ${v}px;${note(`target.${k}`)}${kept.some((x) => x.token === `target.${k}`) ? ' /* a rule the build breaks — [TBC] */' : ''}`);
 for (const x of variants.filter((x) => x.token.startsWith('target.'))) vars.push(`  ${x.css}: ${x.value}px; /* variant of ${x.of}: ${x.where} */`);
@@ -256,7 +296,7 @@ const chip = (name, hex, { key, note: n2 } = {}) => {
 };
 const ramp = (label, items) => `<div class="ds-ramp"><div class="ds-ramp-label">${esc(label)}</div><div class="ds-ramp-row">${items.join('')}</div></div>`;
 const primary = Object.keys(C.primary).sort((a, b) => +a - +b).map((k) => chip(`primary ${k}`, C.primary[k], { key: k === '8', note: k === '8' ? 'brand green' : '' }));
-const group = (g, notes = {}) => [...Object.entries(C[g]).map(([k, v]) => [`${g}.${k}`, v, notes[k] || (adjusted.some((a) => a.token === `color.${g}.${k}`) ? 'follows the build' : '')]), ...variants.filter((x) => x.token.startsWith(`${g}.`)).map((x) => [x.token, x.value, `variant: ${x.where}`])].filter(([, v]) => /^#|^rgba/.test(v)).map(([name, v, n]) => chip(name, v, { note: n }));
+const group = (g, notes = {}) => [...Object.entries(C[g]).map(([k, v]) => [`${g}.${k}`, v, notes[k] || (adjusted.some((a) => a.token === `color.${g}.${k}`) ? 'follows the build' : '')]), ...variants.filter((x) => x.token.startsWith(`color.${g}.`)).map((x) => [x.token.slice(6), x.value, `variant: ${x.where}`])].filter(([, v]) => /^#|^rgba/.test(v)).map(([name, v, n]) => chip(name, v, { note: n }));
 const TEALS = ['#006169', '#F2FAFA', '#F7FCFC', '#4F7B7D'];
 const tealRows = TEALS.map((h) => ({ hex: h, uses: usesOf(h), parts: (hexUses.get(h) || { parts: [] }).parts, names: [...(curNames.get(h) || []).map((n) => `${n} (current theme)`), ...Object.entries(C.tint).filter(([, v]) => v.toUpperCase() === h).map(([k]) => `tint.${k} (new)`)] })).filter((r) => r.uses);
 const namedTeal = tealRows.filter((r) => r.names.length);
@@ -273,17 +313,17 @@ const scale = (device) => {
   return [...by.values()].filter((e) => e.uses >= 5).sort((a, b) => b.size - a.size);
 };
 const scaleHtml = (device) => `<div class="ds-typescale">${scale(device).map((e) => { const ws = [...e.w.entries()].sort((a, b) => b[1] - a[1]); const words = [...new Set(e.words.filter((w) => w.length >= 4 && w.length <= 34 && !/^[\d\s.,%+-]+$/.test(w)))].slice(0, 3); return `<div class="ds-ts-row"><div class="ds-ts-spec"><b>${e.size}</b></div><div class="ds-ts-sample" style="font-family:Geist,sans-serif;font-size:${e.size}px;font-weight:${ws[0][0]}">${esc(words.join(' · '))}</div><div class="ds-ts-weights">${ws.slice(0, 5).map(([w, n]) => `<span style="font-weight:${w}">${w}<small>${n}</small></span>`).join('')}</div><div class="ds-ts-uses">${e.uses}</div></div>`; }).join('')}</div>`;
-const SAMPLE = { price: '1,500,000', subtype: 'Apartment for Sale', location: 'Al Hazm, West Riyadh', stat: '1,288', label: 'Views', sheetTitle: 'Listing Performance', body: 'Buyers find it but do not enquire. Trust and detail convert views into leads.' };
+const SAMPLE = { price: '1,500,000', subtype: 'Apartment for Sale', location: 'Al Hazm, West Riyadh', stat: '1,288', label: 'Views', sheetTitle: 'Delete this listing?', body: 'Buyers find it but do not enquire. Trust and detail convert views into leads.' };
 const roleRow = (name, css, r, sample, n2) => `<div class="ds-style"><div class="ds-style-sample" style="font-family:${r.family || 'Geist'},sans-serif;font-size:${r.size}px;line-height:${r.line === 'normal' ? 'normal' : `${r.line}px`};font-weight:${r.weight};${r.color ? `color:${r.color}` : ''}">${esc(sample)}</div><div class="ds-style-meta"><b>${esc(name)}</b><span>${r.size} / ${r.line} · ${r.weight}</span><span>${esc(r.family || 'Geist')}</span>${r.color ? `<code>${esc(r.color)}</code>` : ''}<code>${esc(css)}</code>${n2 ? `<span>${esc(n2)}</span>` : ''}</div></div>`;
-const rolesHtml = `<div class="ds-styles">${Object.entries(R.type).filter(([k]) => k !== 'family').map(([k, r]) => roleRow(k, `--pf-ml-type-${kebab(k)}`, r, SAMPLE[k] || k, adjusted.some((a) => a.token === `type.${k}`) ? 'follows the build' : '')).join('')}${variants.filter((x) => x.token.startsWith('type.')).map((x) => roleRow(x.token.slice(5), x.css, x.value, SAMPLE[x.of.slice(5)] || x.of, `variant: ${x.where}`)).join('')}</div>`;
+const rolesHtml = `<div class="ds-styles">${Object.entries(R.type).filter(([k]) => k !== 'family').map(([k, r]) => roleRow(k, `--pf-ml-type-${kebab(k)}`, r, SAMPLE[k] || k, adjusted.some((a) => a.token === `type.${k}`) ? 'follows the build' : '')).join('')}${variants.filter((x) => x.token.startsWith('type.')).map((x) => roleRow(x.token.slice(5), x.css, x.value, x.sample || SAMPLE[x.of.slice(5)] || x.of, `variant: ${x.where}`)).join('')}</div>`;
 const radUses = new Map(P.radii.map((r) => [r.value, r.uses]));
-const tokenCorner = (k, v, n2) => { const val = v >= 999 ? 'pill' : `${v}px`; const n = v >= 999 ? radUses.get('pill') || 0 : (radUses.get(val) || 0) + (radUses.get(`${v}px ${v}px 0px 0px`) || 0); return `<figure class="ds-corner${v >= 999 ? ' ds-corner--pill' : ''}"><i style="border-radius:${v >= 999 ? '999px' : /sheet/.test(k) ? `${v}px ${v}px 0 0` : `${v}px`};border-color:#28B16D;background:#E9F7F0"></i><figcaption><b>${esc(k)} · ${v >= 999 ? 'pill' : `${v}px`}</b><code>--pf-ml-radius-${kebab(k)}</code><span>${n ? plural(n, 'use') : 'declared, not painted'}${/sheet/.test(k) ? ' · top corners' : ''}</span>${n2 ? `<em>${esc(n2)}</em>` : ''}</figcaption></figure>`; };
+const tokenCorner = (k, v, n2) => { const val = v >= 999 ? 'pill' : `${v}px`; const n = v >= 999 ? radUses.get('pill') || 0 : /sheet/.test(k) ? radUses.get(`${v}px ${v}px 0px 0px`) || 0 : (radUses.get(val) || 0) + (radUses.get(`${v}px ${v}px 0px 0px`) || 0); return `<figure class="ds-corner${v >= 999 ? ' ds-corner--pill' : ''}"><i style="border-radius:${v >= 999 ? '999px' : /sheet/.test(k) ? `${v}px ${v}px 0 0` : `${v}px`};border-color:#28B16D;background:#E9F7F0"></i><figcaption><b>${esc(k)} · ${v >= 999 ? 'pill' : `${v}px`}</b><code>--pf-ml-radius-${kebab(k)}</code><span>${n ? plural(n, 'use') : 'declared, not painted'}${/sheet/.test(k) ? ' · top corners' : ''}</span>${n2 ? `<em>${esc(n2)}</em>` : ''}</figcaption></figure>`; };
 const tokenRadii = new Set([...Object.values(R.radius), ...variants.filter((x) => x.token.startsWith('radius.')).map((x) => x.value)].flatMap((v) => (v >= 999 ? ['pill'] : [`${v}px`, `${v}px ${v}px 0px 0px`])));
 const offScale = P.radii.filter((r) => !tokenRadii.has(r.value) && r.value !== 'circle' && r.uses >= 2);
 const lato = fam.find((f) => f.family === 'Lato');
 const html = `
 <h3 id="new-theme-tokens">My Listings — new theme <small>Profolio 2.0 · not yet live · My Listings only</small></h3>
-<p class="ds-note">The redesign starts with My Listings. These are <b>its</b> tokens — the designer’s <code>tokens.json</code> (“${esc(T.$meta.name)}”, base ${esc(T.$meta.base)}, ${esc(T.$meta.updated)}) — <b>following the build</b> where the two disagreed (the designer’s decision, 29 Sep 2026): ${plural(adjusted.length, 'token')} adjusted, ${plural(variants.length, 'variant')} added, tokens.json’s own values kept in the table below. Measured off the ${states.length} compiled states of the new My Listings (${web} web at 1440, ${phone} phone at 360). Every other page keeps the current theme above, and so does the shell: the screens draw the product’s own header and rail. The values are in <a href="new-theme/tokens.css"><code>new-theme/tokens.css</code></a> as <code>--pf-ml-*</code>; they replace no current token.</p>
+<p class="ds-note">The redesign starts with My Listings. These are <b>its</b> tokens — the designer’s <code>tokens.json</code> (“${esc(T.$meta.name)}”, base ${esc(T.$meta.base)}, ${esc(T.$meta.updated)}) — <b>following the build</b> where the two disagreed (the designer’s decision, 29 Sep 2026): ${plural(adjusted.length, 'token')} adjusted, ${plural(variants.length, 'variant')} added, tokens.json’s own values kept in the table below. Measured off the ${states.length} compiled states of the new My Listings (${web} web at 1440, ${phone} phone at 360). Every other page keeps the current theme above, and so does the shell: the screens draw the product’s own header, and on the web its rail. The values are in <a href="new-theme/tokens.css"><code>new-theme/tokens.css</code></a> as <code>--pf-ml-*</code>; they replace no current token.</p>
 <h4>Typefaces</h4>
 <div class="ds-faces">
 <figure class="ds-face"><div class="ds-face-art" style="font-family:Geist,sans-serif">Aa</div><figcaption><h4 style="font-family:Geist,sans-serif">Geist</h4><p>Latin · variable, 300–800 · <b>My Listings only</b> · ${share('Geist')} of the text the new My Listings draws</p>
@@ -292,7 +332,7 @@ const html = `
 <figure class="ds-face"><div class="ds-face-art">Aa</div><figcaption><h4>Figtree</h4><p>Latin · the product’s face, kept for the chrome · ${share('Figtree')} of the new My Listings’ text</p>
 <div class="ds-face-line">${esc(figtreeWords.join(' · '))}</div></figcaption></figure>
 </div>
-<p class="ds-note">Geist is the UI face (<code>type.family.ui</code>) and appears only on My Listings — nowhere else in the product. Figtree (<code>type.family.chrome</code>) draws the web page title, the empty states, the modals and most sheet and drawer titles; the Listing Performance drawer and sheet titles are Geist. ${lato ? `Lato (<code>type.family.app</code>) is still drawn in ${plural(lato.uses, 'place')}.` : 'Lato (<code>type.family.app</code>) drew only the artboard’s own top — its status bar and title — which the product’s header now replaces.'} JetBrains Mono (<code>type.family.mono</code>) is painted nowhere. Arabic stays Droid Arabic Kufi; the handover has no Arabic.</p>
+<p class="ds-note">Geist is the UI face (<code>type.family.ui</code>) and appears only on My Listings — nowhere else in the product. Figtree (<code>type.family.chrome</code>) draws the empty states, the modals and most sheet and drawer titles (the web page title is the product header's now — the current theme); the Listing Performance drawer and sheet titles are Geist. ${lato ? `Lato (<code>type.family.app</code>) is still drawn in ${plural(lato.uses, 'place')}.` : 'Lato (<code>type.family.app</code>) drew only the artboard’s own top — its status bar and title — which the product’s header now replaces.'} JetBrains Mono (<code>type.family.mono</code>) is painted nowhere (the only monospace text is the photo placeholder's caption, a stand-in for the listing photo). Arabic stays Droid Arabic Kufi; the handover has no Arabic.</p>
 <h4>Colour</h4>
 <div class="ds-palette"><p class="ds-note">The green is the primary now: the ramp runs −1 to 11 around the brand green (8, <code>#28B16D</code>). In the current theme the primary is teal (<code>#006169</code>) and this green is <code>secondaryColor</code>; the new My Listings drops <code>colorPrimaryActive</code> and builds its states from the green (pressed 10, ink 9, deep 11).</p>
 ${ramp('Primary', primary)}
@@ -304,7 +344,7 @@ ${ramp('Border', group('border'))}
 ${ramp('Surface', group('surface'))}
 ${ramp('Gradients', Object.entries(C.gradient).map(([k, v]) => `<figure class="ds-chip ds-chip--wide" title="${esc(v)}"><i style="background:${v}"></i><figcaption><b>gradient.${esc(k)}</b><code>${esc(v)}</code><span>${gradientUses(v) ? plural(gradientUses(v), 'use') : 'declared, not painted'}</span></figcaption></figure>`))}
 </div>
-<div class="ds-palette"><h4>Teal, where it stays</h4><p class="ds-note">Teal stays in the rank and Quality Score explainers: the How to Earn Quality Score drawer (web) and sheet (phone) paint the current theme’s teal, and the rank and quality cards sit on <code>tint.teal050</code>. Measured, it appears in three more places: the TruCheck glyph in a row’s actions and the selected metric pill of the performance trend (<code>#F2FAFA</code>), both kept from the current product, and the onboarding tour’s hero card, a <code>#F2FAFA</code> → <code>#F0FAF5</code> gradient into the green tint. (The product’s own rail, now in every screen, is the current theme.)</p>
+<div class="ds-palette"><h4>Teal, where it stays</h4><p class="ds-note">Teal stays in the rank and Quality Score explainers: the How to Earn Quality Score drawer (web) and sheet (phone) paint the current theme’s teal, and the rank and quality cards sit on <code>tint.teal050</code>. Measured, it appears in three more places: the TruCheck glyph in a row’s actions and the selected metric pill of the performance trend (<code>#F2FAFA</code>), both kept from the current product, and the onboarding tour’s hero card, a <code>#F2FAFA</code> → <code>#F0FAF5</code> gradient into the green tint. (The product’s own header, and on the web its rail, are the current theme.)</p>
 ${ramp('Teal', namedTeal.map((r) => chip(r.names[0].replace(/ \(.*\)$/, ''), r.hex, { note: r.names.map((n) => n.replace(/^[^(]*\(/, '(')).join(' ') })))}
 </div>
 <h4>Type roles <small>the phone’s roles, at 360pt — each as the phone draws its own words</small></h4>

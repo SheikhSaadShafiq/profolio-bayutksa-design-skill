@@ -14,18 +14,38 @@
  * spec's element table says: the kind as a two-way segmented control, the
  * month with prev and next, past days muted, booked nights green, blocked
  * nights grey, the selection's ends green and its middle tinted, the hint,
- * and a footer of Cancel and the confirm label. The only things composed are
- * the arrangement and the chevrons; every colour, word and date is the
- * build's.
+ * and a footer of Cancel and the confirm label. Every word, date and cell
+ * colour is the build's (renderVals). Composed here: the arrangement, the
+ * chevrons, the title "Mark as Booked", the month label's and the weekday
+ * header's type (15/600 #222222, 11/500 #9D9D9D), the day cells' type and
+ * size (13px, 40px tall) and the band corners (8px ends). The chrome — the
+ * modal or sheet, the pills, the note row, the buttons — is the build's own,
+ * cloned from its Request Services.
  *
  * Each export is code for page.evaluate — capture.mjs runs it in the state's
  * scope after the build state is set, and it returns 'ok' or what is missing.
  */
-export const BOOKING = (device) => `(() => {
+export const BOOKING = (device) => `(async () => {
   const b = window.__pfBuild;
   const scope = document.querySelector('[data-pf-scope]');
   const label = ${JSON.stringify(device === 'web' ? 'Request Services modal' : 'Request Services sheet')};
-  const box = [...scope.querySelectorAll('[data-screen-label]')].find((e) => e.getAttribute('data-screen-label') === label);
+  const boxOf = () => [...scope.querySelectorAll('[data-screen-label]')].find((e) => e.getAttribute('data-screen-label') === label);
+  /* the note row — the build's ⓘ line under the payment ("Your credits cover this service…"),
+     found by its words, not its position: a listing whose service is already requested draws
+     no payment note, so the note is cloned from a fresh request and the listing restored */
+  const noteIn = (box) => { const all = [...box.querySelectorAll('*')].filter((e) => e.querySelector('svg') && /^Your credits/.test((e.innerText || '').trim())); return all.find((e) => !all.some((o) => o !== e && e.contains(o))) || null; };
+  if (!boxOf()) return 'no ' + label;
+  let noteTpl = noteIn(boxOf());
+  if (!noteTpl) {
+    const keep = (b.state || {}).caseKey;
+    b.setState({ caseKey: 'allBad' });
+    await new Promise((r) => setTimeout(r, 500));
+    const fresh = boxOf() && noteIn(boxOf());
+    noteTpl = fresh && fresh.cloneNode(true);
+    b.setState({ caseKey: keep });
+    await new Promise((r) => setTimeout(r, 800));
+  } else noteTpl = noteTpl.cloneNode(true);
+  const box = boxOf();
   if (!box) return 'no ' + label;
   const v = b.renderVals();
   if (!v.bookCells || !v.bookKinds) return 'no booking values';
@@ -37,8 +57,7 @@ export const BOOKING = (device) => `(() => {
   const font = 'font-family: Figtree, sans-serif;';
   /* templates from the chrome itself, taken before the body is cleared */
   const pillRow = body.children[0] && body.children[0].children[1];
-  const noteRow = body.children[3] && body.children[3].lastElementChild;
-  if (!pillRow || !noteRow) return 'no templates';
+  if (!pillRow || !noteTpl) return 'no templates';
   title.textContent = 'Mark as Booked';
   body.innerHTML = '';
   /* the kind: a two-way segmented control, the service pills' shape */
@@ -46,6 +65,9 @@ export const BOOKING = (device) => `(() => {
   const pillTpl = pillRow.children[0];
   for (const k of v.bookKinds) {
     const p = pillTpl.cloneNode(true);
+    /* nothing of the service it was cloned from: its tooltip names the service */
+    p.removeAttribute('title');
+    for (const x of p.querySelectorAll('[title]')) x.removeAttribute('title');
     const icon = [...p.children].find((c) => c.querySelector('svg'));
     if (icon) icon.remove();
     const text = p.lastElementChild;
@@ -94,7 +116,7 @@ export const BOOKING = (device) => `(() => {
   cal.appendChild(grid);
   body.appendChild(cal);
   /* the hint, in the chrome's note row */
-  const note = noteRow.cloneNode(true);
+  const note = noteTpl;
   const words = [...note.querySelectorAll('span, div')].reverse().find((e) => e.children.length === 0 && (e.textContent || '').trim());
   const hint = ${device === 'web' ? '(v.hasSel ? v.selSummary : v.selHint)' : 'v.bookHint'};
   if (words) words.textContent = hint;
@@ -111,4 +133,4 @@ export const BOOKING = (device) => `(() => {
   return 'ok';
 })()`;
 
-export const BOOKING_SOURCE = (device) => `derived: neither build draws Mark as Booked (spec 03 · J${device === 'web' ? '' : '; the phone row menu'}). Composed in the ${device === 'web' ? 'Request Services modal' : 'Request Services sheet'}'s chrome from the build's own booking values (renderVals: bookKinds, bookCells, weekDays, bookMonthLabel, ${device === 'web' ? 'selHint / selSummary, confirmLabel, confirmBg' : 'bookHint, confirmLabel, confirmOpacity'}); laid out per the spec's element table. Replace when the handover draws it.`;
+export const BOOKING_SOURCE = (device) => `derived: neither build draws Mark as Booked (spec 03 · J${device === 'web' ? '' : '; the phone row menu'}). Composed in the ${device === 'web' ? 'Request Services modal' : 'Request Services sheet'}'s chrome from the build's own booking values (renderVals: bookKinds, bookCells, weekDays, bookMonthLabel, ${device === 'web' ? 'selHint / selSummary, confirmLabel, confirmBg' : 'bookHint, confirmLabel, confirmOpacity'}); laid out per the spec's element table. Composed, not the build's: the arrangement, the chevrons, the title, the month and weekday type, the day cells' size and type, the band corners. Replace when the handover draws it.`;

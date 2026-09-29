@@ -13,9 +13,11 @@
  *
  * Not here: 02c's nine case chips only select a row (the list is the same,
  * with that row tinted) — the nine cases are the rows of the full list, and
- * each case's drawer is its own state below. The Mark as Booked modal (03 · J,
- * 02c · Mark as Booked) is specified but not drawn by the web build — the
- * chip changes nothing; it is [TBC] until the designer builds it.
+ * each case's drawer is its own state below. Mark as Booked (03 · J, 02c ·
+ * Mark as Booked; the phone's row menu) is specified but drawn by neither
+ * build — the chip changes nothing — so its states are derived from the
+ * builds' own booking values (derive.mjs), tagged pf-derived, until the
+ * handover draws it (the designer's decision, 2026-09-29).
  *
  * The same picture reached two ways is kept once (the first listed) and the
  * other is recorded as the same state.
@@ -68,8 +70,9 @@ export default {
       name: `modal-mark-as-booked${suffix}`, group: 'overlays', derived: BOOKING_SOURCE('web'),
       via: proto(`window.__pfBuild.setState({ servicesOpen: true, svcKey: 'dailyRental', menuKey: null, payment: null, service: 'photography', bookMon: 1, bookKind: ${JSON.stringify(kind)}, bookStart: ${JSON.stringify(s0)}, bookEnd: ${JSON.stringify(e0)} })`, 1500),
       derive: BOOKING('web'), how: 'derived · the daily rental row → Mark as Booked (the build has its logic, not its template)', note: `${note} [derived]` })),
-    { name: 'toast-booked', group: 'overlays', via: proto(`(() => { const b = window.__pfBuild; b.setState({ bookKind: 'Booked by guest', bookStart: '2026-09-11', bookEnd: '2026-09-14' }); setTimeout(() => b.renderVals().confirmBooking({ stopPropagation() {} }), 300); })()`, 900), at: 200, how: 'prototype · Mark as Booked → confirm (the build\'s own toast)', note: 'After Mark as Booked: a green toast, centre-bottom, 3.2s — "3 nights marked as booked: Sep 11 to Sep 14"' },
-    { name: 'skeleton-sorting', group: 'screens', via: card('L', 'Sorting'), how: '03 · L · Sorting', note: 'Sorting and filtering skeleton — replaces the row list' },
+    { name: 'toast-booked', group: 'overlays', via: proto(`(() => { const b = window.__pfBuild; b.setState({ bookKind: 'Booked by guest', bookStart: '2026-09-11', bookEnd: '2026-09-14' }); setTimeout(() => b.renderVals().confirmBooking({ stopPropagation() {} }), 300); })()`, 900), at: 200, how: 'prototype · Mark as Booked → confirm (the build\'s own toast)', note: 'After Mark as Booked: the build\'s dark toast (#1D1D1F, white text), centre-bottom, 3.2s — "3 nights marked as booked: Sep 11 to Sep 14" (the spec says green)' },
+    /* 03 · L · Sorting draws the very skeleton 03 · A · Sorting does; only the shimmer's phase differs */
+    { name: 'skeleton-sorting', group: 'screens', via: card('L', 'Sorting'), how: '03 · L · Sorting', note: 'Sorting and filtering skeleton — replaces the row list', same: 'sorting' },
     ...[['B', 'Both rows', 'tab-draft', 'Draft tab — every draft'], ['C', 'All three states', 'tab-pending', 'Pending tab — every listing waiting'], ['D', 'All four reasons', 'tab-removed', 'Removed tab — every removed listing'], ['E', 'All five statuses', 'tab-ad-license-requests', 'Ad License Requests tab — every request']].map(([l, t, n, note]) => ({ name: `${n}-full`, group: 'screens', via: card(l, t), full: true, how: `03 · ${l} · ${t}, the whole list`, note })),
     { name: 'full', group: 'screens', via: card('A', 'Default'), full: true, how: '03 · A · Default, the whole list', note: 'My Listings, Active tab — the whole list: the nine cases, one row each' },
     { name: 'drawer-listing-performance-full', group: 'screens', via: card('F', 'Needs fixes'), full: true, how: '03 · F · Needs fixes, the whole drawer', note: 'Listing Performance drawer — the whole drawer, every section' },
@@ -167,7 +170,7 @@ export default {
       name: `sheet-mark-as-booked${suffix}`, group: 'sheets', derived: BOOKING_SOURCE('mobile'),
       via: { section: '02 · INTERACTIVE', press: ['Reset', 'Listing list'], build: `window.__pfBuild.setState({ svcOpen: true, caseKey: 'dailyRental', menuKey: null, bookMonth: 8, bookKind: 'Booked by guest', bookStart: ${JSON.stringify(s0)}, bookEnd: ${JSON.stringify(e0)} })`, wait: 1500 },
       derive: BOOKING('mobile'), how: 'derived · the daily rental card\'s row menu → Mark as Booked (the build has its logic, not its template)', note: `${note} [derived]` })),
-    { name: 'toast-booked', group: 'sheets', via: { section: '02 · INTERACTIVE', press: ['Reset', 'Listing list'], build: `(() => { const b = window.__pfBuild; b.setState({ caseKey: 'dailyRental', bookMonth: 8, bookKind: 'Booked by guest', bookStart: 11, bookEnd: 14 }); setTimeout(() => { const v = b.renderVals(); v.confirmBooking && v.confirmBooking({ stopPropagation() {} }); }, 300); })()`, wait: 900 }, at: 200, how: 'prototype · Mark as Booked → confirm (the build\'s own toast)', note: 'After Mark as Booked: the build\'s toast' },
+    { name: 'toast-booked', group: 'sheets', via: { section: '02 · INTERACTIVE', press: ['Reset', 'Listing list'], build: `(() => { const b = window.__pfBuild; b.setState({ caseKey: 'dailyRental', bookMonth: 8, bookKind: 'Booked by guest', bookStart: 11, bookEnd: 14 }); setTimeout(() => { const v = b.renderVals(); v.confirmBooking && v.confirmBooking({ stopPropagation() {} }); }, 300); })()`, wait: 900 }, at: 200, how: 'prototype · Mark as Booked → confirm (the build\'s own toast)', note: 'After Mark as Booked: the build\'s dark toast (#1D1D1F, white text)' },
 
     /* each case's performance sheet — as tapping its card opens it */
     ...CASES.map(([key, name, label]) => ({ name: `sheet-case-${name}`, group: 'cases', via: { section: '02 · INTERACTIVE', press: ['Reset', 'Listing list'], build: `window.__pfBuild.setState({ open: true, caseKey: '${key}' })`, wait: 1800 }, how: `prototype · tap the ${label} card`, note: `Performance sheet — case: ${label.replace(/ case$/i, '').toLowerCase()}` })),

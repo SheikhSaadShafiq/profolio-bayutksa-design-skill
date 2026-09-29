@@ -1,12 +1,12 @@
 {
- "at": "2026-09-29T07:40:43.317Z",
+ "at": "2026-09-29T14:40:29.734Z",
  "about": "Every compiled screen and state of Profolio KSA (web at 1440, responsive at 375), what each shows and how it is reached, with the file to open. Text is as rendered on the fixture account: labels are the product copy, names and numbers are invented. Search it with: node scripts/design-find.mjs \"<words>\".",
  "counts": {
   "screens": 24,
-  "states": 688,
-  "web": 647,
-  "responsive": 556,
-  "components": 485,
+  "states": 697,
+  "web": 656,
+  "responsive": 565,
+  "components": 486,
   "flows": 4
  },
  "screens": [
@@ -3087,6 +3087,102 @@
      ]
     },
     {
+     "name": "drawer-credits-balance-as-individual",
+     "kind": "data",
+     "how": "the Credits Balance card's title opens its info drawer — \"Bayut Credits\", What are Bayut Credits?, then Available Credits, Using Credits and Publishing and Expiry of Listings (creditInfoDrawer.js:24-105) — as an INDIVIDUAL broker (mode individual: no agency — no Agency Staff in the rail). The drawer reads no role (creditInfoDrawer.js); the card opens it for any credit user (credits-quota.js:129)",
+     "title": "Bayut Credits",
+     "shows": "Bayut Credits · What are Bayut Credits? · Here’s some information to help you get started: · Available Credits · Using Credits · Publishing and Expiry of Listings",
+     "lines": [
+      "Bayut Credits",
+      "What are Bayut Credits?",
+      "Here’s some information to help you get started:",
+      "Available Credits",
+      "Using Credits",
+      "Publishing and Expiry of Listings"
+     ],
+     "buttons": [],
+     "tabs": [
+      "All",
+      "Views 26,080 13%"
+     ],
+     "mode": "individual",
+     "note": "the Credits Balance card's title opens its info drawer — \"Bayut Credits\", What are Bayut Credits?, then Available Credits, Using Credits and Publishing and Expiry of Listings (creditInfoDrawer.js:24-105) — as an INDIVIDUAL broker (mode individual: no agency — no Agency Staff in the rail). The drawer reads no role (creditInfoDrawer.js); the card opens it for any credit user (credits-quota.js:129)",
+     "files": {
+      "web": "deliverables/states/dashboard--drawer-credits-balance-as-individual.html",
+      "responsive": "deliverables/mobile/states/dashboard--drawer-credits-balance-as-individual.html"
+     },
+     "score": {
+      "web": 0.003,
+      "responsive": 0.001
+     },
+     "adds": [
+      "button",
+      "icon",
+      "popover",
+      "flex",
+      "heading",
+      "card",
+      "group",
+      "icon-area-size",
+      "antd-card",
+      "image",
+      "tag",
+      "number",
+      "antd-typography",
+      "product-tag",
+      "icon-super-hot",
+      "icon-bedroom"
+     ]
+    },
+    {
+     "name": "drawer-credits-balance-as-staff",
+     "kind": "data",
+     "how": "the Credits Balance card's title opens its info drawer — \"Bayut Credits\", What are Bayut Credits?, then Available Credits, Using Credits and Publishing and Expiry of Listings (creditInfoDrawer.js:24-105) — as an agency STAFF user (mode staff: Abdullah Al-Otaibi, Titanium — 3,750 of 5,000 credits, 9 rail items). The drawer reads no role (creditInfoDrawer.js); the card opens it for any credit user (credits-quota.js:129)",
+     "title": "Bayut Credits",
+     "shows": "Bayut Credits · What are Bayut Credits? · Here’s some information to help you get started: · Available Credits · Using Credits · Publishing and Expiry of Listings",
+     "lines": [
+      "Bayut Credits",
+      "What are Bayut Credits?",
+      "Here’s some information to help you get started:",
+      "Available Credits",
+      "Using Credits",
+      "Publishing and Expiry of Listings"
+     ],
+     "buttons": [],
+     "tabs": [
+      "All",
+      "Views 26,080 13%"
+     ],
+     "mode": "staff",
+     "note": "the Credits Balance card's title opens its info drawer — \"Bayut Credits\", What are Bayut Credits?, then Available Credits, Using Credits and Publishing and Expiry of Listings (creditInfoDrawer.js:24-105) — as an agency STAFF user (mode staff: Abdullah Al-Otaibi, Titanium — 3,750 of 5,000 credits, 9 rail items). The drawer reads no role (creditInfoDrawer.js); the card opens it for any credit user (credits-quota.js:129)",
+     "files": {
+      "web": "deliverables/states/dashboard--drawer-credits-balance-as-staff.html",
+      "responsive": "deliverables/mobile/states/dashboard--drawer-credits-balance-as-staff.html"
+     },
+     "score": {
+      "web": 0.003,
+      "responsive": 0.001
+     },
+     "adds": [
+      "button",
+      "icon",
+      "popover",
+      "flex",
+      "heading",
+      "card",
+      "group",
+      "icon-area-size",
+      "antd-button",
+      "antd-badge",
+      "antd-progress",
+      "antd-card",
+      "image",
+      "tag",
+      "number",
+      "antd-typography"
+     ]
+    },
+    {
      "name": "empty",
      "kind": "data",
      "how": "the page as it renders when the account is brand new — no listings, leads, traffic, credit spend, licences or staff yet",
@@ -3189,6 +3285,110 @@
       "listing-card-container-skeleton",
       "listing-card-skeleton"
      ]
+    },
+    {
+     "name": "modal-top-up-your-credits-as-individual",
+     "kind": "data",
+     "how": "\"Top-Up your Credits\" on the Credits Balance card opens the credit top-up, empty — the number of credits to enter and Get Top-up disabled — as an INDIVIDUAL broker (mode individual: no agency — no Agency Staff in the rail). Neither the button nor the top-up reads a role (credits-quota.js:258-270, credits-usage.js:320, creditTopUps.js)",
+     "title": "Credits Balance",
+     "shows": "Credits Balance · Credit Top-up · Total Credits · 0 · Get Top-up",
+     "lines": [
+      "Credits Balance",
+      "Credit Top-up",
+      "Total Credits",
+      "0",
+      "Get Top-up"
+     ],
+     "buttons": [
+      "Close",
+      "Get Top-up"
+     ],
+     "tabs": [
+      "All",
+      "Views 26,080 13%"
+     ],
+     "mode": "individual",
+     "note": "\"Top-Up your Credits\" on the Credits Balance card opens the credit top-up, empty — the number of credits to enter and Get Top-up disabled — as an INDIVIDUAL broker (mode individual: no agency — no Agency Staff in the rail). Neither the button nor the top-up reads a role (credits-quota.js:258-270, credits-usage.js:320, creditTopUps.js)",
+     "files": {
+      "web": "deliverables/states/dashboard--modal-top-up-your-credits-as-individual.html",
+      "responsive": "deliverables/mobile/states/dashboard--drawer-top-up-your-credits-as-individual.html"
+     },
+     "score": {
+      "web": 0.004,
+      "responsive": 0
+     },
+     "adds": [
+      "button",
+      "icon",
+      "popover",
+      "flex",
+      "group",
+      "icon-area-size",
+      "antd-button",
+      "antd-input-x",
+      "antd-card",
+      "image",
+      "tag",
+      "number",
+      "antd-typography",
+      "product-tag",
+      "icon-super-hot",
+      "icon-bedroom"
+     ],
+     "responsiveName": "drawer-top-up-your-credits-as-individual",
+     "responsiveKind": "data"
+    },
+    {
+     "name": "modal-top-up-your-credits-as-staff",
+     "kind": "data",
+     "how": "\"Top-Up your Credits\" on the Credits Balance card opens the credit top-up, empty — the number of credits to enter and Get Top-up disabled — as an agency STAFF user (mode staff: Abdullah Al-Otaibi, Titanium — 3,750 of 5,000 credits, 9 rail items). Neither the button nor the top-up reads a role (credits-quota.js:258-270, credits-usage.js:320, creditTopUps.js)",
+     "title": "Credits Balance",
+     "shows": "Credits Balance · Credit Top-up · Total Credits · 0 · Get Top-up",
+     "lines": [
+      "Credits Balance",
+      "Credit Top-up",
+      "Total Credits",
+      "0",
+      "Get Top-up"
+     ],
+     "buttons": [
+      "Close",
+      "Get Top-up"
+     ],
+     "tabs": [
+      "All",
+      "Views 26,080 13%"
+     ],
+     "mode": "staff",
+     "note": "\"Top-Up your Credits\" on the Credits Balance card opens the credit top-up, empty — the number of credits to enter and Get Top-up disabled — as an agency STAFF user (mode staff: Abdullah Al-Otaibi, Titanium — 3,750 of 5,000 credits, 9 rail items). Neither the button nor the top-up reads a role (credits-quota.js:258-270, credits-usage.js:320, creditTopUps.js)",
+     "files": {
+      "web": "deliverables/states/dashboard--modal-top-up-your-credits-as-staff.html",
+      "responsive": "deliverables/mobile/states/dashboard--drawer-top-up-your-credits-as-staff.html"
+     },
+     "score": {
+      "web": 0.004,
+      "responsive": 0
+     },
+     "adds": [
+      "button",
+      "icon",
+      "popover",
+      "flex",
+      "card",
+      "group",
+      "icon-area-size",
+      "antd-button",
+      "antd-badge",
+      "antd-input-x",
+      "antd-progress",
+      "antd-card",
+      "image",
+      "tag",
+      "number",
+      "antd-typography"
+     ],
+     "responsiveName": "drawer-top-up-your-credits-as-staff",
+     "responsiveKind": "data"
     },
     {
      "name": "as-individual",
@@ -6560,7 +6760,7 @@
     {
      "name": "popover-notifications",
      "kind": "popover",
-     "how": "header bell — 590×330 popover, NOT a drawer. Empty state: “No notifications found”",
+     "how": "header bell — the notification centre as a popover, NOT a drawer: the account's three notifications and Mark all as read (notification-center.js). Its empty state is popover-notifications-empty",
      "title": "",
      "shows": "Notifications · Mark all as read · Your listing is live · an hour ago · Credits expiring soon · a day ago",
      "lines": [
@@ -6580,7 +6780,7 @@
       "Active (20)"
      ],
      "mode": null,
-     "note": "header bell — 590×330 popover, NOT a drawer. Empty state: “No notifications found”",
+     "note": "header bell — the notification centre as a popover, NOT a drawer: the account's three notifications and Mark all as read (notification-center.js). Its empty state is popover-notifications-empty",
      "files": {
       "web": "deliverables/states/listings--popover-notifications.html",
       "responsive": "deliverables/mobile/states/listings--popover-notifications.html"
@@ -8042,6 +8242,49 @@
       "tag",
       "number"
      ]
+    },
+    {
+     "name": "popover-notifications-empty",
+     "kind": "data",
+     "how": "the page as it renders when the account is brand new — no listings, leads, traffic, credit spend, licences or staff yet",
+     "title": "",
+     "shows": "Notifications · No notifications found · Your notifications will appear here",
+     "lines": [
+      "Notifications",
+      "No notifications found",
+      "Your notifications will appear here"
+     ],
+     "buttons": [],
+     "tabs": [
+      "Active (0)"
+     ],
+     "mode": "empty",
+     "note": "header bell on a brand-new account (mode empty: no notifications, no badge on the bell, and no listings under the popover): the notification centre's own empty state — “No notifications found”, “Your notifications will appear here”, no Mark all as read and no Retry (notification-center.js:103-114, EmptyState hideRetryButton)",
+     "files": {
+      "web": "deliverables/states/listings--popover-notifications-empty.html",
+      "responsive": "deliverables/mobile/states/listings--drawer-notifications-empty.html"
+     },
+     "score": {
+      "web": 0.014,
+      "responsive": 0.042
+     },
+     "adds": [
+      "button",
+      "icon",
+      "flex",
+      "heading",
+      "loader-wrapper",
+      "lms-show-more-arrow-icon",
+      "lms-filter-search-icon",
+      "empty-state",
+      "empty-state-block",
+      "antd-popover",
+      "empty-listing",
+      "antd-drawer",
+      "post-listing-button"
+     ],
+     "responsiveName": "drawer-notifications-empty",
+     "responsiveKind": "data"
     },
     {
      "name": "project-units",
@@ -9637,6 +9880,99 @@
       "antd-skeleton",
       "antd-spin"
      ]
+    },
+    {
+     "name": "modal-top-up-your-credits-as-individual",
+     "kind": "data",
+     "how": "\"Top-Up your Credits\" in the Credits Usage card header opens the credit top-up, empty — the number of credits to enter and Get Top-up disabled — as an INDIVIDUAL broker (mode individual: no agency — no Agency Staff in the rail). Neither the button nor the top-up reads a role (credits-quota.js:258-270, credits-usage.js:320, creditTopUps.js)",
+     "title": "Credit Top-Up",
+     "shows": "Credit Top-Up · Credit Top-up · Total Credits · 0 · Get Top-up",
+     "lines": [
+      "Credit Top-Up",
+      "Credit Top-up",
+      "Total Credits",
+      "0",
+      "Get Top-up"
+     ],
+     "buttons": [
+      "Close",
+      "Get Top-up"
+     ],
+     "tabs": [],
+     "mode": "individual",
+     "note": "\"Top-Up your Credits\" in the Credits Usage card header opens the credit top-up, empty — the number of credits to enter and Get Top-up disabled — as an INDIVIDUAL broker (mode individual: no agency — no Agency Staff in the rail). Neither the button nor the top-up reads a role (credits-quota.js:258-270, credits-usage.js:320, creditTopUps.js)",
+     "files": {
+      "web": "deliverables/states/credits-usage--modal-top-up-your-credits-as-individual.html",
+      "responsive": "deliverables/mobile/states/credits-usage--drawer-top-up-your-credits-as-individual.html"
+     },
+     "score": {
+      "web": 0.004,
+      "responsive": 0
+     },
+     "adds": [
+      "button",
+      "icon",
+      "flex",
+      "antd-button",
+      "antd-input-x",
+      "antd-card",
+      "header-link",
+      "notification-centre",
+      "antd-typography",
+      "antd-modal",
+      "antd-form-item",
+      "icon-total-credit",
+      "antd-drawer"
+     ],
+     "responsiveName": "drawer-top-up-your-credits-as-individual",
+     "responsiveKind": "data"
+    },
+    {
+     "name": "modal-top-up-your-credits-as-staff",
+     "kind": "data",
+     "how": "\"Top-Up your Credits\" in the Credits Usage card header opens the credit top-up, empty — the number of credits to enter and Get Top-up disabled — as an agency STAFF user (mode staff: Abdullah Al-Otaibi, Titanium — 3,750 of 5,000 credits, 9 rail items). Neither the button nor the top-up reads a role (credits-quota.js:258-270, credits-usage.js:320, creditTopUps.js)",
+     "title": "Credit Top-Up",
+     "shows": "Credit Top-Up · Credit Top-up · Total Credits · 0 · Get Top-up",
+     "lines": [
+      "Credit Top-Up",
+      "Credit Top-up",
+      "Total Credits",
+      "0",
+      "Get Top-up"
+     ],
+     "buttons": [
+      "Close",
+      "Get Top-up"
+     ],
+     "tabs": [],
+     "mode": "staff",
+     "note": "\"Top-Up your Credits\" in the Credits Usage card header opens the credit top-up, empty — the number of credits to enter and Get Top-up disabled — as an agency STAFF user (mode staff: Abdullah Al-Otaibi, Titanium — 3,750 of 5,000 credits, 9 rail items). Neither the button nor the top-up reads a role (credits-quota.js:258-270, credits-usage.js:320, creditTopUps.js)",
+     "files": {
+      "web": "deliverables/states/credits-usage--modal-top-up-your-credits-as-staff.html",
+      "responsive": "deliverables/mobile/states/credits-usage--drawer-top-up-your-credits-as-staff.html"
+     },
+     "score": {
+      "web": 0.004,
+      "responsive": 0
+     },
+     "adds": [
+      "button",
+      "icon",
+      "flex",
+      "card",
+      "antd-button",
+      "antd-input-x",
+      "antd-card",
+      "header-link",
+      "notification-centre",
+      "antd-typography",
+      "antd-modal",
+      "antd-form-item",
+      "icon-total-credit",
+      "antd-drawer"
+     ],
+     "responsiveName": "drawer-top-up-your-credits-as-staff",
+     "responsiveKind": "data"
     },
     {
      "name": "as-individual",
@@ -38942,31 +39278,97 @@
     {
      "name": "inline-insufficient-credits",
      "kind": "inline",
-     "how": "the account has fewer credits than the chosen product needs (listing-form.mjs lf-low-credits: 1 credit): \"Insufficient Credits. Pay … for the additional … credits at checkout\" (upgrade-listing.js renderAlert)",
+     "how": "the agency OWNER has fewer credits than the chosen product needs (listing-form.mjs lf-low-credits: 1 credit, and users/current says 1 too — profile.mjs lowCredits — so the Available Credits card and the alert agree): Signature preselected, 10 credits, \"Insufficient Credits. Pay … for the additional 9 credits at checkout\" (upgrade-listing.js renderAlert)",
      "title": "",
-     "shows": "Insufficient Credits. Pay 900 for the additional 9 credits at checkout",
+     "shows": "Available Credits: 1 · Insufficient Credits. Pay 900 for the additional 9 credits at checkout",
      "lines": [
+      "Available Credits: 1",
       "Insufficient Credits. Pay 900 for the additional 9 credits at checkout"
      ],
      "buttons": [],
      "tabs": [],
      "mode": "lf-low-credits",
-     "note": "the account has fewer credits than the chosen product needs (listing-form.mjs lf-low-credits: 1 credit): \"Insufficient Credits. Pay … for the additional … credits at checkout\" (upgrade-listing.js renderAlert)",
+     "note": "the agency OWNER has fewer credits than the chosen product needs (listing-form.mjs lf-low-credits: 1 credit, and users/current says 1 too — profile.mjs lowCredits — so the Available Credits card and the alert agree): Signature preselected, 10 credits, \"Insufficient Credits. Pay … for the additional 9 credits at checkout\" (upgrade-listing.js renderAlert)",
      "files": {
       "web": "deliverables/states/post-listing-upgrade--inline-insufficient-credits.html",
       "responsive": "deliverables/mobile/states/post-listing-upgrade--inline-insufficient-credits.html"
      },
      "score": {
       "web": 0,
-      "responsive": 0.002
+      "responsive": 0.004
      },
      "adds": [
       "button",
       "icon",
       "header-link",
       "notification-centre",
+      "feedback-tab",
       "alert",
       "antd-alert"
+     ]
+    },
+    {
+     "name": "inline-insufficient-credits-as-individual",
+     "kind": "inline",
+     "how": "Insufficient Credits as an INDIVIDUAL broker sees it (mode individual: no agency, no Agency Staff in the rail) with 1 credit left (lf-low-credits laid over the individual account — harness/fixtures.mjs overlay): Available Credits 1, Signature 10 credits, \"Pay … for the additional 9 credits at checkout\" — the alert reads no role (upgrade-listing.js:349)",
+     "title": "",
+     "shows": "Available Credits: 1 · Insufficient Credits. Pay 900 for the additional 9 credits at checkout",
+     "lines": [
+      "Available Credits: 1",
+      "Insufficient Credits. Pay 900 for the additional 9 credits at checkout"
+     ],
+     "buttons": [],
+     "tabs": [],
+     "mode": "lf-low-credits+individual",
+     "note": "Insufficient Credits as an INDIVIDUAL broker sees it (mode individual: no agency, no Agency Staff in the rail) with 1 credit left (lf-low-credits laid over the individual account — harness/fixtures.mjs overlay): Available Credits 1, Signature 10 credits, \"Pay … for the additional 9 credits at checkout\" — the alert reads no role (upgrade-listing.js:349)",
+     "files": {
+      "web": "deliverables/states/post-listing-upgrade--inline-insufficient-credits-as-individual.html",
+      "responsive": "deliverables/mobile/states/post-listing-upgrade--inline-insufficient-credits-as-individual.html"
+     },
+     "score": {
+      "web": 0,
+      "responsive": 0.004
+     },
+     "adds": [
+      "button",
+      "header-link",
+      "notification-centre",
+      "alert",
+      "antd-alert",
+      "icon"
+     ]
+    },
+    {
+     "name": "inline-insufficient-credits-as-staff",
+     "kind": "inline",
+     "how": "Insufficient Credits as an agency STAFF user sees it (mode staff: Abdullah Al-Otaibi, Titanium, 9 rail items) with 1 credit left (lf-low-credits laid over the staff account — harness/fixtures.mjs overlay): Available Credits 1, Signature 10 credits, \"Pay … for the additional 9 credits at checkout\" — the alert reads no role (upgrade-listing.js:349)",
+     "title": "",
+     "shows": "Titanium · Available Credits: 1 · Insufficient Credits. Pay 900 for the additional 9 credits at checkout",
+     "lines": [
+      "Titanium",
+      "Available Credits: 1",
+      "Insufficient Credits. Pay 900 for the additional 9 credits at checkout"
+     ],
+     "buttons": [],
+     "tabs": [],
+     "mode": "lf-low-credits+staff",
+     "note": "Insufficient Credits as an agency STAFF user sees it (mode staff: Abdullah Al-Otaibi, Titanium, 9 rail items) with 1 credit left (lf-low-credits laid over the staff account — harness/fixtures.mjs overlay): Available Credits 1, Signature 10 credits, \"Pay … for the additional 9 credits at checkout\" — the alert reads no role (upgrade-listing.js:349)",
+     "files": {
+      "web": "deliverables/states/post-listing-upgrade--inline-insufficient-credits-as-staff.html",
+      "responsive": "deliverables/mobile/states/post-listing-upgrade--inline-insufficient-credits-as-staff.html"
+     },
+     "score": {
+      "web": 0,
+      "responsive": 0.004
+     },
+     "adds": [
+      "button",
+      "header-link",
+      "notification-centre",
+      "icon-pkg-titanium",
+      "alert",
+      "antd-alert",
+      "icon"
      ]
     },
     {
@@ -46256,6 +46658,8 @@
     "checkout--modal-purchase-not-permitted",
     "credits-usage--empty",
     "credits-usage--flow-top-up-01-choose-amount",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--error",
     "dashboard--modal-trucheck-eligible-trucheck-is",
@@ -46264,9 +46668,7 @@
     "dashboard--popover-34",
     "dashboard--popover-39",
     "dashboard--popover-43",
-    "dashboard--popover-46",
-    "dashboard--popover-50",
-    "dashboard--popover-54"
+    "dashboard--popover-46"
    ]
   },
   {
@@ -47355,6 +47757,8 @@
     "credits-usage--drawer-filters-apply-filters-to__dropdown-select-users",
     "dashboard--as-individual",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -47370,10 +47774,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
-    "dashboard--modal-top-up-your-credits",
-    "dashboard--modal-trucheck-eligible-trucheck-is",
-    "dashboard--popover-1104-am-sep-26",
-    "dashboard--popover-31"
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff"
    ]
   },
   {
@@ -47529,11 +47931,15 @@
     "credits-usage--menu-post-a-listing",
     "credits-usage--modal-download-app",
     "credits-usage--modal-help-support-profolio",
+    "credits-usage--modal-top-up-your-credits-as-individual",
+    "credits-usage--modal-top-up-your-credits-as-staff",
     "credits-usage--modal-top-up-your-credits",
     "credits-usage--popover-faisal-al-harbi-agency-user",
     "credits-usage--popover-notifications-mark-all-as",
     "credits-usage--rail-expanded",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -47548,19 +47954,15 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
     "dashboard--popover-31",
     "dashboard--popover-33",
     "dashboard--popover-34",
-    "dashboard--popover-39",
-    "dashboard--popover-43",
-    "dashboard--popover-46",
-    "dashboard--popover-50",
-    "dashboard--popover-54",
-    "dashboard--popover-62",
-    "dashboard--popover-calls-3"
+    "dashboard--popover-39"
    ]
   },
   {
@@ -47948,6 +48350,8 @@
     "credits-usage--drawer-filters-apply-filters-to__dropdown-select-users",
     "dashboard--as-individual",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -47963,6 +48367,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -47975,11 +48381,7 @@
     "dashboard--popover-50",
     "dashboard--popover-54",
     "dashboard--popover-62",
-    "dashboard--popover-calls-3",
-    "dashboard--popover-faisal-al-harbi-agency-user",
-    "dashboard--popover-notifications-mark-all-as",
-    "dashboard--popover-today-yesterday-last-7",
-    "dashboard--popover-whatsapp-7"
+    "dashboard--popover-calls-3"
    ]
   },
   {
@@ -48054,9 +48456,13 @@
     "credits-usage--drawer-filters-apply-filters-to__dropdown-select-upgrades",
     "credits-usage--drawer-filters-apply-filters-to__dropdown-select-users",
     "credits-usage--flow-top-up-01-choose-amount",
+    "credits-usage--modal-top-up-your-credits-as-individual",
+    "credits-usage--modal-top-up-your-credits-as-staff",
     "credits-usage--modal-top-up-your-credits",
     "dashboard--as-individual",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -48067,11 +48473,7 @@
     "dashboard--inline-leads-13-8",
     "dashboard--inline-sms-1",
     "dashboard--menu-post-a-listing",
-    "dashboard--modal-download-app",
-    "dashboard--modal-help-support-profolio",
-    "dashboard--modal-profile-completed",
-    "dashboard--modal-publish-now",
-    "dashboard--modal-publish-now__message-verify"
+    "dashboard--modal-download-app"
    ]
   },
   {
@@ -48119,6 +48521,8 @@
     "ad-license--rail-expanded",
     "dashboard--as-individual",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -48133,6 +48537,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -48152,11 +48558,7 @@
     "dashboard--popover-whatsapp-7",
     "dashboard--rail-expanded",
     "dashboard--tooltip-50-off",
-    "dashboard--tooltip-booked",
-    "dashboard--tooltip-mark-signature",
-    "listings--action-discount",
-    "listings--modal-delete",
-    "listings--modal-request-signature-upgrade-the"
+    "dashboard--tooltip-booked"
    ]
   },
   {
@@ -48390,6 +48792,8 @@
     "ad-license--rail-expanded",
     "dashboard--as-individual",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -48404,6 +48808,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -48423,11 +48829,7 @@
     "dashboard--popover-whatsapp-7",
     "dashboard--rail-expanded",
     "dashboard--tooltip-50-off",
-    "dashboard--tooltip-booked",
-    "dashboard--tooltip-mark-signature",
-    "listings--action-discount",
-    "listings--modal-delete",
-    "listings--modal-request-signature-upgrade-the"
+    "dashboard--tooltip-booked"
    ]
   },
   {
@@ -49265,17 +49667,17 @@
     "credits-usage--menu-post-a-listing",
     "credits-usage--modal-download-app",
     "credits-usage--modal-help-support-profolio",
+    "credits-usage--modal-top-up-your-credits-as-individual",
+    "credits-usage--modal-top-up-your-credits-as-staff",
     "credits-usage--modal-top-up-your-credits",
     "credits-usage--popover-faisal-al-harbi-agency-user",
     "credits-usage--popover-notifications-mark-all-as",
     "credits-usage--rail-expanded",
     "dashboard--as-individual",
     "dashboard--as-staff",
-    "dashboard--drawer-credits-balance",
-    "dashboard--drawer-feedback",
-    "dashboard--dropdown-najd-horizon-real-estate",
-    "dashboard--empty",
-    "dashboard--inline-canvas"
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
+    "dashboard--drawer-credits-balance"
    ]
   },
   {
@@ -49502,19 +49904,19 @@
     "credits-usage--menu-post-a-listing",
     "credits-usage--modal-download-app",
     "credits-usage--modal-help-support-profolio",
+    "credits-usage--modal-top-up-your-credits-as-individual",
+    "credits-usage--modal-top-up-your-credits-as-staff",
     "credits-usage--modal-top-up-your-credits",
     "credits-usage--popover-faisal-al-harbi-agency-user",
     "credits-usage--popover-notifications-mark-all-as",
     "credits-usage--rail-expanded",
     "dashboard--as-individual",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
-    "dashboard--dropdown-najd-horizon-real-estate",
-    "dashboard--inline-canvas",
-    "dashboard--inline-clicks-407-3",
-    "dashboard--inline-emails-2",
-    "dashboard--inline-leads-13-8"
+    "dashboard--dropdown-najd-horizon-real-estate"
    ]
   },
   {
@@ -49664,6 +50066,8 @@
     "agency-staff--rail-expanded",
     "dashboard--as-individual",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -49679,17 +50083,15 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
     "dashboard--popover-31",
     "dashboard--popover-33",
     "dashboard--popover-34",
-    "dashboard--popover-39",
-    "dashboard--popover-43",
-    "dashboard--popover-46",
-    "dashboard--popover-50",
-    "dashboard--popover-54"
+    "dashboard--popover-39"
    ]
   },
   {
@@ -49747,11 +50149,15 @@
     "credits-usage--flow-top-up-01-choose-amount",
     "credits-usage--modal-download-app",
     "credits-usage--modal-help-support-profolio",
+    "credits-usage--modal-top-up-your-credits-as-individual",
+    "credits-usage--modal-top-up-your-credits-as-staff",
     "credits-usage--modal-top-up-your-credits",
     "credits-usage--popover-faisal-al-harbi-agency-user",
     "credits-usage--popover-notifications-mark-all-as",
     "dashboard--as-individual",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -49768,13 +50174,9 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
-    "dashboard--modal-top-up-your-credits",
-    "dashboard--modal-trucheck-eligible-trucheck-is",
-    "dashboard--popover-1104-am-sep-26",
-    "dashboard--popover-31",
-    "dashboard--popover-33",
-    "dashboard--popover-34",
-    "dashboard--popover-39"
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
+    "dashboard--modal-top-up-your-credits"
    ]
   },
   {
@@ -49829,6 +50231,7 @@
     "agency-staff--popover-notifications-mark-all-as",
     "agency-staff--rail-expanded",
     "dashboard--as-individual",
+    "dashboard--drawer-credits-balance-as-individual",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -49844,6 +50247,7 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -49853,9 +50257,7 @@
     "dashboard--popover-39",
     "dashboard--popover-43",
     "dashboard--popover-46",
-    "dashboard--popover-50",
-    "dashboard--popover-54",
-    "dashboard--popover-62"
+    "dashboard--popover-50"
    ]
   },
   {
@@ -49913,6 +50315,8 @@
     "agency-staff--rail-expanded",
     "dashboard--as-individual",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -49929,15 +50333,13 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
     "dashboard--popover-31",
-    "dashboard--popover-33",
-    "dashboard--popover-34",
-    "dashboard--popover-39",
-    "dashboard--popover-43",
-    "dashboard--popover-46"
+    "dashboard--popover-33"
    ]
   },
   {
@@ -50083,6 +50485,8 @@
     "agent-performance--popover-notifications-mark-all-as",
     "dashboard--as-individual",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -50091,9 +50495,7 @@
     "dashboard--inline-canvas",
     "dashboard--inline-clicks-407-3",
     "dashboard--inline-emails-2",
-    "dashboard--inline-leads-13-8",
-    "dashboard--inline-sms-1",
-    "dashboard--loading"
+    "dashboard--inline-leads-13-8"
    ]
   },
   {
@@ -50209,12 +50611,16 @@
     "credits-usage--menu-post-a-listing",
     "credits-usage--modal-download-app",
     "credits-usage--modal-help-support-profolio",
+    "credits-usage--modal-top-up-your-credits-as-individual",
+    "credits-usage--modal-top-up-your-credits-as-staff",
     "credits-usage--modal-top-up-your-credits",
     "credits-usage--popover-faisal-al-harbi-agency-user",
     "credits-usage--popover-notifications-mark-all-as",
     "credits-usage--rail-expanded",
     "dashboard--as-individual",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -50229,15 +50635,11 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
-    "dashboard--popover-1104-am-sep-26",
-    "dashboard--popover-31",
-    "dashboard--popover-33",
-    "dashboard--popover-34",
-    "dashboard--popover-39",
-    "dashboard--popover-43",
-    "dashboard--popover-46"
+    "dashboard--popover-1104-am-sep-26"
    ]
   },
   {
@@ -50543,21 +50945,21 @@
     "credits-usage--menu-post-a-listing",
     "credits-usage--modal-download-app",
     "credits-usage--modal-help-support-profolio",
+    "credits-usage--modal-top-up-your-credits-as-individual",
+    "credits-usage--modal-top-up-your-credits-as-staff",
     "credits-usage--modal-top-up-your-credits",
     "credits-usage--popover-faisal-al-harbi-agency-user",
     "credits-usage--popover-notifications-mark-all-as",
     "credits-usage--rail-expanded",
     "dashboard--as-individual",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
     "dashboard--inline-canvas",
-    "dashboard--inline-clicks-407-3",
-    "dashboard--inline-emails-2",
-    "dashboard--inline-leads-13-8",
-    "dashboard--inline-sms-1",
-    "dashboard--menu-post-a-listing"
+    "dashboard--inline-clicks-407-3"
    ]
   },
   {
@@ -50739,19 +51141,19 @@
     "credits-usage--menu-post-a-listing",
     "credits-usage--modal-download-app",
     "credits-usage--modal-help-support-profolio",
+    "credits-usage--modal-top-up-your-credits-as-individual",
+    "credits-usage--modal-top-up-your-credits-as-staff",
     "credits-usage--modal-top-up-your-credits",
     "credits-usage--popover-faisal-al-harbi-agency-user",
     "credits-usage--popover-notifications-mark-all-as",
     "credits-usage--rail-expanded",
     "dashboard--as-individual",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
-    "dashboard--dropdown-najd-horizon-real-estate",
-    "dashboard--inline-canvas",
-    "dashboard--inline-clicks-407-3",
-    "dashboard--inline-emails-2",
-    "dashboard--inline-leads-13-8"
+    "dashboard--dropdown-najd-horizon-real-estate"
    ]
   },
   {
@@ -50820,23 +51222,23 @@
     "credits-usage--menu-post-a-listing",
     "credits-usage--modal-download-app",
     "credits-usage--modal-help-support-profolio",
+    "credits-usage--modal-top-up-your-credits-as-individual",
+    "credits-usage--modal-top-up-your-credits-as-staff",
     "credits-usage--modal-top-up-your-credits",
     "credits-usage--popover-faisal-al-harbi-agency-user",
     "credits-usage--popover-notifications-mark-all-as",
     "credits-usage--rail-expanded",
     "dashboard--as-individual",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
     "dashboard--empty",
     "dashboard--error",
     "dashboard--inline-canvas",
-    "dashboard--inline-clicks-407-3",
-    "dashboard--inline-emails-2",
-    "dashboard--inline-leads-13-8",
-    "dashboard--inline-sms-1",
-    "dashboard--menu-post-a-listing"
+    "dashboard--inline-clicks-407-3"
    ]
   },
   {
@@ -50918,8 +51320,8 @@
     "agent-performance--rail-expanded",
     "dashboard--as-individual",
     "dashboard--as-staff",
-    "dashboard--drawer-credits-balance",
-    "dashboard--drawer-feedback"
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff"
    ]
   },
   {
@@ -51646,6 +52048,8 @@
     "post-listing-upgrade--flow-post-listing-09-posted",
     "post-listing-upgrade--flow-post-listing-10-upgrade",
     "post-listing-upgrade--inline-basic-listing-get-standard-visibilit",
+    "post-listing-upgrade--inline-insufficient-credits-as-individual",
+    "post-listing-upgrade--inline-insufficient-credits-as-staff",
     "post-listing-upgrade--inline-insufficient-credits",
     "post-listing-upgrade--inline-service-options",
     "post-listing-upgrade--menu-post-a-listing",
@@ -51666,9 +52070,7 @@
     "reports-listing-report--modal-download-app",
     "reports-listing-report--modal-help-support-profolio",
     "reports-listing-report--popover-31",
-    "reports-listing-report--popover-33",
-    "reports-listing-report--popover-34",
-    "reports-listing-report--popover-39"
+    "reports-listing-report--popover-33"
    ]
   },
   {
@@ -52548,6 +52950,8 @@
     "credits-usage--menu-post-a-listing",
     "credits-usage--modal-download-app",
     "credits-usage--modal-help-support-profolio",
+    "credits-usage--modal-top-up-your-credits-as-individual",
+    "credits-usage--modal-top-up-your-credits-as-staff",
     "credits-usage--modal-top-up-your-credits",
     "credits-usage--popover-faisal-al-harbi-agency-user",
     "credits-usage--popover-notifications-mark-all-as",
@@ -52557,6 +52961,8 @@
     "credits-usage--drawer-notifications-mark-all-as--mobile",
     "credits-usage--drawer-profile-information-faisal-al-harbi--mobile",
     "credits-usage--drawer-send-us-feedback-the--mobile",
+    "credits-usage--drawer-top-up-your-credits-as-individual--mobile",
+    "credits-usage--drawer-top-up-your-credits-as-staff--mobile",
     "credits-usage--drawer-top-up-your-credits--mobile",
     "credits-usage--empty--mobile",
     "credits-usage--error--mobile",
@@ -52592,6 +52998,8 @@
     "credits-usage--flow-top-up-01-choose-amount",
     "credits-usage--modal-download-app",
     "credits-usage--modal-help-support-profolio",
+    "credits-usage--modal-top-up-your-credits-as-individual",
+    "credits-usage--modal-top-up-your-credits-as-staff",
     "credits-usage--modal-top-up-your-credits",
     "credits-usage--popover-faisal-al-harbi-agency-user",
     "credits-usage--popover-notifications-mark-all-as",
@@ -52636,12 +53044,10 @@
     "credits-usage--drawer-notifications-mark-all-as--mobile",
     "credits-usage--drawer-profile-information-faisal-al-harbi--mobile",
     "credits-usage--drawer-send-us-feedback-the--mobile",
+    "credits-usage--drawer-top-up-your-credits-as-individual--mobile",
+    "credits-usage--drawer-top-up-your-credits-as-staff--mobile",
     "credits-usage--drawer-top-up-your-credits--mobile",
-    "credits-usage--empty--mobile",
-    "credits-usage--flow-top-up-01-choose-amount--mobile",
-    "reports-listing-report--as-individual--mobile",
-    "reports-listing-report--as-staff--mobile",
-    "reports-listing-report--drawer-feedback--mobile"
+    "credits-usage--empty--mobile"
    ]
   },
   {
@@ -52669,6 +53075,8 @@
     "credits-usage--flow-top-up-01-choose-amount",
     "credits-usage--modal-download-app",
     "credits-usage--modal-help-support-profolio",
+    "credits-usage--modal-top-up-your-credits-as-individual",
+    "credits-usage--modal-top-up-your-credits-as-staff",
     "credits-usage--modal-top-up-your-credits",
     "credits-usage--popover-faisal-al-harbi-agency-user",
     "credits-usage--popover-notifications-mark-all-as",
@@ -52677,6 +53085,8 @@
     "credits-usage--drawer-notifications-mark-all-as--mobile",
     "credits-usage--drawer-profile-information-faisal-al-harbi--mobile",
     "credits-usage--drawer-send-us-feedback-the--mobile",
+    "credits-usage--drawer-top-up-your-credits-as-individual--mobile",
+    "credits-usage--drawer-top-up-your-credits-as-staff--mobile",
     "credits-usage--drawer-top-up-your-credits--mobile",
     "credits-usage--empty--mobile",
     "credits-usage--flow-top-up-01-choose-amount--mobile"
@@ -52730,6 +53140,8 @@
     "credits-usage--menu-post-a-listing",
     "credits-usage--modal-download-app",
     "credits-usage--modal-help-support-profolio",
+    "credits-usage--modal-top-up-your-credits-as-individual",
+    "credits-usage--modal-top-up-your-credits-as-staff",
     "credits-usage--modal-top-up-your-credits",
     "credits-usage--popover-faisal-al-harbi-agency-user",
     "credits-usage--popover-notifications-mark-all-as",
@@ -52759,6 +53171,8 @@
     "credits-usage--drawer-notifications-mark-all-as--mobile",
     "credits-usage--drawer-profile-information-faisal-al-harbi--mobile",
     "credits-usage--drawer-send-us-feedback-the--mobile",
+    "credits-usage--drawer-top-up-your-credits-as-individual--mobile",
+    "credits-usage--drawer-top-up-your-credits-as-staff--mobile",
     "credits-usage--drawer-top-up-your-credits--mobile",
     "credits-usage--flow-top-up-01-choose-amount--mobile",
     "credits-usage--mobile-menu--mobile",
@@ -52771,11 +53185,7 @@
     "lms-leads--drawer-add-name__inline-email--mobile",
     "lms-leads--drawer-notifications-mark-all-as--mobile",
     "lms-leads--drawer-view-detail--mobile",
-    "lms-leads--drawer-view-detail__drawer-add-interest-manually--mobile",
-    "lms-leads--drawer-view-detail__inline-all-tasks--mobile",
-    "lms-leads--drawer-view-detail__inline-email--mobile",
-    "lms-leads--drawer-view-detail__popover-apartment-for-sale--mobile",
-    "lms-leads--form-add-task-errors--mobile"
+    "lms-leads--drawer-view-detail__drawer-add-interest-manually--mobile"
    ]
   },
   {
@@ -52820,6 +53230,8 @@
     "credits-usage--as-staff",
     "credits-usage--drawer-feedback",
     "credits-usage--modal-help-support-profolio",
+    "credits-usage--modal-top-up-your-credits-as-individual",
+    "credits-usage--modal-top-up-your-credits-as-staff",
     "credits-usage--modal-top-up-your-credits",
     "credits-usage--popover-notifications-mark-all-as",
     "dashboard--popover-notifications-mark-all-as",
@@ -52869,9 +53281,7 @@
     "packages--drawer-notifications-mark-all-as--mobile",
     "post-listing--drawer-notifications-mark-all-as--mobile",
     "post-listing-edit--drawer-notifications-mark-all-as--mobile",
-    "post-listing-upgrade--drawer-notifications-mark-all-as--mobile",
-    "reports-leads-reports--drawer-notifications-mark-all-as--mobile",
-    "reports-listing-report--drawer-notifications-mark-all-as--mobile"
+    "post-listing-upgrade--drawer-notifications-mark-all-as--mobile"
    ]
   },
   {
@@ -52899,6 +53309,8 @@
     "credits-usage--menu-post-a-listing",
     "credits-usage--modal-download-app",
     "credits-usage--modal-help-support-profolio",
+    "credits-usage--modal-top-up-your-credits-as-individual",
+    "credits-usage--modal-top-up-your-credits-as-staff",
     "credits-usage--modal-top-up-your-credits",
     "credits-usage--popover-faisal-al-harbi-agency-user",
     "credits-usage--popover-notifications-mark-all-as",
@@ -52908,6 +53320,8 @@
     "credits-usage--drawer-notifications-mark-all-as--mobile",
     "credits-usage--drawer-profile-information-faisal-al-harbi--mobile",
     "credits-usage--drawer-send-us-feedback-the--mobile",
+    "credits-usage--drawer-top-up-your-credits-as-individual--mobile",
+    "credits-usage--drawer-top-up-your-credits-as-staff--mobile",
     "credits-usage--drawer-top-up-your-credits--mobile",
     "credits-usage--flow-top-up-01-choose-amount--mobile",
     "credits-usage--mobile-menu--mobile"
@@ -52943,12 +53357,16 @@
     "credits-usage--menu-post-a-listing",
     "credits-usage--modal-download-app",
     "credits-usage--modal-help-support-profolio",
+    "credits-usage--modal-top-up-your-credits-as-individual",
+    "credits-usage--modal-top-up-your-credits-as-staff",
     "credits-usage--modal-top-up-your-credits",
     "credits-usage--popover-faisal-al-harbi-agency-user",
     "credits-usage--popover-notifications-mark-all-as",
     "credits-usage--rail-expanded",
     "dashboard--as-individual",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -52963,6 +53381,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -52986,13 +53406,7 @@
     "dashboard--tooltip-mark-signature",
     "listings--action-detail-drawer",
     "listings--as-individual",
-    "listings--as-staff",
-    "listings--date-posted-on",
-    "listings--drawer-credit-info",
-    "listings--drawer-feedback",
-    "listings--drawer-filters",
-    "listings--drawer-show-more",
-    "listings--drawer-show-more__inline-button"
+    "listings--as-staff"
    ]
   },
   {
@@ -53026,12 +53440,16 @@
     "credits-usage--menu-post-a-listing",
     "credits-usage--modal-download-app",
     "credits-usage--modal-help-support-profolio",
+    "credits-usage--modal-top-up-your-credits-as-individual",
+    "credits-usage--modal-top-up-your-credits-as-staff",
     "credits-usage--modal-top-up-your-credits",
     "credits-usage--popover-faisal-al-harbi-agency-user",
     "credits-usage--popover-notifications-mark-all-as",
     "credits-usage--rail-expanded",
     "dashboard--as-individual",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -53048,6 +53466,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -53069,13 +53489,7 @@
     "dashboard--tooltip-50-off",
     "dashboard--tooltip-booked",
     "dashboard--tooltip-mark-signature",
-    "listings--action-detail-drawer",
-    "listings--as-individual",
-    "listings--as-staff",
-    "listings--date-posted-on",
-    "listings--drawer-credit-info",
-    "listings--drawer-feedback",
-    "listings--drawer-filters"
+    "listings--action-detail-drawer"
    ]
   },
   {
@@ -53107,11 +53521,15 @@
     "credits-usage--menu-post-a-listing",
     "credits-usage--modal-download-app",
     "credits-usage--modal-help-support-profolio",
+    "credits-usage--modal-top-up-your-credits-as-individual",
+    "credits-usage--modal-top-up-your-credits-as-staff",
     "credits-usage--modal-top-up-your-credits",
     "credits-usage--popover-faisal-al-harbi-agency-user",
     "credits-usage--popover-notifications-mark-all-as",
     "credits-usage--rail-expanded",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -53126,6 +53544,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -53150,13 +53570,7 @@
     "listings--action-detail-drawer",
     "listings--as-individual",
     "listings--as-staff",
-    "listings--date-posted-on",
-    "listings--drawer-credit-info",
-    "listings--drawer-feedback",
-    "listings--drawer-filters",
-    "listings--drawer-show-more",
-    "listings--drawer-show-more__inline-button",
-    "listings--drawer-show-more__popover-select-date-range"
+    "listings--date-posted-on"
    ]
   },
   {
@@ -53189,12 +53603,15 @@
     "credits-usage--menu-post-a-listing",
     "credits-usage--modal-download-app",
     "credits-usage--modal-help-support-profolio",
+    "credits-usage--modal-top-up-your-credits-as-individual",
     "credits-usage--modal-top-up-your-credits",
     "credits-usage--popover-faisal-al-harbi-agency-user",
     "credits-usage--popover-notifications-mark-all-as",
     "credits-usage--rail-expanded",
     "dashboard--as-individual",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -53211,6 +53628,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -53234,12 +53653,7 @@
     "dashboard--tooltip-mark-signature",
     "listings--action-detail-drawer",
     "listings--as-individual",
-    "listings--as-staff",
-    "listings--date-posted-on",
-    "listings--drawer-credit-info",
-    "listings--drawer-feedback",
-    "listings--drawer-filters",
-    "listings--drawer-show-more"
+    "listings--as-staff"
    ]
   },
   {
@@ -53273,6 +53687,8 @@
     "credits-usage--menu-post-a-listing",
     "credits-usage--modal-download-app",
     "credits-usage--modal-help-support-profolio",
+    "credits-usage--modal-top-up-your-credits-as-individual",
+    "credits-usage--modal-top-up-your-credits-as-staff",
     "credits-usage--modal-top-up-your-credits",
     "credits-usage--popover-faisal-al-harbi-agency-user",
     "credits-usage--popover-notifications-mark-all-as",
@@ -53313,15 +53729,13 @@
     "credits-usage--drawer-notifications-mark-all-as--mobile",
     "credits-usage--drawer-profile-information-faisal-al-harbi--mobile",
     "credits-usage--drawer-send-us-feedback-the--mobile",
+    "credits-usage--drawer-top-up-your-credits-as-individual--mobile",
+    "credits-usage--drawer-top-up-your-credits-as-staff--mobile",
     "credits-usage--drawer-top-up-your-credits--mobile",
     "credits-usage--empty--mobile",
     "credits-usage--flow-top-up-01-choose-amount--mobile",
     "credits-usage--mobile-menu--mobile",
-    "dashboard--drawer-31--mobile",
-    "dashboard--drawer-31__drawer-refresh--mobile",
-    "dashboard--drawer-33--mobile",
-    "dashboard--drawer-33__drawer-refresh--mobile",
-    "dashboard--drawer-34--mobile"
+    "dashboard--drawer-31--mobile"
    ]
   },
   {
@@ -53341,6 +53755,8 @@
    "states": [
     "dashboard--as-individual",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -53358,6 +53774,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -53394,11 +53812,7 @@
     "dashboard--drawer-46--mobile",
     "dashboard--drawer-46__drawer-refresh--mobile",
     "dashboard--drawer-50--mobile",
-    "dashboard--drawer-50__drawer-refresh--mobile",
-    "dashboard--drawer-54--mobile",
-    "dashboard--drawer-54__drawer-refresh--mobile",
-    "dashboard--drawer-62--mobile",
-    "dashboard--drawer-booked--mobile"
+    "dashboard--drawer-50__drawer-refresh--mobile"
    ]
   },
   {
@@ -53427,6 +53841,8 @@
     "dashboard--menu-post-a-listing",
     "dashboard--modal-help-support-profolio",
     "dashboard--modal-publish-now",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-31",
     "dashboard--popover-33",
@@ -53450,12 +53866,14 @@
     "dashboard--drawer-54__drawer-refresh--mobile",
     "dashboard--drawer-62--mobile",
     "dashboard--drawer-booked--mobile",
+    "dashboard--drawer-credits-balance-as-staff--mobile",
     "dashboard--drawer-publish-now--mobile",
     "dashboard--drawer-request-signature-upgrade-the--mobile",
     "dashboard--drawer-search-by-calendar-today__drawer-last-3-months--mobile",
     "dashboard--drawer-search-by-calendar-today__drawer-last-6-months--mobile",
     "dashboard--drawer-search-by-calendar-today__drawer-today--mobile",
     "dashboard--drawer-search-by-calendar-today__inline-last-30-days--mobile",
+    "dashboard--drawer-top-up-your-credits-as-staff--mobile",
     "dashboard--drawer-top-up-your-credits--mobile",
     "dashboard--dropdown-najd-horizon-real-estate--mobile",
     "dashboard--empty--mobile",
@@ -53567,6 +53985,8 @@
    "states": [
     "dashboard--as-individual",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -53583,6 +54003,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -53620,11 +54042,7 @@
     "reports-listing-report--popover-39",
     "reports-listing-report--popover-43",
     "reports-listing-report--popover-46",
-    "reports-listing-report--popover-50",
-    "reports-listing-report--popover-54",
-    "reports-listing-report--popover-62",
-    "reports-listing-report--popover-faisal-al-harbi-agency-user",
-    "reports-listing-report--popover-notifications-mark-all-as"
+    "reports-listing-report--popover-50"
    ]
   },
   {
@@ -53644,6 +54062,8 @@
    "states": [
     "dashboard--as-individual",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -53660,6 +54080,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -53697,11 +54119,7 @@
     "dashboard--drawer-50--mobile",
     "dashboard--drawer-50__drawer-refresh--mobile",
     "dashboard--drawer-54--mobile",
-    "dashboard--drawer-54__drawer-refresh--mobile",
-    "dashboard--drawer-62--mobile",
-    "dashboard--drawer-booked--mobile",
-    "dashboard--drawer-credits-balance--mobile",
-    "dashboard--drawer-feedback--mobile"
+    "dashboard--drawer-54__drawer-refresh--mobile"
    ]
   },
   {
@@ -53723,6 +54141,8 @@
    "states": [
     "dashboard--as-individual",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -53739,6 +54159,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -53776,11 +54198,7 @@
     "reports-listing-report--popover-43",
     "reports-listing-report--popover-46",
     "reports-listing-report--popover-50",
-    "reports-listing-report--popover-54",
-    "reports-listing-report--popover-62",
-    "reports-listing-report--popover-faisal-al-harbi-agency-user",
-    "reports-listing-report--popover-notifications-mark-all-as",
-    "reports-listing-report--rail-expanded"
+    "reports-listing-report--popover-54"
    ]
   },
   {
@@ -53802,6 +54220,8 @@
    "states": [
     "dashboard--as-individual",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -53818,6 +54238,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -53855,11 +54277,7 @@
     "reports-listing-report--popover-43",
     "reports-listing-report--popover-46",
     "reports-listing-report--popover-50",
-    "reports-listing-report--popover-54",
-    "reports-listing-report--popover-62",
-    "reports-listing-report--popover-faisal-al-harbi-agency-user",
-    "reports-listing-report--popover-notifications-mark-all-as",
-    "reports-listing-report--rail-expanded"
+    "reports-listing-report--popover-54"
    ]
   },
   {
@@ -53883,6 +54301,8 @@
    "states": [
     "dashboard--as-individual",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -53899,6 +54319,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -53936,11 +54358,7 @@
     "reports-listing-report--popover-33",
     "reports-listing-report--popover-34",
     "reports-listing-report--popover-39",
-    "reports-listing-report--popover-43",
-    "reports-listing-report--popover-46",
-    "reports-listing-report--popover-50",
-    "reports-listing-report--popover-54",
-    "reports-listing-report--popover-62"
+    "reports-listing-report--popover-43"
    ]
   },
   {
@@ -53961,6 +54379,8 @@
    "states": [
     "dashboard--as-individual",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -53977,6 +54397,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -54014,11 +54436,7 @@
     "dashboard--drawer-54__drawer-refresh--mobile",
     "dashboard--drawer-62--mobile",
     "dashboard--drawer-booked--mobile",
-    "dashboard--drawer-credits-balance--mobile",
-    "dashboard--drawer-notifications-mark-all-as--mobile",
-    "dashboard--drawer-profile-information-faisal-al-harbi--mobile",
-    "dashboard--drawer-publish-now--mobile",
-    "dashboard--drawer-request-signature-upgrade-the--mobile"
+    "dashboard--drawer-credits-balance-as-individual--mobile"
    ]
   },
   {
@@ -54052,6 +54470,8 @@
     "dashboard--modal-help-support-profolio",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-31",
     "dashboard--popover-33",
@@ -54095,9 +54515,7 @@
     "reports-summary--popover-whatsapp-7",
     "dashboard--as-individual--mobile",
     "dashboard--drawer-31__drawer-refresh--mobile",
-    "dashboard--drawer-33--mobile",
-    "dashboard--drawer-34--mobile",
-    "dashboard--drawer-39--mobile"
+    "dashboard--drawer-33--mobile"
    ]
   },
   {
@@ -54118,6 +54536,8 @@
    ],
    "states": [
     "dashboard--as-individual",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -54133,6 +54553,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -54172,11 +54594,7 @@
     "reports-leads-reports--popover-calls-3",
     "reports-leads-reports--popover-close-circle",
     "reports-leads-reports--popover-faisal-al-harbi-agency-user",
-    "reports-leads-reports--popover-notifications-mark-all-as",
-    "reports-leads-reports--popover-whatsapp-7",
-    "reports-leads-reports--rail-expanded",
-    "reports-summary--drawer-feedback",
-    "reports-summary--empty"
+    "reports-leads-reports--popover-notifications-mark-all-as"
    ]
   },
   {
@@ -54198,6 +54616,8 @@
    ],
    "states": [
     "dashboard--as-individual",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--inline-emails-2",
@@ -54208,6 +54628,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -54252,11 +54674,7 @@
     "reports-leads-reports--popover-calls-3",
     "reports-leads-reports--popover-today-yesterday-last-7",
     "reports-leads-reports--popover-whatsapp-7",
-    "reports-leads-reports--rail-expanded",
-    "reports-summary--drawer-feedback",
-    "reports-summary--inline-clicks-407-3",
-    "reports-summary--inline-div",
-    "reports-summary--inline-emails-2"
+    "reports-leads-reports--rail-expanded"
    ]
   },
   {
@@ -54279,6 +54697,8 @@
    ],
    "states": [
     "dashboard--as-individual",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--inline-clicks-407-3",
@@ -54291,6 +54711,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -54333,11 +54755,7 @@
     "lms-leads--drawer-add-task__inline-upload",
     "lms-leads--drawer-add-task__picker-select-completion-date-and-time",
     "lms-leads--drawer-feedback",
-    "lms-leads--drawer-khalid-al-shammari-khalidalshammari1",
-    "lms-leads--drawer-khalid-al-shammari-khalidalshammari1__drawer-add-interest-manually",
-    "lms-leads--drawer-khalid-al-shammari-khalidalshammari1__inline-all-tasks",
-    "lms-leads--drawer-khalid-al-shammari-khalidalshammari1__inline-email",
-    "lms-leads--drawer-lead-detail"
+    "lms-leads--drawer-khalid-al-shammari-khalidalshammari1"
    ]
   },
   {
@@ -54359,6 +54777,8 @@
    "states": [
     "dashboard--as-individual",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -54373,6 +54793,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -54412,11 +54834,7 @@
     "reports-leads-reports--popover-close-circle",
     "reports-leads-reports--popover-faisal-al-harbi-agency-user",
     "reports-leads-reports--popover-notifications-mark-all-as",
-    "reports-leads-reports--popover-today-yesterday-last-7",
-    "reports-leads-reports--popover-whatsapp-7",
-    "reports-leads-reports--rail-expanded",
-    "reports-summary--as-individual",
-    "reports-summary--as-staff"
+    "reports-leads-reports--popover-today-yesterday-last-7"
    ]
   },
   {
@@ -54515,6 +54933,8 @@
    "states": [
     "dashboard--as-individual",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -54529,6 +54949,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -54568,11 +54990,7 @@
     "listings--menu-post-a-listing",
     "listings--modal-booking",
     "listings--modal-delete",
-    "listings--modal-download-app",
-    "listings--modal-help-support-profolio",
-    "listings--modal-otp",
-    "listings--modal-publish-now",
-    "listings--modal-publish-now__message-verify"
+    "listings--modal-download-app"
    ]
   },
   {
@@ -54593,6 +55011,8 @@
    "states": [
     "dashboard--as-individual",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -54607,6 +55027,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -54646,11 +55068,7 @@
     "listings--menu-post-a-listing",
     "listings--modal-booking",
     "listings--modal-delete",
-    "listings--modal-download-app",
-    "listings--modal-help-support-profolio",
-    "listings--modal-otp",
-    "listings--modal-publish-now",
-    "listings--modal-publish-now__message-verify"
+    "listings--modal-download-app"
    ]
   },
   {
@@ -54671,6 +55089,8 @@
    "states": [
     "dashboard--as-individual",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -54685,6 +55105,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -54724,11 +55146,7 @@
     "listings--menu-post-a-listing",
     "listings--modal-booking",
     "listings--modal-delete",
-    "listings--modal-download-app",
-    "listings--modal-help-support-profolio",
-    "listings--modal-otp",
-    "listings--modal-publish-now",
-    "listings--modal-publish-now__message-verify"
+    "listings--modal-download-app"
    ]
   },
   {
@@ -54751,6 +55169,8 @@
    "states": [
     "dashboard--as-individual",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -54766,6 +55186,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -54804,11 +55226,7 @@
     "packages--message-payment-cancelled",
     "packages--modal-download-app",
     "packages--modal-get-titanium",
-    "packages--modal-help-support-profolio",
-    "packages--popover-faisal-al-harbi-agency-user",
-    "packages--popover-notifications-mark-all-as",
-    "packages--rail-expanded",
-    "reports-leads-reports--as-individual"
+    "packages--modal-help-support-profolio"
    ]
   },
   {
@@ -54840,6 +55258,8 @@
    "states": [
     "dashboard--as-individual",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -54856,6 +55276,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -54893,11 +55315,7 @@
     "listings--empty",
     "listings--error",
     "listings--inline-search",
-    "listings--loading",
-    "listings--member-area",
-    "listings--menu-post-a-listing",
-    "listings--modal-booking",
-    "listings--modal-delete"
+    "listings--loading"
    ]
   },
   {
@@ -54984,18 +55402,18 @@
     "credits-usage--flow-top-up-01-choose-amount",
     "credits-usage--modal-download-app",
     "credits-usage--modal-help-support-profolio",
+    "credits-usage--modal-top-up-your-credits-as-individual",
+    "credits-usage--modal-top-up-your-credits-as-staff",
     "credits-usage--modal-top-up-your-credits",
     "dashboard--modal-download-app",
     "dashboard--modal-help-support-profolio",
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
-    "dashboard--modal-trucheck-eligible-trucheck-is",
-    "dashboard--tooltip-mark-signature",
-    "invite--message-accept-failed",
-    "invite--message-accept",
-    "invite--message-reject"
+    "dashboard--modal-trucheck-eligible-trucheck-is"
    ]
   },
   {
@@ -55072,7 +55490,7 @@
     "listings--drawer-feedback--mobile",
     "listings--drawer-filters-apply-filters-to--mobile",
     "listings--drawer-filters-apply-filters-to__inline-button--mobile",
-    "listings--drawer-notifications-mark-all-as--mobile"
+    "listings--drawer-notifications-empty--mobile"
    ]
   },
   {
@@ -55134,6 +55552,7 @@
     "listings--popover-health",
     "listings--popover-images-do-not-match",
     "listings--popover-leads",
+    "listings--popover-notifications-empty",
     "listings--popover-notifications-mark-all-as",
     "listings--popover-notifications",
     "listings--popover-rega",
@@ -55148,8 +55567,7 @@
     "listings--tab-pending",
     "listings--tab-removed",
     "listings--tooltip-50-off",
-    "listings--tooltip-action",
-    "listings--tooltip-booked"
+    "listings--tooltip-action"
    ]
   },
   {
@@ -55262,7 +55680,11 @@
     "credits-usage--drawer-filters-apply-filters-to__dropdown-select-upgrades",
     "credits-usage--drawer-filters-apply-filters-to__dropdown-select-users",
     "credits-usage--flow-top-up-01-choose-amount",
+    "credits-usage--modal-top-up-your-credits-as-individual",
+    "credits-usage--modal-top-up-your-credits-as-staff",
     "credits-usage--modal-top-up-your-credits",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "listings--action-detail-drawer",
     "listings--as-individual",
@@ -55306,13 +55728,9 @@
     "listings--popover-health",
     "listings--popover-images-do-not-match",
     "listings--popover-leads",
+    "listings--popover-notifications-empty",
     "listings--popover-notifications-mark-all-as",
-    "listings--popover-notifications",
-    "listings--popover-rega",
-    "listings--popover-status-rejected",
-    "listings--popover-timeline",
-    "listings--project-units",
-    "listings--rail-expanded"
+    "listings--popover-notifications"
    ]
   },
   {
@@ -57221,6 +57639,7 @@
     "listings--popover-health",
     "listings--popover-images-do-not-match",
     "listings--popover-leads",
+    "listings--popover-notifications-empty",
     "listings--popover-notifications-mark-all-as",
     "listings--popover-notifications",
     "listings--popover-rega",
@@ -57237,8 +57656,7 @@
     "listings--tooltip-booked",
     "listings--tooltip-upgrade-applied",
     "listings--tooltip-upgrade-none",
-    "listings--tooltip-upgrade-pending",
-    "listings--tooltip-upgrade-service"
+    "listings--tooltip-upgrade-pending"
    ]
   },
   {
@@ -57303,6 +57721,7 @@
     "listings--popover-health",
     "listings--popover-images-do-not-match",
     "listings--popover-leads",
+    "listings--popover-notifications-empty",
     "listings--popover-notifications-mark-all-as",
     "listings--popover-notifications",
     "listings--popover-rega",
@@ -57317,8 +57736,7 @@
     "listings--tab-removed",
     "listings--tooltip-50-off",
     "listings--tooltip-action",
-    "listings--tooltip-booked",
-    "listings--tooltip-upgrade-applied"
+    "listings--tooltip-booked"
    ]
   },
   {
@@ -57810,6 +58228,8 @@
     "agency-staff--modal-edit-user-title-english__inline-close-circle",
     "agency-staff--modal-edit-user-title-english__inline-close",
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -57824,6 +58244,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -57856,11 +58278,7 @@
     "listings--drawer-show-more__inline-button",
     "listings--drawer-show-more__popover-select-date-range",
     "listings--drawer-show-more__tooltip-0-1-billion",
-    "listings--dropdown-select-property-types",
-    "listings--dropdown-select-purpose",
-    "listings--inline-search",
-    "listings--member-area",
-    "listings--menu-post-a-listing"
+    "listings--dropdown-select-property-types"
    ]
   },
   {
@@ -58063,6 +58481,7 @@
     "dashboard--empty",
     "listings--empty",
     "listings--error",
+    "listings--popover-notifications-empty",
     "listings--tab-removed",
     "lms-leads--drawer-add-name__inline-all-tasks",
     "lms-leads--drawer-khalid-al-shammari-khalidalshammari1__inline-all-tasks",
@@ -58080,6 +58499,7 @@
     "credits-usage--empty--mobile",
     "dashboard--empty--mobile",
     "dashboard--error--mobile",
+    "listings--drawer-notifications-empty--mobile",
     "listings--error--mobile",
     "listings--tab-removed--mobile",
     "lms-leads--drawer-add-name__inline-all-tasks--mobile",
@@ -58122,6 +58542,7 @@
     "dashboard--empty",
     "listings--empty",
     "listings--error",
+    "listings--popover-notifications-empty",
     "listings--tab-removed",
     "lms-leads--drawer-add-name__inline-all-tasks",
     "lms-leads--drawer-khalid-al-shammari-khalidalshammari1__inline-all-tasks",
@@ -58139,6 +58560,7 @@
     "credits-usage--empty--mobile",
     "dashboard--empty--mobile",
     "dashboard--error--mobile",
+    "listings--drawer-notifications-empty--mobile",
     "listings--empty--mobile",
     "listings--error--mobile",
     "listings--tab-removed--mobile",
@@ -58288,7 +58710,11 @@
    ],
    "states": [
     "credits-usage--flow-top-up-01-choose-amount",
+    "credits-usage--modal-top-up-your-credits-as-individual",
+    "credits-usage--modal-top-up-your-credits-as-staff",
     "credits-usage--modal-top-up-your-credits",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--tooltip-mark-signature",
     "listings--modal-request-signature-upgrade-the",
@@ -58317,6 +58743,8 @@
     "packages--popover-faisal-al-harbi-agency-user",
     "packages--popover-notifications-mark-all-as",
     "packages--rail-expanded",
+    "credits-usage--drawer-top-up-your-credits-as-individual--mobile",
+    "credits-usage--drawer-top-up-your-credits-as-staff--mobile",
     "credits-usage--drawer-top-up-your-credits--mobile",
     "credits-usage--flow-top-up-01-choose-amount--mobile",
     "dashboard--drawer-31__drawer-refresh--mobile",
@@ -58327,6 +58755,8 @@
     "dashboard--drawer-50__drawer-refresh--mobile",
     "dashboard--drawer-54__drawer-refresh--mobile",
     "dashboard--drawer-request-signature-upgrade-the--mobile",
+    "dashboard--drawer-top-up-your-credits-as-individual--mobile",
+    "dashboard--drawer-top-up-your-credits-as-staff--mobile",
     "dashboard--drawer-top-up-your-credits--mobile",
     "listings--drawer-31__drawer-refresh--mobile",
     "listings--drawer-33__drawer-refresh--mobile",
@@ -58338,15 +58768,7 @@
     "listings--drawer-request-signature-upgrade-the--mobile",
     "listings--upgrade-hot--mobile",
     "listings--upgrade-photography--mobile",
-    "listings--upgrade-refresh--mobile",
-    "listings--upgrade-signature--mobile",
-    "packages--as-individual--mobile",
-    "packages--as-staff--mobile",
-    "packages--drawer-feedback--mobile",
-    "packages--drawer-get-titanium--mobile",
-    "packages--drawer-notifications-mark-all-as--mobile",
-    "packages--drawer-profile-information-faisal-al-harbi--mobile",
-    "packages--drawer-what-are-credits--mobile"
+    "listings--upgrade-refresh--mobile"
    ]
   },
   {
@@ -58530,6 +58952,8 @@
    ],
    "states": [
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-staff",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "packages--as-individual",
     "packages--as-staff",
     "packages--drawer-feedback",
@@ -58549,6 +58973,9 @@
     "packages--popover-notifications-mark-all-as",
     "packages--rail-expanded",
     "post-listing-upgrade--as-staff",
+    "post-listing-upgrade--inline-insufficient-credits-as-staff",
+    "dashboard--drawer-credits-balance-as-staff--mobile",
+    "dashboard--drawer-top-up-your-credits-as-staff--mobile",
     "packages--as-individual--mobile",
     "packages--as-staff--mobile",
     "packages--drawer-feedback--mobile",
@@ -58565,7 +58992,8 @@
     "packages--inline-icon--mobile",
     "packages--message-payment-cancelled--mobile",
     "packages--mobile-menu--mobile",
-    "post-listing-upgrade--as-staff--mobile"
+    "post-listing-upgrade--as-staff--mobile",
+    "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile"
    ]
   },
   {
@@ -61629,6 +62057,8 @@
     "post-listing-upgrade--as-staff",
     "post-listing-upgrade--drawer-feedback",
     "post-listing-upgrade--flow-post-listing-10-upgrade",
+    "post-listing-upgrade--inline-insufficient-credits-as-individual",
+    "post-listing-upgrade--inline-insufficient-credits-as-staff",
     "post-listing-upgrade--inline-insufficient-credits",
     "post-listing-upgrade--loading",
     "post-listing-upgrade--menu-post-a-listing",
@@ -61646,6 +62076,8 @@
     "post-listing-upgrade--drawer-profile-information-faisal-al-harbi--mobile",
     "post-listing-upgrade--error--mobile",
     "post-listing-upgrade--flow-post-listing-09-posted--mobile",
+    "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile",
+    "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile",
     "post-listing-upgrade--inline-insufficient-credits--mobile",
     "post-listing-upgrade--loading--mobile",
     "post-listing-upgrade--message-post-listing--mobile",
@@ -61676,6 +62108,8 @@
     "post-listing-upgrade--flow-post-listing-09-posted",
     "post-listing-upgrade--flow-post-listing-10-upgrade",
     "post-listing-upgrade--inline-basic-listing-get-standard-visibilit",
+    "post-listing-upgrade--inline-insufficient-credits-as-individual",
+    "post-listing-upgrade--inline-insufficient-credits-as-staff",
     "post-listing-upgrade--inline-insufficient-credits",
     "post-listing-upgrade--inline-service-options",
     "post-listing-upgrade--loading",
@@ -61697,6 +62131,8 @@
     "post-listing-upgrade--flow-post-listing-09-posted--mobile",
     "post-listing-upgrade--flow-post-listing-10-upgrade--mobile",
     "post-listing-upgrade--inline-basic-listing-get-standard-visibilit--mobile",
+    "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile",
+    "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile",
     "post-listing-upgrade--inline-insufficient-credits--mobile",
     "post-listing-upgrade--inline-service-options--mobile",
     "post-listing-upgrade--loading--mobile",
@@ -61735,6 +62171,8 @@
     "post-listing-upgrade--flow-post-listing-09-posted",
     "post-listing-upgrade--flow-post-listing-10-upgrade",
     "post-listing-upgrade--inline-basic-listing-get-standard-visibilit",
+    "post-listing-upgrade--inline-insufficient-credits-as-individual",
+    "post-listing-upgrade--inline-insufficient-credits-as-staff",
     "post-listing-upgrade--inline-insufficient-credits",
     "post-listing-upgrade--inline-service-options",
     "post-listing-upgrade--menu-post-a-listing",
@@ -61774,11 +62212,12 @@
     "post-listing-upgrade--flow-post-listing-09-posted--mobile",
     "post-listing-upgrade--flow-post-listing-10-upgrade--mobile",
     "post-listing-upgrade--inline-basic-listing-get-standard-visibilit--mobile",
+    "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile",
+    "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile",
     "post-listing-upgrade--inline-insufficient-credits--mobile",
     "post-listing-upgrade--inline-service-options--mobile",
     "post-listing-upgrade--message-post-listing--mobile",
-    "post-listing-upgrade--message-upgrade-failed--mobile",
-    "post-listing-upgrade--mobile-menu--mobile"
+    "post-listing-upgrade--message-upgrade-failed--mobile"
    ]
   },
   {
@@ -61820,6 +62259,8 @@
     "post-listing-upgrade--flow-post-listing-09-posted",
     "post-listing-upgrade--flow-post-listing-10-upgrade",
     "post-listing-upgrade--inline-basic-listing-get-standard-visibilit",
+    "post-listing-upgrade--inline-insufficient-credits-as-individual",
+    "post-listing-upgrade--inline-insufficient-credits-as-staff",
     "post-listing-upgrade--inline-insufficient-credits",
     "post-listing-upgrade--inline-service-options",
     "post-listing-upgrade--menu-post-a-listing",
@@ -61846,6 +62287,8 @@
     "post-listing-upgrade--flow-post-listing-09-posted--mobile",
     "post-listing-upgrade--flow-post-listing-10-upgrade--mobile",
     "post-listing-upgrade--inline-basic-listing-get-standard-visibilit--mobile",
+    "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile",
+    "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile",
     "post-listing-upgrade--inline-insufficient-credits--mobile",
     "post-listing-upgrade--inline-service-options--mobile",
     "post-listing-upgrade--message-post-listing--mobile",
@@ -61871,6 +62314,8 @@
    ],
    "states": [
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -61885,6 +62330,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -61925,11 +62372,7 @@
     "listings--modal-booking",
     "listings--modal-delete",
     "listings--modal-download-app",
-    "listings--modal-help-support-profolio",
-    "listings--modal-otp",
-    "listings--modal-publish-now",
-    "listings--modal-publish-now__message-verify",
-    "listings--modal-request-signature-upgrade-the"
+    "listings--modal-help-support-profolio"
    ]
   },
   {
@@ -61972,6 +62415,8 @@
     "post-listing-upgrade--flow-post-listing-09-posted",
     "post-listing-upgrade--flow-post-listing-10-upgrade",
     "post-listing-upgrade--inline-basic-listing-get-standard-visibilit",
+    "post-listing-upgrade--inline-insufficient-credits-as-individual",
+    "post-listing-upgrade--inline-insufficient-credits-as-staff",
     "post-listing-upgrade--inline-insufficient-credits",
     "post-listing-upgrade--inline-service-options",
     "post-listing-upgrade--menu-post-a-listing",
@@ -62000,6 +62445,8 @@
     "post-listing-upgrade--flow-post-listing-09-posted--mobile",
     "post-listing-upgrade--flow-post-listing-10-upgrade--mobile",
     "post-listing-upgrade--inline-basic-listing-get-standard-visibilit--mobile",
+    "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile",
+    "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile",
     "post-listing-upgrade--inline-insufficient-credits--mobile",
     "post-listing-upgrade--inline-service-options--mobile",
     "post-listing-upgrade--message-post-listing--mobile",
@@ -62029,6 +62476,8 @@
     "post-listing-upgrade--flow-post-listing-09-posted",
     "post-listing-upgrade--flow-post-listing-10-upgrade",
     "post-listing-upgrade--inline-basic-listing-get-standard-visibilit",
+    "post-listing-upgrade--inline-insufficient-credits-as-individual",
+    "post-listing-upgrade--inline-insufficient-credits-as-staff",
     "post-listing-upgrade--inline-insufficient-credits",
     "post-listing-upgrade--inline-service-options",
     "post-listing-upgrade--menu-post-a-listing",
@@ -62048,6 +62497,8 @@
     "post-listing-upgrade--flow-post-listing-09-posted--mobile",
     "post-listing-upgrade--flow-post-listing-10-upgrade--mobile",
     "post-listing-upgrade--inline-basic-listing-get-standard-visibilit--mobile",
+    "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile",
+    "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile",
     "post-listing-upgrade--inline-insufficient-credits--mobile",
     "post-listing-upgrade--inline-service-options--mobile",
     "post-listing-upgrade--message-post-listing--mobile",
@@ -62850,6 +63301,8 @@
    ],
    "states": [
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -62864,6 +63317,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -62904,11 +63359,7 @@
     "listings--modal-booking",
     "listings--modal-delete",
     "listings--modal-download-app",
-    "listings--modal-help-support-profolio",
-    "listings--modal-otp",
-    "listings--modal-publish-now",
-    "listings--modal-publish-now__message-verify",
-    "listings--modal-request-signature-upgrade-the"
+    "listings--modal-help-support-profolio"
    ]
   },
   {
@@ -62929,6 +63380,8 @@
    ],
    "states": [
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -62943,6 +63396,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -62983,11 +63438,7 @@
     "listings--modal-booking",
     "listings--modal-delete",
     "listings--modal-download-app",
-    "listings--modal-help-support-profolio",
-    "listings--modal-otp",
-    "listings--modal-publish-now",
-    "listings--modal-publish-now__message-verify",
-    "listings--modal-request-signature-upgrade-the"
+    "listings--modal-help-support-profolio"
    ]
   },
   {
@@ -63009,6 +63460,8 @@
    ],
    "states": [
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -63023,6 +63476,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -63063,11 +63518,7 @@
     "listings--modal-booking",
     "listings--modal-delete",
     "listings--modal-download-app",
-    "listings--modal-help-support-profolio",
-    "listings--modal-otp",
-    "listings--modal-publish-now",
-    "listings--modal-publish-now__message-verify",
-    "listings--modal-request-signature-upgrade-the"
+    "listings--modal-help-support-profolio"
    ]
   },
   {
@@ -64135,7 +64586,9 @@
    ],
    "states": [
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--modal-profile-completed",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "user-settings-agency-profile--as-individual",
     "user-settings-agency-profile--as-staff",
     "user-settings-user-profile--as-individual",
@@ -64168,6 +64621,8 @@
     "user-settings-user-profile--profile-incomplete",
     "user-settings-user-profile--rail-expanded",
     "dashboard--as-staff--mobile",
+    "dashboard--drawer-credits-balance-as-staff--mobile",
+    "dashboard--drawer-top-up-your-credits-as-staff--mobile",
     "dashboard--modal-profile-completed--mobile",
     "user-settings-agency-profile--as-individual--mobile",
     "user-settings-agency-profile--as-staff--mobile",
@@ -64189,11 +64644,7 @@
     "user-settings-user-profile--inline-close-circle--mobile",
     "user-settings-user-profile--inline-close--mobile",
     "user-settings-user-profile--inline-generate-agent-description-english--mobile",
-    "user-settings-user-profile--loading--mobile",
-    "user-settings-user-profile--message-profile-failed--mobile",
-    "user-settings-user-profile--message-profile-saved--mobile",
-    "user-settings-user-profile--message-save-changes--mobile",
-    "user-settings-user-profile--mobile-menu--mobile"
+    "user-settings-user-profile--loading--mobile"
    ]
   },
   {
@@ -64553,6 +65004,8 @@
     "credits-usage--drawer-filters-apply-filters-to",
     "credits-usage--drawer-filters-apply-filters-to__dropdown-select-upgrades",
     "credits-usage--drawer-filters-apply-filters-to__dropdown-select-users",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "listings--action-detail-drawer",
@@ -64600,9 +65053,7 @@
     "lms-leads--form-add-lead-filled",
     "lms-leads--form-add-task-errors",
     "lms-leads--form-add-task-filled",
-    "lms-leads--form-lead-name-filled",
-    "lms-leads--message-add-interest-failed",
-    "lms-leads--message-add-interest-saved"
+    "lms-leads--form-lead-name-filled"
    ]
   },
   {
@@ -65847,6 +66298,7 @@
     "listings--popover-health",
     "listings--popover-images-do-not-match",
     "listings--popover-leads",
+    "listings--popover-notifications-empty",
     "listings--popover-notifications-mark-all-as",
     "listings--popover-notifications",
     "listings--popover-rega",
@@ -65862,8 +66314,7 @@
     "lms-leads--popover-close-circle",
     "lms-leads--popover-faisal-al-harbi-agency-user",
     "lms-leads--popover-floor-for-sale",
-    "lms-leads--popover-follow-up-call",
-    "lms-leads--popover-khalid-al-shammari"
+    "lms-leads--popover-follow-up-call"
    ]
   },
   {
@@ -66379,12 +66830,16 @@
     "listings--upgrade-hot",
     "listings--upgrade-refresh",
     "listings--upgrade-signature",
+    "post-listing-upgrade--inline-insufficient-credits-as-individual",
+    "post-listing-upgrade--inline-insufficient-credits-as-staff",
     "post-listing-upgrade--inline-insufficient-credits",
     "dashboard--drawer-request-signature-upgrade-the--mobile",
     "listings--drawer-request-signature-upgrade-the--mobile",
     "listings--upgrade-hot--mobile",
     "listings--upgrade-refresh--mobile",
     "listings--upgrade-signature--mobile",
+    "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile",
+    "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile",
     "post-listing-upgrade--inline-insufficient-credits--mobile"
    ]
   },
@@ -66415,6 +66870,8 @@
     "listings--upgrade-refresh",
     "listings--upgrade-signature",
     "lms-leads--form-add-lead-duplicate",
+    "post-listing-upgrade--inline-insufficient-credits-as-individual",
+    "post-listing-upgrade--inline-insufficient-credits-as-staff",
     "post-listing-upgrade--inline-insufficient-credits",
     "user-settings-change-password--message-password-failed",
     "dashboard--drawer-31__drawer-refresh--mobile",
@@ -66437,6 +66894,8 @@
     "listings--upgrade-refresh--mobile",
     "listings--upgrade-signature--mobile",
     "lms-leads--form-add-lead-duplicate--mobile",
+    "post-listing-upgrade--inline-insufficient-credits-as-individual--mobile",
+    "post-listing-upgrade--inline-insufficient-credits-as-staff--mobile",
     "post-listing-upgrade--inline-insufficient-credits--mobile",
     "user-settings-change-password--message-password-failed--mobile"
    ]
@@ -67530,8 +67989,8 @@
    "def": "src/components/post-listing-button/post-listing-button.js",
    "family": "product",
    "web": 1,
-   "responsive": 1,
-   "match": 2,
+   "responsive": 2,
+   "match": 3,
    "file": "deliverables/components/post-listing-button.html",
    "screens": [
     "credits-usage",
@@ -67545,6 +68004,7 @@
     "credits-usage--empty--mobile",
     "dashboard--empty--mobile",
     "dashboard--error--mobile",
+    "listings--drawer-notifications-empty--mobile",
     "listings--empty--mobile",
     "listings--error--mobile",
     "listings--tab-removed--mobile"
@@ -67566,7 +68026,11 @@
    ],
    "states": [
     "dashboard--as-staff",
-    "dashboard--as-staff--mobile"
+    "dashboard--drawer-credits-balance-as-staff",
+    "dashboard--modal-top-up-your-credits-as-staff",
+    "dashboard--as-staff--mobile",
+    "dashboard--drawer-credits-balance-as-staff--mobile",
+    "dashboard--drawer-top-up-your-credits-as-staff--mobile"
    ]
   },
   {
@@ -67585,7 +68049,11 @@
    ],
    "states": [
     "dashboard--as-staff",
-    "dashboard--as-staff--mobile"
+    "dashboard--drawer-credits-balance-as-staff",
+    "dashboard--modal-top-up-your-credits-as-staff",
+    "dashboard--as-staff--mobile",
+    "dashboard--drawer-credits-balance-as-staff--mobile",
+    "dashboard--drawer-top-up-your-credits-as-staff--mobile"
    ]
   },
   {
@@ -67605,6 +68073,8 @@
    ],
    "states": [
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -67619,6 +68089,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -67659,11 +68131,7 @@
     "listings--modal-booking",
     "listings--modal-delete",
     "listings--modal-download-app",
-    "listings--modal-help-support-profolio",
-    "listings--modal-otp",
-    "listings--modal-publish-now",
-    "listings--modal-publish-now__message-verify",
-    "listings--modal-request-signature-upgrade-the"
+    "listings--modal-help-support-profolio"
    ]
   },
   {
@@ -67683,6 +68151,8 @@
    ],
    "states": [
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -67697,6 +68167,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -67737,11 +68209,7 @@
     "listings--modal-booking",
     "listings--modal-delete",
     "listings--modal-download-app",
-    "listings--modal-help-support-profolio",
-    "listings--modal-otp",
-    "listings--modal-publish-now",
-    "listings--modal-publish-now__message-verify",
-    "listings--modal-request-signature-upgrade-the"
+    "listings--modal-help-support-profolio"
    ]
   },
   {
@@ -67761,6 +68229,8 @@
    ],
    "states": [
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -67775,6 +68245,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -67815,11 +68287,7 @@
     "listings--modal-booking",
     "listings--modal-delete",
     "listings--modal-download-app",
-    "listings--modal-help-support-profolio",
-    "listings--modal-otp",
-    "listings--modal-publish-now",
-    "listings--modal-publish-now__message-verify",
-    "listings--modal-request-signature-upgrade-the"
+    "listings--modal-help-support-profolio"
    ]
   },
   {
@@ -67839,6 +68307,8 @@
    ],
    "states": [
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -67853,6 +68323,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -67893,11 +68365,7 @@
     "listings--modal-help-support-profolio",
     "listings--modal-otp",
     "listings--modal-publish-now",
-    "listings--modal-publish-now__message-verify",
-    "listings--modal-request-signature-upgrade-the",
-    "listings--modal-trucheck-eligible-trucheck-is",
-    "listings--modal-trucheck",
-    "listings--popover-1104-am-sep-26"
+    "listings--modal-publish-now__message-verify"
    ]
   },
   {
@@ -67917,6 +68385,8 @@
    ],
    "states": [
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -67931,6 +68401,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -67971,11 +68443,7 @@
     "listings--modal-booking",
     "listings--modal-delete",
     "listings--modal-download-app",
-    "listings--modal-help-support-profolio",
-    "listings--modal-otp",
-    "listings--modal-publish-now",
-    "listings--modal-publish-now__message-verify",
-    "listings--modal-request-signature-upgrade-the"
+    "listings--modal-help-support-profolio"
    ]
   },
   {
@@ -67995,6 +68463,8 @@
    ],
    "states": [
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -68009,6 +68479,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -68049,11 +68521,7 @@
     "listings--modal-booking",
     "listings--modal-delete",
     "listings--modal-download-app",
-    "listings--modal-help-support-profolio",
-    "listings--modal-otp",
-    "listings--modal-publish-now",
-    "listings--modal-publish-now__message-verify",
-    "listings--modal-request-signature-upgrade-the"
+    "listings--modal-help-support-profolio"
    ]
   },
   {
@@ -68073,6 +68541,8 @@
    ],
    "states": [
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -68087,6 +68557,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -68127,11 +68599,7 @@
     "listings--modal-booking",
     "listings--modal-delete",
     "listings--modal-download-app",
-    "listings--modal-help-support-profolio",
-    "listings--modal-otp",
-    "listings--modal-publish-now",
-    "listings--modal-publish-now__message-verify",
-    "listings--modal-request-signature-upgrade-the"
+    "listings--modal-help-support-profolio"
    ]
   },
   {
@@ -68151,6 +68619,8 @@
    ],
    "states": [
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -68165,6 +68635,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -68205,11 +68677,7 @@
     "listings--modal-booking",
     "listings--modal-delete",
     "listings--modal-download-app",
-    "listings--modal-help-support-profolio",
-    "listings--modal-otp",
-    "listings--modal-publish-now",
-    "listings--modal-publish-now__message-verify",
-    "listings--modal-request-signature-upgrade-the"
+    "listings--modal-help-support-profolio"
    ]
   },
   {
@@ -68229,6 +68697,8 @@
    ],
    "states": [
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -68243,6 +68713,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -68283,11 +68755,7 @@
     "listings--modal-booking",
     "listings--modal-delete",
     "listings--modal-download-app",
-    "listings--modal-help-support-profolio",
-    "listings--modal-otp",
-    "listings--modal-publish-now",
-    "listings--modal-publish-now__message-verify",
-    "listings--modal-request-signature-upgrade-the"
+    "listings--modal-help-support-profolio"
    ]
   },
   {
@@ -68307,6 +68775,8 @@
    ],
    "states": [
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -68321,6 +68791,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -68361,11 +68833,7 @@
     "listings--modal-booking",
     "listings--modal-delete",
     "listings--modal-download-app",
-    "listings--modal-help-support-profolio",
-    "listings--modal-otp",
-    "listings--modal-publish-now",
-    "listings--modal-publish-now__message-verify",
-    "listings--modal-request-signature-upgrade-the"
+    "listings--modal-help-support-profolio"
    ]
   },
   {
@@ -68385,6 +68853,8 @@
    ],
    "states": [
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -68399,6 +68869,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -68439,11 +68911,7 @@
     "listings--modal-delete",
     "listings--modal-download-app",
     "listings--modal-help-support-profolio",
-    "listings--modal-otp",
-    "listings--modal-publish-now",
-    "listings--modal-publish-now__message-verify",
-    "listings--modal-request-signature-upgrade-the",
-    "listings--modal-trucheck-eligible-trucheck-is"
+    "listings--modal-otp"
    ]
   },
   {
@@ -68463,6 +68931,8 @@
    ],
    "states": [
     "dashboard--as-staff",
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "dashboard--drawer-feedback",
     "dashboard--dropdown-najd-horizon-real-estate",
@@ -68477,6 +68947,8 @@
     "dashboard--modal-profile-completed",
     "dashboard--modal-publish-now",
     "dashboard--modal-publish-now__message-verify",
+    "dashboard--modal-top-up-your-credits-as-individual",
+    "dashboard--modal-top-up-your-credits-as-staff",
     "dashboard--modal-top-up-your-credits",
     "dashboard--modal-trucheck-eligible-trucheck-is",
     "dashboard--popover-1104-am-sep-26",
@@ -68517,11 +68989,7 @@
     "listings--modal-download-app",
     "listings--modal-help-support-profolio",
     "listings--modal-otp",
-    "listings--modal-publish-now",
-    "listings--modal-publish-now__message-verify",
-    "listings--modal-request-signature-upgrade-the",
-    "listings--modal-trucheck-eligible-trucheck-is",
-    "listings--modal-trucheck"
+    "listings--modal-publish-now"
    ]
   },
   {
@@ -68541,9 +69009,13 @@
     "packages"
    ],
    "states": [
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "listings--drawer-credit-info",
     "packages--drawer-what-are-credits",
+    "dashboard--drawer-credits-balance-as-individual--mobile",
+    "dashboard--drawer-credits-balance-as-staff--mobile",
     "dashboard--drawer-credits-balance--mobile",
     "packages--drawer-what-are-credits--mobile"
    ]
@@ -68565,9 +69037,13 @@
     "packages"
    ],
    "states": [
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "listings--drawer-credit-info",
     "packages--drawer-what-are-credits",
+    "dashboard--drawer-credits-balance-as-individual--mobile",
+    "dashboard--drawer-credits-balance-as-staff--mobile",
     "dashboard--drawer-credits-balance--mobile",
     "packages--drawer-what-are-credits--mobile"
    ]
@@ -68590,11 +69066,15 @@
     "user-settings-preferences"
    ],
    "states": [
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "listings--drawer-credit-info",
     "packages--drawer-what-are-credits",
     "user-settings-preferences--modal-smart-credits-utilization-maximize",
     "user-settings-preferences--modal-smart-credits",
+    "dashboard--drawer-credits-balance-as-individual--mobile",
+    "dashboard--drawer-credits-balance-as-staff--mobile",
     "dashboard--drawer-credits-balance--mobile",
     "packages--drawer-what-are-credits--mobile",
     "user-settings-preferences--drawer-smart-credits-utilization-maximize--mobile",
@@ -68618,9 +69098,13 @@
     "packages"
    ],
    "states": [
+    "dashboard--drawer-credits-balance-as-individual",
+    "dashboard--drawer-credits-balance-as-staff",
     "dashboard--drawer-credits-balance",
     "listings--drawer-credit-info",
     "packages--drawer-what-are-credits",
+    "dashboard--drawer-credits-balance-as-individual--mobile",
+    "dashboard--drawer-credits-balance-as-staff--mobile",
     "dashboard--drawer-credits-balance--mobile",
     "packages--drawer-what-are-credits--mobile"
    ]
@@ -68715,6 +69199,26 @@
    "states": [
     "dashboard--modal-profile-completed",
     "dashboard--modal-profile-completed--mobile"
+   ]
+  },
+  {
+   "slug": "tru-broker-and-profile-card",
+   "name": "TruBrokerAndProfileCard",
+   "level": "organism",
+   "group": "Product components",
+   "def": "src/components/tru-broker/tru-broker-and-profile-cards.js",
+   "family": "product",
+   "web": 1,
+   "responsive": 1,
+   "match": 1,
+   "file": "deliverables/components/tru-broker-and-profile-card.html",
+   "screens": [
+    "dashboard"
+   ],
+   "states": [
+    "dashboard--modal-top-up-your-credits-as-staff",
+    "dashboard--drawer-credits-balance-as-staff--mobile",
+    "dashboard--drawer-top-up-your-credits-as-staff--mobile"
    ]
   },
   {
@@ -69240,6 +69744,7 @@
    ],
    "states": [
     "listings--empty",
+    "listings--popover-notifications-empty",
     "listings--tab-removed",
     "lms-leads--drawer-add-name__inline-all-tasks",
     "lms-leads--drawer-khalid-al-shammari-khalidalshammari1__inline-all-tasks",
@@ -69249,6 +69754,7 @@
     "user-settings-licenses--error",
     "dashboard--empty--mobile",
     "dashboard--error--mobile",
+    "listings--drawer-notifications-empty--mobile",
     "listings--empty--mobile",
     "listings--error--mobile",
     "listings--tab-removed--mobile",
@@ -71069,6 +71575,8 @@
     "dashboard--drawer-54__drawer-refresh--mobile",
     "dashboard--drawer-62--mobile",
     "dashboard--drawer-booked--mobile",
+    "dashboard--drawer-credits-balance-as-individual--mobile",
+    "dashboard--drawer-credits-balance-as-staff--mobile",
     "dashboard--drawer-credits-balance--mobile",
     "dashboard--drawer-feedback--mobile",
     "dashboard--drawer-notifications-mark-all-as--mobile",
@@ -71081,6 +71589,8 @@
     "dashboard--drawer-search-by-calendar-today__drawer-last-6-months--mobile",
     "dashboard--drawer-search-by-calendar-today__drawer-today--mobile",
     "dashboard--drawer-search-by-calendar-today__inline-last-30-days--mobile",
+    "dashboard--drawer-top-up-your-credits-as-individual--mobile",
+    "dashboard--drawer-top-up-your-credits-as-staff--mobile",
     "dashboard--drawer-top-up-your-credits--mobile",
     "dashboard--dropdown-all--mobile",
     "dashboard--dropdown-najd-horizon-real-estate--mobile",
@@ -71136,6 +71646,8 @@
     "dashboard--drawer-54__drawer-refresh--mobile",
     "dashboard--drawer-62--mobile",
     "dashboard--drawer-booked--mobile",
+    "dashboard--drawer-credits-balance-as-individual--mobile",
+    "dashboard--drawer-credits-balance-as-staff--mobile",
     "dashboard--drawer-credits-balance--mobile",
     "dashboard--drawer-feedback--mobile",
     "dashboard--drawer-notifications-mark-all-as--mobile",
@@ -71148,6 +71660,8 @@
     "dashboard--drawer-search-by-calendar-today__drawer-last-6-months--mobile",
     "dashboard--drawer-search-by-calendar-today__drawer-today--mobile",
     "dashboard--drawer-search-by-calendar-today__inline-last-30-days--mobile",
+    "dashboard--drawer-top-up-your-credits-as-individual--mobile",
+    "dashboard--drawer-top-up-your-credits-as-staff--mobile",
     "dashboard--drawer-top-up-your-credits--mobile",
     "dashboard--dropdown-all--mobile",
     "dashboard--dropdown-najd-horizon-real-estate--mobile",
@@ -71178,7 +71692,7 @@
    "family": "product",
    "web": 0,
    "responsive": 3,
-   "match": 2,
+   "match": 1,
    "file": "deliverables/components/listing-card-container.html",
    "screens": [
     "dashboard",
@@ -71205,6 +71719,8 @@
     "dashboard--drawer-54__drawer-refresh--mobile",
     "dashboard--drawer-62--mobile",
     "dashboard--drawer-booked--mobile",
+    "dashboard--drawer-credits-balance-as-individual--mobile",
+    "dashboard--drawer-credits-balance-as-staff--mobile",
     "dashboard--drawer-credits-balance--mobile",
     "dashboard--drawer-feedback--mobile",
     "dashboard--drawer-notifications-mark-all-as--mobile",
@@ -71217,6 +71733,8 @@
     "dashboard--drawer-search-by-calendar-today__drawer-last-6-months--mobile",
     "dashboard--drawer-search-by-calendar-today__drawer-today--mobile",
     "dashboard--drawer-search-by-calendar-today__inline-last-30-days--mobile",
+    "dashboard--drawer-top-up-your-credits-as-individual--mobile",
+    "dashboard--drawer-top-up-your-credits-as-staff--mobile",
     "dashboard--drawer-top-up-your-credits--mobile",
     "dashboard--dropdown-all--mobile",
     "dashboard--dropdown-najd-horizon-real-estate--mobile",
@@ -71240,11 +71758,7 @@
     "listings--drawer-31__drawer-refresh--mobile",
     "listings--drawer-33--mobile",
     "listings--drawer-33__drawer-refresh--mobile",
-    "listings--drawer-34__drawer-refresh--mobile",
-    "listings--drawer-43--mobile",
-    "listings--drawer-43__drawer-refresh--mobile",
-    "listings--drawer-46--mobile",
-    "listings--drawer-46__drawer-refresh--mobile"
+    "listings--drawer-34__drawer-refresh--mobile"
    ]
   },
   {
@@ -71283,6 +71797,8 @@
     "dashboard--drawer-54__drawer-refresh--mobile",
     "dashboard--drawer-62--mobile",
     "dashboard--drawer-booked--mobile",
+    "dashboard--drawer-credits-balance-as-individual--mobile",
+    "dashboard--drawer-credits-balance-as-staff--mobile",
     "dashboard--drawer-credits-balance--mobile",
     "dashboard--drawer-feedback--mobile",
     "dashboard--drawer-notifications-mark-all-as--mobile",
@@ -71295,6 +71811,8 @@
     "dashboard--drawer-search-by-calendar-today__drawer-last-6-months--mobile",
     "dashboard--drawer-search-by-calendar-today__drawer-today--mobile",
     "dashboard--drawer-search-by-calendar-today__inline-last-30-days--mobile",
+    "dashboard--drawer-top-up-your-credits-as-individual--mobile",
+    "dashboard--drawer-top-up-your-credits-as-staff--mobile",
     "dashboard--drawer-top-up-your-credits--mobile",
     "dashboard--dropdown-all--mobile",
     "dashboard--dropdown-najd-horizon-real-estate--mobile",
@@ -71318,11 +71836,7 @@
     "listings--drawer-31__drawer-refresh--mobile",
     "listings--drawer-33--mobile",
     "listings--drawer-33__drawer-refresh--mobile",
-    "listings--drawer-34--mobile",
-    "listings--drawer-34__drawer-refresh--mobile",
-    "listings--drawer-39--mobile",
-    "listings--drawer-43--mobile",
-    "listings--drawer-43__drawer-refresh--mobile"
+    "listings--drawer-34--mobile"
    ]
   },
   {
@@ -71361,6 +71875,8 @@
     "dashboard--drawer-54__drawer-refresh--mobile",
     "dashboard--drawer-62--mobile",
     "dashboard--drawer-booked--mobile",
+    "dashboard--drawer-credits-balance-as-individual--mobile",
+    "dashboard--drawer-credits-balance-as-staff--mobile",
     "dashboard--drawer-credits-balance--mobile",
     "dashboard--drawer-feedback--mobile",
     "dashboard--drawer-notifications-mark-all-as--mobile",
@@ -71373,6 +71889,8 @@
     "dashboard--drawer-search-by-calendar-today__drawer-last-6-months--mobile",
     "dashboard--drawer-search-by-calendar-today__drawer-today--mobile",
     "dashboard--drawer-search-by-calendar-today__inline-last-30-days--mobile",
+    "dashboard--drawer-top-up-your-credits-as-individual--mobile",
+    "dashboard--drawer-top-up-your-credits-as-staff--mobile",
     "dashboard--drawer-top-up-your-credits--mobile",
     "dashboard--dropdown-all--mobile",
     "dashboard--dropdown-najd-horizon-real-estate--mobile",
@@ -71396,11 +71914,7 @@
     "listings--drawer-31__drawer-refresh--mobile",
     "listings--drawer-33--mobile",
     "listings--drawer-33__drawer-refresh--mobile",
-    "listings--drawer-34--mobile",
-    "listings--drawer-34__drawer-refresh--mobile",
-    "listings--drawer-39--mobile",
-    "listings--drawer-43--mobile",
-    "listings--drawer-43__drawer-refresh--mobile"
+    "listings--drawer-34--mobile"
    ]
   },
   {
@@ -71437,6 +71951,8 @@
     "dashboard--drawer-54__drawer-refresh--mobile",
     "dashboard--drawer-62--mobile",
     "dashboard--drawer-booked--mobile",
+    "dashboard--drawer-credits-balance-as-individual--mobile",
+    "dashboard--drawer-credits-balance-as-staff--mobile",
     "dashboard--drawer-credits-balance--mobile",
     "dashboard--drawer-feedback--mobile",
     "dashboard--drawer-notifications-mark-all-as--mobile",
@@ -71449,6 +71965,8 @@
     "dashboard--drawer-search-by-calendar-today__drawer-last-6-months--mobile",
     "dashboard--drawer-search-by-calendar-today__drawer-today--mobile",
     "dashboard--drawer-search-by-calendar-today__inline-last-30-days--mobile",
+    "dashboard--drawer-top-up-your-credits-as-individual--mobile",
+    "dashboard--drawer-top-up-your-credits-as-staff--mobile",
     "dashboard--drawer-top-up-your-credits--mobile",
     "dashboard--dropdown-all--mobile",
     "dashboard--dropdown-najd-horizon-real-estate--mobile",
@@ -71878,6 +72396,7 @@
     "dashboard--drawer-54__drawer-refresh--mobile",
     "dashboard--drawer-62--mobile",
     "dashboard--drawer-booked--mobile",
+    "dashboard--drawer-credits-balance-as-staff--mobile",
     "dashboard--drawer-notifications-mark-all-as--mobile",
     "dashboard--drawer-profile-information-faisal-al-harbi--mobile",
     "dashboard--drawer-publish-now--mobile",
@@ -71886,6 +72405,7 @@
     "dashboard--drawer-search-by-calendar-today__drawer-last-6-months--mobile",
     "dashboard--drawer-search-by-calendar-today__drawer-today--mobile",
     "dashboard--drawer-search-by-calendar-today__inline-last-30-days--mobile",
+    "dashboard--drawer-top-up-your-credits-as-staff--mobile",
     "dashboard--drawer-top-up-your-credits--mobile",
     "dashboard--dropdown-najd-horizon-real-estate--mobile",
     "dashboard--empty--mobile",

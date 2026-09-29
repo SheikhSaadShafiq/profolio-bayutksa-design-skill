@@ -300,10 +300,12 @@ const DECIDE = ({ shell, device, W, H }) => {
       return all.find((e) => !all.some((o) => o !== e && o.contains(e))) || null;
     };
     const near = (a, b) => Math.abs(a - b) <= 1;
-    const into = (target, part, style, rootStyle) => {
-      /* the box keeps the size it had: its old children may have been what gave it that size */
+    const into = (target, part, style, rootStyle, { pinHeight = true } = {}) => {
+      /* the box keeps the size it had: its old children may have been what gave it that size.
+         The rail keeps only its width — its height follows the frame, which grows later for a
+         -full screen (the product's rail is the viewport's height) */
       const box = target.getBoundingClientRect();
-      for (const [k, v] of [['width', `${box.width}px`], ['height', `${box.height}px`], ['min-width', `${box.width}px`], ['min-height', `${box.height}px`], ['flex', 'none']]) target.style.setProperty(k, v, 'important');
+      for (const [k, v] of [['width', `${box.width}px`], ['min-width', `${box.width}px`], ['flex', 'none'], ...(pinHeight ? [['height', `${box.height}px`], ['min-height', `${box.height}px`]] : [])]) target.style.setProperty(k, v, 'important');
       target.style.setProperty('position', getComputedStyle(target).position === 'static' ? 'relative' : getComputedStyle(target).position, 'important');
       for (const p of ['background', 'border', 'box-shadow', 'outline']) target.style.setProperty(p, 'none', 'important');
       /* the variables name quoted faces: quoted with ' so the attribute holds */
@@ -318,7 +320,7 @@ const DECIDE = ({ shell, device, W, H }) => {
          backdrop lies over the header and the rail, so the shell is its own layer at the level
          of the box it replaces */
       if (header) { into(header, 'header', 'position:absolute;inset:0;overflow:hidden;z-index:0;isolation:isolate', { 'z-index': 'auto', position: 'relative', inset: 'auto', width: '100%', height: '60px', 'padding-inline-start': '25px', transition: 'none' }); done.push('header'); }
-      if (rail) { into(rail, 'rail', 'position:absolute;inset:0;z-index:0;isolation:isolate', { 'z-index': 'auto', position: 'absolute', top: '0', bottom: '0', 'inset-inline-start': '0', height: '100%', transition: 'none' }); done.push('rail'); }
+      if (rail) { into(rail, 'rail', 'position:absolute;inset:0;z-index:0;isolation:isolate', { 'z-index': 'auto', position: 'absolute', top: '0', bottom: '0', 'inset-inline-start': '0', height: '100%', transition: 'none' }, { pinHeight: false }); done.push('rail'); }
     } else {
       /* the artboard's own status bar (the device frame) and its title row give way to the
          product's phone header */
@@ -335,16 +337,18 @@ const DECIDE = ({ shell, device, W, H }) => {
       }
     }
   }
-  /* the riyal glyph for every "SAR" written out */
-  const glyph = (fs) => { const h = Math.max(7, Math.round(fs * 6) / 10), w = Math.round(h * 110 / 12) / 10; return `<svg data-pf-riyal width="${w}" height="${h}" viewBox="0 0 11 12" fill="currentColor" style="display:inline-block;vertical-align:baseline;margin-inline-end:0.22em"><path d="M7.9 0 9.9 0 8.8 7.2 6.8 7.6Z"></path><path d="M4.3 2.2 6.3 2.2 5.2 8.6 3.2 9.0Z"></path><path d="M0 8.0 9.4 6.6 9.4 8.1 0 9.5Z"></path><path d="M0 10.1 8.2 8.9 8.2 10.3 0 11.5Z"></path></svg>`; };
+  /* the riyal glyph for every "SAR" written out — the gap after it only where a space followed
+     the SAR (a label of its own already sits apart from its amount) */
+  const glyph = (fs, gap) => { const h = Math.max(7, Math.round(fs * 6) / 10), w = Math.round(h * 110 / 12) / 10; return `<svg data-pf-riyal width="${w}" height="${h}" viewBox="0 0 11 12" fill="currentColor" style="display:inline-block;vertical-align:baseline${gap ? ';margin-inline-end:0.22em' : ''}"><path d="M7.9 0 9.9 0 8.8 7.2 6.8 7.6Z"></path><path d="M4.3 2.2 6.3 2.2 5.2 8.6 3.2 9.0Z"></path><path d="M0 8.0 9.4 6.6 9.4 8.1 0 9.5Z"></path><path d="M0 10.1 8.2 8.9 8.2 10.3 0 11.5Z"></path></svg>`; };
   const walker = document.createTreeWalker(host, NodeFilter.SHOW_TEXT);
   const hits = [];
-  for (let n = walker.nextNode(); n; n = walker.nextNode()) if (/\bSAR\b/.test(n.textContent) && !n.parentElement.closest('[data-pf-shell], script, style')) hits.push(n);
+  /* never inside what a user types (a description, a field): that text is theirs, as written */
+  for (let n = walker.nextNode(); n; n = walker.nextNode()) if (/\bSAR\b/.test(n.textContent) && !n.parentElement.closest('[data-pf-shell], script, style, textarea, input, [contenteditable]:not([contenteditable="false"])')) hits.push(n);
   for (const n of hits) {
     const fs = parseFloat(getComputedStyle(n.parentElement).fontSize) || 12;
     const span = document.createElement('span');
     span.setAttribute('data-pf-riyal-text', '');
-    span.innerHTML = n.textContent.replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c])).replace(/\bSAR\b\s?/g, () => glyph(fs));
+    span.innerHTML = n.textContent.replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c])).replace(/\bSAR\b(\s?)/g, (m, sp) => glyph(fs, !!sp));
     n.replaceWith(span);
   }
   if (hits.length) done.push(`riyal ×${hits.length}`);
@@ -485,11 +489,15 @@ for (const device of DEVICES) {
     const key = `${device}:${st.name || 'page'}`;
     const h = hashOf(s.live);
     const png = PNG.sync.read(readFileSync(s.live));
-    const twin = kept.find(([, k]) => same(png, k));
+    /* a state declared the same picture as another (states.mjs \`same\`) folds whatever its
+       animation phase; any other folds when no pixel differs */
+    const twin = st.same ? kept.find(([k]) => k === `${device}:${st.same}`) : kept.find(([, k]) => same(png, k));
     if (twin) {
       console.log(`  same  ${key.padEnd(48)} = ${twin[0]}`);
       ledger[key] = { same: twin[0], note: st.note, how: st.how, group: st.group };
       if (existsSync(fileFor(device, st))) rmSync(fileFor(device, st));
+      const img = join(ROOT, 'deliverables', 'new-theme', 'img', `${key.replace(':', '--')}.png`);
+      if (existsSync(img)) rmSync(img);
       results.delete(st);
       continue;
     }

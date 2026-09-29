@@ -258,7 +258,7 @@
   "how": "02 · Amenities picker, then the build set as the note says",
   "group": "sheets",
   "frame": "360x3982",
-  "hash": "5f6178fa20678c444e9257d4cf7f37c3ee789cd4",
+  "hash": "b09f11001043941ad687171706f6af55731e36c5",
   "decisions": [
    "header"
   ],
@@ -324,8 +324,7 @@
   "frame": "360x800",
   "hash": "e46065bcc161cf4f17c8d101be1e0d131cc5030c",
   "decisions": [
-   "header",
-   "riyal ×1"
+   "header"
   ],
   "pct": 0.095,
   "ok": true
@@ -351,8 +350,7 @@
   "frame": "360x800",
   "hash": "c20bf378443c7f17d54c9959edee9008419cef18",
   "decisions": [
-   "header",
-   "riyal ×1"
+   "header"
   ],
   "pct": 0.095,
   "ok": true
@@ -463,11 +461,11 @@
   "how": "derived · the daily rental card's row menu → Mark as Booked (the build has its logic, not its template)",
   "group": "sheets",
   "frame": "360x800",
-  "hash": "fa027f7608bdf12c505a8537c399c9b99de831e9",
+  "hash": "9511121f746f2d87ed245a6617bcc15345dca8f5",
   "decisions": [
    "header"
   ],
-  "derived": "derived: neither build draws Mark as Booked (spec 03 · J; the phone row menu). Composed in the Request Services sheet's chrome from the build's own booking values (renderVals: bookKinds, bookCells, weekDays, bookMonthLabel, bookHint, confirmLabel, confirmOpacity); laid out per the spec's element table. Replace when the handover draws it.",
+  "derived": "derived: neither build draws Mark as Booked (spec 03 · J; the phone row menu). Composed in the Request Services sheet's chrome from the build's own booking values (renderVals: bookKinds, bookCells, weekDays, bookMonthLabel, bookHint, confirmLabel, confirmOpacity); laid out per the spec's element table. Composed, not the build's: the arrangement, the chevrons, the title, the month and weekday type, the day cells' size and type, the band corners. Replace when the handover draws it.",
   "pct": 0.199,
   "ok": true
  },
@@ -477,11 +475,11 @@
   "how": "derived · the daily rental card's row menu → Mark as Booked (the build has its logic, not its template)",
   "group": "sheets",
   "frame": "360x800",
-  "hash": "d7d628aba862928ae36424c4f6d115ef0a0bf34c",
+  "hash": "8a5e26df306f3d623731ee0a4511792bb53f30fe",
   "decisions": [
    "header"
   ],
-  "derived": "derived: neither build draws Mark as Booked (spec 03 · J; the phone row menu). Composed in the Request Services sheet's chrome from the build's own booking values (renderVals: bookKinds, bookCells, weekDays, bookMonthLabel, bookHint, confirmLabel, confirmOpacity); laid out per the spec's element table. Replace when the handover draws it.",
+  "derived": "derived: neither build draws Mark as Booked (spec 03 · J; the phone row menu). Composed in the Request Services sheet's chrome from the build's own booking values (renderVals: bookKinds, bookCells, weekDays, bookMonthLabel, bookHint, confirmLabel, confirmOpacity); laid out per the spec's element table. Composed, not the build's: the arrangement, the chevrons, the title, the month and weekday type, the day cells' size and type, the band corners. Replace when the handover draws it.",
   "pct": 0.199,
   "ok": true
  },
@@ -556,7 +554,7 @@
   "how": "02 · Request Services",
   "group": "sheets",
   "frame": "360x800",
-  "hash": "79f27e54e51471ccefcd8dd6a3b4718f24c69700",
+  "hash": "6f72ce2339af1d27d7fdda9a7d83777fb7ea616d",
   "decisions": [
    "header",
    "riyal ×1"
@@ -702,7 +700,7 @@
   "how": "prototype · apply a filter (the build runs its 1.8s filtering state)",
   "group": "filtering",
   "frame": "360x800",
-  "hash": "37cae9c21bef8e5433a6b318fff59986cc661f21",
+  "hash": "5426858c8177aa40fd4c4dff858afb759a7a383d",
   "decisions": [
    "header"
   ],
@@ -815,7 +813,7 @@
  },
  "mobile:toast-booked": {
   "file": "deliverables/new-theme/mobile/states/listings--toast-booked.html",
-  "note": "After Mark as Booked: the build's toast",
+  "note": "After Mark as Booked: the build's dark toast (#1D1D1F, white text)",
   "how": "prototype · Mark as Booked → confirm (the build's own toast)",
   "group": "sheets",
   "frame": "360x800",
@@ -936,7 +934,7 @@
   "how": "prototype · the onboarding tour with no listings, step 4 of 4",
   "group": "prototype",
   "frame": "360x800",
-  "hash": "3ef9c59443a82707da379c5e4765ea6acea6535f",
+  "hash": "1363dfa234d82bc0489ac20af16b8672590f032b",
   "decisions": [
    "header"
   ],
@@ -979,7 +977,7 @@
   "how": "prototype · the All bad row → its drawer, whole",
   "group": "cases",
   "frame": "1440x2231",
-  "hash": "0c1c24a73d345d53f59bbd87a7f840b961d7a8e8",
+  "hash": "5cb6d0a1d02571702316897767c8791793c6b57c",
   "decisions": [
    "header",
    "rail",
@@ -1009,7 +1007,7 @@
   "how": "prototype · the Daily rental row → its drawer, whole",
   "group": "cases",
   "frame": "1440x2231",
-  "hash": "654cc75441d44e25b3110d210e0365493735a068",
+  "hash": "b6dd7de15fbdc5da8749424d1dd82da39d015591",
   "decisions": [
    "header",
    "rail",
@@ -1039,7 +1037,7 @@
   "how": "prototype · the Everything unfinished row → its drawer, whole",
   "group": "cases",
   "frame": "1440x2231",
-  "hash": "4512a45a23a680529bb4cb136017d8b9e77e42c6",
+  "hash": "b131b1ca95a2b3b319da6abc5b20e3d7f0d784da",
   "decisions": [
    "header",
    "rail",
@@ -1060,7 +1058,7 @@
   "how": "prototype · the Happy case row → its drawer, whole",
   "group": "cases",
   "frame": "1440x2231",
-  "hash": "106efc9f232741c3754ba3511b2fc909723f5295",
+  "hash": "3c63e4a06782c15128dab288eb348362f2385522",
   "decisions": [
    "header",
    "rail",
@@ -1091,7 +1089,7 @@
   "decisions": [
    "header",
    "rail",
-   "riyal ×3"
+   "riyal ×2"
   ],
   "pct": 0,
   "ok": true
@@ -1102,11 +1100,11 @@
   "how": "prototype · the Just posted row → its drawer, whole",
   "group": "cases",
   "frame": "1440x2231",
-  "hash": "468310205471442bbce23500da33c37905e61a95",
+  "hash": "8937353f011861ad7b58e4813c80266552a436c0",
   "decisions": [
    "header",
    "rail",
-   "riyal ×3"
+   "riyal ×2"
   ],
   "pct": 0,
   "ok": true
@@ -1132,7 +1130,7 @@
   "how": "prototype · the Low impression, high conversion row → its drawer, whole",
   "group": "cases",
   "frame": "1440x2231",
-  "hash": "34739604bfc50992bc2635a6150e6791ee9391eb",
+  "hash": "df3d0076c7dbaa14edcd0a42308717178e4e5272",
   "decisions": [
    "header",
    "rail",
@@ -1151,7 +1149,7 @@
   "decisions": [
    "header",
    "rail",
-   "riyal ×3"
+   "riyal ×2"
   ],
   "pct": 0,
   "ok": true
@@ -1162,11 +1160,11 @@
   "how": "prototype · the Off-plan initial sale row → its drawer, whole",
   "group": "cases",
   "frame": "1440x2231",
-  "hash": "cf9417c7f29f5ad72f8e1dab9e60b361b9b03876",
+  "hash": "4ca837a5e9c85046354b8c9872a838a934e8839a",
   "decisions": [
    "header",
    "rail",
-   "riyal ×3"
+   "riyal ×2"
   ],
   "pct": 0,
   "ok": true
@@ -1192,7 +1190,7 @@
   "how": "prototype · the Rank pending row → its drawer, whole",
   "group": "cases",
   "frame": "1440x2231",
-  "hash": "72c1b6f98010489320d07582831c084d79951668",
+  "hash": "326299fec34a94d65131ace9a26dbb535cce8fd8",
   "decisions": [
    "header",
    "rail",
@@ -1228,7 +1226,7 @@
   "how": "03 · F · Needs fixes, the whole drawer",
   "group": "screens",
   "frame": "1440x2231",
-  "hash": "cc60e16c81a5228544cf0c41bb391212e7625cc9",
+  "hash": "e0cf39bbf40b2990ba827b0aed6e56fa4aa74953",
   "decisions": [
    "header",
    "rail",
@@ -1309,7 +1307,7 @@
   "how": "03 · G, the whole drawer",
   "group": "screens",
   "frame": "1440x2136",
-  "hash": "b36908cdfb0a71889647e3679eca0f043dc8f552",
+  "hash": "cc5c7c5681097a0b46cd311b7ad9a7315ea8d51a",
   "decisions": [
    "header",
    "rail",
@@ -1330,7 +1328,7 @@
   "how": "prototype · Refresh inside the Listing Performance drawer",
   "group": "prototype",
   "frame": "1440x900",
-  "hash": "4820af17bf200762a991a925f0005f0b3abad822",
+  "hash": "08e1f546e8037071b8669932a630267f30622b61",
   "decisions": [
    "header",
    "rail",
@@ -1471,7 +1469,7 @@
   "how": "03 · A · Default, the whole list",
   "group": "screens",
   "frame": "1440x2231",
-  "hash": "d92df627366db7f8da08907af6fdf5c79ff38d64",
+  "hash": "2f271c265ecfdb90e48d70978ddba07ef364c213",
   "decisions": [
    "header",
    "rail",
@@ -1552,7 +1550,7 @@
    "rail",
    "riyal ×2"
   ],
-  "derived": "derived: neither build draws Mark as Booked (spec 03 · J). Composed in the Request Services modal's chrome from the build's own booking values (renderVals: bookKinds, bookCells, weekDays, bookMonthLabel, selHint / selSummary, confirmLabel, confirmBg); laid out per the spec's element table. Replace when the handover draws it.",
+  "derived": "derived: neither build draws Mark as Booked (spec 03 · J). Composed in the Request Services modal's chrome from the build's own booking values (renderVals: bookKinds, bookCells, weekDays, bookMonthLabel, selHint / selSummary, confirmLabel, confirmBg); laid out per the spec's element table. Composed, not the build's: the arrangement, the chevrons, the title, the month and weekday type, the day cells' size and type, the band corners. Replace when the handover draws it.",
   "pct": 0,
   "ok": true
  },
@@ -1568,7 +1566,7 @@
    "rail",
    "riyal ×2"
   ],
-  "derived": "derived: neither build draws Mark as Booked (spec 03 · J). Composed in the Request Services modal's chrome from the build's own booking values (renderVals: bookKinds, bookCells, weekDays, bookMonthLabel, selHint / selSummary, confirmLabel, confirmBg); laid out per the spec's element table. Replace when the handover draws it.",
+  "derived": "derived: neither build draws Mark as Booked (spec 03 · J). Composed in the Request Services modal's chrome from the build's own booking values (renderVals: bookKinds, bookCells, weekDays, bookMonthLabel, selHint / selSummary, confirmLabel, confirmBg); laid out per the spec's element table. Composed, not the build's: the arrangement, the chevrons, the title, the month and weekday type, the day cells' size and type, the band corners. Replace when the handover draws it.",
   "pct": 0,
   "ok": true
  },
@@ -1584,7 +1582,7 @@
    "rail",
    "riyal ×2"
   ],
-  "derived": "derived: neither build draws Mark as Booked (spec 03 · J). Composed in the Request Services modal's chrome from the build's own booking values (renderVals: bookKinds, bookCells, weekDays, bookMonthLabel, selHint / selSummary, confirmLabel, confirmBg); laid out per the spec's element table. Replace when the handover draws it.",
+  "derived": "derived: neither build draws Mark as Booked (spec 03 · J). Composed in the Request Services modal's chrome from the build's own booking values (renderVals: bookKinds, bookCells, weekDays, bookMonthLabel, selHint / selSummary, confirmLabel, confirmBg); laid out per the spec's element table. Composed, not the build's: the arrangement, the chevrons, the title, the month and weekday type, the day cells' size and type, the band corners. Replace when the handover draws it.",
   "pct": 0,
   "ok": true
  },
@@ -1594,7 +1592,7 @@
   "how": "03 · K",
   "group": "screens",
   "frame": "1440x900",
-  "hash": "8035d78428f8e9cec11a2fd3e019d4be3a6db561",
+  "hash": "ee2f37e417548b2311b46ee7151240d39a65b0ef",
   "decisions": [
    "header",
    "rail",
@@ -1720,7 +1718,7 @@
   "how": "prototype · Refresh on the first row",
   "group": "prototype",
   "frame": "1440x900",
-  "hash": "2b1cfb1e9f997a2dbe35dbcd5612c0b36a28e27e",
+  "hash": "26bfd6ce7e23e2f54c1d9a0c6a792f50bbae87de",
   "decisions": [
    "header",
    "rail",
@@ -1735,7 +1733,7 @@
   "how": "prototype · apply a filter (the build runs its 1.8s busy state)",
   "group": "overlays",
   "frame": "1440x900",
-  "hash": "95c71eb0d2ddf48cd2a04df431e8532f7e638dc6",
+  "hash": "6162a9fb76c8317f87a9d30207a3a080e527d068",
   "decisions": [
    "header",
    "rail",
@@ -1745,19 +1743,10 @@
   "ok": true
  },
  "web:skeleton-sorting": {
-  "file": "deliverables/new-theme/states/listings--skeleton-sorting.html",
+  "same": "web:sorting",
   "note": "Sorting and filtering skeleton — replaces the row list",
   "how": "03 · L · Sorting",
-  "group": "screens",
-  "frame": "1440x900",
-  "hash": "7233684174c361ff3d58a6f0cdbf783317b592eb",
-  "decisions": [
-   "header",
-   "rail",
-   "riyal ×2"
-  ],
-  "pct": 0,
-  "ok": true
+  "group": "screens"
  },
  "web:sorting": {
   "file": "deliverables/new-theme/states/listings--sorting.html",
@@ -1765,7 +1754,7 @@
   "how": "03 · A · Sorting",
   "group": "screens",
   "frame": "1440x900",
-  "hash": "58070d07e4fbae90708a4619b321f9c4121eaa86",
+  "hash": "e5121de4034cc2243cda3c3bfdce7bf32f6245bc",
   "decisions": [
    "header",
    "rail",
@@ -1795,7 +1784,7 @@
   "how": "03 · E · All five statuses, the whole list",
   "group": "screens",
   "frame": "1440x1311",
-  "hash": "1f81b7635d715690ea8c3fd5eb627cf08121797d",
+  "hash": "3d0ef6e9591f0d3c35bdba6f8ce67115dba7df2b",
   "decisions": [
    "header",
    "rail",
@@ -1831,7 +1820,7 @@
   "how": "03 · B · Both rows, the whole list",
   "group": "screens",
   "frame": "1440x1500",
-  "hash": "38512cbeb709e28e5a56a1f1bc5ffdb2bc6c5481",
+  "hash": "7bf410724969db4af9630ed1f324a6e32123f62b",
   "decisions": [
    "header",
    "rail",
@@ -1867,7 +1856,7 @@
   "how": "03 · C · All three states, the whole list",
   "group": "screens",
   "frame": "1440x1689",
-  "hash": "65153ab8499c62b6af0b0c039f58fb5e8f0863d3",
+  "hash": "e23944734e6d22d295141e482eca8b3640459d9a",
   "decisions": [
    "header",
    "rail",
@@ -1903,7 +1892,7 @@
   "how": "03 · D · All four reasons, the whole list",
   "group": "screens",
   "frame": "1440x2648",
-  "hash": "e32c79c01014ef3599d71020c29e72af3d0a377a",
+  "hash": "49dcd603858833f91ee58c563645b3ad50e0e2c3",
   "decisions": [
    "header",
    "rail",
@@ -1920,7 +1909,7 @@
  },
  "web:toast-booked": {
   "file": "deliverables/new-theme/states/listings--toast-booked.html",
-  "note": "After Mark as Booked: a green toast, centre-bottom, 3.2s — \"3 nights marked as booked: Sep 11 to Sep 14\"",
+  "note": "After Mark as Booked: the build's dark toast (#1D1D1F, white text), centre-bottom, 3.2s — \"3 nights marked as booked: Sep 11 to Sep 14\" (the spec says green)",
   "how": "prototype · Mark as Booked → confirm (the build's own toast)",
   "group": "overlays",
   "frame": "1440x900",
@@ -1939,7 +1928,7 @@
   "how": "prototype · the onboarding tour, step 1 of 5",
   "group": "prototype",
   "frame": "1440x900",
-  "hash": "f329cc715df77547f5adae91ec65f0cbc6d663cf",
+  "hash": "82c15d725eda3bf4cdb8b7360bf4bf3aadc7ed1e",
   "decisions": [
    "header",
    "rail",
