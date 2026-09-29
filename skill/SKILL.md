@@ -26,7 +26,9 @@ core (`SKILL.md`, `registry.json`, `tokens.md`, `product/`, `css/`, `qa/`,
 `examples/worked-example.md`, `pages/prototype.js`), fetch a page or
 component by its registry path, from this folder, so its relative links hold:
 
-    curl -sL --create-dirs -o <path> https://raw.githubusercontent.com/SheikhSaadShafiq/profolio-bayutksa-design-skill/refs/heads/claude/skill-package/skill/<path>
+    curl -sL --create-dirs -o <path> https://raw.githubusercontent.com/SheikhSaadShafiq/profolio-bayutksa-design-skill/refs/heads/<ref>/skill/<path>
+
+where `<ref>` is `registry.json` → `source.ref`, the branch this package was built on.
 
 ## ROUTING — by the question asked
 
@@ -41,6 +43,7 @@ component by its registry path, from this folder, so its relative links hold:
 | which route, screen, flow | `product/routes.md`, `registry.flows` |
 | REGA, Nafath, FAL, credits | `product/ksa.md` |
 | an icon | `atoms/icon.html` — by the name the product uses |
+| My Listings in the **new theme** (Profolio 2.0) | `product/listings-new/README.md` first, then `registry.pages['listings-new']`, `tokens.md` → *My Listings — new theme* |
 
 ## LOCKED
 
@@ -69,7 +72,7 @@ shipped, marked `pf-compiled` / `pf-component`. Never edit one. Copy it into `de
 ## THE PRODUCT, IN SIX FACTS
 
 - **Type**: Figtree (variable 300–900, upright), Droid Arabic Kufi for Arabic — antd's
-  `fontFamily`. Body text 14px / 22px.
+  `fontFamily`. Body text 14px / 22px. (The new My Listings adds Geist — THEMES.)
 - **Web shell**: header 60px; the rail ships collapsed at 60px (220px on hover); content
   starts at 85px.
 - **Phone**: the product picks its phone layout by device, not width — a header with a menu
@@ -85,6 +88,18 @@ shipped, marked `pf-compiled` / `pf-component`. Never edit one. Copy it into `de
   `pages/<page>/as-staff.html`, `as-individual.html`.
 - **Scope**: English, web 1440 and phone 375. Arabic RTL is not compiled — say so rather
   than mirroring a screen by hand.
+
+## THEMES — current, and the new My Listings
+
+Every page is the **current** theme. **My Listings alone** has a **new** theme (Profolio 2.0,
+not live yet): `pages/listings-new*.html`, compiled from the designer's handover — the
+design, not yet the product. Its tokens are My Listings' only (`--pf-ml-*`, green primary,
+Geist UI face); teal stays in the rank and Quality Score explainers (and a few small places
+the README lists). Never draw another page in the new theme, and never mix the two on one
+screen. The handover draws My Listings with its own header and rail (green Post Listing,
+Geist); whether the product's shell changes with it is [TBC]. Its pages are static screens, one file per state (no `prototype.js`); a value you add there is
+`var(--pf-ml-…)` from `css/new-theme/tokens.css`, which they link. Read
+`product/listings-new/README.md` before designing in it.
 
 ## INTAKE GATE — mandatory, before producing anything
 
@@ -105,6 +120,7 @@ restate the plan in one paragraph, then build.
 | 9 | Does it change an existing component? List every page in its `used_on` and ask whether to regenerate them. | | |
 | 10 | Responsive scope — web only, or web and 375? | | |
 | 11 | Anything in the PRD contradicting the shipped product? Shipped copy always wins; flag the conflict. | | |
+| 12 | Only if the PRD touches My Listings: the current theme, or the new one (`listings-new`)? | | |
 
 ## HOW A DESIGN IS MADE
 
@@ -122,7 +138,7 @@ restate the plan in one paragraph, then build.
    `.mobile.html` per state when 375 is in scope, started from `pages/<page>.mobile.html`.
 4. Run `python3 qa/validate.py designs/<name>*.html` from `skill/`. It checks only the files
    you name (checks 1–3), and all must pass: no style or colour the product never uses, no
-   class the registry lacks.
+   class the registry lacks. In the new theme a value you add is a `--pf-ml-*` token.
 5. Hold it to the live product: serve `skill/` (`python3 -m http.server`) and open
    `qa/overlay.html?page=designs/<name>.html` beside a screenshot of the same screen.
 
@@ -137,6 +153,6 @@ restate the plan in one paragraph, then build.
 
 ## THE PROTOTYPE
 
-The compiled pages are clickable: a trigger opens its state; Escape, ✕, Cancel or the mask
+The compiled pages of the current theme are clickable: a trigger opens its state; Escape, ✕, Cancel or the mask
 go back; → and ← walk a flow and its primary button goes on; the rail goes to the other
 pages; **M** switches between web and 375.

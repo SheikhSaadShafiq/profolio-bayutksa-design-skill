@@ -661,3 +661,96 @@ token · value · provenance · what it controls. [src] named in the product's t
 | `#9299b810` | `rgba(146, 153, 184, 0.063)` | [px] unnamed | 1 rules: shadow 1 |
 | `#333333` | `#333333` | [px] unnamed | 1 rules: ink 1 |
 | `#ebebeb` | `#ebebeb` | [px] unnamed | border 171 — card |
+
+## My Listings — new theme
+
+**My Listings only** (Profolio 2.0, not yet live) — the designer's `tokens.json` (Bayut KSA Profolio 2.0: My Listings mobile, base 360pt, 2026-09-16), each held against what the new My Listings' 127 compiled states paint. As CSS: `css/new-theme/tokens.css`. [design] = the designer's, not yet the product. Every other page uses the table above.
+
+| token | css | value | tag | measured |
+|---|---|---|---|---|
+| `color.primary.0` | `--pf-ml-primary-0` | `#E9F7F0` | [design] | painted — 12 uses |
+| `color.primary.1` | `--pf-ml-primary-1` | `#D4EFE2` | [design] | painted — 15 uses |
+| `color.primary.2` | `--pf-ml-primary-2` | `#BEE8D3` | [design] | painted — 7 uses |
+| `color.primary.3` | `--pf-ml-primary-3` | `#A9E0C5` | [design] | painted — 2 uses |
+| `color.primary.4` | `--pf-ml-primary-4` | `#93D8B6` | [design] | declared, not painted |
+| `color.primary.5` | `--pf-ml-primary-5` | `#7ED0A7` | [design] | declared, not painted |
+| `color.primary.6` | `--pf-ml-primary-6` | `#69C899` | [design] | painted — 2 uses |
+| `color.primary.7` | `--pf-ml-primary-7` | `#53C18A` | [design] | declared, not painted |
+| `color.primary.8` | `--pf-ml-primary-8` | `#28B16D` | [design] | painted — 34 uses |
+| `color.primary.9` | `--pf-ml-primary-9` | `#249F62` | [design] | painted — 29 uses |
+| `color.primary.10` | `--pf-ml-primary-10` | `#208E57` | [design] | painted — 18 uses |
+| `color.primary.11` | `--pf-ml-primary-11` | `#10603A` | [design] | painted — 22 uses |
+| `color.primary.-1` | `--pf-ml-primary-m1` | `#F0FAF5` | [design] | painted — 14 uses |
+| `color.brand.green` | `--pf-ml-brand-green` | `#28B16D` | [design] | painted — 34 uses |
+| `color.brand.greenPressed` | `--pf-ml-brand-green-pressed` | `#208E57` | [design] | painted — 18 uses |
+| `color.brand.greenInk` | `--pf-ml-brand-green-ink` | `#249F62` | [design] | painted — 29 uses |
+| `color.brand.greenDeep` | `--pf-ml-brand-green-deep` | `#10603A` | [design] | painted — 22 uses |
+| `color.tint.green050` | `--pf-ml-tint-green-050` | `#F0FAF5` | [design] | painted — 14 uses |
+| `color.tint.green100` | `--pf-ml-tint-green-100` | `#E9F7F0` | [design] | painted — 12 uses |
+| `color.tint.green200` | `--pf-ml-tint-green-200` | `#D4EFE2` | [design] | painted — 15 uses |
+| `color.tint.teal050` | `--pf-ml-tint-teal-050` | `#F7FCFC` | [design] | painted — 2 uses |
+| `color.tint.blue050` | `--pf-ml-tint-blue-050` | `#F0F7FC` | [design] | painted — 3 uses |
+| `color.tint.amber050` | `--pf-ml-tint-amber-050` | `#FEF8F0` | [design] | painted — 6 uses |
+| `color.tint.amber100` | `--pf-ml-tint-amber-100` | `#FCEDD9` | [design] | painted — 4 uses |
+| `color.tint.red050` | `--pf-ml-tint-red-050` | `#FFF2F2` | [design] | painted — 6 uses |
+| `color.tint.red100` | `--pf-ml-tint-red-100` | `#FFE0E0` | [design] | painted — 4 uses |
+| `color.status.good` | `--pf-ml-status-good` | `#249F62` | [design] | painted — 29 uses |
+| `color.status.warn` | `--pf-ml-status-warn` | `#C88B37` | [design] | painted — 12 uses |
+| `color.status.bad` | `--pf-ml-status-bad` | `#CE2929` | [design] | painted — 10 uses |
+| `color.status.info` | `--pf-ml-status-info` | `#3B84C4` | [design] | painted — 6 uses |
+| `color.status.neutral` | `--pf-ml-status-neutral` | `#707070` | [design] | painted — 29 uses |
+| `color.text.primary` | `--pf-ml-text-primary` | `#222222` | [design] | painted — 39 uses |
+| `color.text.secondary` | `--pf-ml-text-secondary` | `#4F4F4F` | [design] | painted — 25 uses |
+| `color.text.tertiary` | `--pf-ml-text-tertiary` | `#626262` | [design] | painted — 22 uses |
+| `color.text.muted` | `--pf-ml-text-muted` | `#707070` | [design] | painted — 29 uses |
+| `color.text.faint` | `--pf-ml-text-faint` | `#9D9D9D` | [design] | painted — 32 uses |
+| `color.text.onBrand` | `--pf-ml-text-on-brand` | `#FFFFFF` | [design] | painted — 76 uses |
+| `color.border.strong` | `--pf-ml-border-strong` | `#DEDEDE` | [design] | painted — 12 uses |
+| `color.border.base` | `--pf-ml-border-base` | `#E6E6E6` | [design] | painted — 21 uses |
+| `color.border.soft` | `--pf-ml-border-soft` | `#F0F0F0` | [design] | painted — 29 uses |
+| `color.surface.page` | `--pf-ml-surface-page` | `#F3F4F5` | [design] | [TBC] the phone page is #F6F7FB (the screen, 65 states) |
+| `color.surface.card` | `--pf-ml-surface-card` | `#FFFFFF` | [design] | painted — 76 uses |
+| `color.surface.sheet` | `--pf-ml-surface-sheet` | `#FFFFFF` | [design] | painted — 76 uses |
+| `color.surface.scrim` | `--pf-ml-surface-scrim` | `rgba(0,0,0,0.42)` | [design] | [TBC] not painted — the build's 42% layer is #171A1F 42% (3 uses) |
+| `color.gradient.signature` | `--pf-ml-gradient-signature` | `linear-gradient(46deg,#696EFF 0%,#D466DE 100%)` | [design] | painted — 4 uses |
+| `color.gradient.hot` | `--pf-ml-gradient-hot` | `linear-gradient(244deg,#DD5050 0%,#AB251D 100%)` | [design] | painted — 4 uses |
+| `radius.xs` | `--pf-ml-radius-xs` | `4px` | [design] | corner radius |
+| `radius.sm` | `--pf-ml-radius-sm` | `6px` | [design] | corner radius |
+| `radius.md` | `--pf-ml-radius-md` | `8px` | [design] | corner radius |
+| `radius.lg` | `--pf-ml-radius-lg` | `12px` | [design] | corner radius |
+| `radius.sheet` | `--pf-ml-radius-sheet` | `20px` | [design] | [TBC] 16px on Delete listing sheet, Filter value sheet, Listing actions sheet, Date range sheet, Share sheet, Sort sheet, TruCheck sheet; 20px on How to Earn Quality Score sheet, Listing Performance bottom sheet, Filters sheet, Request Services sheet |
+| `radius.pill` | `--pf-ml-radius-pill` | `999px` | [design] | corner radius |
+| `space.xxs` | `--pf-ml-space-xxs` | `2px` | [design] | padding, margin or gap |
+| `space.xs` | `--pf-ml-space-xs` | `4px` | [design] | padding, margin or gap |
+| `space.sm` | `--pf-ml-space-sm` | `6px` | [design] | padding, margin or gap |
+| `space.md` | `--pf-ml-space-md` | `8px` | [design] | padding, margin or gap |
+| `space.lg` | `--pf-ml-space-lg` | `12px` | [design] | padding, margin or gap |
+| `space.xl` | `--pf-ml-space-xl` | `16px` | [design] | padding, margin or gap |
+| `space.xxl` | `--pf-ml-space-xxl` | `20px` | [design] | padding, margin or gap |
+| `space.section` | `--pf-ml-space-section` | `24px` | [design] | padding, margin or gap |
+| `type.family.ui` | `--pf-ml-font-ui` | `Geist` | [design] | 93.9% of the text |
+| `type.family.app` | `--pf-ml-font-app` | `Lato` | [design] | 0.1% of the text |
+| `type.family.chrome` | `--pf-ml-font-chrome` | `Figtree` | [design] | 6% of the text |
+| `type.family.mono` | `--pf-ml-font-mono` | `JetBrains Mono` | [design] | [TBC] not painted |
+| currency | — | the riyal glyph | [product] | [TBC] "SAR" as text in Listing Performance drawer (web), More Filters drawer (web), Change ownership modal (web), Delete listing modal (web), TruCheck modal (web), Request Services modal (web), My Listings page (web), Delete listing sheet (phone), Filters sheet (phone), Request Services sheet (phone), TruCheck sheet (phone) — e.g. "…ompetitive price of SAR 225,000, this propert…", "SAR 0", "SAR 10,000,000+", "SAR" |
+| `type.price` | `--pf-ml-type-price` | `17/22 · 700` | [design] | [TBC] the phone draws it as Geist 16/normal · 700 ×123 (screen, Listing Performance bottom sheet; "1,500,000") |
+| `type.subtype` | `--pf-ml-type-subtype` | `12/16 · 600 · #249F62` | [design] | [TBC] the phone draws it as Geist 11/normal · 600 · #10603A ×176 (screen, Listing Performance bottom sheet; "Apartment for Sale"); Geist 12/normal · 600 · #249F62 ×3 (Delete listing sheet, TruCheck sheet; "Apartment for Sale") |
+| `type.location` | `--pf-ml-type-location` | `12/16 · 400 · #707070` | [design] | [TBC] the phone draws it as Geist 12/normal · 400 · #626262 ×153 (screen, Listing Performance bottom sheet; "Al Hazm, West Riyadh"); Geist 12/normal · 400 · #222222 ×27 (screen; "Al Malqa, North Riyadh"); Geist 12/normal · 400 · #707070 ×3 (Delete listing sheet, TruCheck sheet; "Al Hazm, West Riyadh") |
+| `type.stat` | `--pf-ml-type-stat` | `14/18 · 700` | [design] | [TBC] the phone draws it as Geist 12/normal · 700 ×126 (screen; "1,288"); Geist 16/normal · 700 ×8 (Listing Performance bottom sheet; "4,180") |
+| `type.label` | `--pf-ml-type-label` | `11/14 · 500 · #9D9D9D` | [design] | [TBC] the phone draws it as Geist 11/normal · 300 · #4F4F4F ×450 (screen; "Views"); Geist 11/normal · 400 · #626262 ×54 (Listing Performance bottom sheet; "Views") |
+| `type.sheetTitle` | `--pf-ml-type-sheet-title` | `18/24 · 700 · Figtree` | [design] | [TBC] the phone draws it as Geist 18/normal · 700 ×18 (Listing Performance bottom sheet; "Listing Performance"); Figtree 17/normal · 700 ×11 (Delete listing sheet, Filters sheet, Request Services sheet; "Delete this listing?"); Figtree 17/24 · 700 ×2 (How to Earn Quality Score sheet; "How to Earn Quality Score?") |
+| `type.body` | `--pf-ml-type-body` | `13/20 · 400` | [design] | type role (phone, 360pt) — drawn as declared |
+| `motion.sheetIn` | `--pf-ml-motion-sheet-in` | `340ms cubic-bezier(.32,.72,0,1)` | [design] | motion |
+| `motion.sheetOut` | `--pf-ml-motion-sheet-out` | `260ms cubic-bezier(.32,.72,0,1)` | [design] | motion |
+| `motion.chipPress` | `--pf-ml-motion-chip-press` | `120ms ease-out` | [design] | motion |
+| `motion.scoreBar` | `--pf-ml-motion-score-bar` | `640ms cubic-bezier(.22,1,.36,1)` | [design] | motion |
+| `motion.skeleton` | `--pf-ml-motion-skeleton` | `1800ms linear` | [design] | filter simulation hold |
+| `motion.toast` | `--pf-ml-motion-toast` | `3200ms ease` | [design] | in 200 / hold 2800 / out 200 |
+| `elevation.sheet` | `--pf-ml-elevation-sheet` | `0 -8px 32px rgba(0,0,0,0.16)` | [design] | [TBC] not painted as declared — at that offset the build paints rgba(23, 26, 31, 0.18) 0px -8px 40px 0px on Listing Performance bottom sheet, Delete listing sheet, Filters sheet, Filter value sheet, Request Services sheet, Listing actions sheet, Date range sheet, Share sheet, Sort sheet, TruCheck sheet |
+| `elevation.card` | `--pf-ml-elevation-card` | `0 1px 2px rgba(0,0,0,0.04)` | [design] | [TBC] not painted as declared — at that offset the build paints rgba(0, 0, 0, 0.25) 0px 1px 3px 0px on More Filters drawer, Filters sheet; rgba(0, 0, 0, 0.08) 0px 1px 2px 0px on Listing Performance drawer; rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px on Request Services modal; rgba(23, 26, 31, 0.24) 0px 1px 3px 0px on screen; rgba(23, 26, 31, 0.26) 0px 1px 4px 0px on Filters sheet |
+| `elevation.toast` | `--pf-ml-elevation-toast` | `0 14px 34px rgba(0,0,0,0.22)` | [design] | [TBC] painted nowhere in the compiled states |
+| `elevation.rankBad` | `--pf-ml-elevation-rank-bad` | `0 0 2px rgba(255,0,0,0.12) inset` | [design] | elevation — painted as declared |
+| `target.min` | `--pf-ml-target-min` | `44px` | [design] | touch target |
+| `target.iconButton` | `--pf-ml-target-icon-button` | `44px` | [design] | [TBC] the phone's icon buttons are 32x32 (screen), 40x40 (screen), 24x24 (How to Earn Quality Score sheet) |
+| `target.chip` | `--pf-ml-target-chip` | `32px` | [design] | touch target |
+| `target.row` | `--pf-ml-target-row` | `88px` | [design] | touch target |

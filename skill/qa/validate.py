@@ -220,15 +220,21 @@ def main(argv):
     # 1 and 2 — what is written with the skill, against what the product has
     style_fail, colour_fail = [], []
     written = [(p, h, m) for p, h, m, ref in pairs if not ref]
-    product = {'styles': set(), 'colours': set()}
+    # two themes, two pools: a current-theme design is held to the current
+    # product, a new-theme design (its pf-base in pages/listings-new) to the
+    # new My Listings — never one to the other
+    is_new = lambda p: os.sep + 'listings-new' in p
+    pools = {False: {'styles': set(), 'colours': set()}, True: {'styles': set(), 'colours': set()}}
+    ref_count = 0
     if written:
-        refs = [(h) for p, h, m, ref in pairs if ref]
+        refs = [(p, h) for p, h, m, ref in pairs if ref]
         if design_only:
-            refs = [read(f) for f in html_files('pages', 'atoms', 'molecules', 'organisms')]
-        for h in refs:
-            product['styles'].update(STYLE_RE.findall(h))
-            product['colours'].update(body_colours(h))
-    ref_count = len(refs) if written else 0
+            refs = [(f, read(f)) for f in html_files('pages', 'atoms', 'molecules', 'organisms')]
+        for p, h in refs:
+            pool = pools[is_new(p)]
+            pool['styles'].update(STYLE_RE.findall(h))
+            pool['colours'].update(body_colours(h))
+        ref_count = len(refs)
     for path, html, m in written:
         base_html = None
         sources = ([m['pf-base']] if 'pf-base' in m else []) + [x.strip() for x in m.get('pf-also', '').split(',') if x.strip()]
@@ -238,7 +244,8 @@ def main(argv):
             continue
         if sources:
             base_html = '\n'.join(read(os.path.join(ROOT, x)) for x in sources)
-        check_design(path, html, base_html, product, style_fail, colour_fail, new_theme='listings-new' in m.get('pf-base', ''))
+        new_theme = 'listings-new' in m.get('pf-base', '')
+        check_design(path, html, base_html, pools[new_theme], style_fail, colour_fail, new_theme=new_theme)
     report.add(1, 'no style attribute in a design', style_fail, f'{len(written)} design(s) checked against {ref_count} compiled references, the product as shipped')
     report.add(2, 'no hex or rgb in a design outside css/', colour_fail, f'{len(written)} design(s) checked')
 

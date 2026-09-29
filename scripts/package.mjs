@@ -33,6 +33,7 @@ import { readFileSync, writeFileSync, readdirSync, mkdirSync, existsSync, rmSync
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { ALL } from './pages-list.mjs';
+import { execSync } from 'node:child_process';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const D = join(ROOT, 'deliverables');
@@ -358,6 +359,8 @@ const registry = {
   counts: { atoms: Object.values(components).filter((c) => c.level === 'atom').length, molecules: Object.values(components).filter((c) => c.level === 'molecule').length, organisms: Object.values(components).filter((c) => c.level === 'organism').length, icons: icons.length, pages: Object.keys(pages).length, states: Object.values(pages).reduce((n, p) => n + p.states.length, 0) },
   shell: { components: [...SHELL].sort(), flags: gates.filter((g) => g.files.some((f) => [...SHELL].some((x) => components[x].source === f))).map((g) => `${g.flag}=${g.value}`) },
   components, pages, flows, utilities,
+  /* where a core install fetches what it lacks: the public repo, at the branch this was built on */
+  source: { repo: 'SheikhSaadShafiq/profolio-bayutksa-design-skill', ref: (() => { try { return execSync('git rev-parse --abbrev-ref HEAD', { cwd: ROOT }).toString().trim(); } catch { return 'main'; } })() },
 };
 writeFileSync(join(SKILL, 'registry.json'), JSON.stringify(registry));
 
@@ -474,6 +477,168 @@ token · value · provenance · what it controls. [src] named in the product's t
 |---|---|---|---|
 ${lines.join('\n')}
 `);
+
+/* ── 11 · the new theme: My Listings, Profolio 2.0 ─────────────────── */
+/* compiled from the designer's handover by scripts/theme/ (not yet the
+   product). Its pages sit where every page does — pages/listings-new.html,
+   pages/listings-new/<state>.html — so a design copied from one keeps its
+   links; its fonts and tokens are css/new-theme/. */
+const NT = join(D, 'new-theme');
+const themeStates = json(join(ROOT, 'data', 'theme', 'states.json'), null);
+const themeF = json(join(ROOT, 'data', 'theme', 'foundations.json'), null);
+if (existsSync(join(NT, 'listings.html')) && themeStates && themeF) {
+  mkdirSync(join(SKILL, 'css', 'new-theme'), { recursive: true });
+  for (const f of ['tokens.css', 'fonts.css']) copyFileSync(join(NT, f), join(SKILL, 'css', 'new-theme', f));
+  const ntClasses = new Set();
+  const place = (src, out) => {
+    const depth = out.split('/').length - 1;                  /* pages/x.html → 1, pages/x/y.html → 2 */
+    let h = read(join(NT, src)).replace(/<link rel="stylesheet" href="[^"]*fonts\.css">/, `<link rel="stylesheet" href="${'../'.repeat(depth)}css/new-theme/fonts.css">\n<link rel="stylesheet" href="${'../'.repeat(depth)}css/new-theme/tokens.css">`);
+    for (const m of h.replace(/<(script|style)\b[\s\S]*?<\/\1>/gi, '').matchAll(/\sclass="([^"]*)"/g)) for (const x of m[1].split(/\s+/)) if (x) ntClasses.add(x);
+    write(out, h);
+  };
+  const states = [];
+  const notes = { web: {}, mobile: {} };
+  for (const [key, e] of Object.entries(themeStates)) {
+    if (!e.file) continue;
+    const [device, name] = key.split(':');
+    const mob = device === 'mobile';
+    const src = e.file.replace(/^deliverables\/new-theme\//, '');
+    place(src, name === 'page' ? `pages/listings-new${mob ? '.mobile' : ''}.html` : `pages/listings-new/${name}${mob ? '.mobile' : ''}.html`);
+    notes[device][name] = e.note;
+    if (name !== 'page') states.push([name, device]);
+  }
+  const byName = new Map();
+  for (const [n, d] of states) (byName.get(n) || byName.set(n, new Set()).get(n)).add(d);
+  const same = Object.entries(themeStates).filter(([, e]) => e.same).map(([k, e]) => `${k.replace(':', ' ')} = ${e.same.replace(':', ' ')}`);
+  registry.pages['listings-new'] = {
+    route: '/listings', theme: 'new', status: 'design — Profolio 2.0, not yet live; compiled from the designer\'s handover (Draft 3, 15 Sep 2026)',
+    file: 'pages/listings-new.html', mobile: 'pages/listings-new.mobile.html', frame: { web: '1440x900', mobile: '360x800' },
+    title: 'My Listings — new theme', aliases: ['new my listings', 'my listings 2.0', 'profolio 2.0', 'listing performance drawer', 'quality score', 'listing rank'],
+    tokens: 'tokens.md → My Listings — new theme · css/new-theme/tokens.css (--pf-ml-*)', fonts: 'css/new-theme/fonts.css',
+    spec: ['product/listings-new/README.md', 'product/listings-new/web-spec.md', 'product/listings-new/phone-spec.md'],
+    roles: ['owner'], flags: [],
+    states: [...byName.entries()].map(([n, ds]) => (ds.size === 2 ? n : ds.has('web') ? `${n}@web` : `${n}@360`)).sort(),
+    notes: { web: notes.web, phone: notes.mobile }, own: [...ntClasses].sort(),
+  };
+  registry.pages.listings.themes = { current: 'listings', new: 'listings-new' };
+  registry.themes = {
+    current: { scope: 'every page', tokens: 'tokens.md (the first table) · css/tokens.css', typefaces: ['Figtree', 'Droid Arabic Kufi'] },
+    new: { scope: ['listings'], page: 'listings-new', status: 'not yet live — due about mid-October 2026', tokens: 'tokens.md → My Listings — new theme · css/new-theme/tokens.css', typefaces: ['Geist (UI, My Listings only)', 'Figtree (titles, chrome)'], teal: 'the rank and Quality Score explainers; also the rail\'s active item, the TruCheck glyph, the trend\'s selected metric pill and the tour\'s hero gradient', shell: 'the handover draws its own header and rail; whether the product shell changes is [TBC]', same },
+  };
+  registry.counts.pages = Object.keys(registry.pages).length;
+  registry.counts.states = Object.values(registry.pages).reduce((n, p) => n + p.states.length, 0);
+  writeFileSync(join(SKILL, 'registry.json'), JSON.stringify(registry));
+  /* the spec, in the designer's words, and what the skill needs to know first */
+  for (const f of ['web-spec.md', 'phone-spec.md']) if (existsSync(join(ROOT, 'data', 'theme', 'spec', f))) { mkdirSync(join(SKILL, 'product', 'listings-new'), { recursive: true }); copyFileSync(join(ROOT, 'data', 'theme', 'spec', f), join(SKILL, 'product', 'listings-new', f)); }
+  const stateTable = (dev) => [...byName.entries()].filter(([, ds]) => ds.has(dev)).map(([n]) => `| \`${n}\` | ${notes[dev][n]} | \`pages/listings-new/${n}${dev === 'mobile' ? '.mobile' : ''}.html\` |`).join('\n');
+  write('product/listings-new/README.md', `# My Listings — the new theme
+
+Profolio 2.0 starts with My Listings. Its redesign is **not live yet** (due about mid-October
+2026). What is compiled here is the designer's handover — the build embedded in the spec —
+lifted out at its own size and held to it pixel for pixel (≤0.5%): the design, not yet the
+product. At launch the product is compiled again and compared.
+
+## When to use it
+
+- **Only My Listings** (\`/listings\`) has a new theme. Every other page stays the current theme.
+  The handover draws My Listings with its own header and rail (green Post Listing, Geist, a dot
+  badge); whether the product's shell changes with it is [TBC] — the rail's active item keeps
+  the current teal.
+- The intake asks which theme when a PRD touches My Listings (SKILL.md, row 12).
+- A page that has not been redesigned (dashboard, leads, reports …) is never drawn in the new
+  theme — there are no new tokens for it.
+
+## Its rules
+
+- **Tokens**: \`tokens.md\` → *My Listings — new theme*; as CSS, \`css/new-theme/tokens.css\`
+  (\`--pf-ml-*\`). They are My Listings' tokens only and replace no current token.
+- **Primary is the green**: a ramp −1…11 around \`#28B16D\` (8). The current theme's teal primary
+  and \`colorPrimaryActive\` are gone from My Listings; the green was \`secondaryColor\`.
+- **Teal stays in the rank and Quality Score explainers** — the How to Earn Quality Score drawer
+  (web) and sheet (phone), the rank and quality cards (\`tint.teal050\`). It also shows on the
+  rail's active item, the TruCheck glyph, the trend's selected metric pill, and the onboarding
+  tour's hero card (a \`#F2FAFA\` → \`#F0FAF5\` gradient).
+- **Geist is the UI face, on My Listings only.** Figtree draws the web page title, the empty
+  states, the modals and most sheet and drawer titles; the phone's page title is Lato (the app
+  face) and the Listing Performance drawer and sheet titles are Geist — [TBC]. Arabic is not in
+  the handover.
+- **Markup**: the handover's build writes its styles inline. A block copied from a
+  \`listings-new\` file keeps them; a value you add is a \`--pf-ml-*\` token, or [TBC].
+- **Web 1440 × 900 and phone 360 × 800** (the designer's base, not the product's 375). The phone
+  files carry the designer's device frame — its 9:41 status bar — which is not the product.
+
+## Where the handover disagrees with itself or the product — [TBC] with the designer
+
+${(themeF.mismatch || []).map((m) => `- \`${m.token}\`: ${m.declared} → ${m.painted}`).join('\n')}
+- The closed drawers are parked beside the web frame and still cast their shadow into it: a grey
+  band down the right edge of every web screen but the one where the open More Filters drawer
+  covers that edge. It is in the build (so in every compiled file);
+  it is not in the spec — do not draw it.
+- 03 · F's element table gives the Listing Performance drawer a width of 680; the build draws it
+  780 (as 02b's "the 780px drawer" says). 680 is the How to Earn Quality Score drawer (G).
+- Mark as Booked (03 · J, and the phone's sheet) is specified but drawn by neither build: its chip
+  and its row-menu item change nothing on screen. Not compiled — [TBC] until the designer builds it.
+- The phone's Ad License Requests tab draws an empty body (no request rows, none of its own
+  filters). Not compiled — [TBC]; the web's is \`tab-ad-license-requests\`.
+- The phone's Amenities picker chip opens the listing's second fix, which on that listing is the
+  interior-images fix, so the picker never shows; \`sheet-amenities\` opens the amenities fix
+  (the third) with the picker, as the build does on the listings where it is second.
+- 02c and the phone spec call No active listings "the only state that offers the explainer"; the
+  web build also offers See how scores work on No drafts, Nothing waiting for approval and No
+  removed listings, and the phone build on No drafts.
+- 03's cards B–D describe the tabs as 2, 3 and 4 rows; the build lists 6, 7 and 12 (the
+  \`tab-*-full\` states show every row).
+- 02c's nine case chips on the web only tint a row; each case's drawer is its own state
+  (\`drawer-case-*\`). On the phone the chips pin that case first in the list (\`case-*\`); each
+  case's performance sheet is its own state (\`sheet-case-*\`).
+
+## States — web, 1440 × 900 (\`-full\`: the whole screen, grown until nothing scrolls)
+
+| state | what it shows | file |
+|---|---|---|
+| — | ${(themeStates['web:page'] || {}).note} | \`pages/listings-new.html\` |
+${stateTable('web')}
+
+## States — phone, 360 × 800
+
+| state | what it shows | file |
+|---|---|---|
+| — | ${(themeStates['mobile:page'] || {}).note} | \`pages/listings-new.mobile.html\` |
+${stateTable('mobile')}
+
+Reached two ways, kept once: ${same.join('; ')}.
+
+## The spec, in the designer's words
+
+\`web-spec.md\` (1440) and \`phone-spec.md\` (360): summary, screens with their element tables and
+rules, interaction and motion, assets, edge cases, acceptance criteria, gestures, accessibility,
+performance budget, platform notes, open questions.
+`);
+  /* tokens.md: the new theme's tokens, after the current ones */
+  const nt = [];
+  /* a token the build does not paint as declared says so, in the words the Foundations use */
+  const off = new Map((themeF.mismatch || []).map((m) => [m.token, m.painted]));
+  const NTR = (token, css, value, what) => nt.push(`| \`${token}\` | \`${css}\` | \`${value}\` | [design] | ${off.has(token) ? `[TBC] ${off.get(token)}` : what} |`.replace(/\n/g, ' '));
+  for (const c of themeF.colours) NTR(c.token, c.css, c.value, c.uses === null ? 'declared' : c.uses ? `painted — ${c.uses} uses` : 'declared, not painted');
+  for (const [k, v] of Object.entries(themeF.radius)) NTR(`radius.${k}`, `--pf-ml-radius-${k}`, v >= 999 ? '999px' : `${v}px`, 'corner radius');
+  for (const [k, v] of Object.entries(themeF.space)) NTR(`space.${k}`, `--pf-ml-space-${k}`, `${v}px`, 'padding, margin or gap');
+  for (const [k, v] of Object.entries(themeF.type.family)) NTR(`type.family.${k}`, `--pf-ml-font-${k}`, v, (themeF.families.find((f) => f.family === v) || {}).share ? `${themeF.families.find((f) => f.family === v).share} of the text` : 'not painted');
+  if (off.has('currency')) nt.push(`| currency | — | the riyal glyph | [product] | [TBC] ${off.get('currency')} |`);
+  for (const [k, r] of Object.entries(themeF.type)) if (k !== 'family') NTR(`type.${k}`, `--pf-ml-type-${k.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()}`, `${r.size}/${r.line} · ${r.weight}${r.family ? ` · ${r.family}` : ''}${r.color ? ` · ${r.color}` : ''}`, 'type role (phone, 360pt) — drawn as declared');
+  for (const [k, m] of Object.entries(themeF.motion)) NTR(`motion.${k}`, `--pf-ml-motion-${k.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()}`, `${m.duration}ms ${m.curve}`, m.note || 'motion');
+  for (const [k, v] of Object.entries(themeF.elevation)) NTR(`elevation.${k}`, `--pf-ml-elevation-${k.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()}`, v, 'elevation — painted as declared');
+  for (const [k, v] of Object.entries(themeF.target)) NTR(`target.${k}`, `--pf-ml-target-${k.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()}`, `${v}px`, 'touch target');
+  write('tokens.md', `${read(join(SKILL, 'tokens.md'))}
+## My Listings — new theme
+
+**My Listings only** (Profolio 2.0, not yet live) — the designer's \`tokens.json\` (${themeF.meta.name}, base ${themeF.meta.base}, ${themeF.meta.updated}), each held against what the new My Listings' ${themeF.states.web + themeF.states.phone} compiled states paint. As CSS: \`css/new-theme/tokens.css\`. [design] = the designer's, not yet the product. Every other page uses the table above.
+
+| token | css | value | tag | measured |
+|---|---|---|---|---|
+${nt.join('\n')}
+`);
+  console.log(`  new theme — pages/listings-new: ${byName.size} states (${states.filter(([, d]) => d === 'web').length} web, ${states.filter(([, d]) => d === 'mobile').length} phone) · ${nt.length} tokens · ${ntClasses.size} runtime classes`);
+}
 
 /* ── the count ──────────────────────────────────────────────────────── */
 const c = registry.counts;
