@@ -36,3 +36,6 @@ data/qa/pairs-*.json
 # handover by npm run theme (scripts/theme/capture.mjs)
 data/theme/live/
 data/theme/ours/
+
+# the .skill file — built by npm run skill:file, published as a GitHub release asset, never committed
+dist/

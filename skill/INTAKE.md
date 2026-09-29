@@ -29,7 +29,8 @@ product, for the designer when it is about the design.
   every screen's purpose and copy, and every state's trigger, title, controls and strings. It
   prints the pages and states that match, best first, with their files.
 - Also match `registry.pages[x].aliases`, and check `pages[x].labels` for what a page already shows.
-- On a core install, fetch what you will open: `python3 qa/fetch.py <page> [<state>…] [--375]`.
+- The `.skill` carries no pages: fetch what you will open, `python3 qa/fetch.py <page> [<state>…] [--375]`
+  (`find.mjs` prints the command and the file's GitHub link).
 - Never guess a page from its name alone. Quote the files you matched.
 
 ## 2 · The questions

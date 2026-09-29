@@ -6,7 +6,7 @@
     python3 qa/validate.py --package designs/x.html   those designs, and the package's checks 4-7
     python3 qa/validate.py --design-only        every design in designs/: checks 1-3
 
-On a core install (no atoms/, molecules/, organisms/) the package checks
+On a .skill install (no atoms/, molecules/, organisms/) the package checks
 4-7 are skipped and say so; they never fail a design.
 
 Exits 1 when any check fails. Standard library only.
@@ -550,6 +550,10 @@ def main(argv):
     design_only = '--design-only' in argv or (bool(designs) and '--package' not in argv)
     core = not all(os.path.isdir(os.path.join(ROOT, d)) for d in ('atoms', 'molecules', 'organisms'))
     reg = load_registry()
+    missing_css = [a for a in (reg.get('source') or {}).get('assets', []) if a.startswith('css/') and not os.path.exists(os.path.join(ROOT, a))]
+    if missing_css:
+        print(f'  css/ is not installed ({len(missing_css)} files) — the checks read it. From skill/: python3 qa/fetch.py --css')
+        return 2
     known = known_classes(reg)
     report = Report()
 
@@ -615,7 +619,7 @@ def main(argv):
     report.add(3, 'every class on a page is in registry.json', [f'.{c} — first on {where}' for c, where in sorted(unknown.items())], f'{len(known)} classes known')
 
     if not design_only and core:
-        print('  core install: the package checks 4-7 need atoms/, molecules/ and organisms/ — skipped')
+        print('  .skill install: the package checks 4-7 need atoms/, molecules/ and organisms/ — skipped')
     if not design_only and not core:
         # 4 — every registry file exists
         missing = []

@@ -387,6 +387,16 @@ const utilities = [...unowned.entries()].filter(([, ps]) => ps.size > 1).map(([x
 /* each step {id, heading, primary, toast?, base?}, read from its compiled file; the clock from the captures */
 const flows = flowsFor(kb.flows, pageFiles);
 const CLOCK = clockFor(ROOT, pageFiles);
+/* every file under css/, and the prototype script — re-listed once the new theme adds css/new-theme/ */
+function assetsOf() {
+  const walk = (d) => readdirSync(join(SKILL, d), { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(`${d}/${e.name}`) : e.name.startsWith('.') ? [] : [`${d}/${e.name}`]));
+  return [...walk('css'), 'pages/prototype.js'].sort();
+}
+const SOURCE = (() => {
+  const repo = 'SheikhSaadShafiq/profolio-bayutksa-design-skill';
+  const ref = process.env.SKILL_REF || (() => { try { return execSync('git rev-parse --abbrev-ref HEAD', { cwd: ROOT }).toString().trim(); } catch { return 'main'; } })();
+  return { repo, ref, raw: `https://raw.githubusercontent.com/${repo}/refs/heads/${ref}/skill/`, assets: assetsOf() };
+})();
 const registry = {
   built: new Date().toISOString().slice(0, 10), product: FLAGS.sha, clock: CLOCK.registry,
   counts: { atoms: Object.values(components).filter((c) => c.level === 'atom').length, molecules: Object.values(components).filter((c) => c.level === 'molecule').length, organisms: Object.values(components).filter((c) => c.level === 'organism').length, icons: icons.length, pages: Object.keys(pages).length, states: Object.values(pages).reduce((n, p) => n + p.states.length, 0) },
@@ -394,8 +404,10 @@ const registry = {
   components, pages, flows, utilities,
   /* antd writes these elements' position inline at runtime; qa/validate.py check 1 lets a design re-measure them (left, width, height, transform, in px or %) */
   runtime_geometry: ['.pf-tabs-ink-bar', '.pf-tabs-nav-list'],
-  /* where a core install fetches what it lacks: the public repo, at the branch this was built on */
-  source: { repo: 'SheikhSaadShafiq/profolio-bayutksa-design-skill', ref: process.env.SKILL_REF || (() => { try { return execSync('git rev-parse --abbrev-ref HEAD', { cwd: ROOT }).toString().trim(); } catch { return 'main'; } })() },
+  /* where the .skill fetches what it lacks: the public repo, at the branch this was built on
+     (SKILL_REF=main for a release). raw + a package path is the file's GitHub link; assets are
+     the shared files every page links (css/, the prototype script) — qa/fetch.py --css */
+  source: SOURCE,
 };
 /* the registry's promises about usage (#4, #21) — qa/validate.py check 7 says the same */
 { const bad = checkUsage(registry); if (bad.length) { console.error(`  usage check — ${bad.length} failure(s):\n    ${bad.slice(0, 20).join('\n    ')}`); process.exit(1); } }
@@ -532,6 +544,7 @@ if (existsSync(join(NT, 'listings.html')) && themeStates && themeF) {
   };
   registry.counts.pages = Object.keys(registry.pages).length;
   registry.counts.states = Object.values(registry.pages).reduce((n, p) => n + p.states.length, 0);
+  registry.source.assets = assetsOf();
   writeFileSync(join(SKILL, 'registry.json'), JSON.stringify(registry));
   /* the spec, in the designer's words, and what the skill needs to know first */
   for (const f of ['web-spec.md', 'phone-spec.md']) if (existsSync(join(ROOT, 'data', 'theme', 'spec', f))) { mkdirSync(join(SKILL, 'product', 'listings-new'), { recursive: true }); copyFileSync(join(ROOT, 'data', 'theme', 'spec', f), join(SKILL, 'product', 'listings-new', f)); }

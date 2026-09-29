@@ -39,28 +39,37 @@ product's own compiled HTML. That HTML stays here on GitHub: the skill finds wha
 in its design knowledge base (`node qa/find.mjs "<PRD words>"`) and fetches just those files
 (`python3 qa/fetch.py <page> <state>`).
 
-**Claude Code** — the core (about 7 MB); pages are fetched on demand:
+**Get it** — download
+[`profolio-ksa-design.skill`](https://github.com/SheikhSaadShafiq/profolio-bayutksa-design-skill/releases/latest/download/profolio-ksa-design.skill)
+from the [latest release](https://github.com/SheikhSaadShafiq/profolio-bayutksa-design-skill/releases/latest).
+It carries the instructions, the registry, the tokens and the product and design knowledge
+bases. The stylesheets and pages stay here, and the skill fetches only what a PRD needs.
+
+**claude.ai** — upload the `.skill` file under Settings → Capabilities → Skills (code execution
+on). The skill downloads pages from `raw.githubusercontent.com`, so the chat's code execution needs
+network access to that domain. Without it the skill still runs the intake (the gap check, the
+questions, the edge cases and the plan) and says which pages it could not open.
+
+**Claude Code** — a `.skill` file is a zip; unzip it into your skills folder:
 
 ```bash
-git clone --depth 1 --filter=blob:none --sparse https://github.com/SheikhSaadShafiq/profolio-bayutksa-design-skill.git profolio-skill
-cd profolio-skill
-git sparse-checkout set --no-cone /skill/SKILL.md /skill/INTAKE.md /skill/registry.json /skill/tokens.md \
-  '/skill/kb/' '/skill/product/' '/skill/css/' '/skill/qa/' /skill/examples/worked-example.md /skill/pages/prototype.js
-mkdir -p ~/.claude/skills && ln -s "$PWD/skill" ~/.claude/skills/profolio-ksa-design
+mkdir -p ~/.claude/skills && unzip -o profolio-ksa-design.skill -d ~/.claude/skills/
 ```
 
-Until the skill is merged into `main`, add `--branch claude/theme-refresh` to the clone. Then, in any Claude Code session, paste a PRD ("design this for Profolio KSA: …").
-(`git sparse-checkout set skill` instead installs the whole package, about 450 MB, with every
-page local.)
+Then, in any session, paste a PRD ("design this for Profolio KSA: …"). To have every page local
+instead (about 450 MB), clone this repo and link its `skill/` folder:
+`ln -s "$PWD/skill" ~/.claude/skills/profolio-ksa-design`.
 
-**claude.ai** — upload `dist/profolio-ksa-design.zip` under Settings → Capabilities → Skills
-(code execution on). To fetch pages, the chat's code execution needs network access to
-`raw.githubusercontent.com`; without it the skill still plans from its registry, labels and
-copy index, and says which files it could not open.
+**Build a release** — pages are fetched from `skill/registry.json` → `source.ref`, so build
+from `main`:
 
-Pages are fetched from the branch in `skill/registry.json` → `source.ref`. Build with
-`SKILL_REF=main npm run package` once the skill is on `main`, so every install fetches from
-the default branch.
+```bash
+SKILL_REF=main npm run package && npm run skill:file
+```
+
+```bash
+gh release create skill-vX.Y dist/profolio-ksa-design.skill --title "Profolio KSA design skill vX.Y"
+```
 
 ## Running it
 

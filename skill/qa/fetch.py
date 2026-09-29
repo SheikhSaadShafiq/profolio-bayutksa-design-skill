@@ -4,6 +4,7 @@
     python3 qa/fetch.py <page> [<state> ...] [--375] [--roles] [--dry-run]
     python3 qa/fetch.py --flow <name> [--375] [--dry-run]
     python3 qa/fetch.py --component <slug> [<slug> ...] [--dry-run]
+    python3 qa/fetch.py --css [--dry-run]
 
 Run from skill/. <page> is a registry.pages id (or one of its aliases).
 A <state> is a registry state id, with or without its @web / @375 suffix,
@@ -18,6 +19,11 @@ It expands, in this order:
                            the owner fixture's only: product/roles.md)
   --flow <name>            every step of registry.flows[<name>]
   --component              the arguments are components: registry.components[x].file
+  --css                    every shared file: css/ and pages/prototype.js
+                           (registry.source.assets) — before grepping css/ or
+                           running qa/validate.py
+  and, for every page file, the stylesheets and scripts it links that are not
+  here yet (../css/…, prototype.js), so it renders as the product does.
 
 A state id ending @web exists only as pages/<page>/<state>.html; one ending
 @375 (@360 on the new My Listings) only as pages/<page>/<state>.mobile.html —
@@ -27,8 +33,10 @@ phone-only state named on its own.
 
 Each file prints with its size: "have" (already here), "get" (fetched now)
 or "need" (--dry-run: not here; its size asked of the server). Missing files
-come from the public repo, registry.json -> source.repo at source.ref, into the
-same relative path, so their ../css/ and ../prototype.js links hold.
+come from the public repo — registry.json -> source.raw + the file's path, its
+GitHub link — into the same relative path, so their ../css/ links hold.
+A read-only skill folder (claude.ai mounts skills read-only) is not written:
+copy the skill somewhere writable first; the message says how.
 
 Exits 1 when a file could not be fetched, 2 on a page or state the registry
 does not know. Standard library only.
@@ -36,6 +44,7 @@ does not know. Standard library only.
 import fnmatch
 import json
 import os
+import re
 import sys
 import urllib.error
 import urllib.parse
@@ -161,9 +170,46 @@ def human(n):
 
 def url_of(reg, path):
     src = reg.get('source') or {}
+    if src.get('raw'):
+        return src['raw'] + urllib.parse.quote(path, safe='/')
     if not src.get('repo') or not src.get('ref'):
         die('registry.json has no source.repo / source.ref to fetch from')
     return RAW.format(repo=src['repo'], ref=urllib.parse.quote(src['ref'], safe='/'), path=urllib.parse.quote(path, safe='/'))
+
+
+LINKED = re.compile(r'(?:href|src)="([^"]+)"|@import\s+(?:url\()?["\']([^"\']+)["\']|url\(["\']?([^"\')]+)')
+ASSET_EXT = ('.css', '.js', '.svg', '.json', '.woff', '.woff2')
+
+
+def linked_assets(path):
+    """the shared files a page, component or stylesheet here links by a relative path"""
+    dest = os.path.join(ROOT, path)
+    if not path.endswith(('.html', '.css')) or not os.path.exists(dest):
+        return []
+    with open(dest, encoding='utf-8', errors='replace') as f:
+        text = f.read()
+    out = []
+    for m in LINKED.finditer(text):
+        link = next(g for g in m.groups() if g)
+        link = link.split('#')[0].split('?')[0]
+        if not link or ':' in link or link.startswith(('/', '//')) or not link.endswith(ASSET_EXT):
+            continue
+        rel = os.path.normpath(os.path.join(os.path.dirname(path), link)).replace(os.sep, '/')
+        if not rel.startswith('..') and rel not in out:
+            out.append(rel)
+    return out
+
+
+def writable_or_die(paths):
+    """claude.ai mounts a skill read-only: say how to work on a copy instead"""
+    missing = [p for p in paths if not os.path.exists(os.path.join(ROOT, p))]
+    if not missing or os.access(ROOT, os.W_OK):
+        return
+    home = os.path.join(os.path.expanduser('~'), os.path.basename(ROOT))
+    print(f'  {ROOT} is read-only, so nothing can be fetched into it. Work on a copy:')
+    print(f'\n    cp -r "{ROOT}" "{home}" && cd "{home}"\n')
+    print('  then run this command again from there, and write designs/ there.')
+    sys.exit(2)
 
 
 def request(url, method='GET'):
@@ -201,8 +247,8 @@ def fetch(url, dest):
 def main(argv):
     flags = {'--help' if a == '-h' else a for a in argv if a.startswith('-')}
     args = [a for a in argv if not a.startswith('-')]
-    unknown = flags - {'--375', '--roles', '--dry-run', '--flow', '--component', '--help'}
-    if '--help' in flags or (not args and '--flow' not in flags):
+    unknown = flags - {'--375', '--roles', '--dry-run', '--flow', '--component', '--css', '--help'}
+    if '--help' in flags or (not args and '--flow' not in flags and '--css' not in flags):
         print(__doc__.strip())
         return 0 if '--help' in flags else 2
     if unknown:
@@ -210,6 +256,11 @@ def main(argv):
     reg = load_registry()
     phone, roles, dry = '--375' in flags, '--roles' in flags, '--dry-run' in flags
     files, notes = [], []
+    if '--css' in flags:
+        assets = (reg.get('source') or {}).get('assets') or []
+        if not assets:
+            die('registry.json has no source.assets — rebuild the package')
+        files += [(a, 'web') for a in assets]
     if '--flow' in flags:
         i = argv.index('--flow')
         name = argv[i + 1] if i + 1 < len(argv) and not argv[i + 1].startswith('--') else None
@@ -235,8 +286,12 @@ def main(argv):
         got, n = expand(reg, page, args[1:], phone, roles)
         files += got
         notes += n
+    if not dry:
+        writable_or_die([p for p, _ in files])
     seen, total, failed, need = set(), 0, 0, 0
-    for path, layout in files:
+    queue = [p for p, _ in files]
+    while queue:
+        path = queue.pop(0)
         if path in seen:
             continue
         seen.add(path)
@@ -245,6 +300,7 @@ def main(argv):
             n = os.path.getsize(dest)
             total += n
             print(f'  have {human(n):>8}  {path}')
+            queue += [a for a in linked_assets(path) if a not in seen and a not in queue]
             continue
         url = url_of(reg, path)
         if dry:
@@ -261,6 +317,7 @@ def main(argv):
         else:
             total += n
             print(f'  get  {human(n):>8}  {path}')
+            queue += [a for a in linked_assets(path) if a not in seen and a not in queue]
     for note in notes:
         print(f'  note {note}')
     print(f'\n  {len(seen)} files, {human(total)}' + (f' — {need} to fetch' if dry else '') + (f' — {failed} failed' if failed else ''))

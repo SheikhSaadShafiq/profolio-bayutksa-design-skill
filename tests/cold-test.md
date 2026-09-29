@@ -12,29 +12,21 @@ behaves the same way. Test it cold.
 
 ## 1 · Set up a fresh session
 
-**Claude Code (recommended).** Claude Code loads a skill from a folder and reads the rest on
-demand, so the package can be installed whole or with only its core.
+**Claude Code (recommended).** Install the `.skill` file from the latest release: it carries
+the instructions, registry, tokens and both knowledge bases, and fetches pages and `css/` from
+GitHub by path.
 
 ```bash
-# the core only (about 6 MB) — pages and components are fetched by path when needed
-git clone --depth 1 --branch claude/theme-refresh --filter=blob:none --sparse \
-  https://github.com/SheikhSaadShafiq/profolio-bayutksa-design-skill.git profolio-skill
-cd profolio-skill
-git sparse-checkout set --no-cone /skill/SKILL.md /skill/INTAKE.md /skill/registry.json /skill/tokens.md \
-  '/skill/kb/' '/skill/product/' '/skill/css/' '/skill/qa/' /skill/examples/worked-example.md /skill/pages/prototype.js
-# or the whole package (about 450 MB): git sparse-checkout set skill
-
-mkdir -p ~/.claude/skills && ln -s "$PWD/skill" ~/.claude/skills/profolio-ksa-design
+curl -LO https://github.com/SheikhSaadShafiq/profolio-bayutksa-design-skill/releases/latest/download/profolio-ksa-design.skill
+mkdir -p ~/.claude/skills && unzip -o profolio-ksa-design.skill -d ~/.claude/skills/
 ```
 
 Then open a new Claude Code session **in an empty folder** — not this repo, and not a session
-that has seen this conversation — and paste one PRD below. On a core install the session
-fetches the pages it needs with `python3 qa/fetch.py <page> [<state>…]`.
+that has seen this conversation — and paste one PRD below. The session fetches what it needs
+with `python3 qa/fetch.py --css` and `python3 qa/fetch.py <page> [<state>…]`.
 
-**claude.ai.** Upload `dist/profolio-ksa-design.zip` under Settings → Capabilities → Skills, or start a new chat and attach: `SKILL.md`, `INTAKE.md`, `registry.json`, `tokens.md`,
-`product/flags.md`, `product/roles.md`, `product/routes.md`, `product/copy.md`, and the
-`product/copy/rendered/<page>.md` and `product/pages/<page>.md` of the pages the PRD names.
-Page files are 0.3–1.5 MB each; attach one only if the session asks for it by path.
+**claude.ai.** Upload the same `.skill` file under Settings → Capabilities → Skills, with code
+execution allowed to reach `raw.githubusercontent.com`, and start a new chat.
 
 ---
 
@@ -79,7 +71,7 @@ Page files are 0.3–1.5 MB each; attach one only if the session asks for it by 
 
 ## 3 · What a correct intake looks like
 
-Every run: reads `registry.json` first, then `INTAKE.md`; never reads `css/profolio.css` or
+Every run: reads `registry.json` first, then `INTAKE.md`; fetches, never guesses, a file the `.skill` lacks; never reads `css/profolio.css` or
 `product/flags.md` whole (grep); shows the PRD gap check (§ 0); finds the screens with
 `node qa/find.mjs` (§ 1); presents the product table (P1–P8) and the design table (D1–D9) with
 a proposal and a confidence in every row; asks only rows it could not fill or filled at low
