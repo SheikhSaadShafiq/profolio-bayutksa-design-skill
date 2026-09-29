@@ -26,8 +26,8 @@ const bad = (m) => { fails.push(m); console.log(`  FAIL  ${m}`); };
 const warn = (m) => { warns.push(m); console.log(`  warn  ${m}`); };
 const json = (p) => (existsSync(join(ROOT, p)) ? JSON.parse(readFileSync(join(ROOT, p), 'utf8')) : null);
 
-/* ── 1 · every path SKILL.md routes to ─────────────────────────────────── */
-const skill = readFileSync(join(ROOT, 'SKILL.md'), 'utf8');
+/* ── 1 · every path the maintainer's table (MAINTAINING.md) routes to ───── */
+const skill = readFileSync(join(ROOT, 'MAINTAINING.md'), 'utf8');
 let checked = 0;
 for (const [, path, blurb] of skill.matchAll(/^\|\s*`([^`]+)`\s*\|(.+)\|$/gm)) {
   if (!/^(kb|deliverables|data|harness|authoring|scripts)\//.test(path)) continue;
@@ -35,10 +35,22 @@ for (const [, path, blurb] of skill.matchAll(/^\|\s*`([^`]+)`\s*\|(.+)\|$/gm)) {
   const probe = path.includes('<') ? dirname(path) : path;
   const full = join(ROOT, probe);
   const conditional = /if one has been captured|empty until|check it exists|until someone/i.test(blurb);
-  if (!existsSync(full)) { conditional ? warn(`${path} — absent, and the table says so`) : bad(`${path} — SKILL.md routes here and it does not exist`); continue; }
-  if (statSync(full).isDirectory() && readdirSync(full).length === 0) { conditional ? warn(`${path} — empty, and the table says so`) : bad(`${path} — SKILL.md routes here and it is empty`); continue; }
+  if (!existsSync(full)) { conditional ? warn(`${path} — absent, and the table says so`) : bad(`${path} — MAINTAINING.md routes here and it does not exist`); continue; }
+  if (statSync(full).isDirectory() && readdirSync(full).length === 0) { conditional ? warn(`${path} — empty, and the table says so`) : bad(`${path} — MAINTAINING.md routes here and it is empty`); continue; }
 }
-ok(`SKILL.md — ${checked} routed paths resolve`);
+ok(`MAINTAINING.md — ${checked} routed paths resolve`);
+/* …and every path the skill's own router (skill/SKILL.md) names, once the
+   package is built (npm run package) */
+if (existsSync(join(ROOT, 'skill', 'registry.json'))) {
+  const router = readFileSync(join(ROOT, 'skill', 'SKILL.md'), 'utf8');
+  let routed = 0;
+  for (const [, path] of router.matchAll(/`((?:registry\.json|tokens\.md|(?:product|atoms|qa|css)\/[\w./<>-]+))`/g)) {
+    routed++;
+    const probe = path.includes('<') ? dirname(path) : path;
+    if (!existsSync(join(ROOT, 'skill', probe))) bad(`skill/${path} — skill/SKILL.md routes here and it does not exist`);
+  }
+  ok(`skill/SKILL.md — ${routed} routed paths resolve`);
+}
 
 /* ── 2 · the compiled pages ───────────────────────────────────────────────
    Each one: compiled (the meta says from which route and state), linked to

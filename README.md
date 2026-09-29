@@ -9,7 +9,8 @@ it got against the product it came from.
 
 | Path | What |
 |---|---|
-| `SKILL.md` | The router for the agent. Small on purpose. |
+| `skill/` | **The skill package — install this.** `SKILL.md` (routing, intake gate, output contract), `registry.json` (every component and page), `tokens.md`, a file per component in `atoms/` `molecules/` `organisms/`, every page and state in `pages/`, the locked `css/`, `product/` (flags, copy, roles, routes, KSA), `qa/validate.py` and `qa/overlay.html`, `examples/`. Built by `npm run package` from the compiled design system; `npm run validate` checks it. |
+| `MAINTAINING.md` | How the generator repo is laid out and how each part is made — for whoever regenerates the skill. |
 | `deliverables/design-system.html` | **The design system.** Foundations (what the compiled pages paint: the two typefaces, colour ramps, the type scale, the corners), atoms, molecules, organisms, templates, then every compiled page and state, and the product knowledge that goes with them. |
 | `deliverables/components/` | One page per component: live variants, markup, the exact CSS, forced interaction states, anatomy, usage, source file, copy — a spec sheet per variant (measured, with token names), and for buttons, inputs, selects, pickers, checkboxes, radios and switches a table of every state. |
 | `deliverables/<page>.html`, `deliverables/states/` | The 24 pages and every reachable state, compiled from the product, pixel-identical at 1440: overlays and what they lead to (`--<parent>__<child>`), form states, loading / empty / error on every signed-in page, four flows as numbered steps (`--flow-<flow>-<nn>-<step>`), and the account variants (`--as-staff`, `--as-individual`, `--profile-incomplete`, `--modal-non-saudi`). A clickable prototype: triggers link to their states, Escape / ✕ / Cancel go back, ← → walk a flow, the rail and menus go to the other pages, and **M** switches between web and responsive. |
@@ -42,7 +43,7 @@ npm run all
 
 `npm run all` regenerates the knowledge base from the product source, captures every route,
 compiles every page and state for the web and the responsive layout, builds the design system
-and the design knowledge base, packs the three self-contained files, runs the Design QA and `npm run check`.
+and the design knowledge base, packs the three self-contained files, builds the skill package (`skill/`), runs the Design QA and `npm run check`.
 Each stage can be run alone — see `package.json`. To find states again after a product
 change: `npm run explore` and `npm run explore:mobile`, then each again with `-- --nested` for what the modals and drawers lead to.
 

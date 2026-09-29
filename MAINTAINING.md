@@ -1,11 +1,10 @@
----
-name: profolio-ksa-design
-version: 1.0.0
-source_commit: Profolio-Surge-28sep (local git c354183)
-description: "Design system for Bayut Profolio KSA — the agent and seller portal at profolio.bayut.sa. Use when designing, changing or reviewing any Profolio KSA screen, component or flow: turning a PRD into artboards, checking an existing screen against the system, finding which tokens, components or flags a surface uses, or locating where a feature lives in the codebase. Triggers on 'design this screen for Profolio', 'what does the listings page use', 'add X to Profolio KSA', 'is there a component for Y', 'make a mockup of the dashboard'. Covers tenant bayut (KSA) only — not Oman, Bahrain, Qatar, Jordan, Egypt or Zameen, and not the consumer side of bayut.sa, which Strat owns."
----
+# Profolio KSA design system — maintaining it
 
-# Profolio KSA Design System
+**The skill is `skill/`** — install `skill/` (its `SKILL.md` is the router). This file is for
+whoever regenerates it: what the generator repo holds and how each part is made. It was the
+skill's router before the package existed; its file table still describes `kb/`, `deliverables/`
+and the tools that build `skill/` (`npm run package`, after `npm run ds`).
+
 
 You give a designer the existing design, tokens and product knowledge for **Bayut Profolio
 KSA**, then help them design on top of it. You do not design unsupervised — see *How you

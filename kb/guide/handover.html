@@ -72,6 +72,8 @@ sandbox with no Nexus access and rewrites <code>.env</code> and the lockfile.</p
   <tr><td><code>npm run brief -- &lt;prd.md&gt;</code></td><td>a PRD turned into a design brief: per requirement, the compiled screens and states to start from (web and 375), what the design must cover — roles, both layouts, loading / empty / error, form and flow states — the shipped copy, the flags, and the gaps, named</td></tr>
   <tr><td><code>npm run lint -- &lt;design.html&gt; --pair &lt;design-375.html&gt;</code></td><td>an artboard held to the system: classes, colours, icons, copy, currency, shell measurements and nav, type, the 375 pair, disabled dimming — exits 1 on a failure</td></tr>
   <tr><td><code>npm run delta b</code></td><td>what a second real account shows that the first does not — endpoints, keys, enum values, and each screen's classes and counts</td></tr>
+  <tr><td><code>npm run package</code></td><td>the skill package, <code>skill/</code>, cut out of the design system: <code>registry.json</code>, <code>tokens.md</code>, a file per component by level, every page and state, the locked stylesheets, <code>product/</code>. The hand-written parts (<code>skill/SKILL.md</code>, <code>qa/</code>, <code>examples/</code>) are never overwritten</td></tr>
+  <tr><td><code>npm run validate</code></td><td><code>skill/qa/validate.py</code> — the package and any design in <code>skill/designs/</code> held to the system; CI runs it on every push and pull request</td></tr>
   <tr><td><code>npm run combine</code></td><td>everything as three self-contained files — <a href="../../deliverables/profolio-ksa.html"><code>deliverables/profolio-ksa.html</code></a> (web), <code>profolio-ksa-responsive.html</code>, <code>profolio-ksa-components.html</code> — each under GitHub's 50 MB, each opening on the index</td></tr>
   <tr><td><code>npm run check</code></td><td>the invariants, and the capture privacy tests</td></tr>
   <tr><td><code>npm run check-fixtures</code></td><td>every fixture answer against the real API's recorded shape</td></tr>
@@ -82,6 +84,11 @@ sandbox with no Nexus access and rewrites <code>.env</code> and the lockfile.</p
 <h2>What is built</h2>
 
 <ul>
+  <li><strong><code>skill/</code></strong> — <strong>the skill to install</strong>: routing, the intake
+  gate and the output contract in <code>SKILL.md</code>; the registry, the tokens, the components by
+  level, every page and state, the locked CSS, the product knowledge, <code>qa/validate.py</code>,
+  <code>qa/overlay.html</code> and the worked example. <code>MAINTAINING.md</code> describes the repo
+  that builds it.</li>
   <li><strong><a href="../../deliverables/design-system.html"><code>deliverables/design-system.html</code></a></strong> — foundations measured from
   what the compiled pages paint (Figtree and Droid Arabic Kufi, the colour ramps, the type scale, the corners), every component as atom, molecule, organism or template (antd's, as the
   product themes them, and the product's own, named and sourced from its files), every page
