@@ -94,12 +94,13 @@ shipped, marked `pf-compiled` / `pf-component`. Never edit one. Copy it into `de
 Every page is the **current** theme. **My Listings alone** has a **new** theme (Profolio 2.0,
 not live yet): `pages/listings-new*.html`, compiled from the designer's handover — the
 design, not yet the product. Its tokens are My Listings' only (`--pf-ml-*`, green primary,
-Geist UI face); teal stays in the rank and Quality Score explainers (and a few small places
-the README lists). Never draw another page in the new theme, and never mix the two on one
-screen. The handover draws My Listings with its own header and rail (green Post Listing,
-Geist); whether the product's shell changes with it is [TBC]. Its pages are static screens, one file per state (no `prototype.js`); a value you add there is
-`var(--pf-ml-…)` from `css/new-theme/tokens.css`, which they link. Read
-`product/listings-new/README.md` before designing in it.
+Geist UI face) and follow the build; teal stays in the rank and Quality Score explainers.
+The shell stays the product's: every new-theme screen draws the current header and rail —
+design inside them, never restyle them. The riyal is a glyph, never "SAR". Never draw another
+page in the new theme. Its pages are static screens, one file per state (no `prototype.js`);
+a value you add there is `var(--pf-ml-…)` from `css/new-theme/tokens.css`, which they link.
+States marked `pf-derived` (Mark as Booked) are composed, not drawn by the build — say so.
+Read `product/listings-new/README.md` before designing in it.
 
 ## INTAKE GATE — mandatory, before producing anything
 

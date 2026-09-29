@@ -8,9 +8,10 @@ product. At launch the product is compiled again and compared.
 ## When to use it
 
 - **Only My Listings** (`/listings`) has a new theme. Every other page stays the current theme.
-  The handover draws My Listings with its own header and rail (green Post Listing, Geist, a dot
-  badge); whether the product's shell changes with it is [TBC] — the rail's active item keeps
-  the current teal.
+- **The shell stays the product's** (the designer's decision, 29 Sep 2026): every screen draws the
+  product's own header and rail — the current theme — in place of the handover's. On a phone the
+  product's 60px header replaces the artboard's status bar and title. Design inside it; never
+  restyle it.
 - The intake asks which theme when a PRD touches My Listings (SKILL.md, row 12).
 - A page that has not been redesigned (dashboard, leads, reports …) is never drawn in the new
   theme — there are no new tokens for it.
@@ -18,49 +19,44 @@ product. At launch the product is compiled again and compared.
 ## Its rules
 
 - **Tokens**: `tokens.md` → *My Listings — new theme*; as CSS, `css/new-theme/tokens.css`
-  (`--pf-ml-*`). They are My Listings' tokens only and replace no current token.
+  (`--pf-ml-*`), My Listings' only. They **follow the build** where tokens.json and the build
+  disagreed (the designer's decision): 13 adjusted, 8 named variants added,
+  tokens.json's own values kept in `tokens.md` and `css/new-theme/tokens.resolved.json`.
 - **Primary is the green**: a ramp −1…11 around `#28B16D` (8). The current theme's teal primary
   and `colorPrimaryActive` are gone from My Listings; the green was `secondaryColor`.
 - **Teal stays in the rank and Quality Score explainers** — the How to Earn Quality Score drawer
   (web) and sheet (phone), the rank and quality cards (`tint.teal050`). It also shows on the
-  rail's active item, the TruCheck glyph, the trend's selected metric pill, and the onboarding
-  tour's hero card (a `#F2FAFA` → `#F0FAF5` gradient).
+  TruCheck glyph, the trend's selected metric pill, and the onboarding tour's hero card (a
+  `#F2FAFA` → `#F0FAF5` gradient).
 - **Geist is the UI face, on My Listings only.** Figtree draws the web page title, the empty
-  states, the modals and most sheet and drawer titles; the phone's page title is Lato (the app
-  face) and the Listing Performance drawer and sheet titles are Geist — [TBC]. Arabic is not in
-  the handover.
+  states, the modals and most sheet and drawer titles; the Listing Performance drawer and sheet
+  titles are Geist. Arabic is not in the handover.
+- **The riyal is a glyph** — never "SAR": the screens draw the build's own riyal glyph wherever the
+  handover wrote "SAR" (the designer's decision).
 - **Markup**: the handover's build writes its styles inline. A block copied from a
-  `listings-new` file keeps them; a value you add is a `--pf-ml-*` token, or [TBC].
-- **Web 1440 × 900 and phone 360 × 800** (the designer's base, not the product's 375). The phone
-  files carry the designer's device frame — its 9:41 status bar — which is not the product.
+  `listings-new` file keeps them; a value you add is `var(--pf-ml-…)`, or [TBC].
+- **Web 1440 × 900 and phone 360 × 800** (the designer's base, not the product's 375).
+- **The Listing Performance drawer is 780px** — both builds, and 02b; 03 · F's table says 680,
+  which is the Quality Score drawer's width.
 
-## Where the handover disagrees with itself or the product — [TBC] with the designer
+## Derived — composed from the builds' own data, until the handover draws them
 
-- `elevation.sheet`: 0 -8px 32px rgba(0,0,0,0.16) → not painted as declared — at that offset the build paints rgba(23, 26, 31, 0.18) 0px -8px 40px 0px on Listing Performance bottom sheet, Delete listing sheet, Filters sheet, Filter value sheet, Request Services sheet, Listing actions sheet, Date range sheet, Share sheet, Sort sheet, TruCheck sheet
-- `elevation.card`: 0 1px 2px rgba(0,0,0,0.04) → not painted as declared — at that offset the build paints rgba(0, 0, 0, 0.25) 0px 1px 3px 0px on More Filters drawer, Filters sheet; rgba(0, 0, 0, 0.08) 0px 1px 2px 0px on Listing Performance drawer; rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px on Request Services modal; rgba(23, 26, 31, 0.24) 0px 1px 3px 0px on screen; rgba(23, 26, 31, 0.26) 0px 1px 4px 0px on Filters sheet
-- `elevation.toast`: 0 14px 34px rgba(0,0,0,0.22) → painted nowhere in the compiled states
-- `type.price`: Geist 17/22 · 700 → the phone draws it as Geist 16/normal · 700 ×123 (screen, Listing Performance bottom sheet; "1,500,000")
-- `type.subtype`: Geist 12/16 · 600 · #249F62 → the phone draws it as Geist 11/normal · 600 · #10603A ×176 (screen, Listing Performance bottom sheet; "Apartment for Sale"); Geist 12/normal · 600 · #249F62 ×3 (Delete listing sheet, TruCheck sheet; "Apartment for Sale")
-- `type.location`: Geist 12/16 · 400 · #707070 → the phone draws it as Geist 12/normal · 400 · #626262 ×153 (screen, Listing Performance bottom sheet; "Al Hazm, West Riyadh"); Geist 12/normal · 400 · #222222 ×27 (screen; "Al Malqa, North Riyadh"); Geist 12/normal · 400 · #707070 ×3 (Delete listing sheet, TruCheck sheet; "Al Hazm, West Riyadh")
-- `type.stat`: Geist 14/18 · 700 → the phone draws it as Geist 12/normal · 700 ×126 (screen; "1,288"); Geist 16/normal · 700 ×8 (Listing Performance bottom sheet; "4,180")
-- `type.label`: Geist 11/14 · 500 · #9D9D9D → the phone draws it as Geist 11/normal · 300 · #4F4F4F ×450 (screen; "Views"); Geist 11/normal · 400 · #626262 ×54 (Listing Performance bottom sheet; "Views")
-- `type.sheetTitle`: Figtree 18/24 · 700 → the phone draws it as Geist 18/normal · 700 ×18 (Listing Performance bottom sheet; "Listing Performance"); Figtree 17/normal · 700 ×11 (Delete listing sheet, Filters sheet, Request Services sheet; "Delete this listing?"); Figtree 17/24 · 700 ×2 (How to Earn Quality Score sheet; "How to Earn Quality Score?")
-- `radius.sheet`: 20px (top corners) → 16px on Delete listing sheet, Filter value sheet, Listing actions sheet, Date range sheet, Share sheet, Sort sheet, TruCheck sheet; 20px on How to Earn Quality Score sheet, Listing Performance bottom sheet, Filters sheet, Request Services sheet
-- `target.iconButton`: 44px (target.min 44px) → the phone's icon buttons are 32x32 (screen), 40x40 (screen), 24x24 (How to Earn Quality Score sheet)
-- `color.surface.scrim`: rgba(0,0,0,0.42) → not painted — the build's 42% layer is #171A1F 42% (3 uses)
-- `color.surface.page`: #F3F4F5 → the phone page is #F6F7FB (the screen, 65 states)
-- `type.family.mono`: JetBrains Mono → not painted
-- `currency`: the product writes the riyal as its icon glyph, never "SAR" → "SAR" as text in Listing Performance drawer (web), More Filters drawer (web), Change ownership modal (web), Delete listing modal (web), TruCheck modal (web), Request Services modal (web), My Listings page (web), Delete listing sheet (phone), Filters sheet (phone), Request Services sheet (phone), TruCheck sheet (phone) — e.g. "…ompetitive price of SAR 225,000, this propert…", "SAR 0", "SAR 10,000,000+", "SAR"
+- **Mark as Booked** (03 · J; the phone's row menu for a daily rental) is specified and its logic
+  is in both builds, but neither draws it. `modal-mark-as-booked*` (web) and
+  `sheet-mark-as-booked*` (phone) compose it in the Request Services modal's and sheet's chrome
+  from the build's own values — kinds, calendar cells and their colours, hint, confirm label —
+  laid out as the spec's table says. Tagged `pf-derived`; replace them when the handover draws it.
+  The toast after confirming (`toast-booked`) is the build's own.
+
+## Where the handover disagrees with itself — for the designer
+
+- The phone's Ad License tab is drawn by the build, but 02's scenario chip asks for a tab it does
+  not have ("license", not "adlicense"), so the chip shows an empty body. `tab-ad-license-requests`
+  is captured by selecting the tab itself.
 - The closed drawers are parked beside the web frame and still cast their shadow into it: a grey
   band down the right edge of every web screen but the one where the open More Filters drawer
-  covers that edge. It is in the build (so in every compiled file);
-  it is not in the spec — do not draw it.
-- 03 · F's element table gives the Listing Performance drawer a width of 680; the build draws it
-  780 (as 02b's "the 780px drawer" says). 680 is the How to Earn Quality Score drawer (G).
-- Mark as Booked (03 · J, and the phone's sheet) is specified but drawn by neither build: its chip
-  and its row-menu item change nothing on screen. Not compiled — [TBC] until the designer builds it.
-- The phone's Ad License Requests tab draws an empty body (no request rows, none of its own
-  filters). Not compiled — [TBC]; the web's is `tab-ad-license-requests`.
+  covers that edge. It is in the build (so in every compiled file); it is not in the spec — do not
+  draw it.
 - The phone's Amenities picker chip opens the listing's second fix, which on that listing is the
   interior-images fix, so the picker never shows; `sheet-amenities` opens the amenities fix
   (the third) with the picker, as the build does on the listings where it is second.
@@ -72,6 +68,7 @@ product. At launch the product is compiled again and compared.
 - 02c's nine case chips on the web only tint a row; each case's drawer is its own state
   (`drawer-case-*`). On the phone the chips pin that case first in the list (`case-*`); each
   case's performance sheet is its own state (`sheet-case-*`).
+- `target.min` 44px: a rule, not a size: the build's icon buttons are below it (32, 40, 24px) — accessibility, [TBC] with the designer.
 
 ## States — web, 1440 × 900 (`-full`: the whole screen, grown until nothing scrolls)
 
@@ -88,12 +85,15 @@ product. At launch the product is compiled again and compared.
 | `non-package-empty` | Not a package user, and no listings | `pages/listings-new/non-package-empty.html` |
 | `offline` | Error: no internet — suppresses the rows and any empty state | `pages/listings-new/offline.html` |
 | `skeleton-filtering` | Filtering skeleton — replaces the row list for 1.8s, "Filtering 65 listings..." (02c’s Filtering skeleton chip shows the sort skeleton instead) | `pages/listings-new/skeleton-filtering.html` |
+| `tab-ad-license-requests` | Ad License Requests tab — five statuses, its own filter bar | `pages/listings-new/tab-ad-license-requests.html` |
+| `tab-ad-license-requests-full` | Ad License Requests tab — every request | `pages/listings-new/tab-ad-license-requests-full.html` |
 | `tab-draft` | Draft tab — six drafts (Listing incomplete, Ready to publish, Not enough credits … the first three in frame) | `pages/listings-new/tab-draft.html` |
 | `tab-draft-full` | Draft tab — every draft | `pages/listings-new/tab-draft-full.html` |
 | `tab-pending` | Pending tab — seven listings waiting: in review, changes in review, a license or a payment (the first three in frame) | `pages/listings-new/tab-pending.html` |
 | `tab-pending-full` | Pending tab — every listing waiting | `pages/listings-new/tab-pending-full.html` |
 | `tab-removed` | Removed tab — twelve removed listings: rejected, expired, sold, removed by Bayut … (the first three in frame) | `pages/listings-new/tab-removed.html` |
 | `tab-removed-full` | Removed tab — every removed listing | `pages/listings-new/tab-removed-full.html` |
+| `toast-booked` | After Mark as Booked: a green toast, centre-bottom, 3.2s — "3 nights marked as booked: Sep 11 to Sep 14" | `pages/listings-new/toast-booked.html` |
 | `tour-2` | Onboarding tour, spotlight 1 / 4 — Performance and improvements | `pages/listings-new/tour-2.html` |
 | `tour-3` | Onboarding tour, spotlight 2 / 4 — Split the list by performance | `pages/listings-new/tour-3.html` |
 | `tour-4` | Onboarding tour, spotlight 3 / 4 — Sort by what matters | `pages/listings-new/tour-4.html` |
@@ -129,6 +129,9 @@ product. At launch the product is compiled again and compared.
 | `menu-sort` | The sort menu | `pages/listings-new/menu-sort.html` |
 | `modal-change-ownership` | Change ownership | `pages/listings-new/modal-change-ownership.html` |
 | `modal-delete` | Delete listing — the reasons | `pages/listings-new/modal-delete.html` |
+| `modal-mark-as-booked` | Mark as Booked modal, 520px — daily rentals only: pick the check-in date [derived] | `pages/listings-new/modal-mark-as-booked.html` |
+| `modal-mark-as-booked-blocked` | Mark as Booked modal — the nights blocked instead: Block These Dates [derived] | `pages/listings-new/modal-mark-as-booked-blocked.html` |
+| `modal-mark-as-booked-range` | Mark as Booked modal — a stay picked, 3 nights: Sep 11 to Sep 14 [derived] | `pages/listings-new/modal-mark-as-booked-range.html` |
 | `modal-request-services` | Request Services modal, 520px — Drone, Photography, Videography | `pages/listings-new/modal-request-services.html` |
 | `modal-share` | Share Listing modal, 520px — Copy Bayut Link | `pages/listings-new/modal-share.html` |
 | `modal-share-panel` | Share Listing modal, as the state panel opens it | `pages/listings-new/modal-share-panel.html` |
@@ -136,8 +139,6 @@ product. At launch the product is compiled again and compared.
 | `rank-updating` | Rank updating — the rank tile while the new position is fetched (1.8s, then the new rank) | `pages/listings-new/rank-updating.html` |
 | `skeleton-sorting` | Sorting and filtering skeleton — replaces the row list | `pages/listings-new/skeleton-sorting.html` |
 | `sorting` | While a sort is applied — the rows give way to the skeleton, "Sorting 65 listings..." | `pages/listings-new/sorting.html` |
-| `tab-ad-license-requests` | Ad License Requests tab — five statuses, its own filter bar | `pages/listings-new/tab-ad-license-requests.html` |
-| `tab-ad-license-requests-full` | Ad License Requests tab — every request | `pages/listings-new/tab-ad-license-requests-full.html` |
 | `tour-1` | Onboarding tour, the intro card — My Listings has a new look | `pages/listings-new/tour-1.html` |
 
 ## States — phone, 360 × 800
@@ -177,6 +178,8 @@ product. At launch the product is compiled again and compared.
 | `sheet-improve-quality-full` | Improve Quality — the all-bad listing’s whole sheet, down to its fix list | `pages/listings-new/sheet-improve-quality-full.mobile.html` |
 | `sheet-location-no-match` | Location search — no match | `pages/listings-new/sheet-location-no-match.mobile.html` |
 | `sheet-location-search` | Location search | `pages/listings-new/sheet-location-search.mobile.html` |
+| `sheet-mark-as-booked` | Mark as Booked sheet — daily rentals only: pick the check-in date [derived] | `pages/listings-new/sheet-mark-as-booked.mobile.html` |
+| `sheet-mark-as-booked-range` | Mark as Booked sheet — a stay picked: Sep 11 to Sep 14 [derived] | `pages/listings-new/sheet-mark-as-booked-range.mobile.html` |
 | `sheet-performance` | Listing Performance bottom sheet | `pages/listings-new/sheet-performance.mobile.html` |
 | `sheet-performance-full` | Listing Performance bottom sheet — the whole sheet | `pages/listings-new/sheet-performance-full.mobile.html` |
 | `sheet-quality-score` | How to Earn Quality Score sheet | `pages/listings-new/sheet-quality-score.mobile.html` |
@@ -194,12 +197,15 @@ product. At launch the product is compiled again and compared.
 | `sheet-trucheck` | TruCheck — the first card, not yet verified | `pages/listings-new/sheet-trucheck.mobile.html` |
 | `sheet-trucheck-rejected` | TruCheck — a request that was rejected | `pages/listings-new/sheet-trucheck-rejected.mobile.html` |
 | `skeleton-filtering` | Filtering skeleton — replaces the card list for 1.8s, "Filtering 65 listings..." (02’s Filtering skeleton chip shows the sort skeleton instead) | `pages/listings-new/skeleton-filtering.mobile.html` |
+| `tab-ad-license-requests` | Ad License tab — process: five requests, their status, Request ID and Deed | `pages/listings-new/tab-ad-license-requests.mobile.html` |
+| `tab-ad-license-requests-full` | Ad License tab — every request | `pages/listings-new/tab-ad-license-requests-full.mobile.html` |
 | `tab-draft` | Draft tab — completion | `pages/listings-new/tab-draft.mobile.html` |
 | `tab-draft-full` | Draft tab — every draft | `pages/listings-new/tab-draft-full.mobile.html` |
 | `tab-pending` | Pending tab — waiting | `pages/listings-new/tab-pending.mobile.html` |
 | `tab-pending-full` | Pending tab — every listing waiting | `pages/listings-new/tab-pending-full.mobile.html` |
 | `tab-removed` | Removed tab — recovery | `pages/listings-new/tab-removed.mobile.html` |
 | `tab-removed-full` | Removed tab — every removed listing | `pages/listings-new/tab-removed-full.mobile.html` |
+| `toast-booked` | After Mark as Booked: the build's toast | `pages/listings-new/toast-booked.mobile.html` |
 | `tour` | Onboarding tour, the intro card — My Listings has a new look | `pages/listings-new/tour.mobile.html` |
 | `tour-2` | Onboarding tour, spotlight 1 / 4 — Performance and improvements | `pages/listings-new/tour-2.mobile.html` |
 | `tour-3` | Onboarding tour, spotlight 2 / 4 — Filter and sort from one bar | `pages/listings-new/tour-3.mobile.html` |
