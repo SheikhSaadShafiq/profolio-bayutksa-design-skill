@@ -1,10 +1,10 @@
 {
-  "url": "http://127.0.0.1:3000/en/lms/leads",
+  "url": "http://127.0.0.1:3100/en/lms/leads",
   "finalPath": "/en/lms/leads",
   "shell": true,
   "errorCard": false,
   "spinning": false,
-  "pageHeight": 900,
+  "pageHeight": 1163,
   "answered": [
     "GET /api/surge/users/current",
     "GET /api/surge/notifications/stats",
@@ -13,14 +13,17 @@
     "GET /api/surge/area_units",
     "GET /api/surge/experience_list",
     "GET /api/surge/lms/leads/stats",
+    "GET /api/surge/tenants/current",
     "GET /api/surge/products",
-    "GET /api/surge/agencies/880042"
-  ],
-  "unanswered": [
+    "GET /api/surge/agencies/880042",
+    "GET /api/surge/lms/stats/insights",
+    "GET /api/surge/lms/stats/response_time_metrics",
+    "GET /api/surge/lms/leads/leads_summary",
     "GET /api/surge/lms/leads"
   ],
+  "unanswered": [],
   "errors": [],
   "blocked": 3,
   "fonts": "served from deliverables/fonts.css",
-  "ms": 5816
+  "ms": 3475
 }

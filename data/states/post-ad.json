@@ -1,0 +1,189 @@
+{
+ "page": "post-ad",
+ "route": "/post-ad/88241127",
+ "device": "web",
+ "at": "2026-09-28T23:31:21.276Z",
+ "tried": 15,
+ "states": [
+  {
+   "name": "modal-cover-add-more",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)",
+   "label": "Cover Add more",
+   "title": "Images (8) Videos (0)",
+   "shell": false,
+   "opened": [
+    {
+     "k": "modal",
+     "w": 964,
+     "h": 628
+    }
+   ]
+  },
+  {
+   "name": "modal-images-8-videos-0",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > img:nth-child(2)",
+   "label": "img",
+   "title": "Images (8) Videos (0)",
+   "shell": false,
+   "opened": [
+    {
+     "k": "modal",
+     "w": 964,
+     "h": 628
+    }
+   ]
+  },
+  {
+   "name": "modal-add-amenities",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(11) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > button:nth-child(1)",
+   "label": "Add Amenities",
+   "title": "Features and Amenities Main",
+   "shell": false,
+   "opened": [
+    {
+     "k": "modal",
+     "w": 900,
+     "h": 452
+    }
+   ]
+  },
+  {
+   "name": "modal-post-listing",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > button:nth-child(1)",
+   "label": "Post Listing",
+   "title": "Your listing has been",
+   "shell": false,
+   "opened": [
+    {
+     "k": "modal",
+     "w": 510,
+     "h": 250
+    }
+   ]
+  },
+  {
+   "name": "modal-listing-details-from-rega-ad-license",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)",
+   "label": "Listing Details from REGA Ad License 720",
+   "title": "Listing Details from REGA",
+   "shell": false,
+   "opened": [
+    {
+     "k": "modal",
+     "w": 880,
+     "h": 665
+    }
+   ]
+  }
+ ],
+ "links": [],
+ "nested": [
+  {
+   "name": "modal-cover-add-more__modal-videos-0",
+   "parent": "modal-cover-add-more",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > button:nth-child(2)",
+   "label": "Videos (0)",
+   "title": "Images (8) Videos (0)",
+   "opened": [
+    {
+     "k": "modal",
+     "w": 964,
+     "h": 628
+    }
+   ]
+  },
+  {
+   "name": "modal-cover-add-more__modal-images-8-videos-0",
+   "parent": "modal-cover-add-more",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > button:nth-child(3)",
+   "label": "icon",
+   "title": "Images (8) Videos (0)",
+   "opened": [
+    {
+     "k": "modal",
+     "w": 964,
+     "h": 628
+    }
+   ]
+  },
+  {
+   "name": "modal-images-8-videos-0__modal-videos-0",
+   "parent": "modal-images-8-videos-0",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > button:nth-child(2)",
+   "label": "Videos (0)",
+   "title": "Images (8) Videos (0)",
+   "opened": [
+    {
+     "k": "modal",
+     "w": 964,
+     "h": 628
+    }
+   ]
+  },
+  {
+   "name": "modal-images-8-videos-0__modal-images-8-videos-0",
+   "parent": "modal-images-8-videos-0",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > button:nth-child(3)",
+   "label": "icon",
+   "title": "Images (8) Videos (0)",
+   "opened": [
+    {
+     "k": "modal",
+     "w": 964,
+     "h": 628
+    }
+   ]
+  },
+  {
+   "name": "modal-add-amenities__modal-rooms",
+   "parent": "modal-add-amenities",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > form:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)",
+   "label": "Rooms",
+   "title": "Features and Amenities Main",
+   "opened": [
+    {
+     "k": "modal",
+     "w": 900,
+     "h": 376
+    }
+   ]
+  },
+  {
+   "name": "modal-add-amenities__modal-building-and-services",
+   "parent": "modal-add-amenities",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > form:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3)",
+   "label": "Building and Services",
+   "title": "Features and Amenities Main",
+   "opened": [
+    {
+     "k": "modal",
+     "w": 900,
+     "h": 386
+    }
+   ]
+  }
+ ],
+ "nestedAt": "2026-09-29T05:56:46.538Z"
+}

@@ -10,16 +10,33 @@
  * a manual `yarn start` do not fight. Vite is started with the product's own
  * `yarn start`, so `prestart` regenerates the gitignored
  * src/utility/variables.js exactly the way CI does.
+ *
+ * THE HARNESS SERVER IS NOT THE PRODUCT'S DEV SERVER. It listens on 3100, not
+ * 3000, because 3000 is someone's real `yarn start` — signed in to staging,
+ * with a .env that points the API at staging. The fixtures only answer calls
+ * to the app's own origin, so the harness needs REACT_APP_API_ENDPOINT empty.
+ * It gets that from harness/env passed as process environment, which Vite's
+ * loadEnv ranks above every .env file — the product's .env is never written.
+ * And it gets its own dependency cache (harness/vite.config.mjs, copied into
+ * the product as an untracked file): two Vite servers whose `define`s differ
+ * would otherwise keep re-optimising node_modules/.vite under each other.
  */
 
 import { spawn } from 'node:child_process';
+import { readFileSync, copyFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 export const REPO = join(HERE, '..', process.env.PROFOLIO_REPO || '../profolio-reactjs');
-export const PORT = Number(process.env.PROFOLIO_PORT || 3000);
+export const PORT = Number(process.env.PROFOLIO_PORT || 3100);
 export const URL_BASE = `http://127.0.0.1:${PORT}`;
+const CONFIG = 'harness.vite.config.mjs';
+
+/* harness/env, read the way dotenv reads it: KEY=value, optional quotes, # comments */
+const harnessEnv = () => Object.fromEntries(readFileSync(join(HERE, 'env'), 'utf8').split('\n')
+  .map((l) => l.match(/^\s*([A-Z0-9_]+)\s*=\s*(.*?)\s*$/)).filter(Boolean)
+  .map(([, k, v]) => [k, v.replace(/^(['"])(.*)\1$/, '$2')]));
 
 const listening = async () => {
   try { const r = await fetch(URL_BASE + '/', { signal: AbortSignal.timeout(1500) }); return r.ok || r.status < 500; }
@@ -33,9 +50,10 @@ export async function serve({ log = console.log } = {}) {
   }
 
   log('  starting vite …');
-  const child = spawn('yarn', ['start', '--host', '127.0.0.1', '--port', String(PORT), '--strictPort'], {
+  copyFileSync(join(HERE, 'vite.config.mjs'), join(REPO, CONFIG));
+  const child = spawn('yarn', ['start', '--config', CONFIG, '--host', '127.0.0.1', '--port', String(PORT), '--strictPort'], {
     cwd: REPO, stdio: ['ignore', 'pipe', 'pipe'],
-    env: { ...process.env, BROWSER: 'none', FORCE_COLOR: '0' },
+    env: { ...process.env, ...harnessEnv(), REACT_APP_BASE_URL: URL_BASE, BROWSER: 'none', FORCE_COLOR: '0' },
   });
   let out = '';
   child.stdout.on('data', (d) => { out += d; });

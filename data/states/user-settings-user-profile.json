@@ -1,0 +1,155 @@
+{
+ "page": "user-settings-user-profile",
+ "route": "/user-settings/user-profile",
+ "device": "web",
+ "at": "2026-09-28T17:00:46.575Z",
+ "tried": 20,
+ "states": [
+  {
+   "name": "inline-close",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(9) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > span:nth-child(1) > div:nth-child(1) > div:nth-child(1) > span:nth-child(1) > span:nth-child(2)",
+   "label": "close",
+   "title": "",
+   "shell": false,
+   "opened": []
+  },
+  {
+   "name": "popover-23",
+   "kind": "popover",
+   "action": "hover",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(9) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > span:nth-child(1) > div:nth-child(1) > div:nth-child(27) > span:nth-child(1) > span:nth-child(1) > span:nth-child(1)",
+   "label": "+23",
+   "title": "Jeddah Makkah Al Madinah",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 130,
+     "h": 538
+    }
+   ]
+  },
+  {
+   "name": "dropdown-1-2-riyadh-diriyah",
+   "kind": "dropdown",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(9) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > span:nth-child(1) > div:nth-child(1) > div:nth-child(28) > div:nth-child(1) > input:nth-child(1)",
+   "label": "input",
+   "title": "1 2 Riyadh Diriyah",
+   "shell": false,
+   "opened": [
+    {
+     "k": "dropdown",
+     "w": 390,
+     "h": 278
+    }
+   ]
+  },
+  {
+   "name": "inline-close-circle",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(9) > div:nth-child(2) > div:nth-child(1) > span:nth-child(3)",
+   "label": "close-circle",
+   "title": "",
+   "shell": false,
+   "opened": []
+  },
+  {
+   "name": "inline-generate-agent-description-english",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(12) > div:nth-child(1) > div:nth-child(3) > button:nth-child(1)",
+   "label": "Generate Agent Description (English)",
+   "title": "",
+   "shell": false,
+   "opened": []
+  },
+  {
+   "name": "modal-learn-more",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(14) > div:nth-child(2) > div:nth-child(2) > button:nth-child(3)",
+   "label": "Learn more",
+   "title": "Profile Picture Guidelines A",
+   "shell": false,
+   "opened": [
+    {
+     "k": "modal",
+     "w": 650,
+     "h": 663
+    }
+   ]
+  },
+  {
+   "name": "message-save-changes",
+   "kind": "message",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > button:nth-child(1)",
+   "label": "Save Changes",
+   "title": "Profile has been updated",
+   "shell": false,
+   "opened": [
+    {
+     "k": "message",
+     "w": 1424,
+     "h": 40
+    }
+   ]
+  },
+  {
+   "name": "drawer-feedback",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4)",
+   "label": "FEEDBACK",
+   "title": "Send us feedback The",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 400,
+     "h": 900
+    }
+   ]
+  },
+  {
+   "name": "dropdown-3-5-years",
+   "kind": "dropdown",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(11) > div:nth-child(2) > div:nth-child(1)",
+   "label": "3-5 Years",
+   "title": "1 2 3 0-2",
+   "shell": false,
+   "opened": [
+    {
+     "k": "dropdown",
+     "w": 390,
+     "h": 212
+    }
+   ]
+  }
+ ],
+ "links": [
+  {
+   "label": "Agency Settings",
+   "to": "/en/user-settings/agency-profile"
+  },
+  {
+   "label": "Licenses",
+   "to": "/en/user-settings/licenses"
+  },
+  {
+   "label": "Preferences",
+   "to": "/en/user-settings/preferences"
+  },
+  {
+   "label": "Change Password",
+   "to": "/en/user-settings/change-password"
+  }
+ ],
+ "nested": [],
+ "nestedAt": "2026-09-28T21:31:36.149Z"
+}

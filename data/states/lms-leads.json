@@ -1,0 +1,766 @@
+{
+ "page": "lms-leads",
+ "route": "/lms/leads",
+ "device": "web",
+ "at": "2026-09-28T16:47:49.937Z",
+ "tried": 65,
+ "states": [
+  {
+   "name": "dropdown-najd-horizon-real-estate",
+   "kind": "dropdown",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)",
+   "label": "icon",
+   "title": "Najd Horizon Real Estate",
+   "shell": false,
+   "opened": [
+    {
+     "k": "dropdown",
+     "w": 258,
+     "h": 168
+    }
+   ]
+  },
+  {
+   "name": "popover-bayut-match-0",
+   "kind": "popover",
+   "action": "hover",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2)",
+   "label": "Bayut Match 0",
+   "title": "Total number of Bayut",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 179,
+     "h": 38
+    }
+   ]
+  },
+  {
+   "name": "modal-view-trend",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > button:nth-child(1)",
+   "label": "View Trend",
+   "title": "View Call Trends Response",
+   "shell": false,
+   "opened": [
+    {
+     "k": "modal",
+     "w": 900,
+     "h": 169
+    }
+   ]
+  },
+  {
+   "name": "popover-clicked-total-number-of",
+   "kind": "popover",
+   "action": "hover",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > span:nth-child(3)",
+   "label": "icon",
+   "title": "Clicked Total number of",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 234,
+     "h": 268
+    }
+   ]
+  },
+  {
+   "name": "dropdown-listing-id",
+   "kind": "dropdown",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)",
+   "label": "Listing ID",
+   "title": "Listing ID REGA Ad",
+   "shell": false,
+   "opened": [
+    {
+     "k": "dropdown",
+     "w": 210,
+     "h": 174
+    }
+   ]
+  },
+  {
+   "name": "popover-close-circle",
+   "kind": "popover",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > span:nth-child(2)",
+   "label": "close-circle",
+   "title": "Today Yesterday Last 7",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 802,
+     "h": 381
+    }
+   ]
+  },
+  {
+   "name": "drawer-show-more",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1) > button:nth-child(1)",
+   "label": "Show More",
+   "title": "Filters Apply filters to",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 450,
+     "h": 900
+    }
+   ]
+  },
+  {
+   "name": "inline-search",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > button:nth-child(3)",
+   "label": "Search",
+   "title": "",
+   "shell": false,
+   "opened": []
+  },
+  {
+   "name": "drawer-add-new-lead",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > button:nth-child(2)",
+   "label": "Add New Lead",
+   "title": "Add New Lead Name",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 720,
+     "h": 900
+    }
+   ]
+  },
+  {
+   "name": "drawer-abdullah-saleh-abdullahsmailexample",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(2)",
+   "label": "Abdullah Saleh abdullah.s@mail.example +",
+   "title": "ID: 3302190 Abdullah Saleh",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 720,
+     "h": 900
+    }
+   ]
+  },
+  {
+   "name": "popover-follow-up-call",
+   "kind": "popover",
+   "action": "hover",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(2) > td:nth-child(4) > div:nth-child(1)",
+   "label": "Follow-up Call",
+   "title": "Last Completed Task Property",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 392,
+     "h": 168
+    }
+   ]
+  },
+  {
+   "name": "tooltip-email",
+   "kind": "tooltip",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(2) > td:nth-child(5) > div:nth-child(1) > span:nth-child(1) > button:nth-child(1)",
+   "label": "icon",
+   "title": "Email",
+   "shell": false,
+   "opened": [
+    {
+     "k": "tooltip",
+     "w": 76,
+     "h": 40
+    }
+   ]
+  },
+  {
+   "name": "popover-1-more-properties",
+   "kind": "popover",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(3) > td:nth-child(3) > div:nth-child(1) > span:nth-child(2)",
+   "label": "+ 1 more properties.",
+   "title": "1 1,250,000 Floor for",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 352,
+     "h": 266
+    }
+   ]
+  },
+  {
+   "name": "drawer-add-task",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(3) > td:nth-child(4) > div:nth-child(1) > button:nth-child(1)",
+   "label": "Add Task",
+   "title": "Add Task Completed task",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 720,
+     "h": 900
+    }
+   ]
+  },
+  {
+   "name": "popover-abdullah-saleh",
+   "kind": "popover",
+   "action": "hover",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(2) > td:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)",
+   "label": "Abdullah Saleh",
+   "title": "ID : 3302190 Abdullah",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 392,
+     "h": 195
+    }
+   ]
+  },
+  {
+   "name": "dropdown-select-users",
+   "kind": "dropdown",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)",
+   "label": "Select Users",
+   "title": "88010234 88010241 Faisal Al-Harbi",
+   "shell": false,
+   "opened": [
+    {
+     "k": "dropdown",
+     "w": 207,
+     "h": 174
+    }
+   ]
+  },
+  {
+   "name": "drawer-khalid-al-shammari-khalidalshammari1",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(3)",
+   "label": "Khalid Al-Shammari khalid.alshammari1990",
+   "title": "ID: 3302201 Khalid Al-Shammari",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 720,
+     "h": 900
+    }
+   ]
+  },
+  {
+   "name": "popover-apartment-for-sale",
+   "kind": "popover",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(2) > td:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)",
+   "label": "Apartment for Sale",
+   "title": "1 1,049,000 Apartment for",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 355,
+     "h": 154
+    }
+   ]
+  },
+  {
+   "name": "popover-2-more-properties",
+   "kind": "popover",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(4) > td:nth-child(3) > div:nth-child(1) > span:nth-child(2)",
+   "label": "+ 2 more properties.",
+   "title": "1 2,330,000 Villa for",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 352,
+     "h": 332
+    }
+   ]
+  },
+  {
+   "name": "drawer-add-name",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(5) > td:nth-child(1) > div:nth-child(1) > div:nth-child(1) > button:nth-child(2)",
+   "label": "Add Name",
+   "title": "ID: 3302223 homes.search.2291@mail.example +966500000741",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 720,
+     "h": 900
+    }
+   ]
+  },
+  {
+   "name": "popover-khalid-al-shammari",
+   "kind": "popover",
+   "action": "hover",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(3) > td:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)",
+   "label": "Khalid Al-Shammari",
+   "title": "ID : 3302201 Khalid",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 392,
+     "h": 195
+    }
+   ]
+  },
+  {
+   "name": "dropdown-10",
+   "kind": "dropdown",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)",
+   "label": "10",
+   "title": "10 25 10 25",
+   "shell": false,
+   "opened": [
+    {
+     "k": "dropdown",
+     "w": 72,
+     "h": 174
+    }
+   ]
+  },
+  {
+   "name": "drawer-nourah-al-qahtani-nourahqahtanimaile",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(4)",
+   "label": "Nourah Al-Qahtani nourah.qahtani@mail.ex",
+   "title": "ID: 3302212 Nourah Al-Qahtani",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 720,
+     "h": 900
+    }
+   ]
+  },
+  {
+   "name": "popover-nourah-al-qahtani",
+   "kind": "popover",
+   "action": "hover",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(4) > td:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)",
+   "label": "Nourah Al-Qahtani",
+   "title": "ID : 3302212 Nourah",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 392,
+     "h": 195
+    }
+   ]
+  },
+  {
+   "name": "popover-floor-for-sale",
+   "kind": "popover",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(3) > td:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)",
+   "label": "Floor for Sale",
+   "title": "1 1,250,000 Floor for",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 352,
+     "h": 154
+    }
+   ]
+  },
+  {
+   "name": "popover-unnamed-lead",
+   "kind": "popover",
+   "action": "hover",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(5) > td:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)",
+   "label": "Unnamed Lead",
+   "title": "ID : 3302223 Email",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 392,
+     "h": 178
+    }
+   ]
+  },
+  {
+   "name": "tooltip-whatsapp",
+   "kind": "tooltip",
+   "action": "hover",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(2) > td:nth-child(5)",
+   "label": "icon",
+   "title": "Whatsapp",
+   "shell": false,
+   "opened": [
+    {
+     "k": "tooltip",
+     "w": 106,
+     "h": 40
+    }
+   ]
+  },
+  {
+   "name": "popover-villa-for-sale",
+   "kind": "popover",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(4) > td:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)",
+   "label": "Villa for Sale",
+   "title": "1 2,330,000 Villa for",
+   "shell": false,
+   "opened": [
+    {
+     "k": "popover",
+     "w": 352,
+     "h": 154
+    }
+   ]
+  },
+  {
+   "name": "drawer-feedback",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4)",
+   "label": "FEEDBACK",
+   "title": "Send us feedback The",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 400,
+     "h": 900
+    }
+   ]
+  }
+ ],
+ "links": [
+  {
+   "label": "Bayut Match (0)",
+   "to": "/en/lms/leads?tab=bayut_match"
+  },
+  {
+   "label": "Bayut Match (0)",
+   "to": "/en/lms/leads?tab=bayut_match"
+  }
+ ],
+ "nested": [
+  {
+   "name": "modal-view-trend__popover-today-yesterday-last-7",
+   "parent": "modal-view-trend",
+   "kind": "popover",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span:nth-child(1)",
+   "label": "icon",
+   "title": "Today Yesterday Last 7",
+   "opened": [
+    {
+     "k": "popover",
+     "w": 802,
+     "h": 420
+    }
+   ]
+  },
+  {
+   "name": "drawer-show-more__inline-button",
+   "parent": "drawer-show-more",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > button:nth-child(2)",
+   "label": "button",
+   "title": "",
+   "opened": []
+  },
+  {
+   "name": "drawer-show-more__dropdown-choose-source",
+   "parent": "drawer-show-more",
+   "kind": "dropdown",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)",
+   "label": "Choose Source",
+   "title": "call whatsapp Call WhatsApp",
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 450,
+     "h": 900
+    },
+    {
+     "k": "dropdown",
+     "w": 418,
+     "h": 136
+    }
+   ]
+  },
+  {
+   "name": "drawer-add-new-lead__drawer-add-interest-manually",
+   "parent": "drawer-add-new-lead",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > form:nth-child(1) > div:nth-child(2) > div:nth-child(1) > button:nth-child(2)",
+   "label": "Add Interest Manually",
+   "title": "Add Interest Manually Select",
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 576,
+     "h": 900
+    }
+   ]
+  },
+  {
+   "name": "drawer-add-new-lead__drawer-add-lead",
+   "parent": "drawer-add-new-lead",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > button:nth-child(2)",
+   "label": "Add Lead",
+   "title": "Add New Lead Name",
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 720,
+     "h": 900
+    }
+   ]
+  },
+  {
+   "name": "drawer-abdullah-saleh-abdullahsmailexample__inline-email",
+   "parent": "drawer-abdullah-saleh-abdullahsmailexample",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > button:nth-child(1)",
+   "label": "Email",
+   "title": "",
+   "opened": []
+  },
+  {
+   "name": "drawer-abdullah-saleh-abdullahsmailexample__inline-all-tasks",
+   "parent": "drawer-abdullah-saleh-abdullahsmailexample",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)",
+   "label": "All Tasks",
+   "title": "",
+   "opened": []
+  },
+  {
+   "name": "drawer-abdullah-saleh-abdullahsmailexample__drawer-add-interest-manually",
+   "parent": "drawer-abdullah-saleh-abdullahsmailexample",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > button:nth-child(1)",
+   "label": "Add Interest Manually",
+   "title": "Add Interest Manually Select",
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 576,
+     "h": 900
+    }
+   ]
+  },
+  {
+   "name": "drawer-add-task__dropdown-select-task-type",
+   "parent": "drawer-add-task",
+   "kind": "dropdown",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > form:nth-child(1) > div:nth-child(4) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)",
+   "label": "Select Task Type",
+   "title": "1 2 Contact Meeting",
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 720,
+     "h": 900
+    },
+    {
+     "k": "dropdown",
+     "w": 314,
+     "h": 250
+    }
+   ]
+  },
+  {
+   "name": "drawer-add-task__picker-select-completion-date-and-time",
+   "parent": "drawer-add-task",
+   "kind": "picker",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > form:nth-child(1) > div:nth-child(5) > div:nth-child(1) > div:nth-child(2)",
+   "label": "Select Completion Date and Time",
+   "title": "Sep2026 Su Mo Tu",
+   "opened": [
+    {
+     "k": "picker",
+     "w": 604,
+     "h": 442
+    }
+   ]
+  },
+  {
+   "name": "drawer-add-task__inline-upload",
+   "parent": "drawer-add-task",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > form:nth-child(1) > div:nth-child(5) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1) > div:nth-child(1) > span:nth-child(1) > button:nth-child(2)",
+   "label": "Upload",
+   "title": "",
+   "opened": []
+  },
+  {
+   "name": "drawer-add-task__drawer-add-interest",
+   "parent": "drawer-add-task",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > form:nth-child(1) > div:nth-child(5) > div:nth-child(3) > button:nth-child(2)",
+   "label": "Add Interest",
+   "title": "Add Interest Select a",
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 576,
+     "h": 900
+    }
+   ]
+  },
+  {
+   "name": "drawer-khalid-al-shammari-khalidalshammari1__inline-email",
+   "parent": "drawer-khalid-al-shammari-khalidalshammari1",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > button:nth-child(1)",
+   "label": "Email",
+   "title": "",
+   "opened": []
+  },
+  {
+   "name": "drawer-khalid-al-shammari-khalidalshammari1__inline-all-tasks",
+   "parent": "drawer-khalid-al-shammari-khalidalshammari1",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)",
+   "label": "All Tasks",
+   "title": "",
+   "opened": []
+  },
+  {
+   "name": "drawer-khalid-al-shammari-khalidalshammari1__drawer-add-interest-manually",
+   "parent": "drawer-khalid-al-shammari-khalidalshammari1",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > button:nth-child(1)",
+   "label": "Add Interest Manually",
+   "title": "Add Interest Manually Select",
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 576,
+     "h": 900
+    }
+   ]
+  },
+  {
+   "name": "drawer-add-name__inline-email",
+   "parent": "drawer-add-name",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > button:nth-child(1)",
+   "label": "Email",
+   "title": "",
+   "opened": []
+  },
+  {
+   "name": "drawer-add-name__inline-all-tasks",
+   "parent": "drawer-add-name",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)",
+   "label": "All Tasks",
+   "title": "",
+   "opened": []
+  },
+  {
+   "name": "drawer-add-name__drawer-add-interest-manually",
+   "parent": "drawer-add-name",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > button:nth-child(1)",
+   "label": "Add Interest Manually",
+   "title": "Add Interest Manually Select",
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 576,
+     "h": 900
+    }
+   ]
+  },
+  {
+   "name": "drawer-nourah-al-qahtani-nourahqahtanimaile__inline-email",
+   "parent": "drawer-nourah-al-qahtani-nourahqahtanimaile",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > button:nth-child(1)",
+   "label": "Email",
+   "title": "",
+   "opened": []
+  },
+  {
+   "name": "drawer-nourah-al-qahtani-nourahqahtanimaile__inline-all-tasks",
+   "parent": "drawer-nourah-al-qahtani-nourahqahtanimaile",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)",
+   "label": "All Tasks",
+   "title": "",
+   "opened": []
+  },
+  {
+   "name": "drawer-nourah-al-qahtani-nourahqahtanimaile__drawer-add-interest-manually",
+   "parent": "drawer-nourah-al-qahtani-nourahqahtanimaile",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > button:nth-child(1)",
+   "label": "Add Interest Manually",
+   "title": "Add Interest Manually Select",
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 576,
+     "h": 900
+    }
+   ]
+  }
+ ],
+ "nestedAt": "2026-09-28T21:29:34.565Z"
+}

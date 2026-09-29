@@ -1,0 +1,28 @@
+{
+ "page": "post-ad",
+ "route": "/post-ad/88241127",
+ "device": "mobile",
+ "at": "2026-09-29T00:03:48.032Z",
+ "tried": 12,
+ "states": [
+  {
+   "name": "drawer-listing-details-from-rega-ad-license",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)",
+   "label": "Listing Details from REGA Ad License 720",
+   "title": "Listing Details from REGA",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 375,
+     "h": 664
+    }
+   ]
+  }
+ ],
+ "links": [],
+ "nested": [],
+ "nestedAt": "2026-09-29T05:41:48.794Z"
+}

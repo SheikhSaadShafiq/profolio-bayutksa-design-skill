@@ -16,8 +16,8 @@ route     /ad-license
 source    src/container/pages/ad-license
 purpose   TODO — one sentence, user-side
 roles     no role branching found in this directory
-flags     none referenced directly
-states    loading · empty · error
+flags     ENABLE_POST_LISTING_REVAMP
+states    loading · empty · error · flag-off
 lang      en pending · ar pending
 ga4       — product supplies in the PRD
 shot      `data/live/ad-license.png` — the harness render, OPEN IT BEFORE DESIGNING
@@ -33,8 +33,8 @@ board     `kb/pages/ad-license.board.html` — the screen as an artboard</code><
 <p>Nesting and layout props read out of <code>src/container/pages/ad-license/index.js</code>. This is the shipped structure — <strong>match it rather than inventing a new one</strong>, unless the PRD changes it.</p>
 <pre class="code"><code>    Row
       Col
-        Button
-        /Button
+          Button
+          /Button
         Heading
         /Heading
         AdLicensePage

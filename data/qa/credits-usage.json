@@ -1,31 +1,31 @@
 {
   "route": "credits-usage",
-  "at": "2026-09-28T08:01:04.639Z",
+  "at": "2026-09-28T10:47:25.943Z",
   "shellFails": [],
   "diffs": [
     {
-      "id": "shell.sider",
-      "diff": 4.5
-    },
-    {
       "id": "shell.content",
-      "diff": 4.3
+      "diff": 5.3
     },
     {
       "id": "shell.header",
-      "diff": 2.1
+      "diff": 4.9
     },
     {
-      "id": "shell.title",
-      "diff": 2
+      "id": "shell.sider",
+      "diff": 4.4
     },
     {
       "id": "shell.footer",
-      "diff": 1.6
+      "diff": 1.5
     },
     {
       "id": "shell.badge",
-      "diff": 0.7
+      "diff": 0
+    },
+    {
+      "id": "shell.title",
+      "diff": 0
     }
   ],
   "offScale": {
@@ -69,7 +69,7 @@
   "productLow": [
     {
       "col": "rgb(255,255,255)",
-      "n": 11,
+      "n": 14,
       "ratio": 1
     },
     {

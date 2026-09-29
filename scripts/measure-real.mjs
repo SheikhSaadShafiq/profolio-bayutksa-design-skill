@@ -3,7 +3,7 @@
  * Measure a REAL Profolio screen, saved from a real browser with SingleFile.
  *
  *   node scripts/measure-real.mjs ~/page.html --route listings --width 1440
- *   node scripts/measure-real.mjs http://127.0.0.1:3000/en/design-capture
+ *   node scripts/measure-real.mjs http://127.0.0.1:3100/en/design-capture
  *
  * It takes a SingleFile on disk or a URL. A URL is how the /design-capture
  * routes get measured without anyone saving anything: they are public, they
@@ -37,7 +37,7 @@
  * scripts/leaks.mjs BEFORE it writes anything. The SingleFile itself is never
  * copied into the repo; pass it from wherever it lives.
  */
-import pkg from '/opt/node22/lib/node_modules/playwright/index.js';
+import pkg from 'playwright';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';

@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
-# Restart the product's dev server. Lives in its own file so the pkill patterns
-# cannot match the shell that invokes it — an inline `pkill -f "yarn start"`
-# matches its own command line and kills the caller.
+# Restart the HARNESS dev server (port 3100) and nothing else. Lives in its own
+# file so the pkill pattern cannot match the shell that invokes it. The pattern
+# names the harness config, so a normal `yarn start` on 3000 — someone signed
+# in to staging — is never touched.
 set -u
-REPO="${PROFOLIO_REPO:-/home/user/profolio-reactjs}"
-LOG="$(cd "$(dirname "$0")" && pwd)/vite.log"
-pkill -f "vite --host" 2>/dev/null
-pkill -f "yarn start" 2>/dev/null
+HERE="$(cd "$(dirname "$0")" && pwd)"
+PORT="${PROFOLIO_PORT:-3100}"
+pkill -f "harness.vite.config.mjs" 2>/dev/null
 sleep 1
-cd "$REPO" || exit 1
-( BROWSER=none FORCE_COLOR=0 yarn start --host 127.0.0.1 --port 3000 --strictPort > "$LOG" 2>&1 & )
-for i in $(seq 1 40); do
+cd "$HERE/.." || exit 1
+( KEEP_SERVER=1 node -e "import('./harness/serve.mjs').then(async (m) => { await m.serve(); setInterval(() => {}, 1 << 30); })" > "$HERE/vite.log" 2>&1 & )
+for i in $(seq 1 120); do
   sleep 1
-  if curl -s -o /dev/null --max-time 2 http://127.0.0.1:3000/; then echo "vite up after ${i}s"; exit 0; fi
+  if curl -s -o /dev/null --max-time 2 "http://127.0.0.1:$PORT/"; then echo "harness vite up after ${i}s"; exit 0; fi
 done
-echo "vite did not come up:"; tail -20 "$LOG"; exit 1
+echo "harness vite did not come up:"; tail -20 "$HERE/vite.log"; exit 1

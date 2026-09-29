@@ -1,0 +1,64 @@
+{
+ "page": "ad-license",
+ "route": "/ad-license",
+ "device": "web",
+ "at": "2026-09-28T16:59:30.809Z",
+ "tried": 15,
+ "states": [
+  {
+   "name": "dropdown-select-property-age",
+   "kind": "dropdown",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > form:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(5) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > span:nth-child(1) > span:nth-child(1) > input:nth-child(1)",
+   "label": "Select Property Age",
+   "title": "1 2 Less than",
+   "shell": false,
+   "opened": [
+    {
+     "k": "dropdown",
+     "w": 592,
+     "h": 278
+    }
+   ]
+  },
+  {
+   "name": "inline-adjust",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > form:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) > div:nth-child(2) > button:nth-child(3)",
+   "label": "Adjust",
+   "title": "",
+   "shell": false,
+   "opened": []
+  },
+  {
+   "name": "inline-continue",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > form:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > button:nth-child(2)",
+   "label": "Continue",
+   "title": "",
+   "shell": false,
+   "opened": []
+  },
+  {
+   "name": "drawer-feedback",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4)",
+   "label": "FEEDBACK",
+   "title": "Send us feedback The",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 400,
+     "h": 900
+    }
+   ]
+  }
+ ],
+ "links": [],
+ "nested": [],
+ "nestedAt": "2026-09-28T21:21:43.617Z"
+}

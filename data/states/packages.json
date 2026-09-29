@@ -1,0 +1,70 @@
+{
+ "page": "packages",
+ "route": "/packages",
+ "device": "web",
+ "at": "2026-09-28T16:57:40.900Z",
+ "tried": 5,
+ "states": [
+  {
+   "name": "drawer-what-are-credits",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > button:nth-child(1)",
+   "label": "What are Credits?",
+   "title": "Bayut Credits What are",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 576,
+     "h": 900
+    }
+   ]
+  },
+  {
+   "name": "modal-get-titanium",
+   "kind": "modal",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > button:nth-child(1)",
+   "label": "Get Titanium",
+   "title": "Upgrade to Titanium Titanium",
+   "shell": false,
+   "opened": [
+    {
+     "k": "modal",
+     "w": 475,
+     "h": 273
+    }
+   ]
+  },
+  {
+   "name": "inline-icon",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > button:nth-child(2)",
+   "label": "icon",
+   "title": "",
+   "shell": false,
+   "opened": []
+  },
+  {
+   "name": "drawer-feedback",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4)",
+   "label": "FEEDBACK",
+   "title": "Send us feedback The",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 400,
+     "h": 900
+    }
+   ]
+  }
+ ],
+ "links": [],
+ "nested": [],
+ "nestedAt": "2026-09-28T22:45:12.027Z"
+}

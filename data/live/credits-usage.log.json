@@ -1,10 +1,10 @@
 {
-  "url": "http://127.0.0.1:3000/en/credits-usage",
+  "url": "http://127.0.0.1:3100/en/credits-usage",
   "finalPath": "/en/credits-usage",
   "shell": true,
   "errorCard": false,
   "spinning": false,
-  "pageHeight": 956,
+  "pageHeight": 1058,
   "answered": [
     "GET /api/surge/users/current",
     "GET /api/surge/notifications/stats",
@@ -13,6 +13,7 @@
     "GET /api/surge/area_units",
     "GET /api/surge/experience_list",
     "GET /api/surge/lms/leads/stats",
+    "GET /api/surge/tenants/current",
     "GET /api/surge/products",
     "GET /api/surge/agencies/880042",
     "GET /api/surge/credits/consumption_history",
@@ -22,5 +23,5 @@
   "errors": [],
   "blocked": 3,
   "fonts": "served from deliverables/fonts.css",
-  "ms": 6735
+  "ms": 3106
 }

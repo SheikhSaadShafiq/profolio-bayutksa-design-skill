@@ -1,146 +1,200 @@
 <h1>Handover — running this on your own machine</h1>
 
 <p>Everything this project knows is in two repositories and one rule: <strong>no value is
-written that was not measured from a render</strong>. The design system is generated from the
-Profolio codebase and from the product running in a headless browser; nothing in it is
-typed by hand, and every claim has a check that fails when it stops being true.</p>
+written that was not measured from a render</strong>. Since 2026-09-28 that rule is kept the
+strict way: the pages are no longer written from measurements at all — they are
+<strong>compiled from the product's own render</strong>, and the design system is cut out of
+them. Every page, state and component carries the score it got against the product it came
+from.</p>
 
 <h2>The two repositories</h2>
 
 <table>
   <tr><th>repo</th><th>what it is</th></tr>
   <tr><td><code>chaudhary-umair-ahmad/profolio-bayutksa-design-skill</code></td>
-      <td>This one. The design system, the pages, the knowledge base and all the tooling.
-      Branch <code>main</code>.</td></tr>
+      <td>This one. The design system, the compiled pages, the knowledge base and all the
+      tooling. The compile work is on branch <code>pixel-perfect</code> (local).</td></tr>
   <tr><td><code>SectorLabs/profolio-reactjs</code></td>
-      <td>The product. Read, never modified — except for one route this project adds,
-      which is kept here as a patch.</td></tr>
+      <td>The product. Read, never modified — except for the dev-only
+      <code>/design-capture</code> route, kept here as
+      <code>product-route/design-capture.patch</code>. The pass of 2026-09-28 was compiled
+      from a copy of it dated that day (<code>Profolio-Surge-28sep</code>), put under a local
+      git so every harness change to it is visible.</td></tr>
 </table>
 
-<p>They must sit <strong>side by side</strong>. Every script defaults to <code>../profolio-reactjs</code>,
-and the harness reads <code>PROFOLIO_REPO</code> if you keep them somewhere else.</p>
+<p>They must sit <strong>side by side</strong>: every script defaults to
+<code>../profolio-reactjs</code> (a symlink is fine) and the harness reads
+<code>PROFOLIO_REPO</code> if you keep it elsewhere.</p>
 
-<h2>Setting up</h2>
+<h2>Setting up on a Mac</h2>
 
-<pre class="code"><code>git clone https://github.com/chaudhary-umair-ahmad/profolio-bayutksa-design-skill
-git clone https://github.com/SectorLabs/profolio-reactjs
+<pre class="code"><code># the product: its own install, with the Nexus credentials in its .npmrc
+cd ../profolio-reactjs
+git apply ../profolio-bayutksa-design-skill/product-route/design-capture.patch
+yarn install
 
-cd profolio-bayutksa-design-skill
+# this repo
+cd ../profolio-bayutksa-design-skill
 npm install
-
-# the capture route: two new files and two registrations in the product
-git -C ../profolio-reactjs apply ../profolio-bayutksa-design-skill/product-route/design-capture.patch
-
-# stand the product up: rewrites yarn.lock's private mirror to public npm,
-# stubs the one genuinely private package, installs, and refuses to finish if
-# the installed antd, react or styled-components differ from the lockfile
-node harness/install.mjs
-
+npx playwright install chromium
 npm run all</code></pre>
 
-<p><code>npm run all</code> reads the product, renders it, builds every page, cuts the design
-system out of the stylesheet and runs every check. It stops on the first failure.</p>
+<p><strong>The harness runs its own dev server on port 3100</strong>, with
+<code>harness/env</code> passed as process environment (which Vite ranks above every
+<code>.env</code> file) and its own dependency cache (<code>harness/vite.config.mjs</code>,
+copied into the product untracked). So someone's normal <code>yarn start</code> on 3000,
+signed in to staging with a staging <code>.env</code>, keeps running beside it and is never
+touched. Do not run <code>harness/install.mjs</code> against a real install — it was for a
+sandbox with no Nexus access and rewrites <code>.env</code> and the lockfile.</p>
 
-<h3>What you need that is not in git</h3>
-<ul>
-  <li><strong>Playwright with Chromium</strong> — the harness drives a real browser. It is the
-  only way heights, stroke widths and row heights are known.</li>
-  <li><strong>Nothing else.</strong> No API keys, no VPN, no account. The product is answered
-  entirely from <code>harness/fixtures.mjs</code>.</li>
-</ul>
-
-<h2>The commands worth knowing</h2>
+<h2>The pipeline</h2>
 
 <table>
   <tr><th>command</th><th>what it does</th></tr>
-  <tr><td><code>npm run all</code></td><td>everything, in order, gated by the checks</td></tr>
-  <tr><td><code>npm run harness:capture</code></td><td>renders the product and measures all 24 routes. <code>--routes a,b</code> for a few, <code>--list</code> to see them</td></tr>
-  <tr><td><code>npm run pages</code></td><td>regenerates the eleven page HTMLs</td></tr>
-  <tr><td><code>npm run components</code></td><td>cuts each component out of the stylesheet and rebuilds <code>design-system.html</code></td></tr>
-  <tr><td><code>npm run check</code></td><td>the invariants: no undefined class, no dead trigger, no leaked text in a capture</td></tr>
-  <tr><td><code>npm run qa</code></td><td>our render against the product's, region by region</td></tr>
-  <tr><td><code>npm run qa-body</code></td><td>what each page body is made of, against the product's</td></tr>
-  <tr><td><code>npm run qa-components</code></td><td>every extracted component rendered twice and compared</td></tr>
-  <tr><td><code>node scripts/qa-fidelity.mjs</code></td><td>every painted box against the product's — coverage and fidelity</td></tr>
-  <tr><td><code>node scripts/outline.mjs live/&lt;route&gt;</code></td><td>read a capture as a tree. This is how a page gets rebuilt from geometry rather than from an impression of a screenshot</td></tr>
+  <tr><td><code>npm run all</code></td><td>everything, in order, then the checks</td></tr>
+  <tr><td><code>npm run harness:capture</code></td><td>renders every route on the fixture account (<code>--routes a,b</code>, <code>--states</code>, <code>--list</code>)</td></tr>
+  <tr><td><code>npm run explore</code>, <code>npm run explore:mobile</code></td><td>tries every React click and hover handler on each page — breadth first, one of every kind of control before any repeat, up to 120 — and records every state that opens: <code>data/states/&lt;page&gt;.json</code>, and <code>data/states/mobile/</code> for the phone layout. With <code>-- --nested</code>, it opens each modal and drawer found and does the same inside it — what the overlay leads to, one level down</td></tr>
+  <tr><td><code>npm run pages</code>, <code>npm run pages:mobile</code></td><td><code>scripts/compile.mjs --states [--device mobile]</code>: each page and state frozen from the product with exactly the CSS that paints it, re-rendered and pixel-diffed against the product. The two can run at once (the class-name registry is locked)</td></tr>
+  <tr><td><code>npm run ds</code></td><td>the design system: prototype navigation, one stylesheet, the tokens, the knowledge-base links, the component collection (web and responsive), the catalogue (with a spec sheet per variant and a state table per interactive family), the design knowledge base and the responsive rules (<code>deliverables/responsive.html</code>) — each verified</td></tr>
+  <tr><td><code>npm run qa</code></td><td>the Design QA: our pages against the live product on both real accounts (web, and responsive for the staff account), then <code>scripts/design-qa.mjs</code> — pixels, components, copy against <code>translation.json</code> and the code, sources, sanity — into <code>deliverables/design-qa.html</code></td></tr>
+  <tr><td><code>npm run find -- "&lt;words&gt;"</code></td><td>the design knowledge base, searched: the screens, states and components a PRD's words point at, with their files</td></tr>
+  <tr><td><code>npm run brief -- &lt;prd.md&gt;</code></td><td>a PRD turned into a design brief: per requirement, the compiled screens and states to start from (web and 375), what the design must cover — roles, both layouts, loading / empty / error, form and flow states — the shipped copy, the flags, and the gaps, named</td></tr>
+  <tr><td><code>npm run lint -- &lt;design.html&gt; --pair &lt;design-375.html&gt;</code></td><td>an artboard held to the system: classes, colours, icons, copy, currency, shell measurements and nav, type, the 375 pair, disabled dimming — exits 1 on a failure</td></tr>
+  <tr><td><code>npm run delta b</code></td><td>what a second real account shows that the first does not — endpoints, keys, enum values, and each screen's classes and counts</td></tr>
+  <tr><td><code>npm run package</code></td><td>the skill package, <code>skill/</code>, cut out of the design system: <code>registry.json</code>, <code>tokens.md</code>, a file per component by level, every page and state, the locked stylesheets, <code>product/</code>. The hand-written parts (<code>skill/SKILL.md</code>, <code>qa/</code>, <code>examples/</code>) are never overwritten</td></tr>
+  <tr><td><code>npm run validate</code></td><td><code>skill/qa/validate.py</code> — the package and any design in <code>skill/designs/</code> held to the system; CI runs it on every push and pull request</td></tr>
+  <tr><td><code>npm run combine</code></td><td>everything as three self-contained files — <code>deliverables/profolio-ksa.html</code> (web), <code>profolio-ksa-responsive.html</code>, <code>profolio-ksa-components.html</code> — each under GitHub's 50 MB, each opening on the index</td></tr>
+  <tr><td><code>npm run check</code></td><td>the invariants, and the capture privacy tests</td></tr>
+  <tr><td><code>npm run check-fixtures</code></td><td>every fixture answer against the real API's recorded shape</td></tr>
+  <tr><td><code>npm run receive-real</code></td><td>the other end of a capture posted from a signed-in browser — geometry only, refused if anything else leaks</td></tr>
+  <tr><td><code>node scripts/qa-fidelity.mjs [--real|--accounts]</code></td><td>every painted box against the product: <code>--real</code> against the signed-in account, <code>--accounts</code> the product against itself (fixture vs real) to tell data from design</td></tr>
 </table>
 
 <h2>What is built</h2>
 
 <ul>
-  <li><strong><code>deliverables/design-system.html</code></strong> — 38 components in atoms ·
-  molecules · organisms, self-contained, each with its states, what it is made of, where it
-  is used and the exact CSS to lift.</li>
-  <li><strong><code>deliverables/</code></strong> — eleven page HTMLs, plus
-  <code>profolio-ksa.html</code> which carries all of them in one file.</li>
-  <li><strong><code>deliverables/components/</code></strong> — one liftable file per component.</li>
-  <li><strong><code>kb/</code></strong> — 358 HTML pages: the product's screens, flags, copy,
-  tokens and components, for an agent to read a little of rather than all of.</li>
-  <li><strong><code>data/live/</code></strong> — the product's own measurements. These carry
-  geometry and class names and <em>no</em> text, href, src, value or id;
-  <code>scripts/leaks.mjs</code> re-proves it before anything is written.</li>
+  <li><strong><code>skill/</code></strong> — <strong>the skill to install</strong>: routing, the intake
+  gate and the output contract in <code>SKILL.md</code>; the registry, the tokens, the components by
+  level, every page and state, the locked CSS, the product knowledge, <code>qa/validate.py</code>,
+  <code>qa/overlay.html</code> and the worked example. <code>MAINTAINING.md</code> describes the repo
+  that builds it.</li>
+  <li><strong><code>deliverables/design-system.html</code></strong> — foundations measured from
+  what the compiled pages paint (Figtree and Droid Arabic Kufi, the colour ramps, the type scale, the corners), every component as atom, molecule, organism or template (antd's, as the
+  product themes them, and the product's own, named and sourced from its files), every page
+  and state, and the product knowledge that goes with them.</li>
+  <li><strong><code>deliverables/components/</code></strong> — a page per component: live
+  variants, markup, exact CSS, forced hover/focus/active, anatomy, usage, source, copy; a spec sheet
+  per variant (measured, with its token names) and, for buttons, inputs, selects, pickers,
+  checkboxes, radios and switches, a table of every state — seen, forced or derived.</li>
+  <li><strong><code>deliverables/&lt;page&gt;.html</code></strong> and
+  <strong><code>deliverables/states/</code></strong> — the 24 pages and every state,
+  compiled: overlays and what they lead to (<code>--&lt;parent&gt;__&lt;child&gt;</code>), form
+  states (errors, filled, saved, failed), <code>--loading</code> / <code>--empty</code> /
+  <code>--error</code> on every signed-in page, four flows as numbered steps
+  (<code>--flow-&lt;flow&gt;-&lt;nn&gt;-&lt;step&gt;</code>: post a listing, ad licence, buy a
+  package, top up credits), and the account variants (<code>--as-staff</code> and
+  <code>--as-individual</code> on every signed-in page, <code>--profile-incomplete</code>,
+  <code>--modal-non-saudi</code>). A clickable prototype: a trigger opens its state; Escape, ✕,
+  Cancel or the mask go back to where it was opened from; ← and → walk a flow; the rail and
+  menus go to the other pages; <strong>M</strong> opens the same screen in the other layout.</li>
+  <li><strong><code>deliverables/mobile/</code></strong> — the <strong>responsive layout</strong>:
+  the same pages and states as the product draws them for a phone (375, mobile user agent —
+  the product picks its phone layout by device, <code>src/utility/general.js</code>).</li>
+  <li><strong><code>deliverables/responsive.html</code></strong> — the <strong>responsive
+  rules</strong>, counted from both layouts: which overlays become drawers, which components
+  change size, what only one layout has, screen by screen.</li>
+  <li><strong><code>deliverables/design-qa.html</code></strong> — every page, state and component
+  held to the product's render, the live product on two real accounts, and the code.</li>
+  <li><strong><code>kb/screens/</code></strong> and <strong><code>data/design-kb.json</code></strong> —
+  the <strong>design knowledge base</strong>: every screen and state, web and responsive, in
+  words — what it is for, how it is reached, what it shows, the components it adds, the file to
+  open — searched by <code>scripts/design-find.mjs</code>.</li>
+  <li><strong><code>deliverables/profolio.css</code></strong> (the product's CSS, renamed:
+  <code>ant-*</code> → <code>pf-*</code>, styled-components → the JSX name the product
+  wrote) and <strong><code>tokens.css</code></strong> (the named values).</li>
+  <li><strong><code>harness/fixtures/</code></strong> — the invented account, one module per
+  area, answering every endpoint in the real API's shape for two real accounts: an agency
+  owner (<code>data/api-shapes.json</code>) and an agency staff user
+  (<code>data/api-shapes.b.json</code>, fixture mode <code>staff</code>) — recorded from
+  signed-in sessions as keys and types only. The individual seller (<code>individual</code>) is
+  the owner's record with the agency taken away, not a recording. Modes: accounts
+  (<code>staff</code>, <code>individual</code>, <code>incomplete</code>, <code>non-saudi</code>,
+  <code>member</code>, <code>projects</code>), data (<code>slow</code>, <code>error</code>,
+  <code>empty</code>), forms (<code>form-fail</code>, <code>lead-duplicate</code>,
+  <code>photo-rejected</code>, <code>preferences-flipped</code>, …), payments
+  (<code>pay-*</code>: a package, an ad licence, declined, cancelled, Tabby refused, Nafath
+  pending, …) and the listing form (<code>lf-*</code>: Nafath, too few credits, a failed
+  upload).</li>
 </ul>
 
 <h2>Where it stands</h2>
 
+<!-- filled in by the pass of 2026-09-28; re-run npm run all for current numbers -->
 <table>
   <tr><th>measure</th><th>where</th></tr>
-  <tr><td>shell, every page</td><td>passing — header, rail, content, footer, badge</td></tr>
-  <tr><td>page bodies</td><td>five of eleven clean; the rest carry named faults</td></tr>
-  <tr><td>components</td><td>38 of 38 render identically to the catalogue</td></tr>
-  <tr><td>audit matrix (Listings)</td><td>127 rows, 104 covered, 16 unmeasured, 0 dead controls</td></tr>
+  <tr><td>compiled pages and states vs the product</td><td data-fill="pages">647 of 647 within 0.5% pixel difference; worst user-settings-licenses--menu-post-a-listing at 0.452% (2026-09-29)</td></tr>
+  <tr><td>pages on the one stylesheet</td><td data-fill="sheet">1164 of 1203 pages on the one stylesheet (2959 rules)</td></tr>
+  <tr><td>component variants matching their in-page reference</td><td data-fill="components">1518 of 1723 variants (88.1%) within 1% of their in-page shot</td></tr>
+  <tr><td>fixture endpoints in the real API's shape</td><td data-fill="fixtures">30 of 30 recorded endpoints answered; npm run check-fixtures for their shape</td></tr>
+  <tr><td>responsive pages and states vs the product</td><td data-fill="responsive">556 of 556 within 0.5% pixel difference; worst listings--tab-ad-license-requests--mobile at 0.423% (2026-09-29)</td></tr>
+  <tr><td>against the live product (real accounts)</td><td data-fill="live">owner at 1440 75.8% coverage, 23.7% exact · staff at 1440 88.9% coverage, 49.3% exact · staff at 375 81.4% coverage, 49.1% exact</td></tr>
+  <tr><td>interface copy that is the product's own</td><td data-fill="copy">679 of 685 interface strings are in translation.json or the code (99.1%); 6 unmatched</td></tr>
 </table>
 
-<h3>Known wrong, and worth fixing in this order</h3>
+<h3>Known gaps</h3>
 <ol>
-  <li><strong>The product checkout moved.</strong> Everything above was measured against a
-  snapshot; the real <code>SectorLabs/profolio-reactjs</code> differs in <strong>357 files</strong>
-  under <code>src/</code>, with whole features added. Re-run <code>npm run all</code> against the
-  real repo and expect numbers to move. Nothing is trustworthy until that has been done once.</li>
-  <li><strong>The dashboard draws 120 controls the product does not.</strong>
-  <code>scripts/pages/dashboard-body.html</code> is the last hand-written page body and was
-  written against a stale capture. It should go through a generator like the other ten.</li>
-  <li><strong>Four bodies sit at 41–48%</strong> of the product's node count — Reports ×3 and
-  LMS Leads — and Ad License renders one card where the product renders four.</li>
-  <li><strong>228 <code>pf-</code> classes are in no catalogue section</strong> — the whole
-  settings and reports vocabulary. They cannot be cut into components or checked until they
-  are catalogued in <code>deliverables/components.html</code>.</li>
-  <li><strong>The Listings range calendar is fabricated</strong> — both months share one
-  invented day grid. The two date fields that would use it are deliberately inert.</li>
+  <li><strong>English only; web at 1440 and the phone layout at 375.</strong> Arabic RTL and
+  tablet widths were out of scope; the harness can capture <code>--rtl</code> and the compiler
+  would follow.</li>
+  <li><strong>The product is wider than a phone.</strong> At 375 its content overflows to about
+  433px (<code>deliverables/design-qa.html</code> lists where); the compiled pages reproduce
+  it, as they reproduce everything.</li>
+  <li><strong><code>/user-settings/preferences</code> crashes for any account without a
+  photo</strong> — a product bug at <code>common/transformers/user.js:35</code>. The harness
+  compiles it on an image record whose sizes are empty, which renders the same.</li>
+  <li><strong>The phone's FEEDBACK tab covers the right edge of most pages</strong> and takes
+  any tap there (<code>deliverables/design-qa.html</code>); a state whose control sits under it
+  is reached by tapping the part a person can see.</li>
+  <li><strong>A few component cut-outs differ from their in-page shot</strong> — small icons
+  and tags where a composited layer snaps to whole pixels. Each says so on its own page.</li>
 </ol>
 
-<h2>The two habits that matter</h2>
-
-<p><strong>Measure, then write.</strong> Every wrong value in this project came from taking one
-sample and promoting it to a rule — five row actions because the fixture listing offered no
-discount, a disabled upgrade circle because the account had no credits, a profile header
-built from a redirect that was never the profile page. When a page needs rebuilding, run
-<code>outline.mjs</code> against its capture and read the geometry.</p>
-
-<p><strong>A check per claim.</strong> There are 37 scripts and most of them exist because
-something was wrong and nobody noticed: <code>check-captures.mjs</code> because eight
-reference captures were a week stale, <code>qa-components.mjs</code> because cutting CSS by
-class name silently dropped rules, <code>sync.mjs</code> because a regenerated sprite never
-reached the pages embedding it. When you fix something, ask what would have caught it, and
-add that too.</p>
-
 <h2>Gotchas that cost real time</h2>
-
 <ul>
-  <li><strong>A capture older than the fixture lies quietly.</strong> It renders, so it looks
-  fine, and it scores every page built against it as wrong in a region that is actually
-  right. <code>check-captures.mjs</code> now names any capture whose header disagrees with
-  the newest one.</li>
-  <li><strong>Coverage over 100% means the reference is empty</strong>, not that the page is
-  more than complete.</li>
-  <li><strong><code>.pf-card</code> is a flex column</strong>, so any row inside a card has to
-  restate <code>flex-direction:row</code>.</li>
-  <li><strong>The riyal mark U+FDFC is an Arabic letter</strong>, so the digits after it join
-  one right-to-left run and the price renders backwards. CSS cannot fix it; the mark needs
-  its own <code>&lt;bdi&gt;</code>.</li>
-  <li><strong>antd's Badge clamps at 99</strong>, and its offset is <code>w/2 - 14</code> —
-  a width-dependent position, not a fixed inset.</li>
-  <li><strong>Never read <code>canvas/*.dc.html</code></strong> into an agent's context. Three
-  files, about 92,000 tokens. Everything needed from them is already in
-  <code>kb/design/components/</code>.</li>
+  <li><strong>Two Vite servers sharing <code>node_modules/.vite</code> re-optimise under each
+  other</strong> when their <code>define</code>s differ. The harness has its own cache dir.</li>
+  <li><strong>A browser with classic scrollbars lays a 1440 viewport out at 1425.</strong>
+  Headless Chromium has none. Hide the scrollbar before capturing a signed-in page, or every
+  width is 15px off.</li>
+  <li><strong>A styled-components componentId sits on every variant.</strong> Renaming it to
+  variant 1's name makes variant 1's rules land on all of them — a column Flex on every row.
+  The compiler drops it unless a rule selects it.</li>
+  <li><strong>A span in a flex row is blockified.</strong> Cut out of the row it is inline
+  again and ignores its width; a cut-out keeps its computed <code>display</code>.</li>
+  <li><strong>Forced-state CSS must copy only the selector parts that had the
+  pseudo-class</strong>, or the plain parts are re-applied after the whole stylesheet and win.</li>
+  <li><strong>A fixture in last year's shape does not fail — the product renders blanks.</strong>
+  "for undefined" on every Credits card was a renamed field. <code>check-fixtures</code> exists
+  for that.</li>
+  <li><strong>First-visit UI hides the page:</strong> the LMS tours and the "Profile Completed"
+  modal. The harness dismisses them the way a returning user has them, and states bring them
+  back (<code>harness/page.mjs</code>).</li>
+  <li><strong>Never read <code>canvas/*.dc.html</code></strong> into an agent's context.</li>
+  <li><strong>The viewport meta is part of the layout.</strong> Compiled pages carried a generic
+  one; without the product's <code>maximum-scale=1.0, user-scalable=0</code> a phone widens its
+  layout viewport to the product's overflow, and every fixed bar with it. A full-page
+  screenshot hides this — it resizes the viewport anyway. Compile copies the product's.</li>
+  <li><strong>A link inside a link does not survive HTML.</strong> React builds it; the parser
+  closes the outer link at the inner one, and the phone's app banner lost its text column.
+  Such links are written <code>&lt;pf-nested-a&gt;</code> and made real by a line of script
+  (<code>scripts/lib/nested-a.mjs</code>).</li>
+  <li><strong>A failed state can poison the next.</strong> A state that sets a harness flag
+  and times out leaves it set; compile clears every <code>pf-harness-*</code> flag before each
+  state.</li>
+  <li><strong><code>clientWidth</code> is rounded.</strong> Centred text in a 72.39px box is not
+  centred in 72px — widths come from the rect. And an inline box takes no vertical margin, so
+  an inline cut-out is placed by the box around it.</li>
+  <li><strong>Mobile emulation is not a phone-width window.</strong> Collect the responsive
+  components in a plain 375 window — exactly what a component page's frame is — or shots of
+  anything in the overflow come out blank.</li>
 </ul>

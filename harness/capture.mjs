@@ -22,12 +22,12 @@
  * stroke widths, row heights — and where the source declares a value, the
  * source still wins.
  */
-import pkg from '/opt/node22/lib/node_modules/playwright/index.js';
+import pkg from 'playwright';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { serve, REPO } from './serve.mjs';
-import { answer, THUMB, AVATAR_SVG } from './fixtures.mjs';
+import { prepareContext, routeHandler } from './page.mjs';
 
 const { chromium } = pkg;
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -59,14 +59,18 @@ if (arg('--routes')) {
 }
 if (flag('--list')) { console.log(ALL.map((p) => `  ${slug(p).padEnd(28)} ${p}`).join('\n')); process.exit(0); }
 
-const user = JSON.parse(readFileSync(join(HERE, 'fixtures/user.json'), 'utf8'));
 const captureSrc = readFileSync(join(ROOT, 'tools/profolio-capture/capture.js'), 'utf8');
-const FONTS_CSS = readFileSync(join(ROOT, 'deliverables/fonts.css'), 'utf8');
 const locales = flag('--rtl') ? ['en', 'ar'] : ['en'];
 const WITH_STATES = flag('--states');
+/* --mode staff renders every route as that fixture account variant and
+   writes it as <route>--as-staff, beside the default capture. The data modes
+   work the same way: --mode slow | error | empty writes <route>--as-slow …
+   (harness/page.mjs dataMode; 'empty' is an answer set, fixtures/*.mjs) */
+const AS_MODE = arg('--mode') || null;
 /* the answer-set mode a state step is running under — null for a normal
-   answer, 'error' or 'slow' while one step wants a failure or a wait */
-let MODE = null;
+   answer, 'error' or 'slow' while one step wants a failure or a wait
+   (harness/page.mjs routeHandler reads it on every request) */
+let MODE = AS_MODE;
 
 /* ── one page per route ────────────────────────────────────────────────── */
 /* wait for the page to stop moving — the same settle every capture uses, so a
@@ -113,71 +117,40 @@ async function captureRoute(browser, base, route, locale) {
   const ctx = await browser.newContext({
     viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1, locale: locale === 'ar' ? 'ar-SA' : 'en',
   });
-  await ctx.addInitScript(() => {
-    try { localStorage.setItem('tapTargets', JSON.stringify({ lms: { introModal: { hide: true } } })); } catch {}
-  });
-  await ctx.addCookies([{ name: 'byt_cd', value: 'harness-token', domain: '127.0.0.1', path: '/' }]);
+  /* the cookie, the first-visit flags and the route handler are
+     harness/page.mjs's — the same ones compile.mjs opens its pages with, so
+     a capture and a compiled page cannot be answered differently. That is
+     also where the data modes live: a step (or --mode) may put the answer
+     set into 'slow' (the page's content held open, the shell answered) or
+     'error' (the content answers 500), which is how the loading and error
+     states get captured rather than drawn. */
+  await prepareContext(ctx);
   const page = await ctx.newPage();
 
   const log = { answered: [], unanswered: [], errors: [], blocked: 0 };
   page.on('pageerror', (e) => log.errors.push(String(e).slice(0, 300)));
   page.on('console', (m) => { if (m.type() === 'error' && !/^Warning:|ERR_FAILED|ERR_ABORTED|Moengage|ServiceWorker/.test(m.text())) log.errors.push(m.text().slice(0, 300)); });
-
-  const appHost = new URL(base).host;
-  await page.route('**/*', async (r) => {
-    const u = new URL(r.request().url());
-    /* Google Fonts is the one off-origin request worth answering rather than
-       blocking: useAppInit.js fetches Figtree there, and Figtree is what the
-       product paints with. Blocking it made the product render in the system
-       fallback while our page rendered in a real face, so every text width
-       differed for a reason that had nothing to do with our markup. Serve the
-       same embedded faces deliverables/fonts.css carries. */
-    if (/^fonts\.(googleapis|gstatic)\.com$/.test(u.host)) {
-      if (u.host === 'fonts.googleapis.com') {
-        log.fonts = 'served from deliverables/fonts.css';
-        return r.fulfill({ status: 200, contentType: 'text/css', body: FONTS_CSS });
-      }
-      return r.abort();          /* the faces are already inlined in that CSS */
-    }
-    if (u.host !== appHost) { log.blocked++; return r.abort(); }         /* nothing else leaves the sandbox */
-    if (u.pathname.startsWith('/harness-img/')) return r.fulfill({ status: 200, contentType: THUMB.contentType, body: u.pathname.includes('avatar') ? AVATAR_SVG : THUMB.body });
-    if (u.pathname.startsWith('/api/')) {
-      /* A step may put the answer set into a MODE, which is how the loading
-         and error states get captured rather than drawn:
-           'error' — the listings query fails, and the product renders its own
-                     error card. Only that endpoint fails; a 500 everywhere
-                     would take the shell down with it.
-           'slow'  — the listings query is held open, so the screen the
-                     product paints while waiting is what gets captured.
-         Anything else answers normally. */
-      if (MODE === 'error' && /\/api\/surge\/listings$/.test(u.pathname)) {
-        log.mode = 'error on /api/surge/listings';
-        return r.fulfill({ status: 500, contentType: 'application/json', body: '{"error":"harness: deliberate failure"}' });
-      }
-      if (MODE === 'slow' && /\/api\/surge\/(listings|ovation)/.test(u.pathname)) {
-        log.mode = 'listings held open';
-        return new Promise(() => {});      /* never settles; the step snaps the skeleton */
-      }
-      const body = answer(r.request().method(), u.pathname, u.search, MODE);
-      (body === undefined ? log.unanswered : log.answered).push(`${r.request().method()} ${u.pathname}`);
-      /* never abort an API call: an aborted request pins a skeleton forever, a 200 lands in an empty state */
-      return r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(body ?? {}) });
-    }
-    return r.continue();
-  });
+  await page.route('**/*', routeHandler({ base, mode: () => MODE, log }));
 
   const url = `${base}/${locale}${route}`;
   const t0 = Date.now();
   await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60_000 });
   try { await page.waitForSelector('.ant-layout', { timeout: 30_000 }); } catch {}
-  try { await page.waitForLoadState('networkidle', { timeout: 20_000 }); } catch {}
-  /* let skeletons and spinners resolve, then a beat for the chart to paint */
-  try {
-    /* the Credits card keeps two zero-size spinners mounted; only a spinner with area is waiting on something */
-    await page.waitForFunction(() => ![...document.querySelectorAll('.ant-spin-spinning, .ant-skeleton-active')]
-      .some((el) => { const r = el.getBoundingClientRect(); return r.width > 0 && r.height > 0; }), null, { timeout: 15_000 });
-  } catch {}
-  await page.waitForTimeout(1200);
+  if (AS_MODE === 'slow') {
+    /* the content is held open on purpose: the network never idles and the
+       skeletons never go, so waiting for either only times out (35 s) —
+       give the page the moment it needs to mount them and shoot */
+    await page.waitForTimeout(3000);
+  } else {
+    try { await page.waitForLoadState('networkidle', { timeout: 20_000 }); } catch {}
+    /* let skeletons and spinners resolve, then a beat for the chart to paint */
+    try {
+      /* the Credits card keeps two zero-size spinners mounted; only a spinner with area is waiting on something */
+      await page.waitForFunction(() => ![...document.querySelectorAll('.ant-spin-spinning, .ant-skeleton-active')]
+        .some((el) => { const r = el.getBoundingClientRect(); return r.width > 0 && r.height > 0; }), null, { timeout: 15_000 });
+    } catch {}
+    await page.waitForTimeout(1200);
+  }
 
   const state = await page.evaluate(() => ({
     finalPath: location.pathname,
@@ -191,7 +164,7 @@ async function captureRoute(browser, base, route, locale) {
   capture.source = 'harness';           /* vs. the extension; same shape otherwise */
   capture.locale = locale;
 
-  const name = slug(route) + (locale === 'ar' ? '.rtl' : '');
+  const name = slug(route) + (AS_MODE ? `--as-${AS_MODE}` : '') + (locale === 'ar' ? '.rtl' : '');
   mkdirSync(OUT, { recursive: true });
   writeFileSync(join(OUT, `${name}.capture.json`), JSON.stringify(capture));
   await page.screenshot({ path: join(OUT, `${name}.png`), fullPage: true });
@@ -230,7 +203,7 @@ async function captureRoute(browser, base, route, locale) {
         } catch (e) {
           states.push({ name: step.name, ok: false, why: String(e).split('\n')[0].slice(0, 90) });
         } finally {
-          MODE = null;
+          MODE = AS_MODE;
         }
       }
     }

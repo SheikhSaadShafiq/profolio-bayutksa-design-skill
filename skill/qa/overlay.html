@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Overlay QA</title>
+<!--
+  A page beside a screenshot of the live product: side by side, laid over
+  (opacity, difference blend), or wiped across; an 8px grid; every box
+  outlined with its computed size.
+
+  Serve the skill folder and open this page — a browser will not let one
+  page read another's DOM across file:// URLs, and the outlines need it:
+
+      cd skill && python3 -m http.server 8000
+      open http://localhost:8000/qa/overlay.html
+
+  Nothing is fetched from the network. ?page=pages/dashboard.html opens a
+  page directly; a screenshot is dropped on the window or chosen with the
+  button. Keys: 1 side by side · 2 overlay · 3 wipe · D difference ·
+  G grid · O outlines.
+-->
+<style>
+  :root { --ink: #1f2328; --ink-2: #57606a; --line: #d8dee4; --ground: #f6f8fa; --accent: #006169; --warn: #b3261e; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body { display: flex; flex-direction: column; background: var(--ground); color: var(--ink); font: 13px/1.4 -apple-system, system-ui, "Segoe UI", sans-serif; }
+  header { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; padding: 10px 14px; border-bottom: 1px solid var(--line); background: #fff; }
+  header h1 { margin: 0 8px 0 0; font-size: 14px; }
+  label { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-2); }
+  select, input[type=text] { max-width: 360px; padding: 5px 8px; border: 1px solid var(--line); border-radius: 6px; background: #fff; color: var(--ink); font: inherit; }
+  input[type=text] { width: 300px; }
+  button { padding: 5px 10px; border: 1px solid var(--line); border-radius: 6px; background: #fff; color: var(--ink); font: inherit; cursor: pointer; }
+  button[aria-pressed=true] { border-color: var(--accent); background: var(--accent); color: #fff; }
+  .seg { display: inline-flex; }
+  .seg button { border-radius: 0; margin-left: -1px; }
+  .seg button:first-child { border-radius: 6px 0 0 6px; margin-left: 0; }
+  .seg button:last-child { border-radius: 0 6px 6px 0; }
+  #status { margin-left: auto; color: var(--ink-2); }
+  main { position: relative; flex: 1; overflow: auto; }
+  #stage { position: relative; margin: 16px auto; transform-origin: top left; }
+  .pane { position: absolute; top: 0; background: #fff; box-shadow: 0 0 0 1px var(--line); }
+  .pane iframe { display: block; border: 0; }
+  #shot { position: absolute; top: 0; left: 0; display: block; max-width: none; pointer-events: none; }
+  #grid { position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(to right, rgba(0, 97, 105, 0.18) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 97, 105, 0.18) 1px, transparent 1px); background-size: 8px 8px; }
+  #wipe-bar { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--warn); pointer-events: none; }
+  #tip { position: fixed; z-index: 10; display: none; padding: 6px 8px; border-radius: 6px; background: var(--ink); color: #fff; font: 11px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; pointer-events: none; white-space: pre; }
+  #empty { max-width: 560px; margin: 60px auto; color: var(--ink-2); text-align: center; }
+  #drop { position: fixed; inset: 0; z-index: 20; display: none; place-items: center; background: rgba(0, 97, 105, 0.12); border: 3px dashed var(--accent); font-size: 18px; color: var(--accent); }
+  body.dragging #drop { display: grid; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Overlay QA</h1>
+  <label>Page <select id="pick"><option value="">— from registry.json —</option></select></label>
+  <input id="path" type="text" placeholder="or a path, e.g. pages/dashboard.html" spellcheck="false">
+  <label>Width <select id="width"><option value="auto">auto</option><option value="1440">1440 web</option><option value="375">375 phone</option></select></label>
+  <button id="choose">Screenshot…</button><input id="file" type="file" accept="image/*" hidden>
+  <span class="seg" role="group" aria-label="Mode"><button data-mode="side" aria-pressed="false">Side by side</button><button data-mode="overlay" aria-pressed="true">Overlay</button><button data-mode="wipe" aria-pressed="false">Wipe</button></span>
+  <label id="opacity-l">Opacity <input id="opacity" type="range" min="0" max="100" value="50"></label>
+  <label id="wipe-l" hidden>Wipe <input id="wipe" type="range" min="0" max="100" value="50"></label>
+  <button id="diff" aria-pressed="false">Difference</button>
+  <button id="gridb" aria-pressed="false">8px grid</button>
+  <button id="outl" aria-pressed="false">Outlines</button>
+  <label>Zoom <select id="zoom"><option value="fit">fit</option><option value="1">100%</option><option value="0.5">50%</option></select></label>
+  <span id="status"></span>
+</header>
+<main id="main">
+  <p id="empty">Choose a page, then a screenshot of the same screen from the live product (web shots at 1440 wide, phone shots at 375). Drop an image anywhere to load it.</p>
+  <div id="stage" hidden>
+    <div class="pane" id="pane-page"><iframe id="frame" title="page"></iframe><div id="grid" hidden></div></div>
+    <div class="pane" id="pane-shot"><img id="shot" alt=""></div>
+    <div id="wipe-bar" hidden></div>
+  </div>
+</main>
+<div id="tip"></div>
+<div id="drop">Drop the screenshot</div>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var state = { mode: 'overlay', diff: false, grid: false, outlines: false, width: 1440, pageH: 900, shotW: 0, shotH: 0 };
+  var frame = $('frame'), shot = $('shot'), stage = $('stage');
+
+  /* the pages and their states, from the registry */
+  fetch('../registry.json').then(function (r) { return r.json(); }).then(function (reg) {
+    var pick = $('pick');
+    Object.keys(reg.pages || {}).sort().forEach(function (slug) {
+      var p = reg.pages[slug], g = document.createElement('optgroup');
+      g.label = slug;
+      var add = function (v, t) { var o = document.createElement('option'); o.value = v; o.textContent = t; g.appendChild(o); };
+      add(p.file, slug + ' · web');
+      if (p.mobile) add(p.mobile, slug + ' · 375');
+      (p.states || []).forEach(function (s) {
+        var name = s.split('@')[0], only = s.split('@')[1], dir = p.file.replace(/\.html$/, '/');
+        if (only !== '375') add(dir + name + '.html', '  ' + name);
+        if (only === '375' || (!only && p.mobile)) add(dir + name + '.mobile.html', '  ' + name + ' · 375');
+      });
+      pick.appendChild(g);
+    });
+  }).catch(function () { $('status').textContent = 'registry.json not readable — serve the skill folder (see the comment in this file)'; });
+
+  function load(path) {
+    if (!path) return;
+    $('path').value = path;
+    state.width = $('width').value === 'auto' ? (/\.mobile\.html$/.test(path) ? 375 : 1440) : +$('width').value;
+    frame.style.width = state.width + 'px';
+    frame.onload = function () {
+      var d = frame.contentDocument;
+      if (!d) { $('status').textContent = 'the page could not be read — serve the skill folder'; return; }
+      state.pageH = Math.max(d.documentElement.scrollHeight, d.body ? d.body.scrollHeight : 0);
+      frame.style.height = state.pageH + 'px';
+      wireOutlines(d);
+      layout();
+    };
+    frame.src = '../' + path.replace(/^\/+/, '');
+    $('empty').hidden = true; stage.hidden = false;
+    history.replaceState(null, '', '?page=' + encodeURIComponent(path));
+  }
+  function loadShot(fileOrUrl) {
+    var url = typeof fileOrUrl === 'string' ? fileOrUrl : URL.createObjectURL(fileOrUrl);
+    shot.onload = function () { state.shotW = shot.naturalWidth; state.shotH = shot.naturalHeight; layout(); };
+    shot.src = url;
+  }
+
+  /* where everything sits for the mode */
+  function layout() {
+    var w = state.width, h = Math.max(state.pageH, state.shotH || 0), side = state.mode === 'side', gap = 24;
+    var pp = $('pane-page'), ps = $('pane-shot');
+    pp.style.left = '0px'; pp.style.width = w + 'px'; pp.style.height = state.pageH + 'px';
+    ps.style.left = side ? (w + gap) + 'px' : '0px'; ps.style.width = (state.shotW || w) + 'px'; ps.style.height = (state.shotH || 0) + 'px';
+    ps.style.background = side ? '#fff' : 'transparent'; ps.style.boxShadow = side ? '' : 'none';
+    ps.style.zIndex = side ? '' : '2';
+    shot.style.opacity = state.mode === 'overlay' ? $('opacity').value / 100 : 1;
+    shot.style.mixBlendMode = !side && state.diff ? 'difference' : 'normal';
+    var wipe = state.mode === 'wipe';
+    shot.style.clipPath = wipe ? 'inset(0 ' + (100 - $('wipe').value) + '% 0 0)' : 'none';
+    $('wipe-bar').hidden = !wipe;
+    $('wipe-bar').style.left = (w * $('wipe').value / 100) + 'px';
+    $('wipe-bar').style.zIndex = 3;
+    var total = side ? w * 2 + gap : Math.max(w, state.shotW || 0);
+    stage.style.width = total + 'px'; stage.style.height = h + 'px';
+    var z = $('zoom').value === 'fit' ? Math.min(1, ($('main').clientWidth - 32) / total) : +$('zoom').value;
+    stage.style.transform = 'scale(' + z + ')';
+    stage.style.marginBottom = (h * z - h + 16) + 'px';
+    $('grid').hidden = !state.grid;
+    $('opacity-l').hidden = state.mode !== 'overlay';
+    $('wipe-l').hidden = !wipe;
+    var note = state.shotW && state.shotW !== w ? ' · the screenshot is ' + state.shotW + ' wide, the page ' + w : '';
+    $('status').textContent = w + '×' + state.pageH + (state.shotW ? ' · shot ' + state.shotW + '×' + state.shotH : ' · no screenshot yet') + note;
+    $('status').style.color = note ? 'var(--warn)' : '';
+  }
+
+  /* outlines: every box, and the hovered one's computed size */
+  var outlineStyle;
+  function wireOutlines(d) {
+    outlineStyle = d.createElement('style');
+    outlineStyle.textContent = '*{outline:1px solid rgba(179,38,30,.35)!important;outline-offset:-1px}';
+    if (state.outlines) d.head.appendChild(outlineStyle);
+    d.addEventListener('mousemove', function (e) {
+      var tip = $('tip');
+      if (!state.outlines) { tip.style.display = 'none'; return; }
+      var el = e.target, cs = d.defaultView.getComputedStyle(el), r = el.getBoundingClientRect();
+      var cls = (el.getAttribute('class') || '').trim().split(/\s+/).slice(0, 3).join('.');
+      tip.textContent = el.tagName.toLowerCase() + (cls ? '.' + cls : '') + '\n'
+        + Math.round(r.width * 10) / 10 + ' × ' + Math.round(r.height * 10) / 10
+        + '\npadding ' + cs.paddingTop + ' ' + cs.paddingRight + ' ' + cs.paddingBottom + ' ' + cs.paddingLeft
+        + '\nmargin  ' + cs.marginTop + ' ' + cs.marginRight + ' ' + cs.marginBottom + ' ' + cs.marginLeft
+        + '\nfont    ' + cs.fontSize + '/' + cs.lineHeight + ' ' + cs.fontWeight
+        + '\nradius  ' + cs.borderTopLeftRadius;
+      var fr = frame.getBoundingClientRect(), z = fr.width / state.width;
+      tip.style.left = Math.min(innerWidth - 260, fr.left + e.clientX * z + 14) + 'px';
+      tip.style.top = Math.min(innerHeight - 110, fr.top + e.clientY * z + 14) + 'px';
+      tip.style.display = 'block';
+    });
+    d.addEventListener('mouseleave', function () { $('tip').style.display = 'none'; });
+    d.addEventListener('click', function (e) { if (state.outlines) { e.preventDefault(); e.stopPropagation(); } }, true);
+  }
+  function setOutlines(on) {
+    state.outlines = on;
+    var d = frame.contentDocument;
+    if (d && outlineStyle) { if (on) d.head.appendChild(outlineStyle); else outlineStyle.remove(); }
+    $('outl').setAttribute('aria-pressed', on);
+  }
+
+  /* controls */
+  $('pick').onchange = function () { load(this.value); };
+  $('path').onkeydown = function (e) { if (e.key === 'Enter') load(this.value.trim()); };
+  $('width').onchange = function () { load($('path').value.trim()); };
+  $('choose').onclick = function () { $('file').click(); };
+  $('file').onchange = function () { if (this.files[0]) loadShot(this.files[0]); };
+  document.querySelectorAll('[data-mode]').forEach(function (b) {
+    b.onclick = function () { state.mode = b.dataset.mode; document.querySelectorAll('[data-mode]').forEach(function (x) { x.setAttribute('aria-pressed', x === b); }); layout(); };
+  });
+  $('opacity').oninput = layout; $('wipe').oninput = layout; $('zoom').onchange = layout;
+  $('diff').onclick = function () { state.diff = !state.diff; this.setAttribute('aria-pressed', state.diff); layout(); };
+  $('gridb').onclick = function () { state.grid = !state.grid; this.setAttribute('aria-pressed', state.grid); layout(); };
+  $('outl').onclick = function () { setOutlines(!state.outlines); };
+  addEventListener('resize', layout);
+  addEventListener('keydown', function (e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
+    var k = e.key.toLowerCase();
+    if (k === '1' || k === '2' || k === '3') document.querySelectorAll('[data-mode]')[+k - 1].click();
+    else if (k === 'd') $('diff').click(); else if (k === 'g') $('gridb').click(); else if (k === 'o') $('outl').click();
+  });
+  /* a screenshot dropped anywhere */
+  addEventListener('dragover', function (e) { e.preventDefault(); document.body.classList.add('dragging'); });
+  addEventListener('dragleave', function (e) { if (!e.relatedTarget) document.body.classList.remove('dragging'); });
+  addEventListener('drop', function (e) { e.preventDefault(); document.body.classList.remove('dragging'); var f = e.dataTransfer.files[0]; if (f && /^image\//.test(f.type)) loadShot(f); });
+
+  var q = new URLSearchParams(location.search);
+  if (q.get('page')) load(q.get('page'));
+  if (q.get('shot')) loadShot(q.get('shot'));
+})();
+</script>
+</body>
+</html>

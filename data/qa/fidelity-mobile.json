@@ -1,0 +1,530 @@
+{
+  "at": "2026-09-29T07:40:55.057Z",
+  "against": "harness",
+  "tolerancePx": 1,
+  "coverage": 100,
+  "fidelity": 99.9,
+  "exact": 99.9,
+  "rows": [
+    {
+      "page": "ad-license",
+      "live": 207,
+      "ours": 207,
+      "matched": 207,
+      "clean": 207,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 207,
+      "extra": 0,
+      "pageHeight": [
+        744,
+        744
+      ],
+      "coverage": 100,
+      "fidelity": 100,
+      "exactPct": 100,
+      "score": 100,
+      "worklist": []
+    },
+    {
+      "page": "agency-staff",
+      "live": 160,
+      "ours": 160,
+      "matched": 160,
+      "clean": 160,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 160,
+      "extra": 0,
+      "pageHeight": [
+        929,
+        929
+      ],
+      "coverage": 100,
+      "fidelity": 100,
+      "exactPct": 100,
+      "score": 100,
+      "worklist": []
+    },
+    {
+      "page": "agent-performance",
+      "live": 288,
+      "ours": 288,
+      "matched": 288,
+      "clean": 288,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 288,
+      "extra": 0,
+      "pageHeight": [
+        2426,
+        2426
+      ],
+      "coverage": 100,
+      "fidelity": 100,
+      "exactPct": 100,
+      "score": 100,
+      "worklist": []
+    },
+    {
+      "page": "checkout",
+      "live": 50,
+      "ours": 50,
+      "matched": 50,
+      "clean": 46,
+      "missing": 0,
+      "moved": 0,
+      "painted": 4,
+      "inherited": 0,
+      "exact": 46,
+      "extra": 0,
+      "pageHeight": [
+        712,
+        712
+      ],
+      "coverage": 100,
+      "fidelity": 92,
+      "exactPct": 92,
+      "score": 92,
+      "worklist": [
+        {
+          "kind": "painted",
+          "at": "span.ant-skeleton-button",
+          "box": "341×44 @17,337",
+          "detail": "backgroundColor undefined → rgb(241, 242, 246)"
+        },
+        {
+          "kind": "painted",
+          "at": "span.ant-skeleton-input",
+          "box": "341×32 @17,193",
+          "detail": "backgroundColor undefined → rgb(241, 242, 246)"
+        },
+        {
+          "kind": "painted",
+          "at": "span.ant-skeleton-input",
+          "box": "341×32 @17,241",
+          "detail": "backgroundColor undefined → rgb(241, 242, 246)"
+        },
+        {
+          "kind": "painted",
+          "at": "span.ant-skeleton-input",
+          "box": "341×32 @17,289",
+          "detail": "backgroundColor undefined → rgb(241, 242, 246)"
+        }
+      ]
+    },
+    {
+      "page": "credits-usage",
+      "live": 198,
+      "ours": 198,
+      "matched": 198,
+      "clean": 198,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 198,
+      "extra": 0,
+      "pageHeight": [
+        1564,
+        1564
+      ],
+      "coverage": 100,
+      "fidelity": 100,
+      "exactPct": 100,
+      "score": 100,
+      "worklist": []
+    },
+    {
+      "page": "dashboard",
+      "live": 1156,
+      "ours": 1156,
+      "matched": 1156,
+      "clean": 1155,
+      "missing": 0,
+      "moved": 0,
+      "painted": 1,
+      "inherited": 0,
+      "exact": 1155,
+      "extra": 0,
+      "pageHeight": [
+        5426,
+        5426
+      ],
+      "coverage": 100,
+      "fidelity": 99.9,
+      "exactPct": 99.9,
+      "score": 99.9,
+      "worklist": [
+        {
+          "kind": "painted",
+          "at": "div.ant-tabs-tab.ant-tabs-tab-active",
+          "box": "126×115 @-1,925",
+          "detail": "backgroundColor undefined → rgb(255, 255, 255)"
+        }
+      ]
+    },
+    {
+      "page": "invite",
+      "live": 0,
+      "ours": 0,
+      "matched": 0,
+      "clean": 0,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 0,
+      "extra": 0,
+      "pageHeight": [
+        712,
+        712
+      ],
+      "coverage": 0,
+      "fidelity": 0,
+      "exactPct": 0,
+      "score": 0,
+      "worklist": []
+    },
+    {
+      "page": "listings",
+      "live": 981,
+      "ours": 981,
+      "matched": 981,
+      "clean": 981,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 981,
+      "extra": 0,
+      "pageHeight": [
+        4190,
+        4190
+      ],
+      "coverage": 100,
+      "fidelity": 100,
+      "exactPct": 100,
+      "score": 100,
+      "worklist": []
+    },
+    {
+      "page": "lms-leads",
+      "live": 331,
+      "ours": 331,
+      "matched": 331,
+      "clean": 331,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 331,
+      "extra": 0,
+      "pageHeight": [
+        1260,
+        1260
+      ],
+      "coverage": 100,
+      "fidelity": 100,
+      "exactPct": 100,
+      "score": 100,
+      "worklist": []
+    },
+    {
+      "page": "maintenance",
+      "fault": "no content region on one side"
+    },
+    {
+      "page": "packages",
+      "live": 491,
+      "ours": 491,
+      "matched": 491,
+      "clean": 491,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 491,
+      "extra": 0,
+      "pageHeight": [
+        1296,
+        1296
+      ],
+      "coverage": 100,
+      "fidelity": 100,
+      "exactPct": 100,
+      "score": 100,
+      "worklist": []
+    },
+    {
+      "page": "post-ad",
+      "fault": "no content region on one side"
+    },
+    {
+      "page": "post-listing",
+      "live": 38,
+      "ours": 38,
+      "matched": 38,
+      "clean": 38,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 38,
+      "extra": 0,
+      "pageHeight": [
+        712,
+        712
+      ],
+      "coverage": 100,
+      "fidelity": 100,
+      "exactPct": 100,
+      "score": 100,
+      "worklist": []
+    },
+    {
+      "page": "post-listing-edit",
+      "live": 350,
+      "ours": 350,
+      "matched": 350,
+      "clean": 350,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 350,
+      "extra": 0,
+      "pageHeight": [
+        3526,
+        3526
+      ],
+      "coverage": 100,
+      "fidelity": 100,
+      "exactPct": 100,
+      "score": 100,
+      "worklist": []
+    },
+    {
+      "page": "post-listing-upgrade",
+      "live": 117,
+      "ours": 117,
+      "matched": 117,
+      "clean": 117,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 117,
+      "extra": 0,
+      "pageHeight": [
+        934,
+        934
+      ],
+      "coverage": 100,
+      "fidelity": 100,
+      "exactPct": 100,
+      "score": 100,
+      "worklist": []
+    },
+    {
+      "page": "process-payment",
+      "fault": "no content region on one side"
+    },
+    {
+      "page": "reports-leads-reports",
+      "live": 649,
+      "ours": 649,
+      "matched": 649,
+      "clean": 648,
+      "missing": 0,
+      "moved": 0,
+      "painted": 1,
+      "inherited": 0,
+      "exact": 648,
+      "extra": 0,
+      "pageHeight": [
+        1921,
+        1921
+      ],
+      "coverage": 100,
+      "fidelity": 99.8,
+      "exactPct": 99.8,
+      "score": 99.8,
+      "worklist": [
+        {
+          "kind": "painted",
+          "at": "div.ant-tabs-tab.ant-tabs-tab-active",
+          "box": "126×115 @-1,99",
+          "detail": "backgroundColor undefined → rgb(255, 255, 255)"
+        }
+      ]
+    },
+    {
+      "page": "reports-listing-report",
+      "live": 872,
+      "ours": 872,
+      "matched": 872,
+      "clean": 872,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 872,
+      "extra": 0,
+      "pageHeight": [
+        3041,
+        3041
+      ],
+      "coverage": 100,
+      "fidelity": 100,
+      "exactPct": 100,
+      "score": 100,
+      "worklist": []
+    },
+    {
+      "page": "reports-summary",
+      "live": 212,
+      "ours": 212,
+      "matched": 212,
+      "clean": 211,
+      "missing": 0,
+      "moved": 0,
+      "painted": 1,
+      "inherited": 0,
+      "exact": 211,
+      "extra": 0,
+      "pageHeight": [
+        1154,
+        1154
+      ],
+      "coverage": 100,
+      "fidelity": 99.5,
+      "exactPct": 99.5,
+      "score": 99.5,
+      "worklist": [
+        {
+          "kind": "painted",
+          "at": "div.ant-tabs-tab.ant-tabs-tab-active",
+          "box": "126×115 @-1,710",
+          "detail": "backgroundColor undefined → rgb(255, 255, 255)"
+        }
+      ]
+    },
+    {
+      "page": "user-settings-agency-profile",
+      "live": 62,
+      "ours": 62,
+      "matched": 62,
+      "clean": 62,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 62,
+      "extra": 0,
+      "pageHeight": [
+        999,
+        999
+      ],
+      "coverage": 100,
+      "fidelity": 100,
+      "exactPct": 100,
+      "score": 100,
+      "worklist": []
+    },
+    {
+      "page": "user-settings-change-password",
+      "live": 42,
+      "ours": 42,
+      "matched": 42,
+      "clean": 42,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 42,
+      "extra": 0,
+      "pageHeight": [
+        712,
+        712
+      ],
+      "coverage": 100,
+      "fidelity": 100,
+      "exactPct": 100,
+      "score": 100,
+      "worklist": []
+    },
+    {
+      "page": "user-settings-licenses",
+      "live": 156,
+      "ours": 156,
+      "matched": 156,
+      "clean": 156,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 156,
+      "extra": 0,
+      "pageHeight": [
+        1160,
+        1160
+      ],
+      "coverage": 100,
+      "fidelity": 100,
+      "exactPct": 100,
+      "score": 100,
+      "worklist": []
+    },
+    {
+      "page": "user-settings-preferences",
+      "live": 44,
+      "ours": 44,
+      "matched": 44,
+      "clean": 44,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 44,
+      "extra": 0,
+      "pageHeight": [
+        712,
+        712
+      ],
+      "coverage": 100,
+      "fidelity": 100,
+      "exactPct": 100,
+      "score": 100,
+      "worklist": []
+    },
+    {
+      "page": "user-settings-user-profile",
+      "live": 246,
+      "ours": 246,
+      "matched": 246,
+      "clean": 246,
+      "missing": 0,
+      "moved": 0,
+      "painted": 0,
+      "inherited": 0,
+      "exact": 246,
+      "extra": 0,
+      "pageHeight": [
+        1927,
+        1927
+      ],
+      "coverage": 100,
+      "fidelity": 100,
+      "exactPct": 100,
+      "score": 100,
+      "worklist": []
+    }
+  ]
+}

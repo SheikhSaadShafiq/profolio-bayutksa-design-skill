@@ -1,0 +1,9 @@
+{
+  "account": "b",
+  "kind": "agency staff (role staff, not agency admin), package titanium, profile 50% complete, call and WhatsApp tracking off, unified false",
+  "at": "2026-09-28",
+  "redirects": {
+    "/user-settings/agency-profile": "/user-settings/user-profile",
+    "/post-listing": "/post-listing?step=license-number"
+  }
+}

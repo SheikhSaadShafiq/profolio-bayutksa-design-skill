@@ -1,0 +1,85 @@
+{
+ "page": "user-settings-agency-profile",
+ "route": "/user-settings/agency-profile",
+ "device": "mobile",
+ "at": "2026-09-28T16:45:42.055Z",
+ "tried": 18,
+ "states": [
+  {
+   "name": "drawer-preview",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > form:nth-child(1) > div:nth-child(1) > div:nth-child(8) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)",
+   "label": "icon",
+   "title": "Preview",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 375,
+     "h": 339
+    }
+   ]
+  },
+  {
+   "name": "inline-icon",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > form:nth-child(1) > div:nth-child(1) > div:nth-child(8) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > button:nth-child(3)",
+   "label": "icon",
+   "title": "",
+   "shell": false,
+   "opened": []
+  },
+  {
+   "name": "inline-save-changes",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > button:nth-child(1)",
+   "label": "Save Changes",
+   "title": "",
+   "shell": false,
+   "opened": []
+  },
+  {
+   "name": "drawer-feedback",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4)",
+   "label": "FEEDBACK",
+   "title": "Send us feedback The",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 375,
+     "h": 812
+    }
+   ]
+  }
+ ],
+ "links": [
+  {
+   "label": "User Settings",
+   "to": "/en/user-settings/user-profile"
+  },
+  {
+   "label": "User Settings",
+   "to": "/en/user-settings/user-profile"
+  },
+  {
+   "label": "Licenses",
+   "to": "/en/user-settings/licenses"
+  },
+  {
+   "label": "Licenses",
+   "to": "/en/user-settings/licenses"
+  },
+  {
+   "label": "Change Password",
+   "to": "/en/user-settings/change-password"
+  }
+ ],
+ "nested": [],
+ "nestedAt": "2026-09-28T22:45:17.854Z"
+}

@@ -1,0 +1,2140 @@
+{
+ "at": "2026-09-29T07:05:52.462Z",
+ "byDef": {
+  "src/components/utilities/auth-info/info.js": [
+   {
+    "href": "product/copy/utilities.html",
+    "kind": "copy",
+    "title": "Copy — utilities"
+   }
+  ],
+  "src/tenant/common/components/header-component/header-components.js": [
+   {
+    "href": "product/copy/tenant-header-component.html",
+    "kind": "copy",
+    "title": "Copy — tenant-header-component"
+   }
+  ],
+  "src/components/post-listing-menu/post-listing-menu.js": [
+   {
+    "href": "product/copy/post-listing-menu.html",
+    "kind": "copy",
+    "title": "Copy — post-listing-menu"
+   },
+   {
+    "href": "design/components/post-listing-menu.html",
+    "kind": "notes",
+    "title": "post-listing-menu"
+   }
+  ],
+  "src/components/common/button/button.js": [
+   {
+    "href": "design/components/button.html",
+    "kind": "notes",
+    "title": "Button"
+   }
+  ],
+  "src/components/common/icon/icon.js": [
+   {
+    "href": "design/components/icon.html",
+    "kind": "notes",
+    "title": "Icon container"
+   }
+  ],
+  "src/components/common/link-with-icon/link-with-icon.js": [
+   {
+    "href": "design/components/link-with-icon.html",
+    "kind": "notes",
+    "title": "link-with-icon"
+   }
+  ],
+  "src/components/common/popup/popup.js": [
+   {
+    "href": "design/components/popup.html",
+    "kind": "notes",
+    "title": "popup"
+   }
+  ],
+  "src/components/common/avatar/avatar.js": [
+   {
+    "href": "design/components/avatar.html",
+    "kind": "notes",
+    "title": "Avatar &amp; badge"
+   }
+  ],
+  "src/components/common/flex/index.js": [
+   {
+    "href": "design/components/flex.html",
+    "kind": "notes",
+    "title": "flex"
+   }
+  ],
+  "src/container/pages/dashboard/dashboard.js": [
+   {
+    "href": "product/copy/page-dashboard.html",
+    "kind": "copy",
+    "title": "Copy — page-dashboard"
+   },
+   {
+    "href": "design/components/dashboard.html",
+    "kind": "notes",
+    "title": "Dashboard widgets"
+   }
+  ],
+  "src/components/common/group/group.js": [
+   {
+    "href": "design/components/group.html",
+    "kind": "notes",
+    "title": "group"
+   }
+  ],
+  "src/components/common/dropdown/dropdown.js": [
+   {
+    "href": "design/components/dropdown.html",
+    "kind": "notes",
+    "title": "Dropdown"
+   }
+  ],
+  "src/components/widgets/listing-breakdown/listing-breakdown.js": [
+   {
+    "href": "product/copy/widgets.html",
+    "kind": "copy",
+    "title": "Copy — widgets"
+   }
+  ],
+  "src/components/common/loader-wrapper/loader-wrapper.js": [
+   {
+    "href": "design/components/loader-wrapper.html",
+    "kind": "notes",
+    "title": "loader-wrapper"
+   }
+  ],
+  "src/components/common/cards/Card.js": [
+   {
+    "href": "design/components/cards.html",
+    "kind": "notes",
+    "title": "cards"
+   },
+   {
+    "href": "design/components/card.html",
+    "kind": "notes",
+    "title": "Card frame"
+   }
+  ],
+  "src/components/common/textWithIcon/textWithIcon.js": [
+   {
+    "href": "design/components/textwithicon.html",
+    "kind": "notes",
+    "title": "Text with icon"
+   }
+  ],
+  "src/components/common/statistic/index.js": [
+   {
+    "href": "design/components/statistic.html",
+    "kind": "notes",
+    "title": "Statistic"
+   }
+  ],
+  "src/components/widgets/credits-quota/credits-quota.js": [
+   {
+    "href": "product/copy/widgets.html",
+    "kind": "copy",
+    "title": "Copy — widgets"
+   }
+  ],
+  "src/components/widgets/QuotaCreditsStatWidget.js": [
+   {
+    "href": "product/copy/widgets.html",
+    "kind": "copy",
+    "title": "Copy — widgets"
+   },
+   {
+    "href": "design/components/widgets.html",
+    "kind": "notes",
+    "title": "widgets"
+   }
+  ],
+  "src/components/widgets/ReportsLeadsTrafficSection.js": [
+   {
+    "href": "product/copy/widgets.html",
+    "kind": "copy",
+    "title": "Copy — widgets"
+   },
+   {
+    "href": "design/components/widgets.html",
+    "kind": "notes",
+    "title": "widgets"
+   }
+  ],
+  "src/components/common/textInput/textInput.js": [
+   {
+    "href": "design/components/textinput.html",
+    "kind": "notes",
+    "title": "textInput"
+   }
+  ],
+  "src/components/common/product-tag/index.js": [
+   {
+    "href": "design/components/producttag.html",
+    "kind": "notes",
+    "title": "Product tag"
+   }
+  ],
+  "src/components/common/tag/tag.js": [
+   {
+    "href": "design/components/tag.html",
+    "kind": "notes",
+    "title": "Tag"
+   }
+  ],
+  "src/components/charts/chartjs.js": [
+   {
+    "href": "product/copy/charts.html",
+    "kind": "copy",
+    "title": "Copy — charts"
+   },
+   {
+    "href": "design/components/charts.html",
+    "kind": "notes",
+    "title": "charts"
+   }
+  ],
+  "src/components/listing-container/ListingContainer.js": [
+   {
+    "href": "design/components/listing-container.html",
+    "kind": "notes",
+    "title": "listing-container"
+   }
+  ],
+  "src/components/common/dataTable/dataTable.js": [
+   {
+    "href": "design/components/datatable.html",
+    "kind": "notes",
+    "title": "dataTable"
+   }
+  ],
+  "src/components/common/image/image.js": [
+   {
+    "href": "design/components/image.html",
+    "kind": "notes",
+    "title": "image"
+   }
+  ],
+  "src/components/common/number/number.js": [
+   {
+    "href": "design/components/number.html",
+    "kind": "notes",
+    "title": "number"
+   }
+  ],
+  "src/tenant/common/components/listing/health/health.js": [
+   {
+    "href": "product/copy/tenant-listing.html",
+    "kind": "copy",
+    "title": "Copy — tenant-listing"
+   },
+   {
+    "href": "design/components/health.html",
+    "kind": "notes",
+    "title": "Health &amp; completion"
+   }
+  ],
+  "src/components/listing-health/listing-health.js": [
+   {
+    "href": "product/copy/listing-health.html",
+    "kind": "copy",
+    "title": "Copy — listing-health"
+   },
+   {
+    "href": "design/components/listing-health.html",
+    "kind": "notes",
+    "title": "listing-health"
+   }
+  ],
+  "src/components/table/table-components/expiry-renewal.js": [
+   {
+    "href": "product/copy/table.html",
+    "kind": "copy",
+    "title": "Copy — table"
+   }
+  ],
+  "src/components/table/table-components/listing-stats.js": [
+   {
+    "href": "product/copy/table.html",
+    "kind": "copy",
+    "title": "Copy — table"
+   }
+  ],
+  "src/components/table/table-components/platforms-status.js": [
+   {
+    "href": "product/copy/table.html",
+    "kind": "copy",
+    "title": "Copy — table"
+   }
+  ],
+  "src/components/table/table-components/platform-listing-actions.js": [
+   {
+    "href": "product/copy/table.html",
+    "kind": "copy",
+    "title": "Copy — table"
+   }
+  ],
+  "src/tenant/bayut/components/listing/listing-platform-actions/platformActions.js": [
+   {
+    "href": "product/copy/tenant-listing.html",
+    "kind": "copy",
+    "title": "Copy — tenant-listing"
+   }
+  ],
+  "src/components/common/upgrade-icons/upgrade-icons.js": [
+   {
+    "href": "design/components/upgrade-icons.html",
+    "kind": "notes",
+    "title": "upgrade-icons"
+   }
+  ],
+  "src/components/table/table-components/table-listing-actions.js": [
+   {
+    "href": "product/copy/table.html",
+    "kind": "copy",
+    "title": "Copy — table"
+   }
+  ],
+  "src/tenant/bayut/components/listing/listing-row-actions/listing-row-actions.js": [
+   {
+    "href": "product/copy/tenant-listing.html",
+    "kind": "copy",
+    "title": "Copy — tenant-listing"
+   }
+  ],
+  "src/components/table/table-actions/table-actions.js": [
+   {
+    "href": "product/copy/table.html",
+    "kind": "copy",
+    "title": "Copy — table"
+   }
+  ],
+  "src/components/utilities/icons.js": [
+   {
+    "href": "product/copy/utilities.html",
+    "kind": "copy",
+    "title": "Copy — utilities"
+   },
+   {
+    "href": "design/components/utilities.html",
+    "kind": "notes",
+    "title": "utilities"
+   }
+  ],
+  "src/container/pages/ad-license/index.js": [
+   {
+    "href": "product/copy/page-ad-license.html",
+    "kind": "copy",
+    "title": "Copy — page-ad-license"
+   }
+  ],
+  "src/components/common/heading/heading.js": [
+   {
+    "href": "design/components/heading.html",
+    "kind": "notes",
+    "title": "heading"
+   }
+  ],
+  "src/tenant/bayut/components/ad-license/create-ad-license.js": [
+   {
+    "href": "product/copy/tenant-ad-license.html",
+    "kind": "copy",
+    "title": "Copy — tenant-ad-license"
+   }
+  ],
+  "src/tenant/bayut/components/ad-license/card-block.js": [
+   {
+    "href": "product/copy/tenant-ad-license.html",
+    "kind": "copy",
+    "title": "Copy — tenant-ad-license"
+   }
+  ],
+  "src/components/common/radio-button/radio-button.js": [
+   {
+    "href": "design/components/radio-button.html",
+    "kind": "notes",
+    "title": "radio-button"
+   }
+  ],
+  "src/components/common/Label/Label.js": [
+   {
+    "href": "design/components/label.html",
+    "kind": "notes",
+    "title": "Label &amp; error message"
+   }
+  ],
+  "src/tenant/bayut/components/ad-license/purpose-radio-button.js": [
+   {
+    "href": "product/copy/tenant-ad-license.html",
+    "kind": "copy",
+    "title": "Copy — tenant-ad-license"
+   }
+  ],
+  "src/components/common/select/select.js": [
+   {
+    "href": "design/components/select.html",
+    "kind": "notes",
+    "title": "Select"
+   }
+  ],
+  "src/tenant/bayut/components/post-listing/location-select/location-select.js": [
+   {
+    "href": "product/copy/tenant-post-listing.html",
+    "kind": "copy",
+    "title": "Copy — tenant-post-listing"
+   }
+  ],
+  "src/components/mobile-number-verification/mobile-verification.js": [
+   {
+    "href": "product/copy/mobile-number-verification.html",
+    "kind": "copy",
+    "title": "Copy — mobile-number-verification"
+   },
+   {
+    "href": "design/components/mobile-number-verification.html",
+    "kind": "notes",
+    "title": "mobile-number-verification"
+   }
+  ],
+  "src/tenant/common/components/headerLink/headerLink.js": [
+   {
+    "href": "product/copy/tenant-headerLink.html",
+    "kind": "copy",
+    "title": "Copy — tenant-headerLink"
+   }
+  ],
+  "src/components/notification-center/notification-center.js": [
+   {
+    "href": "product/copy/notification-center.html",
+    "kind": "copy",
+    "title": "Copy — notification-center"
+   },
+   {
+    "href": "design/components/notification-center.html",
+    "kind": "notes",
+    "title": "notification-center"
+   }
+  ],
+  "src/components/feedback/FeedbackTab.js": [
+   {
+    "href": "product/copy/feedback.html",
+    "kind": "copy",
+    "title": "Copy — feedback"
+   },
+   {
+    "href": "design/components/feedback.html",
+    "kind": "notes",
+    "title": "Spinner, skeleton &amp; progress"
+   }
+  ],
+  "src/components/feedback/FeedbackAttachment.js": [
+   {
+    "href": "product/copy/feedback.html",
+    "kind": "copy",
+    "title": "Copy — feedback"
+   },
+   {
+    "href": "design/components/feedback.html",
+    "kind": "notes",
+    "title": "Spinner, skeleton &amp; progress"
+   }
+  ],
+  "src/components/common/divider/divider.js": [
+   {
+    "href": "design/components/divider.html",
+    "kind": "notes",
+    "title": "divider"
+   }
+  ],
+  "src/components/common/errorMessage/errorMessage.js": [
+   {
+    "href": "design/components/errormessage.html",
+    "kind": "notes",
+    "title": "errorMessage"
+   }
+  ],
+  "src/container/pages/credits-usage/credits-usage.js": [
+   {
+    "href": "product/copy/page-credits-usage.html",
+    "kind": "copy",
+    "title": "Copy — page-credits-usage"
+   },
+   {
+    "href": "design/components/credits-usage.html",
+    "kind": "notes",
+    "title": "credits-usage"
+   }
+  ],
+  "src/components/credits-usage/product-breakdown.js": [
+   {
+    "href": "product/copy/credits-usage.html",
+    "kind": "copy",
+    "title": "Copy — credits-usage"
+   },
+   {
+    "href": "design/components/credits-usage.html",
+    "kind": "notes",
+    "title": "credits-usage"
+   }
+  ],
+  "src/components/common/infinite-scroll/infinite-scroll.js": [
+   {
+    "href": "product/copy/common-infinite-scroll.html",
+    "kind": "copy",
+    "title": "Copy — common-infinite-scroll"
+   },
+   {
+    "href": "design/components/infinite-scroll.html",
+    "kind": "notes",
+    "title": "infinite-scroll"
+   }
+  ],
+  "src/components/credits-usage/history-breakdown.js": [
+   {
+    "href": "product/copy/credits-usage.html",
+    "kind": "copy",
+    "title": "Copy — credits-usage"
+   },
+   {
+    "href": "design/components/credits-usage.html",
+    "kind": "notes",
+    "title": "credits-usage"
+   }
+  ],
+  "src/components/common/title/title.js": [
+   {
+    "href": "design/components/title.html",
+    "kind": "notes",
+    "title": "title"
+   }
+  ],
+  "src/components/common/modals/antd-modals.js": [
+   {
+    "href": "product/copy/common-modals.html",
+    "kind": "copy",
+    "title": "Copy — common-modals"
+   },
+   {
+    "href": "design/components/modals.html",
+    "kind": "notes",
+    "title": "modals"
+   },
+   {
+    "href": "design/components/modal.html",
+    "kind": "notes",
+    "title": "Modal"
+   }
+  ],
+  "src/components/dashboard-promo-banner/dashboard-promo-banner.js": [
+   {
+    "href": "design/components/dashboard-promo-banner.html",
+    "kind": "notes",
+    "title": "dashboard-promo-banner"
+   }
+  ],
+  "src/components/widgets/LeadsStatsGraphWidget.js": [
+   {
+    "href": "product/copy/widgets.html",
+    "kind": "copy",
+    "title": "Copy — widgets"
+   },
+   {
+    "href": "design/components/widgets.html",
+    "kind": "notes",
+    "title": "widgets"
+   }
+  ],
+  "src/components/common/segmented/segmented.js": [
+   {
+    "href": "design/components/segmented.html",
+    "kind": "notes",
+    "title": "Segmented"
+   }
+  ],
+  "src/components/common/dateFilter/DateFilter.js": [
+   {
+    "href": "product/copy/common-dateFilter.html",
+    "kind": "copy",
+    "title": "Copy — common-dateFilter"
+   },
+   {
+    "href": "design/components/datefilter.html",
+    "kind": "notes",
+    "title": "dateFilter"
+   }
+  ],
+  "src/components/discount-tag/DiscountTag.js": [
+   {
+    "href": "product/copy/discount-tag.html",
+    "kind": "copy",
+    "title": "Copy — discount-tag"
+   },
+   {
+    "href": "design/components/discount-tag.html",
+    "kind": "notes",
+    "title": "discount-tag"
+   }
+  ],
+  "src/components/table/table-components/listing-purpose.js": [
+   {
+    "href": "product/copy/table.html",
+    "kind": "copy",
+    "title": "Copy — table"
+   }
+  ],
+  "src/tenant/common/components/downloadAppModal/downloadAppModal.js": [
+   {
+    "href": "product/copy/tenant-downloadAppModal.html",
+    "kind": "copy",
+    "title": "Copy — tenant-downloadAppModal"
+   }
+  ],
+  "src/tenant/common/components/layout/app-link.js": [
+   {
+    "href": "product/copy/tenant-layout.html",
+    "kind": "copy",
+    "title": "Copy — tenant-layout"
+   }
+  ],
+  "src/components/common/custom-card/customCard.js": [
+   {
+    "href": "design/components/custom-card.html",
+    "kind": "notes",
+    "title": "custom-card"
+   }
+  ],
+  "src/components/common/lottie/lottie.js": [
+   {
+    "href": "design/components/lottie.html",
+    "kind": "notes",
+    "title": "lottie"
+   }
+  ],
+  "src/tenant/common/components/profile-completion/profile-completion-popup.js": [
+   {
+    "href": "product/copy/tenant-profile-completion.html",
+    "kind": "copy",
+    "title": "Copy — tenant-profile-completion"
+   }
+  ],
+  "src/components/notification-center/notification-card.js": [
+   {
+    "href": "product/copy/notification-center.html",
+    "kind": "copy",
+    "title": "Copy — notification-center"
+   },
+   {
+    "href": "design/components/notification-center.html",
+    "kind": "notes",
+    "title": "notification-center"
+   }
+  ],
+  "src/components/common/text/text.js": [
+   {
+    "href": "design/components/text.html",
+    "kind": "notes",
+    "title": "text"
+   }
+  ],
+  "src/tenant/bayut/components/listing/listings.js": [
+   {
+    "href": "product/copy/tenant-listing.html",
+    "kind": "copy",
+    "title": "Copy — tenant-listing"
+   }
+  ],
+  "src/components/common/image-gallery/image-gallery.js": [
+   {
+    "href": "design/components/image-gallery.html",
+    "kind": "notes",
+    "title": "image-gallery"
+   }
+  ],
+  "src/components/list-detail/list-detail.js": [
+   {
+    "href": "design/components/list-detail.html",
+    "kind": "notes",
+    "title": "list-detail"
+   }
+  ],
+  "src/components/common/qr-code/qr-code.js": [
+   {
+    "href": "design/components/qr-code.html",
+    "kind": "notes",
+    "title": "qr-code"
+   }
+  ],
+  "src/components/widgets/AmenitiesSvg.js": [
+   {
+    "href": "product/copy/widgets.html",
+    "kind": "copy",
+    "title": "Copy — widgets"
+   },
+   {
+    "href": "design/components/widgets.html",
+    "kind": "notes",
+    "title": "widgets"
+   }
+  ],
+  "src/container/pages/post-listing/post-listing.js": [
+   {
+    "href": "product/copy/page-post-listing.html",
+    "kind": "copy",
+    "title": "Copy — page-post-listing"
+   },
+   {
+    "href": "design/components/post-listing.html",
+    "kind": "notes",
+    "title": "post-listing"
+   }
+  ],
+  "src/tenant/bayut/components/post-listing/post-listing.js": [
+   {
+    "href": "product/copy/tenant-post-listing.html",
+    "kind": "copy",
+    "title": "Copy — tenant-post-listing"
+   },
+   {
+    "href": "design/components/post-listing.html",
+    "kind": "notes",
+    "title": "post-listing"
+   }
+  ],
+  "src/components/post-listing/post-listing-form/post-listing-form.js": [
+   {
+    "href": "product/copy/post-listing.html",
+    "kind": "copy",
+    "title": "Copy — post-listing"
+   }
+  ],
+  "src/components/post-listing/post-listing-form/post-listing-from-skeleton.js": [
+   {
+    "href": "product/copy/post-listing.html",
+    "kind": "copy",
+    "title": "Copy — post-listing"
+   }
+  ],
+  "src/tenant/bayut/components/post-listing/RegaCard.js": [
+   {
+    "href": "product/copy/tenant-post-listing.html",
+    "kind": "copy",
+    "title": "Copy — tenant-post-listing"
+   },
+   {
+    "href": "design/components/post-listing.html",
+    "kind": "notes",
+    "title": "post-listing"
+   }
+  ],
+  "src/tenant/bayut/components/post-listing/listing-preview/listing-preview.js": [
+   {
+    "href": "product/copy/tenant-post-listing.html",
+    "kind": "copy",
+    "title": "Copy — tenant-post-listing"
+   }
+  ],
+  "src/components/cityLocationFilter/cityLocationFilter.js": [
+   {
+    "href": "product/copy/cityLocationFilter.html",
+    "kind": "copy",
+    "title": "Copy — cityLocationFilter"
+   },
+   {
+    "href": "design/components/citylocationfilter.html",
+    "kind": "notes",
+    "title": "cityLocationFilter"
+   }
+  ],
+  "src/components/common/switch/switch.js": [
+   {
+    "href": "design/components/switch.html",
+    "kind": "notes",
+    "title": "Switch"
+   }
+  ],
+  "src/components/common/rangeSlide/rangeSlider.js": [
+   {
+    "href": "product/copy/common-rangeSlide.html",
+    "kind": "copy",
+    "title": "Copy — common-rangeSlide"
+   },
+   {
+    "href": "design/components/rangeslide.html",
+    "kind": "notes",
+    "title": "rangeSlide"
+   }
+  ],
+  "src/components/common/unitRangeSlider/unitRangeSider.js": [
+   {
+    "href": "product/copy/common-unitRangeSlider.html",
+    "kind": "copy",
+    "title": "Copy — common-unitRangeSlider"
+   },
+   {
+    "href": "design/components/unitrangeslider.html",
+    "kind": "notes",
+    "title": "unitRangeSlider"
+   }
+  ],
+  "src/components/common/EmptyState/EmptyState.js": [
+   {
+    "href": "product/copy/common-EmptyState.html",
+    "kind": "copy",
+    "title": "Copy — common-EmptyState"
+   },
+   {
+    "href": "design/components/emptystate.html",
+    "kind": "notes",
+    "title": "EmptyState"
+   }
+  ],
+  "src/components/render-text/render-text.js": [
+   {
+    "href": "design/components/render-text.html",
+    "kind": "notes",
+    "title": "render-text"
+   }
+  ],
+  "src/components/post-listing-button/post-listing-button.js": [
+   {
+    "href": "product/copy/post-listing-button.html",
+    "kind": "copy",
+    "title": "Copy — post-listing-button"
+   },
+   {
+    "href": "design/components/post-listing-button.html",
+    "kind": "notes",
+    "title": "post-listing-button"
+   }
+  ],
+  "src/components/common/listingActionPopover/popoverContent.js": [
+   {
+    "href": "product/copy/common-listingActionPopover.html",
+    "kind": "copy",
+    "title": "Copy — common-listingActionPopover"
+   },
+   {
+    "href": "design/components/listingactionpopover.html",
+    "kind": "notes",
+    "title": "listingActionPopover"
+   }
+  ],
+  "src/components/common/alert/alert.js": [
+   {
+    "href": "design/components/alert.html",
+    "kind": "notes",
+    "title": "Alert"
+   }
+  ],
+  "src/tenant/common/components/upgrade-listing/product.js": [
+   {
+    "href": "product/copy/tenant-upgrade-listing.html",
+    "kind": "copy",
+    "title": "Copy — tenant-upgrade-listing"
+   }
+  ],
+  "src/components/common/dateSelect/DateSelect.js": [
+   {
+    "href": "design/components/dateselect.html",
+    "kind": "notes",
+    "title": "dateSelect"
+   }
+  ],
+  "src/container/pages/lms/leads-management.js": [
+   {
+    "href": "product/copy/page-lms.html",
+    "kind": "copy",
+    "title": "Copy — page-lms"
+   }
+  ],
+  "src/components/leads-management/leads-summary-header.js": [
+   {
+    "href": "product/copy/leads-management.html",
+    "kind": "copy",
+    "title": "Copy — leads-management"
+   },
+   {
+    "href": "design/components/leads-management.html",
+    "kind": "notes",
+    "title": "leads-management"
+   }
+  ],
+  "src/components/leads-management/total-leads-card.js": [
+   {
+    "href": "product/copy/leads-management.html",
+    "kind": "copy",
+    "title": "Copy — leads-management"
+   },
+   {
+    "href": "design/components/leads-management.html",
+    "kind": "notes",
+    "title": "leads-management"
+   }
+  ],
+  "src/components/leads-management/leads-dashboard-cards.js": [
+   {
+    "href": "product/copy/leads-management.html",
+    "kind": "copy",
+    "title": "Copy — leads-management"
+   },
+   {
+    "href": "design/components/leads-management.html",
+    "kind": "notes",
+    "title": "leads-management"
+   }
+  ],
+  "src/components/leads-management/lead-listings.js": [
+   {
+    "href": "product/copy/leads-management.html",
+    "kind": "copy",
+    "title": "Copy — leads-management"
+   },
+   {
+    "href": "design/components/leads-management.html",
+    "kind": "notes",
+    "title": "leads-management"
+   }
+  ],
+  "src/components/common/unitSelect/unitSelect.js": [
+   {
+    "href": "product/copy/common-unitSelect.html",
+    "kind": "copy",
+    "title": "Copy — common-unitSelect"
+   },
+   {
+    "href": "design/components/unitselect.html",
+    "kind": "notes",
+    "title": "unitSelect"
+   }
+  ],
+  "src/components/table/table-components/lead-info.js": [
+   {
+    "href": "product/copy/table.html",
+    "kind": "copy",
+    "title": "Copy — table"
+   }
+  ],
+  "src/components/table/table-components/listing-detail-compact.js": [
+   {
+    "href": "product/copy/table.html",
+    "kind": "copy",
+    "title": "Copy — table"
+   }
+  ],
+  "src/components/table/table-components/task-detail.js": [
+   {
+    "href": "product/copy/table.html",
+    "kind": "copy",
+    "title": "Copy — table"
+   }
+  ],
+  "src/components/table/table-components/date-time.js": [
+   {
+    "href": "product/copy/table.html",
+    "kind": "copy",
+    "title": "Copy — table"
+   }
+  ],
+  "src/components/table/table-components/more-properties-popover.js": [
+   {
+    "href": "product/copy/table.html",
+    "kind": "copy",
+    "title": "Copy — table"
+   }
+  ],
+  "src/components/table/table-components/source-content.js": [
+   {
+    "href": "product/copy/table.html",
+    "kind": "copy",
+    "title": "Copy — table"
+   }
+  ],
+  "src/components/leads-management/lead-detail-drawer-header.js": [
+   {
+    "href": "product/copy/leads-management.html",
+    "kind": "copy",
+    "title": "Copy — leads-management"
+   },
+   {
+    "href": "design/components/leads-management.html",
+    "kind": "notes",
+    "title": "leads-management"
+   }
+  ],
+  "src/components/leads-management/lead-name.js": [
+   {
+    "href": "product/copy/leads-management.html",
+    "kind": "copy",
+    "title": "Copy — leads-management"
+   },
+   {
+    "href": "design/components/leads-management.html",
+    "kind": "notes",
+    "title": "leads-management"
+   }
+  ],
+  "src/components/image-upload/image-upload.js": [
+   {
+    "href": "product/copy/image-upload.html",
+    "kind": "copy",
+    "title": "Copy — image-upload"
+   },
+   {
+    "href": "design/components/image-upload.html",
+    "kind": "notes",
+    "title": "image-upload"
+   }
+  ],
+  "src/components/table/table-components/date.js": [
+   {
+    "href": "product/copy/table.html",
+    "kind": "copy",
+    "title": "Copy — table"
+   },
+   {
+    "href": "design/components/date.html",
+    "kind": "notes",
+    "title": "Date controls"
+   }
+  ],
+  "src/components/locationFilter/locationFilter.js": [
+   {
+    "href": "product/copy/locationFilter.html",
+    "kind": "copy",
+    "title": "Copy — locationFilter"
+   },
+   {
+    "href": "design/components/locationfilter.html",
+    "kind": "notes",
+    "title": "locationFilter"
+   }
+  ],
+  "src/components/leads-management/view-trends-graph.js": [
+   {
+    "href": "product/copy/leads-management.html",
+    "kind": "copy",
+    "title": "Copy — leads-management"
+   },
+   {
+    "href": "design/components/leads-management.html",
+    "kind": "notes",
+    "title": "leads-management"
+   }
+  ],
+  "src/tenant/common/components/reports/ListingStatsByDateTable.js": [
+   {
+    "href": "product/copy/tenant-reports.html",
+    "kind": "copy",
+    "title": "Copy — tenant-reports"
+   }
+  ],
+  "src/components/table/table-components/table-number.js": [
+   {
+    "href": "product/copy/table.html",
+    "kind": "copy",
+    "title": "Copy — table"
+   }
+  ],
+  "src/container/pages/reports/leads-reports.js": [
+   {
+    "href": "product/copy/page-reports.html",
+    "kind": "copy",
+    "title": "Copy — page-reports"
+   }
+  ],
+  "src/container/pages/reports/listing-reports.js": [
+   {
+    "href": "product/copy/page-reports.html",
+    "kind": "copy",
+    "title": "Copy — page-reports"
+   }
+  ],
+  "src/components/widgets/ReportsListingsSection.js": [
+   {
+    "href": "product/copy/widgets.html",
+    "kind": "copy",
+    "title": "Copy — widgets"
+   },
+   {
+    "href": "design/components/widgets.html",
+    "kind": "notes",
+    "title": "widgets"
+   }
+  ],
+  "src/components/widgets/BreakdownByAreaWidget.js": [
+   {
+    "href": "product/copy/widgets.html",
+    "kind": "copy",
+    "title": "Copy — widgets"
+   },
+   {
+    "href": "design/components/widgets.html",
+    "kind": "notes",
+    "title": "widgets"
+   }
+  ],
+  "src/tenant/common/components/reports/ListingBreakdownByDateTable.js": [
+   {
+    "href": "product/copy/tenant-reports.html",
+    "kind": "copy",
+    "title": "Copy — tenant-reports"
+   }
+  ],
+  "src/tenant/common/components/reports/ListingPerformanceTable.js": [
+   {
+    "href": "product/copy/tenant-reports.html",
+    "kind": "copy",
+    "title": "Copy — tenant-reports"
+   }
+  ],
+  "src/container/pages/reports/listing-performance.js": [
+   {
+    "href": "product/copy/page-reports.html",
+    "kind": "copy",
+    "title": "Copy — page-reports"
+   }
+  ],
+  "src/components/table/table-components/stats.js": [
+   {
+    "href": "product/copy/table.html",
+    "kind": "copy",
+    "title": "Copy — table"
+   },
+   {
+    "href": "design/components/stats.html",
+    "kind": "notes",
+    "title": "Stats with percentage"
+   }
+  ],
+  "src/tenant/common/components/reports/ListingByDateTable.js": [
+   {
+    "href": "product/copy/tenant-reports.html",
+    "kind": "copy",
+    "title": "Copy — tenant-reports"
+   }
+  ],
+  "src/container/pages/reports/reports-summary.js": [
+   {
+    "href": "product/copy/page-reports.html",
+    "kind": "copy",
+    "title": "Copy — page-reports"
+   }
+  ],
+  "src/container/pages/user-settings/user-settings.js": [
+   {
+    "href": "product/copy/page-user-settings.html",
+    "kind": "copy",
+    "title": "Copy — page-user-settings"
+   }
+  ],
+  "src/components/common/navbar/navbar.js": [
+   {
+    "href": "design/components/navbar.html",
+    "kind": "notes",
+    "title": "navbar"
+   }
+  ],
+  "src/container/pages/user-settings/agancy-settings.js": [
+   {
+    "href": "product/copy/page-user-settings.html",
+    "kind": "copy",
+    "title": "Copy — page-user-settings"
+   }
+  ],
+  "src/components/agency-staff-header/agency-info-card.js": [
+   {
+    "href": "product/copy/agency-staff-header.html",
+    "kind": "copy",
+    "title": "Copy — agency-staff-header"
+   },
+   {
+    "href": "design/components/agency-staff-header.html",
+    "kind": "notes",
+    "title": "agency-staff-header"
+   }
+  ],
+  "src/components/common/image-uploads/image-upload-item.js": [
+   {
+    "href": "product/copy/common-image-uploads.html",
+    "kind": "copy",
+    "title": "Copy — common-image-uploads"
+   },
+   {
+    "href": "design/components/image-uploads.html",
+    "kind": "notes",
+    "title": "image-uploads"
+   }
+  ],
+  "src/tenant/common/components/profile-completion/profile-settings-card.js": [
+   {
+    "href": "product/copy/tenant-profile-completion.html",
+    "kind": "copy",
+    "title": "Copy — tenant-profile-completion"
+   }
+  ],
+  "src/tenant/common/components/profile-completion/profile-completion-list.js": [
+   {
+    "href": "product/copy/tenant-profile-completion.html",
+    "kind": "copy",
+    "title": "Copy — tenant-profile-completion"
+   }
+  ],
+  "src/container/pages/user-settings/password.js": [
+   {
+    "href": "product/copy/page-user-settings.html",
+    "kind": "copy",
+    "title": "Copy — page-user-settings"
+   }
+  ],
+  "src/container/pages/user-settings/profile.js": [
+   {
+    "href": "product/copy/page-user-settings.html",
+    "kind": "copy",
+    "title": "Copy — page-user-settings"
+   }
+  ],
+  "src/tenant/common/components/post-listing/GenerateContentField.js": [
+   {
+    "href": "product/copy/tenant-post-listing.html",
+    "kind": "copy",
+    "title": "Copy — tenant-post-listing"
+   },
+   {
+    "href": "design/components/post-listing.html",
+    "kind": "notes",
+    "title": "post-listing"
+   }
+  ],
+  "src/container/pages/user-settings/imageGuidelinesModal.js": [
+   {
+    "href": "product/copy/page-user-settings.html",
+    "kind": "copy",
+    "title": "Copy — page-user-settings"
+   }
+  ],
+  "src/container/pages/agancy-staff/agancy-staff.js": [
+   {
+    "href": "product/copy/page-agancy-staff.html",
+    "kind": "copy",
+    "title": "Copy — page-agancy-staff"
+   }
+  ],
+  "src/components/agency-staff-header/agancy-staff-header.js": [
+   {
+    "href": "product/copy/agency-staff-header.html",
+    "kind": "copy",
+    "title": "Copy — agency-staff-header"
+   },
+   {
+    "href": "design/components/agency-staff-header.html",
+    "kind": "notes",
+    "title": "agency-staff-header"
+   }
+  ],
+  "src/components/table/table-components/staff-details.js": [
+   {
+    "href": "product/copy/table.html",
+    "kind": "copy",
+    "title": "Copy — table"
+   }
+  ],
+  "src/components/table/table-components/user-row-actions.js": [
+   {
+    "href": "product/copy/table.html",
+    "kind": "copy",
+    "title": "Copy — table"
+   }
+  ],
+  "src/components/forms/AgencyUserForm.js": [
+   {
+    "href": "design/components/forms.html",
+    "kind": "notes",
+    "title": "forms"
+   }
+  ],
+  "src/components/set-credit-limit/set-credit-limit.js": [
+   {
+    "href": "product/copy/set-credit-limit.html",
+    "kind": "copy",
+    "title": "Copy — set-credit-limit"
+   },
+   {
+    "href": "design/components/set-credit-limit.html",
+    "kind": "notes",
+    "title": "set-credit-limit"
+   }
+  ],
+  "src/components/set-capping-limit/set-capping-limit.js": [
+   {
+    "href": "product/copy/set-capping-limit.html",
+    "kind": "copy",
+    "title": "Copy — set-capping-limit"
+   },
+   {
+    "href": "design/components/set-capping-limit.html",
+    "kind": "notes",
+    "title": "set-capping-limit"
+   }
+  ],
+  "src/container/pages/agent-performance/AgentPerformance.js": [
+   {
+    "href": "product/copy/page-agent-performance.html",
+    "kind": "copy",
+    "title": "Copy — page-agent-performance"
+   }
+  ],
+  "src/container/pages/agent-performance/AgentProfileCard.js": [
+   {
+    "href": "product/copy/page-agent-performance.html",
+    "kind": "copy",
+    "title": "Copy — page-agent-performance"
+   }
+  ],
+  "src/container/pages/agent-performance/TruBroker.js": [
+   {
+    "href": "product/copy/page-agent-performance.html",
+    "kind": "copy",
+    "title": "Copy — page-agent-performance"
+   }
+  ],
+  "src/components/tru-broker/tru-broker-criteria-list.js": [
+   {
+    "href": "product/copy/tru-broker.html",
+    "kind": "copy",
+    "title": "Copy — tru-broker"
+   },
+   {
+    "href": "design/components/tru-broker.html",
+    "kind": "notes",
+    "title": "tru-broker"
+   }
+  ],
+  "src/container/pages/agent-performance/AgentBages.js": [
+   {
+    "href": "product/copy/page-agent-performance.html",
+    "kind": "copy",
+    "title": "Copy — page-agent-performance"
+   }
+  ],
+  "src/container/pages/agent-performance/AgentBagesInfo.js": [
+   {
+    "href": "product/copy/page-agent-performance.html",
+    "kind": "copy",
+    "title": "Copy — page-agent-performance"
+   }
+  ],
+  "src/container/pages/agent-performance/ActivityDrawer.js": [
+   {
+    "href": "product/copy/page-agent-performance.html",
+    "kind": "copy",
+    "title": "Copy — page-agent-performance"
+   }
+  ],
+  "src/container/pages/agent-performance/AgentActivity.js": [
+   {
+    "href": "product/copy/page-agent-performance.html",
+    "kind": "copy",
+    "title": "Copy — page-agent-performance"
+   }
+  ],
+  "src/container/pages/agent-performance/LeaderBoard.js": [
+   {
+    "href": "product/copy/page-agent-performance.html",
+    "kind": "copy",
+    "title": "Copy — page-agent-performance"
+   }
+  ],
+  "src/container/pages/prop-shop/prop-shop.js": [
+   {
+    "href": "design/components/prop-shop.html",
+    "kind": "notes",
+    "title": "prop-shop"
+   }
+  ],
+  "src/tenant/common/components/prop-shop/prop-shop.js": [
+   {
+    "href": "product/copy/tenant-prop-shop.html",
+    "kind": "copy",
+    "title": "Copy — tenant-prop-shop"
+   },
+   {
+    "href": "design/components/prop-shop.html",
+    "kind": "notes",
+    "title": "prop-shop"
+   }
+  ],
+  "src/components/common/iconSubText/icon-with-subtext.js": [
+   {
+    "href": "design/components/iconsubtext.html",
+    "kind": "notes",
+    "title": "iconSubText"
+   }
+  ],
+  "src/tenant/common/components/prop-shop/offered-packages/offeredPackages.js": [
+   {
+    "href": "product/copy/tenant-prop-shop.html",
+    "kind": "copy",
+    "title": "Copy — tenant-prop-shop"
+   }
+  ],
+  "src/components/common/swiper/swiper.js": [
+   {
+    "href": "design/components/swiper.html",
+    "kind": "notes",
+    "title": "swiper"
+   }
+  ],
+  "src/tenant/common/components/prop-shop/package-header.js": [
+   {
+    "href": "product/copy/tenant-prop-shop.html",
+    "kind": "copy",
+    "title": "Copy — tenant-prop-shop"
+   },
+   {
+    "href": "design/components/prop-shop.html",
+    "kind": "notes",
+    "title": "prop-shop"
+   }
+  ],
+  "src/container/pages/post-listing/post-listing-landing.js": [
+   {
+    "href": "product/copy/page-post-listing.html",
+    "kind": "copy",
+    "title": "Copy — page-post-listing"
+   },
+   {
+    "href": "design/components/post-listing.html",
+    "kind": "notes",
+    "title": "post-listing"
+   }
+  ],
+  "src/tenant/bayut/components/post-listing/post-listing-with-options.js": [
+   {
+    "href": "product/copy/tenant-post-listing.html",
+    "kind": "copy",
+    "title": "Copy — tenant-post-listing"
+   },
+   {
+    "href": "design/components/post-listing.html",
+    "kind": "notes",
+    "title": "post-listing"
+   }
+  ],
+  "src/components/success-modal/successModalContent.js": [
+   {
+    "href": "design/components/success-modal.html",
+    "kind": "notes",
+    "title": "success-modal"
+   }
+  ],
+  "src/tenant/common/components/post-listing/license-validation.js": [
+   {
+    "href": "product/copy/tenant-post-listing.html",
+    "kind": "copy",
+    "title": "Copy — tenant-post-listing"
+   },
+   {
+    "href": "design/components/post-listing.html",
+    "kind": "notes",
+    "title": "post-listing"
+   }
+  ],
+  "src/tenant/common/components/post-listing/ad-license-form.js": [
+   {
+    "href": "product/copy/tenant-post-listing.html",
+    "kind": "copy",
+    "title": "Copy — tenant-post-listing"
+   },
+   {
+    "href": "design/components/post-listing.html",
+    "kind": "notes",
+    "title": "post-listing"
+   }
+  ],
+  "src/container/pages/user-settings/license.js": [
+   {
+    "href": "product/copy/page-user-settings.html",
+    "kind": "copy",
+    "title": "Copy — page-user-settings"
+   }
+  ],
+  "src/components/add-license/add-license.js": [
+   {
+    "href": "product/copy/add-license.html",
+    "kind": "copy",
+    "title": "Copy — add-license"
+   },
+   {
+    "href": "design/components/add-license.html",
+    "kind": "notes",
+    "title": "add-license"
+   }
+  ],
+  "src/components/common/rate/rate.js": [
+   {
+    "href": "design/components/rate.html",
+    "kind": "notes",
+    "title": "rate"
+   }
+  ],
+  "src/components/listing-card-container/ListingCardContainer.js": [
+   {
+    "href": "product/copy/listing-card-container.html",
+    "kind": "copy",
+    "title": "Copy — listing-card-container"
+   },
+   {
+    "href": "design/components/listing-card-container.html",
+    "kind": "notes",
+    "title": "listing-card-container"
+   }
+  ],
+  "src/components/listing-card/ListingCard.js": [
+   {
+    "href": "design/components/listingcard.html",
+    "kind": "notes",
+    "title": "Listing card"
+   }
+  ],
+  "src/tenant/bayut/components/listing/listingCard.js": [
+   {
+    "href": "product/copy/tenant-listing.html",
+    "kind": "copy",
+    "title": "Copy — tenant-listing"
+   },
+   {
+    "href": "design/components/listingcard.html",
+    "kind": "notes",
+    "title": "Listing card"
+   }
+  ],
+  "src/container/pages/agancy-staff/agency-staff-mobile.js": [
+   {
+    "href": "product/copy/page-agancy-staff.html",
+    "kind": "copy",
+    "title": "Copy — page-agancy-staff"
+   }
+  ],
+  "src/container/pages/agent-performance/TeamPerformanceTable.js": [
+   {
+    "href": "product/copy/page-agent-performance.html",
+    "kind": "copy",
+    "title": "Copy — page-agent-performance"
+   }
+  ],
+  "src/components/appBanner/appBanner.js": [
+   {
+    "href": "product/copy/appBanner.html",
+    "kind": "copy",
+    "title": "Copy — appBanner"
+   },
+   {
+    "href": "design/components/appbanner.html",
+    "kind": "notes",
+    "title": "appBanner"
+   }
+  ],
+  "src/tenant/common/components/profile-completion/profile-completion-banner.js": [
+   {
+    "href": "product/copy/tenant-profile-completion.html",
+    "kind": "copy",
+    "title": "Copy — tenant-profile-completion"
+   }
+  ],
+  "src/components/common/success-animation-card/success-animation-card.js": [
+   {
+    "href": "design/components/success-animation-card.html",
+    "kind": "notes",
+    "title": "success-animation-card"
+   }
+  ],
+  "src/components/skeleton/Skeleton.js": [
+   {
+    "href": "design/components/skeleton.html",
+    "kind": "notes",
+    "title": "skeleton"
+   }
+  ],
+  "src/components/leads-management/lead-listings-mobile.js": [
+   {
+    "href": "product/copy/leads-management.html",
+    "kind": "copy",
+    "title": "Copy — leads-management"
+   },
+   {
+    "href": "design/components/leads-management.html",
+    "kind": "notes",
+    "title": "leads-management"
+   }
+  ],
+  "src/components/leads-management/lead-detail-drawer.js": [
+   {
+    "href": "product/copy/leads-management.html",
+    "kind": "copy",
+    "title": "Copy — leads-management"
+   },
+   {
+    "href": "design/components/leads-management.html",
+    "kind": "notes",
+    "title": "leads-management"
+   }
+  ],
+  "src/tenant/common/components/prop-shop/offered-packages/packageCardMobile.js": [
+   {
+    "href": "product/copy/tenant-prop-shop.html",
+    "kind": "copy",
+    "title": "Copy — tenant-prop-shop"
+   }
+  ],
+  "src/tenant/common/components/prop-shop/offered-packages/package-upgrade-modal.js": [
+   {
+    "href": "product/copy/tenant-prop-shop.html",
+    "kind": "copy",
+    "title": "Copy — tenant-prop-shop"
+   }
+  ],
+  "src/components/listing-container-mobile/ListingContainerMobile.js": [
+   {
+    "href": "design/components/listing-container-mobile.html",
+    "kind": "notes",
+    "title": "listing-container-mobile"
+   }
+  ],
+  "src/tenant/common/components/reports/CardTrafficLeadsByDate.js": [
+   {
+    "href": "product/copy/tenant-reports.html",
+    "kind": "copy",
+    "title": "Copy — tenant-reports"
+   }
+  ],
+  "src/components/license-card/license-card.js": [
+   {
+    "href": "product/copy/license-card.html",
+    "kind": "copy",
+    "title": "Copy — license-card"
+   },
+   {
+    "href": "design/components/license-card.html",
+    "kind": "notes",
+    "title": "license-card"
+   }
+  ],
+  "src/components/invite-user/inviteUser.js": [
+   {
+    "href": "product/copy/invite-user.html",
+    "kind": "copy",
+    "title": "Copy — invite-user"
+   },
+   {
+    "href": "design/components/invite-user.html",
+    "kind": "notes",
+    "title": "invite-user"
+   }
+  ],
+  "src/components/tru-broker/tru-broker-and-profile-cards.js": [
+   {
+    "href": "product/copy/tru-broker.html",
+    "kind": "copy",
+    "title": "Copy — tru-broker"
+   },
+   {
+    "href": "design/components/tru-broker.html",
+    "kind": "notes",
+    "title": "tru-broker"
+   }
+  ],
+  "src/tenant/common/components/reports/CardListingPerformance.js": [
+   {
+    "href": "product/copy/tenant-reports.html",
+    "kind": "copy",
+    "title": "Copy — tenant-reports"
+   }
+  ],
+  "src/components/table/table-components/ad-license-status.js": [
+   {
+    "href": "product/copy/table.html",
+    "kind": "copy",
+    "title": "Copy — table"
+   }
+  ],
+  "src/components/table/table-components/ad-license-requested-on.js": [
+   {
+    "href": "product/copy/table.html",
+    "kind": "copy",
+    "title": "Copy — table"
+   }
+  ],
+  "src/components/table/table-components/ad-license-actions.js": [
+   {
+    "href": "product/copy/table.html",
+    "kind": "copy",
+    "title": "Copy — table"
+   }
+  ],
+  "src/tenant/common/components/prop-shop/offered-packages/packageCard.js": [
+   {
+    "href": "product/copy/tenant-prop-shop.html",
+    "kind": "copy",
+    "title": "Copy — tenant-prop-shop"
+   }
+  ],
+  "src/tenant/common/components/post-listing/license-validation-guide.js": [
+   {
+    "href": "product/copy/tenant-post-listing.html",
+    "kind": "copy",
+    "title": "Copy — tenant-post-listing"
+   },
+   {
+    "href": "design/components/post-listing.html",
+    "kind": "notes",
+    "title": "post-listing"
+   }
+  ],
+  "src/components/common/tour/tour.js": [
+   {
+    "href": "design/components/tour.html",
+    "kind": "notes",
+    "title": "tour"
+   }
+  ],
+  "src/components/table/table-components/ad-license-listing.js": [
+   {
+    "href": "product/copy/table.html",
+    "kind": "copy",
+    "title": "Copy — table"
+   }
+  ],
+  "src/components/table/table-components/task-notes.js": [
+   {
+    "href": "product/copy/table.html",
+    "kind": "copy",
+    "title": "Copy — table"
+   }
+  ],
+  "src/components/post-listing/post-listing-form/post-listing-form-sections-layout.js": [
+   {
+    "href": "product/copy/post-listing.html",
+    "kind": "copy",
+    "title": "Copy — post-listing"
+   }
+  ],
+  "src/components/post-listing/image-select/image-select.js": [
+   {
+    "href": "product/copy/post-listing.html",
+    "kind": "copy",
+    "title": "Copy — post-listing"
+   }
+  ],
+  "src/components/common/image-uploads/image-upload-dropzone.js": [
+   {
+    "href": "product/copy/common-image-uploads.html",
+    "kind": "copy",
+    "title": "Copy — common-image-uploads"
+   },
+   {
+    "href": "design/components/image-uploads.html",
+    "kind": "notes",
+    "title": "image-uploads"
+   }
+  ],
+  "src/components/post-listing/video-select/video-select.js": [
+   {
+    "href": "product/copy/post-listing.html",
+    "kind": "copy",
+    "title": "Copy — post-listing"
+   }
+  ],
+  "src/components/post-listing/add-amenities/add-amenities.js": [
+   {
+    "href": "product/copy/post-listing.html",
+    "kind": "copy",
+    "title": "Copy — post-listing"
+   }
+  ],
+  "src/components/widgets/listing-breakdown/listing-breakdown-skeleton.js": [
+   {
+    "href": "product/copy/widgets.html",
+    "kind": "copy",
+    "title": "Copy — widgets"
+   }
+  ],
+  "src/components/convert-to-agency/convert-to-agency.js": [
+   {
+    "href": "product/copy/convert-to-agency.html",
+    "kind": "copy",
+    "title": "Copy — convert-to-agency"
+   },
+   {
+    "href": "design/components/convert-to-agency.html",
+    "kind": "notes",
+    "title": "convert-to-agency"
+   }
+  ],
+  "src/container/pages/payment/checkout.js": [
+   {
+    "href": "product/copy/page-payment.html",
+    "kind": "copy",
+    "title": "Copy — page-payment"
+   },
+   {
+    "href": "design/components/checkout.html",
+    "kind": "notes",
+    "title": "checkout"
+   }
+  ],
+  "src/components/checkout/creditCardItem.js": [
+   {
+    "href": "product/copy/checkout.html",
+    "kind": "copy",
+    "title": "Copy — checkout"
+   },
+   {
+    "href": "design/components/checkout.html",
+    "kind": "notes",
+    "title": "checkout"
+   }
+  ],
+  "src/components/prop-shop/Ordersummary.js": [
+   {
+    "href": "product/copy/prop-shop.html",
+    "kind": "copy",
+    "title": "Copy — prop-shop"
+   },
+   {
+    "href": "design/components/prop-shop.html",
+    "kind": "notes",
+    "title": "prop-shop"
+   }
+  ],
+  "src/container/pages/payment/paymentMethods.js": [
+   {
+    "href": "product/copy/page-payment.html",
+    "kind": "copy",
+    "title": "Copy — page-payment"
+   }
+  ],
+  "src/components/checkout/adLicenseSuccessModal.js": [
+   {
+    "href": "product/copy/checkout.html",
+    "kind": "copy",
+    "title": "Copy — checkout"
+   },
+   {
+    "href": "design/components/checkout.html",
+    "kind": "notes",
+    "title": "checkout"
+   }
+  ],
+  "src/components/success-modal/success-modal.js": [
+   {
+    "href": "design/components/success-modal.html",
+    "kind": "notes",
+    "title": "success-modal"
+   }
+  ],
+  "src/components/common/spinner/spinner.js": [
+   {
+    "href": "design/components/spinner.html",
+    "kind": "notes",
+    "title": "spinner"
+   }
+  ],
+  "src/components/nafath-verification-modal/nafath-verification-modal.js": [
+   {
+    "href": "product/copy/nafath-verification-modal.html",
+    "kind": "copy",
+    "title": "Copy — nafath-verification-modal"
+   },
+   {
+    "href": "design/components/nafath-verification-modal.html",
+    "kind": "notes",
+    "title": "nafath-verification-modal"
+   }
+  ],
+  "src/container/pages/payment/payment-process.js": [
+   {
+    "href": "product/copy/page-payment.html",
+    "kind": "copy",
+    "title": "Copy — page-payment"
+   }
+  ],
+  "src/components/invite-user/otp-verification.js": [
+   {
+    "href": "product/copy/invite-user.html",
+    "kind": "copy",
+    "title": "Copy — invite-user"
+   },
+   {
+    "href": "design/components/invite-user.html",
+    "kind": "notes",
+    "title": "invite-user"
+   }
+  ],
+  "src/components/delete-agency-user/deleteAgencyUserModal.js": [
+   {
+    "href": "product/copy/delete-agency-user.html",
+    "kind": "copy",
+    "title": "Copy — delete-agency-user"
+   },
+   {
+    "href": "design/components/delete-agency-user.html",
+    "kind": "notes",
+    "title": "delete-agency-user"
+   }
+  ],
+  "src/container/pages/invite-user/invite-user.js": [
+   {
+    "href": "product/copy/page-invite-user.html",
+    "kind": "copy",
+    "title": "Copy — page-invite-user"
+   },
+   {
+    "href": "design/components/invite-user.html",
+    "kind": "notes",
+    "title": "invite-user"
+   }
+  ],
+  "src/components/checkout/successfulPaymentModal.js": [
+   {
+    "href": "product/copy/checkout.html",
+    "kind": "copy",
+    "title": "Copy — checkout"
+   },
+   {
+    "href": "design/components/checkout.html",
+    "kind": "notes",
+    "title": "checkout"
+   }
+  ],
+  "src/tenant/common/components/post-listing/national-cr-form.js": [
+   {
+    "href": "product/copy/tenant-post-listing.html",
+    "kind": "copy",
+    "title": "Copy — tenant-post-listing"
+   },
+   {
+    "href": "design/components/post-listing.html",
+    "kind": "notes",
+    "title": "post-listing"
+   }
+  ],
+  "src/tenant/bayut/components/upgrade-listing/upgrade-listing.js": [
+   {
+    "href": "product/copy/tenant-upgrade-listing.html",
+    "kind": "copy",
+    "title": "Copy — tenant-upgrade-listing"
+   }
+  ],
+  "src/components/common/checkbox/checkbox.js": [
+   {
+    "href": "design/components/checkbox.html",
+    "kind": "notes",
+    "title": "Checkbox"
+   }
+  ],
+  "src/components/credits-info/credits-info.js": [
+   {
+    "href": "product/copy/credits-info.html",
+    "kind": "copy",
+    "title": "Copy — credits-info"
+   },
+   {
+    "href": "design/components/credits-info.html",
+    "kind": "notes",
+    "title": "credits-info"
+   }
+  ],
+  "src/container/pages/post-listing/upgrade-listing.js": [
+   {
+    "href": "product/copy/page-post-listing.html",
+    "kind": "copy",
+    "title": "Copy — page-post-listing"
+   },
+   {
+    "href": "design/components/post-listing.html",
+    "kind": "notes",
+    "title": "post-listing"
+   }
+  ],
+  "src/components/common/tabs/tabs.js": [
+   {
+    "href": "design/components/tabs.html",
+    "kind": "notes",
+    "title": "Tabs"
+   }
+  ],
+  "src/components/post-listing/media-gallery/media-gallery-modal.js": [
+   {
+    "href": "product/copy/post-listing.html",
+    "kind": "copy",
+    "title": "Copy — post-listing"
+   }
+  ],
+  "src/tenant/bayut/components/post-listing/listingDetailModal.js": [
+   {
+    "href": "product/copy/tenant-post-listing.html",
+    "kind": "copy",
+    "title": "Copy — tenant-post-listing"
+   },
+   {
+    "href": "design/components/post-listing.html",
+    "kind": "notes",
+    "title": "post-listing"
+   }
+  ],
+  "src/tenant/bayut/components/post-listing/RegaDetailFields.js": [
+   {
+    "href": "product/copy/tenant-post-listing.html",
+    "kind": "copy",
+    "title": "Copy — tenant-post-listing"
+   },
+   {
+    "href": "design/components/post-listing.html",
+    "kind": "notes",
+    "title": "post-listing"
+   }
+  ],
+  "src/tenant/common/components/preference/preference.js": [
+   {
+    "href": "product/copy/tenant-preference.html",
+    "kind": "copy",
+    "title": "Copy — tenant-preference"
+   }
+  ],
+  "src/tenant/common/components/smart-credits-utilisation/smart-credits-utilisation.js": [
+   {
+    "href": "product/copy/tenant-smart-credits-utilisation.html",
+    "kind": "copy",
+    "title": "Copy — tenant-smart-credits-utilisation"
+   }
+  ],
+  "src/container/pages/agent-performance/TruPoints.js": [
+   {
+    "href": "product/copy/page-agent-performance.html",
+    "kind": "copy",
+    "title": "Copy — page-agent-performance"
+   }
+  ],
+  "src/container/pages/agent-performance/AgentPerformanceSkeleton.js": [
+   {
+    "href": "product/copy/page-agent-performance.html",
+    "kind": "copy",
+    "title": "Copy — page-agent-performance"
+   }
+  ],
+  "src/tenant/common/components/layout/layout.js": [
+   {
+    "href": "product/copy/tenant-layout.html",
+    "kind": "copy",
+    "title": "Copy — tenant-layout"
+   },
+   {
+    "href": "design/components/header.html",
+    "kind": "notes",
+    "title": "Header"
+   }
+  ],
+  "src/tenant/common/components/layout/navbar.js": [
+   {
+    "href": "product/copy/tenant-layout.html",
+    "kind": "copy",
+    "title": "Copy — tenant-layout"
+   },
+   {
+    "href": "design/components/navbar.html",
+    "kind": "notes",
+    "title": "navbar"
+   }
+  ],
+  "src/components/common/banner/index.js": [
+   {
+    "href": "product/copy/common-banner.html",
+    "kind": "copy",
+    "title": "Copy — common-banner"
+   },
+   {
+    "href": "design/components/banner.html",
+    "kind": "notes",
+    "title": "Banner"
+   }
+  ],
+  "src/tenant/common/components/layout/footer.js": [
+   {
+    "href": "product/copy/tenant-layout.html",
+    "kind": "copy",
+    "title": "Copy — tenant-layout"
+   }
+  ],
+  "src/components/leads-management/lead-detail-drawer-skeleton.js": [
+   {
+    "href": "product/copy/leads-management.html",
+    "kind": "copy",
+    "title": "Copy — leads-management"
+   },
+   {
+    "href": "design/components/leads-management.html",
+    "kind": "notes",
+    "title": "leads-management"
+   }
+  ],
+  "src/components/common/licenseSkeleton/licenseSkeleton.js": [
+   {
+    "href": "design/components/licenseskeleton.html",
+    "kind": "notes",
+    "title": "licenseSkeleton"
+   }
+  ]
+ },
+ "byPage": {
+  "dashboard": {
+   "href": "pages/dashboard.html",
+   "title": "Overview"
+  },
+  "listings": {
+   "href": "pages/listings.html",
+   "title": "Listings"
+  },
+  "credits-usage": {
+   "href": "pages/credits-usage.html",
+   "title": "Credits Usage"
+  },
+  "ad-license": {
+   "href": "pages/ad-license.html",
+   "title": "Ad License"
+  },
+  "lms-leads": {
+   "href": "pages/lms-leads.html",
+   "title": "Lms"
+  },
+  "reports-summary": {
+   "href": "pages/reports-summary.html",
+   "title": "Reports"
+  },
+  "reports-listing-report": {
+   "href": "pages/reports-listing-report.html",
+   "title": "Reports"
+  },
+  "reports-leads-reports": {
+   "href": "pages/reports-leads-reports.html",
+   "title": "Reports"
+  },
+  "user-settings-user-profile": {
+   "href": "pages/user-profile.html",
+   "title": "User Profile"
+  },
+  "user-settings-agency-profile": {
+   "href": "pages/agency-profile.html",
+   "title": "Agency Profile"
+  },
+  "user-settings-change-password": {
+   "href": "pages/change-password.html",
+   "title": "Change Password"
+  }
+ },
+ "html": "\n<p class=\"ds-note\">What the product says and does — generated from its source into <a href=\"../kb/index.html\"><code>kb/</code></a>. Every component page links to the copy it renders and the notes written about it; every compiled page links to its route's page here.</p>\n<div class=\"ds-kb\">\n<a href=\"../kb/product/ksa.html\"><b>Bayut Profolio KSA</b><span>Product knowledge: who uses it, the regulation it works under, how it makes money — not a source of design</span></a>\n<a href=\"../kb/product/screens.html\"><b>Screen map</b><span>Every route, what it shows and who can reach it</span></a>\n<a href=\"../kb/product/flags.html\"><b>KSA tenant flags</b><span>The tenant flags that switch features on and off for KSA</span></a>\n<a href=\"../kb/product/copy.html\"><b>Product copy</b><span>Every string, by area — 101 areas</span></a>\n<a href=\"../kb/index.html\"><b>Profolio KSA</b><span>The whole knowledge base</span></a>\n</div>\n<h3>Routes</h3>\n<ul class=\"ds-uses\"><li><a href=\"../kb/pages/dashboard.html\">Overview</a> <small>dashboard</small></li><li><a href=\"../kb/pages/listings.html\">Listings</a> <small>listings</small></li><li><a href=\"../kb/pages/credits-usage.html\">Credits Usage</a> <small>credits-usage</small></li><li><a href=\"../kb/pages/ad-license.html\">Ad License</a> <small>ad-license</small></li><li><a href=\"../kb/pages/lms-leads.html\">Lms</a> <small>lms-leads</small></li><li><a href=\"../kb/pages/reports-summary.html\">Reports</a> <small>reports-summary</small></li><li><a href=\"../kb/pages/reports-listing-report.html\">Reports</a> <small>reports-listing-report</small></li><li><a href=\"../kb/pages/reports-leads-reports.html\">Reports</a> <small>reports-leads-reports</small></li><li><a href=\"../kb/pages/user-profile.html\">User Profile</a> <small>user-settings-user-profile</small></li><li><a href=\"../kb/pages/agency-profile.html\">Agency Profile</a> <small>user-settings-agency-profile</small></li><li><a href=\"../kb/pages/change-password.html\">Change Password</a> <small>user-settings-change-password</small></li></ul>\n"
+}

@@ -1,55 +1,51 @@
 {
   "route": "user-settings-user-profile",
-  "at": "2026-09-28T08:02:31.529Z",
+  "at": "2026-09-28T10:48:26.497Z",
   "shellFails": [],
   "diffs": [
     {
       "id": "settings.main",
-      "diff": 5
+      "diff": 5.2
+    },
+    {
+      "id": "shell.header",
+      "diff": 4.9
     },
     {
       "id": "shell.sider",
-      "diff": 4.6
+      "diff": 4.5
     },
     {
       "id": "shell.content",
       "diff": 4.2
     },
     {
-      "id": "shell.title",
-      "diff": 2.6
+      "id": "settings.avatar",
+      "diff": 3.1
     },
     {
       "id": "settings.side",
-      "diff": 2.1
-    },
-    {
-      "id": "shell.header",
-      "diff": 2.1
+      "diff": 2
     },
     {
       "id": "sfield.control",
-      "diff": 1.6
+      "diff": 2
     },
     {
       "id": "shell.footer",
-      "diff": 1.6
-    },
-    {
-      "id": "settings.avatar",
       "diff": 1.5
     },
     {
       "id": "settings.head",
-      "diff": 0.8
+      "diff": 1.5
     },
     {
       "id": "shell.badge",
-      "diff": 0.7
+      "diff": 0
     },
     {
-      "id": "sfield",
-      "diff": 0.6
+      "id": "shell.title",
+      "diff": 0
     }
   ],
   "offScale": {
@@ -93,7 +89,7 @@
   "productLow": [
     {
       "col": "rgb(255,255,255)",
-      "n": 11,
+      "n": 14,
       "ratio": 1
     },
     {

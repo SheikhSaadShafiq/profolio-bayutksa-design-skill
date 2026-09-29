@@ -12,6 +12,18 @@
  *   const body = answer('GET', '/api/surge/listings', '?page=1');   // object | undefined
  */
 import { readFileSync } from 'node:fs';
+/* per-area answers, brought to the real API's shape one area at a time —
+   see the note above answer() */
+import creditsArea from './fixtures/credits.mjs';
+import statsArea from './fixtures/stats.mjs';
+import listingsArea from './fixtures/listings.mjs';
+import lmsArea from './fixtures/lms.mjs';
+import profileArea from './fixtures/profile.mjs';
+import extraArea from './fixtures/extra.mjs';
+import formsArea from './fixtures/forms.mjs';
+import listingFormArea from './fixtures/listing-form.mjs';
+import paymentsArea from './fixtures/payments.mjs';
+import settingsArea from './fixtures/settings.mjs';
 
 const HERE = new URL('.', import.meta.url);
 const read = (p) => JSON.parse(readFileSync(new URL(p, HERE), 'utf8'));
@@ -128,7 +140,11 @@ const listings = page.recentListings.map((r, i) => {
           once there is somewhere to put it)
        8  services NOT applicable → the muted circle, and the one tooltip that
           is a plain string rather than a panel
-       9  DAILY RENTAL again → so Mark as Booked has more than one entry point
+       9  DAILY RENTAL again → so Mark as Booked has more than one entry point;
+          harness/fixtures/listings.mjs also gives it an APPLIED DISCOUNT →
+          the DiscountTag over the thumbnail, which the real account's first
+          row carries (that module re-expresses all ten rows in the real
+          API's shape — this block still decides what each row is)
 
      Everything else about a row is unchanged, so a change here moves exactly
      one thing on the screen. */
@@ -197,7 +213,10 @@ const listings = page.recentListings.map((r, i) => {
        the platform listing (listingUtilities.js:100), and it is the presence
        of this array that makes the info icon render beside the Status pill */
     ...(rejected && { rejection_reason: ['Images do not match the property', 'Price is outside the expected range'] }),
-    /* listingUtilities.js:238 gates Mark as Booked on this slug alone */
+    /* the DAILY RENTAL job marker. Not sent: harness/fixtures/listings.mjs
+       reads it and makes the row a daily rental the way Surge says so —
+       listing_category.purpose_hash 'daily-rental' — which is what Mark as
+       Booked (listingUtilities.js:247) and "Night" both resolve from */
     ...(dailyRental && { listing_purpose: { id: 3, slug: 'daily-rental', title: 'Daily Rental', title_l1: 'إيجار يومي', name: 'Daily Rental' } }),
     /* a booked range puts the "Booked Until" chip over the thumbnail
        (listing-purpose.js:217) and is what its tooltip reads */
@@ -316,11 +335,18 @@ const memberUser = {
 
 const ROUTES = [
   [/^\/api\/surge\/users\/current$/,                 (search, mode) => (mode === 'member' ? memberUser : user)],
-  /* the member area mounts the classified site's own header, which asks for
-     these three before it will paint. A package user never calls them. */
-  [/^\/api\/user\/favorites/,                        () => ({ favorites: [], pagination: { total_count: 0 } })],
-  [/^\/api\/user\/searches\/saved/,                  () => ({ searches: [], pagination: { total_count: 0 } })],
-  [/^\/api\/user\/bookings/,                         () => ({ bookings: [], count: 0, pagination: { total_count: 0 } })],
+  /* the member area mounts the classified site's own header
+     (tenant/common/components/layout/navbar.js), which asks for these three
+     as soon as it mounts. A package user never calls them. The first two are
+     the classified site's (`${getClassifiedBaseURL()}/api/user/…`, same
+     origin here — harness/page.mjs), and both are LISTS: navbar.js:215 maps
+     the favourites' ids (`response.data?.map`) and :225 keeps the saved
+     searches as an array, so an object here threw inside the header. The
+     third is the stays API's bookings count (apis/user.js:142 — relative,
+     /bnb/…), read as pagination.total_count. A new visitor's: none of any. */
+  [/^\/api\/user\/favorites/,                        () => []],
+  [/^\/api\/user\/searches\/saved/,                  () => []],
+  [/^\/bnb\/listing_bookings$/,                       () => ({ listing_bookings: [], pagination: { current_page: 1, total_pages: 0, total_count: 0 } })],
   [/^\/api\/surge\/users\/\d+$/,                     () => ({ user: { ...U, profile_image: AVATAR } })],
   [/^\/api\/surge\/agencies\/\d+\/licenses$/,          () => ({ licenses: [], pagination: {} })],
   /* Clicking an upgrade circle calls this before anything opens:
@@ -339,9 +365,49 @@ const ROUTES = [
         { id: 7, slug: 'drone-footage-service', title: 'Drone Footage',     usage_type: 'credit', required_quantity: 6,  price: 6,  default_expiry_days: 30 },
       ],
   } })],
-  [/^\/api\/surge\/products$/,                       () => ({ products: [] })],
+  /* ── the product catalogue ────────────────────────────────────────────────
+     NOT RECORDED — data/api-shapes.json has no entry. Asked on every page
+     (router.js:65 getActiveProducts) and read in three places, which is what
+     each record has to carry:
+       productsDataMapper (common/transformers/listings.js:802) — groups the
+         list by platform.slug == 'bayut' (platformList's responseKey) into
+         state.app.products
+       the credit top-up (prop-shop/credit-top-ups/creditTopUps.js:70) — the
+         cart's item_id is the id of the product whose slug is 'credit': 7.
+         With { products: [] } the cart went out without one
+       the Credits Usage "Upgrades" filter (common/filters/creditsUsageFilters.js:25)
+         — every product but 'credit' whose platform.id is the page's
+         platform (1; `product?.platform.id` is unguarded, so every record has
+         a platform), labelled by name, and the id is what q[product_id_in][]
+         sends back — so the ids are the ones credits.mjs's history filters on
+     The records are the product's own fallback for this very call
+     (tenant/bayut/data/products.js quotaCreditProducts, which apis/common.js:18
+     stores when it fails): id, crm_id, title, type, duration, slug, price as
+     it states them, plus the platform the readers need and name / name_l1 as
+     the credits history names each product (credits.mjs PRODUCTS). Config,
+     not anybody's data — the same in every mode. getPlatformsAndProducts
+     (utility.js:329) reads state.app.products.data, which this never sets, so
+     no listing's upgrades move. */
+  [/^\/api\/surge\/products$/,                       () => ({ products: [
+      /* id · crm_id · slug · title (products.js) · name, name_l1 (credits.mjs) · type · duration · price */
+      [1, 31,   'basic-listing',         'Basic Listing',         'Basic Listing',         'الإعلان الأساسي',    'quota',  365,  '200'],
+      [2, 11,   'hot-listing',           'Hot Listing',           'Hot Listing',           'الإعلان المميز',     'credit', 999,  '2500'],
+      [3, 12,   'signature-listing',     'Signature Listing',     'Signature Listing',     'إعلان سيغنتشر',      'credit', 365,  '4000'],
+      [4, 266,  'refresh',               'Refresh Listing',       'Refresh',               'تحديث الإعلان',      'quota',  30,   '300'],
+      [5, 54,   'photography-service',   'Photography Service',   'Photography Service',   'خدمة التصوير',       'credit', 365,  '3000'],
+      [6, 54,   'videography-service',   'Videography Service',   'Videography Service',   'خدمة تصوير الفيديو', 'credit', 365,  '7000'],
+      [7, 54,   'credit',                'Credit',                'Credit',                'رصيد',               'credit', 365,  '15000'],
+      [8, null, 'drone-footage-service', 'Drone Footage Service', 'Drone Footage Service', 'خدمة التصوير الجوي', 'credit', null, '3000'],
+    ].map(([id, crm_id, slug, title, name, name_l1, type, duration, price]) => ({
+      id, crm_id, slug, title, name, name_l1, type, duration, price,
+      platform_id: 1, platform: { id: 1, slug: 'bayut', title: 'KSA' },
+    })) })],
   [/^\/api\/surge\/agencies\/\d+$/,                  () => ({ agency: { ...AGENCY, owner: { id: U.id, name: U.name }, users: [{ id: U.id, name: U.name, agency_admin: true, platform_mapping: U.platform_mapping }] } })],
-  [/^\/api\/surge\/notifications\/stats$/,           () => ({ stats: { unread_notifications_count: U.unread_notifications_count } })],
+  /* the bell. The owner's 128 draws "99+"; the real staff account's bell
+     holds one digit (data/qa/delta-b.json: ant-scroll-number-only), so mode
+     'staff' answers 3. Mode 'empty' is a brand-new account: nothing has
+     happened to it yet, so nothing is unread and there is no badge. */
+  [/^\/api\/surge\/notifications\/stats$/,           (search, mode) => ({ stats: { unread_notifications_count: mode === 'staff' ? 3 : mode === 'empty' ? 0 : U.unread_notifications_count } })],
   [/^\/api\/surge\/lms\/leads\/stats$/,              () => ({ stats: { unseen_leads_count: 0 } })],
   [/^\/api\/surge\/lms\/stats\//,                    () => ({ stats: { items: {} } })],
   [/^\/api\/surge\/(languages|area_units|experience_list)$/, () => ({})],
@@ -443,8 +509,17 @@ const ROUTES = [
       { id: 4, title: 'Rented out through another source', name: 'Rented out through another source' },
       { id: 5, title: 'Other',                           name: 'Other' },
   ] })],
-  /* the notification centre popover */
-  [/^\/api\/surge\/notifications$/,                  () => ({ notifications: [
+  /* The FEEDBACK tab pinned to the inline-end edge (FeedbackTab.js renders
+     nothing unless `enabled`). New in the product after the snapshot. Values
+     read from staging's own answer on 2026-09-28 — config, not anybody's data. */
+  [/^\/api\/surge\/tenants\/current$/,               () => ({ tenant: { profolio_feedback: {
+      enabled: true, daily_limit: 5, remaining_today: 5, image_max_mb: 5, message_min: 10, message_max: 2000,
+  } } })],
+  /* the notification centre popover — in mode 'empty' the product's own
+     "No notifications found" (listings.mjs popover-notifications' note) */
+  [/^\/api\/surge\/notifications$/,                  (search, mode) => (mode === 'empty'
+    ? { notifications: [], pagination: { current_page: 1, total_pages: 1, total_count: 0, per_page: 10 } }
+    : { notifications: [
       { id: 9001, title: 'Your listing is live', body: 'Apartment for Sale in Al Yarmuk is now live on Bayut.', is_read: false, created_at: new Date(Date.now() - 36e5).toISOString() },
       { id: 9002, title: 'Credits expiring soon', body: '2,120 credits expire at the end of this month.', is_read: false, created_at: new Date(Date.now() - 864e5).toISOString() },
       { id: 9003, title: 'TruCheck visit scheduled', body: 'A TruCheck visit is scheduled for Villa for Sale in Al Nahdah.', is_read: true, created_at: new Date(Date.now() - 3 * 864e5).toISOString() },
@@ -456,10 +531,40 @@ const ROUTES = [
  *   'member' makes /users/current a member-area user, which is the only way
  *   to render the banner and the CreditsQuota widgets. Handlers that do not
  *   care simply ignore it.
+ * @param page  optional: the route of the page that asked (/user-settings/
+ *   preferences), which harness/page.mjs passes for every call. Handlers get
+ *   it as their fifth argument — `(search, mode, pathname, method, page)` —
+ *   and nearly all of them ignore it: an answer is the account's, whichever
+ *   page asks. The one exception is a product bug no page-blind answer
+ *   survives (profile.mjs, NO_PHOTO). A nested answer() call — an area
+ *   passing a GET on to its owner — inherits the page it was asked from.
  */
-export function answer(method, pathname, search = '', mode = null) {
-  for (const [re, fn] of ROUTES) if (re.test(pathname)) return fn(search, mode, pathname);
-  return undefined;
+/* AREA MODULES answer first. harness/fixtures/<area>.mjs each export
+   `(h) => [[regex, handler], …]` and receive the shared invented account
+   below, so an area can be brought to the shape the real API answers in
+   (data/api-shapes.json, held by scripts/check-fixtures.mjs) without two
+   areas editing one file. Every object answer carries `success: true`,
+   which is how the real API opens every body. */
+const H = { user, U, AGENCY, AVATAR, page, day, iso, num, listings, clean, STATUSES, SUMMARY, statsItems, items, aggregates, C, products, purposes, memberUser, purposeOf };
+let ALL = null;
+let PAGE = '';                  /* the page of the outermost call in progress (see @param page) */
+export function answer(method, pathname, search = '', mode = null, page = undefined) {
+  /* the second pass's modules first: form submissions, the listing form,
+     payments, settings — each answers only what nobody else does, or only
+     in a mode of its own */
+  ALL ||= [...formsArea(H), ...listingFormArea(H), ...paymentsArea(H), ...settingsArea(H),
+    ...creditsArea(H), ...statsArea(H), ...listingsArea(H), ...lmsArea(H), ...profileArea(H), ...extraArea(H), ...ROUTES];
+  const outer = PAGE;
+  if (page !== undefined) PAGE = page || '';
+  try {
+    for (const [re, fn] of ALL) {
+      if (!re.test(pathname)) continue;
+      const body = fn(search, mode, pathname, method, PAGE);
+      if (body && typeof body === 'object' && !Array.isArray(body) && !('success' in body)) return { ...body, success: true };
+      return body;
+    }
+    return undefined;
+  } finally { PAGE = outer; }
 }
 
 /* a 320×240 grey SVG for every listing thumbnail: the box is what matters, and

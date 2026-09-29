@@ -1,0 +1,2736 @@
+{
+ "components": {
+  "src/layout/withAdminLayout.js:357:5": {
+   "name": "pf-div",
+   "base": "div",
+   "variants": [
+    "knBGsu",
+    "geVBkd",
+    "ikOAgX",
+    "cbjoiA",
+    "bsaulf"
+   ]
+  },
+  "src/components/utilities/auth-info/info.js:159:5": {
+   "name": "pf-info-wraper",
+   "base": "info-wraper",
+   "variants": [
+    "eiFNPR"
+   ]
+  },
+  "src/components/post-listing-menu/post-listing-menu.js:256:7": {
+   "name": "pf-body-scrim",
+   "base": "body-scrim",
+   "variants": [
+    "cyaaXw",
+    "kxKjBd"
+   ]
+  },
+  "src/components/common/button/button.js:40:5": {
+   "name": "pf-button-styled",
+   "base": "button-styled",
+   "variants": [
+    "gUAaVI",
+    "khckeg",
+    "bNvTTw",
+    "ljZywZ",
+    "kneSZa",
+    "gompsv",
+    "cmniMd",
+    "vIqDB",
+    "fvxxYB",
+    "ekIDBq",
+    "kvOZAw",
+    "iFYhUW",
+    "lprKhU",
+    "dCvIPV",
+    "eIxpzH",
+    "jgBjCb",
+    "eQJUla",
+    "ercJzC",
+    "eThRor",
+    "kCHWUC",
+    "jxrdw",
+    "IeNnC",
+    "jPbKCf",
+    "gneeMv",
+    "hPjUpZ",
+    "kiAcfv",
+    "jMXCai",
+    "kimuTi",
+    "jZgRee",
+    "dYSslR"
+   ]
+  },
+  "src/components/common/icon/icon.js:18:9": {
+   "name": "pf-ant-icon-styled",
+   "base": "ant-icon-styled",
+   "variants": [
+    "fZMNLY"
+   ]
+  },
+  "src/components/common/modals/antd-modals.js:33:5": {
+   "name": "pf-modal-styled",
+   "base": "modal-styled",
+   "variants": [
+    "NVqJ"
+   ]
+  },
+  "src/components/common/link-with-icon/link-with-icon.js:33:5": {
+   "name": "pf-link-styled",
+   "base": "link-styled",
+   "variants": [
+    "eHIyET",
+    "jPIXBp",
+    "gVjlLL"
+   ]
+  },
+  "src/tenant/common/components/header-component/header-components.js:99:13": {
+   "name": "pf-trigger-wrap",
+   "base": "trigger-wrap",
+   "variants": [
+    "jXCEGs"
+   ]
+  },
+  "src/components/post-listing-menu/post-listing-menu.js:340:5": {
+   "name": "pf-menu-positioner",
+   "base": "menu-positioner",
+   "variants": [
+    "cKVexS",
+    "hlSJSM",
+    "bnNEmm"
+   ]
+  },
+  "src/components/post-listing-menu/post-listing-menu.js:352:7": {
+   "name": "pf-menu-panel",
+   "base": "menu-panel",
+   "variants": [
+    "hMPzAr"
+   ]
+  },
+  "src/components/post-listing-menu/post-listing-menu.js:354:11": {
+   "name": "pf-menu-row",
+   "base": "menu-row",
+   "variants": [
+    "jhHaBQ"
+   ]
+  },
+  "src/components/post-listing-menu/post-listing-menu.js:364:13": {
+   "name": "pf-row-lead",
+   "base": "row-lead",
+   "variants": [
+    "cTAjIT"
+   ]
+  },
+  "src/components/post-listing-menu/post-listing-menu.js:365:15": {
+   "name": "pf-row-icon",
+   "base": "row-icon",
+   "variants": [
+    "klyxMD"
+   ]
+  },
+  "src/components/post-listing-menu/post-listing-menu.js:368:15": {
+   "name": "pf-row-label",
+   "base": "row-label",
+   "variants": [
+    "dXgbeI"
+   ]
+  },
+  "src/components/post-listing-menu/post-listing-menu.js:371:15": {
+   "name": "pf-row-trailing",
+   "base": "row-trailing",
+   "variants": [
+    "jJQclu"
+   ]
+  },
+  "src/components/post-listing-menu/post-listing-menu.js:372:17": {
+   "name": "pf-new-chip",
+   "base": "new-chip",
+   "variants": [
+    "bnA-DES"
+   ]
+  },
+  "src/components/common/popup/popup.js:23:5": {
+   "name": "pf-popover-styled",
+   "base": "popover-styled",
+   "variants": [
+    "jDgZzN"
+   ]
+  },
+  "src/components/utilities/auth-info/info.js:186:15": {
+   "name": "pf-progress-styled",
+   "base": "progress-styled",
+   "variants": [
+    "gRzoot"
+   ]
+  },
+  "src/components/common/avatar/avatar.js:33:5": {
+   "name": "pf-icon-styled",
+   "base": "icon-styled",
+   "variants": [
+    "ilewrA",
+    "cQbiBG",
+    "PvLzy",
+    "cyQpPy",
+    "tnNha",
+    "gUTzpa",
+    "jfTpSW",
+    "fbtzRK",
+    "SIPpu",
+    "fUCXgY",
+    "jsosji",
+    "eGDHWS",
+    "bLFBiS",
+    "cwSxTO",
+    "hgVLzZ",
+    "euMBTQ",
+    "htGjHX",
+    "eQxbGf",
+    "HMrdP",
+    "fLWFpw",
+    "liTJKY",
+    "haiZiI",
+    "byXBaS",
+    "eImiFg",
+    "jOyegA",
+    "ekRotw",
+    "iWnmxq",
+    "bhMXwu",
+    "hPNWZG",
+    "crwmgz"
+   ]
+  },
+  "src/layout/MenueItems.js:99:15": {
+   "name": "pf-rail-trigger-wrap",
+   "base": "rail-trigger-wrap",
+   "variants": [
+    "cWLQQW"
+   ]
+  },
+  "src/components/post-listing-menu/post-listing-menu.js:351:22": {
+   "name": "pf-menu-caret",
+   "base": "menu-caret",
+   "variants": [
+    "jBEKjW"
+   ]
+  },
+  "src/components/common/flex/index.js:10:7": {
+   "name": "pf-flex-styled",
+   "base": "flex-styled",
+   "variants": [
+    "bNubgG",
+    "ccinJM",
+    "kvaoSF",
+    "hTAnve",
+    "clkSiM",
+    "eClEdF",
+    "gLCXGe",
+    "fZzKO",
+    "dgTJSE",
+    "ehNaRZ",
+    "jwyyfg",
+    "hCyvnR",
+    "figmMG",
+    "cVCSrk",
+    "figpIf",
+    "duWQS",
+    "eJQhjU",
+    "jfOicM",
+    "coeFwO",
+    "iGJfnZ",
+    "goAofq",
+    "cqkldQ",
+    "iUGlax",
+    "gpwUIA",
+    "iKdYDc",
+    "iYnpNW",
+    "fCHQfa",
+    "bspnNU",
+    "jJXmRD",
+    "faUxZK",
+    "jRgXWU",
+    "fPRujl",
+    "fXzPQ",
+    "laikMn",
+    "gjOrSB",
+    "iqTTPO",
+    "jsvifo",
+    "dqWZag",
+    "clVaKe",
+    "MRuvs",
+    "gcqIaZ",
+    "fAcuPC",
+    "jWBJkc",
+    "emDywP",
+    "bgJUZQ",
+    "kMjhvd",
+    "hxyMiK",
+    "fhYRwm",
+    "cCrdxr",
+    "ePeYfO",
+    "fftASm",
+    "dWSASs",
+    "ePPLSM",
+    "jWHmkz",
+    "dOiYBa",
+    "iprqfT",
+    "iEQwDC",
+    "hBKakR",
+    "cnjgHt",
+    "fXvXpA",
+    "jRXway",
+    "QbqbH",
+    "cXqBfm",
+    "bdYikd",
+    "aOPzq",
+    "eflvZm",
+    "evXShf",
+    "eHLPo",
+    "ixXyc",
+    "cVaUJC",
+    "drvoOe",
+    "cYNwJK",
+    "kaMTFq",
+    "fqgyRa",
+    "hTmlXC",
+    "kCkEWA",
+    "cfrgNI",
+    "zZPzv",
+    "hdodKi",
+    "jgkKIP",
+    "iNYhwL",
+    "iqVQAV",
+    "iCLfM",
+    "kiOUQR",
+    "hlDDGZ",
+    "bcVRKZ",
+    "ifcscQ",
+    "fPFhGY",
+    "kdPoLM",
+    "iHhwIV",
+    "jDzrjj",
+    "ixzUzW",
+    "lbMfRl",
+    "iweMUO",
+    "ctiWiK",
+    "bdrQOO",
+    "gJTHHt",
+    "bRlHCI",
+    "kNrnuB",
+    "jZhVJj",
+    "izjtMF",
+    "nTzxZ",
+    "jODgEo",
+    "csZOkk",
+    "NnRdT",
+    "dwmDsd",
+    "bnUmtt",
+    "krIrsJ",
+    "eTTtra",
+    "eDHoAk",
+    "jdJHuH",
+    "hiiLjG",
+    "jJleCC"
+   ]
+  },
+  "src/container/pages/dashboard/dashboard.js:478:5": {
+   "name": "pf-main",
+   "base": "main",
+   "variants": [
+    "dAXlsr"
+   ]
+  },
+  "src/components/common/group/group.js:8:5": {
+   "name": "pf-group-styled",
+   "base": "group-styled",
+   "variants": [
+    "eolAvG"
+   ]
+  },
+  "src/container/pages/dashboard/dashboard.js:385:9": {
+   "name": "pf-container-widgets",
+   "base": "container-widgets",
+   "variants": [
+    "lhagxB"
+   ]
+  },
+  "src/container/pages/dashboard/dashboard.js:168:9": {
+   "name": "pf-card-meta-styled",
+   "base": "card-meta-styled",
+   "variants": [
+    "cOHtMd",
+    "uyXpa"
+   ]
+  },
+  "src/components/common/dropdown/dropdown.js:82:7": {
+   "name": "pf-dropdown-styled",
+   "base": "dropdown-styled",
+   "variants": [
+    "bycHqQ"
+   ]
+  },
+  "src/components/common/loader-wrapper/loader-wrapper.js:30:5": {
+   "name": "pf-wrapper",
+   "base": "wrapper",
+   "variants": [
+    "jPnbun"
+   ]
+  },
+  "src/components/common/loader-wrapper/loader-wrapper.js:35:11": {
+   "name": "pf-loader-overlay",
+   "base": "loader-overlay",
+   "variants": [
+    "kpaUBs",
+    "iBOSoB"
+   ]
+  },
+  "src/components/common/loader-wrapper/loader-wrapper.js:39:11": {
+   "name": "pf-content-wrapper",
+   "base": "content-wrapper",
+   "variants": [
+    "kPoMpY"
+   ]
+  },
+  "src/components/common/cards/Card.js:8:5": {
+   "name": "pf-card-styled",
+   "base": "card-styled",
+   "variants": [
+    "dDPFpE",
+    "flTqhG"
+   ]
+  },
+  "src/components/common/textWithIcon/textWithIcon.js:63:9": {
+   "name": "pf-text",
+   "base": "text",
+   "variants": [
+    "RkYnn",
+    "ijfwtQ",
+    "klBPER",
+    "llXMaj",
+    "gbDnfF",
+    "gyZUop",
+    "ctPcoy",
+    "juoPIx",
+    "cCRVwz",
+    "eqqBea",
+    "bknJVQ",
+    "kxfaGH",
+    "bthDpk",
+    "cFQyJg",
+    "droZQZ",
+    "giNkrZ",
+    "bIiQjF",
+    "FPpLS",
+    "chEaHT",
+    "JnXnt",
+    "zUmMU",
+    "kyfCwi",
+    "gERWbF",
+    "GlIlw",
+    "fZGddF",
+    "jSrUMt",
+    "hWgvZL"
+   ]
+  },
+  "src/components/common/statistic/index.js:93:9": {
+   "name": "pf-statistic-styled",
+   "base": "statistic-styled",
+   "variants": [
+    "hanTXf",
+    "dAuArz",
+    "gnJOul",
+    "gHZSgq",
+    "kDegEr",
+    "cinmGx",
+    "llrxdY",
+    "ksNBgG",
+    "kswJnK",
+    "fjXOIG",
+    "crycDL",
+    "dXqFXw",
+    "gkmIrz",
+    "iizBHO",
+    "lmKEGZ"
+   ]
+  },
+  "src/components/common/drawer/drawer.js:90:7": {
+   "name": "pf-drawer-style",
+   "base": "drawer-style",
+   "variants": [
+    "dlqGlF"
+   ]
+  },
+  "src/components/widgets/ReportsLeadsTrafficSection.js:241:9": {
+   "name": "pf-analytics-styled",
+   "base": "analytics-styled",
+   "variants": [
+    "fHstRr",
+    "bBecKm"
+   ]
+  },
+  "src/components/widgets/LeadsStatsGraphWidget.js:325:5": {
+   "name": "pf-performance-chart-wrapper",
+   "base": "performance-chart-wrapper",
+   "variants": [
+    "kFuhnp",
+    "bBecKm",
+    "jhEWPH",
+    "jpxNeV",
+    "lfJTVF",
+    "eNujPj"
+   ]
+  },
+  "src/components/common/segmented/segmented.js:8:5": {
+   "name": "pf-segmented-styled",
+   "base": "segmented-styled",
+   "variants": [
+    "jrSuTy"
+   ]
+  },
+  "sc-imWYAI": {
+   "name": "pf-sc-imwyai",
+   "base": "sc-imwyai",
+   "variants": [
+    "gyPCMS",
+    "jRRHxo",
+    "beFfiy"
+   ]
+  },
+  "src/components/widgets/LeadsStatsGraphWidget.js:207:23": {
+   "name": "pf-radio-pill",
+   "base": "radio-pill",
+   "variants": [
+    "idPqgb",
+    "dOwfTl"
+   ]
+  },
+  "src/components/common/product-tag/index.js:23:5": {
+   "name": "pf-index-tag-styled",
+   "base": "tag-styled",
+   "variants": [
+    "xIClh",
+    "fAaCP",
+    "gzBIlJ",
+    "kEIjvN",
+    "hzpycc",
+    "jPDrdK",
+    "Ntknw"
+   ]
+  },
+  "src/components/common/tag/tag.js:77:5": {
+   "name": "pf-tag-tag-styled",
+   "base": "tag-styled",
+   "variants": [
+    "igfhkn",
+    "gFfZSh",
+    "hHxqGT",
+    "jCRzjO",
+    "fpgfJi",
+    "hYglkH",
+    "hneiEU",
+    "cLVPmk"
+   ]
+  },
+  "src/components/charts/chartjs.js:355:7": {
+   "name": "pf-chart-container",
+   "base": "chart-container",
+   "variants": [
+    "YmAcY",
+    "ZHHLS"
+   ]
+  },
+  "src/components/common/dataTable/dataTable.js:162:7": {
+   "name": "pf-table-list",
+   "base": "table-list",
+   "variants": [
+    "daypCr"
+   ]
+  },
+  "src/components/table/table-components/listing-purpose.js:297:11": {
+   "name": "pf-thumbnail",
+   "base": "thumbnail",
+   "variants": [
+    "pPyIH"
+   ]
+  },
+  "src/tenant/common/components/listing/health/health.js:64:7": {
+   "name": "pf-health-tag",
+   "base": "health-tag",
+   "variants": [
+    "gymueZ"
+   ]
+  },
+  "src/components/common/upgrade-icons/upgrade-icons.js:29:9": {
+   "name": "pf-has-verified-check",
+   "base": "has-verified-check",
+   "variants": [
+    "jlJmyf"
+   ]
+  },
+  "src/tenant/common/components/profile-completion/profile-completion-popup.js:86:5": {
+   "name": "pf-modal-completion",
+   "base": "modal-completion",
+   "variants": [
+    "MkzOi"
+   ]
+  },
+  "src/components/widgets/ReportsListingsSection.js:22:7": {
+   "name": "pf-reports-listings-section-container-widgets",
+   "base": "container-widgets",
+   "variants": [
+    "knbRRl"
+   ]
+  },
+  "src/container/pages/credits-usage/credits-usage.js:378:27": {
+   "name": "pf-credits-usage-chart-container",
+   "base": "chart-container",
+   "variants": [
+    "bGLvuA"
+   ]
+  },
+  "src/components/common/image-uploads/image-upload-item.js:138:7": {
+   "name": "pf-image-upload-item-thumbnail",
+   "base": "thumbnail",
+   "variants": [
+    "iDcYAN"
+   ]
+  },
+  "src/components/common/Label/Label.js:9:5": {
+   "name": "pf-label-styled",
+   "base": "label-styled",
+   "variants": [
+    "iAAQrM",
+    "ffdMGT",
+    "fgcoRV"
+   ]
+  },
+  "src/components/common/select/select.js:73:9": {
+   "name": "pf-select-styled",
+   "base": "select-styled",
+   "variants": [
+    "dGQXtn",
+    "gCLwju",
+    "eeEYeY",
+    "bmOli"
+   ]
+  },
+  "src/components/common/dataTable/dataTable.js:102:7": {
+   "name": "pf-table-pagination",
+   "base": "table-pagination",
+   "variants": [
+    "kAqPZH"
+   ]
+  },
+  "src/components/trucheckmodal/trucheckModal.js:125:5": {
+   "name": "pf-true-check-modal",
+   "base": "true-check-modal",
+   "variants": [
+    "izVSiW"
+   ]
+  },
+  "src/components/common/heading/heading.js:10:5": {
+   "name": "pf-heading-styled-heading",
+   "base": "styled-heading",
+   "variants": [
+    "dzbJqq",
+    "dnnOYH",
+    "cjJMSC",
+    "esccsz",
+    "jZClyj"
+   ]
+  },
+  "src/components/common/popup/popup.js:20:20": {
+   "name": "pf-content",
+   "base": "content",
+   "variants": [
+    "ihRaRP"
+   ]
+  },
+  "src/components/notification-center/notification-card.js:22:7": {
+   "name": "pf-notifications-wrapper",
+   "base": "notifications-wrapper",
+   "variants": [
+    "hjCfFj"
+   ]
+  },
+  "src/components/utilities/auth-info/info.js:64:5": {
+   "name": "pf-user-dropdown",
+   "base": "user-dropdown",
+   "variants": [
+    "Hhin"
+   ]
+  },
+  "src/components/common/EmptyState/EmptyState.js:138:5": {
+   "name": "pf-empty-state-wrapper",
+   "base": "empty-state-wrapper",
+   "variants": [
+    "jTFBDo",
+    "fyFIwP"
+   ]
+  },
+  "src/components/common/alert/alert.js:20:5": {
+   "name": "pf-alert-styled",
+   "base": "alert-styled",
+   "variants": [
+    "dxBCaS",
+    "cPeXtP"
+   ]
+  },
+  "sc-ecPEgm": {
+   "name": "pf-sc-ecpegm",
+   "base": "sc-ecpegm",
+   "variants": [
+    "fduIis"
+   ]
+  },
+  "src/tenant/common/components/listing/listing-platform-actions/quotaCreditModal.js:330:19": {
+   "name": "pf-radio-styled",
+   "base": "radio-styled",
+   "variants": [
+    "bdCuoU"
+   ]
+  },
+  "src/tenant/common/components/upgrade-listing/ServiceOptions.js:62:9": {
+   "name": "pf-listing-date-select",
+   "base": "listing-date-select",
+   "variants": [
+    "eyYgwL"
+   ]
+  },
+  "src/components/common/image-gallery/image-gallery.js:25:5": {
+   "name": "pf-image-gallery-drawer",
+   "base": "image-gallery-drawer",
+   "variants": [
+    "jfwUNR"
+   ]
+  },
+  "src/components/common/image-gallery/image-gallery.js:26:7": {
+   "name": "pf-image-gallery-section",
+   "base": "image-gallery-section",
+   "variants": [
+    "dznYIl"
+   ]
+  },
+  "src/components/post-listing/post-listing-form/post-listing-from-skeleton.js:31:5": {
+   "name": "pf-post-listing-from-skeleton-card-listing",
+   "base": "card-listing",
+   "variants": [
+    "kbKsHD"
+   ]
+  },
+  "src/tenant/bayut/components/ad-license/card-block.js:28:5": {
+   "name": "pf-card-block-card-listing",
+   "base": "card-listing",
+   "variants": [
+    "bTyFRH"
+   ]
+  },
+  "src/components/post-listing/post-listing-form/post-listing-from-skeleton.js:23:64": {
+   "name": "pf-post-listing-from-skeleton-block-title",
+   "base": "block-title",
+   "variants": [
+    "bfAiRO"
+   ]
+  },
+  "src/tenant/bayut/components/ad-license/card-block.js:20:64": {
+   "name": "pf-card-block-block-title",
+   "base": "block-title",
+   "variants": [
+    "ihhesS"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/post-listing.js:506:13": {
+   "name": "pf-post-listing-action",
+   "base": "post-listing-action",
+   "variants": [
+    "cJIwKa"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/listing-preview/listing-preview.js:491:5": {
+   "name": "pf-preview-wrapper",
+   "base": "preview-wrapper",
+   "variants": [
+    "jIfUzj"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/listing-preview/listing-preview.js:492:7": {
+   "name": "pf-preview-title",
+   "base": "preview-title",
+   "variants": [
+    "erIWrT"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/listing-preview/listing-preview.js:494:7": {
+   "name": "pf-phone",
+   "base": "phone",
+   "variants": [
+    "etGzqp"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/listing-preview/listing-preview.js:495:9": {
+   "name": "pf-frame-overlay",
+   "base": "frame-overlay",
+   "variants": [
+    "dZYkLh"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/listing-preview/listing-preview.js:496:9": {
+   "name": "pf-status-bar",
+   "base": "status-bar",
+   "variants": [
+    "eCAHJP"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/listing-preview/listing-preview.js:530:9": {
+   "name": "pf-screen",
+   "base": "screen",
+   "variants": [
+    "cLIoEU"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/listing-preview/listing-preview.js:531:11": {
+   "name": "pf-cover",
+   "base": "cover",
+   "variants": [
+    "iHklRn",
+    "kpFMpE",
+    "OWebU",
+    "fnyLyv",
+    "gjsyRa",
+    "iJsico",
+    "kBYbQg",
+    "iJvwpW",
+    "bChKNo",
+    "jUPjSQ",
+    "coKtRZ",
+    "cRKeFA",
+    "fjEffI",
+    "fkysTe",
+    "iFfynp",
+    "hNtTuW",
+    "bvLqKD",
+    "gWJerV",
+    "dKdvHQ",
+    "gWlzLE"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/listing-preview/listing-preview.js:537:13": {
+   "name": "pf-nav-arrow",
+   "base": "nav-arrow",
+   "variants": [
+    "ghGiau",
+    "hEsaYh"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/listing-preview/listing-preview.js:548:15": {
+   "name": "pf-image-counter",
+   "base": "image-counter",
+   "variants": [
+    "jXInmh"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/listing-preview/listing-preview.js:550:13": {
+   "name": "pf-dots",
+   "base": "dots",
+   "variants": [
+    "fjhAYC"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/listing-preview/listing-preview.js:559:13": {
+   "name": "pf-heart",
+   "base": "heart",
+   "variants": [
+    "bvObPN"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/listing-preview/listing-preview.js:562:11": {
+   "name": "pf-card-content",
+   "base": "card-content",
+   "variants": [
+    "ksdDjS"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/listing-preview/listing-preview.js:564:15": {
+   "name": "pf-price-text",
+   "base": "price-text",
+   "variants": [
+    "efyPry"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/listing-preview/listing-preview.js:591:15": {
+   "name": "pf-meta-row",
+   "base": "meta-row",
+   "variants": [
+    "JJobu"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/listing-preview/listing-preview.js:616:15": {
+   "name": "pf-title-text",
+   "base": "title-text",
+   "variants": [
+    "fRmAYr"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/listing-preview/listing-preview.js:620:15": {
+   "name": "pf-location-row",
+   "base": "location-row",
+   "variants": [
+    "dHxGGo"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/listing-preview/listing-preview.js:626:13": {
+   "name": "pf-contact-row",
+   "base": "contact-row",
+   "variants": [
+    "cJWRlP"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/listing-preview/listing-preview.js:627:15": {
+   "name": "pf-pill-btn",
+   "base": "pill-btn",
+   "variants": [
+    "gZHnEN",
+    "ifeUTZ"
+   ]
+  },
+  "src/components/listing-health/listing-health.js:137:11": {
+   "name": "pf-quality-popover",
+   "base": "quality-popover",
+   "variants": [
+    "gScXOL"
+   ]
+  },
+  "src/components/listing-health/listing-health.js:41:11": {
+   "name": "pf-legend-horizontal",
+   "base": "legend-horizontal",
+   "variants": []
+  },
+  "src/components/common/datePicker/datePicker.js:58:5": {
+   "name": "pf-item-wraper",
+   "base": "item-wraper",
+   "variants": [
+    "bEcfCD"
+   ]
+  },
+  "src/components/common/datePicker/datePicker.js:80:7": {
+   "name": "pf-button-group",
+   "base": "button-group",
+   "variants": [
+    "iWxZUJ"
+   ]
+  },
+  "src/container/pages/credits-usage/credits-usage.js:319:25": {
+   "name": "pf-title-styled",
+   "base": "title-styled",
+   "variants": [
+    "gUNwqU"
+   ]
+  },
+  "src/components/credits-usage/history-breakdown.js:129:9": {
+   "name": "pf-history-package",
+   "base": "history-package",
+   "variants": [
+    "fhxVXp"
+   ]
+  },
+  "src/components/credits-usage/history-breakdown.js:130:11": {
+   "name": "pf-history-dot",
+   "base": "history-dot",
+   "variants": [
+    "gLzXeY"
+   ]
+  },
+  "src/components/credits-usage/history-breakdown.js:193:13": {
+   "name": "pf-history-package-date",
+   "base": "history-package-date",
+   "variants": [
+    "jDxNbh"
+   ]
+  },
+  "src/components/common/radio-button/radio-button.js:105:9": {
+   "name": "pf-radio-group-styled",
+   "base": "radio-group-styled",
+   "variants": [
+    "eWidPH"
+   ]
+  },
+  "src/components/post-listing/google-map/google-map.js:207:7": {
+   "name": "pf-message-container",
+   "base": "message-container",
+   "variants": [
+    "byLbyy"
+   ]
+  },
+  "src/components/post-listing/google-map/google-map.js:208:9": {
+   "name": "pf-message-content",
+   "base": "message-content",
+   "variants": [
+    "NRBkV"
+   ]
+  },
+  "src/components/post-listing/google-map/google-map.js:210:11": {
+   "name": "pf-message-text",
+   "base": "message-text",
+   "variants": [
+    "gAkSVY"
+   ]
+  },
+  "src/components/mobile-number-verification/mobile-verification.js:96:7": {
+   "name": "pf-phone-input-style",
+   "base": "phone-input-style",
+   "variants": [
+    "kvTwgY"
+   ]
+  },
+  "src/components/widgets/BreakdownByAreaWidget.js:112:13": {
+   "name": "pf-session-chart-wrapper",
+   "base": "session-chart-wrapper",
+   "variants": [
+    "iNCvWm"
+   ]
+  },
+  "src/container/pages/user-settings/user-settings.js:49:7": {
+   "name": "pf-nav-wrapper",
+   "base": "nav-wrapper",
+   "variants": [
+    "gDzA-DR"
+   ]
+  },
+  "src/components/common/navbar/navbar.js:13:5": {
+   "name": "pf-nav",
+   "base": "nav",
+   "variants": [
+    "cqwvbv"
+   ]
+  },
+  "src/container/pages/user-settings/profile.js:304:15": {
+   "name": "pf-json-form-styled",
+   "base": "json-form-styled",
+   "variants": [
+    "gontI"
+   ]
+  },
+  "src/tenant/common/components/post-listing/GenerateContentField.js:161:7": {
+   "name": "pf-generate-title",
+   "base": "generate-title",
+   "variants": [
+    "fjwPTu"
+   ]
+  },
+  "src/components/common/image-uploads/image-upload-item.js:193:7": {
+   "name": "pf-gallery-thumb",
+   "base": "gallery-thumb",
+   "variants": [
+    "bxXzpg",
+    "cGkeYU"
+   ]
+  },
+  "src/components/common/image-uploads/image-upload-item.js:220:11": {
+   "name": "pf-image-enlarge",
+   "base": "image-enlarge",
+   "variants": [
+    "gjKFQp"
+   ]
+  },
+  "src/components/common/image-uploads/image-upload-item.js:288:11": {
+   "name": "pf-retry",
+   "base": "retry",
+   "variants": [
+    "gEgLNL"
+   ]
+  },
+  "src/components/common/image-uploads/image-upload-item.js:300:11": {
+   "name": "pf-remove",
+   "base": "remove",
+   "variants": []
+  },
+  "src/tenant/bayut/data/profileFields.js:143:11": {
+   "name": "pf-list-with-bullet",
+   "base": "list-with-bullet",
+   "variants": [
+    "hJelWe"
+   ]
+  },
+  "src/container/pages/user-settings/profile.js:316:19": {
+   "name": "pf-action-button",
+   "base": "action-button",
+   "variants": [
+    "jUmAXT"
+   ]
+  },
+  "src/components/agency-staff-header/agency-info-card.js:21:7": {
+   "name": "pf-image-wrapper",
+   "base": "image-wrapper",
+   "variants": [
+    "bOySdk",
+    "iyFoSa"
+   ]
+  },
+  "src/components/common/radio-button/radio-button.js:156:17": {
+   "name": "pf-radio-button-radio-pill",
+   "base": "radio-pill",
+   "variants": [
+    "dOwfTl",
+    "idPqgb"
+   ]
+  },
+  "src/tenant/bayut/components/ad-license/purpose-radio-button.js:13:7": {
+   "name": "pf-circular-border",
+   "base": "circular-border",
+   "variants": [
+    "kWBsCH",
+    "cMbcca"
+   ]
+  },
+  "src/tenant/bayut/components/ad-license/create-ad-license.js:521:9": {
+   "name": "pf-create-ad-license-post-listing-action",
+   "base": "post-listing-action",
+   "variants": [
+    "cJIwKa"
+   ]
+  },
+  "src/container/pages/credits-usage/credits-usage.js:481:5": {
+   "name": "pf-credits-usage-main",
+   "base": "main",
+   "variants": [
+    "dAXlsr"
+   ]
+  },
+  "src/components/credits-usage/history-breakdown.js:150:21": {
+   "name": "pf-history-breakdown-thumbnail",
+   "base": "thumbnail",
+   "variants": [
+    "pPyIH"
+   ]
+  },
+  "src/tenant/common/components/prop-shop/credit-top-ups/creditTopUps.js:226:5": {
+   "name": "pf-credit-top-up-card",
+   "base": "credit-top-up-card",
+   "variants": [
+    "gkJHHZ"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/RegaCard.js:247:7": {
+   "name": "pf-rega-card-card",
+   "base": "card",
+   "variants": [
+    "eliSiL",
+    "gFpnpI"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/RegaCard.js:257:11": {
+   "name": "pf-title",
+   "base": "title",
+   "variants": [
+    "hsmXpB"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/RegaCard.js:264:15": {
+   "name": "pf-gray-box",
+   "base": "gray-box",
+   "variants": [
+    "DckqH",
+    "emCPkj"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/RegaCard.js:313:19": {
+   "name": "pf-inline-field",
+   "base": "inline-field",
+   "variants": [
+    "igJoot"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/RegaCard.js:341:17": {
+   "name": "pf-rega-qr-card",
+   "base": "rega-qr-card",
+   "variants": [
+    "NiFzM"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/RegaCard.js:370:13": {
+   "name": "pf-rega-card-divider",
+   "base": "divider",
+   "variants": [
+    "leBRyf"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/RegaCard.js:372:13": {
+   "name": "pf-see-more",
+   "base": "see-more",
+   "variants": [
+    "bHgtDx"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/listing-preview/listing-preview.js:614:15": {
+   "name": "pf-listing-preview-title-text",
+   "base": "title-text",
+   "variants": [
+    "fRmAYr"
+   ]
+  },
+  "src/components/table/table-components/listing-detail-compact.js:110:5": {
+   "name": "pf-popover-listing-container",
+   "base": "popover-listing-container",
+   "variants": [
+    "kngVC"
+   ]
+  },
+  "src/components/table/table-components/more-properties-popover.js:63:9": {
+   "name": "pf-listing-card-detail",
+   "base": "listing-card-detail",
+   "variants": [
+    "jqUOvV"
+   ]
+  },
+  "src/components/common/tour/tour.js:158:5": {
+   "name": "pf-tour-styled",
+   "base": "tour-styled",
+   "variants": [
+    "bOySdk"
+   ]
+  },
+  "src/container/pages/user-settings/agancy-settings.js:93:11": {
+   "name": "pf-agancy-settings-json-form-styled",
+   "base": "json-form-styled",
+   "variants": [
+    "gontI"
+   ]
+  },
+  "src/container/pages/user-settings/password.js:112:11": {
+   "name": "pf-password-action-button",
+   "base": "action-button",
+   "variants": [
+    "jUmAXT"
+   ]
+  },
+  "src/container/pages/lms/leads-management.js:46:5": {
+   "name": "pf-leads-management-main",
+   "base": "main",
+   "variants": [
+    "dAXlsr"
+   ]
+  },
+  "src/components/leads-management/leads-summary-header.js:124:9": {
+   "name": "pf-leads-summary-header-card-meta-styled",
+   "base": "card-meta-styled",
+   "variants": [
+    "cOHtMd"
+   ]
+  },
+  "src/components/table/table-components/listing-detail-compact.js:113:11": {
+   "name": "pf-listing-detail-compact-thumbnail",
+   "base": "thumbnail",
+   "variants": [
+    "pPyIH"
+   ]
+  },
+  "src/components/common/custom-card/customCard.js:54:11": {
+   "name": "pf-custom-card-card-meta-styled",
+   "base": "card-meta-styled",
+   "variants": [
+    "uyXpa",
+    "cOHtMd"
+   ]
+  },
+  "src/container/pages/agancy-staff/agancy-staff.js:88:7": {
+   "name": "pf-agancy-staff-main",
+   "base": "main",
+   "variants": [
+    "dAXlsr",
+    "kWpzji"
+   ]
+  },
+  "src/components/agency-staff-header/agancy-staff-header.js:30:5": {
+   "name": "pf-user-card",
+   "base": "user-card",
+   "variants": [
+    "cWSefC",
+    "fOnZrt"
+   ]
+  },
+  "src/components/listing-container/ListingContainer.js:90:15": {
+   "name": "pf-listing-container-title-styled",
+   "base": "title-styled",
+   "variants": [
+    "gUNwqU"
+   ]
+  },
+  "src/components/post-listing-menu/post-listing-menu.js:258:9": {
+   "name": "pf-rail-scrim",
+   "base": "rail-scrim",
+   "variants": [
+    "duQTXn"
+   ]
+  },
+  "src/components/post-listing-menu/post-listing-menu.js:233:5": {
+   "name": "pf-chrome-scrim",
+   "base": "chrome-scrim",
+   "variants": [
+    "ZcHav"
+   ]
+  },
+  "src/components/forms/AgencyUserForm.js:228:9": {
+   "name": "pf-agency-user-form-json-form-styled",
+   "base": "json-form-styled",
+   "variants": [
+    "gontI"
+   ]
+  },
+  "src/tenant/bayut/data/agencyStaffUserFields.js:221:11": {
+   "name": "pf-agency-staff-user-fields-list-with-bullet",
+   "base": "list-with-bullet",
+   "variants": [
+    "hJelWe"
+   ]
+  },
+  "src/components/set-credit-limit/set-credit-limit.js:226:9": {
+   "name": "pf-credit-limit-popup",
+   "base": "credit-limit-popup",
+   "variants": [
+    "iBSQbX"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentProfileCard.js:83:5": {
+   "name": "pf-profile-header-wrapper",
+   "base": "profile-header-wrapper",
+   "variants": [
+    "fjDklX"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentProfileCard.js:91:11": {
+   "name": "pf-profile-user-avatar",
+   "base": "profile-user-avatar",
+   "variants": [
+    "gjwUZo"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentProfileCard.js:95:13": {
+   "name": "pf-profile-user-name",
+   "base": "profile-user-name",
+   "variants": [
+    "gxGeUh"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentProfileCard.js:99:15": {
+   "name": "pf-public-profile-link",
+   "base": "public-profile-link",
+   "variants": [
+    "hXdNcH"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentProfileCard.js:115:9": {
+   "name": "pf-stat-tile",
+   "base": "stat-tile",
+   "variants": [
+    "kiDRXc"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentProfileCard.js:116:11": {
+   "name": "pf-tile-left",
+   "base": "tile-left",
+   "variants": [
+    "jpEnrq"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentProfileCard.js:117:13": {
+   "name": "pf-icon-box",
+   "base": "icon-box",
+   "variants": [
+    "bfXpBD"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentProfileCard.js:126:15": {
+   "name": "pf-stat-label",
+   "base": "stat-label",
+   "variants": [
+    "kmDhhy"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentProfileCard.js:127:15": {
+   "name": "pf-stat-value",
+   "base": "stat-value",
+   "variants": [
+    "frFhBd"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentProfileCard.js:130:11": {
+   "name": "pf-tile-link",
+   "base": "tile-link",
+   "variants": [
+    "jJSTyP"
+   ]
+  },
+  "src/container/pages/agent-performance/TruBroker.js:43:7": {
+   "name": "pf-tru-broker-banner-container",
+   "base": "tru-broker-banner-container",
+   "variants": [
+    "dnrVq",
+    "jHszvT"
+   ]
+  },
+  "src/container/pages/agent-performance/TruBroker.js:44:9": {
+   "name": "pf-banner-content",
+   "base": "banner-content",
+   "variants": [
+    "bqMVES",
+    "cDxWEx"
+   ]
+  },
+  "src/container/pages/agent-performance/TruBroker.js:45:11": {
+   "name": "pf-left-section",
+   "base": "left-section",
+   "variants": [
+    "dXviIV",
+    "eDLQRq"
+   ]
+  },
+  "src/container/pages/agent-performance/TruBroker.js:48:17": {
+   "name": "pf-title-with-lock",
+   "base": "title-with-lock",
+   "variants": [
+    "fxwiqv",
+    "bVCtUt"
+   ]
+  },
+  "src/container/pages/agent-performance/TruBroker.js:53:19": {
+   "name": "pf-lock-icon",
+   "base": "lock-icon",
+   "variants": [
+    "dgNRFB",
+    "hPposp"
+   ]
+  },
+  "src/container/pages/agent-performance/TruBroker.js:57:17": {
+   "name": "pf-description",
+   "base": "description",
+   "variants": [
+    "sjTCh",
+    "idSKxu"
+   ]
+  },
+  "src/container/pages/agent-performance/TruBroker.js:60:17": {
+   "name": "pf-goal-points-section",
+   "base": "goal-points-section",
+   "variants": [
+    "kUHObo",
+    "ecsMid"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBages.js:50:5": {
+   "name": "pf-badge-card",
+   "base": "badge-card",
+   "variants": [
+    "yRfsv",
+    "AskeR",
+    "YnmLV"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBages.js:52:9": {
+   "name": "pf-title-pill",
+   "base": "title-pill",
+   "variants": [
+    "kMqwVZ",
+    "cqhLfs"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBages.js:59:11": {
+   "name": "pf-pill-text",
+   "base": "pill-text",
+   "variants": [
+    "ioArnc"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBages.js:61:9": {
+   "name": "pf-status-tick",
+   "base": "status-tick",
+   "variants": [
+    "dgqAjE",
+    "ekKvUO"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBages.js:107:9": {
+   "name": "pf-desc-text",
+   "base": "desc-text",
+   "variants": [
+    "igceiV",
+    "dntSe"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBages.js:110:11": {
+   "name": "pf-learn-more",
+   "base": "learn-more",
+   "variants": [
+    "nPpTF"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBages.js:124:7": {
+   "name": "pf-metrics-grid",
+   "base": "metrics-grid",
+   "variants": [
+    "bdRSDP",
+    "kLhUhC",
+    "bSzeAm"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBages.js:135:15": {
+   "name": "pf-metric-header",
+   "base": "metric-header",
+   "variants": [
+    "hWKrqp",
+    "cpopbJ"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBages.js:137:19": {
+   "name": "pf-metric-label",
+   "base": "metric-label",
+   "variants": [
+    "bNyhul",
+    "RYlTH"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBages.js:231:21": {
+   "name": "pf-metric-value",
+   "base": "metric-value",
+   "variants": [
+    "lnVJYV",
+    "fAYFGx"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBages.js:236:15": {
+   "name": "pf-track",
+   "base": "track",
+   "variants": [
+    "buZSKc"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBages.js:237:93": {
+   "name": "pf-fill",
+   "base": "fill",
+   "variants": [
+    "gJOKbk",
+    "iodiwG",
+    "hOCVwD",
+    "cNzDJD",
+    "dmajUp",
+    "hbbmFB",
+    "bChfpi",
+    "iKvoTa",
+    "AuXvb",
+    "ftNJMU"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBagesInfo.js:239:9": {
+   "name": "pf-agent-bages-info-drawer-header",
+   "base": "drawer-header",
+   "variants": [
+    "fIqsoN"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBagesInfo.js:242:15": {
+   "name": "pf-agent-bages-info-drawer-title",
+   "base": "drawer-title",
+   "variants": [
+    "iVcpHB"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBagesInfo.js:266:7": {
+   "name": "pf-agent-bages-info-drawer-content-wrapper",
+   "base": "drawer-content-wrapper",
+   "variants": [
+    "dcGZiK"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBagesInfo.js:267:9": {
+   "name": "pf-agent-bages-info-drawer-content",
+   "base": "drawer-content",
+   "variants": [
+    "jyPAGy"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBagesInfo.js:63:7": {
+   "name": "pf-badge-section",
+   "base": "badge-section",
+   "variants": [
+    "geOXYZ",
+    "gGTZUZ",
+    "bLolcg",
+    "fCYXsg"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBagesInfo.js:67:9": {
+   "name": "pf-badge-section-description",
+   "base": "badge-section-description",
+   "variants": [
+    "cHSFqw"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBagesInfo.js:70:9": {
+   "name": "pf-requirements-list",
+   "base": "requirements-list",
+   "variants": [
+    "hZOasl"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBagesInfo.js:72:13": {
+   "name": "pf-requirement-item",
+   "base": "requirement-item",
+   "variants": [
+    "iIcKcl"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBagesInfo.js:99:9": {
+   "name": "pf-badge-image-container",
+   "base": "badge-image-container",
+   "variants": [
+    "hxjOKu"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBagesInfo.js:195:7": {
+   "name": "pf-tru-points-section",
+   "base": "tru-points-section",
+   "variants": [
+    "cCQisz"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBagesInfo.js:210:9": {
+   "name": "pf-tru-points-description",
+   "base": "tru-points-description",
+   "variants": [
+    "fZozLh"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBagesInfo.js:221:9": {
+   "name": "pf-tru-points-button",
+   "base": "tru-points-button",
+   "variants": [
+    "kCeYje"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBagesInfo.js:268:23": {
+   "name": "pf-drawer-fade-overlay",
+   "base": "drawer-fade-overlay",
+   "variants": [
+    "dLoOjp"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:46:7": {
+   "name": "pf-card-shell",
+   "base": "card-shell",
+   "variants": [
+    "bZofvP"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:54:9": {
+   "name": "pf-activity-header",
+   "base": "activity-header",
+   "variants": [
+    "cHKstt"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:57:9": {
+   "name": "pf-empty-state-container",
+   "base": "empty-state-container",
+   "variants": [
+    "chNfgt"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:58:11": {
+   "name": "pf-empty-state-icon-wrapper",
+   "base": "empty-state-icon-wrapper",
+   "variants": [
+    "ihJHzE"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:62:13": {
+   "name": "pf-empty-state-title",
+   "base": "empty-state-title",
+   "variants": [
+    "zyMNB"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:63:13": {
+   "name": "pf-empty-state-description",
+   "base": "empty-state-description",
+   "variants": [
+    "jDlYid"
+   ]
+  },
+  "src/container/pages/agent-performance/LeaderBoard.js:554:9": {
+   "name": "pf-leaderboard-card-header",
+   "base": "leaderboard-card-header",
+   "variants": [
+    "gOddTR"
+   ]
+  },
+  "src/container/pages/agent-performance/LeaderBoard.js:558:11": {
+   "name": "pf-leaderboard-title",
+   "base": "leaderboard-title",
+   "variants": [
+    "kdJSJF"
+   ]
+  },
+  "src/container/pages/agent-performance/LeaderBoard.js:77:9": {
+   "name": "pf-current-user-card",
+   "base": "current-user-card",
+   "variants": [
+    "dldgEL",
+    "dzUEkk"
+   ]
+  },
+  "src/container/pages/agent-performance/LeaderBoard.js:81:11": {
+   "name": "pf-user-left",
+   "base": "user-left",
+   "variants": [
+    "bjFsJW"
+   ]
+  },
+  "src/container/pages/agent-performance/LeaderBoard.js:82:13": {
+   "name": "pf-user-avatar",
+   "base": "user-avatar",
+   "variants": [
+    "gioKFq"
+   ]
+  },
+  "src/container/pages/agent-performance/LeaderBoard.js:104:15": {
+   "name": "pf-user-name",
+   "base": "user-name",
+   "variants": [
+    "BnYER"
+   ]
+  },
+  "src/container/pages/agent-performance/LeaderBoard.js:111:13": {
+   "name": "pf-user-position",
+   "base": "user-position",
+   "variants": [
+    "hcMuUX"
+   ]
+  },
+  "src/container/pages/agent-performance/LeaderBoard.js:116:13": {
+   "name": "pf-user-points",
+   "base": "user-points",
+   "variants": [
+    "gtSBj"
+   ]
+  },
+  "src/container/pages/agent-performance/LeaderBoard.js:131:7": {
+   "name": "pf-leaderboard-table-wrapper",
+   "base": "leaderboard-table-wrapper",
+   "variants": [
+    "jEcBRt"
+   ]
+  },
+  "src/container/pages/agent-performance/LeaderBoard.js:132:9": {
+   "name": "pf-leaderboard-table-content",
+   "base": "leaderboard-table-content",
+   "variants": [
+    "eFooWR"
+   ]
+  },
+  "src/container/pages/agent-performance/LeaderBoard.js:177:25": {
+   "name": "pf-leaderboard-fade-overlay",
+   "base": "leaderboard-fade-overlay",
+   "variants": [
+    "EEfAx"
+   ]
+  },
+  "src/tenant/common/components/prop-shop/prop-shop.js:29:7": {
+   "name": "pf-package-card-list",
+   "base": "package-card-list",
+   "variants": [
+    "kKzIcQ"
+   ]
+  },
+  "src/tenant/common/components/prop-shop/offered-packages/offeredPackages.js:260:5": {
+   "name": "pf-card-packages",
+   "base": "card-packages",
+   "variants": [
+    "eemoYk"
+   ]
+  },
+  "src/components/common/swiper/swiper.js:16:7": {
+   "name": "pf-content-slider",
+   "base": "content-slider",
+   "variants": [
+    "fAxSgt"
+   ]
+  },
+  "src/components/common/drawerPopover/drawerPopover.js:50:9": {
+   "name": "pf-bottom-sheet-drawer",
+   "base": "bottom-sheet-drawer",
+   "variants": [
+    "gMYluK"
+   ]
+  },
+  "src/tenant/bayut/components/listing/listingCard.js:154:7": {
+   "name": "pf-listing-card-styled",
+   "base": "listing-card-styled",
+   "variants": [
+    "gYNlhd"
+   ]
+  },
+  "src/tenant/bayut/components/listing/listingCard.js:169:13": {
+   "name": "pf-listing-card-thumbnail",
+   "base": "thumbnail",
+   "variants": [
+    "pPyIH"
+   ]
+  },
+  "src/tenant/bayut/components/listing/listingCard.js:232:15": {
+   "name": "pf-health-container",
+   "base": "health-container",
+   "variants": [
+    "kkCYfN"
+   ]
+  },
+  "src/tenant/bayut/components/listing/listingCard.js:130:9": {
+   "name": "pf-stats",
+   "base": "stats",
+   "variants": [
+    "gkxXPE"
+   ]
+  },
+  "src/tenant/bayut/components/listing/listingCard.js:410:13": {
+   "name": "pf-tenant-list",
+   "base": "tenant-list",
+   "variants": [
+    "bVFgNg"
+   ]
+  },
+  "src/container/pages/agancy-staff/agency-staff-mobile.js:373:9": {
+   "name": "pf-agency-staff-mobile-action-button",
+   "base": "action-button",
+   "variants": [
+    "jUmAXT"
+   ]
+  },
+  "src/components/invite-user/inviteUser.js:185:15": {
+   "name": "pf-invite-user-json-form-styled",
+   "base": "json-form-styled",
+   "variants": [
+    "gontI"
+   ]
+  },
+  "src/container/pages/agent-performance/LeaderBoard.js:600:5": {
+   "name": "pf-leader-board-card-shell",
+   "base": "card-shell",
+   "variants": [
+    "htbvUe",
+    "bZofvP"
+   ]
+  },
+  "src/container/pages/agent-performance/LeaderBoard.js:609:7": {
+   "name": "pf-leader-board-leaderboard-card-header",
+   "base": "leaderboard-card-header",
+   "variants": [
+    "iPiEff",
+    "gOddTR"
+   ]
+  },
+  "src/container/pages/agent-performance/LeaderBoard.js:610:9": {
+   "name": "pf-leader-board-leaderboard-title",
+   "base": "leaderboard-title",
+   "variants": [
+    "iGRkmO",
+    "kdJSJF"
+   ]
+  },
+  "src/container/pages/agent-performance/LeaderBoard.js:615:9": {
+   "name": "pf-view-leaderboard-button",
+   "base": "view-leaderboard-button",
+   "variants": [
+    "jTBpNN",
+    "jqhKAz"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:128:7": {
+   "name": "pf-agent-activity-activity-header",
+   "base": "activity-header",
+   "variants": [
+    "iCQCHP",
+    "cHKstt"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:129:9": {
+   "name": "pf-activity-title",
+   "base": "activity-title",
+   "variants": [
+    "ijsHkZ"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:131:11": {
+   "name": "pf-how-to-earn-button",
+   "base": "how-to-earn-button",
+   "variants": [
+    "gXLJUe"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:78:5": {
+   "name": "pf-activity-list-wrapper",
+   "base": "activity-list-wrapper",
+   "variants": [
+    "hHDzWA",
+    "kMMYFw"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:79:7": {
+   "name": "pf-activity-list",
+   "base": "activity-list",
+   "variants": [
+    "coSbcx",
+    "eDDffE"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:92:17": {
+   "name": "pf-activity-icon-wrapper",
+   "base": "activity-icon-wrapper",
+   "variants": [
+    "cGjrlh"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:98:15": {
+   "name": "pf-activity-content",
+   "base": "activity-content",
+   "variants": [
+    "cfQcxp",
+    "cfXLZp"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:99:17": {
+   "name": "pf-activity-details",
+   "base": "activity-details",
+   "variants": [
+    "bwBqaO"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:100:19": {
+   "name": "pf-activity-title-text",
+   "base": "activity-title-text",
+   "variants": [
+    "hNSNen"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:103:19": {
+   "name": "pf-activity-date",
+   "base": "activity-date",
+   "variants": [
+    "bFrIey"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:110:19": {
+   "name": "pf-points-value",
+   "base": "points-value",
+   "variants": [
+    "bfefJt"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentActivity.js:118:7": {
+   "name": "pf-activity-fade-overlay",
+   "base": "activity-fade-overlay",
+   "variants": [
+    "hvusCd"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBagesInfo.js:285:7": {
+   "name": "pf-agent-bages-info-drawer-content-wrapper-2",
+   "base": "drawer-content-wrapper",
+   "variants": [
+    "dcGZiK"
+   ]
+  },
+  "src/container/pages/agent-performance/AgentBagesInfo.js:286:9": {
+   "name": "pf-agent-bages-info-drawer-content-2",
+   "base": "drawer-content",
+   "variants": [
+    "jzDDLJ"
+   ]
+  },
+  "src/container/pages/agent-performance/ActivityDrawer.js:94:7": {
+   "name": "pf-activity-drawer-drawer-header",
+   "base": "drawer-header",
+   "variants": [
+    "fYxtn"
+   ]
+  },
+  "src/container/pages/agent-performance/ActivityDrawer.js:150:49": {
+   "name": "pf-activity-drawer-drawer-fade-overlay",
+   "base": "drawer-fade-overlay",
+   "variants": [
+    "dLoOjp"
+   ]
+  },
+  "src/tenant/common/components/profile-completion/profile-completion-banner.js:98:9": {
+   "name": "pf-profile-card",
+   "base": "profile-card",
+   "variants": [
+    "hZPcyA"
+   ]
+  },
+  "src/tenant/common/components/profile-completion/profile-completion-banner.js:44:9": {
+   "name": "pf-avatar-styled",
+   "base": "avatar-styled",
+   "variants": [
+    "diKjdM"
+   ]
+  },
+  "src/tenant/bayut/components/listing/listings.js:255:7": {
+   "name": "pf-listings-tabs-styled",
+   "base": "tabs-styled",
+   "variants": [
+    "icJwop"
+   ]
+  },
+  "src/container/pages/user-settings/user-settings.js:59:17": {
+   "name": "pf-user-settings-tabs-styled",
+   "base": "tabs-styled",
+   "variants": [
+    "CDbAZ"
+   ]
+  },
+  "src/components/leads-management/lead-name.js:46:11": {
+   "name": "pf-text-field",
+   "base": "text-field",
+   "variants": [
+    "hmOzDF",
+    "ZHHLS"
+   ]
+  },
+  "src/tenant/common/components/prop-shop/offered-packages/offeredPackages.js:322:5": {
+   "name": "pf-offered-packages-card-packages",
+   "base": "card-packages",
+   "variants": [
+    "eemoYk"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/post-listing-with-options.js:337:19": {
+   "name": "pf-chooser-header",
+   "base": "chooser-header",
+   "variants": [
+    "dxzges"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/post-listing-with-options.js:339:21": {
+   "name": "pf-chooser-subtitle",
+   "base": "chooser-subtitle",
+   "variants": [
+    "iBiFzv"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/post-listing-with-options.js:343:19": {
+   "name": "pf-chooser-grid",
+   "base": "chooser-grid",
+   "variants": [
+    "iPylR"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/post-listing-with-options.js:244:7": {
+   "name": "pf-option-card",
+   "base": "option-card",
+   "variants": [
+    "gFbRZg"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/post-listing-with-options.js:252:11": {
+   "name": "pf-option-card-head",
+   "base": "option-card-head",
+   "variants": [
+    "gyDJrv"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/post-listing-with-options.js:232:7": {
+   "name": "pf-option-icon-box",
+   "base": "option-icon-box",
+   "variants": [
+    "kHhqYp"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/post-listing-with-options.js:237:7": {
+   "name": "pf-option-body",
+   "base": "option-body",
+   "variants": [
+    "fEEYup"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/post-listing-with-options.js:238:9": {
+   "name": "pf-option-title",
+   "base": "option-title",
+   "variants": [
+    "gFCEgV"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/post-listing-with-options.js:239:9": {
+   "name": "pf-option-description",
+   "base": "option-description",
+   "variants": [
+    "eUonbS"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/post-listing-with-options.js:255:13": {
+   "name": "pf-option-chevron",
+   "base": "option-chevron",
+   "variants": [
+    "lmPCZc"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/post-listing-with-options.js:256:15": {
+   "name": "pf-directional-chevron",
+   "base": "directional-chevron",
+   "variants": [
+    "ifKCnh"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/post-listing-with-options.js:265:9": {
+   "name": "pf-option-footer",
+   "base": "option-footer",
+   "variants": [
+    "hjXiZZ"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/post-listing-with-options.js:266:11": {
+   "name": "pf-option-footer-row",
+   "base": "option-footer-row",
+   "variants": [
+    "lgQcFP"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/post-listing-with-options.js:267:13": {
+   "name": "pf-option-meta",
+   "base": "option-meta",
+   "variants": [
+    "fJpSXt"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/post-listing-with-options.js:246:11": {
+   "name": "pf-new-ribbon",
+   "base": "new-ribbon",
+   "variants": [
+    "fYgHPU"
+   ]
+  },
+  "src/tenant/common/components/reports/CardTrafficLeadsByDate.js:49:7": {
+   "name": "pf-list-card-footer",
+   "base": "list-card-footer",
+   "variants": [
+    "kYomG"
+   ]
+  },
+  "src/tenant/common/components/reports/CardTrafficLeadsByDate.js:50:9": {
+   "name": "pf-statistic-wrapper-small",
+   "base": "statistic-wrapper-small",
+   "variants": [
+    "dxzBQJ"
+   ]
+  },
+  "src/container/pages/user-settings/user-settings.js:48:5": {
+   "name": "pf-user-settings-main",
+   "base": "main",
+   "variants": [
+    "dAXlsr"
+   ]
+  },
+  "src/container/pages/reports/listing-reports.js:31:5": {
+   "name": "pf-listing-reports-main",
+   "base": "main",
+   "variants": [
+    "dAXlsr"
+   ]
+  },
+  "src/components/leads-management/lead-listings-mobile.js:147:7": {
+   "name": "pf-lead-listings-mobile-table-pagination",
+   "base": "table-pagination",
+   "variants": [
+    "kAqPZH"
+   ]
+  },
+  "src/components/charts/chartjs.js:232:5": {
+   "name": "pf-chartjs-chart-container",
+   "base": "chart-container",
+   "variants": [
+    "jpxNeV"
+   ]
+  },
+  "src/container/pages/reports/reports-summary.js:28:7": {
+   "name": "pf-reports-summary-main",
+   "base": "main",
+   "variants": [
+    "dAXlsr"
+   ]
+  },
+  "src/container/pages/reports/leads-reports.js:28:7": {
+   "name": "pf-leads-reports-main",
+   "base": "main",
+   "variants": [
+    "dAXlsr"
+   ]
+  },
+  "src/tenant/bayut/components/listing/listings.js:300:9": {
+   "name": "pf-listings-main",
+   "base": "main",
+   "variants": [
+    "dAXlsr"
+   ]
+  },
+  "src/components/utilities/icons.js:921:3": {
+   "name": "pf-icons-has-verified-check",
+   "base": "has-verified-check",
+   "variants": [
+    "jlJmyf"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/RegaCard.js:282:15": {
+   "name": "pf-specs-row",
+   "base": "specs-row",
+   "variants": [
+    "kVryHj"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/RegaCard.js:286:21": {
+   "name": "pf-spec-stack",
+   "base": "spec-stack",
+   "variants": [
+    "ifugrs"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/RegaCard.js:285:31": {
+   "name": "pf-spec-sep",
+   "base": "spec-sep",
+   "variants": [
+    "bMXEEF"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/RegaCard.js:295:13": {
+   "name": "pf-soft-divider",
+   "base": "soft-divider",
+   "variants": [
+    "hRnNSO"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/RegaCard.js:297:13": {
+   "name": "pf-mobile-footer",
+   "base": "mobile-footer",
+   "variants": [
+    "dilnxU"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/RegaCard.js:301:19": {
+   "name": "pf-mobile-location",
+   "base": "mobile-location",
+   "variants": [
+    "eZRtre"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/RegaCard.js:304:15": {
+   "name": "pf-see-more-text",
+   "base": "see-more-text",
+   "variants": [
+    "lcpIRZ"
+   ]
+  },
+  "src/components/post-listing/post-listing-form/post-listing-form.js:770:11": {
+   "name": "pf-post-listing-form-json-form-styled",
+   "base": "json-form-styled",
+   "variants": []
+  },
+  "src/components/post-listing/post-listing-form/post-listing-form-sections-layout.js:36:7": {
+   "name": "pf-post-listing-form-sections-layout-card-listing",
+   "base": "card-listing",
+   "variants": [
+    "aTcRz"
+   ]
+  },
+  "src/components/post-listing/image-select/image-select.js:198:11": {
+   "name": "pf-field-icon-box",
+   "base": "field-icon-box",
+   "variants": [
+    "fcUNBK",
+    "jssOOz"
+   ]
+  },
+  "src/components/post-listing/image-select/image-select.js:410:25": {
+   "name": "pf-images-grid",
+   "base": "images-grid",
+   "variants": [
+    "iOayeU",
+    "gRPZNc"
+   ]
+  },
+  "src/components/common/image-uploads/image-upload-item.js:199:11": {
+   "name": "pf-drag-handle",
+   "base": "drag-handle",
+   "variants": [
+    "hJqJuZ"
+   ]
+  },
+  "src/components/common/image-uploads/image-upload-item.js:275:13": {
+   "name": "pf-cover-chip",
+   "base": "cover-chip",
+   "variants": [
+    "ivZKZT",
+    "hzanbU"
+   ]
+  },
+  "src/components/common/image-uploads/image-upload-dropzone.js:112:7": {
+   "name": "pf-upload-button",
+   "base": "upload-button",
+   "variants": [
+    "kkcZcC"
+   ]
+  },
+  "src/components/post-listing/video-select/video-select.js:179:13": {
+   "name": "pf-video-title",
+   "base": "video-title",
+   "variants": [
+    "eAhrHb"
+   ]
+  },
+  "src/components/post-listing/video-select/video-select.js:180:13": {
+   "name": "pf-video-desc",
+   "base": "video-desc",
+   "variants": [
+    "bAevCB"
+   ]
+  },
+  "src/components/post-listing/video-select/video-select.js:134:5": {
+   "name": "pf-video-card",
+   "base": "video-card",
+   "variants": [
+    "ixpyic"
+   ]
+  },
+  "src/components/post-listing/video-select/video-select.js:135:7": {
+   "name": "pf-video-input-line",
+   "base": "video-input-line",
+   "variants": [
+    "dgceKa"
+   ]
+  },
+  "src/components/post-listing/video-select/video-select.js:137:9": {
+   "name": "pf-video-input-box",
+   "base": "video-input-box",
+   "variants": [
+    "hAQItO"
+   ]
+  },
+  "src/components/post-listing/video-select/video-select.js:149:9": {
+   "name": "pf-delete-video-btn",
+   "base": "delete-video-btn",
+   "variants": [
+    "bRrnOt"
+   ]
+  },
+  "src/container/pages/post-listing/post-listing.js:55:5": {
+   "name": "pf-post-listing-main",
+   "base": "main",
+   "variants": [
+    "dAXlsr"
+   ]
+  },
+  "src/components/widgets/ReportsLeadsTrafficSection.js:39:7": {
+   "name": "pf-reports-leads-traffic-section-performance-chart-wrapper",
+   "base": "performance-chart-wrapper",
+   "variants": [
+    "lfJTVF"
+   ]
+  },
+  "src/container/pages/user-settings/profile.js:219:13": {
+   "name": "pf-profile-card-meta-styled",
+   "base": "card-meta-styled",
+   "variants": [
+    "uyXpa"
+   ]
+  },
+  "src/tenant/bayut/components/ad-license/purpose-radio-button.js:18:22": {
+   "name": "pf-inner-circle",
+   "base": "inner-circle",
+   "variants": [
+    "jHwwNz"
+   ]
+  },
+  "src/tenant/bayut/components/ad-license/create-ad-license.js:433:21": {
+   "name": "pf-price-check-value",
+   "base": "price-check-value",
+   "variants": [
+    "beIpQB"
+   ]
+  },
+  "src/container/pages/payment/checkout.js:438:7": {
+   "name": "pf-checkout-main",
+   "base": "main",
+   "variants": [
+    "dAXlsr"
+   ]
+  },
+  "src/container/pages/payment/paymentMethods.js:46:9": {
+   "name": "pf-payment-methods-payment-container",
+   "base": "payment-container",
+   "variants": [
+    "fOjson",
+    "gSRkko"
+   ]
+  },
+  "src/container/pages/payment/paymentMethods.js:22:7": {
+   "name": "pf-payment-methods-payment-card",
+   "base": "payment-card",
+   "variants": [
+    "lgLjNq",
+    "gKMtMi"
+   ]
+  },
+  "src/components/checkout/creditCardItem.js:361:5": {
+   "name": "pf-credit-card-item-payment-frame",
+   "base": "payment-frame",
+   "variants": [
+    "kFXRDD",
+    "TtthB"
+   ]
+  },
+  "src/components/prop-shop/Ordersummary.js:118:9": {
+   "name": "pf-ordersummary-order-summary-full",
+   "base": "order-summary-full",
+   "variants": [
+    "daWZKx",
+    "gjLfYi"
+   ]
+  },
+  "src/components/checkout/tabby.js:164:7": {
+   "name": "pf-transaction-card",
+   "base": "transaction-card",
+   "variants": [
+    "fRoDbm"
+   ]
+  },
+  "src/components/checkout/tabby.js:170:11": {
+   "name": "pf-tabby-listing-date-select",
+   "base": "listing-date-select",
+   "variants": [
+    "ekZtkY"
+   ]
+  },
+  "src/components/checkout/tabby.js:200:11": {
+   "name": "pf-tabby-stepper",
+   "base": "tabby-stepper",
+   "variants": [
+    "ljuuPn"
+   ]
+  },
+  "src/components/phone-input/PhoneIntl.js:61:7": {
+   "name": "pf-phone-intl-phone-input-style",
+   "base": "phone-input-style",
+   "variants": [
+    "kvTwgY"
+   ]
+  },
+  "src/components/common/checkbox/checkbox.js:34:5": {
+   "name": "pf-checkbox-style",
+   "base": "checkbox-style",
+   "variants": [
+    "dobDuI"
+   ]
+  },
+  "src/container/pages/Maintenance.js:16:5": {
+   "name": "pf-place-center",
+   "base": "place-center",
+   "variants": [
+    "iyFoSa"
+   ]
+  },
+  "src/tenant/common/components/post-listing/license-validation.js:125:5": {
+   "name": "pf-license-validation-main",
+   "base": "main",
+   "variants": [
+    "dAXlsr"
+   ]
+  },
+  "src/tenant/bayut/components/upgrade-listing/upgrade-listing.js:405:7": {
+   "name": "pf-upgrade-listing-main",
+   "base": "main",
+   "variants": [
+    "dAXlsr"
+   ]
+  },
+  "src/tenant/bayut/components/upgrade-listing/upgrade-listing.js:429:19": {
+   "name": "pf-up-sell-image",
+   "base": "up-sell-image",
+   "variants": [
+    "jTpRpR"
+   ]
+  },
+  "src/tenant/bayut/components/upgrade-listing/upgrade-listing.js:449:25": {
+   "name": "pf-collapse-styled",
+   "base": "collapse-styled",
+   "variants": [
+    "cogAaZ"
+   ]
+  },
+  "src/tenant/bayut/components/upgrade-listing/upgrade-listing.js:493:39": {
+   "name": "pf-collapse-radio",
+   "base": "collapse-radio",
+   "variants": [
+    "bhDaHG"
+   ]
+  },
+  "src/tenant/common/components/upgrade-listing/product.js:55:27": {
+   "name": "pf-tag-recommend",
+   "base": "tag-recommend",
+   "variants": [
+    "fcgzFR"
+   ]
+  },
+  "src/components/credits-info/credits-info.js:46:9": {
+   "name": "pf-available-credit",
+   "base": "available-credit",
+   "variants": [
+    "hTNDHV"
+   ]
+  },
+  "src/tenant/bayut/components/upgrade-listing/upgrade-listing.js:600:21": {
+   "name": "pf-upgrade-listing-action-button",
+   "base": "action-button",
+   "variants": [
+    "jUmAXT"
+   ]
+  },
+  "src/components/post-listing/media-gallery/media-gallery-modal.js:317:19": {
+   "name": "pf-media-gallery-modal-nav-arrow",
+   "base": "nav-arrow",
+   "variants": [
+    "exsmhU",
+    "hbPgyY"
+   ]
+  },
+  "src/components/post-listing/image-select/image-select.js:283:23": {
+   "name": "pf-drop-zone-box",
+   "base": "drop-zone-box",
+   "variants": [
+    "jBLTcT",
+    "guxyOP"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/listing-preview/listing-preview.js:536:29": {
+   "name": "pf-cover-placeholder",
+   "base": "cover-placeholder",
+   "variants": [
+    "cXwZWK"
+   ]
+  },
+  "src/components/common/tabs/tabs.js:11:5": {
+   "name": "pf-tab-basic",
+   "base": "tab-basic",
+   "variants": [
+    "gbSIoe"
+   ]
+  },
+  "src/components/common/json-form/json-form.js:647:13": {
+   "name": "pf-amenities-card",
+   "base": "amenities-card",
+   "variants": [
+    "fbBORb"
+   ]
+  },
+  "src/components/common/checkbox/checkbox.js:47:7": {
+   "name": "pf-row-style",
+   "base": "row-style",
+   "variants": [
+    "hsbEaN"
+   ]
+  },
+  "src/components/post-listing/media-gallery/media-gallery-modal.js:360:7": {
+   "name": "pf-body",
+   "base": "body",
+   "variants": [
+    "jxAwNN"
+   ]
+  },
+  "src/components/post-listing/media-gallery/media-gallery-modal.js:361:9": {
+   "name": "pf-close-btn",
+   "base": "close-btn",
+   "variants": [
+    "eOpUAE"
+   ]
+  },
+  "src/components/post-listing/media-gallery/media-gallery-modal.js:264:9": {
+   "name": "pf-media-gallery-modal-tabs",
+   "base": "tabs",
+   "variants": [
+    "cecFip"
+   ]
+  },
+  "src/components/post-listing/media-gallery/media-gallery-modal.js:265:11": {
+   "name": "pf-tab",
+   "base": "tab",
+   "variants": [
+    "QPHNz",
+    "uzSfh"
+   ]
+  },
+  "src/components/post-listing/media-gallery/media-gallery-modal.js:275:9": {
+   "name": "pf-stage",
+   "base": "stage",
+   "variants": [
+    "kzHsdF"
+   ]
+  },
+  "src/components/post-listing/media-gallery/media-gallery-modal.js:314:15": {
+   "name": "pf-stage-counter",
+   "base": "stage-counter",
+   "variants": [
+    "gVygEa"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/listingDetailModal.js:88:7": {
+   "name": "pf-band",
+   "base": "band",
+   "variants": [
+    "fjdWnU"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/RegaDetailFields.js:163:11": {
+   "name": "pf-list-view-styled",
+   "base": "list-view-styled",
+   "variants": [
+    "hwRxKk"
+   ]
+  },
+  "src/container/pages/post-ad/index.js:35:11": {
+   "name": "pf-header-styled",
+   "base": "header-styled",
+   "variants": [
+    "jIJGxz"
+   ]
+  },
+  "src/tenant/bayut/components/post-listing/location-select/location-select.js:504:13": {
+   "name": "pf-location-select-icon-styled",
+   "base": "icon-styled",
+   "variants": [
+    "ilewrA"
+   ]
+  },
+  "src/components/common/drawerModal/drawerModal.js:27:7": {
+   "name": "pf-drawer-modal-bottom-sheet-drawer",
+   "base": "bottom-sheet-drawer",
+   "variants": [
+    "gMYluK"
+   ]
+  },
+  "src/components/post-listing/media-gallery/media-gallery-modal.js:344:7": {
+   "name": "pf-sheet-overlay",
+   "base": "sheet-overlay",
+   "variants": [
+    "dSEzWJ"
+   ]
+  },
+  "src/components/post-listing/media-gallery/media-gallery-modal.js:345:9": {
+   "name": "pf-sheet",
+   "base": "sheet",
+   "variants": [
+    "eIVUYV"
+   ]
+  },
+  "src/components/post-listing/media-gallery/media-gallery-modal.js:346:11": {
+   "name": "pf-sheet-header",
+   "base": "sheet-header",
+   "variants": [
+    "jKOqUi"
+   ]
+  },
+  "src/components/post-listing/media-gallery/media-gallery-modal.js:352:11": {
+   "name": "pf-sheet-body",
+   "base": "sheet-body",
+   "variants": [
+    "cYZuvP"
+   ]
+  },
+  "src/container/pages/agent-performance/TruPoints.js:51:7": {
+   "name": "pf-modal-info-banner",
+   "base": "modal-info-banner",
+   "variants": [
+    "kFWywy",
+    "gpkckF"
+   ]
+  },
+  "src/container/pages/agent-performance/TruPoints.js:58:7": {
+   "name": "pf-tasks-grid",
+   "base": "tasks-grid",
+   "variants": [
+    "jlxaZM",
+    "GpHWN"
+   ]
+  },
+  "src/container/pages/agent-performance/TruPoints.js:63:13": {
+   "name": "pf-task-card",
+   "base": "task-card",
+   "variants": [
+    "knEJet",
+    "HDBqE"
+   ]
+  },
+  "src/container/pages/agent-performance/TruPoints.js:66:17": {
+   "name": "pf-task-points",
+   "base": "task-points",
+   "variants": [
+    "FNrfA"
+   ]
+  },
+  "src/container/pages/agent-performance/TruPoints.js:68:15": {
+   "name": "pf-task-title",
+   "base": "task-title",
+   "variants": [
+    "ekcBap",
+    "hkbJH"
+   ]
+  },
+  "src/tenant/common/components/layout/navbar.js:284:9": {
+   "name": "pf-bayut-ksa-header-wrapper",
+   "base": "bayut-ksa-header-wrapper",
+   "variants": [
+    "hPXScn"
+   ]
+  },
+  "src/tenant/bayut/components/listing/listings.js:276:11": {
+   "name": "pf-listing-banner",
+   "base": "listing-banner",
+   "variants": [
+    "hdhXXj"
+   ]
+  },
+  "src/components/common/banner/index.js:44:5": {
+   "name": "pf-banner-styled",
+   "base": "banner-styled",
+   "variants": [
+    "gjUjkT"
+   ]
+  },
+  "src/tenant/common/components/layout/footer.js:166:5": {
+   "name": "pf-footer-styled",
+   "base": "footer-styled",
+   "variants": [
+    "faxqEj"
+   ]
+  },
+  "src/tenant/bayut/components/upgrade-listing/upgrade-listing.js:546:35": {
+   "name": "pf-collapse-card",
+   "base": "collapse-card",
+   "variants": [
+    "jOBssw"
+   ]
+  },
+  "src/container/pages/agent-performance/TruPoints.js:36:9": {
+   "name": "pf-modal-header-wrapper",
+   "base": "modal-header-wrapper",
+   "variants": [
+    "jJyscR"
+   ]
+  },
+  "src/container/pages/agent-performance/TruPoints.js:38:13": {
+   "name": "pf-tru-points-modal-title",
+   "base": "modal-title",
+   "variants": [
+    "fvSqjt"
+   ]
+  },
+  "src/tenant/common/components/layout/footer.js:227:17": {
+   "name": "pf-dropdown-country",
+   "base": "dropdown-country",
+   "variants": []
+  }
+ }
+}

@@ -1,0 +1,44 @@
+{
+ "page": "credits-usage",
+ "route": "/credits-usage",
+ "device": "mobile",
+ "at": "2026-09-28T16:39:08.762Z",
+ "tried": 6,
+ "states": [
+  {
+   "name": "drawer-top-up-your-credits",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > button:nth-child(2)",
+   "label": "Top-Up your Credits",
+   "title": "Credit Top-Up Credit Top-up",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 375,
+     "h": 414
+    }
+   ]
+  },
+  {
+   "name": "drawer-send-us-feedback-the",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span:nth-child(1) > button:nth-child(1)",
+   "label": "icon",
+   "title": "Send us feedback The",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 375,
+     "h": 812
+    }
+   ]
+  }
+ ],
+ "links": [],
+ "nested": [],
+ "nestedAt": "2026-09-28T21:27:35.531Z"
+}

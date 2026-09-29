@@ -191,7 +191,7 @@ export default [
   },
   {
     name: 'tab-ad-license-requests',
-    note: 'Ad License Requests (0) — a different table entirely (adLicenseTableColumnMapper)',
+    note: 'Ad License Requests (4) — a different table entirely (adLicenseTableColumnMapper): Payment Pending with Pay Now, Verifying Details, Preparing Contract, Completed (harness/fixtures/listings.mjs AD_LICENSE_REQUESTS)',
     do: async (p) => { await p.getByRole('tab', { name: /^Ad License/ }).click(); await p.waitForTimeout(1500); },
   },
   /* ── the flows the old fixture account hid ────────────────────────────
@@ -222,7 +222,7 @@ export default [
   },
   {
     name: 'action-detail-drawer',
-    note: 'the action tooltipped "Preview" — ListingDrawer, in its loading state (there is no listing-detail fixture yet)',
+    note: 'the action tooltipped "Preview" — ListingDrawer, filled from /api/surge/listings/:id/edit (harness/fixtures/listings.mjs answers it with the same real-shaped row)',
     do: async (p) => { await actionByTooltip(0, 'Preview')(p); await p.waitForSelector('.ant-drawer-content', { timeout: 8000 }); await p.waitForTimeout(600); },
   },
   {
@@ -404,10 +404,18 @@ export default [
   {
     name: 'modal-otp',
     note: 'row 7, Upgrades — the listing is pending-otp-verification, so the cell holds Publish Now instead of six circles, and it opens OtpVerificationModal (platformActions.js:174-213)',
+    /* Surge now opens this modal only when the LISTING says
+       is_otp_required === true (platformActions.js:47), and only after
+       POST /api/surge/otps answers (apis/postlisting.js:71). Without the flag
+       Publish Now navigates to /post-listing/:id/upgrade, which is how this
+       step came to time out waiting for .ant-modal: the button was where it
+       always was, the fixture row just never asked for an OTP. Row 7 now
+       carries the flag (harness/fixtures/listings.mjs). The button is found
+       by its label, not by position, so a column change cannot move it. */
     do: async (p) => {
       const tds = p.locator('.ant-table-row').nth(7).locator('td');
       const n = await tds.count();
-      await tds.nth(n - 2).locator('button').first().click({ timeout: 8000 });
+      await tds.nth(n - 2).getByRole('button', { name: /Publish/i }).first().click({ timeout: 8000 });
       await p.waitForSelector('.ant-modal', { timeout: 10000 });
       await p.waitForTimeout(600);
     },
@@ -421,22 +429,28 @@ export default [
      is_package_user:false, which is the whole difference. */
   {
     name: 'member-area',
-    /* KNOWN TO FAIL, and kept because a failed step that says why is worth
-       more than a missing one. With is_package_user:false the app never
-       paints .ant-layout at all: the member area mounts the CLASSIFIED
-       site's header, which calls /api/user/favorites, /api/user/searches/saved
-       and a bookings endpoint that is off-origin and therefore blocked here.
-       Answering the first two is not enough. Reaching this variant is a
-       fixture job of its own, not a selector problem. */
-    note: 'the variant with the banner and the credits widgets and no filter bar (appRoutes.js:83) — does not mount under the harness; see the comment',
+    /* It never mounted because the product sent it AWAY: a member-area user
+       whose origin is not the classified site's is location.replace()d there
+       on every load (useAppRedirection.js getPathToRedirect, via onLanding
+       in router.js), and harness/env leaves the classified URL empty — so
+       the page redirected to itself, 63 times in 50 s. harness/page.mjs now
+       serves a member-area mode on the classified origin (the product's own
+       src/utility/variables.js, answered with this origin as
+       classifiedBaseURL), which is where a member-area user really is; the
+       classified header's three calls (favourites, saved searches, bookings)
+       are answered in harness/fixtures.mjs. Nothing leaves the machine. */
+    note: 'the variant with the classified site\'s header and footer, the "business package" promo banner and the Credits Balance card, and no filter bar and no Upgrades column (appRoutes.js:83, ListingContainer.js:96)',
     mode: 'member',
   },
   {
     name: 'drawer-credit-info',
-    note: 'member area → the BsInfoLg on the CreditsQuota card opens CreditInfoDrawer (credits-quota.js:134-145). Blocked by the same thing as member-area above',
+    /* was `.ant-card button` first: the promo banner and the table are cards
+       too, and the first button in DOM order is not the info button. The
+       one it wants is the Credits Balance card's own circle. */
+    note: 'member area → the BsInfoLg circle beside "Credits Balance" opens CreditInfoDrawer, "Bayut Credits" (credits-quota.js:134-145)',
     mode: 'member',
     do: async (p) => {
-      await p.locator('.ant-card button').filter({ hasNot: p.locator('.ant-tabs') }).first().click({ timeout: 8000 });
+      await p.locator('.ant-card', { hasText: 'Credits Balance' }).locator('button.ant-btn-circle').first().click({ timeout: 8000 });
       await p.waitForSelector('.ant-drawer-content', { timeout: 8000 });
       await p.waitForTimeout(500);
     },
@@ -453,7 +467,18 @@ export default [
   },
   {
     name: 'error',
-    note: '/api/surge/listings answers 500 — the product\'s own error card',
+    note: 'every content request answers 500 (harness/page.mjs, mode error) — the product\'s own error card',
     mode: 'error',
+  },
+
+  /* the real account's OTHER row design. Eight of its ten rows are project
+     unit-type listings, which this account never had: harness/fixtures/
+     listings.mjs answers mode 'projects' with the plain row 0, an
+     MOT-permitted daily rental, then eight units from three invented Riyadh
+     projects — so both designs sit in one table, as they do on the real one. */
+  {
+    name: 'project-units',
+    note: 'mode projects — unit-type rows: 3 upgrade circles (no photo/video/drone), 5 actions (no TruCheck), "Apartment for Sale | Off-plan", project name ending a two-line location, WAFI licence instead of REGA ID, ~170px rows; row 1 is a daily rental with "Night" and "Permit No:"',
+    mode: 'projects',
   },
 ];

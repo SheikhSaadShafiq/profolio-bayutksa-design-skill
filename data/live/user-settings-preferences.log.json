@@ -1,5 +1,5 @@
 {
-  "url": "http://127.0.0.1:3000/en/user-settings/preferences",
+  "url": "http://127.0.0.1:3100/en/user-settings/preferences",
   "finalPath": "/en/user-settings/preferences",
   "shell": true,
   "errorCard": false,
@@ -13,14 +13,13 @@
     "GET /api/surge/area_units",
     "GET /api/surge/experience_list",
     "GET /api/surge/lms/leads/stats",
+    "GET /api/surge/tenants/current",
     "GET /api/surge/products",
     "GET /api/surge/agencies/880042"
   ],
   "unanswered": [],
-  "errors": [
-    "An unhandled error occurred processing a request for the endpoint \"getProfileDetails\".\nIn the case of an unhandled error, no tags will be \"provided\" or \"invalidated\". TypeError: Cannot read properties of undefined (reading 'thumbnail')\n    at Object.profileDataMapper (http://127.0.0.1:3000/src/tenan"
-  ],
+  "errors": [],
   "blocked": 3,
   "fonts": "served from deliverables/fonts.css",
-  "ms": 6065
+  "ms": 2842
 }

@@ -1,0 +1,64 @@
+{
+ "page": "post-listing-upgrade",
+ "route": "/post-listing/88241126/upgrade",
+ "device": "mobile",
+ "at": "2026-09-28T23:45:41.164Z",
+ "tried": 7,
+ "states": [
+  {
+   "name": "inline-basic-listing-get-standard-visibilit",
+   "kind": "inline",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)",
+   "label": "Basic Listing Get standard visibility an",
+   "title": "",
+   "shell": false,
+   "opened": []
+  },
+  {
+   "name": "message-post-listing",
+   "kind": "message",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > main:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(6) > button:nth-child(2)",
+   "label": "Post Listing",
+   "title": "Listing Posted Successfully",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 375,
+     "h": 330
+    },
+    {
+     "k": "message",
+     "w": 359,
+     "h": 40
+    }
+   ]
+  },
+  {
+   "name": "drawer-feedback",
+   "kind": "drawer",
+   "action": "click",
+   "path": "html > body:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4)",
+   "label": "FEEDBACK",
+   "title": "Send us feedback The",
+   "shell": false,
+   "opened": [
+    {
+     "k": "drawer",
+     "w": 375,
+     "h": 812
+    }
+   ]
+  }
+ ],
+ "links": [
+  {
+   "label": "Edit Listing",
+   "to": "/en/post-listing/88241126"
+  }
+ ],
+ "nested": [],
+ "nestedAt": "2026-09-29T05:39:32.744Z"
+}
