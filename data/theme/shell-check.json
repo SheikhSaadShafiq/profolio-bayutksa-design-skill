@@ -1,0 +1,476 @@
+{
+ "mobile:case-all-bad": {
+  "header": 0
+ },
+ "mobile:case-daily-rental": {
+  "header": 0
+ },
+ "mobile:case-everything-unfinished": {
+  "header": 0
+ },
+ "mobile:case-happy": {
+  "header": 0
+ },
+ "mobile:case-just-posted": {
+  "header": 0
+ },
+ "mobile:case-low-impression-high-conversion": {
+  "header": 0
+ },
+ "mobile:case-off-plan": {
+  "header": 0
+ },
+ "mobile:case-rank-pending": {
+  "header": 0
+ },
+ "mobile:empty-active": {
+  "header": 0
+ },
+ "mobile:empty-draft": {
+  "header": 0
+ },
+ "mobile:empty-filter": {
+  "header": 0
+ },
+ "mobile:empty-pending": {
+  "header": 0
+ },
+ "mobile:empty-removed": {
+  "header": 0
+ },
+ "mobile:full": {
+  "header": 0
+ },
+ "mobile:non-package": {
+  "header": 0
+ },
+ "mobile:non-package-empty": {
+  "header": 0
+ },
+ "mobile:offline": {
+  "header": 0
+ },
+ "mobile:page": {
+  "header": 0
+ },
+ "mobile:sheet-amenities": {
+  "header": "under an overlay"
+ },
+ "mobile:sheet-amenities-full": {
+  "header": "under an overlay"
+ },
+ "mobile:sheet-case-daily-rental": {
+  "header": "under an overlay"
+ },
+ "mobile:sheet-case-everything-unfinished": {
+  "header": "under an overlay"
+ },
+ "mobile:sheet-case-happy": {
+  "header": "under an overlay"
+ },
+ "mobile:sheet-case-just-posted": {
+  "header": "under an overlay"
+ },
+ "mobile:sheet-case-low-impression-high-conversion": {
+  "header": "under an overlay"
+ },
+ "mobile:sheet-case-off-plan": {
+  "header": "under an overlay"
+ },
+ "mobile:sheet-delete": {
+  "header": "under an overlay"
+ },
+ "mobile:sheet-filters": {
+  "header": "under an overlay"
+ },
+ "mobile:sheet-filters-full": {
+  "header": "under an overlay"
+ },
+ "mobile:sheet-improve-quality": {
+  "header": "under an overlay"
+ },
+ "mobile:sheet-improve-quality-full": {
+  "header": "under an overlay"
+ },
+ "mobile:sheet-location-no-match": {
+  "header": "under an overlay"
+ },
+ "mobile:sheet-location-search": {
+  "header": "under an overlay"
+ },
+ "mobile:sheet-mark-as-booked": {
+  "header": "under an overlay"
+ },
+ "mobile:sheet-mark-as-booked-range": {
+  "header": "under an overlay"
+ },
+ "mobile:sheet-performance": {
+  "header": "under an overlay"
+ },
+ "mobile:sheet-performance-full": {
+  "header": "under an overlay"
+ },
+ "mobile:sheet-quality-score": {
+  "header": "under an overlay"
+ },
+ "mobile:sheet-quality-score-full": {
+  "header": "under an overlay"
+ },
+ "mobile:sheet-range": {
+  "header": "under an overlay"
+ },
+ "mobile:sheet-request-services": {
+  "header": "under an overlay"
+ },
+ "mobile:sheet-row-menu": {
+  "header": "under an overlay"
+ },
+ "mobile:sheet-services-requested": {
+  "header": "under an overlay"
+ },
+ "mobile:sheet-share": {
+  "header": "under an overlay"
+ },
+ "mobile:sheet-sort": {
+  "header": "under an overlay"
+ },
+ "mobile:sheet-trend-drop": {
+  "header": "under an overlay"
+ },
+ "mobile:sheet-trend-no-data": {
+  "header": "under an overlay"
+ },
+ "mobile:sheet-trend-recover": {
+  "header": "under an overlay"
+ },
+ "mobile:sheet-trend-spike": {
+  "header": "under an overlay"
+ },
+ "mobile:sheet-trucheck": {
+  "header": "under an overlay"
+ },
+ "mobile:sheet-trucheck-rejected": {
+  "header": "under an overlay"
+ },
+ "mobile:skeleton-filtering": {
+  "header": 0
+ },
+ "mobile:tab-ad-license-requests": {
+  "header": 0
+ },
+ "mobile:tab-ad-license-requests-full": {
+  "header": 0
+ },
+ "mobile:tab-draft": {
+  "header": 0
+ },
+ "mobile:tab-draft-full": {
+  "header": 0
+ },
+ "mobile:tab-pending": {
+  "header": 0
+ },
+ "mobile:tab-pending-full": {
+  "header": 0
+ },
+ "mobile:tab-removed": {
+  "header": 0
+ },
+ "mobile:tab-removed-full": {
+  "header": 0
+ },
+ "mobile:toast-booked": {
+  "header": 0
+ },
+ "mobile:tour": {
+  "header": "under an overlay"
+ },
+ "mobile:tour-2": {
+  "header": "under an overlay"
+ },
+ "mobile:tour-3": {
+  "header": "under an overlay"
+ },
+ "mobile:tour-4": {
+  "header": "under an overlay"
+ },
+ "mobile:tour-5": {
+  "header": "under an overlay"
+ },
+ "mobile:tour-no-listings": {
+  "header": "under an overlay"
+ },
+ "mobile:tour-no-listings-2": {
+  "header": "under an overlay"
+ },
+ "mobile:tour-no-listings-3": {
+  "header": "under an overlay"
+ },
+ "mobile:tour-no-listings-4": {
+  "header": "under an overlay"
+ },
+ "web:drawer-amenities": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:drawer-case-all-bad": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:drawer-case-all-bad-full": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:drawer-case-daily-rental": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:drawer-case-daily-rental-full": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:drawer-case-everything-unfinished": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:drawer-case-everything-unfinished-full": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:drawer-case-happy-full": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:drawer-case-just-posted": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:drawer-case-just-posted-full": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:drawer-case-low-impression-high-conversion": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:drawer-case-low-impression-high-conversion-full": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:drawer-case-off-plan": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:drawer-case-off-plan-full": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:drawer-case-rank-pending": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:drawer-case-rank-pending-full": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:drawer-listing-performance": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:drawer-listing-performance-full": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:drawer-listing-performance-perfect": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:drawer-menu-range": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:drawer-more-filters": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:drawer-quality-score": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:drawer-quality-score-full": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:drawer-rank-updating": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:drawer-trend-drop": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:drawer-trend-recover": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:drawer-trend-spike": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:empty-active": {
+  "header": 0,
+  "rail": 0
+ },
+ "web:empty-draft": {
+  "header": 0,
+  "rail": 0
+ },
+ "web:empty-filter": {
+  "header": 0,
+  "rail": 0
+ },
+ "web:empty-pending": {
+  "header": 0,
+  "rail": 0
+ },
+ "web:empty-removed": {
+  "header": 0,
+  "rail": 0
+ },
+ "web:full": {
+  "header": 0,
+  "rail": 0
+ },
+ "web:menu-row": {
+  "header": 0,
+  "rail": 0
+ },
+ "web:menu-sort": {
+  "header": 0,
+  "rail": 0
+ },
+ "web:modal-change-ownership": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:modal-delete": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:modal-mark-as-booked": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:modal-mark-as-booked-blocked": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:modal-mark-as-booked-range": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:modal-request-services": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:modal-share": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:modal-share-panel": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:modal-trucheck": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:non-package": {
+  "header": 0,
+  "rail": 0
+ },
+ "web:non-package-empty": {
+  "header": 0,
+  "rail": 0
+ },
+ "web:offline": {
+  "header": 0,
+  "rail": 0
+ },
+ "web:page": {
+  "header": 0,
+  "rail": 0
+ },
+ "web:rank-updating": {
+  "header": 0,
+  "rail": 0
+ },
+ "web:skeleton-filtering": {
+  "header": 0,
+  "rail": 0
+ },
+ "web:skeleton-sorting": {
+  "header": 0,
+  "rail": 0
+ },
+ "web:sorting": {
+  "header": 0,
+  "rail": 0
+ },
+ "web:tab-ad-license-requests": {
+  "header": 0,
+  "rail": 0
+ },
+ "web:tab-ad-license-requests-full": {
+  "header": 0,
+  "rail": 0
+ },
+ "web:tab-draft": {
+  "header": 0,
+  "rail": 0
+ },
+ "web:tab-draft-full": {
+  "header": 0,
+  "rail": 0
+ },
+ "web:tab-pending": {
+  "header": 0,
+  "rail": 0
+ },
+ "web:tab-pending-full": {
+  "header": 0,
+  "rail": 0
+ },
+ "web:tab-removed": {
+  "header": 0,
+  "rail": 0
+ },
+ "web:tab-removed-full": {
+  "header": 0,
+  "rail": 0
+ },
+ "web:toast-booked": {
+  "header": 0,
+  "rail": 0
+ },
+ "web:tour-1": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:tour-2": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:tour-3": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:tour-4": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ },
+ "web:tour-5": {
+  "header": "under an overlay",
+  "rail": "under an overlay"
+ }
+}

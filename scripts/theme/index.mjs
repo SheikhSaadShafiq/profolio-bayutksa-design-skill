@@ -50,12 +50,12 @@ const PAIRS = [
   ['Draft tab', 'states/listings--tab-draft.html', 'new-theme/states/listings--tab-draft.html', 'mobile/states/listings--tab-draft.html', 'new-theme/mobile/states/listings--tab-draft.html'],
   ['Pending tab', 'states/listings--tab-pending.html', 'new-theme/states/listings--tab-pending.html', 'mobile/states/listings--tab-pending.html', 'new-theme/mobile/states/listings--tab-pending.html'],
   ['Removed tab', 'states/listings--tab-removed.html', 'new-theme/states/listings--tab-removed.html', 'mobile/states/listings--tab-removed.html', 'new-theme/mobile/states/listings--tab-removed.html'],
-  ['Ad License Requests tab', 'states/listings--tab-ad-license-requests.html', 'new-theme/states/listings--tab-ad-license-requests.html', 'mobile/states/listings--tab-ad-license-requests.html', null],
+  ['Ad License Requests tab', 'states/listings--tab-ad-license-requests.html', 'new-theme/states/listings--tab-ad-license-requests.html', 'mobile/states/listings--tab-ad-license-requests.html', 'new-theme/mobile/states/listings--tab-ad-license-requests.html'],
   ['Empty', 'states/listings--empty.html', 'new-theme/states/listings--empty-active.html', 'mobile/states/listings--empty.html', 'new-theme/mobile/states/listings--empty-active.html'],
   ['More filters', 'states/listings--drawer-filters.html', 'new-theme/states/listings--drawer-more-filters.html', 'mobile/states/listings--drawer-filters.html', 'new-theme/mobile/states/listings--sheet-filters.html'],
   ['Delete', 'states/listings--modal-delete.html', 'new-theme/states/listings--modal-delete.html', 'mobile/states/listings--modal-delete.html', 'new-theme/mobile/states/listings--sheet-delete.html'],
   ['TruCheck', 'states/listings--modal-trucheck.html', 'new-theme/states/listings--modal-trucheck.html', 'mobile/states/listings--modal-trucheck.html', 'new-theme/mobile/states/listings--sheet-trucheck.html'],
-  ['Mark as Booked', 'states/listings--modal-booking.html', null, 'mobile/states/listings--modal-booking.html', null],
+  ['Mark as Booked (new: derived)', 'states/listings--modal-booking.html', 'new-theme/states/listings--modal-mark-as-booked-range.html', 'mobile/states/listings--modal-booking.html', 'new-theme/mobile/states/listings--sheet-mark-as-booked-range.html'],
 ];
 const D = join(ROOT, 'deliverables');
 const shotOf = (href) => `new-theme/img/compare--${href.replace(/\.html$/, '').replace(/[^a-z0-9]+/gi, '-')}.png`;
@@ -78,7 +78,7 @@ for (const pair of PAIRS) for (const [i, href] of pair.slice(1).entries()) {
 await browser.close();
 
 const fileOf = (device, e) => e.file.replace(/^deliverables\//, '');
-const card = (device, e) => `<a class="ds-theme-card" href="${fileOf(device, e)}"><img loading="lazy" src="new-theme/img/${device}--${e.name}.png" alt=""><span>${esc(e.name === 'page' ? 'listings' : e.name)}${e.frame && !/x(900|800)$/.test(e.frame) ? ` <small style="display:inline;padding:0">· ${esc(e.frame)}</small>` : ''}</span><small>${esc(e.note)}</small></a>`;
+const card = (device, e) => `<a class="ds-theme-card" href="${fileOf(device, e)}"><img loading="lazy" src="new-theme/img/${device}--${e.name}.png" alt=""><span>${esc(e.name === 'page' ? 'listings' : e.name)}${e.derived ? ' <small style="display:inline;padding:0;color:#C88B37">· derived</small>' : ''}${e.frame && !/x(900|800)$/.test(e.frame) ? ` <small style="display:inline;padding:0">· ${esc(e.frame)}</small>` : ''}</span><small>${esc(e.note)}</small></a>`;
 const grid = (device) => {
   const all = entries(device);
   const shown = all.filter((e) => e.file);
@@ -91,11 +91,11 @@ const grid = (device) => {
 const nWeb = entries('web').filter((e) => e.file).length, nPhone = entries('mobile').filter((e) => e.file).length;
 const ok = Object.values(L).filter((e) => e.file && e.ok).length;
 const section = `<section class="ds-section" id="new-theme"><h2>My Listings — new theme <small>Profolio 2.0 · not yet live</small></h2>
-<p class="ds-note">The redesigned My Listings, compiled from the designer’s handover (Draft 3, 15 Sep 2026) the way the product is compiled from its render: every state below is the handover’s own live build, lifted out of its spec at its own size (1440 × 900 on the web, 360 × 800 on a phone) and held to it — ${ok} of ${nWeb + nPhone} within ${'0.5'}%. It is the design, not yet the product: at launch the product itself is compiled, and the two are compared. Only My Listings has a new theme; every other page stays the current theme (the handover draws its own header and rail for My Listings — whether the product’s shell changes with it is [TBC]). Its tokens: <a href="#new-theme-tokens">Foundations → My Listings — new theme</a>, <a href="new-theme/tokens.css"><code>new-theme/tokens.css</code></a>. Beside the current My Listings: <a href="new-theme/compare.html">current and new</a>. The spec, in words: <a href="../skill/product/listings-new/web-spec.md">web</a>, <a href="../skill/product/listings-new/phone-spec.md">phone</a>.</p>
+<p class="ds-note">The redesigned My Listings, compiled from the designer’s handover (Draft 3, 15 Sep 2026) the way the product is compiled from its render: every state below is the handover’s own live build, lifted out of its spec at its own size (1440 × 900 on the web, 360 × 800 on a phone) and held to it — ${ok} of ${nWeb + nPhone} within ${'0.5'}%. It is the design, not yet the product: at launch the product itself is compiled, and the two are compared. Only My Listings has a new theme; every other page stays the current theme, and so does the shell — every screen draws the product’s own header and rail (the designer’s decision, 29 Sep 2026). The riyal is the build’s glyph wherever the handover wrote “SAR”. Screens marked <b>derived</b> are drawn by neither build and composed from its own data until the handover draws them. Its tokens: <a href="#new-theme-tokens">Foundations → My Listings — new theme</a>, <a href="new-theme/tokens.css"><code>new-theme/tokens.css</code></a>. Beside the current My Listings: <a href="new-theme/compare.html">current and new</a>. The spec, in words: <a href="../skill/product/listings-new/web-spec.md">web</a>, <a href="../skill/product/listings-new/phone-spec.md">phone</a>.</p>
 <h3 id="new-theme-web">Web <small>1440 wide · ${nWeb}</small></h3>
 ${grid('web')}
 <h3 id="new-theme-phone">Phone <small>360 wide · ${nPhone}</small></h3>
-<p class="ds-note">The phone artboards carry the designer’s device frame — the 9:41 status bar — which is not the product. A case chip pins its case first in the list; each case’s performance sheet is a state of its own. Neither build draws Mark as Booked, and the phone’s Ad License tab is empty — both [TBC] with the designer.</p>
+<p class="ds-note">The product’s phone header replaces the artboard’s own top (its 9:41 status bar and title). A case chip pins its case first in the list; each case’s performance sheet is a state of its own. The Ad License tab is the build’s own — its scenario chip asks for a tab the build does not have, so the tab is selected directly.</p>
 ${grid('mobile')}
 </section>`;
 writeFileSync(join(DATA, 'section.html'), section);
@@ -128,8 +128,8 @@ writeFileSync(join(OUT, 'compare.html'), `<!doctype html>
 <p class="ds-lede">Left, the product as it ships (compiled from its render, the current theme). Right, the new My Listings (compiled from the designer’s handover, Profolio 2.0, not yet live). The web at 1440, the phone at 375 (current) and 360 (new, the designer’s base). Each picture is the top of the screen; it opens full size.</p>
 <table class="ds-table"><thead><tr><th></th><th>current theme</th><th>new My Listings</th></tr></thead><tbody>
 <tr><td>primary</td><td><code>#006169</code> teal (primaryColor); green <code>#28B16D</code> is secondaryColor</td><td>the green ramp −1…11 around <code>#28B16D</code>; colorPrimaryActive dropped</td></tr>
-<tr><td>teal</td><td>everywhere the primary is</td><td>the rank and Quality Score explainers (and the rail’s active item, the TruCheck glyph, the trend’s selected metric, the tour’s hero)</td></tr>
-<tr><td>header and rail</td><td>the product’s shell (teal Post a Listing)</td><td>the handover’s own (green Post Listing, Geist); whether the product’s shell changes with it is [TBC]</td></tr>
+<tr><td>teal</td><td>everywhere the primary is</td><td>the rank and Quality Score explainers (and the TruCheck glyph, the trend’s selected metric, the tour’s hero)</td></tr>
+<tr><td>header and rail</td><td>the product’s shell (teal Post a Listing)</td><td>the same — the product’s shell is kept (the designer’s decision); the handover’s own green, Geist header is not shipped</td></tr>
 <tr><td>typeface</td><td>Figtree, Droid Arabic Kufi</td><td>Geist for the UI (My Listings only); Figtree for titles and chrome</td></tr>
 <tr><td>the listing</td><td>a table row (web), a card (phone)</td><td>a four-column row with rank and quality in it (web); a card with rank and quality tiles (phone)</td></tr>
 <tr><td>detail</td><td>popovers and drawers per action</td><td>the Listing Performance drawer (web, 780px) / bottom sheet (phone)</td></tr>

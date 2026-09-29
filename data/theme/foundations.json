@@ -5,13 +5,14 @@
   "updated": "2026-09-16"
  },
  "states": {
-  "web": 62,
-  "phone": 65
+  "web": 66,
+  "phone": 70,
+  "derived": 5
  },
  "families": [
   {
    "family": "Geist",
-   "share": "93.9%",
+   "share": "90.4%",
    "devices": [
     "web",
     "mobile"
@@ -19,16 +20,9 @@
   },
   {
    "family": "Figtree",
-   "share": "6%",
+   "share": "9.5%",
    "devices": [
     "web",
-    "mobile"
-   ]
-  },
-  {
-   "family": "Lato",
-   "share": "0.1%",
-   "devices": [
     "mobile"
    ]
   },
@@ -45,13 +39,13 @@
    "token": "color.primary.0",
    "css": "--pf-ml-primary-0",
    "value": "#E9F7F0",
-   "uses": 12
+   "uses": 14
   },
   {
    "token": "color.primary.1",
    "css": "--pf-ml-primary-1",
    "value": "#D4EFE2",
-   "uses": 15
+   "uses": 17
   },
   {
    "token": "color.primary.2",
@@ -93,19 +87,19 @@
    "token": "color.primary.8",
    "css": "--pf-ml-primary-8",
    "value": "#28B16D",
-   "uses": 34
+   "uses": 36
   },
   {
    "token": "color.primary.9",
    "css": "--pf-ml-primary-9",
    "value": "#249F62",
-   "uses": 29
+   "uses": 31
   },
   {
    "token": "color.primary.10",
    "css": "--pf-ml-primary-10",
    "value": "#208E57",
-   "uses": 18
+   "uses": 20
   },
   {
    "token": "color.primary.11",
@@ -117,25 +111,25 @@
    "token": "color.primary.-1",
    "css": "--pf-ml-primary-m1",
    "value": "#F0FAF5",
-   "uses": 14
+   "uses": 16
   },
   {
    "token": "color.brand.green",
    "css": "--pf-ml-brand-green",
    "value": "#28B16D",
-   "uses": 34
+   "uses": 36
   },
   {
    "token": "color.brand.greenPressed",
    "css": "--pf-ml-brand-green-pressed",
    "value": "#208E57",
-   "uses": 18
+   "uses": 20
   },
   {
    "token": "color.brand.greenInk",
    "css": "--pf-ml-brand-green-ink",
    "value": "#249F62",
-   "uses": 29
+   "uses": 31
   },
   {
    "token": "color.brand.greenDeep",
@@ -147,19 +141,19 @@
    "token": "color.tint.green050",
    "css": "--pf-ml-tint-green-050",
    "value": "#F0FAF5",
-   "uses": 14
+   "uses": 16
   },
   {
    "token": "color.tint.green100",
    "css": "--pf-ml-tint-green-100",
    "value": "#E9F7F0",
-   "uses": 12
+   "uses": 14
   },
   {
    "token": "color.tint.green200",
    "css": "--pf-ml-tint-green-200",
    "value": "#D4EFE2",
-   "uses": 15
+   "uses": 17
   },
   {
    "token": "color.tint.teal050",
@@ -201,7 +195,7 @@
    "token": "color.status.good",
    "css": "--pf-ml-status-good",
    "value": "#249F62",
-   "uses": 29
+   "uses": 31
   },
   {
    "token": "color.status.warn",
@@ -225,85 +219,85 @@
    "token": "color.status.neutral",
    "css": "--pf-ml-status-neutral",
    "value": "#707070",
-   "uses": 29
+   "uses": 31
   },
   {
    "token": "color.text.primary",
    "css": "--pf-ml-text-primary",
    "value": "#222222",
-   "uses": 39
+   "uses": 49
   },
   {
    "token": "color.text.secondary",
    "css": "--pf-ml-text-secondary",
    "value": "#4F4F4F",
-   "uses": 25
+   "uses": 26
   },
   {
    "token": "color.text.tertiary",
    "css": "--pf-ml-text-tertiary",
    "value": "#626262",
-   "uses": 22
+   "uses": 23
   },
   {
    "token": "color.text.muted",
    "css": "--pf-ml-text-muted",
    "value": "#707070",
-   "uses": 29
+   "uses": 31
   },
   {
    "token": "color.text.faint",
    "css": "--pf-ml-text-faint",
    "value": "#9D9D9D",
-   "uses": 32
+   "uses": 34
   },
   {
    "token": "color.text.onBrand",
    "css": "--pf-ml-text-on-brand",
    "value": "#FFFFFF",
-   "uses": 76
+   "uses": 81
   },
   {
    "token": "color.border.strong",
    "css": "--pf-ml-border-strong",
    "value": "#DEDEDE",
-   "uses": 12
+   "uses": 14
   },
   {
    "token": "color.border.base",
    "css": "--pf-ml-border-base",
    "value": "#E6E6E6",
-   "uses": 21
+   "uses": 23
   },
   {
    "token": "color.border.soft",
    "css": "--pf-ml-border-soft",
    "value": "#F0F0F0",
-   "uses": 29
+   "uses": 32
   },
   {
    "token": "color.surface.page",
    "css": "--pf-ml-surface-page",
-   "value": "#F3F4F5",
-   "uses": 2
+   "value": "#F6F7FB",
+   "uses": 1
   },
   {
    "token": "color.surface.card",
    "css": "--pf-ml-surface-card",
    "value": "#FFFFFF",
-   "uses": 76
+   "uses": 81
   },
   {
    "token": "color.surface.sheet",
    "css": "--pf-ml-surface-sheet",
    "value": "#FFFFFF",
-   "uses": 76
+   "uses": 81
   },
   {
    "token": "color.surface.scrim",
    "css": "--pf-ml-surface-scrim",
-   "value": "rgba(0,0,0,0.42)",
-   "uses": 0
+   "value": "rgba(23,26,31,0.42)",
+   "uses": 3
   },
   {
    "token": "color.gradient.signature",
@@ -332,9 +326,8 @@
   },
   {
    "hex": "#F2FAFA",
-   "uses": 5,
+   "uses": 4,
    "parts": [
-    "web:My Listings page",
     "web:Listing Performance drawer",
     "web:How to Earn Quality Score drawer",
     "mobile:Listing Performance bottom sheet",
@@ -391,38 +384,43 @@
    "mono": "JetBrains Mono"
   },
   "price": {
-   "size": 17,
-   "weight": 700,
-   "line": 22
+   "family": "Geist",
+   "size": 16,
+   "line": "normal",
+   "weight": 700
   },
   "subtype": {
-   "size": 12,
+   "family": "Geist",
+   "size": 11,
+   "line": "normal",
    "weight": 600,
-   "line": 16,
-   "color": "#249F62"
+   "color": "#10603A"
   },
   "location": {
+   "family": "Geist",
    "size": 12,
+   "line": "normal",
    "weight": 400,
-   "line": 16,
-   "color": "#707070"
+   "color": "#626262"
   },
   "stat": {
-   "size": 14,
-   "weight": 700,
-   "line": 18
+   "family": "Geist",
+   "size": 12,
+   "line": "normal",
+   "weight": 700
   },
   "label": {
+   "family": "Geist",
    "size": 11,
-   "weight": 500,
-   "line": 14,
-   "color": "#9D9D9D"
+   "line": "normal",
+   "weight": 300,
+   "color": "#4F4F4F"
   },
   "sheetTitle": {
-   "size": 18,
-   "weight": 700,
-   "line": 24,
-   "family": "Figtree"
+   "family": "Figtree",
+   "size": 17,
+   "line": "normal",
+   "weight": 700
   },
   "body": {
    "size": 13,
@@ -459,92 +457,375 @@
   }
  },
  "elevation": {
-  "sheet": "0 -8px 32px rgba(0,0,0,0.16)",
-  "card": "0 1px 2px rgba(0,0,0,0.04)",
-  "toast": "0 14px 34px rgba(0,0,0,0.22)",
+  "sheet": "0 -8px 40px rgba(23,26,31,0.18)",
+  "card": "none",
+  "toast": "0 10px 30px rgba(23,26,31,0.22)",
   "rankBad": "0 0 2px rgba(255,0,0,0.12) inset"
  },
  "target": {
   "min": 44,
-  "iconButton": 44,
+  "iconButton": 40,
   "chip": 32,
   "row": 88
  },
- "mismatch": [
+ "declared": {
+  "radius": {
+   "xs": 4,
+   "sm": 6,
+   "md": 8,
+   "lg": 12,
+   "sheet": 20,
+   "pill": 999
+  },
+  "type": {
+   "family": {
+    "ui": "Geist",
+    "app": "Lato",
+    "chrome": "Figtree",
+    "mono": "JetBrains Mono"
+   },
+   "price": {
+    "size": 17,
+    "weight": 700,
+    "line": 22
+   },
+   "subtype": {
+    "size": 12,
+    "weight": 600,
+    "line": 16,
+    "color": "#249F62"
+   },
+   "location": {
+    "size": 12,
+    "weight": 400,
+    "line": 16,
+    "color": "#707070"
+   },
+   "stat": {
+    "size": 14,
+    "weight": 700,
+    "line": 18
+   },
+   "label": {
+    "size": 11,
+    "weight": 500,
+    "line": 14,
+    "color": "#9D9D9D"
+   },
+   "sheetTitle": {
+    "size": 18,
+    "weight": 700,
+    "line": 24,
+    "family": "Figtree"
+   },
+   "body": {
+    "size": 13,
+    "weight": 400,
+    "line": 20
+   }
+  },
+  "elevation": {
+   "sheet": "0 -8px 32px rgba(0,0,0,0.16)",
+   "card": "0 1px 2px rgba(0,0,0,0.04)",
+   "toast": "0 14px 34px rgba(0,0,0,0.22)",
+   "rankBad": "0 0 2px rgba(255,0,0,0.12) inset"
+  },
+  "target": {
+   "min": 44,
+   "iconButton": 44,
+   "chip": 32,
+   "row": 88
+  },
+  "color": {
+   "primary": {
+    "0": "#E9F7F0",
+    "1": "#D4EFE2",
+    "2": "#BEE8D3",
+    "3": "#A9E0C5",
+    "4": "#93D8B6",
+    "5": "#7ED0A7",
+    "6": "#69C899",
+    "7": "#53C18A",
+    "8": "#28B16D",
+    "9": "#249F62",
+    "10": "#208E57",
+    "11": "#10603A",
+    "-1": "#F0FAF5"
+   },
+   "brand": {
+    "green": "#28B16D",
+    "greenPressed": "#208E57",
+    "greenInk": "#249F62",
+    "greenDeep": "#10603A"
+   },
+   "tint": {
+    "green050": "#F0FAF5",
+    "green100": "#E9F7F0",
+    "green200": "#D4EFE2",
+    "teal050": "#F7FCFC",
+    "blue050": "#F0F7FC",
+    "amber050": "#FEF8F0",
+    "amber100": "#FCEDD9",
+    "red050": "#FFF2F2",
+    "red100": "#FFE0E0"
+   },
+   "status": {
+    "good": "#249F62",
+    "warn": "#C88B37",
+    "bad": "#CE2929",
+    "info": "#3B84C4",
+    "neutral": "#707070"
+   },
+   "text": {
+    "primary": "#222222",
+    "secondary": "#4F4F4F",
+    "tertiary": "#626262",
+    "muted": "#707070",
+    "faint": "#9D9D9D",
+    "onBrand": "#FFFFFF"
+   },
+   "border": {
+    "strong": "#DEDEDE",
+    "base": "#E6E6E6",
+    "soft": "#F0F0F0"
+   },
+   "surface": {
+    "page": "#F3F4F5",
+    "card": "#FFFFFF",
+    "sheet": "#FFFFFF",
+    "scrim": "rgba(0,0,0,0.42)"
+   },
+   "gradient": {
+    "signature": "linear-gradient(46deg,#696EFF 0%,#D466DE 100%)",
+    "hot": "linear-gradient(244deg,#DD5050 0%,#AB251D 100%)"
+   }
+  }
+ },
+ "variants": [
+  {
+   "token": "type.locationNotLive",
+   "css": "--pf-ml-type-location-not-live",
+   "value": {
+    "family": "Geist",
+    "size": 12,
+    "line": "normal",
+    "weight": 400,
+    "color": "#222222"
+   },
+   "of": "type.location",
+   "where": "the list (tab-draft, tab-pending, tab-removed)",
+   "uses": 27
+  },
+  {
+   "token": "type.statPerformance",
+   "css": "--pf-ml-type-stat-performance",
+   "value": {
+    "family": "Geist",
+    "size": 16,
+    "line": "normal",
+    "weight": 700
+   },
+   "of": "type.stat",
+   "where": "Listing Performance bottom sheet (sheet-case-happy, sheet-case-daily-rental, sheet-improve-quality)",
+   "uses": 8
+  },
+  {
+   "token": "type.labelPerformance",
+   "css": "--pf-ml-type-label-performance",
+   "value": {
+    "family": "Geist",
+    "size": 11,
+    "line": "normal",
+    "weight": 400,
+    "color": "#626262"
+   },
+   "of": "type.label",
+   "where": "Listing Performance bottom sheet",
+   "uses": 54
+  },
+  {
+   "token": "type.sheetTitlePerformance",
+   "css": "--pf-ml-type-sheet-title-performance",
+   "value": {
+    "family": "Geist",
+    "size": 18,
+    "line": "normal",
+    "weight": 700
+   },
+   "of": "type.sheetTitle",
+   "where": "Listing Performance bottom sheet",
+   "uses": 18
+  },
+  {
+   "token": "radius.sheetAction",
+   "css": "--pf-ml-radius-sheet-action",
+   "value": 16,
+   "of": "radius.sheet",
+   "where": "Filter value sheet, Delete listing sheet, Share sheet, Listing actions sheet, Date range sheet, Sort sheet, TruCheck sheet",
+   "uses": 7
+  },
+  {
+   "token": "target.iconButtonHeader",
+   "css": "--pf-ml-target-icon-button-header",
+   "value": 32,
+   "of": "target.iconButton",
+   "where": "the list header (filter, sort)",
+   "uses": 136
+  },
+  {
+   "token": "target.iconButtonSheet",
+   "css": "--pf-ml-target-icon-button-sheet",
+   "value": 24,
+   "of": "target.iconButton",
+   "where": "the How to Earn Quality Score sheet",
+   "uses": 2
+  },
+  {
+   "token": "surface.pageWeb",
+   "css": "--pf-ml-surface-page-web",
+   "value": "#F3F4F5",
+   "of": "color.surface.page",
+   "where": "the web page, 66 states",
+   "uses": 66
+  }
+ ],
+ "adjusted": [
   {
    "token": "elevation.sheet",
    "declared": "0 -8px 32px rgba(0,0,0,0.16)",
-   "painted": "not painted as declared — at that offset the build paints rgba(23, 26, 31, 0.18) 0px -8px 40px 0px on Listing Performance bottom sheet, Delete listing sheet, Filters sheet, Filter value sheet, Request Services sheet, Listing actions sheet, Date range sheet, Share sheet, Sort sheet, TruCheck sheet"
+   "value": "0 -8px 40px rgba(23,26,31,0.18)",
+   "basis": "the build paints it on Listing Performance bottom sheet, Filter value sheet, Delete listing sheet, Filters sheet, Mark as Booked sheet, Share sheet, Request Services sheet, Listing actions sheet, Date range sheet, Sort sheet, TruCheck sheet"
   },
   {
    "token": "elevation.card",
    "declared": "0 1px 2px rgba(0,0,0,0.04)",
-   "painted": "not painted as declared — at that offset the build paints rgba(0, 0, 0, 0.25) 0px 1px 3px 0px on More Filters drawer, Filters sheet; rgba(0, 0, 0, 0.08) 0px 1px 2px 0px on Listing Performance drawer; rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px on Request Services modal; rgba(23, 26, 31, 0.24) 0px 1px 3px 0px on screen; rgba(23, 26, 31, 0.26) 0px 1px 4px 0px on Filters sheet"
+   "value": "none",
+   "basis": "no listing card paints a shadow"
   },
   {
    "token": "elevation.toast",
    "declared": "0 14px 34px rgba(0,0,0,0.22)",
-   "painted": "painted nowhere in the compiled states"
+   "value": "0 10px 30px rgba(23,26,31,0.22)",
+   "basis": "the build paints it on screen"
   },
   {
    "token": "type.price",
    "declared": "Geist 17/22 · 700",
-   "painted": "the phone draws it as Geist 16/normal · 700 ×123 (screen, Listing Performance bottom sheet; \"1,500,000\")"
+   "value": "Geist 16/normal · 700",
+   "basis": "the phone draws it so ×129 (screen, Listing Performance bottom sheet; \"1,500,000\"); also, rarely, Geist 13/normal · 700 ×3 (Delete listing sheet, TruCheck sheet)",
+   "variants": []
   },
   {
    "token": "type.subtype",
    "declared": "Geist 12/16 · 600 · #249F62",
-   "painted": "the phone draws it as Geist 11/normal · 600 · #10603A ×176 (screen, Listing Performance bottom sheet; \"Apartment for Sale\"); Geist 12/normal · 600 · #249F62 ×3 (Delete listing sheet, TruCheck sheet; \"Apartment for Sale\")"
+   "value": "Geist 11/normal · 600 · #10603A",
+   "basis": "the phone draws it so ×182 (screen, Listing Performance bottom sheet; \"Apartment for Sale\"); also, rarely, Geist 12/normal · 600 · #249F62 ×3 (Delete listing sheet, TruCheck sheet); Geist 10/normal · 700 · #10603A ×8 (screen)",
+   "variants": []
   },
   {
    "token": "type.location",
    "declared": "Geist 12/16 · 400 · #707070",
-   "painted": "the phone draws it as Geist 12/normal · 400 · #626262 ×153 (screen, Listing Performance bottom sheet; \"Al Hazm, West Riyadh\"); Geist 12/normal · 400 · #222222 ×27 (screen; \"Al Malqa, North Riyadh\"); Geist 12/normal · 400 · #707070 ×3 (Delete listing sheet, TruCheck sheet; \"Al Hazm, West Riyadh\")"
+   "value": "Geist 12/normal · 400 · #626262",
+   "basis": "the phone draws it so ×159 (screen, Listing Performance bottom sheet; \"Al Hazm, West Riyadh\"); also, rarely, Geist 12/normal · 400 · #707070 ×3 (Delete listing sheet, TruCheck sheet); Geist 11/normal · 400 · #222222 ×7 (screen)",
+   "variants": [
+    "type.locationNotLive"
+   ]
   },
   {
    "token": "type.stat",
    "declared": "Geist 14/18 · 700",
-   "painted": "the phone draws it as Geist 12/normal · 700 ×126 (screen; \"1,288\"); Geist 16/normal · 700 ×8 (Listing Performance bottom sheet; \"4,180\")"
+   "value": "Geist 12/normal · 700",
+   "basis": "the phone draws it so ×132 (screen; \"1,288\")",
+   "variants": [
+    "type.statPerformance"
+   ]
   },
   {
    "token": "type.label",
    "declared": "Geist 11/14 · 500 · #9D9D9D",
-   "painted": "the phone draws it as Geist 11/normal · 300 · #4F4F4F ×450 (screen; \"Views\"); Geist 11/normal · 400 · #626262 ×54 (Listing Performance bottom sheet; \"Views\")"
+   "value": "Geist 11/normal · 300 · #4F4F4F",
+   "basis": "the phone draws it so ×468 (screen; \"Views\")",
+   "variants": [
+    "type.labelPerformance"
+   ]
   },
   {
    "token": "type.sheetTitle",
    "declared": "Figtree 18/24 · 700",
-   "painted": "the phone draws it as Geist 18/normal · 700 ×18 (Listing Performance bottom sheet; \"Listing Performance\"); Figtree 17/normal · 700 ×11 (Delete listing sheet, Filters sheet, Request Services sheet; \"Delete this listing?\"); Figtree 17/24 · 700 ×2 (How to Earn Quality Score sheet; \"How to Earn Quality Score?\")"
+   "value": "Figtree 17/normal · 700",
+   "basis": "the phone draws it so ×13 (Delete listing sheet, Filters sheet, Mark as Booked sheet, Share sheet, Request Services sheet, Listing actions sheet, Date range sheet, Sort sheet, TruCheck sheet; \"Delete this listing?\"); also, rarely, Figtree 17/24 · 700 ×2 (How to Earn Quality Score sheet)",
+   "variants": [
+    "type.sheetTitlePerformance"
+   ]
   },
   {
    "token": "radius.sheet",
-   "declared": "20px (top corners)",
-   "painted": "16px on Delete listing sheet, Filter value sheet, Listing actions sheet, Date range sheet, Share sheet, Sort sheet, TruCheck sheet; 20px on How to Earn Quality Score sheet, Listing Performance bottom sheet, Filters sheet, Request Services sheet"
+   "declared": "20px",
+   "value": "20px",
+   "basis": "20px on How to Earn Quality Score sheet, Listing Performance bottom sheet, Filters sheet, Mark as Booked sheet, Request Services sheet — as declared",
+   "variants": [
+    "radius.sheetAction"
+   ]
   },
   {
    "token": "target.iconButton",
-   "declared": "44px (target.min 44px)",
-   "painted": "the phone's icon buttons are 32x32 (screen), 40x40 (screen), 24x24 (How to Earn Quality Score sheet)"
+   "declared": "44px",
+   "value": "40px",
+   "basis": "the build draws a listing card's icon buttons at 40x40 ×22; elsewhere 32x32 ×136 (the list header (filter, sort)), 24x24 ×2 (the How to Earn Quality Score sheet)",
+   "variants": [
+    "target.iconButtonHeader",
+    "target.iconButtonSheet"
+   ]
   },
   {
    "token": "color.surface.scrim",
    "declared": "rgba(0,0,0,0.42)",
-   "painted": "not painted — the build's 42% layer is #171A1F 42% (3 uses)"
+   "value": "rgba(23,26,31,0.42)",
+   "basis": "the build's 42% layer, 3 uses"
   },
   {
    "token": "color.surface.page",
    "declared": "#F3F4F5",
-   "painted": "the phone page is #F6F7FB (the screen, 65 states)"
+   "value": "#F6F7FB",
+   "basis": "the phone's page, 70 states (tokens.json is the phone's)",
+   "variants": [
+    "surface.pageWeb"
+   ]
+  }
+ ],
+ "kept": [
+  {
+   "token": "target.min",
+   "value": "44px",
+   "why": "a rule, not a size: the build's icon buttons are below it (32, 40, 24px) — accessibility, [TBC] with the designer"
+  },
+  {
+   "token": "type.family.app",
+   "value": "Lato",
+   "why": "painted nowhere — nothing to follow"
   },
   {
    "token": "type.family.mono",
-   "declared": "JetBrains Mono",
-   "painted": "not painted"
+   "value": "JetBrains Mono",
+   "why": "painted nowhere — nothing to follow"
+  }
+ ],
+ "decisions": [
+  {
+   "what": "The product shell is kept",
+   "how": "every screen (136 of 136) draws the product's own header and rail in place of the handover's (scripts/theme/shell.mjs); the new theme is measured without them"
   },
   {
-   "token": "currency",
-   "declared": "the product writes the riyal as its icon glyph, never \"SAR\"",
-   "painted": "\"SAR\" as text in Listing Performance drawer (web), More Filters drawer (web), Change ownership modal (web), Delete listing modal (web), TruCheck modal (web), Request Services modal (web), My Listings page (web), Delete listing sheet (phone), Filters sheet (phone), Request Services sheet (phone), TruCheck sheet (phone) — e.g. \"…ompetitive price of SAR 225,000, this propert…\", \"SAR 0\", \"SAR 10,000,000+\", \"SAR\""
+   "what": "The riyal is a glyph",
+   "how": "\"SAR\" written out became the build's own riyal glyph in 160 places across 74 states"
+  },
+  {
+   "what": "The drawer is 780px",
+   "how": "both builds draw the Listing Performance drawer 780 wide (spec 02b agrees); 03 · F’s 680 is the Quality Score drawer’s width"
+  },
+  {
+   "what": "Mark as Booked is derived",
+   "how": "5 screens composed in the build from its own booking values, tagged [derived], until the handover draws it"
   }
  ]
 }

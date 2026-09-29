@@ -44,6 +44,7 @@ const AMENITIES = `(() => { window.__pfBuild.setState({ exp: [false, false, true
 /* the build's nine cases, in the order the Active tab lists them, by the name 02c gives each */
 const CASES = [['allBad', 'all-bad', 'All bad'], ['sixFixes', 'everything-unfinished', 'Everything unfinished'], ['highImp', 'high-impression-low-leads', 'High impression, low leads'], ['dailyRental', 'daily-rental', 'Daily rental'], ['rankPending', 'rank-pending', 'Rank pending'], ['offPlan', 'off-plan', 'Off-plan initial sale'], ['noData', 'just-posted', 'Just posted'], ['happy', 'happy', 'Happy case'], ['lowImp', 'low-impression-high-conversion', 'Low impression, high conversion']];
 
+import { BOOKING, BOOKING_SOURCE } from './derive.mjs';
 export { TOUR };
 export default {
   web: [
@@ -60,6 +61,14 @@ export default {
     { name: 'drawer-more-filters', group: 'screens', via: card('H', 'Default'), how: '03 · H', note: 'More Filters drawer, 450px, over the Active tab' },
     { name: 'modal-share', group: 'screens', via: card('I', 'Default'), how: '03 · I', note: 'Share Listing modal, 520px — Copy Bayut Link' },
     { name: 'modal-request-services', group: 'screens', via: card('K', 'Default'), how: '03 · K', note: 'Request Services modal, 520px — Drone, Photography, Videography' },
+    /* Mark as Booked — drawn by neither build: derived (derive.mjs), in the Request Services modal's chrome */
+    ...[['', 'Booked by guest', null, null, 'Mark as Booked modal, 520px — daily rentals only: pick the check-in date'],
+      ['-range', 'Booked by guest', '2026-09-11', '2026-09-14', 'Mark as Booked modal — a stay picked, 3 nights: Sep 11 to Sep 14'],
+      ['-blocked', 'Blocked (unavailable)', '2026-09-11', '2026-09-14', 'Mark as Booked modal — the nights blocked instead: Block These Dates']].map(([suffix, kind, s0, e0, note]) => ({
+      name: `modal-mark-as-booked${suffix}`, group: 'overlays', derived: BOOKING_SOURCE('web'),
+      via: proto(`window.__pfBuild.setState({ servicesOpen: true, svcKey: 'dailyRental', menuKey: null, payment: null, service: 'photography', bookMon: 1, bookKind: ${JSON.stringify(kind)}, bookStart: ${JSON.stringify(s0)}, bookEnd: ${JSON.stringify(e0)} })`, 1500),
+      derive: BOOKING('web'), how: 'derived · the daily rental row → Mark as Booked (the build has its logic, not its template)', note: `${note} [derived]` })),
+    { name: 'toast-booked', group: 'overlays', via: proto(`(() => { const b = window.__pfBuild; b.setState({ bookKind: 'Booked by guest', bookStart: '2026-09-11', bookEnd: '2026-09-14' }); setTimeout(() => b.renderVals().confirmBooking({ stopPropagation() {} }), 300); })()`, 900), at: 200, how: 'prototype · Mark as Booked → confirm (the build\'s own toast)', note: 'After Mark as Booked: a green toast, centre-bottom, 3.2s — "3 nights marked as booked: Sep 11 to Sep 14"' },
     { name: 'skeleton-sorting', group: 'screens', via: card('L', 'Sorting'), how: '03 · L · Sorting', note: 'Sorting and filtering skeleton — replaces the row list' },
     ...[['B', 'Both rows', 'tab-draft', 'Draft tab — every draft'], ['C', 'All three states', 'tab-pending', 'Pending tab — every listing waiting'], ['D', 'All four reasons', 'tab-removed', 'Removed tab — every removed listing'], ['E', 'All five statuses', 'tab-ad-license-requests', 'Ad License Requests tab — every request']].map(([l, t, n, note]) => ({ name: `${n}-full`, group: 'screens', via: card(l, t), full: true, how: `03 · ${l} · ${t}, the whole list`, note })),
     { name: 'full', group: 'screens', via: card('A', 'Default'), full: true, how: '03 · A · Default, the whole list', note: 'My Listings, Active tab — the whole list: the nine cases, one row each' },
@@ -150,6 +159,16 @@ export default {
       ['tour-no-listings', 'Tour with no listings', 'onboarding', 'Onboarding tour with no listings, the intro card — My Listings has a new look'],
     ].map(([name, chip, group, note, more = {}]) => ({ name, group, via: { section: '02 · INTERACTIVE', press: ['Reset', chip], ...(more.build ? { build: more.build, wait: more.wait } : {}), ...(more.settle != null ? { settle: more.settle } : {}) }, how: name === 'skeleton-filtering' ? 'prototype · apply a filter (the build runs its 1.8s filtering state)' : `02 · ${chip}${more.build ? ', then the build set as the note says' : ''}`, note, ...(more.full ? { full: true } : {}), ...(more.at != null ? { at: more.at } : {}) })),
 
+    /* the Ad License tab: drawn by the build, but 02's chip asks for a tab it does not know ("license",
+       not "adlicense"), so the tab is selected in the build itself */
+    ...[['', false, 'Ad License tab — process: five requests, their status, Request ID and Deed'], ['-full', true, 'Ad License tab — every request']].map(([suffix, full, note]) => ({ name: `tab-ad-license-requests${suffix}`, group: 'tabs', via: { section: '02 · INTERACTIVE', press: ['Reset', 'Listing list'], build: "window.__pfBuild.setState({ tab: 'adlicense' })", wait: 1500 }, ...(full ? { full: true } : {}), how: 'prototype · the Ad License tab (02’s chip selects "license", a tab the build does not have)', note })),
+    /* Mark as Booked — drawn by neither build: derived, in the Request Services sheet's chrome */
+    ...[['', null, null, 'Mark as Booked sheet — daily rentals only: pick the check-in date'], ['-range', 11, 14, 'Mark as Booked sheet — a stay picked: Sep 11 to Sep 14']].map(([suffix, s0, e0, note]) => ({
+      name: `sheet-mark-as-booked${suffix}`, group: 'sheets', derived: BOOKING_SOURCE('mobile'),
+      via: { section: '02 · INTERACTIVE', press: ['Reset', 'Listing list'], build: `window.__pfBuild.setState({ svcOpen: true, caseKey: 'dailyRental', menuKey: null, bookMonth: 8, bookKind: 'Booked by guest', bookStart: ${JSON.stringify(s0)}, bookEnd: ${JSON.stringify(e0)} })`, wait: 1500 },
+      derive: BOOKING('mobile'), how: 'derived · the daily rental card\'s row menu → Mark as Booked (the build has its logic, not its template)', note: `${note} [derived]` })),
+    { name: 'toast-booked', group: 'sheets', via: { section: '02 · INTERACTIVE', press: ['Reset', 'Listing list'], build: `(() => { const b = window.__pfBuild; b.setState({ caseKey: 'dailyRental', bookMonth: 8, bookKind: 'Booked by guest', bookStart: 11, bookEnd: 14 }); setTimeout(() => { const v = b.renderVals(); v.confirmBooking && v.confirmBooking({ stopPropagation() {} }); }, 300); })()`, wait: 900 }, at: 200, how: 'prototype · Mark as Booked → confirm (the build\'s own toast)', note: 'After Mark as Booked: the build\'s toast' },
+
     /* each case's performance sheet — as tapping its card opens it */
     ...CASES.map(([key, name, label]) => ({ name: `sheet-case-${name}`, group: 'cases', via: { section: '02 · INTERACTIVE', press: ['Reset', 'Listing list'], build: `window.__pfBuild.setState({ open: true, caseKey: '${key}' })`, wait: 1800 }, how: `prototype · tap the ${label} card`, note: `Performance sheet — case: ${label.replace(/ case$/i, '').toLowerCase()}` })),
 
@@ -161,6 +180,8 @@ export default {
       ['sheet-range', "window.__pfBuild.setState({ open: true, rangeOpen: true })", 'prototype · Last 30 Days, in the performance sheet', "The performance sheet's date range"],
       ...[1, 2, 3, 4].map((i) => [`tour-${i + 1}`, `window.__pfBuild.placeTour(${i})`, `prototype · the onboarding tour, step ${i + 1} of 5`, ['', 'Onboarding tour, spotlight 1 / 4 — Performance and improvements', 'Onboarding tour, spotlight 2 / 4 — Filter and sort from one bar', 'Onboarding tour, spotlight 3 / 4 — Sort by what matters', 'Onboarding tour, spotlight 4 / 4 — See how the score works'][i], 'Onboarding tour']),
       ...[1, 2, 3].map((i) => [`tour-no-listings-${i + 1}`, `window.__pfBuild.placeTour(${i})`, `prototype · the onboarding tour with no listings, step ${i + 1} of 4`, ['', 'Onboarding tour with no listings, spotlight 1 / 3 — Filter and sort from one bar', 'Onboarding tour with no listings, a full card — Post your first listing', 'Onboarding tour with no listings, a full card — See how the score works'][i], 'Tour with no listings']),
-    ].map(([name, build, how, note, chip]) => ({ name, group: 'prototype', via: { section: '02 · INTERACTIVE', press: ['Reset', chip || 'Listing list'], build, wait: 2200 }, how, note })),
+    ].map(([name, build, how, note, chip]) => ({ name, group: 'prototype', via: { section: '02 · INTERACTIVE', press: ['Reset', chip || 'Listing list'], build, wait: 2200 }, how, note,
+      /* the product header replaces the artboard's top, so a spotlight is measured again once it has */
+      ...(/placeTour/.test(build) ? { after: build, afterWait: 2000 } : {}) })),
   ],
 };

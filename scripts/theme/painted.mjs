@@ -4,6 +4,9 @@
  * (deliverables/new-theme/, written by scripts/theme/capture.mjs), the way
  * scripts/ds/painted.mjs reads the product.
  *
+ * The product's shell, swapped into every screen (the designer keeps it for
+ * now), is left out: it is the current theme, measured with the product.
+ *
  * Every piece of text (typeface, size, line height, weight, colour), every
  * painted corner, every colour that fills, edges or inks something, and every
  * shadow — tallied once per (screen, string) or (screen, part), where a part
@@ -39,6 +42,8 @@ const SCAN = () => {
   const partOf = (el) => { const l = el.closest('[data-screen-label]'); return l ? l.getAttribute('data-screen-label') : 'screen'; };
   for (const el of document.querySelectorAll('[data-pf-theme-root] *')) {
     if (/^(script|style|template|defs|clippath|lineargradient|stop|use|symbol)$/i.test(el.tagName)) continue;
+    /* the product's own shell, swapped in by the designer's decision, is not the new theme */
+    if (el.closest('[data-pf-shell]')) continue;
     const cs = getComputedStyle(el);
     if (cs.display === 'none' || cs.visibility === 'hidden' || +cs.opacity === 0) continue;
     const r = el.getBoundingClientRect();
@@ -76,22 +81,39 @@ const SCAN = () => {
   const grounds = coverBg ? [[cover[0].getAttribute('data-screen-label'), coverBg]] : [['the screen', hex(getComputedStyle(document.body).backgroundColor)]];
   /* what a finger or a pointer can hit: the outermost clickable box, its size and its words */
   const targets = [];
+  /* where a target sits on the screen: in a listing card (the box around a subtype line), in the
+     list's header (above the first card), or in the part it belongs to (a sheet, a banner) */
+  const SUBTYPE = /^(Apartment|Villa|Townhouse) for (Sale|Rent|Daily Rental)$/;
+  const cards = [...document.querySelectorAll('[data-pf-theme-root] *')].filter((e) => [...e.childNodes].some((n) => n.nodeType === 3 && SUBTYPE.test(n.textContent.trim()))).map((e) => { for (let x = e; x && x !== document.body; x = x.parentElement) { const q = x.getBoundingClientRect(); if (q.width >= 300 && getComputedStyle(x).backgroundColor === 'rgb(255, 255, 255)') return x; } return null; }).filter(Boolean);
+  const firstCard = Math.min(...cards.map((c) => c.getBoundingClientRect().top), Infinity);
+  const placeOf = (el, r) => (cards.some((c) => c.contains(el)) ? 'listing card' : partOf(el) !== 'screen' ? partOf(el) : r.bottom <= firstCard ? 'list header' : 'screen');
   for (const el of document.querySelectorAll('[data-pf-theme-root] *')) {
-    if (el instanceof SVGElement) continue;
+    if (el instanceof SVGElement || el.closest('[data-pf-shell]')) continue;
     const cs = getComputedStyle(el);
     if (cs.cursor !== 'pointer' || (el.parentElement && getComputedStyle(el.parentElement).cursor === 'pointer')) continue;
     if (!el.checkVisibility({ checkOpacity: true, checkVisibilityCSS: true })) continue;
     const r = el.getBoundingClientRect();
     if (r.width < 1 || r.height < 1 || r.bottom <= 0 || r.top >= innerHeight || r.right <= 0 || r.left >= innerWidth) continue;
-    targets.push([Math.round(r.width), Math.round(r.height), (el.innerText || el.getAttribute('aria-label') || el.getAttribute('title') || '').replace(/\s+/g, ' ').trim().slice(0, 30), partOf(el)]);
+    targets.push([Math.round(r.width), Math.round(r.height), (el.innerText || el.getAttribute('aria-label') || el.getAttribute('title') || '').replace(/\s+/g, ' ').trim().slice(0, 30), partOf(el), placeOf(el, r)]);
   }
-  return { text, radii, colours, shadows, gradients, grounds, targets };
+  /* the shadows of the things tokens name: a listing card (the box around a subtype line)
+     and a toast (the box around a confirmation) */
+  const named = [];
+  const boxOf = (e, test) => { for (let x = e; x && x !== document.body; x = x.parentElement) { if (x.closest('[data-pf-shell]')) return null; if (test(x.getBoundingClientRect(), getComputedStyle(x))) return x; } return null; };
+  for (const e of document.querySelectorAll('[data-pf-theme-root] *')) {
+    const own = [...e.childNodes].filter((n) => n.nodeType === 3).map((n) => n.textContent).join('').trim();
+    if (!own || !e.checkVisibility({ checkOpacity: true, checkVisibilityCSS: true })) continue;
+    if (/^(Apartment|Villa|Townhouse) for (Sale|Rent|Daily Rental)$/.test(own)) { const card = boxOf(e, (r, cs) => r.width >= 300 && cs.backgroundColor === 'rgb(255, 255, 255)'); if (card) named.push(['card', getComputedStyle(card).boxShadow, partOf(card)]); }
+    if (/marked as booked|blocked:|^Shared on |link sent|Listing deleted|saved/i.test(own)) { const toast = boxOf(e, (r, cs) => cs.boxShadow !== 'none' && r.height < 120); if (toast) named.push(['toast', getComputedStyle(toast).boxShadow, partOf(toast)]); }
+  }
+  return { text, radii, colours, shadows, gradients, grounds, targets, named };
 };
 
 const bump = (m, k, init) => m.get(k) || m.set(k, init()).get(k);
 const T = new Map(), FAM = new Map(), RAD = new Map(), COL = new Map(), SH = new Map(), GR = new Map(), GROUND = new Map();
 const SAR = [];
-const STRINGS = new Map();                             /* words → the style each layout draws them in */
+const STRINGS = new Map();
+const NAMED = new Map();                             /* words → the style each layout draws them in */
 const TARGETS = new Map();                                       /* every "SAR" written as text — the product writes the riyal as a glyph */
 const browser = await chromium.launch();
 const queue = [...files];
@@ -106,13 +128,14 @@ await Promise.all(Array.from({ length: 6 }, async () => {
     const pg = await ctx.newPage();
     await pg.goto(pathToFileURL(join(OUT, rel)).href, { waitUntil: 'load' });
     await pg.evaluate(() => document.fonts.ready);
-    const { text, radii, colours, shadows, gradients, grounds, targets } = await pg.evaluate(SCAN);
-    for (const [w, h, label, part] of targets) { const e = bump(TARGETS, `${device}|${w}x${h}`, () => ({ n: 0, labels: new Set(), parts: new Set() })); e.n++; if (label) e.labels.add(label); e.parts.add(part); }
+    const { text, radii, colours, shadows, gradients, grounds, targets, named } = await pg.evaluate(SCAN);
+    for (const [kind, value, part] of named) { const e = bump(NAMED, `${kind}|${device}|${value}`, () => ({ n: 0, parts: new Set() })); e.n++; e.parts.add(part); }
+    for (const [w, h, label, part, place] of targets) { const e = bump(TARGETS, `${device}|${w}x${h}`, () => ({ n: 0, labels: new Set(), parts: new Set(), places: new Map() })); e.n++; if (label) e.labels.add(label); e.parts.add(part); e.places.set(place, (e.places.get(place) || 0) + 1); }
     for (const [label, c] of grounds) bump(GROUND, `${device}|${label}|${c}`, () => new Set()).add(state);
     const where = `${device}:${state}`;
     for (const [family, size, lh, weight, colour, full, part] of text) {
       const words = full.slice(0, 50);
-      if (full.length <= 60) { const k = [full, device, part, family, size, lh, weight, colour].join('\u0001'); STRINGS.set(k, (STRINGS.get(k) || 0) + 1); }
+      if (full.length <= 60) { const k = [full, device, part, family, size, lh, weight, colour].join('\u0001'); const e = STRINGS.get(k) || STRINGS.set(k, { n: 0, states: new Set() }).get(k); e.n++; e.states.add(state); }
       bump(FAM, family, () => ({ uses: new Set(), devices: new Set(), parts: new Set() })).uses.add(`${device}|${part}|${words}`);
       FAM.get(family).devices.add(device); FAM.get(family).parts.add(part);
       const e = bump(T, `${device}|${family}|${size}|${lh}|${weight}`, () => ({ uses: new Set(), words: new Map(), colours: new Map(), devices: new Set() }));
@@ -144,8 +167,9 @@ const out = {
   families: [...FAM.entries()].map(([f, e]) => ({ family: f, uses: e.uses.size, devices: [...e.devices], parts: [...e.parts] })).sort((a, b) => b.uses - a.uses),
   text: [...T.entries()].map(([k, e]) => { const [device, family, size, lh, weight] = k.split('|'); return { device, family, size: +size, lh: lh === 'normal' ? lh : +lh, weight: +weight, uses: e.uses.size, words: [...e.words.entries()].sort((a, b) => b[1] - a[1]).slice(0, 8).map(([w]) => w), colours: [...e.colours.entries()].sort((a, b) => b[1] - a[1]).slice(0, 3).map(([c]) => c), devices: [...e.devices] }; }).sort((a, b) => b.uses - a.uses),
   radii: [...RAD.entries()].map(([v, s]) => ({ value: v, uses: s.size, parts: [...s].map((x) => x.replace('|', ':')) })).sort((a, b) => b.uses - a.uses),
-  strings: [...STRINGS.entries()].map(([k, n]) => { const [w, device, part, family, size, lh, weight, colour] = k.split('\u0001'); return { w, device, part, family, size: +size, lh: lh === 'normal' ? lh : +lh, weight: +weight, colour, n }; }),
-  targets: [...TARGETS.entries()].map(([k, e]) => { const [device, size] = k.split('|'); return { device, size, n: e.n, labels: [...e.labels].slice(0, 6), parts: [...e.parts] }; }).sort((a, b) => b.n - a.n),
+  strings: [...STRINGS.entries()].map(([k, e]) => { const [w, device, part, family, size, lh, weight, colour] = k.split('\u0001'); return { w, device, part, family, size: +size, lh: lh === 'normal' ? lh : +lh, weight: +weight, colour, n: e.n, states: [...e.states].slice(0, 8) }; }),
+  named: [...NAMED.entries()].map(([k, e]) => { const [kind, device, value] = k.split('|'); return { kind, device, value, n: e.n, parts: [...e.parts] }; }),
+  targets: [...TARGETS.entries()].map(([k, e]) => { const [device, size] = k.split('|'); return { device, size, n: e.n, labels: [...e.labels].slice(0, 6), parts: [...e.parts], places: Object.fromEntries(e.places) }; }).sort((a, b) => b.n - a.n),
   colours: [...COL.entries()].map(([c, e]) => ({ value: c, uses: e.uses.size, roles: Object.fromEntries(e.roles), parts: [...e.parts], states: [...e.states].length })).sort((a, b) => b.uses - a.uses),
   shadows: [...SH.entries()].map(([v, s]) => ({ value: v, uses: s.size, parts: [...s].map((x) => x.replace('|', ':')) })).sort((a, b) => b.uses - a.uses),
   grounds: [...GROUND.entries()].map(([k, s]) => { const [device, label, colour] = k.split('|'); return { device, label, colour, states: s.size }; }),

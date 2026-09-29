@@ -35,7 +35,7 @@
     "brief": "node scripts/design-brief.mjs",
     "lint": "node scripts/design-lint.mjs",
     "qa": "node scripts/qa-fidelity.mjs && node scripts/qa-fidelity.mjs --mobile && node scripts/qa-fidelity.mjs --real && node scripts/qa-fidelity.mjs --real --account b --state as-staff && node scripts/qa-fidelity.mjs --real --account b --state as-staff --mobile && node scripts/design-qa.mjs",
-    "theme": "node scripts/theme/capture.mjs && node scripts/theme/painted.mjs && node scripts/theme/foundations.mjs && node scripts/theme/spec.mjs && node scripts/theme/index.mjs && node scripts/theme/embed.mjs"
+    "theme": "node scripts/theme/shell.mjs && node scripts/theme/capture.mjs && node scripts/theme/check-shell.mjs && node scripts/theme/painted.mjs && node scripts/theme/foundations.mjs && node scripts/theme/spec.mjs && node scripts/theme/index.mjs && node scripts/theme/embed.mjs"
   },
   "devDependencies": {
     "antd": "5.22.1",

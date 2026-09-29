@@ -273,6 +273,85 @@ const SERIALIZE = async () => {
   return { html: clone.innerHTML, css: cssText, inherited, faces: facesOut, background: cs.backgroundColor, text: host.innerText.replace(/\s+/g, ' ').slice(0, 400) };
 };
 
+/* ── the designer's decisions, applied to the live build before it is shot ──
+   The screen is then verified exactly as before: what is written is held to
+   what the browser drew, decisions included.
+     · the shell stays the product's (2026-09-29): the handover's own header
+       and rail are replaced by the product's (data/theme/shell.json, from
+       scripts/theme/shell.mjs), its CSS scoped under [data-pf-shell];
+     · the riyal is a glyph, never "SAR": written-out "SAR" becomes the build's
+       own riyal glyph (the one it draws before every price), sized to its text. */
+const SHELL = existsSync(join(DATA, 'shell.json')) ? JSON.parse(readFileSync(join(DATA, 'shell.json'), 'utf8')) : null;
+const DECIDE = ({ shell, device, W, H }) => {
+  const host = document.querySelector('[data-pf-theme-host]');
+  const board = host.hasAttribute('data-screen-label') ? host : host.querySelectorAll('[data-screen-label]')[+host.getAttribute('data-pf-theme-board')];
+  const done = [];
+  if (shell) {
+    if (!document.querySelector('style[data-pf-shell-css]')) {
+      const css = document.createElement('style');
+      css.setAttribute('data-pf-shell-css', '');
+      css.textContent = Object.values(shell).map((part) => part.css).join('\n');
+      document.head.appendChild(css);
+    }
+    const hb = board.getBoundingClientRect();
+    /* the outermost element that is the box */
+    const find = (test) => {
+      const all = [...board.querySelectorAll('*')].filter((e) => !(e instanceof SVGElement) && !e.closest('[data-pf-shell]') && test(e.getBoundingClientRect(), e));
+      return all.find((e) => !all.some((o) => o !== e && o.contains(e))) || null;
+    };
+    const near = (a, b) => Math.abs(a - b) <= 1;
+    const into = (target, part, style, rootStyle) => {
+      /* the box keeps the size it had: its old children may have been what gave it that size */
+      const box = target.getBoundingClientRect();
+      for (const [k, v] of [['width', `${box.width}px`], ['height', `${box.height}px`], ['min-width', `${box.width}px`], ['min-height', `${box.height}px`], ['flex', 'none']]) target.style.setProperty(k, v, 'important');
+      target.style.setProperty('position', getComputedStyle(target).position === 'static' ? 'relative' : getComputedStyle(target).position, 'important');
+      for (const p of ['background', 'border', 'box-shadow', 'outline']) target.style.setProperty(p, 'none', 'important');
+      /* the variables name quoted faces: quoted with ' so the attribute holds */
+      target.innerHTML = `<div data-pf-shell="${part}" style="${`${style};${shell[part].vars};${shell[part].inherited}`.replace(/"/g, "'")}">${shell[part].html}</div>`;
+      const root = target.querySelector('[data-pf-shell-root]');
+      for (const [k, v] of Object.entries(rootStyle)) root.style.setProperty(k, v, 'important');
+    };
+    if (device === 'web') {
+      const rail = find((r) => near(r.left, hb.left) && near(r.top, hb.top) && near(r.width, 60) && r.height >= H * 0.8);
+      const header = find((r, e) => near(r.left, hb.left + 60) && near(r.top, hb.top) && near(r.width, W - 60) && near(r.height, 60) && /My Listings/.test(e.textContent || ''));
+      /* the shell keeps the product's look, not its stacking: as in the product, an overlay's
+         backdrop lies over the header and the rail, so the shell is its own layer at the level
+         of the box it replaces */
+      if (header) { into(header, 'header', 'position:absolute;inset:0;overflow:hidden;z-index:0;isolation:isolate', { 'z-index': 'auto', position: 'relative', inset: 'auto', width: '100%', height: '60px', 'padding-inline-start': '25px', transition: 'none' }); done.push('header'); }
+      if (rail) { into(rail, 'rail', 'position:absolute;inset:0;z-index:0;isolation:isolate', { 'z-index': 'auto', position: 'absolute', top: '0', bottom: '0', 'inset-inline-start': '0', height: '100%', transition: 'none' }); done.push('rail'); }
+    } else {
+      /* the artboard's own status bar (the device frame) and its title row give way to the
+         product's phone header */
+      const status = find((r, e) => near(r.top, hb.top) && near(r.width, W) && r.height < 50 && /^9:41/.test((e.innerText || '').trim()));
+      const title = status && status.nextElementSibling && /^My Listings/.test((status.nextElementSibling.innerText || '').trim()) ? status.nextElementSibling : null;
+      if (status) {
+        const slot = document.createElement('div');
+        status.parentElement.insertBefore(slot, status);
+        slot.style.cssText = 'position:relative;flex:none;align-self:stretch;height:60px';
+        into(slot, 'header', 'position:absolute;inset:0;overflow:hidden;z-index:0;isolation:isolate', { 'z-index': 'auto', position: 'relative', inset: 'auto', width: '100%', height: '60px', transition: 'none' });
+        status.style.setProperty('display', 'none', 'important');
+        if (title) title.style.setProperty('display', 'none', 'important');
+        done.push('header');
+      }
+    }
+  }
+  /* the riyal glyph for every "SAR" written out */
+  const glyph = (fs) => { const h = Math.max(7, Math.round(fs * 6) / 10), w = Math.round(h * 110 / 12) / 10; return `<svg data-pf-riyal width="${w}" height="${h}" viewBox="0 0 11 12" fill="currentColor" style="display:inline-block;vertical-align:baseline;margin-inline-end:0.22em"><path d="M7.9 0 9.9 0 8.8 7.2 6.8 7.6Z"></path><path d="M4.3 2.2 6.3 2.2 5.2 8.6 3.2 9.0Z"></path><path d="M0 8.0 9.4 6.6 9.4 8.1 0 9.5Z"></path><path d="M0 10.1 8.2 8.9 8.2 10.3 0 11.5Z"></path></svg>`; };
+  const walker = document.createTreeWalker(host, NodeFilter.SHOW_TEXT);
+  const hits = [];
+  for (let n = walker.nextNode(); n; n = walker.nextNode()) if (/\bSAR\b/.test(n.textContent) && !n.parentElement.closest('[data-pf-shell], script, style')) hits.push(n);
+  for (const n of hits) {
+    const fs = parseFloat(getComputedStyle(n.parentElement).fontSize) || 12;
+    const span = document.createElement('span');
+    span.setAttribute('data-pf-riyal-text', '');
+    span.innerHTML = n.textContent.replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c])).replace(/\bSAR\b\s?/g, () => glyph(fs));
+    n.replaceWith(span);
+  }
+  if (hits.length) done.push(`riyal ×${hits.length}`);
+  host.setAttribute('data-pf-decisions', done.join(', '));
+  return done;
+};
+
 /* ── one state ──────────────────────────────────────────────────────── */
 const fontFaces = new Map();
 const shoot = async (browser, device, st) => {
@@ -296,10 +375,21 @@ const shoot = async (browser, device, st) => {
       await page.evaluate(st.via.build);
       await page.waitForTimeout(st.via.wait ?? 1800);
     }
+    /* a screen neither build draws, composed in the build from its own data (the note says what) */
+    if (st.derive) {
+      const made = await page.evaluate(st.derive);
+      if (made !== 'ok') throw new Error(`derive: ${made}`);
+      await page.waitForTimeout(600);
+    }
     if (st.at != null) { await page.waitForTimeout(st.at); await page.evaluate(STOP_CLOCK); }
     const lifted = await page.evaluate(LIFT, [W, H]);
     if (lifted !== 'ok') throw new Error(lifted);
     await page.setViewportSize({ width: W, height: H });
+    await page.evaluate(FRAME_STILL);
+    const decided = await page.evaluate(DECIDE, { shell: SHELL ? SHELL[device] : null, device, W, H });
+    if (SHELL && !decided.includes('header')) throw new Error(`no header to swap (${decided.join(', ') || 'nothing'})`);
+    await page.evaluate(() => document.fonts.ready);
+    await page.waitForTimeout(400);
     await page.evaluate(FRAME_STILL);
     /* a moment the build measures on screen (the tour's spotlight) is set once
        the screen is at its own size */
@@ -313,7 +403,7 @@ const shoot = async (browser, device, st) => {
     await page.screenshot({ path: live, clip: { x: 0, y: 0, width: W, height: h }, animations: 'disabled' });
     const s = await page.evaluate(SERIALIZE);
     for (const f of s.faces) fontFaces.set(f.replace(/src:[^;]+;/, ''), f);
-    return { ...s, live, h };
+    return { ...s, live, h, decided };
   } finally { await ctx.close(); }
 };
 
@@ -338,6 +428,7 @@ const write = (device, st, s) => {
 <meta name="pf-theme" content="new">
 <meta name="pf-state-note" content="${attr(st.note)}">
 <meta name="pf-state-via" content="${attr(st.how)}">
+<meta name="pf-decisions" content="${attr((s.decided || []).join(', '))}">${st.derived ? `\n<meta name="pf-derived" content="${attr(st.derived)}">` : ''}
 <title>My Listings · new theme${st.name ? ` · ${st.name}` : ''}${device === 'mobile' ? ' · 360' : ''}</title>
 <link rel="stylesheet" href="${fonts}">
 <style>
@@ -404,7 +495,7 @@ for (const device of DEVICES) {
     }
     kept.push([key, png]);
     const file = write(device, st, s);
-    ledger[key] = { file: file.slice(ROOT.length + 1), note: st.note, how: st.how, group: st.group, frame: `${W}x${s.h}`, hash: h };
+    ledger[key] = { file: file.slice(ROOT.length + 1), note: st.note, how: st.how, group: st.group, frame: `${W}x${s.h}`, hash: h, decisions: s.decided, ...(st.derived ? { derived: st.derived } : {}) };
   }
   mkdirSync(OUT, { recursive: true });
   if (fontFaces.size) writeFileSync(join(OUT, 'fonts.css'), `/* the new theme's typefaces, as the handover loads them (SIL Open Font License) — written by scripts/theme/capture.mjs */\n${[...fontFaces.values()].join('\n')}\n`);
