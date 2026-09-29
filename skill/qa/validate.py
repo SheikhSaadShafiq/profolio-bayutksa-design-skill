@@ -2,8 +2,11 @@
 """Hold the Profolio KSA skill package — or a design made with it — to the system.
 
     python3 qa/validate.py                      the whole package and every design in designs/ (run from skill/)
-    python3 qa/validate.py designs/x.html ...   those designs, plus the package's own checks
-    python3 qa/validate.py --design-only designs/x.html
+    python3 qa/validate.py designs/x.html ...   only those designs: checks 1-3
+    python3 qa/validate.py --package designs/x.html   those designs, and the package's checks 4-6
+
+On a core install (no atoms/, molecules/, organisms/) the package checks
+4-6 are skipped and say so; they never fail a design.
 
 Exits 1 when any check fails. Standard library only.
 
@@ -21,8 +24,10 @@ styles and literal colours, exactly as the product paints them; they are
 marked <meta name="pf-compiled"> or <meta name="pf-component">. Checks 1 and
 2 bind what is WRITTEN with the skill, not the product as shipped. A design
 that starts from a compiled page names it —
-<meta name="pf-base" content="pages/dashboard.html">; a block copied from a
-compiled page or a component keeps the product's own styles and colours.
+<meta name="pf-base" content="pages/dashboard.html">, and every other
+compiled file a block was copied from —
+<meta name="pf-also" content="pages/dashboard/error.html">; a copied block
+keeps the product's own styles and colours.
 Only a style value or a colour the product never uses counts.
 """
 import json
@@ -37,7 +42,7 @@ MAX_SHOWN = 12
 CLASS_RE = re.compile(r'\sclass="([^"]*)"')
 STYLE_RE = re.compile(r'\sstyle="([^"]*)"')
 COLOUR_RE = re.compile(r'#[0-9a-fA-F]{3,8}\b|rgba?\([^)]*\)')
-META_RE = re.compile(r'<meta name="(pf-compiled|pf-component|pf-base)"[^>]*?content="([^"]*)"')
+META_RE = re.compile(r'<meta name="(pf-compiled|pf-component|pf-base|pf-also)"[^>]*?content="([^"]*)"')
 SCRIPT_STYLE_RE = re.compile(r'<(script|style)\b[^>]*>.*?</\1>', re.S | re.I)
 CSS_CLASS_RE = re.compile(r'\.(-?[_a-zA-Z][\w-]*)')
 
@@ -125,24 +130,54 @@ def stylesheet_classes():
     return out
 
 
+PHONE_ONLY = ('375', '360')
+
+
 def state_files(page, state, entry):
-    """a state listed as "name", "name@web" or "name@375"; returns the files it must have"""
+    """a state listed as "name", "name@web", or "name@375" / "name@360" (the
+    phone only — 360 is the new My Listings' base); returns its files"""
     name, _, only = state.partition('@')
     folder = os.path.join(ROOT, os.path.dirname(entry['file']), page)
     files = []
-    if only != '375':
+    if only not in PHONE_ONLY:
         files.append(os.path.join(folder, f'{name}.html'))
-    if only == '375' or (not only and entry.get('mobile')):
+    if only in PHONE_ONLY or (not only and entry.get('mobile')):
         files.append(os.path.join(folder, f'{name}.mobile.html'))
     return files
 
 
-def check_design(path, html, base_html, product, failures_style, failures_colour):
+def declarations(style):
+    return [d.strip() for d in style.split(';') if ':' in d]
+
+
+def new_theme_tokens():
+    path = os.path.join(ROOT, 'css', 'new-theme', 'tokens.css')
+    return set(re.findall(r'(--pf-ml-[\w-]+)\s*:', read(path))) if os.path.exists(path) else set()
+
+
+TOKEN_VAR = re.compile(r'var\((--pf-ml-[\w-]+)\)')
+
+
+def check_design(path, html, base_html, product, failures_style, failures_colour, new_theme=False):
     # a style or colour the product itself uses — on the base page, or on any
     # compiled page or component a block was copied from — is the product's
     # own; only what the product never has is new
     known_styles = product['styles'] | set(STYLE_RE.findall(base_html or ''))
-    added_styles = Counter(s for s in STYLE_RE.findall(html) if s not in known_styles)
+    added = [s for s in STYLE_RE.findall(html) if s not in known_styles]
+    if new_theme:
+        # the new My Listings writes its styles inline: a declaration the
+        # build paints somewhere, or one whose value is a --pf-ml-* token, is
+        # the theme's own
+        if 'decls' not in product:
+            product['decls'] = {d for st in product['styles'] for d in declarations(st)}
+            product['ml_tokens'] = new_theme_tokens()
+        def own(d):
+            if d in product['decls']:
+                return True
+            used = TOKEN_VAR.findall(d)
+            return bool(used) and all(t in product['ml_tokens'] for t in used) and not COLOUR_RE.search(TOKEN_VAR.sub('', d))
+        added = [s for s in added if not all(own(d) for d in declarations(s))]
+    added_styles = Counter(added)
     for style, n in added_styles.items():
         failures_style.append(f'{rel(path)}: style="{style[:70]}"' + (f' ×{n}' if n > 1 else ''))
     known_colours = product['colours'] | set(body_colours(base_html or ''))
@@ -152,12 +187,13 @@ def check_design(path, html, base_html, product, failures_style, failures_colour
 
 
 def main(argv):
-    design_only = '--design-only' in argv
     designs = [os.path.abspath(a) for a in argv if not a.startswith('--')]
+    # named designs are checked alone (1-3) unless --package asks for the rest
+    design_only = '--design-only' in argv or (bool(designs) and '--package' not in argv)
+    core = not all(os.path.isdir(os.path.join(ROOT, d)) for d in ('atoms', 'molecules', 'organisms'))
     reg = load_registry()
     known = known_classes(reg)
     report = Report()
-    print(f'\n  Profolio KSA skill — {rel(ROOT) if ROOT != os.getcwd() else "."}' + (f' · {len(designs)} design(s)' if designs else ''))
 
     # every html file in the package: reference or design?
     package_files = [] if design_only else list(html_files('pages', 'atoms', 'molecules', 'organisms'))
@@ -169,10 +205,11 @@ def main(argv):
         pairs.append((path, html, m, is_reference))
     # designs/ holds what is written with the skill: a design there is a
     # design, whatever metas its copied page still carries
-    if not design_only:
+    # with no design named, every design in designs/ is checked
+    if not designs:
         for path in html_files('designs'):
-            if os.path.abspath(path) not in designs:
-                designs.append(os.path.abspath(path))
+            designs.append(os.path.abspath(path))
+    print(f'\n  Profolio KSA skill — {rel(ROOT) if ROOT != os.getcwd() else "."}' + (f' · {len(designs)} design(s)' if designs else '') + (' · designs only, checks 1-3' if design_only else ''))
     for path in designs:
         if not os.path.exists(path):
             print(f'  no such file: {path}')
@@ -191,16 +228,18 @@ def main(argv):
         for h in refs:
             product['styles'].update(STYLE_RE.findall(h))
             product['colours'].update(body_colours(h))
+    ref_count = len(refs) if written else 0
     for path, html, m in written:
         base_html = None
-        if 'pf-base' in m:
-            base = os.path.join(ROOT, m['pf-base'])
-            if not os.path.exists(base):
-                style_fail.append(f'{rel(path)}: its pf-base {m["pf-base"]} does not exist')
-                continue
-            base_html = read(base)
-        check_design(path, html, base_html, product, style_fail, colour_fail)
-    report.add(1, 'no style attribute in a design', style_fail, f'{len(written)} design(s) checked; {len(pairs) - len(written)} compiled references are the product as shipped')
+        sources = ([m['pf-base']] if 'pf-base' in m else []) + [x.strip() for x in m.get('pf-also', '').split(',') if x.strip()]
+        missing = [x for x in sources if not os.path.exists(os.path.join(ROOT, x))]
+        if missing:
+            style_fail.append(f'{rel(path)}: the compiled file(s) it names are not installed — fetch them by path (SKILL.md): {", ".join(missing)}')
+            continue
+        if sources:
+            base_html = '\n'.join(read(os.path.join(ROOT, x)) for x in sources)
+        check_design(path, html, base_html, product, style_fail, colour_fail, new_theme='listings-new' in m.get('pf-base', ''))
+    report.add(1, 'no style attribute in a design', style_fail, f'{len(written)} design(s) checked against {ref_count} compiled references, the product as shipped')
     report.add(2, 'no hex or rgb in a design outside css/', colour_fail, f'{len(written)} design(s) checked')
 
     # 3 — every class a page uses is in the registry
@@ -213,7 +252,9 @@ def main(argv):
             unknown.setdefault(c, rel(path))
     report.add(3, 'every class on a page is in registry.json', [f'.{c} — first on {where}' for c, where in sorted(unknown.items())], f'{len(known)} classes known')
 
-    if not design_only:
+    if not design_only and core:
+        print('  core install: the package checks 4-6 need atoms/, molecules/ and organisms/ — skipped')
+    if not design_only and not core:
         # 4 — every registry file exists
         missing = []
         for kind in ('components', 'pages'):

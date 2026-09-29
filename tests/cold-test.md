@@ -1,5 +1,8 @@
 # Cold test — does the skill work without this conversation?
 
+> This file is the answer key. It lives outside `skill/` so no install carries it: a run
+> whose files-read list contains `tests/` or `cold-test.md` fails automatically.
+
 **My own output is not evidence that the skill works.** The session that built this package
 had the whole build conversation in context: every decision, every file, every fix. A skill
 works only if a session with none of that — just `SKILL.md` and the files it routes to —
@@ -18,7 +21,7 @@ git clone --depth 1 --branch claude/skill-package --filter=blob:none --sparse \
   https://github.com/SheikhSaadShafiq/profolio-bayutksa-design-skill.git profolio-skill
 cd profolio-skill
 git sparse-checkout set --no-cone /skill/SKILL.md /skill/registry.json /skill/tokens.md \
-  '/skill/product/' '/skill/css/' '/skill/qa/' '/skill/examples/'
+  '/skill/product/' '/skill/css/' '/skill/qa/' /skill/examples/worked-example.md /skill/pages/prototype.js
 # or the whole package (about 450 MB): git sparse-checkout set skill
 
 mkdir -p ~/.claude/skills && ln -s "$PWD/skill" ~/.claude/skills/profolio-ksa-design
@@ -64,8 +67,8 @@ anything**, and ask only about the rows it could not fill.
 | 6 | states | Loading, error, pending (R3), the admin's side; **the PRD is silent on empty — asked** | asked |
 | 7 | missing components | The request (probably a modal composed from existing ones) and a new notification item | medium |
 | 8 | copy | All new strings flagged as new copy; Arabic now or deferred — asked | asked |
-| 9 | existing component changed | If the admin raises the limit in the existing Set Credits Limit modal (`set-capping-limit`), its `used_on` (`agency-staff`) is listed and the session asks whether to regenerate | medium |
-| 10 | responsive | Web and 375 — proposed or asked | medium |
+| 9 | existing component changed | If the admin raises the limit in the existing Set Credits Limit modal (`set-staff-credit-limit`; its rows are `set-capping-limit`), the pages it is on are listed by id and the session asks whether to regenerate. The modal's own `used_on` is empty in the registry (a known defect), so a correct session takes `agency-staff` from `set-capping-limit.used_on` and says so | medium |
+| 10 | responsive | Web and 375 — proposed | medium |
 | 11 | contradictions | The product's own words win: "Set Credits Limit", "Insufficient Credits" | high |
 
 **It passes if it:**
@@ -75,7 +78,8 @@ anything**, and ask only about the rows it could not fill.
 - asks about the empty state because the PRD is silent on it;
 - asks only the rows it could not fill, waits, then restates the plan in one paragraph;
 - builds in `designs/` from a compiled page with `pf-base`, runs
-  `python3 qa/validate.py designs/<name>*.html`, and every check passes;
+  `python3 qa/validate.py designs/<name>*.html` (checks 1–3, only the named files), and every
+  check passes;
 - ends with the output contract: components used, components added and why, every [TBC],
   pages affected via `used_on`, how to QA against live.
 

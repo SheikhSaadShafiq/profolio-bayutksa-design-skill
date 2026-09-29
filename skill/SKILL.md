@@ -16,12 +16,14 @@ at 1440 (web) and 375 (phone). You compose from it. You never redraw it.
 2. `tokens.md` — before any styling decision.
 3. Only the files the task names — `registry.pages[x].file`, `registry.components[x].file`.
 
+- `examples/` holds the worked example — read it when you reach HOW A DESIGN IS MADE, not before.
 - Never read `css/profolio.css` whole — grep it for one selector.
 - Never read more than 3 component files in one task.
 - A page file is the product's whole DOM: grep it for the part you need.
 
 **A file the registry names is not here?** The package is public. Installed with only its
-core (`SKILL.md`, `registry.json`, `tokens.md`, `product/`, `css/`, `qa/`), fetch a page or
+core (`SKILL.md`, `registry.json`, `tokens.md`, `product/`, `css/`, `qa/`,
+`examples/worked-example.md`, `pages/prototype.js`), fetch a page or
 component by its registry path, from this folder, so its relative links hold:
 
     curl -sL --create-dirs -o <path> https://raw.githubusercontent.com/SheikhSaadShafiq/profolio-bayutksa-design-skill/refs/heads/claude/skill-package/skill/<path>
@@ -72,8 +74,13 @@ shipped, marked `pf-compiled` / `pf-component`. Never edit one. Copy it into `de
   starts at 85px.
 - **Phone**: the product picks its phone layout by device, not width — a header with a menu
   button, the rail as a drawer, cards instead of tables, many modals and popovers as drawers.
-- **Disabled** controls are dimmed to 0.54. A failed list query shows the same
-  "No Record Found" as an empty one — there is no separate error card for a table.
+- **Disabled** controls are dimmed to 0.54. **Errors** are each page's own: take
+  `pages/<page>/error.html` as the answer, never assume one. Five pages draw the empty-state
+  error ("Error" or "Error!", "Something went wrong, please try again", Retry); credits-usage
+  and licenses draw the message and Retry only; the Overview's cards put "No Record Found" over
+  it; My Listings on a phone shows "No Record Found" with Post Listing. Nine pages draw no
+  error block. The reports, the Overview and My Listings (web) also show a raw message
+  ("[object Object]", "Cannot convert…") — the product's words there are [TBC].
 - **Roles**: owner, staff and individual see different versions of one screen —
   `pages/<page>/as-staff.html`, `as-individual.html`.
 - **Scope**: English, web 1440 and phone 375. Arabic RTL is not compiled — say so rather
@@ -103,16 +110,19 @@ restate the plan in one paragraph, then build.
 
 1. Copy the page you start from into `designs/<name>.html` (same depth as `pages/`, so its
    `../css/` links hold). Replace its `pf-compiled` meta with
-   `<meta name="pf-base" content="pages/<page>.html">`, and point `src="prototype.js"` and
-   its `data-pf-go="<page>/…"` links at `../pages/` so the design stays clickable. A state
+   `<meta name="pf-base" content="pages/<page>.html">` — the exact file you copied — and name
+   every other compiled file a block comes from in `<meta name="pf-also" content="a, b">`.
+   Point `src="prototype.js"` and its `data-pf-go="<page>/…"` links at `../pages/` so the
+   design stays clickable. A state
    file sits one folder deeper (`pages/<page>/<state>.html`): its `../../css/` becomes `../css/`.
    `examples/worked-example.md` is one whole trace, PRD to output contract.
 2. Compose with the registry's classes and the component files' own markup (each variant
    has its HTML). Mark new copy `data-pf-new-copy`, invented data `data-pf-data`.
 3. One file per state the intake lists — `designs/<name>--<state>.html` — and a
    `.mobile.html` per state when 375 is in scope, started from `pages/<page>.mobile.html`.
-4. Run `python3 qa/validate.py designs/<name>*.html` from `skill/`. Every check must pass:
-   no style attribute or colour beyond the base page's, no class the registry lacks.
+4. Run `python3 qa/validate.py designs/<name>*.html` from `skill/`. It checks only the files
+   you name (checks 1–3), and all must pass: no style or colour the product never uses, no
+   class the registry lacks.
 5. Hold it to the live product: serve `skill/` (`python3 -m http.server`) and open
    `qa/overlay.html?page=designs/<name>.html` beside a screenshot of the same screen.
 

@@ -79,7 +79,9 @@ own. Web and 375.
 Each design starts from a compiled page, copied into `designs/` (the same depth as
 `pages/`, so its `../css/` links hold):
 
-- `<meta name="pf-compiled">` becomes `<meta name="pf-base" content="pages/dashboard.html">`;
+- `<meta name="pf-compiled">` becomes `<meta name="pf-base" content="pages/dashboard.html">`, and
+  `<meta name="pf-also">` names the other files blocks came from (`pages/listings.html` for the
+  rows, `pages/dashboard/error.html` for the error, `pages/dashboard.html` for a loading card);
   `src="prototype.js"` and the `data-pf-go` links point at `../pages/`.
 - A state starts from its state file — `pages/dashboard/loading.html` sits one folder
   deeper, so its `../../css/` becomes `../css/` too.

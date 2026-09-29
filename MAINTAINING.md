@@ -132,8 +132,9 @@ them — this is what it checks, and why.
    `--saved-*`, `--message-*`), and the **staff** and **individual** variants (`--as-staff`,
    `--as-individual`) when the PRD touches roles. Two rules hold for your work
    too: **a disabled control is dimmed to 0.54** (`utils.less:142`, it is global), and **a failed
-   list query shows the same “No Record Found” empty state as an empty one** — Profolio has no
-   separate error card for a table.
+   query draws the page's own error state** — take `deliverables/states/<page>--error.html` as the
+   answer: seven draw the empty-state error with Retry, the Overview "No Record Found" over it,
+   nine no error block at all.
 
 If a check fails, fix it before producing. If the information genuinely is not in
 `kb/`, say which file you looked in and stop — a guess that looks confident is worse
