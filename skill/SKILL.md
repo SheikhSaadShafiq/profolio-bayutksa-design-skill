@@ -104,7 +104,9 @@ restate the plan in one paragraph, then build.
 1. Copy the page you start from into `designs/<name>.html` (same depth as `pages/`, so its
    `../css/` links hold). Replace its `pf-compiled` meta with
    `<meta name="pf-base" content="pages/<page>.html">`, and point `src="prototype.js"` and
-   its `data-pf-go="<page>/…"` links at `../pages/` so the design stays clickable.
+   its `data-pf-go="<page>/…"` links at `../pages/` so the design stays clickable. A state
+   file sits one folder deeper (`pages/<page>/<state>.html`): its `../../css/` becomes `../css/`.
+   `examples/worked-example.md` is one whole trace, PRD to output contract.
 2. Compose with the registry's classes and the component files' own markup (each variant
    has its HTML). Mark new copy `data-pf-new-copy`, invented data `data-pf-data`.
 3. One file per state the intake lists — `designs/<name>--<state>.html` — and a
