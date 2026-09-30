@@ -272,7 +272,7 @@
         if (e.__pfHidden) { e.remove(); return; }
         Array.prototype.slice.call(e.attributes).forEach(function (at) { if (/^data-pf-/.test(at.name)) e.removeAttribute(at.name); });
       });
-      Array.prototype.forEach.call(frag.querySelectorAll('i.pfk-riyal, svg[data-pf-riyal]'), function (e) { e.remove(); });
+      Array.prototype.forEach.call(frag.querySelectorAll('i.pfk-riyal, svg[data-pf-riyal], svg.pfk-icon, .pfk-icon'), function (e) { e.remove(); });
       Array.prototype.forEach.call(frag.querySelectorAll('button, [role=button], a, .pfk-btn, .wf-btn'), function (e) {
         var bar = document.createElement('span');
         bar.className = 'pfk-skel pfk-skel--block';
@@ -435,6 +435,8 @@
     /* a click outside an open menu closes it (its own trigger toggles it) */
     if (S.menu && !t.closest('[data-pf-menu-panel="' + S.menu + '"]') && !(el && el.hasAttribute('data-pf-menu'))) set('menu', '');
     if (closeShellOnOutside(t)) { e.preventDefault(); return; }
+    /* a scrim: a click on the backdrop itself (not what sits on it) closes the menu or overlay */
+    if (t.hasAttribute('data-pf-scrim')) { e.preventDefault(); if (S.menu) set('menu', ''); else set('overlay', ''); return; }
     if (el && !disabled(el)) {
       e.preventDefault(); e.stopPropagation();
       var ms = +(el.getAttribute('data-pf-busy') || 0);
@@ -522,7 +524,18 @@
     var id = li.getAttribute('data-menu-id') || '';
     return id.replace(/^rc-menu-uuid-\d+-\d+-/, '');
   }
+  /* the header's links that leave the product: where they go */
+  var SHELL_OUT = { 'Download App': 'Opens the Profolio app in the App Store or Google Play', 'Go to Bayut.sa': 'Opens bayut.sa in a new tab', 'Help & Support': 'Opens Help & Support' };
   function shellClick(t, e) {
+    var sh = t.closest('[data-pf-shell-root], .pf-layout-header, .pf-layout-sider');
+    if (sh) {
+      var c = t.closest('button, a, [role=button], [role=menuitem], li, div');
+      for (var n = t; n && n !== sh; n = n.parentElement) {
+        var lab = (n.textContent || '').replace(/\s+/g, ' ').trim();
+        if (SHELL_OUT[lab]) { e.preventDefault(); e.stopPropagation(); toast(SHELL_OUT[lab] + ' — outside the prototype'); return true; }
+        if (lab.length > 40) break;
+      }
+    }
     var li = t.closest('[data-menu-id]');
     if (li && li.closest('.pf-layout-sider, [data-pf-rail]')) {
       e.preventDefault(); e.stopPropagation();
@@ -709,6 +722,7 @@
 
   window.pf = {
     version: '2.0',
+    shellOut: SHELL_OUT,
     get: function (k) { return k ? S[k] : snapshot(); },
     set: function (k, v) { set(k, v); },
     apply: apply,

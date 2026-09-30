@@ -411,7 +411,7 @@ async function visual() {
   const merged = new Map();
   for (const i of found) {
     const k = i.level + '|' + i.check + '|' + i.platform + '|' + i.message;
-    const e = merged.get(k) || { level: i.level, check: i.check, platform: i.platform, message: i.message, states: [] };
+    const e = merged.get(k) || { level: i.level, check: i.check, platform: i.platform, message: i.message, box: i.box || null, states: [] };
     if (!e.states.includes(i.state)) e.states.push(i.state);
     merged.set(k, e);
   }

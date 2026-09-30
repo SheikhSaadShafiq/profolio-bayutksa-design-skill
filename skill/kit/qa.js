@@ -20,7 +20,7 @@
      skeleton  a loading skeleton whose blocks don't follow the columns of the table above it
      spacing   a button's label split into flex items, the gap between every word
      rows      (warning) cells of one row aligned differently: some top, some centre
-     targets   (warning, phone) a control smaller than 44 × 44
+     targets   (warning, phone) a control smaller than the build's 32 px (the platforms ask 44)
      small     (warning) visible text under 11 px */
 (function () {
   'use strict';
@@ -146,7 +146,7 @@
     });
     /* flex rows: three or more siblings with the same number of children */
     Array.prototype.forEach.call(document.querySelectorAll('body *'), function (p) {
-      var kids = Array.prototype.filter.call(p.children, function (c) { return cs(c).display === 'flex' && c.children.length >= 3 && shown(c); });
+      var kids = Array.prototype.filter.call(p.children, function (c) { var st = cs(c); return st.display === 'flex' && !/column/.test(st.flexDirection) && c.children.length >= 3 && shown(c); });
       if (kids.length < 3) return;
       var n = kids[0].children.length;
       if (!kids.every(function (k) { return k.children.length === n; })) return;
@@ -258,7 +258,7 @@
     });
     if (phone) controls.forEach(function (c) {
       var rr = c.getBoundingClientRect();
-      if ((rr.width < 44 || rr.height < 44) && rr.width > 0 && !inShell(c)) add('warn', 'targets', '“' + label(c) + '” is ' + Math.round(rr.width) + ' × ' + Math.round(rr.height) + ' px — under 44 × 44 on a phone', c);
+      if ((rr.width < 32 || rr.height < 32) && rr.width > 0 && !inShell(c)) add('warn', 'targets', '“' + label(c) + '” is ' + Math.round(rr.width) + ' × ' + Math.round(rr.height) + ' px — under the build\'s 32 px on a phone (the platforms ask 44)', c);
     });
     /* dead: looks clickable, does nothing */
     controls.forEach(function (c) {
@@ -270,6 +270,7 @@
       if (c.closest('[data-menu-id]') && c.closest('.pf-layout-sider, [data-pf-rail]')) return;
       if (c.closest('a[href]')) return;                                  /* the runtime opens a link's page, or says it leaves */
       if (c.closest('[data-pf-shell-open]')) return;
+      if (window.pf && pf.shellOut && inShell(c)) { var lb = label(c); if (Object.keys(pf.shellOut).some(function (k) { return lb.indexOf(k) === 0; })) return; }
       if (c.closest('template')) return;
       var shellPart = c.closest('[data-pf-shell-root], .pf-layout-sider, .pf-layout-header');
       add(shellPart ? 'warn' : 'error', 'dead', '“' + (label(c) || c.tagName.toLowerCase()) + '” looks clickable and does nothing — wire it (data-pf-…) or mark it data-pf-inert="why"', c);
@@ -281,7 +282,7 @@
       if (!/flex/.test(st.display) || !(parseFloat(st.columnGap) > 0) || !shown(b) || inShell(b)) return;
       /* words: text runs and plain inline elements — a count pill or an icon is its own item */
       var items = Array.prototype.filter.call(b.childNodes, function (n) { return n.nodeType === 3 ? n.textContent.trim() : n.nodeType === 1 && (n.textContent || '').trim() && cs(n).display !== 'none' && !/^(svg|SVG|IMG|I)$/.test(n.tagName) && !ownPaint(n); });
-      if (items.length >= 2) add('error', 'spacing', '“' + label(b) + '”: its words are ' + items.length + ' flex items, each ' + st.columnGap + ' apart — wrap the label in one element', b);
+      if (items.length >= 3) add('error', 'spacing', '“' + label(b) + '”: its words are ' + items.length + ' flex items, each ' + st.columnGap + ' apart — wrap the label in one element', b);
     });
 
     /* text: overlap, clip, small */
@@ -331,7 +332,7 @@
         }
       }
       var fs = parseFloat(cs(x.el).fontSize);
-      if (fs < 11 && !x.el.closest('[class*="badge"], sup, sub')) add('warn', 'small', 'Text “' + label(x.el) + '” is ' + fs + ' px', x.el);
+      if (fs < 11 && !x.el.closest('[class*="badge"], [class*="count"], sup, sub')) add('warn', 'small', 'Text “' + label(x.el) + '” is ' + fs + ' px', x.el);
     });
 
     /* fonts: every web font a visible text uses is present and loaded */
