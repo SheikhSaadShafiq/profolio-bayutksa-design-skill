@@ -392,10 +392,13 @@ function assetsOf() {
   const walk = (d) => readdirSync(join(SKILL, d), { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(`${d}/${e.name}`) : e.name.startsWith('.') ? [] : [`${d}/${e.name}`]));
   return [...walk('css'), 'pages/prototype.js'].sort();
 }
+/* where a .skill fetches its pages: a release pins its own tag (SKILL_REF=skill-vX.Y), so the
+   pages always match the registry it carries; otherwise the current branch */
 const SOURCE = (() => {
   const repo = 'SheikhSaadShafiq/profolio-bayutksa-design-skill';
-  const ref = process.env.SKILL_REF || (() => { try { return execSync('git rev-parse --abbrev-ref HEAD', { cwd: ROOT }).toString().trim(); } catch { return 'main'; } })();
-  return { repo, ref, raw: `https://raw.githubusercontent.com/${repo}/refs/heads/${ref}/skill/`, assets: assetsOf() };
+  const name = process.env.SKILL_REF || (() => { try { return execSync('git rev-parse --abbrev-ref HEAD', { cwd: ROOT }).toString().trim(); } catch { return 'main'; } })();
+  const ref = /^skill-v/.test(name) ? `refs/tags/${name}` : `refs/heads/${name}`;
+  return { repo, ref, raw: `https://raw.githubusercontent.com/${repo}/${ref}/skill/`, git: `https://github.com/${repo}.git`, assets: assetsOf() };
 })();
 const registry = {
   built: new Date().toISOString().slice(0, 10), product: FLAGS.sha, clock: CLOCK.registry,

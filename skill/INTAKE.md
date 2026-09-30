@@ -30,7 +30,7 @@ product, for the designer when it is about the design.
   prints the pages and states that match, best first, with their files.
 - Also match `registry.pages[x].aliases`, and check `pages[x].labels` for what a page already shows.
 - The `.skill` carries no pages: fetch what you will open, `python3 qa/fetch.py <page> [<state>…] [--375]`
-  (`find.mjs` prints the command and the file's GitHub link).
+  (`find.mjs` prints the command and the file's GitHub link). Never ask the user for a link or a file.
 - Never guess a page from its name alone. Quote the files you matched.
 
 ## 2 · The questions
@@ -39,13 +39,14 @@ Fill every row with a proposed answer and a confidence: high, medium or low. Pre
 tables. Then ask only:
 
 - a row you could not fill, or filled at low confidence;
-- what a row's own text orders you to ask: D2 when the PRD is ambiguous, D4 for 2.0 on a page
-  other than My Listings, D5 for a new empty state, D7 for Arabic timing, D8 for regenerating
+- what a row's own text orders you to ask: D2 when the PRD is ambiguous, D4 on every PRD, D5
+  for a new empty state, D7 for Arabic timing, D8 for regenerating
   pages, and P8 for another meaning.
 
 Write "asked" after the confidence ("high; regenerate asked"). Ask nothing else: a medium row
 states what you will assume. Never ask what SKILL.md already decides — shipped copy wins, and
-the design is English (Arabic RTL is not compiled).
+the design is English (Arabic RTL is not compiled). D4 is the exception: ask it on every PRD,
+with the theme SKILL.md gives the page as your proposed answer.
 
 At most one question per row. Each question names its row and carries your proposed answer,
 so a yes is enough. Group the questions under **For the PM** and **For the designer**. The one
@@ -71,7 +72,7 @@ reply confirms every row you didn't ask: don't ask it again.
 | D1 | A new page, a change to an existing page, or a new cross-page component? | | |
 | D2 | Which page(s): route and registry id. If the PRD is ambiguous, list the candidates and ask. | | |
 | D3 | Entry point: how does the user arrive here? | | |
-| D4 | Design language: current Profolio (Figtree, teal) or Profolio 2.0 (Geist, green)? 2.0 exists only for My Listings (`listings-new`). On another page there are no 2.0 tokens: flag it, ask, and keep it [TBC]. In the same row: reuse existing components only, or new ones allowed? Density: match the page, or a new layout? Illustration and empty-state art: the product's own only? | | |
+| D4 | Asked on every PRD. Design language: current Profolio (Figtree, teal) or Profolio 2.0 (Geist, green)? Propose the theme SKILL.md gives the page. 2.0 exists only for My Listings (`listings-new`). On another page there are no 2.0 tokens: flag it, ask, and keep it [TBC]. In the same row: reuse existing components only, or new ones allowed? Density: match the page, or a new layout? Illustration and empty-state art: the product's own only? | | |
 | D5 | States: for each page in D2, name its compiled loading, empty, error and message-* from `pages[x].states` (or "none"). `empty` is a new account, not the feature's own empty. Ask only about states with no compiled file, and always about a new empty state the PRD is silent on. Answer flag-off and no-permission ("not drawn" if so). | | |
 | D6 | Any component the catalogue lacks? List what you think is missing. | | |
 | D7 | Copy: final or placeholder? Arabic now or deferred? | | |

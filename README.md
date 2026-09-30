@@ -37,18 +37,17 @@ PRD leaves open (goal and metric, stories, scope and release, roles, flags; page
 language, states, copy), works out the edge cases itself, and composes the design from the
 product's own compiled HTML. That HTML stays here on GitHub: the skill finds what a PRD needs
 in its design knowledge base (`node qa/find.mjs "<PRD words>"`) and fetches just those files
-(`python3 qa/fetch.py <page> <state>`).
+(`python3 qa/fetch.py <page> <state>`), at the version the `.skill` was built with.
 
-**Get it** — download
-[`profolio-ksa-design.skill`](https://github.com/SheikhSaadShafiq/profolio-bayutksa-design-skill/releases/latest/download/profolio-ksa-design.skill)
-from the [latest release](https://github.com/SheikhSaadShafiq/profolio-bayutksa-design-skill/releases/latest).
-It carries the instructions, the registry, the tokens and the product and design knowledge
+**Get it** — build it (below) and share `dist/profolio-ksa-design.skill` (about 0.5 MB), or
+publish it to your organisation's skills. Nobody needs the repo link: the file knows it. It carries the instructions, the registry, the tokens and the product and design knowledge
 bases. The stylesheets and pages stay here, and the skill fetches only what a PRD needs.
 
 **claude.ai** — upload the `.skill` file under Settings → Capabilities → Skills (code execution
-on). The skill downloads pages from `raw.githubusercontent.com`, so the chat's code execution needs
-network access to that domain. Without it the skill still runs the intake (the gap check, the
-questions, the edge cases and the plan) and says which pages it could not open.
+on). The skill downloads pages from `raw.githubusercontent.com`, or, where that is blocked,
+from `github.com` through git — claude.ai's default network setting ("package managers only")
+allows `github.com`, so nothing needs changing. With network access off, the skill still runs the
+intake (the gap check, the questions, the edge cases and the plan) and says which setting to turn on.
 
 **Claude Code** — a `.skill` file is a zip; unzip it into your skills folder:
 
@@ -60,15 +59,16 @@ Then, in any session, paste a PRD ("design this for Profolio KSA: …"). To have
 instead (about 450 MB), clone this repo and link its `skill/` folder:
 `ln -s "$PWD/skill" ~/.claude/skills/profolio-ksa-design`.
 
-**Build a release** — pages are fetched from `skill/registry.json` → `source.ref`, so build
-from `main`:
+**Build a release** — a `.skill` fetches pages from the tag it was built with, so they always
+match the registry it carries. Tag the commit, push the tag, then build; `skill:file` checks the
+tag is on GitHub and holds this `skill/`:
 
 ```bash
-SKILL_REF=main npm run package && npm run skill:file
+SKILL_REF=skill-vX.Y npm run package && git commit -am "skill-vX.Y" && git tag skill-vX.Y
 ```
 
 ```bash
-gh release create skill-vX.Y dist/profolio-ksa-design.skill --title "Profolio KSA design skill vX.Y"
+git push saad HEAD skill-vX.Y && npm run skill:file
 ```
 
 ## Running it
