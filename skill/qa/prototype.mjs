@@ -123,10 +123,17 @@ function resolveFrom(fromAbs, fromHtml, ref, { phone = false } = {}) {
   return cands.find((c) => existsSync(c) && statSync(c).isFile()) || cands.find((c) => c.startsWith(join(SKILL, 'pages') + '/')) || null;
 }
 
-/* fetch what the skill does not carry: compiled pages and states come from its GitHub repo */
+/* fetch what the skill does not carry: compiled pages, states and components come from its GitHub repo */
 const REG = JSON.parse(read(join(SKILL, 'registry.json')));
 function fetchMissing(paths) {
   const byPage = new Map();
+  /* a component a design was made from (pf-also: atoms/icon.html): fetch.py --component <slug> */
+  const byFile = new Map(Object.entries(REG.components || {}).map(([slug, c]) => [c.file, slug]));
+  const comps = [...new Set(paths.map((p) => byFile.get(posixRel(p))).filter(Boolean))];
+  if (comps.length) {
+    const r = spawnSync('python3', [join(SKILL, 'qa', 'fetch.py'), '--component', ...comps], { cwd: SKILL, encoding: 'utf8' });
+    if (r.status !== 0) W('fetch', `python3 qa/fetch.py --component ${comps.join(' ')} failed: ${(r.stdout + r.stderr).trim().split('\n').slice(-1)[0]}`);
+  }
   for (const p of paths) {
     const r = posixRel(p).match(/^pages\/([^/]+?)(?:\/([^/]+?))?(\.mobile)?\.html$/);
     if (!r || !REG.pages[r[1]]) continue;
