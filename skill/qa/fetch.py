@@ -33,19 +33,27 @@ phone-only state named on its own.
 
 Each file prints with its size: "have" (already here), "get" (fetched now)
 or "need" (--dry-run: not here; its size asked of the server). Missing files
-come from the public repo — registry.json -> source.raw + the file's path, its
-GitHub link — into the same relative path, so their ../css/ links hold.
-A read-only skill folder (claude.ai mounts skills read-only) is not written:
-copy the skill somewhere writable first; the message says how.
+come from the skill's public repo, at the tag the .skill was built with
+(registry.json -> source), into the same relative path, so their ../css/
+links hold: from raw.githubusercontent.com (source.raw + the path) or, where
+that is blocked, from github.com through git (source.git: a shallow clone
+without file contents, kept in the temp folder, then a sparse checkout of
+just these files). claude.ai's default network ("package managers only")
+allows github.com, not raw.githubusercontent.com. A read-only skill folder
+(claude.ai mounts skills read-only) is not written: copy the skill somewhere
+writable first; the message says how.
 
 Exits 1 when a file could not be fetched, 2 on a page or state the registry
-does not know. Standard library only.
+does not know. Standard library and git only.
 """
 import fnmatch
 import json
 import os
 import re
+import shutil
+import subprocess
 import sys
+import tempfile
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -54,7 +62,14 @@ from difflib import get_close_matches
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PHONE_ONLY = ('375', '360')
 ROLES = ('as-staff', 'as-individual')
-RAW = 'https://raw.githubusercontent.com/{repo}/refs/heads/{ref}/skill/{path}'
+RAW = 'https://raw.githubusercontent.com/{repo}/{ref}/skill/{path}'
+GIT_CACHE = os.path.join(tempfile.gettempdir(), 'profolio-ksa-design-git')
+UNREACHABLE = '''
+  GitHub is not reachable from here — raw.githubusercontent.com: {raw}; github.com (git): {git}.
+  The pages come from the skill's public repo: the user needs no link and no file.
+  On claude.ai, code execution needs network access: the organisation owner turns it on under
+  Organization settings -> Capabilities (a personal plan: Settings -> Capabilities). The default,
+  "package managers only", already allows github.com. Meanwhile run the intake: it needs no page.'''
 
 
 def die(msg):
@@ -174,7 +189,14 @@ def url_of(reg, path):
         return src['raw'] + urllib.parse.quote(path, safe='/')
     if not src.get('repo') or not src.get('ref'):
         die('registry.json has no source.repo / source.ref to fetch from')
-    return RAW.format(repo=src['repo'], ref=urllib.parse.quote(src['ref'], safe='/'), path=urllib.parse.quote(path, safe='/'))
+    ref = src['ref'] if src['ref'].startswith('refs/') else f'refs/heads/{src["ref"]}'
+    return RAW.format(repo=src['repo'], ref=urllib.parse.quote(ref, safe='/'), path=urllib.parse.quote(path, safe='/'))
+
+
+def ref_name(reg):
+    """refs/tags/skill-v1.2 -> skill-v1.2: what git clone --branch takes"""
+    ref = (reg.get('source') or {}).get('ref') or 'main'
+    return ref.split('/', 2)[2] if ref.startswith('refs/') else ref
 
 
 LINKED = re.compile(r'(?:href|src)="([^"]+)"|@import\s+(?:url\()?["\']([^"\']+)["\']|url\(["\']?([^"\')]+)')
@@ -244,6 +266,49 @@ def fetch(url, dest):
         return None, getattr(e, 'code', None) or str(getattr(e, 'reason', e))
 
 
+def git_fetch(reg, paths):
+    """the same files through github.com alone: a shallow clone without file contents (once, in
+    the temp folder), then a sparse checkout of just these paths -> ({path: size}, error)"""
+    if not shutil.which('git'):
+        return {}, 'git is not installed'
+    src = reg.get('source') or {}
+    name = ref_name(reg)
+    cache = f'{GIT_CACHE}-{re.sub(r"[^A-Za-z0-9_.-]", "_", name)}'
+
+    def git(*args, cwd=cache):
+        r = subprocess.run(['git', *args], cwd=cwd, capture_output=True, text=True, timeout=600)
+        return None if r.returncode == 0 else (r.stderr.strip().splitlines() or [f'git {args[0]} failed'])[-1]
+    try:
+        if not os.path.isdir(os.path.join(cache, '.git')):
+            shutil.rmtree(cache, ignore_errors=True)
+            url = src.get('git') or f'https://github.com/{src.get("repo")}.git'
+            err = git('clone', '--quiet', '--depth', '1', '--filter=blob:none', '--no-checkout', '--branch', name, url, cache, cwd=None)
+            if err:
+                shutil.rmtree(cache, ignore_errors=True)
+                return {}, err
+            git('config', 'core.sparseCheckout', 'true')
+        info = os.path.join(cache, '.git', 'info', 'sparse-checkout')
+        os.makedirs(os.path.dirname(info), exist_ok=True)
+        have = set(open(info).read().split('\n')) if os.path.exists(info) else set()
+        want = {'/skill/' + re.sub(r'([*?\[\]\\])', r'\\\1', p) for p in paths}
+        with open(info, 'w') as f:
+            f.write('\n'.join(sorted((have | want) - {''})) + '\n')
+        err = git('read-tree', '-mu', 'HEAD')
+        if err:
+            return {}, err
+    except (OSError, subprocess.SubprocessError) as e:
+        return {}, str(e)
+    got = {}
+    for p in paths:
+        s = os.path.join(cache, 'skill', p)
+        if os.path.isfile(s):
+            dest = os.path.join(ROOT, p)
+            os.makedirs(os.path.dirname(dest), exist_ok=True)
+            shutil.copyfile(s, dest)
+            got[p] = os.path.getsize(dest)
+    return got, None
+
+
 def main(argv):
     flags = {'--help' if a == '-h' else a for a in argv if a.startswith('-')}
     args = [a for a in argv if not a.startswith('-')]
@@ -289,35 +354,66 @@ def main(argv):
     if not dry:
         writable_or_die([p for p, _ in files])
     seen, total, failed, need = set(), 0, 0, 0
+    raw_err, via_git = None, 0
     queue = [p for p, _ in files]
     while queue:
-        path = queue.pop(0)
-        if path in seen:
-            continue
-        seen.add(path)
-        dest = os.path.join(ROOT, path)
-        if os.path.exists(dest):
-            n = os.path.getsize(dest)
-            total += n
-            print(f'  have {human(n):>8}  {path}')
-            queue += [a for a in linked_assets(path) if a not in seen and a not in queue]
-            continue
-        url = url_of(reg, path)
-        if dry:
-            n, err = remote_size(url)
-            need += 1
-            total += n or 0
-            print(f'  need {human(n):>8}  {path}' + (f'   ({err})' if err else ''))
-            failed += bool(err)
-            continue
-        n, err = fetch(url, dest)
-        if err:
-            failed += 1
-            print(f'  FAIL {"":>8}  {path}   ({err}: {url})')
-        else:
-            total += n
-            print(f'  get  {human(n):>8}  {path}')
-            queue += [a for a in linked_assets(path) if a not in seen and a not in queue]
+        todo = [p for p in dict.fromkeys(queue) if p not in seen]
+        seen.update(todo)
+        queue, missing, blocked = [], [], []
+        for path in todo:
+            dest = os.path.join(ROOT, path)
+            if os.path.exists(dest):
+                n = os.path.getsize(dest)
+                total += n
+                print(f'  have {human(n):>8}  {path}')
+                queue += linked_assets(path)
+            else:
+                missing.append(path)
+        for path in missing:
+            if raw_err:
+                blocked.append(path)
+                continue
+            url = url_of(reg, path)
+            n, err = remote_size(url) if dry else fetch(url, os.path.join(ROOT, path))
+            if err == 404:
+                failed += 1
+                print(f'  FAIL {"":>8}  {path}   (not in the repo at {ref_name(reg)}: {url})')
+            elif err:
+                raw_err = err
+                blocked.append(path)
+            elif dry:
+                need += 1
+                total += n or 0
+                print(f'  need {human(n):>8}  {path}')
+            else:
+                total += n
+                print(f'  get  {human(n):>8}  {path}')
+                queue += linked_assets(path)
+        if blocked and dry:
+            need += len(blocked)
+            for path in blocked:
+                print(f'  need {human(None):>8}  {path}')
+        elif blocked:
+            # each git batch is one round trip of a few seconds: take the stylesheets and the
+            # prototype script every page links in this one, not in a second
+            extra = [a for a in (reg.get('source') or {}).get('assets', []) if a not in seen and not os.path.exists(os.path.join(ROOT, a))]
+            seen.update(extra)
+            blocked += extra
+            got, git_err = git_fetch(reg, blocked)
+            for path in blocked:
+                if path in got:
+                    via_git += 1
+                    total += got[path]
+                    print(f'  get  {human(got[path]):>8}  {path}   (github.com)')
+                    queue += linked_assets(path)
+                else:
+                    failed += 1
+                    print(f'  FAIL {"":>8}  {path}' + ('' if git_err else f'   (not in the repo at {ref_name(reg)})'))
+            if git_err:
+                print(UNREACHABLE.format(raw=raw_err, git=git_err))
+        queue = [a for a in queue if a not in seen]
+    if via_git:
+        notes.append(f'raw.githubusercontent.com is not reachable here ({raw_err}): fetched through github.com (git)')
     for note in notes:
         print(f'  note {note}')
     print(f'\n  {len(seen)} files, {human(total)}' + (f' — {need} to fetch' if dry else '') + (f' — {failed} failed' if failed else ''))

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * The .skill file — what someone installs; everything else stays on GitHub.
+ * The .skill file — what someone installs; the pages stay on GitHub, at its own tag.
  *
  * A .skill is a zip of one folder holding SKILL.md (claude.ai installs it under
  * Settings → Capabilities → Skills; Claude Code unzips it into ~/.claude/skills).
@@ -8,12 +8,16 @@
  * INTAKE.md, the worked example), the indexes (registry.json, tokens.md), the
  * design knowledge base (kb/), the product knowledge base (product/) and the
  * scripts (qa/). The stylesheets and the compiled pages (about 450 MB) stay in
- * the public repo: qa/fetch.py downloads what a PRD needs from
- * registry.source.raw + the file's path, at registry.source.ref.
+ * the public repo: qa/fetch.py downloads what a PRD needs from registry.source —
+ * raw.githubusercontent.com, or github.com through git where that is blocked.
  *
- *   SKILL_REF=main npm run package && npm run skill:file
+ * A release pins its pages to a tag, so they always match the registry it carries:
  *
- * Writes dist/profolio-ksa-design.skill — attach it to a GitHub release.
+ *   SKILL_REF=skill-vX.Y npm run package && git commit -am "skill-vX.Y" && git tag skill-vX.Y
+ *   git push saad HEAD skill-vX.Y && npm run skill:file
+ *
+ * Writes dist/profolio-ksa-design.skill — share the file, or publish it to the
+ * organisation's skills. Refuses a tag that is not on GitHub or holds another skill/.
  */
 import { mkdirSync, rmSync, cpSync, existsSync, statSync, readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -25,14 +29,29 @@ const SKILL = join(ROOT, 'skill');
 const NAME = 'profolio-ksa-design';
 const STAGE = join(ROOT, '.build', 'skill-file', NAME);
 const CARRIED = ['SKILL.md', 'INTAKE.md', 'registry.json', 'tokens.md', 'kb', 'product', 'qa', 'examples/worked-example.md'];
-for (const f of CARRIED) if (!existsSync(join(SKILL, f))) { console.error(`  missing skill/${f} — run npm run package`); process.exit(2); }
+const fail = (msg) => { console.error(`  ${msg}`); process.exit(2); };
+const git = (...args) => execFileSync('git', args, { cwd: ROOT }).toString().trim();
+for (const f of CARRIED) if (!existsSync(join(SKILL, f))) fail(`missing skill/${f} — run npm run package`);
 const { source } = JSON.parse(readFileSync(join(SKILL, 'registry.json'), 'utf8'));
-if (!source?.raw || !source?.assets?.length) { console.error('  registry.json has no source.raw / source.assets — run npm run package'); process.exit(2); }
+if (!source?.raw || !source?.git || !source?.assets?.length) fail('registry.json has no source.raw / source.git / source.assets — run npm run package');
+
+/* a tag: on GitHub, and holding exactly this skill/, so every page it fetches matches this registry */
+const tag = source.ref.startsWith('refs/tags/') ? source.ref.slice('refs/tags/'.length) : null;
+if (tag) {
+  const remote = git('ls-remote', source.git, source.ref).split(/\s/)[0];
+  if (!remote) fail(`the tag ${tag} is not on GitHub — git tag ${tag} && git push saad ${tag}`);
+  let local = '';
+  try { local = git('rev-parse', `${source.ref}^{commit}`); } catch { /* no local tag */ }
+  if (remote !== local) fail(`the tag ${tag} on GitHub (${remote.slice(0, 8)}) is not the local one (${local.slice(0, 8) || 'none'})`);
+  try { git('diff', '--quiet', tag, '--', 'skill'); } catch { fail(`skill/ differs from the tag ${tag} — commit, re-tag and push it first`); }
+}
+
 rmSync(join(ROOT, '.build', 'skill-file'), { recursive: true, force: true });
-for (const f of CARRIED) { mkdirSync(dirname(join(STAGE, f)), { recursive: true }); cpSync(join(SKILL, f), join(STAGE, f), { recursive: true }); }
+const keep = (p) => !/(^|\/)(__pycache__|\.DS_Store)(\/|$)/.test(p);
+for (const f of CARRIED) { mkdirSync(dirname(join(STAGE, f)), { recursive: true }); cpSync(join(SKILL, f), join(STAGE, f), { recursive: true, filter: keep }); }
 mkdirSync(join(ROOT, 'dist'), { recursive: true });
 const out = join(ROOT, 'dist', `${NAME}.skill`);
 rmSync(out, { force: true });
-execFileSync('zip', ['-qr', '-X', out, NAME, '-x', '*.DS_Store', '*/__pycache__/*'], { cwd: join(ROOT, '.build', 'skill-file') });
+execFileSync('zip', ['-qr', '-X', out, NAME], { cwd: join(ROOT, '.build', 'skill-file') });
 console.log(`  dist/${NAME}.skill — ${(statSync(out).size / 1048576).toFixed(1)} MB; pages and css/ fetched from ${source.raw}`);
-if (source.ref !== 'main') console.log(`  note: it fetches from the branch "${source.ref}" — a release is built with SKILL_REF=main`);
+if (!tag) console.log(`  note: it fetches from the branch at ${source.ref}, not a tag — a release is built with SKILL_REF=skill-vX.Y`);

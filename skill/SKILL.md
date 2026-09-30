@@ -22,13 +22,20 @@ at 1440 (web) and 375 (phone). You compose from it. You never redraw it.
 - Never read more than 3 component files in one task.
 - A page file is the product's whole DOM: grep it for the part you need.
 
-**A file the registry names is not here?** The `.skill` carries the instructions, `registry.json`,
-`tokens.md`, the knowledge bases (`kb/` design, `product/` product), `qa/` and the worked example.
-The stylesheets and every page are on GitHub, each at `registry.source.raw` + its path. Fetch
-them, links intact: `python3 qa/fetch.py --css` once (before grepping `css/` or validating), then
+**Where the files are.** Everything this skill uses sits in its own folder, next to this
+SKILL.md — not in the user's project. Find that folder first and run every command from it:
+`~/.claude/skills/profolio-ksa-design/` in Claude Code; elsewhere
+`find / -name INTAKE.md -path '*profolio-ksa-design*' 2>/dev/null`. The `.skill` carries the
+instructions, `registry.json`, `tokens.md`, the knowledge bases (`kb/` design, `product/`
+product), `qa/` and the worked example. **A file the registry names is not here?** The
+stylesheets and every page are in the skill's public GitHub repo, at the version this skill was
+built with (`registry.source`) — never ask the user for a link, a repo or a file. Fetch them,
+links intact: `python3 qa/fetch.py --css` once (before grepping `css/` or validating), then
 `python3 qa/fetch.py <page> [<state>…] [--375] [--roles] [--dry-run]` (or `--flow`, `--component`).
-A read-only skill folder (claude.ai): work on a copy — fetch.py prints the command. No network
-to GitHub: say so, and ask the user to allow `raw.githubusercontent.com` or to attach the file.
+It tries `raw.githubusercontent.com`, then `github.com` through git, which claude.ai allows by
+default. A read-only skill folder (claude.ai): work on a copy — fetch.py prints the command.
+GitHub not reachable: fetch.py prints the one setting to turn on; tell the user, and run the
+intake meanwhile — it needs no page.
 A state id ending `@web` is only `pages/<page>/<state>.html`, `@375` (`@360` in the new theme)
 only `<state>.mobile.html`, the suffix dropped from the file name; any other has both.
 
