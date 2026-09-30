@@ -1,0 +1,638 @@
+{
+ "ran": true,
+ "note": "",
+ "browser": "Playwright Chromium",
+ "renders": 26,
+ "errors": 0,
+ "warnings": 44,
+ "product": 0,
+ "issues": [
+  {
+   "level": "warn",
+   "check": "rows",
+   "platform": "web",
+   "message": "Cells in the same row are aligned differently (some top, some centre) — 7 rows; use one alignment (kit rows centre)",
+   "states": [
+    "owner",
+    "first-visit",
+    "buy",
+    "insufficient",
+    "staff-cap",
+    "gone"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "small",
+   "platform": "web",
+   "message": "Text “Ov” is 10 px",
+   "states": [
+    "owner",
+    "seeker",
+    "first-visit",
+    "filtered",
+    "no-results",
+    "buy",
+    "bought",
+    "insufficient",
+    "staff-cap",
+    "gone",
+    "loading",
+    "empty",
+    "error"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "small",
+   "platform": "web",
+   "message": "Text “+” is 10 px",
+   "states": [
+    "owner",
+    "seeker",
+    "first-visit",
+    "filtered",
+    "no-results",
+    "buy",
+    "bought",
+    "insufficient",
+    "staff-cap",
+    "gone",
+    "loading",
+    "empty",
+    "error"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "small",
+   "platform": "web",
+   "message": "Text “ML” is 10 px",
+   "states": [
+    "owner",
+    "seeker",
+    "first-visit",
+    "filtered",
+    "no-results",
+    "buy",
+    "bought",
+    "insufficient",
+    "staff-cap",
+    "gone",
+    "loading",
+    "empty",
+    "error"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "small",
+   "platform": "web",
+   "message": "Text “Cr” is 10 px",
+   "states": [
+    "owner",
+    "seeker",
+    "first-visit",
+    "filtered",
+    "no-results",
+    "buy",
+    "bought",
+    "insufficient",
+    "staff-cap",
+    "gone",
+    "loading",
+    "empty",
+    "error"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "small",
+   "platform": "web",
+   "message": "Text “TL” is 10 px",
+   "states": [
+    "owner",
+    "seeker",
+    "first-visit",
+    "filtered",
+    "no-results",
+    "buy",
+    "bought",
+    "insufficient",
+    "staff-cap",
+    "gone",
+    "loading",
+    "empty",
+    "error"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "small",
+   "platform": "web",
+   "message": "Text “LM” is 10 px",
+   "states": [
+    "owner",
+    "seeker",
+    "first-visit",
+    "filtered",
+    "no-results",
+    "buy",
+    "bought",
+    "insufficient",
+    "staff-cap",
+    "gone",
+    "loading",
+    "empty",
+    "error"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "small",
+   "platform": "web",
+   "message": "Text “AP” is 10 px",
+   "states": [
+    "owner",
+    "seeker",
+    "first-visit",
+    "filtered",
+    "no-results",
+    "buy",
+    "bought",
+    "insufficient",
+    "staff-cap",
+    "gone",
+    "loading",
+    "empty",
+    "error"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "small",
+   "platform": "web",
+   "message": "Text “Rp” is 10 px",
+   "states": [
+    "owner",
+    "seeker",
+    "first-visit",
+    "filtered",
+    "no-results",
+    "buy",
+    "bought",
+    "insufficient",
+    "staff-cap",
+    "gone",
+    "loading",
+    "empty",
+    "error"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "small",
+   "platform": "web",
+   "message": "Text “St” is 10 px",
+   "states": [
+    "owner",
+    "seeker",
+    "first-visit",
+    "filtered",
+    "no-results",
+    "buy",
+    "bought",
+    "insufficient",
+    "staff-cap",
+    "gone",
+    "loading",
+    "empty",
+    "error"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "rows",
+   "platform": "web",
+   "message": "Cells in the same row are aligned differently (some top, some centre) — 5 rows; use one alignment (kit rows centre)",
+   "states": [
+    "seeker"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "rows",
+   "platform": "web",
+   "message": "Cells in the same row are aligned differently (some top, some centre) — 2 rows; use one alignment (kit rows centre)",
+   "states": [
+    "filtered"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "rows",
+   "platform": "web",
+   "message": "Cells in the same row are aligned differently (some top, some centre) — 6 rows; use one alignment (kit rows centre)",
+   "states": [
+    "bought"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "rows",
+   "platform": "phone",
+   "message": "Cells in the same row are aligned differently (some top, some centre) — 8 rows; use one alignment (kit rows centre)",
+   "states": [
+    "owner",
+    "first-visit",
+    "buy",
+    "bought",
+    "insufficient",
+    "staff-cap",
+    "gone"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“☰” is 41 × 36 px — under 44 × 44 on a phone",
+   "states": [
+    "owner",
+    "seeker",
+    "first-visit",
+    "filtered",
+    "no-results",
+    "buy",
+    "bought",
+    "insufficient",
+    "staff-cap",
+    "gone",
+    "loading",
+    "empty",
+    "error"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“Bell” is 54 × 36 px — under 44 × 44 on a phone",
+   "states": [
+    "owner",
+    "seeker",
+    "first-visit",
+    "filtered",
+    "no-results",
+    "buy",
+    "bought",
+    "insufficient",
+    "staff-cap",
+    "gone",
+    "loading",
+    "empty",
+    "error"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“Owner Leads 8” is 109 × 44 px — under 44 × 44 on a phone",
+   "states": [
+    "owner",
+    "first-visit",
+    "filtered",
+    "no-results",
+    "buy",
+    "bought",
+    "insufficient",
+    "staff-cap",
+    "gone",
+    "loading",
+    "error"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“Seeker Leads 6” is 107 × 44 px — under 44 × 44 on a phone",
+   "states": [
+    "owner",
+    "first-visit",
+    "filtered",
+    "no-results",
+    "buy",
+    "bought",
+    "insufficient",
+    "staff-cap",
+    "gone",
+    "loading",
+    "error"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“PurposeFor SaleFor RentBuy” is 90 × 32 px — under 44 × 44 on a phone",
+   "states": [
+    "owner",
+    "seeker",
+    "first-visit",
+    "no-results",
+    "buy",
+    "bought",
+    "insufficient",
+    "staff-cap",
+    "gone",
+    "loading",
+    "empty",
+    "error"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“City” is 64 × 32 px — under 44 × 44 on a phone",
+   "states": [
+    "owner",
+    "seeker",
+    "first-visit",
+    "buy",
+    "bought",
+    "insufficient",
+    "staff-cap",
+    "gone",
+    "loading",
+    "empty",
+    "error"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“Sort” is 66 × 32 px — under 44 × 44 on a phone",
+   "states": [
+    "owner",
+    "seeker",
+    "first-visit",
+    "filtered",
+    "no-results",
+    "buy",
+    "bought",
+    "insufficient",
+    "staff-cap",
+    "gone",
+    "loading",
+    "empty",
+    "error"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“Top up” is 70 × 36 px — under 44 × 44 on a phone",
+   "states": [
+    "owner",
+    "seeker",
+    "first-visit",
+    "filtered",
+    "no-results",
+    "buy",
+    "bought",
+    "insufficient",
+    "staff-cap",
+    "gone",
+    "loading",
+    "empty",
+    "error"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“Buy for 40 credits” is 294 × 36 px — under 44 × 44 on a phone",
+   "states": [
+    "owner",
+    "first-visit",
+    "filtered",
+    "buy",
+    "bought",
+    "insufficient",
+    "staff-cap",
+    "gone"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“Buy for 20 credits” is 294 × 36 px — under 44 × 44 on a phone",
+   "states": [
+    "owner",
+    "first-visit",
+    "buy",
+    "bought",
+    "insufficient",
+    "staff-cap",
+    "gone"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“View in TruLeads →” is 294 × 36 px — under 44 × 44 on a phone",
+   "states": [
+    "owner",
+    "seeker",
+    "first-visit",
+    "buy",
+    "bought",
+    "insufficient",
+    "staff-cap",
+    "gone"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "rows",
+   "platform": "phone",
+   "message": "Cells in the same row are aligned differently (some top, some centre) — 6 rows; use one alignment (kit rows centre)",
+   "states": [
+    "seeker"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“Owner Leads 8” is 104 × 44 px — under 44 × 44 on a phone",
+   "states": [
+    "seeker"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“Seeker Leads 6” is 111 × 44 px — under 44 × 44 on a phone",
+   "states": [
+    "seeker"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“Buy for 30 credits” is 294 × 36 px — under 44 × 44 on a phone",
+   "states": [
+    "seeker"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“Buy for 15 credits” is 294 × 36 px — under 44 × 44 on a phone",
+   "states": [
+    "seeker"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“Got it” is 294 × 36 px — under 44 × 44 on a phone",
+   "states": [
+    "first-visit"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“PurposeFor SaleFor RentBuy” is 89 × 32 px — under 44 × 44 on a phone",
+   "states": [
+    "filtered"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“Riyadh” is 81 × 32 px — under 44 × 44 on a phone",
+   "states": [
+    "filtered"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“Clear” is 63 × 36 px — under 44 × 44 on a phone",
+   "states": [
+    "filtered",
+    "no-results"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“Abha” is 71 × 32 px — under 44 × 44 on a phone",
+   "states": [
+    "no-results"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“Clear filters” is 104 × 36 px — under 44 × 44 on a phone",
+   "states": [
+    "no-results"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“Buy for 40 credits” is 328 × 36 px — under 44 × 44 on a phone",
+   "states": [
+    "buy"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“Cancel” is 328 × 36 px — under 44 × 44 on a phone",
+   "states": [
+    "buy",
+    "insufficient"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“Top-Up your Credits” is 328 × 36 px — under 44 × 44 on a phone",
+   "states": [
+    "insufficient"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“OK” is 328 × 36 px — under 44 × 44 on a phone",
+   "states": [
+    "staff-cap"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“Owner Leads 0” is 109 × 44 px — under 44 × 44 on a phone",
+   "states": [
+    "empty"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“Seeker Leads 0” is 106 × 44 px — under 44 × 44 on a phone",
+   "states": [
+    "empty"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“Refresh” is 79 × 36 px — under 44 × 44 on a phone",
+   "states": [
+    "empty"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“Try Again” is 90 × 36 px — under 44 × 44 on a phone",
+   "states": [
+    "error"
+   ]
+  }
+ ],
+ "built": "2026-09-30T12:52:03.893Z"
+}

@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Leads Marketplace — wireframe (web)</title>
+<meta name="pf-device" content="web">
+<meta name="pf-wireframe" content="Leads Marketplace · web 1440 · structure and flow, not visuals">
+<link rel="stylesheet" href="../../kit/wireframe.css">
+<link rel="stylesheet" href="../../kit/kit.css">
+</head>
+<body class="wf">
+<div class="wf-shell">
+  <nav class="wf-rail" aria-label="Product rail">
+    <span class="wf-rail-item" title="Overview" data-pf-page="/dashboard">Ov</span>
+    <span class="wf-rail-item" title="Post Listing" data-pf-page="/post-listing">+</span>
+    <span class="wf-rail-item" title="My Listings" data-pf-page="/listings">ML</span>
+    <span class="wf-rail-item" title="Credits Usage" data-pf-page="/credits-usage">Cr</span>
+    <span class="wf-rail-item" title="TruLeads" data-pf-page="/lms/leads">TL</span>
+    <span class="wf-rail-item wf-rail-item--on wf-rail-item--new" title="Leads Marketplace — new, below TruLeads" data-pf-inert="this page">LM</span>
+    <span class="wf-rail-item" title="Agent Performance" data-pf-page="/agent-performance">AP</span>
+    <span class="wf-rail-item" title="Reports" data-pf-page="/reports/summary">Rp</span>
+    <span class="wf-rail-item" title="Agency Staff" data-pf-page="/agency-staff">St</span>
+  </nav>
+  <header class="wf-header">
+    <span class="wf-pin">1</span>
+    <h1 class="wf-title">Leads Marketplace</h1>
+    <button class="wf-btn wf-btn--ghost" data-pf-href="https://apps.apple.com/">Download App</button>
+    <button class="wf-btn wf-btn--ghost" data-pf-href="https://www.bayut.sa/">Go to Bayut.sa</button>
+    <button class="wf-btn wf-btn--primary" data-pf-page="/post-listing">Post a Listing</button>
+    <button class="wf-btn" data-pf-toast="The product's notification centre opens here">Bell</button>
+    <button class="wf-btn" data-pf-toast="The product's account menu opens here">Avatar</button>
+  </header>
+
+  <main class="wf-main">
+    <!-- first visit: what this is, once -->
+    <section class="wf-card wf-pad wf-row wf-between" data-pf-show="intro">
+      <div class="wf-col wf-grow">
+        <b class="wf-h2" data-pf-new-copy>Buy leads straight from Bayut</b>
+        <p class="wf-text" data-pf-new-copy>Owners from Sell with Bayut want an agent; seekers from Find My Property say what they want. Each lead costs credits — once your agency buys it, the contact unlocks and the lead is yours in TruLeads.</p>
+      </div>
+      <button class="wf-btn" data-pf-do="dismiss-intro" data-pf-new-copy>Got it</button>
+    </section>
+
+    <!-- filters -->
+    <section class="wf-card wf-pad wf-row wf-between">
+      <div class="wf-row">
+        <span class="wf-pin">2</span>
+        <div class="wf-seg" role="group" aria-label="Purpose" data-pf-show="tab=owner">
+          <button class="wf-seg__opt" data-pf-set="filter.purpose=''; filter.band=''; filter.bandLabel=''" data-pf-class="wf-seg__opt--on: !filter.purpose">All</button>
+          <button class="wf-seg__opt" data-pf-set="filter.purpose=sale; filter.band=''; filter.bandLabel=''" data-pf-class="wf-seg__opt--on: filter.purpose=sale">For Sale</button>
+          <button class="wf-seg__opt" data-pf-set="filter.purpose=rent; filter.band=''; filter.bandLabel=''" data-pf-class="wf-seg__opt--on: filter.purpose=rent">For Rent</button>
+        </div>
+        <div class="wf-seg" role="group" aria-label="Purpose" data-pf-show="tab=seeker">
+          <button class="wf-seg__opt" data-pf-set="filter.purpose=''; filter.band=''; filter.bandLabel=''" data-pf-class="wf-seg__opt--on: !filter.purpose">All</button>
+          <button class="wf-seg__opt" data-pf-set="filter.purpose=buy; filter.band=''; filter.bandLabel=''" data-pf-class="wf-seg__opt--on: filter.purpose=buy">Buy</button>
+          <button class="wf-seg__opt" data-pf-set="filter.purpose=rent; filter.band=''; filter.bandLabel=''" data-pf-class="wf-seg__opt--on: filter.purpose=rent">Rent</button>
+        </div>
+        <div class="wf-anchor">
+          <button class="wf-select" data-pf-menu="city" data-pf-class="wf-select--set: filter.city"><span data-pf-text="filter.city" data-pf-default="Select City"></span></button>
+          <div class="wf-menu" data-pf-menu-panel="city">
+            <button class="wf-menu__item" data-pf-set="filter.city=''; menu=''">Any city</button>
+            <div data-pf-list="cities"><template><button class="wf-menu__item" data-pf-set="filter.city=$.value; menu=''" data-pf-class="wf-menu__item--on: filter.city=$.value" data-pf-text="$.label"></button></template></div>
+          </div>
+        </div>
+        <div class="wf-anchor">
+          <button class="wf-select" data-pf-menu="band" data-pf-class="wf-select--set: filter.band"><span data-pf-text="filter.bandLabel" data-pf-default="Price"></span></button>
+          <div class="wf-menu" data-pf-menu-panel="band">
+            <button class="wf-menu__item" data-pf-set="filter.band=''; filter.bandLabel=''; menu=''">Any price</button>
+            <div data-pf-show="filter.purpose!=rent">
+              <button class="wf-menu__item" data-pf-set="filter.band=u1m; filter.bandLabel='Under 1M'; menu=''">Under 1M</button>
+              <button class="wf-menu__item" data-pf-set="filter.band=1-3m; filter.bandLabel='1M – 3M'; menu=''">1M – 3M</button>
+              <button class="wf-menu__item" data-pf-set="filter.band=o3m; filter.bandLabel='Over 3M'; menu=''">Over 3M</button>
+            </div>
+            <div data-pf-show="filter.purpose=rent">
+              <button class="wf-menu__item" data-pf-set="filter.band=u50k; filter.bandLabel='Under 50K a year'; menu=''">Under 50K a year</button>
+              <button class="wf-menu__item" data-pf-set="filter.band=50-100k; filter.bandLabel='50K – 100K a year'; menu=''">50K – 100K a year</button>
+              <button class="wf-menu__item" data-pf-set="filter.band=o100k; filter.bandLabel='Over 100K a year'; menu=''">Over 100K a year</button>
+            </div>
+          </div>
+        </div>
+        <div class="wf-anchor" data-pf-show="tab=seeker">
+          <button class="wf-select" data-pf-menu="type" data-pf-class="wf-select--set: filter.type"><span data-pf-text="filter.type" data-pf-default="Property Type"></span></button>
+          <div class="wf-menu" data-pf-menu-panel="type">
+            <button class="wf-menu__item" data-pf-set="filter.type=''; menu=''">Any type</button>
+            <button class="wf-menu__item" data-pf-set="filter.type=Apartment; menu=''">Apartment</button>
+            <button class="wf-menu__item" data-pf-set="filter.type=Villa; menu=''">Villa</button>
+            <button class="wf-menu__item" data-pf-set="filter.type=Duplex; menu=''">Duplex</button>
+            <button class="wf-menu__item" data-pf-set="filter.type=Townhouse; menu=''">Townhouse</button>
+            <button class="wf-menu__item" data-pf-set="filter.type=Land; menu=''">Land</button>
+          </div>
+        </div>
+      </div>
+      <button class="wf-btn wf-btn--ghost" data-pf-do="clear-filters" data-pf-show="filter.purpose || filter.city || filter.band || filter.type">Clear filters</button>
+    </section>
+
+    <section class="wf-card">
+      <!-- tabs, balance, sort -->
+      <div class="wf-row wf-between">
+        <div class="wf-tabs wf-grow">
+          <span class="wf-pin">3</span>
+          <span class="wf-tab" data-pf-do="tab-owner" data-pf-class="wf-tab--on: tab=owner" data-pf-new-copy>Owner Leads <span class="wf-count" data-pf-text="total.owner"></span></span>
+          <span class="wf-tab" data-pf-do="tab-seeker" data-pf-class="wf-tab--on: tab=seeker" data-pf-new-copy>Seeker Leads <span class="wf-count" data-pf-text="total.seeker"></span></span>
+        </div>
+        <div class="wf-row wf-pad">
+          <span class="wf-meta" data-pf-show="role=owner"><b class="wf-num" data-pf-text="balance" data-pf-fmt="n"></b> credits available</span>
+          <span class="wf-meta" data-pf-show="role=staff">Your limit: <b class="wf-num" data-pf-text="cap"></b> credits</span>
+          <button class="wf-btn wf-btn--ghost" data-pf-page="/credits-usage">Top up</button>
+          <div class="wf-anchor">
+            <button class="wf-select" data-pf-menu="sort"><span data-pf-show="sort=added">Newest first</span><span data-pf-show="sort=-price">Price: high to low</span><span data-pf-show="sort=price">Price: low to high</span></button>
+            <div class="wf-menu" data-pf-menu-panel="sort">
+              <button class="wf-menu__item" data-pf-set="sort=added; menu=''" data-pf-class="wf-menu__item--on: sort=added">Newest first</button>
+              <button class="wf-menu__item" data-pf-set="sort=-price; menu=''" data-pf-class="wf-menu__item--on: sort=-price">Price: high to low</button>
+              <button class="wf-menu__item" data-pf-set="sort=price; menu=''" data-pf-class="wf-menu__item--on: sort=price">Price: low to high</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- owner leads: one field per column; the contact is the hero, blurred until bought -->
+      <div class="wf-table" data-pf-show="tab=owner" style="--pfk-cols: 1.3fr 1.2fr 1fr 0.9fr 1.1fr 196px">
+        <div class="wf-thead">
+          <div class="wf-th">Contact <span class="wf-pin">4</span></div><div class="wf-th">Property</div><div class="wf-th">Price</div><div class="wf-th">Beds &amp; Baths</div><div class="wf-th">Location</div><div class="wf-th wf-th--end">Action <span class="wf-pin">5</span></div>
+        </div>
+        <div data-pf-show="net=loading" data-pf-skeleton="owner" data-pf-rows="6"></div>
+        <div data-pf-list="owner" data-pf-show="net=ready" data-pf-filter="purpose=@filter.purpose; city=@filter.city; band=@filter.band" data-pf-sort="@sort">
+          <template>
+            <div class="wf-tr" data-pf-class="wf-tr--tint: $.status=bought; wf-tr--muted: $.status=gone">
+              <div class="wf-td"><div class="wf-col">
+                <span class="wf-col" data-pf-show="$.status!=bought"><span class="wf-blur wf-blur--name"></span><span class="wf-blur wf-blur--phone"></span></span>
+                <span class="wf-row" data-pf-show="$.status=bought"><b data-pf-text="$.name"></b><span class="wf-pill wf-pill--dark" data-pf-new-copy>Bought</span></span>
+                <span class="wf-text" data-pf-show="$.status=bought" data-pf-text="$.phone"></span>
+                <span class="wf-meta" data-pf-show="$.status!=bought" data-pf-text="$.addedLabel"></span>
+                <span class="wf-meta" data-pf-show="$.status=bought" data-pf-new-copy>Bought by <span data-pf-text="$.buyer"></span> · <span data-pf-text="$.when"></span></span>
+              </div></div>
+              <div class="wf-td"><div class="wf-col"><span><span class="wf-pill" data-pf-text="$.purposeLabel"></span></span><span class="wf-text" data-pf-text="$.intent"></span></div></div>
+              <div class="wf-td"><div class="wf-col"><span class="wf-meta" data-pf-text="$.priceLabel"></span><span class="wf-amount"><i class="pfk-riyal" aria-label="SAR"></i><span data-pf-text="$.price" data-pf-fmt="n"></span></span></div></div>
+              <div class="wf-td"><span class="wf-strong"><span data-pf-text="$.beds"></span> <span data-pf-show="$.beds=1">Bed</span><span data-pf-show="$.beds!=1">Beds</span> · <span data-pf-text="$.baths"></span> <span data-pf-show="$.baths=1">Bath</span><span data-pf-show="$.baths!=1">Baths</span></span></div>
+              <div class="wf-td"><span class="wf-row"><span class="wf-icon"></span><span><span data-pf-text="$.district"></span>, <span data-pf-text="$.city"></span></span></span></div>
+              <div class="wf-td wf-td--end">
+                <button class="wf-btn wf-btn--primary" data-pf-show="$.status=open" data-pf-set="lead=$.id; price=$.credits; leadKind=owner" data-pf-do="buy"><span>Buy for <span data-pf-text="$.credits"></span> credits</span></button>
+                <button class="wf-btn" data-pf-show="$.status=bought" data-pf-page="/lms/leads">View in TruLeads →</button>
+                <span class="wf-meta" data-pf-show="$.status=gone" data-pf-new-copy>No longer available</span>
+              </div>
+            </div>
+          </template>
+        </div>
+        <div class="wf-empty" data-pf-show="net=ready && total.owner=0">
+          <div class="wf-empty__art">clock</div>
+          <p class="wf-empty__title" data-pf-new-copy>No owner leads right now</p>
+          <p class="wf-empty__text" data-pf-new-copy>New owners from Sell with Bayut arrive through the day. Check back soon — each new lead shows here first.</p>
+          <button class="wf-btn" data-pf-do="retry" data-pf-new-copy>Refresh</button>
+        </div>
+        <div class="wf-empty" data-pf-show="net=ready && total.owner>0 && count.owner=0">
+          <div class="wf-empty__art">filter</div>
+          <p class="wf-empty__title" data-pf-new-copy>No leads match these filters</p>
+          <p class="wf-empty__text" data-pf-new-copy>Try another city or price range, or clear the filters to see every open lead.</p>
+          <button class="wf-btn wf-btn--primary" data-pf-do="clear-filters">Clear filters</button>
+        </div>
+        <div class="wf-empty" data-pf-show="net=error">
+          <div class="wf-empty__art">!</div>
+          <p class="wf-empty__title">Something went wrong, please try again</p>
+          <p class="wf-empty__text" data-pf-new-copy>The leads could not load. Check your connection, then try again.</p>
+          <button class="wf-btn wf-btn--primary" data-pf-do="retry">Try Again</button>
+        </div>
+      </div>
+
+      <!-- seeker leads -->
+      <div class="wf-table" data-pf-show="tab=seeker" style="--pfk-cols: 1.3fr 1.2fr 1.1fr 0.9fr 0.9fr 196px">
+        <div class="wf-thead">
+          <div class="wf-th">Contact</div><div class="wf-th" data-pf-new-copy>Looking For</div><div class="wf-th" data-pf-new-copy>Budget</div><div class="wf-th">Beds &amp; Baths</div><div class="wf-th">Location</div><div class="wf-th wf-th--end">Action</div>
+        </div>
+        <div data-pf-show="net=loading" data-pf-skeleton="seeker" data-pf-rows="6"></div>
+        <div data-pf-list="seeker" data-pf-show="net=ready" data-pf-filter="purpose=@filter.purpose; city=@filter.city; band=@filter.band; types~@filter.type" data-pf-sort="@sort">
+          <template>
+            <div class="wf-tr" data-pf-class="wf-tr--tint: $.status=bought; wf-tr--muted: $.status=gone">
+              <div class="wf-td"><div class="wf-col">
+                <span class="wf-col" data-pf-show="$.status!=bought"><span class="wf-blur wf-blur--name"></span><span class="wf-blur wf-blur--phone"></span></span>
+                <span class="wf-row" data-pf-show="$.status=bought"><b data-pf-text="$.name"></b><span class="wf-pill wf-pill--dark" data-pf-new-copy>Bought</span></span>
+                <span class="wf-text" data-pf-show="$.status=bought" data-pf-text="$.phone"></span>
+                <span class="wf-meta" data-pf-show="$.status!=bought" data-pf-text="$.addedLabel"></span>
+                <span class="wf-meta" data-pf-show="$.status=bought" data-pf-new-copy>Bought by <span data-pf-text="$.buyer"></span> · <span data-pf-text="$.when"></span></span>
+              </div></div>
+              <div class="wf-td"><div class="wf-col"><span><span class="wf-pill" data-pf-text="$.purposeLabel"></span></span><span class="wf-text" data-pf-text="$.types"></span></div></div>
+              <div class="wf-td"><div class="wf-col"><span class="wf-meta" data-pf-text="$.priceLabel"></span><span class="wf-amount"><i class="pfk-riyal" aria-label="SAR"></i><span data-pf-text="$.min" data-pf-fmt="n"></span> – <span data-pf-text="$.max" data-pf-fmt="n"></span></span></div></div>
+              <div class="wf-td"><span class="wf-strong"><span data-pf-text="$.beds"></span> Beds · <span data-pf-text="$.baths"></span> Baths</span></div>
+              <div class="wf-td"><span class="wf-row"><span class="wf-icon"></span><span data-pf-text="$.city"></span></span></div>
+              <div class="wf-td wf-td--end">
+                <button class="wf-btn wf-btn--primary" data-pf-show="$.status=open" data-pf-set="lead=$.id; price=$.credits; leadKind=seeker" data-pf-do="buy"><span>Buy for <span data-pf-text="$.credits"></span> credits</span></button>
+                <button class="wf-btn" data-pf-show="$.status=bought" data-pf-page="/lms/leads">View in TruLeads →</button>
+                <span class="wf-meta" data-pf-show="$.status=gone" data-pf-new-copy>No longer available</span>
+              </div>
+            </div>
+          </template>
+        </div>
+        <div class="wf-empty" data-pf-show="net=ready && total.seeker=0">
+          <div class="wf-empty__art">clock</div>
+          <p class="wf-empty__title" data-pf-new-copy>No seeker leads right now</p>
+          <p class="wf-empty__text" data-pf-new-copy>New buyers and tenants from Find My Property arrive through the day. Check back soon.</p>
+          <button class="wf-btn" data-pf-do="retry" data-pf-new-copy>Refresh</button>
+        </div>
+        <div class="wf-empty" data-pf-show="net=ready && total.seeker>0 && count.seeker=0">
+          <div class="wf-empty__art">filter</div>
+          <p class="wf-empty__title" data-pf-new-copy>No leads match these filters</p>
+          <p class="wf-empty__text" data-pf-new-copy>Try another city, budget or property type, or clear the filters.</p>
+          <button class="wf-btn wf-btn--primary" data-pf-do="clear-filters">Clear filters</button>
+        </div>
+        <div class="wf-empty" data-pf-show="net=error">
+          <div class="wf-empty__art">!</div>
+          <p class="wf-empty__title">Something went wrong, please try again</p>
+          <p class="wf-empty__text" data-pf-new-copy>The leads could not load. Check your connection, then try again.</p>
+          <button class="wf-btn wf-btn--primary" data-pf-do="retry">Try Again</button>
+        </div>
+      </div>
+    </section>
+
+    <aside class="wf-legend" aria-label="Notes">
+      <div class="wf-note"><span class="wf-pin">1</span>A new rail item, directly below TruLeads — only when TruLeads is on (user.is_lms_enabled) and the tenant flag is on.</div>
+      <div class="wf-note"><span class="wf-pin">2</span>Filters apply at once: purpose, city and price (property type on Seeker Leads). Price bands follow the purpose.</div>
+      <div class="wf-note"><span class="wf-pin">3</span>One tab per source: Owner Leads (Sell with Bayut) and Seeker Leads (Find My Property). Switching clears the filters.</div>
+      <div class="wf-note"><span class="wf-pin">4</span>The contact leads the row, blurred over a fixed placeholder until your agency buys the lead — the real name and phone never reach the page before.</div>
+      <div class="wf-note"><span class="wf-pin">5</span>Buy for its price in credits. Bought: the row unblurs, says who bought it, and opens TruLeads. Gone: dimmed, nothing to buy.</div>
+    </aside>
+  </main>
+</div>
+
+<!-- the buy dialog: the lead it opened for, its price, the balance, the no-refund rule -->
+<div class="wf-mask" data-pf-overlay="buy">
+  <div class="wf-modal" role="dialog" aria-label="Buy lead">
+    <div class="wf-modal__head"><span data-pf-show="leadKind=owner" data-pf-new-copy>Buy owner lead</span><span data-pf-show="leadKind=seeker" data-pf-new-copy>Buy seeker lead</span><button class="wf-btn wf-btn--ghost" data-pf-close aria-label="Close">✕</button></div>
+    <div class="wf-modal__body">
+      <div class="wf-card wf-pad">
+        <div data-pf-list="owner" data-pf-filter="id=@lead" data-pf-count="dialog"><template>
+          <div class="wf-col"><span class="wf-row"><span class="wf-pill" data-pf-text="$.purposeLabel"></span><span class="wf-meta" data-pf-text="$.expires"></span></span>
+          <span class="wf-amount"><i class="pfk-riyal" aria-label="SAR"></i><span data-pf-text="$.price" data-pf-fmt="n"></span></span>
+          <span class="wf-text"><span data-pf-text="$.beds"></span> Beds · <span data-pf-text="$.baths"></span> Baths · <span data-pf-text="$.district"></span>, <span data-pf-text="$.city"></span></span></div>
+        </template></div>
+        <div data-pf-list="seeker" data-pf-filter="id=@lead" data-pf-count="dialog"><template>
+          <div class="wf-col"><span class="wf-row"><span class="wf-pill" data-pf-text="$.purposeLabel"></span><span class="wf-meta" data-pf-text="$.expires"></span></span>
+          <span class="wf-text" data-pf-text="$.types"></span>
+          <span class="wf-amount"><i class="pfk-riyal" aria-label="SAR"></i><span data-pf-text="$.min" data-pf-fmt="n"></span> – <span data-pf-text="$.max" data-pf-fmt="n"></span></span>
+          <span class="wf-text"><span data-pf-text="$.beds"></span> Beds · <span data-pf-text="$.city"></span></span></div>
+        </template></div>
+      </div>
+      <div class="wf-row wf-between"><span class="wf-strong" data-pf-new-copy>Lead price</span><span class="wf-num"><span data-pf-text="price"></span> credits</span></div>
+      <div class="wf-row wf-between" data-pf-show="role=owner"><span class="wf-text">Available credits</span><span class="wf-num" data-pf-text="balance" data-pf-fmt="n"></span></div>
+      <div class="wf-row wf-between" data-pf-show="role=staff"><span class="wf-text" data-pf-new-copy>Your credit limit</span><span class="wf-num" data-pf-text="cap"></span></div>
+      <p class="wf-meta" data-pf-new-copy>The contact's name and phone unlock right after purchase, and the lead is added to your TruLeads. Purchased leads can't be refunded.</p>
+    </div>
+    <div class="wf-modal__foot">
+      <button class="wf-btn" data-pf-close>Cancel</button>
+      <button class="wf-btn wf-btn--primary" data-pf-do="confirm" data-pf-busy="600" data-pf-attr="aria-disabled: buying"><span>Buy for <span data-pf-text="price"></span> credits</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- not enough credits: instead of the buy dialog -->
+<div class="wf-mask" data-pf-overlay="insufficient">
+  <div class="wf-modal" role="dialog" aria-label="Not enough credits">
+    <div class="wf-modal__head"><span data-pf-new-copy>Not enough credits</span><button class="wf-btn wf-btn--ghost" data-pf-close aria-label="Close">✕</button></div>
+    <div class="wf-modal__body">
+      <p class="wf-text" data-pf-new-copy>You need <b class="wf-num" data-pf-text="{@price-@balance}"></b> more credits to buy this lead. Top up, then come back to buy it.</p>
+      <div class="wf-row wf-between"><span class="wf-text">Available credits</span><span class="wf-num" data-pf-text="balance" data-pf-fmt="n"></span></div>
+    </div>
+    <div class="wf-modal__foot"><button class="wf-btn" data-pf-close>Cancel</button><button class="wf-btn wf-btn--primary" data-pf-page="/credits-usage">Top-Up your Credits</button></div>
+  </div>
+</div>
+
+<!-- a staff member over their limit: the existing cap rule -->
+<div class="wf-mask" data-pf-overlay="cap">
+  <div class="wf-modal" role="dialog" aria-label="Over your credit limit">
+    <div class="wf-modal__head"><span data-pf-new-copy>Over your credit limit</span><button class="wf-btn wf-btn--ghost" data-pf-close aria-label="Close">✕</button></div>
+    <div class="wf-modal__body"><p class="wf-text" data-pf-new-copy>This lead costs <b data-pf-text="price"></b> credits and your agency set your limit to <b data-pf-text="cap"></b>. Ask your agency owner to raise it.</p></div>
+    <div class="wf-modal__foot"><button class="wf-btn wf-btn--primary" data-pf-close>OK</button></div>
+  </div>
+</div>
+
+<template data-pf-toast="bought"><div class="pfk-toast" data-pf-new-copy>Lead added to TruLeads — the contact's name and phone are unlocked.</div></template>
+<template data-pf-toast="gone"><div class="pfk-toast" data-pf-new-copy>This lead is no longer available. You weren't charged.</div></template>
+
+<script type="application/json" id="pf-state" data-src="state.json"></script>
+<script type="application/json" id="pf-data" data-src="data.json"></script>
+<script type="application/json" id="pf-actions" data-src="actions.json"></script>
+</body>
+</html>

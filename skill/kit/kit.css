@@ -1,0 +1,91 @@
+/* Profolio KSA pattern kit (kit/kit.css): the layouts the product does not draw yet, and the
+   runtime's own pieces (toasts, skeleton bars, busy buttons).
+
+   Every value is a token, or is measured from a compiled screen and named here. The 2.0
+   values come from pages/listings-new*.html (measured 2026-09-30; see kit/README.md), and
+   each colour, space and radius var() falls back to the same value, so a pattern draws the same
+   with or without css/new-theme/tokens.css. The face is the page's own where the 2.0 fonts are
+   not loaded: var(--pf-ml-font-ui, inherit).
+
+   Headers and cells share one grid (--pfk-cols) and one horizontal padding, so a column's
+   header sits over its cells by construction. The 2.0 build pads its header and row cells
+   differently, and a table copied from it drifts (Leads Marketplace, 2026-09-30: 12 px). */
+
+/* ── the runtime's pieces ──────────────────────────────────────────────── */
+.pfk-toasts { position: fixed; top: 76px; left: 50%; transform: translateX(-50%); z-index: 2000; display: flex; flex-direction: column; align-items: center; gap: 8px; pointer-events: none; }
+.pfk-toasts > * { pointer-events: auto; animation: pfk-in 200ms ease; }
+.pfk-toast { max-width: 520px; padding: 10px 16px; border-radius: var(--pf-ml-radius-md, 8px); background: var(--pf-ml-surface-card, #fff); color: var(--pf-ml-text-primary, #222); box-shadow: var(--pf-ml-elevation-toast, 0 10px 30px rgba(23,26,31,0.22)); font-weight: 500; font-size: 14px; line-height: 20px; font-family: var(--pf-ml-font-ui, inherit); }
+.pfk-toast--out, .pfk-toasts > .pfk-toast--out { opacity: 0; transform: translateY(-4px); transition: opacity 200ms ease, transform 200ms ease; }
+@keyframes pfk-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+.pfk-skel { display: inline-block; vertical-align: middle; height: 12px; width: 96px; max-width: 100%; border-radius: var(--pf-ml-radius-xs, 4px); background: linear-gradient(90deg, #F0F0F0 25%, #F7F7F7 37%, #F0F0F0 63%) 0 0 / 400% 100%; animation: pfk-shimmer 1.4s ease infinite; }
+.pfk-skel--block { border-radius: var(--pf-ml-radius-sm, 6px); }
+@keyframes pfk-shimmer { from { background-position: 100% 50%; } to { background-position: 0 50%; } }
+.pfk-busy { opacity: 0.7; cursor: progress !important; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .pfk-skel { animation: none; } .pfk-toasts > * { animation: none; } }
+
+/* ── table: one grid for the header and every row ─────────────────────── */
+.pfk-table { --pfk-cols: 1fr; --pfk-cell-x: 16px; background: var(--pf-ml-surface-card, #fff); border-radius: var(--pf-ml-radius-md, 8px); overflow: hidden; font-family: var(--pf-ml-font-ui, inherit); color: var(--pf-ml-text-primary, #222); }
+.pfk-thead, .pfk-tr { display: grid; grid-template-columns: var(--pfk-cols); align-items: center; }
+.pfk-thead { background: #F5F5F5; min-height: 42px; }              /* the 2.0 list header row (listings-new) */
+.pfk-th { font-weight: 400; font-size: 14px; line-height: 18px; font-family: var(--pf-ml-font-ui, inherit); color: var(--pf-ml-text-primary, #222); padding-block: 12px; }
+.pfk-tr { background: var(--pf-ml-surface-card, #fff); border-bottom: 1px solid var(--pf-ml-border-soft, #F0F0F0); padding-block: var(--pf-ml-space-xl, 16px); min-height: 72px; }
+.pfk-tr:last-child { border-bottom: 0; }
+.pfk-table--roomy .pfk-tr { padding-block: var(--pf-ml-space-section, 24px); }
+.pfk-th, .pfk-td { min-width: 0; padding-inline: 0 var(--pfk-cell-x); }
+.pfk-th:first-child, .pfk-td:first-child { padding-inline-start: var(--pfk-cell-x); }
+.pfk-th--end, .pfk-td--end { justify-self: stretch; text-align: end; display: flex; justify-content: flex-end; }
+.pfk-tr--good { background: var(--pf-ml-tint-green-050, #F0FAF5); }
+.pfk-tr--muted { opacity: 0.54; }                                  /* the product's disabled dim */
+.pfk-tbody-note { padding: var(--pf-ml-space-section, 24px) var(--pfk-cell-x); }
+
+/* ── cell content ──────────────────────────────────────────────────────── */
+.pfk-stack { display: flex; flex-direction: column; gap: var(--pf-ml-space-xxs, 2px); min-width: 0; }
+.pfk-stack--md { gap: var(--pf-ml-space-xs, 4px); }
+.pfk-inline { display: flex; align-items: center; gap: var(--pf-ml-space-sm, 6px); min-width: 0; flex-wrap: wrap; }
+.pfk-label { font-weight: 300; font-size: 12px; line-height: normal; font-family: var(--pf-ml-font-ui, inherit); color: var(--pf-ml-type-label-web-color, #4F4F4F); }
+.pfk-value { font-weight: 500; font-size: 14px; line-height: 18px; font-family: var(--pf-ml-font-ui, inherit); color: var(--pf-ml-text-primary, #222); }
+.pfk-value--strong { font-weight: 700; font-size: 16px; line-height: normal; font-family: var(--pf-ml-font-ui, inherit); }
+.pfk-value--hero { font-weight: 700; font-size: 20px; line-height: normal; font-family: var(--pf-ml-font-ui, inherit); }
+.pfk-meta { font-weight: 400; font-size: 12px; line-height: 16px; font-family: var(--pf-ml-font-ui, inherit); color: var(--pf-ml-text-muted, #707070); }
+.pfk-truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pfk-amount { display: inline-flex; align-items: baseline; gap: 0.22em; white-space: nowrap; }
+.pfk-amount > svg { height: max(7px, 0.6em); width: auto; flex: none; fill: currentColor; }
+.pfk-icon { width: 16px; height: 16px; flex: none; color: var(--pf-ml-text-muted, #707070); }
+.pfk-teaser { filter: blur(5px); user-select: none; pointer-events: none; }  /* a placeholder shown blurred — never real data */
+
+/* ── pills: the build's status tags (11px · 600 · radius 4 · 2px 6px) ─── */
+.pfk-pill { display: inline-flex; align-items: center; gap: 4px; height: 18px; padding: 2px 6px; border-radius: var(--pf-ml-radius-xs, 4px); font-weight: 600; font-size: 11px; line-height: 14px; font-family: var(--pf-ml-font-ui, inherit); white-space: nowrap; }
+.pfk-pill--good { color: var(--pf-ml-type-subtype-web-color, #208E57); background: var(--pf-ml-tint-green-100, #E9F7F0); }
+.pfk-pill--info { color: #2C6699; background: var(--pf-ml-tint-blue-050, #F0F7FC); }          /* the build's Booked tag */
+.pfk-pill--neutral { color: var(--pf-ml-text-tertiary, #626262); background: var(--pf-ml-border-soft, #F0F0F0); }
+.pfk-pill--warn { color: var(--pf-ml-status-warn, #C88B37); background: var(--pf-ml-tint-amber-050, #FEF8F0); }
+.pfk-pill--bad { color: var(--pf-ml-status-bad, #CE2929); background: var(--pf-ml-tint-red-050, #FFF2F2); }
+
+/* ── buttons: one height in a pattern (40 = target.iconButton) ────────── */
+.pfk-btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--pf-ml-space-sm, 6px); min-height: 40px; padding: 0 var(--pf-ml-space-xl, 16px); border-radius: var(--pf-ml-radius-sm, 6px); border: 1px solid transparent; font-weight: 500; font-size: 14px; line-height: 18px; font-family: var(--pf-ml-font-ui, inherit); white-space: nowrap; cursor: pointer; background: var(--pf-ml-brand-green, #28B16D); color: var(--pf-ml-text-on-brand, #fff); }
+.pfk-btn:hover { background: var(--pf-ml-brand-green-pressed, #208E57); }
+.pfk-btn--secondary { background: var(--pf-ml-surface-card, #fff); color: var(--pf-ml-text-primary, #222); border-color: var(--pf-ml-border-strong, #DEDEDE); }
+.pfk-btn--secondary:hover { background: var(--pf-ml-surface-card, #fff); border-color: var(--pf-ml-text-faint, #9D9D9D); }
+.pfk-btn--soft { background: var(--pf-ml-tint-green-050, #F0FAF5); color: var(--pf-ml-brand-green-ink, #249F62); }
+.pfk-btn--soft:hover { background: var(--pf-ml-tint-green-100, #E9F7F0); }
+.pfk-btn--link { background: none; border: 0; min-height: 0; padding: 0; color: var(--pf-ml-brand-green-ink, #249F62); }
+.pfk-btn--link:hover { background: none; text-decoration: underline; }
+.pfk-btn--block { width: 100%; }
+.pfk-btn[disabled], .pfk-btn[aria-disabled="true"] { opacity: 0.54; cursor: not-allowed; }  /* the product's disabled dim */
+.pfk-btn > svg { width: 16px; height: 16px; flex: none; }
+
+/* ── empty, error and first-use: one block, the build's empty-state type ─ */
+.pfk-empty { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--pf-ml-space-md, 8px); padding: 56px var(--pf-ml-space-section, 24px); }
+.pfk-empty__art { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: #F5F5F5; color: var(--pf-ml-text-muted, #707070); margin-bottom: var(--pf-ml-space-md, 8px); }
+.pfk-empty__art > svg { width: 24px; height: 24px; }
+.pfk-empty__title { font: 700 20px/24px Figtree, sans-serif; color: var(--pf-ml-text-primary, #222); margin: 0; }   /* the build's empty-state title */
+.pfk-empty__text { font-weight: 400; font-size: 14px; line-height: 21px; font-family: var(--pf-ml-font-ui, inherit); color: var(--pf-ml-text-muted, #707070); max-width: 400px; margin: 0; }
+.pfk-empty__actions { display: flex; gap: var(--pf-ml-space-md, 8px); margin-top: var(--pf-ml-space-md, 8px); }
+
+/* ── a note inside a design: never part of the product ─────────────────── */
+.pfk-note { display: block; padding: 8px 12px; border-radius: 6px; background: #FFF7E6; color: #7A4B00; font: 400 12px/16px system-ui, sans-serif; }
+
+/* ── the riyal: <i class="pfk-riyal" aria-label="SAR"></i> before an amount ──
+   The official sign (kit/riyal.svg, the product's icon-font glyph) drawn in the text's colour,
+   sized as the 2.0 rule: height max(7px, 0.6 × the font-size), width × 916/1024. */
+.pfk-riyal { display: inline-block; flex: none; height: max(7px, 0.6em); aspect-ratio: 916 / 1024; background-color: currentColor; vertical-align: baseline; margin-inline-end: 0.22em; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 916 1024'%3E%3Cpath d='M570 907Q558 934 550 963.5Q542 993 539 1024L885 950Q897 923 905 894Q913 865 916 834ZM885 730Q897 703 905 673.5Q913 644 916 613L647 671V560L885 510Q897 483 905 453.5Q913 424 916 393L647 450V54Q616 71 588.5 94Q561 117 539 144V473L431 496V0Q400 17 373 40Q346 63 323 90V519L82 570Q70 597 62 626.5Q54 656 51 687L323 629V768L31 830Q19 857 11 886.5Q3 916 0 947L306 882Q324 878 339.5 867.5Q355 857 366 842L422 759Q426 752 428.5 744.5Q431 737 431 728V606L539 583V804L885 730Z'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 916 1024'%3E%3Cpath d='M570 907Q558 934 550 963.5Q542 993 539 1024L885 950Q897 923 905 894Q913 865 916 834ZM885 730Q897 703 905 673.5Q913 644 916 613L647 671V560L885 510Q897 483 905 453.5Q913 424 916 393L647 450V54Q616 71 588.5 94Q561 117 539 144V473L431 496V0Q400 17 373 40Q346 63 323 90V519L82 570Q70 597 62 626.5Q54 656 51 687L323 629V768L31 830Q19 857 11 886.5Q3 916 0 947L306 882Q324 878 339.5 867.5Q355 857 366 842L422 759Q426 752 428.5 744.5Q431 737 431 728V606L539 583V804L885 730Z'/%3E%3C/svg%3E") center / contain no-repeat; }
