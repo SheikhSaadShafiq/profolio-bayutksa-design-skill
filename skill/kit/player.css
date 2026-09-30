@@ -64,3 +64,7 @@ body { background: var(--pfp-bg); color: var(--pfp-ink); font: 13px/1.45 var(--p
   .pfp-bar { padding: 8px 12px; }
   .pfp-stage { padding: 8px; }
 }
+.pfp-options { display: flex; flex-direction: column; gap: 12px; }
+.pfp-options:empty { display: none; }
+.pfp-option p { margin: 0 0 6px; font-size: 12px; }
+.pfp-option .pfp-seg { flex-wrap: wrap; }

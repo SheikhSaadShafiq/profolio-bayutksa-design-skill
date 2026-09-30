@@ -23,7 +23,7 @@ const SK = join(ROOT, 'skill');
 const OUT = join(SK, 'examples', 'leads-marketplace');
 const read = (p) => readFileSync(join(SK, p), 'utf8');
 const BASE = 'pages/listings-new.html';
-const ALSO = ['pages/listings-new/modal-request-services.html', 'pages/listings-new/empty-active.html', 'pages/listings-new/empty-filter.html', 'pages/listings-new/offline.html'];
+const ALSO = ['pages/listings-new/modal-request-services.html', 'pages/listings-new/empty-active.html', 'pages/listings-new/empty-filter.html', 'pages/listings-new/offline.html', 'atoms/icon.html'];
 
 const b = await chromium.launch();
 const page = await b.newPage();
@@ -32,7 +32,7 @@ await page.setContent('<!doctype html><title>compose</title>');
 /* the build's own icons, by data-dc-tpl, from the files pf-also names */
 const icon = (file, tpl) => page.evaluate(([html, tpl]) => {
   const d = new DOMParser().parseFromString(html, 'text/html');
-  const e = d.querySelector(`svg[data-dc-tpl="${tpl}"]`);
+  const e = tpl.startsWith('#') ? d.querySelector(`${tpl} svg`) : d.querySelector(`svg[data-dc-tpl="${tpl}"]`);
   if (!e) throw new Error('no svg ' + tpl);
   e.querySelectorAll('*').forEach((x) => ['data-pf-src', 'data-pf-i', 'data-pf-c'].forEach((a) => x.removeAttribute(a)));
   return e.outerHTML;
@@ -47,24 +47,35 @@ const I = {
   empty: await icon(ALSO[1], '993'),
   filter: await icon(ALSO[2], '1012'),
   offline: await icon(ALSO[3], '975'),
+  lock: await icon('atoms/icon.html', '#icon-lock-bages'),
 };
 const svg = (s, cls) => s.replace('<svg ', `<svg class="${cls}" aria-hidden="true" `);
 
 /* ── what the page draws: the wireframe's structure, in the kit's 2.0 patterns ─────────── */
 const amount = (field) => `<span class="pfk-amount pfk-value--strong"><i class="pfk-riyal" aria-label="SAR"></i><span data-pf-text="$.${field}" data-pf-fmt="n"></span></span>`;
-const contact = `
-          <div class="pfk-stack pfk-stack--md">
-            <div class="pfk-stack pfk-teaser" data-pf-show="$.status!=bought" aria-hidden="true"><span class="pfk-value" data-pf-data>Hidden Contact</span><span class="pfk-meta" data-pf-data>+966 5X XXX XXXX</span></div>
-            <div class="pfk-stack" data-pf-show="$.status=bought"><span class="pfk-inline"><span class="pfk-value" data-pf-text="$.name"></span><span class="pfk-pill pfk-pill--good" data-pf-new-copy>Bought</span></span><span class="pfk-meta" data-pf-text="$.phone"></span></div>
-            <span class="pfk-meta" data-pf-show="$.status!=bought" data-pf-text="$.addedLabel"></span>
-            <span class="pfk-meta" data-pf-show="$.status=bought" data-pf-new-copy><span>Bought by <span data-pf-text="$.buyer"></span> · <span data-pf-text="$.when"></span></span></span>
+/* the contact before purchase: three options, switched in the prototype (flow.json options → opt.lock) */
+const locked = (kind) => `
+            <div class="pfk-stack pfk-stack--md" data-pf-show="$.status!=bought && opt.lock=blur"><div class="pfk-stack pfk-teaser" aria-hidden="true"><span class="pfk-value" data-pf-data>Hidden Contact</span><span class="pfk-meta" data-pf-data>+966 5X XXX XXXX</span></div><span><span class="pfk-lock">${I.lock}<span data-pf-new-copy>Unlocks after purchase</span></span></span></div>
+            <div class="pfk-stack" data-pf-show="$.status!=bought && opt.lock=mask"><span class="pfk-value pfk-masked" data-pf-text="$.maskedName" data-pf-default="Name hidden"></span><span class="pfk-meta pfk-masked" data-pf-text="$.maskedPhone" data-pf-default="Phone hidden"></span><span data-pf-show="$.status=open && $.credits"><button class="pfk-btn pfk-btn--link" type="button" data-pf-set="lead=$.id; price=$.credits; leadKind=${kind}" data-pf-do="buy"><span>Unlock for <span data-pf-text="$.credits" data-pf-fmt="n"></span> credits</span></button></span></div>
+            <div class="pfk-inline" data-pf-show="$.status!=bought && opt.lock=avatar"><span class="pfk-avatar"><span data-pf-text="$.initials" data-pf-default="?"></span><span class="pfk-avatar__lock">${I.lock}</span></span><span class="pfk-stack"><span class="pfk-value" data-pf-new-copy>Contact locked</span><span class="pfk-meta" data-pf-new-copy>Buy to see name and phone</span></span></div>`;
+const contact = (kind) => `
+          <div class="pfk-stack pfk-stack--md">${locked(kind)}
+            <div class="pfk-stack" data-pf-show="$.status=bought"><span class="pfk-inline"><span class="pfk-value" data-pf-text="$.name" data-pf-default="Name not shared"></span><span class="pfk-pill pfk-pill--good" data-pf-new-copy>Bought</span></span><span class="pfk-meta" data-pf-text="$.phone" data-pf-default="Phone not shared"></span></div>
+            <span class="pfk-meta" data-pf-show="$.status!=bought && $.addedLabel" data-pf-text="$.addedLabel"></span>
+            <span class="pfk-meta" data-pf-show="$.status=bought" data-pf-new-copy><span>Bought by <span data-pf-text="$.buyer" data-pf-default="your agency"></span><span data-pf-show="$.when"> · <span data-pf-text="$.when"></span></span></span></span>
           </div>`;
 const action = (kind) => `
           <div class="pfk-td pfk-td--end">
-            <button class="pfk-btn" type="button" data-pf-show="$.status=open" data-pf-set="lead=$.id; price=$.credits; leadKind=${kind}" data-pf-do="buy">${I.coin}<span>Buy for <span data-pf-text="$.credits"></span> Credits</span></button>
+            <button class="pfk-btn" type="button" data-pf-show="$.status=open && $.credits" data-pf-set="lead=$.id; price=$.credits; leadKind=${kind}" data-pf-do="buy">${I.coin}<span>Buy for <span data-pf-text="$.credits" data-pf-fmt="n"></span> Credits</span></button>
+            <span class="pfk-meta" data-pf-show="$.status=open && !$.credits" data-pf-new-copy>Not for sale yet</span>
             <button class="pfk-btn pfk-btn--soft" type="button" data-pf-show="$.status=bought" data-pf-page="/lms/leads"><span data-pf-new-copy>View in TruLeads →</span></button>
             <span class="pfk-meta" data-pf-show="$.status=gone" data-pf-new-copy>No longer available</span>
           </div>`;
+/* what each field shows when the source did not share it */
+const purpose = `<span data-pf-show="$.purposeLabel"><span class="pfk-pill pfk-pill--neutral" data-pf-text="$.purposeLabel"></span></span>`;
+const price = `<div class="pfk-stack"><span class="pfk-label" data-pf-text="$.priceLabel" data-pf-default="Price"></span><span data-pf-show="$.price">${'${amount}'}</span><span class="pfk-value pfk-missing" data-pf-show="!$.price" data-pf-new-copy>Not shared</span></div>`;
+const budget = `<div class="pfk-stack"><span class="pfk-label" data-pf-text="$.priceLabel" data-pf-default="Budget"></span><span class="pfk-inline" data-pf-show="$.min || $.max"><span class="pfk-meta" data-pf-show="$.min && !$.max" data-pf-new-copy>From</span><span class="pfk-meta" data-pf-show="!$.min && $.max" data-pf-new-copy>Up to</span><span class="pfk-amount pfk-value--strong"><i class="pfk-riyal" aria-label="SAR"></i><span><span data-pf-show="$.min" data-pf-text="$.min" data-pf-fmt="n"></span><span data-pf-show="$.min && $.max"> – </span><span data-pf-show="$.max" data-pf-text="$.max" data-pf-fmt="n"></span></span></span></span><span class="pfk-value pfk-missing" data-pf-show="!$.min && !$.max" data-pf-new-copy>Not shared</span></div>`;
+const place = (withDistrict) => `<span class="pfk-value">${withDistrict ? '<span data-pf-show="$.district" data-pf-text="$.district"></span><span data-pf-show="$.district && $.city">, </span>' : ''}<span data-pf-show="$.city" data-pf-text="$.city"></span><span class="pfk-missing" data-pf-show="${withDistrict ? '!$.district && ' : ''}!$.city" data-pf-new-copy>Location not shared</span></span>`;
 const empties = (list, source) => `
         <div class="pfk-empty" data-pf-show="net=ready && total.${list}=0">
           <div class="pfk-empty__art">${I.empty}</div>
@@ -84,7 +95,8 @@ const empties = (list, source) => `
           <p class="pfk-empty__text" data-pf-new-copy>The leads could not load. Check your connection and try again.</p>
           <div class="pfk-empty__actions"><button class="pfk-btn" type="button" data-pf-do="retry">Try Again</button></div>
         </div>`;
-const beds = `<span class="pfk-value"><span data-pf-text="$.beds"></span> <span data-pf-show="$.beds=1">Bed</span><span data-pf-show="$.beds!=1">Beds</span> · <span data-pf-text="$.baths"></span> <span data-pf-show="$.baths=1">Bath</span><span data-pf-show="$.baths!=1">Baths</span></span>`;
+const bedsOf = (missing) => `<span class="pfk-value"><span data-pf-show="$.beds"><span data-pf-text="$.beds"></span> <span data-pf-show="$.beds=1">Bed</span><span data-pf-show="$.beds!=1">Beds</span></span><span data-pf-show="$.beds && $.baths"> · </span><span data-pf-show="$.baths"><span data-pf-text="$.baths"></span> <span data-pf-show="$.baths=1">Bath</span><span data-pf-show="$.baths!=1">Baths</span></span><span class="pfk-missing" data-pf-show="!$.beds && !$.baths" data-pf-new-copy>${missing}</span></span>`;
+const beds = bedsOf('Not shared');
 
 const TABLES = `
       <div class="pfk-table" data-pf-show="tab=owner" style="--pfk-cols: minmax(0, 1.35fr) minmax(0, 1.25fr) minmax(0, 1fr) minmax(0, 0.85fr) minmax(0, 1.1fr) 216px">
@@ -93,11 +105,11 @@ const TABLES = `
         <div data-pf-list="owner" data-pf-show="net=ready" data-pf-filter="purpose=@filter.purpose; city=@filter.city; band=@filter.band" data-pf-sort="@sort">
           <template>
             <div class="pfk-tr" role="row" data-pf-class="pfk-tr--good: $.status=bought; pfk-tr--muted: $.status=gone">
-              <div class="pfk-td">${contact}</div>
-              <div class="pfk-td"><div class="pfk-stack pfk-stack--md"><span><span class="pfk-pill pfk-pill--neutral" data-pf-text="$.purposeLabel"></span></span><span class="pfk-value" data-pf-text="$.intent"></span></div></div>
-              <div class="pfk-td"><div class="pfk-stack"><span class="pfk-label" data-pf-text="$.priceLabel"></span>${amount('price')}</div></div>
+              <div class="pfk-td">${contact('owner')}</div>
+              <div class="pfk-td"><div class="pfk-stack pfk-stack--md">${purpose}<span class="pfk-value" data-pf-text="$.intent" data-pf-default="Details not shared" data-pf-class="pfk-missing: !$.intent"></span></div></div>
+              <div class="pfk-td">${price.replace('${amount}', amount('price'))}</div>
               <div class="pfk-td">${beds}</div>
-              <div class="pfk-td"><span class="pfk-inline">${svg(I.pin, 'pfk-icon')}<span class="pfk-value"><span data-pf-text="$.district"></span>, <span data-pf-text="$.city"></span></span></span></div>${action('owner')}
+              <div class="pfk-td"><span class="pfk-inline">${svg(I.pin, 'pfk-icon')}${place(true)}</span></div>${action('owner')}
             </div>
           </template>
         </div>${empties('owner', 'owners from Sell with Bayut')}
@@ -108,11 +120,11 @@ const TABLES = `
         <div data-pf-list="seeker" data-pf-show="net=ready" data-pf-filter="purpose=@filter.purpose; city=@filter.city; band=@filter.band; types~@filter.type" data-pf-sort="@sort">
           <template>
             <div class="pfk-tr" role="row" data-pf-class="pfk-tr--good: $.status=bought; pfk-tr--muted: $.status=gone">
-              <div class="pfk-td">${contact}</div>
-              <div class="pfk-td"><div class="pfk-stack pfk-stack--md"><span><span class="pfk-pill pfk-pill--neutral" data-pf-text="$.purposeLabel"></span></span><span class="pfk-value" data-pf-text="$.types"></span></div></div>
-              <div class="pfk-td"><div class="pfk-stack"><span class="pfk-label" data-pf-text="$.priceLabel"></span><span class="pfk-amount pfk-value--strong"><i class="pfk-riyal" aria-label="SAR"></i><span><span data-pf-text="$.min" data-pf-fmt="n"></span> – <span data-pf-text="$.max" data-pf-fmt="n"></span></span></span></div></div>
-              <div class="pfk-td"><span class="pfk-value"><span data-pf-text="$.beds"></span> Beds · <span data-pf-text="$.baths"></span> Baths</span></div>
-              <div class="pfk-td"><span class="pfk-inline">${svg(I.pin, 'pfk-icon')}<span class="pfk-value" data-pf-text="$.city"></span></span></div>${action('seeker')}
+              <div class="pfk-td">${contact('seeker')}</div>
+              <div class="pfk-td"><div class="pfk-stack pfk-stack--md">${purpose}<span class="pfk-value" data-pf-text="$.types" data-pf-default="Any property type" data-pf-class="pfk-missing: !$.types"></span></div></div>
+              <div class="pfk-td">${budget}</div>
+              <div class="pfk-td">${beds}</div>
+              <div class="pfk-td"><span class="pfk-inline">${svg(I.pin, 'pfk-icon')}${place(false)}</span></div>${action('seeker')}
             </div>
           </template>
         </div>${empties('seeker', 'buyers and tenants from Find My Property')}
@@ -168,9 +180,9 @@ const INTRO = `
 const summary = (list) => `
           <div data-pf-list="${list}" data-pf-filter="id=@lead" data-pf-count="dialog" data-pf-show="leadKind=${list}"><template>
             <div class="pfk-summary">
-              <span class="pfk-inline"><span class="pfk-pill pfk-pill--neutral" data-pf-text="$.purposeLabel"></span><span class="pfk-meta" data-pf-text="$.expires"></span></span>
-              ${list === 'owner' ? amount('price') : `<span class="pfk-value" data-pf-text="$.types"></span><span class="pfk-amount pfk-value--strong"><i class="pfk-riyal" aria-label="SAR"></i><span><span data-pf-text="$.min" data-pf-fmt="n"></span> – <span data-pf-text="$.max" data-pf-fmt="n"></span></span></span>`}
-              <span class="pfk-meta">${list === 'owner' ? '<span><span data-pf-text="$.beds"></span> Beds · <span data-pf-text="$.baths"></span> Baths · <span data-pf-text="$.district"></span>, <span data-pf-text="$.city"></span></span>' : '<span><span data-pf-text="$.beds"></span> Beds · <span data-pf-text="$.city"></span></span>'}</span>
+              <span class="pfk-inline">${purpose}<span class="pfk-meta" data-pf-show="$.expires" data-pf-text="$.expires"></span></span>
+              ${list === 'owner' ? price.replace('${amount}', amount('price')) : `<span class="pfk-value" data-pf-text="$.types" data-pf-default="Any property type" data-pf-class="pfk-missing: !$.types"></span>${budget}`}
+              <span class="pfk-inline">${bedsOf('Rooms not shared')}${list === 'owner' ? '<span class="pfk-meta">·</span>' + place(true) : '<span class="pfk-meta">·</span>' + place(false)}</span>
             </div>
           </template></div>`;
 const dialog = (id, title, body, foot) => `
@@ -264,15 +276,15 @@ const card = (list, kind) => `
           <template>
             <article class="pfk-lead" data-pf-class="pfk-lead--good: $.status=bought; pfk-lead--muted: $.status=gone">
               <div class="pfk-row pfk-between">
-                <div class="pfk-stack pfk-teaser" data-pf-show="$.status!=bought" aria-hidden="true"><span class="pfk-value" data-pf-data>Hidden Contact</span><span class="pfk-meta" data-pf-data>+966 5X XXX XXXX</span></div>
-                <div class="pfk-stack" data-pf-show="$.status=bought"><span class="pfk-inline"><span class="pfk-value" data-pf-text="$.name"></span><span class="pfk-pill pfk-pill--good" data-pf-new-copy>Bought</span></span><span class="pfk-meta" data-pf-text="$.phone"></span></div>
-                <span class="pfk-pill pfk-pill--neutral" data-pf-text="$.purposeLabel"></span>
+                <div class="pfk-stack">${locked(kind)}<div class="pfk-stack" data-pf-show="$.status=bought"><span class="pfk-inline"><span class="pfk-value" data-pf-text="$.name" data-pf-default="Name not shared"></span><span class="pfk-pill pfk-pill--good" data-pf-new-copy>Bought</span></span><span class="pfk-meta" data-pf-text="$.phone" data-pf-default="Phone not shared"></span></div></div>
+                ${purpose}
               </div>
-              ${list === 'owner' ? `<div class="pfk-stack"><span class="pfk-label" data-pf-text="$.priceLabel"></span>${amount('price')}</div>` : `<div class="pfk-stack"><span class="pfk-value" data-pf-text="$.types"></span><span class="pfk-label" data-pf-text="$.priceLabel"></span><span class="pfk-amount pfk-value--strong"><i class="pfk-riyal" aria-label="SAR"></i><span><span data-pf-text="$.min" data-pf-fmt="n"></span> – <span data-pf-text="$.max" data-pf-fmt="n"></span></span></span></div>`}
-              <span class="pfk-inline">${svg(I.pin, 'pfk-icon')}<span class="pfk-meta">${list === 'owner' ? '<span data-pf-text="$.beds"></span> Beds · <span data-pf-text="$.baths"></span> Baths · <span data-pf-text="$.district"></span>, <span data-pf-text="$.city"></span>' : '<span data-pf-text="$.beds"></span> Beds · <span data-pf-text="$.city"></span>'}</span></span>
-              <span class="pfk-meta" data-pf-show="$.status!=bought" data-pf-text="$.addedLabel"></span>
-              <span class="pfk-meta" data-pf-show="$.status=bought" data-pf-new-copy><span>Bought by <span data-pf-text="$.buyer"></span> · <span data-pf-text="$.when"></span></span></span>
-              <button class="pfk-btn pfk-btn--block" type="button" data-pf-show="$.status=open" data-pf-set="lead=$.id; price=$.credits; leadKind=${kind}" data-pf-do="buy">${I.coin}<span>Buy for <span data-pf-text="$.credits"></span> Credits</span></button>
+              ${list === 'owner' ? price.replace('${amount}', amount('price')) : `<div class="pfk-stack"><span class="pfk-value" data-pf-text="$.types" data-pf-default="Any property type" data-pf-class="pfk-missing: !$.types"></span></div>${budget}`}
+              <span class="pfk-inline">${svg(I.pin, 'pfk-icon')}${bedsOf('Rooms not shared')}<span class="pfk-meta">·</span>${place(list === 'owner')}</span>
+              <span class="pfk-meta" data-pf-show="$.status!=bought && $.addedLabel" data-pf-text="$.addedLabel"></span>
+              <span class="pfk-meta" data-pf-show="$.status=bought" data-pf-new-copy><span>Bought by <span data-pf-text="$.buyer" data-pf-default="your agency"></span><span data-pf-show="$.when"> · <span data-pf-text="$.when"></span></span></span></span>
+              <button class="pfk-btn pfk-btn--block" type="button" data-pf-show="$.status=open && $.credits" data-pf-set="lead=$.id; price=$.credits; leadKind=${kind}" data-pf-do="buy">${I.coin}<span>Buy for <span data-pf-text="$.credits" data-pf-fmt="n"></span> Credits</span></button>
+              <span class="pfk-meta" data-pf-show="$.status=open && !$.credits" data-pf-new-copy>Not for sale yet</span>
               <button class="pfk-btn pfk-btn--soft pfk-btn--block" type="button" data-pf-show="$.status=bought" data-pf-page="/lms/leads"><span data-pf-new-copy>View in TruLeads →</span></button>
               <span class="pfk-meta" data-pf-show="$.status=gone" data-pf-new-copy>No longer available</span>
             </article>

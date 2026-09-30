@@ -2,9 +2,10 @@
  "ran": true,
  "note": "",
  "browser": "Playwright Chromium",
- "renders": 26,
+ "renders": 46,
+ "coverage": "13 states × 2 platforms · 6 interactions · 8 extreme-data · 6 option renders",
  "errors": 0,
- "warnings": 13,
+ "warnings": 12,
  "product": 0,
  "issues": [
   {
@@ -16,7 +17,7 @@
     "x": 85,
     "y": 267,
     "w": 1330,
-    "h": 74
+    "h": 97
    },
    "states": [
     "owner",
@@ -24,7 +25,15 @@
     "buy",
     "insufficient",
     "staff-cap",
-    "gone"
+    "gone",
+    "owner › Select City",
+    "owner › Price",
+    "owner › Newest firstPrice: high to lowPrice: low",
+    "owner · missing data",
+    "owner · long data",
+    "owner · arabic data",
+    "owner · zero data",
+    "owner · opt.lock=blur"
    ]
   },
   {
@@ -51,7 +60,17 @@
     "gone",
     "loading",
     "empty",
-    "error"
+    "error",
+    "owner › Select City",
+    "owner › Price",
+    "owner › Newest firstPrice: high to lowPrice: low",
+    "owner · missing data",
+    "owner · long data",
+    "owner · arabic data",
+    "owner · zero data",
+    "owner · opt.lock=blur",
+    "owner · opt.lock=mask",
+    "owner · opt.lock=avatar"
    ]
   },
   {
@@ -78,7 +97,17 @@
     "gone",
     "loading",
     "empty",
-    "error"
+    "error",
+    "owner › Select City",
+    "owner › Price",
+    "owner › Newest firstPrice: high to lowPrice: low",
+    "owner · missing data",
+    "owner · long data",
+    "owner · arabic data",
+    "owner · zero data",
+    "owner · opt.lock=blur",
+    "owner · opt.lock=mask",
+    "owner · opt.lock=avatar"
    ]
   },
   {
@@ -105,7 +134,17 @@
     "gone",
     "loading",
     "empty",
-    "error"
+    "error",
+    "owner › Select City",
+    "owner › Price",
+    "owner › Newest firstPrice: high to lowPrice: low",
+    "owner · missing data",
+    "owner · long data",
+    "owner · arabic data",
+    "owner · zero data",
+    "owner · opt.lock=blur",
+    "owner · opt.lock=mask",
+    "owner · opt.lock=avatar"
    ]
   },
   {
@@ -132,7 +171,17 @@
     "gone",
     "loading",
     "empty",
-    "error"
+    "error",
+    "owner › Select City",
+    "owner › Price",
+    "owner › Newest firstPrice: high to lowPrice: low",
+    "owner · missing data",
+    "owner · long data",
+    "owner · arabic data",
+    "owner · zero data",
+    "owner · opt.lock=blur",
+    "owner · opt.lock=mask",
+    "owner · opt.lock=avatar"
    ]
   },
   {
@@ -159,7 +208,17 @@
     "gone",
     "loading",
     "empty",
-    "error"
+    "error",
+    "owner › Select City",
+    "owner › Price",
+    "owner › Newest firstPrice: high to lowPrice: low",
+    "owner · missing data",
+    "owner · long data",
+    "owner · arabic data",
+    "owner · zero data",
+    "owner · opt.lock=blur",
+    "owner · opt.lock=mask",
+    "owner · opt.lock=avatar"
    ]
   },
   {
@@ -186,7 +245,17 @@
     "gone",
     "loading",
     "empty",
-    "error"
+    "error",
+    "owner › Select City",
+    "owner › Price",
+    "owner › Newest firstPrice: high to lowPrice: low",
+    "owner · missing data",
+    "owner · long data",
+    "owner · arabic data",
+    "owner · zero data",
+    "owner · opt.lock=blur",
+    "owner · opt.lock=mask",
+    "owner · opt.lock=avatar"
    ]
   },
   {
@@ -213,7 +282,17 @@
     "gone",
     "loading",
     "empty",
-    "error"
+    "error",
+    "owner › Select City",
+    "owner › Price",
+    "owner › Newest firstPrice: high to lowPrice: low",
+    "owner · missing data",
+    "owner · long data",
+    "owner · arabic data",
+    "owner · zero data",
+    "owner · opt.lock=blur",
+    "owner · opt.lock=mask",
+    "owner · opt.lock=avatar"
    ]
   },
   {
@@ -240,7 +319,17 @@
     "gone",
     "loading",
     "empty",
-    "error"
+    "error",
+    "owner › Select City",
+    "owner › Price",
+    "owner › Newest firstPrice: high to lowPrice: low",
+    "owner · missing data",
+    "owner · long data",
+    "owner · arabic data",
+    "owner · zero data",
+    "owner · opt.lock=blur",
+    "owner · opt.lock=mask",
+    "owner · opt.lock=avatar"
    ]
   },
   {
@@ -267,37 +356,17 @@
     "gone",
     "loading",
     "empty",
-    "error"
-   ]
-  },
-  {
-   "level": "warn",
-   "check": "rows",
-   "platform": "web",
-   "message": "Cells in the same row are aligned differently (some top, some centre) — 5 rows; use one alignment (kit rows centre)",
-   "box": {
-    "x": 85,
-    "y": 267,
-    "w": 1330,
-    "h": 74
-   },
-   "states": [
-    "seeker"
-   ]
-  },
-  {
-   "level": "warn",
-   "check": "rows",
-   "platform": "web",
-   "message": "Cells in the same row are aligned differently (some top, some centre) — 2 rows; use one alignment (kit rows centre)",
-   "box": {
-    "x": 85,
-    "y": 267,
-    "w": 1330,
-    "h": 74
-   },
-   "states": [
-    "filtered"
+    "error",
+    "owner › Select City",
+    "owner › Price",
+    "owner › Newest firstPrice: high to lowPrice: low",
+    "owner · missing data",
+    "owner · long data",
+    "owner · arabic data",
+    "owner · zero data",
+    "owner · opt.lock=blur",
+    "owner · opt.lock=mask",
+    "owner · opt.lock=avatar"
    ]
   },
   {
@@ -309,12 +378,29 @@
     "x": 85,
     "y": 267,
     "w": 1330,
-    "h": 92
+    "h": 97
    },
    "states": [
-    "bought"
+    "seeker",
+    "bought",
+    "loading"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "rows",
+   "platform": "web",
+   "message": "Cells in the same row are aligned differently (some top, some centre) — 3 rows; use one alignment (kit rows centre)",
+   "box": {
+    "x": 85,
+    "y": 267,
+    "w": 1330,
+    "h": 97
+   },
+   "states": [
+    "filtered"
    ]
   }
  ],
- "built": "2026-09-30T13:28:00.361Z"
+ "built": "2026-09-30T18:18:43.866Z"
 }

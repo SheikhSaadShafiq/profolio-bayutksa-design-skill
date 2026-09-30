@@ -434,7 +434,6 @@
     var el = t.closest(ACT);
     /* a click outside an open menu closes it (its own trigger toggles it) */
     if (S.menu && !t.closest('[data-pf-menu-panel="' + S.menu + '"]') && !(el && el.hasAttribute('data-pf-menu'))) set('menu', '');
-    if (closeShellOnOutside(t)) { e.preventDefault(); return; }
     /* a scrim: a click on the backdrop itself (not what sits on it) closes the menu or overlay */
     if (t.hasAttribute('data-pf-scrim')) { e.preventDefault(); if (S.menu) set('menu', ''); else set('overlay', ''); return; }
     if (el && !disabled(el)) {
@@ -518,8 +517,6 @@
   }
 
   /* ── the shell: rail and header, the product's own ───────────────────── */
-  var shellOpen = null;        // {nodes: [...], path}
-  var railSaved = null;
   function railKey(li) {
     var id = li.getAttribute('data-menu-id') || '';
     return id.replace(/^rc-menu-uuid-\d+-\d+-/, '');
@@ -546,129 +543,170 @@
     }
     return false;
   }
-  function request(path) {
+  /* ── the product's own states for the shell, in a layer over the screen ──
+     A compiled state is shown in a transparent frame of its own, with its own stylesheet
+     (kit/layer.js keeps only its top layer), so it looks as the product draws it on any page:
+     - the expanded rail, and the phone's menu;
+     - the bell, the avatar, Post a Listing, help;
+     - a tooltip.
+     Nothing of it is copied into the design's DOM. */
+  var layer = null;            // { frame, path, mode, trigger, info, waiters }
+  var pushed = null;           // what an expanded rail moved: [{ el, prop, value, prio }]
+  var layerLog = [];           // what opened, for the QA
+  function isPhone() { return BOOT.platform === 'phone' || innerWidth < 600; }
+  function railEdits() { return (BOOT.shell && BOOT.shell.rail) || null; }
+  function railSelected() {
+    var own = document.querySelector('.pf-layout-sider .pf-menu-item-selected[data-menu-id]');
+    return (railEdits() && railEdits().selected && BOOT.feature) ? railEdits().selected : own ? own.getAttribute('data-menu-id').replace(/^rc-menu-uuid-\d+-\d+-/, '') : null;
+  }
+  function stateMode(path) { return /rail-expanded|mobile-menu/.test(path) ? 'rail' : /tooltip-/.test(path) ? 'tooltip' : 'overlay'; }
+  var KIT_BASE = (function () { var s = document.currentScript && document.currentScript.src; return s ? s.replace(/[^/]*$/, '') : ''; })();
+  function layerDoc(path, mode, hover) {
     return new Promise(function (resolve) {
-      if (!inFrame) {
-        fetch(path).then(function (r) { return r.ok ? r.text() : ''; }).then(resolve, function () { resolve(''); });
+      if (!inFrame) {                                          /* served over http: the file, and kit/layer.js beside this script */
+        Promise.all([fetch(path).then(function (r) { return r.ok ? r.text() : ''; }), fetch(KIT_BASE + 'layer.js').then(function (r) { return r.ok ? r.text() : ''; })]).then(function (x) {
+          if (!x[0]) return resolve('');
+          var base = '<base href="' + new URL(path, location.href).href + '">';
+          resolve(x[0].replace(/<head[^>]*>/i, function (h) { return h + base; }).replace(/<\/body>/i, '<script>window.PF_LAYER=' + JSON.stringify({ mode: mode, path: path, hover: !!hover, rail: railEdits(), selected: railSelected() }) + '<\/script><script>' + x[1] + '<\/script></body>'));
+        }, function () { resolve(''); });
         return;
       }
       var id = Math.random().toString(36).slice(2);
       function on(ev) {
         var m = ev.data;
-        if (!m || m.pf !== 'file' || m.id !== id) return;
+        if (!m || m.pf !== 'doc' || m.id !== id) return;
         window.removeEventListener('message', on);
         resolve(m.html || '');
       }
       window.addEventListener('message', on);
-      post({ pf: 'file', id: id, path: path, from: BOOT.file || '' });
-      setTimeout(function () { window.removeEventListener('message', on); resolve(''); }, 4000);
+      post({ pf: 'doc', id: id, path: path, from: BOOT.file || '', mode: mode, hover: !!hover, rail: railEdits(), selected: BOOT.feature ? railSelected() : null });
+      setTimeout(function () { window.removeEventListener('message', on); resolve(''); }, 6000);
     });
   }
-  var OVERLAY = '.pf-popover, .pf-dropdown, .pf-drawer, .pf-modal-root, .pf-modal-wrap, .pf-modal-mask, .pf-tooltip, .pf-picker-dropdown, .pf-select-dropdown, [class*="menu-positioner"], .pf-body-scrim--v2, .pf-rail-scrim, [data-pf-overlay-root]';
-  function sig(el) { return el.tagName + '.' + String(el.className || '').split(/\s+/).sort().join('.'); }
-  function shell(path, trigger) {
-    if (/rail-expanded/.test(path)) { toggleRail(path); return; }
-    if (shellOpen && shellOpen.path === path) { closeShell(); return; }
+  function shell(path, trigger, opts) {
+    opts = opts || {};
+    if (layer && layer.path === path) { closeShell(); return Promise.resolve(null); }
     closeShell();
-    request(path).then(function (html) {
-      if (!html) { toast('This opens a screen that is not part of this prototype'); return; }
-      var doc = new DOMParser().parseFromString(html, 'text/html');
-      var have = {};
-      Array.prototype.forEach.call(document.querySelectorAll(OVERLAY), function (e) { have[sig(e) + '|' + (e.textContent || '').length] = true; });
-      var found = Array.prototype.filter.call(doc.querySelectorAll(OVERLAY), function (e) {
-        if (e.parentElement && e.parentElement.closest(OVERLAY)) return false;
-        return !have[sig(e) + '|' + (e.textContent || '').length];
-      });
-      if (!found.length) { toast('Nothing opens here in this prototype'); return; }
-      var nodes = found.map(function (e) {
-        /* the overlay goes where it sits in the product: under the nearest ancestor this screen
-           also has (by id, or by a class list only one element here carries), inside copies of
-           the plain wrappers between — they may position it */
-        var chain = [], p = e.parentElement, host = null;
-        for (; p && p.tagName !== 'BODY' && p.tagName !== 'HTML'; p = p.parentElement) {
-          host = p.id ? document.getElementById(p.id) : null;
-          if (!host && p.classList.length) {
-            var sel = p.tagName.toLowerCase() + Array.prototype.map.call(p.classList, function (c) { return '.' + (window.CSS && CSS.escape ? CSS.escape(c) : c); }).join('');
-            var all = document.querySelectorAll(sel);
-            host = all.length === 1 && !all[0].closest('[data-pf-list]') ? all[0] : null;
-          }
-          if (host) break;
-          chain.unshift(p);
-        }
-        host = host || document.body;
-        var top = null;
-        chain.forEach(function (w) { var c = document.importNode(w, false); c.setAttribute('data-pf-shell-open', ''); host.appendChild(c); if (!top) top = c; host = c; });
-        var n = document.importNode(e, true);
-        n.setAttribute('data-pf-shell-open', '');
-        host.appendChild(n);
-        return top || n;
-      });
-      Array.prototype.forEach.call(document.querySelectorAll('[data-pf-shell-open] [data-pf-go]'), function (n) { n.removeAttribute('data-pf-go'); });
-      shellOpen = { nodes: nodes, path: path, trigger: trigger };
+    var mode = stateMode(path);
+    var f = document.createElement('iframe');
+    f.setAttribute('data-pf-layer', path);
+    f.setAttribute('title', 'The product: ' + path.split('/').pop().replace(/\.html$/, ''));
+    f.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;border:0;margin:0;padding:0;z-index:2147483000;background:transparent;color-scheme:normal' + (mode === 'tooltip' ? ';pointer-events:none' : '');
+    f.allowTransparency = true;
+    var L = { frame: f, path: path, mode: mode, trigger: trigger || null, info: null, waiters: [] };
+    layer = L;
+    document.body.appendChild(f);
+    if (mode === 'rail' && !isPhone()) push(true);
+    return layerDoc(path, mode, opts.hover).then(function (html) {
+      if (layer !== L) return null;
+      if (!html) { L.info = { missing: true }; settle(L); closeShell(); toast('This opens a screen that is not part of this prototype'); return L.info; }
+      f.srcdoc = html;
+      return new Promise(function (r) { L.waiters.push(r); setTimeout(function () { if (!L.info) { L.info = { timeout: true }; settle(L); } }, 5000); });
     });
+  }
+  function settle(L) {
+    layerLog.push({ path: L.path, mode: L.mode, info: L.info });
+    var w = L.waiters; L.waiters = [];
+    w.forEach(function (f) { f(L.info); });
   }
   function closeShell() {
-    if (!shellOpen) return false;
-    shellOpen.nodes.forEach(function (n) { n.remove(); });
-    shellOpen = null;
+    if (!layer) return false;
+    var L = layer; layer = null;
+    if (!L.info) { L.info = { closed: true }; settle(L); }
+    L.frame.remove();
+    push(false);
     return true;
   }
-  function closeShellOnOutside(t) {
-    if (!shellOpen) return false;
-    if (shellOpen.trigger && shellOpen.trigger.contains(t)) return false;
-    var inside = shellOpen.nodes.some(function (n) { return n.contains(t) && !/scrim|mask/.test(String(t.className || '')); });
-    if (inside) {
-      var closeBtn = t.closest('.pf-modal-close, .pf-drawer-close, [aria-label="Close"], [aria-label="close"]');
-      if (closeBtn) { closeShell(); return true; }
-      return false;
+  window.addEventListener('message', function (ev) {
+    var m = ev.data;
+    if (!m || !m.pfLayer || !layer || ev.source !== layer.frame.contentWindow) return;
+    var L = layer;
+    if (m.type === 'ready') { L.info = m; settle(L); }
+    else if (m.type === 'empty') { L.info = m; settle(L); closeShell(); toast('Nothing opens here in this prototype'); }
+    else if (m.type === 'close') closeShell();
+    else if (m.type === 'go') shell(m.path, null);
+    else if (m.type === 'page') { closeShell(); page(m.to); }
+    else if (m.type === 'nav') {
+      closeShell();
+      var route = (BOOT.menu || {})[m.key] || (BOOT.labels || {})[m.label];
+      if (route) page(route);
+      else if (SHELL_OUT[m.label]) toast(SHELL_OUT[m.label] + ' — outside the prototype');
+      else toast('“' + (m.label || 'This') + '” is not part of this prototype');
     }
-    closeShell();
-    return true;
-  }
-  function toggleRail(path) {
-    var rail = document.querySelector('.pf-layout-sider');
-    if (!rail) return;
-    if (railSaved) { rail.replaceWith(railSaved); railSaved = null; return; }
-    request(path).then(function (html) {
-      if (!html) return;
-      var doc = new DOMParser().parseFromString(html, 'text/html');
-      var wide = doc.querySelector('.pf-layout-sider');
-      if (!wide) return;
-      var fresh = document.importNode(wide, true);
-      /* the selected item and any item this design added stay as they are here */
-      var mine = {};
-      Array.prototype.forEach.call(rail.querySelectorAll('[data-menu-id]'), function (li) { mine[railKey(li)] = li; });
-      var theirs = {};
-      Array.prototype.forEach.call(fresh.querySelectorAll('[data-menu-id]'), function (li) {
-        var k = railKey(li); theirs[k] = li;
-        li.classList.toggle('pf-menu-item-selected', !!(mine[k] && mine[k].classList.contains('pf-menu-item-selected')));
-      });
-      var prev = null;
-      Array.prototype.forEach.call(rail.querySelectorAll('[data-menu-id]'), function (li) {
-        var k = railKey(li);
-        if (!theirs[k]) {
-          var add = li.cloneNode(true);
-          if (prev && prev.parentNode) prev.parentNode.insertBefore(add, prev.nextSibling);
-          prev = add;
-        } else prev = theirs[k];
-      });
-      Array.prototype.forEach.call(fresh.querySelectorAll('[data-pf-go*="rail-expanded"]'), function (b) { b.setAttribute('data-pf-go', path); });
-      railSaved = rail;
-      rail.replaceWith(fresh);
-      fresh.addEventListener('mouseleave', function () { if (railSaved && fresh.isConnected) { fresh.replaceWith(railSaved); railSaved = null; } });
+  });
+
+  /* the rail as this design changes it (flow.json shell.rail): a new item after a neighbour, with
+     another item's icon; which item is selected. The same edits run on every rail drawn. */
+  function editRail(sider, edits, selected) {
+    if (!sider || !edits) return;
+    (edits.add || []).forEach(function (a) {
+      if (sider.querySelector('[data-menu-id$="-' + a.key + '"]')) return;
+      var after = sider.querySelector('[data-menu-id$="-' + a.after + '"]');
+      if (!after) return;
+      var li = after.cloneNode(true);
+      li.setAttribute('data-menu-id', (after.getAttribute('data-menu-id') || '').replace(/^(rc-menu-uuid-\d+-\d+-).*$/, '$1') + a.key);
+      li.setAttribute('title', a.label);
+      li.classList.remove('pf-menu-item-selected');
+      if (a.page) li.setAttribute('data-pf-page', a.page);
+      /* its label: the text outside its icon (an expanded rail's items carry an empty title) */
+      var w = document.createTreeWalker(li, NodeFilter.SHOW_TEXT), swapped = false;
+      for (var t = w.nextNode(); t; t = w.nextNode()) if (t.textContent.trim() && !(t.parentElement && t.parentElement.closest('.anticon, svg'))) { t.textContent = a.label; swapped = true; break; }
+      if (!swapped) li.appendChild(document.createTextNode(a.label));
+      var src = a.icon && sider.querySelector('[data-menu-id$="-' + a.icon + '"] .anticon'), dst = li.querySelector('.anticon');
+      if (src && dst) dst.replaceWith(src.cloneNode(true));
+      after.parentNode.insertBefore(li, after.nextSibling);
     });
+    if (selected) {
+      var sel = sider.querySelector('[data-menu-id$="-' + selected + '"]');
+      if (sel) { Array.prototype.forEach.call(sider.querySelectorAll('.pf-menu-item-selected'), function (e) { e.classList.remove('pf-menu-item-selected'); }); sel.classList.add('pf-menu-item-selected'); }
+    }
   }
-  /* the product opens the rail on hover */
-  document.addEventListener('mouseover', function (e) {
+
+  /* the product pushes the page aside when its rail expands (PUSH_CONTENT_ON_SIDEBAR_EXPAND) */
+  function push(on) {
+    if (!on) {
+      (pushed || []).forEach(function (p) { if (p.value) p.el.style.setProperty(p.prop, p.value, p.prio); else p.el.style.removeProperty(p.prop); });
+      pushed = null;
+      return;
+    }
+    var s = document.querySelector('.pf-layout-sider');
+    if (!s || pushed) return;
+    var w = s.getBoundingClientRect().width, W = 220;
+    if (W - w < 1) return;
+    pushed = [];
+    var save = function (el, prop, v) { pushed.push({ el: el, prop: prop, value: el.style.getPropertyValue(prop), prio: el.style.getPropertyPriority(prop) }); el.style.setProperty(prop, v, 'important'); };
+    var box = s;
+    while (box.parentElement && box.parentElement !== document.body && Math.abs(box.parentElement.getBoundingClientRect().width - w) < 2) box = box.parentElement;
+    var par = box.parentElement, pc = par && getComputedStyle(par);
+    if (getComputedStyle(s).position !== 'fixed' && pc && /flex/.test(pc.display) && !/column/.test(pc.flexDirection)) {
+      /* a rail in the page's flow (the 2.0 build): widen its box, the content reflows */
+      ['width', 'min-width', 'max-width', 'flex-basis'].forEach(function (p) { save(box, p, W + 'px'); });
+      return;
+    }
+    /* a fixed rail (the current theme): the content that starts where it ends moves over */
+    var c = Array.prototype.filter.call(document.querySelectorAll('body *'), function (e) {
+      if (e.closest('.pf-layout-sider')) return false;
+      return Math.abs(parseFloat(getComputedStyle(e).marginLeft) - w) < 2 && e.getBoundingClientRect().width > innerWidth * 0.5;
+    })[0];
+    if (c) save(c, 'margin-left', W + 'px');
+  }
+  /* the product opens the rail on hover — a real pointer, resting on it, not one that happens to be there */
+  var moved = false, hoverT = null;
+  document.addEventListener('pointermove', function (e) { if (e.movementX || e.movementY) moved = true; }, true);
+  document.addEventListener('pointerover', function (e) {
     var rail = e.target.closest && e.target.closest('.pf-layout-sider');
-    if (!rail || railSaved || rail.__pfHover) return;
+    if (!rail || !moved || layer || isPhone()) return;
     var btn = rail.querySelector('[data-pf-go*="rail-expanded"]');
-    if (btn) { rail.__pfHover = true; setTimeout(function () { rail.__pfHover = false; }, 400); toggleRail(btn.getAttribute('data-pf-go')); }
+    if (!btn) return;
+    clearTimeout(hoverT);
+    hoverT = setTimeout(function () { if (rail.matches(':hover') && !layer) shell(btn.getAttribute('data-pf-go'), null, { hover: true }); }, 180);
   });
   /* tooltips the product shows on hover: a data-pf-go to a …/tooltip-… state */
-  document.addEventListener('mouseover', function (e) {
+  document.addEventListener('pointerover', function (e) {
     var t = e.target.closest && e.target.closest('[data-pf-go*="tooltip-"]');
-    if (t && (!shellOpen || shellOpen.trigger !== t)) { shell(t.getAttribute('data-pf-go'), t); t.addEventListener('mouseleave', function out() { t.removeEventListener('mouseleave', out); if (shellOpen && shellOpen.trigger === t) closeShell(); }); }
+    if (!t || (layer && layer.trigger === t)) return;
+    shell(t.getAttribute('data-pf-go'), t);
+    t.addEventListener('pointerleave', function out() { t.removeEventListener('pointerleave', out); if (layer && layer.trigger === t) closeShell(); });
   });
 
   /* ── boot ────────────────────────────────────────────────────────────── */
@@ -702,6 +740,7 @@
     }, function (e) { fast = false; fail('state: ' + e.message); });
   }
   function boot() {
+    if (railEdits()) editRail(document.querySelector('.pf-layout-sider'), railEdits(), BOOT.feature ? railEdits().selected : null);
     INIT = json('pf-state');
     RAW = json('pf-data');
     ACTIONS = json('pf-actions');
@@ -714,14 +753,101 @@
     if (!m || !m.pf) return;
     if (m.pf === 'apply') apply(m.state, m.carry).then(function () { post({ pf: 'applied', id: m.id, state: snapshot(), errors: errors }); });
     else if (m.pf === 'set') { set(m.key, m.value); }
+    else if (m.pf === 'rpc') {
+      var fn = window.pf && window.pf[m.fn];
+      Promise.resolve(typeof fn === 'function' ? fn.apply(null, m.args || []) : null).then(function (res) { post({ pf: 'rpc', id: m.id, result: JSON.parse(JSON.stringify(res === undefined ? null : res)) }); }, function (e) { post({ pf: 'rpc', id: m.id, error: String(e && e.message || e) }); });
+    }
     else if (m.pf === 'qa') {
       var go = function () { Promise.resolve(window.pfQA ? window.pfQA(m.options || {}) : { issues: [], note: 'qa.js is not loaded' }).then(function (r) { r.errors = errors.slice(); r.dead = dead.slice(); post({ pf: 'qa', id: m.id, result: r }); }); };
       setTimeout(go, m.delay || 60);
     }
   });
 
+  /* ── for the QA: every control that opens something, opened; the data at its extremes ── */
+  function labelOf(e) { return ((e.getAttribute('aria-label') || e.getAttribute('title') || e.textContent || '') + '').replace(/\s+/g, ' ').trim().slice(0, 40); }
+  function displayed(e) { for (var n = e; n && n.nodeType === 1; n = n.parentElement) { var c = getComputedStyle(n); if (c.display === 'none' || c.visibility === 'hidden') return false; } var r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0; }
+  function targets() {
+    var out = [], had = {};
+    Array.prototype.forEach.call(document.querySelectorAll('[data-pf-go]'), function (e) {
+      var g = e.getAttribute('data-pf-go');
+      if (!/\.html($|[?#])/.test(g) || /tooltip-/.test(g) || had['go:' + g] || !displayed(e)) return;
+      had['go:' + g] = 1;
+      out.push({ kind: 'shell', key: g, label: labelOf(e) || g.split('/').pop().replace(/\.html$/, '') });
+    });
+    if (!isPhone() && document.querySelector('.pf-layout-sider [data-pf-go*="rail-expanded"]')) out.push({ kind: 'hover', key: 'rail', label: 'hovering the rail' });
+    ['menu', 'open'].forEach(function (k) {
+      Array.prototype.forEach.call(document.querySelectorAll('[data-pf-' + k + ']'), function (e) {
+        var id = e.getAttribute('data-pf-' + k);
+        if (!id || had[k + ':' + id] || !displayed(e)) return;
+        had[k + ':' + id] = 1;
+        out.push({ kind: k, key: id, label: labelOf(e) || id });
+      });
+    });
+    return out;
+  }
+  function textLeftUnder(right) {
+    /* the design's text that an expanded rail would lie over: left of its right edge, below the header */
+    var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT), r = document.createRange(), hits = 0;
+    for (var t = w.nextNode(); t; t = w.nextNode()) {
+      var el = t.parentElement;
+      if (!t.textContent.trim() || !el || el.closest('.pf-layout-sider, .pf-layout-header, [data-pf-layer], script, style, template')) continue;
+      r.selectNodeContents(t);
+      var b = r.getBoundingClientRect();
+      if (b.width < 1 || b.top < 64 || b.top > innerHeight) continue;
+      if (b.left < right - 2 && displayed(el)) hits++;
+    }
+    return hits;
+  }
+  function interact(t) {
+    closeShell(); set('menu', ''); set('overlay', '');
+    dirty = true; render();
+    if (t.kind === 'shell' || t.kind === 'hover') {
+      var path = t.kind === 'hover' ? document.querySelector('.pf-layout-sider [data-pf-go*="rail-expanded"]').getAttribute('data-pf-go') : t.key;
+      return shell(path, null, { hover: t.kind === 'hover' }).then(function (info) {
+        return new Promise(function (r) { setTimeout(r, 300); }).then(function () {
+          var rail = info && info.boxes && info.boxes.filter(function (b) { return !b.scrim; })[0];
+          return { target: t, layer: { path: path, mode: stateMode(path), info: info || null, pushed: !!pushed, covered: rail && stateMode(path) === 'rail' && !isPhone() ? textLeftUnder(rail.x + rail.w) : 0, scrim: !!(info && info.boxes && info.boxes.some(function (b) { return b.scrim; })) } };
+        });
+      });
+    }
+    if (t.kind === 'menu') set('menu', t.key); else set('overlay', t.key);
+    dirty = true; render();
+    return new Promise(function (r) { setTimeout(r, 250); }).then(function () {
+      var sel = t.kind === 'menu' ? '[data-pf-menu-panel="' + t.key + '"]' : '[data-pf-overlay="' + t.key + '"]';
+      var panels = Array.prototype.filter.call(document.querySelectorAll(sel), displayed);
+      return { target: t, panels: panels.length, selector: sel };
+    });
+  }
+  /* the first row of each named list, emptied, lengthened, in Arabic or at zero */
+  var AR = { name: 'عبدالرحمن بن فهد الزهراني', district: 'حي الملقا الشمالي', city: 'الرياض', types: 'فيلا، دوبلكس، شقة، أرض', intent: 'يرغب في وكيل لبيع العقار', label: 'نص عربي طويل' };
+  function extremes(kind, lists) {
+    (lists || Object.keys(LIVE)).forEach(function (name) {
+      var arr = LIVE[name] === undefined ? [] : rows(name);
+      var r = arr[0];
+      if (!r || typeof r !== 'object') return;
+      var sortBy = {};
+      Array.prototype.forEach.call(document.querySelectorAll('[data-pf-list="' + name + '"][data-pf-sort]'), function (el) { var v = String(value(el.getAttribute('data-pf-sort')) || '').replace(/^[-+]/, ''); if (v) sortBy[v] = 1; });
+      Object.keys(r).forEach(function (k) {
+        if (k === 'id' || k === 'status' || k === 'value' || sortBy[k]) return;   /* the sort key stays: the row stays where it is seen */
+        var v = r[k];
+        if (kind === 'missing') r[k] = null;
+        else if (kind === 'long') r[k] = typeof v === 'number' ? 999999999 : typeof v === 'string' ? (v + ' ' + v + ' ' + v).slice(0, 72) : v;
+        else if (kind === 'arabic') { if (typeof v === 'string') r[k] = AR[k] || AR.label; }
+        else if (kind === 'zero') { if (typeof v === 'number') r[k] = 0; }
+      });
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-pf-list]'), function (el) { el.__pfSig = null; });
+    dirty = true; render();
+    return new Promise(function (r) { setTimeout(r, 200); }).then(function () { return { extremes: kind }; });
+  }
+
   window.pf = {
-    version: '2.0',
+    version: '2.1',
+    targets: targets,
+    interact: interact,
+    extremes: extremes,
+    closeShell: closeShell,
+    layerLog: layerLog,
     shellOut: SHELL_OUT,
     get: function (k) { return k ? S[k] : snapshot(); },
     set: function (k, v) { set(k, v); },

@@ -105,7 +105,9 @@
       "try": [
         "Buy the first lead",
         "Filter by city: Abha has no leads",
-        "Row 3 is already bought by your agency — View in TruLeads"
+        "Row 3 is already bought by your agency — View in TruLeads",
+        "The last two leads came without rooms, district or price — see how each shows",
+        "Switch the locked-contact option (A/B/C) under Options"
       ]
     },
     {
@@ -251,7 +253,8 @@
         "empty": "empty",
         "error": "error",
         "no-results": "no-results",
-        "first-use": "first-visit"
+        "first-use": "first-visit",
+        "partial": "owner"
       }
     },
     {
@@ -263,7 +266,8 @@
         "empty": "empty",
         "error": "error",
         "no-results": "no-results",
-        "first-use": "first-visit"
+        "first-use": "first-visit",
+        "partial": "seeker"
       }
     },
     {
@@ -286,6 +290,41 @@
         "error": "not drawn: static list"
       },
       "list": "cities"
+    }
+  ],
+  "shell": {
+    "rail": {
+      "add": [
+        {
+          "key": "leads-marketplace",
+          "label": "Leads Marketplace",
+          "after": "leads",
+          "icon": "prop-shop",
+          "page": "marketplace"
+        }
+      ],
+      "selected": "leads-marketplace"
+    }
+  },
+  "options": [
+    {
+      "key": "opt.lock",
+      "title": "Locked contact",
+      "question": "How should a lead's contact look before your agency buys it?",
+      "variants": [
+        [
+          "blur",
+          "A · Blurred, lock chip"
+        ],
+        [
+          "mask",
+          "B · Masked, Unlock inline"
+        ],
+        [
+          "avatar",
+          "C · Initials and a lock"
+        ]
+      ]
     }
   ]
 }

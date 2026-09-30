@@ -14,6 +14,7 @@
   var RUNTIME = $('pfp-runtime').textContent;
   var QA = $('pfp-qa').textContent;
   var KITCSS = $('pfp-kitcss').textContent;
+  var LAYER = ($('pfp-layer') || {}).textContent || '';
   var blobs = {};
   Array.prototype.forEach.call(document.querySelectorAll('script[data-path]'), function (s) { blobs[s.getAttribute('data-path')] = s; });
   var cache = {};
@@ -52,11 +53,39 @@
     });
   }
 
+  /* a compiled state for the shell layer: its own stylesheet inlined, kit/layer.js, no runtime */
+  function layerHtml(path, opts) {
+    return file(path).then(function (html) {
+      if (html == null) return '';
+      var links = [], re = /<link data-pf-css="([^"]+)"[^>]*>/g, m;
+      while ((m = re.exec(html))) links.push(m[1]);
+      return Promise.all(links.map(file)).then(function (css) {
+        var byPath = {};
+        links.forEach(function (p, i) { byPath[p] = css[i] || ''; });
+        html = html.replace(/<link data-pf-css="([^"]+)"[^>]*>/g, function (all, p) { return '<style>' + byPath[p] + '</style>'; });
+        var inject = '<script>window.PF_LAYER=' + JSON.stringify(opts).replace(/</g, '\\u003c') + '<\/script><script>' + LAYER + '<\/script>';
+        var at = html.search(/<\/body>\s*(<\/html>\s*)?$/i);
+        return at > -1 ? html.slice(0, at) + inject + html.slice(at) : html + inject;
+      });
+    });
+  }
+
   /* ── the page ────────────────────────────────────────────────────────── */
   var root = $('pfp');
   var frame = $('pfp-frame'), device = $('pfp-device');
   var cur = { entry: null, platform: (M.platforms && M.platforms[0]) || 'web', state: null, ready: false };
-  var overrides = {}, snapshot = {}, waiters = [], qaWait = {}, frameErrors = [];
+  var overrides = {}, snapshot = {}, waiters = [], qaWait = {}, rpcWait = {}, frameErrors = [];
+  /* call a function of the runtime in the frame (window.pf[fn]) and wait for its answer */
+  function call(fn, args, ms) {
+    return whenReady().then(function () {
+      return new Promise(function (r) {
+        var id = Math.random().toString(36).slice(2);
+        rpcWait[id] = function (m) { r(m.error ? { error: m.error } : m.result); };
+        send({ pf: 'rpc', id: id, fn: fn, args: args || [] });
+        setTimeout(function () { if (rpcWait[id]) { delete rpcWait[id]; r({ error: fn + ' did not answer' }); } }, ms || 12000);
+      });
+    });
+  }
 
   function el(tag, attrs, kids) {
     var e = document.createElement(tag);
@@ -74,7 +103,9 @@
     var s = sizeOf(cur.entry, cur.platform);
     frame.style.width = s[0] + 'px'; frame.style.height = s[1] + 'px';
     var shot = root.getAttribute('data-mode') === 'shot';
-    var avail = Math.max(320, $('pfp-stage').clientWidth - 32);
+    var st = $('pfp-stage'), cst = getComputedStyle(st);
+    var inner = st.getBoundingClientRect().width - parseFloat(cst.paddingLeft) - parseFloat(cst.paddingRight);
+    var avail = Math.max(280, Math.min(inner, document.documentElement.clientWidth - 32));
     var k = shot ? 1 : Math.min(1, avail / s[0]);
     if (cur.platform === 'phone' && !shot) k = Math.min(1, Math.max(0.5, (window.innerHeight - 140) / s[1]));
     frame.style.transform = k === 1 ? 'none' : 'scale(' + k + ')';
@@ -96,7 +127,7 @@
     var path = entry.files[cur.platform] || entry.files.web || entry.files.phone;
     if (!entry.files[cur.platform]) toast('No ' + cur.platform + ' layout for ' + (entry.title || entry.id) + ' — showing ' + (entry.files.web ? 'web' : 'phone'));
     cur.entry = entry; cur.ready = false; frameErrors = [];
-    var boot = { screen: entry.id, file: path, platform: cur.platform, state: state || null, carry: carry || null, menu: M.menu || {}, labels: M.labels || {} };
+    var boot = { screen: entry.id, file: path, platform: cur.platform, state: state || null, carry: carry || null, menu: M.menu || {}, labels: M.labels || {}, shell: M.shell || null, feature: M.screens.some(function (x) { return x.id === entry.id; }) };
     fit();
     return frameHtml(path, boot).then(function (html) { frame.srcdoc = html; }, function (e) { toast(e.message); });
   }
@@ -154,7 +185,11 @@
       (path ? file(path) : Promise.resolve(null)).then(function (html) {
         send({ pf: 'file', id: m.id, html: html || '' });
       });
-    } else if (m.pf === 'qa') { if (qaWait[m.id]) { qaWait[m.id](m.result); delete qaWait[m.id]; } }
+    } else if (m.pf === 'doc') {
+      var lp = resolve(m.path, m.from);
+      (lp ? layerHtml(lp, { mode: m.mode, path: lp, hover: !!m.hover, rail: m.rail || null, selected: m.selected || null }) : Promise.resolve('')).then(function (html) { send({ pf: 'doc', id: m.id, html: html || '' }); });
+    } else if (m.pf === 'rpc') { if (rpcWait[m.id]) { rpcWait[m.id](m); delete rpcWait[m.id]; } }
+    else if (m.pf === 'qa') { if (qaWait[m.id]) { qaWait[m.id](m.result); delete qaWait[m.id]; } }
   });
   /* a compiled state a click names (data-pf-go): the bundler's alias, the same folder, or
      the same state of another page — the shell's states are the same on every page */
@@ -195,10 +230,20 @@
     });
     bar.appendChild(el('button', { type: 'button', text: 'Restart', on: { click: function () { overrides = {}; go(M.start || M.states[0].id); } } }));
     var q = M.qa || {};
-    var qaBtn = el('button', { type: 'button', class: 'pfp-qa', 'data-state': !q.ran ? 'warn' : q.errors ? 'fail' : 'pass', text: !q.ran ? 'QA not run' : q.errors ? 'QA: ' + q.errors + ' issue' + (q.errors > 1 ? 's' : '') : 'QA passed', on: { click: function () { runQA(); } } });
+    var cov = q.coverage ? ' · ' + q.coverage : '';
+    var qaBtn = el('button', { type: 'button', class: 'pfp-qa', 'data-state': !q.ran ? 'warn' : q.errors ? 'fail' : 'pass', title: q.coverage ? 'Covered: ' + q.coverage : '', text: !q.ran ? 'QA not run' : q.errors ? 'QA: ' + q.errors + ' issue' + (q.errors > 1 ? 's' : '') + cov : 'QA passed' + cov, on: { click: function () { runQA(); } } });
     bar.appendChild(qaBtn);
     if (q.ran && q.errors) root.insertBefore(el('div', { class: 'pfp-banner', text: 'Design QA found ' + q.errors + ' issue' + (q.errors > 1 ? 's' : '') + ' — this prototype is not ready to share. Open QA for the list.' }), $('pfp-main'));
     else if (!q.ran && !M.wireframe) root.insertBefore(el('div', { class: 'pfp-banner', 'data-kind': 'warn', text: 'Visual QA did not run where this was built' + (q.note ? ' (' + q.note + ')' : '') + ' — press QA to check it in this browser.' }), $('pfp-main'));
+    (M.options || []).forEach(function (o) {
+      var box = $('pfp-options');
+      if (!box) return;
+      var seg = el('div', { class: 'pfp-seg', role: 'group', 'aria-label': o.title || o.key });
+      o.variants.forEach(function (v) {
+        seg.appendChild(el('button', { type: 'button', 'data-option': o.key, 'data-value': String(v[0]), 'aria-pressed': 'false', text: v[1] + (o.chosen === v[0] ? ' ✓' : ''), on: { click: function () { overrides[o.key] = v[0]; send({ pf: 'set', key: o.key, value: v[0] }); syncControls(); } } }));
+      });
+      box.appendChild(el('div', { class: 'pfp-option' }, [el('h3', { text: o.title || o.key }), o.question ? el('p', { class: 'pfp-muted', text: o.question }) : null, seg]));
+    });
     var groups = {};
     M.states.forEach(function (s) { var g = s.group || 'States'; (groups[g] = groups[g] || []).push(s); });
     var box = $('pfp-states');
@@ -209,6 +254,9 @@
     });
   }
   function syncControls() {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-option]'), function (b) {
+      b.setAttribute('aria-pressed', String(String(snapshot[b.getAttribute('data-option')]) === b.getAttribute('data-value')));
+    });
     Array.prototype.forEach.call(document.querySelectorAll('[data-control]'), function (sel) {
       var c = (M.controls || []).filter(function (x) { return x.key === sel.getAttribute('data-control'); })[0];
       var v = snapshot[c.key], i = c.options.map(function (o) { return String(o[0]); }).indexOf(String(v));
@@ -256,6 +304,11 @@
     shot: function (on) { root.setAttribute('data-mode', on ? 'shot' : ''); fit(); },
     state: function () { return snapshot; },
     errors: function () { return frameErrors.slice(); },
+    targets: function () { return call('targets'); },
+    interact: function (t) { return call('interact', [t], 15000); },
+    extremes: function (kind, lists) { return call('extremes', [kind, lists]); },
+    setVar: function (k, v) { overrides[k] = v; send({ pf: 'set', key: k, value: v }); return new Promise(function (r) { setTimeout(r, 200); }); },
+    closeShell: function () { return call('closeShell'); },
   };
 
   build();

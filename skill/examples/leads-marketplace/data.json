@@ -19,7 +19,10 @@
     "expires": "Expires in 30 days",
     "status": "open",
     "name": "Abdulrahman Al-Zahrani",
-    "phone": "+966 50 214 7759"
+    "phone": "+966 50 214 7759",
+    "maskedName": "A•••••••••• A•••••••••",
+    "maskedPhone": "+966 50 ••• ••59",
+    "initials": "AA"
    },
    {
     "id": "O2",
@@ -39,7 +42,10 @@
     "expires": "Expires in 14 days",
     "status": "open",
     "name": "Hessa Al-Subaie",
-    "phone": "+966 55 608 3321"
+    "phone": "+966 55 608 3321",
+    "maskedName": "H•••• A••••••••",
+    "maskedPhone": "+966 55 ••• ••21",
+    "initials": "HA"
    },
    {
     "id": "O3",
@@ -61,7 +67,10 @@
     "name": "Khalid Al-Shammari",
     "phone": "+966 54 222 8190",
     "buyer": "Faisal Al-Harbi",
-    "when": "Yesterday"
+    "when": "Yesterday",
+    "maskedName": "K••••• A••••••••••",
+    "maskedPhone": "+966 54 ••• ••90",
+    "initials": "KA"
    },
    {
     "id": "O4",
@@ -81,7 +90,10 @@
     "expires": "Expires in 12 days",
     "status": "open",
     "name": "Sara Al-Otaibi",
-    "phone": "+966 50 481 7736"
+    "phone": "+966 50 481 7736",
+    "maskedName": "S••• A••••••••",
+    "maskedPhone": "+966 50 ••• ••36",
+    "initials": "SA"
    },
    {
     "id": "O5",
@@ -101,7 +113,10 @@
     "expires": "Expires in 27 days",
     "status": "open",
     "name": "Fahad Al-Ghamdi",
-    "phone": "+966 55 903 1284"
+    "phone": "+966 55 903 1284",
+    "maskedName": "F•••• A••••••••",
+    "maskedPhone": "+966 55 ••• ••84",
+    "initials": "FA"
    },
    {
     "id": "O6",
@@ -121,7 +136,10 @@
     "expires": "Expires in 27 days",
     "status": "open",
     "name": "Abdullah Al-Faris",
-    "phone": "+966 56 118 4402"
+    "phone": "+966 56 118 4402",
+    "maskedName": "A••••••• A•••••••",
+    "maskedPhone": "+966 56 ••• ••02",
+    "initials": "AA"
    },
    {
     "id": "O7",
@@ -139,7 +157,10 @@
     "added": 5800,
     "addedLabel": "Added 4 days ago",
     "expires": "Expired",
-    "status": "gone"
+    "status": "gone",
+    "maskedName": "K•••• A•-K••••",
+    "maskedPhone": "+966 5• ••• ••••",
+    "initials": "KA"
    },
    {
     "id": "O8",
@@ -159,7 +180,56 @@
     "expires": "Expires in 25 days",
     "status": "open",
     "name": "Nourah Al-Qahtani",
-    "phone": "+966 53 770 2619"
+    "phone": "+966 53 770 2619",
+    "maskedName": "N••••• A•••••••••",
+    "maskedPhone": "+966 53 ••• ••19",
+    "initials": "NA"
+   },
+   {
+    "id": "O9",
+    "purpose": "sale",
+    "purposeLabel": "For Sale",
+    "intent": "Wants an agent to sell",
+    "city": "Riyadh",
+    "district": null,
+    "beds": null,
+    "baths": null,
+    "price": 1800000,
+    "priceLabel": "Expected price",
+    "band": "1-3m",
+    "credits": 40,
+    "added": 80,
+    "addedLabel": "Added 1 hour ago",
+    "expires": "Expires in 30 days",
+    "status": "open",
+    "name": "Maha Al-Rashid",
+    "phone": "+966 55 412 0937",
+    "maskedName": "M••• A••••••••",
+    "maskedPhone": "+966 55 ••• ••37",
+    "initials": "MA"
+   },
+   {
+    "id": "O10",
+    "purpose": "rent",
+    "purposeLabel": "For Rent",
+    "intent": null,
+    "city": "Jeddah",
+    "district": "Al Hamra",
+    "beds": 3,
+    "baths": null,
+    "price": null,
+    "priceLabel": "Annual rent",
+    "band": "",
+    "credits": 20,
+    "added": 200,
+    "addedLabel": "Added 3 hours ago",
+    "expires": "Expires in 14 days",
+    "status": "open",
+    "name": "Saud Al-Harbi",
+    "phone": "+966 50 776 3102",
+    "maskedName": "S••• A•••••••",
+    "maskedPhone": "+966 50 ••• ••02",
+    "initials": "SA"
    }
   ],
   "none": []
@@ -185,7 +255,10 @@
     "status": "open",
     "name": "Majed Al-Dosari",
     "phone": "+966 50 332 9051",
-    "price": 2500000
+    "price": 2500000,
+    "maskedName": "M•••• A••••••••",
+    "maskedPhone": "+966 50 ••• ••51",
+    "initials": "MA"
    },
    {
     "id": "S2",
@@ -206,7 +279,10 @@
     "status": "open",
     "name": "Reem Al-Harthi",
     "phone": "+966 54 610 2277",
-    "price": 60000
+    "price": 60000,
+    "maskedName": "R••• A••••••••",
+    "maskedPhone": "+966 54 ••• ••77",
+    "initials": "RA"
    },
    {
     "id": "S3",
@@ -229,7 +305,10 @@
     "phone": "+966 55 247 8830",
     "buyer": "You",
     "when": "Yesterday",
-    "price": 1000000
+    "price": 1000000,
+    "maskedName": "Y••••• A•••••••••",
+    "maskedPhone": "+966 55 ••• ••30",
+    "initials": "YA"
    },
    {
     "id": "S4",
@@ -248,7 +327,10 @@
     "addedLabel": "Added 2 days ago",
     "expires": "Expired",
     "status": "gone",
-    "price": 100000
+    "price": 100000,
+    "maskedName": "K•••• A•-K••••",
+    "maskedPhone": "+966 5• ••• ••••",
+    "initials": "KA"
    },
    {
     "id": "S5",
@@ -269,7 +351,10 @@
     "status": "open",
     "name": "Turki Al-Anazi",
     "phone": "+966 56 904 1162",
-    "price": 1800000
+    "price": 1800000,
+    "maskedName": "T•••• A•••••••",
+    "maskedPhone": "+966 56 ••• ••62",
+    "initials": "TA"
    },
    {
     "id": "S6",
@@ -290,7 +375,34 @@
     "status": "open",
     "name": "Lama Al-Shehri",
     "phone": "+966 53 118 6620",
-    "price": 40000
+    "price": 40000,
+    "maskedName": "L••• A••••••••",
+    "maskedPhone": "+966 53 ••• ••20",
+    "initials": "LA"
+   },
+   {
+    "id": "S7",
+    "purpose": "buy",
+    "purposeLabel": "Buy",
+    "types": null,
+    "city": "Dammam",
+    "beds": null,
+    "baths": null,
+    "min": 900000,
+    "max": null,
+    "price": 900000,
+    "priceLabel": "Total budget",
+    "band": "u1m",
+    "credits": 30,
+    "added": 240,
+    "addedLabel": "Added 4 hours ago",
+    "expires": "Expires in 60 days",
+    "status": "open",
+    "name": "Omar Al-Subaie",
+    "phone": "+966 56 330 8845",
+    "maskedName": "O••• A••••••••",
+    "maskedPhone": "+966 56 ••• ••45",
+    "initials": "OA"
    }
   ],
   "none": []

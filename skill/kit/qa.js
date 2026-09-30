@@ -19,6 +19,10 @@
      vars      an inline var(--x) with no value and no fallback
      skeleton  a loading skeleton whose blocks don't follow the columns of the table above it
      spacing   a button's label split into flex items, the gap between every word
+     blank     a bound value that renders nothing, or "undefined", "null", "NaN", when the data lacks it
+     shell     (in the sweep) a product state that opens nothing, off the screen, unstyled, or an
+               expanded rail lying over the page instead of pushing it aside
+     clip      (in the sweep, too) a menu or dialog cut off by a container or the screen's edge
      rows      (warning) cells of one row aligned differently: some top, some centre
      targets   (warning, phone) a control smaller than the build's 32 px (the platforms ask 44)
      small     (warning) visible text under 11 px */
@@ -281,6 +285,52 @@
       add(shellPart ? 'warn' : 'error', 'dead', '“' + (label(c) || c.tagName.toLowerCase()) + '” looks clickable and does nothing — wire it (data-pf-…) or mark it data-pf-inert="why"', c);
     });
 
+    /* interaction: what a click opened (the QA's sweep passes it in) */
+    var it = opt.interaction;
+    if (it && it.target) {
+      var nm = '“' + (it.target.label || it.target.key) + '”';
+      if (it.layer) {
+        var inf = it.layer.info || {};
+        if (inf.missing) add('error', 'shell', nm + ' opens a product state this prototype does not hold (' + it.layer.path + ')');
+        else if (inf.type === 'empty' || inf.timeout) add('error', 'shell', nm + ' opens nothing' + (inf.timeout ? ' — the product state did not load' : ' — the product state shows no layer here'));
+        else {
+          var boxes = (inf.boxes || []).filter(function (b) { return !b.scrim && b.visible !== false; });
+          if (!boxes.length) add('error', 'shell', nm + ' opens nothing visible — the product state\'s layer is hidden');
+          else if (!inf.texts && it.layer.mode !== 'rail') add('warn', 'shell', nm + ' opens a layer with no text in it');
+          var inView = boxes.some(function (b) {
+            var w = Math.min(b.x + b.w, innerWidth) - Math.max(b.x, 0), h = Math.min(b.y + b.h, innerHeight) - Math.max(b.y, 0);
+            return w > 0 && h > 0 && w * h >= 0.3 * b.w * b.h;
+          });
+          if (boxes.length && !inView) add('error', 'shell', nm + ' opens off the screen');
+          var bad = Object.keys(inf.fonts || {}).filter(function (f) { return /^(times|times new roman|serif|-webkit-standard)$/i.test(f); });
+          if (bad.length) add('error', 'shell', nm + ' renders unstyled — its text falls back to ' + bad[0] + ' (the state\'s stylesheet did not load)');
+          if (it.layer.covered && !it.layer.scrim) add('error', 'shell', nm + ': the expanded rail lies over ' + it.layer.covered + ' piece(s) of the page\'s text — the product pushes the page aside');
+        }
+      } else if (!it.panels) add('error', 'dead', nm + ' opens nothing — ' + it.selector + ' does not show');
+      else Array.prototype.forEach.call(document.querySelectorAll(it.selector), function (p) {
+        if (!shown(p)) return;
+        /* a menu or a dialog cut by a container that clips it, or by the screen's edge */
+        var r = p.getBoundingClientRect(), v = { l: r.left, t: r.top, r: r.right, b: r.bottom };
+        for (var a = p.parentElement; a && a !== document.documentElement; a = a.parentElement) {
+          var ac = cs(a);
+          if (!/(hidden|clip|auto|scroll)/.test(ac.overflowX + ' ' + ac.overflowY)) continue;
+          var ar = a.getBoundingClientRect();
+          v = { l: Math.max(v.l, ar.left), t: Math.max(v.t, ar.top), r: Math.min(v.r, ar.right), b: Math.min(v.b, ar.bottom) };
+        }
+        v = { l: Math.max(v.l, 0), t: Math.max(v.t, 0), r: Math.min(v.r, innerWidth), b: Math.min(v.b, innerHeight) };
+        var full = r.width * r.height, seenA = Math.max(0, v.r - v.l) * Math.max(0, v.b - v.t);
+        if (full > 0 && seenA / full < 0.95) add('error', 'clip', nm + ' opens cut off: ' + Math.round((1 - seenA / full) * 100) + '% of it is hidden by the container that clips it, or the screen\'s edge', p);
+      });
+    }
+
+    /* blank: a value the data lacks renders nothing — a design shows a fallback, or hides it */
+    var isShown = function (e) { for (var n = e; n && n.nodeType === 1; n = n.parentElement) { var c = cs(n); if (c.display === 'none' || c.visibility === 'hidden') return false; } return true; };
+    Array.prototype.forEach.call(document.querySelectorAll('[data-pf-item] [data-pf-text], [data-pf-item][data-pf-text]'), function (e) {
+      if ((e.textContent || '').trim() || !isShown(e) || e.closest('[data-pf-skeleton-row], template')) return;
+      var f = e.getAttribute('data-pf-text').replace(/^[@$.]+/, '');
+      add('error', 'blank', '“' + f + '” shows nothing when the data lacks it — give it a fallback (data-pf-default="Not shared") or hide it (data-pf-show="$.' + f + '")', e.closest('[data-pf-item]') || e);
+    });
+
     /* spacing: a button or chip whose words are separate flex items get the gap between each */
     Array.prototype.forEach.call(document.querySelectorAll('button, [role=button], a, .pfk-btn, .wf-btn, [data-pf-do], [data-pf-set], [data-pf-open]'), function (b) {
       var st = cs(b);
@@ -302,7 +352,7 @@
       var cx0 = Math.min(innerWidth - 1, Math.max(0, r.left + r.width / 2)), cy0 = Math.min(innerHeight - 1, Math.max(0, r.top + r.height / 2));
       var top = document.elementFromPoint(cx0, cy0);
       var covered = r.top < innerHeight && r.bottom > 0 && top && !(top === t.parentElement || t.parentElement.contains(top) || top.contains(t.parentElement));
-      texts.push({ node: t, el: t.parentElement, r: r, covered: !!covered });
+      texts.push({ node: t, el: t.parentElement, r: r, lines: Array.prototype.slice.call(range.getClientRects()).filter(function (q) { return q.width >= 1 && q.height >= 1; }), covered: !!covered });
     }
     stats.texts = texts.length;
     var buckets = {};
@@ -316,11 +366,16 @@
         var A = texts[ids[a]], B = texts[ids[b]], key = ids[a] + ':' + ids[b];
         if (seen[key]) continue; seen[key] = 1;
         if (A.el === B.el || A.el.contains(B.el) || B.el.contains(A.el) || A.covered || B.covered) continue;
-        var w = Math.min(A.r.right, B.r.right) - Math.max(A.r.left, B.r.left), h = Math.min(A.r.bottom, B.r.bottom) - Math.max(A.r.top, B.r.top);
-        if (w < 2 || h < 2) continue;
-        var area = w * h, small = Math.min(A.r.width * A.r.height, B.r.width * B.r.height);
-        if (area < small * 0.3) continue;
-        var cx = Math.max(A.r.left, B.r.left) + w / 2, cy = Math.max(A.r.top, B.r.top) + h / 2;
+        /* line by line: a text that wraps has a box around both lines, which is not where it draws */
+        var best = null;
+        A.lines.forEach(function (a) { B.lines.forEach(function (b2) {
+          var w = Math.min(a.right, b2.right) - Math.max(a.left, b2.left), h = Math.min(a.bottom, b2.bottom) - Math.max(a.top, b2.top);
+          if (w < 2 || h < 2) return;
+          var share = (w * h) / Math.min(a.width * a.height, b2.width * b2.height);
+          if (!best || share > best.share) best = { share: share, cx: Math.max(a.left, b2.left) + w / 2, cy: Math.max(a.top, b2.top) + h / 2 };
+        }); });
+        if (!best || best.share < 0.3) continue;
+        var cx = best.cx, cy = best.cy;
         var hit = document.elementFromPoint(cx, cy);
         if (!hit || !(A.el.contains(hit) || hit.contains(A.el) || B.el.contains(hit) || hit.contains(B.el))) continue;   /* one of them is covered: an overlay, not a clash */
         add('error', 'overlap', '“' + label(A.el) + '” overlaps “' + label(B.el) + '”', A.el);
@@ -356,6 +411,7 @@
     if (sw > innerWidth + 1) add('error', 'overflow', 'The page is ' + (sw - innerWidth) + ' px wider than its ' + innerWidth + ' px viewport — it scrolls sideways', document.body);
     texts.forEach(function (x) {
       var s = x.node.textContent;
+      if (/\b(undefined|NaN)\b|\[object Object\]|^\s*null\s*$/.test(s)) add('error', 'blank', 'A value renders as “' + s.trim().slice(0, 30) + '” — the data is missing and the design has no fallback', x.el);
       if (/(\bSAR\b|ر\.س|⃁)\s*[\d٠-٩]|[\d٠-٩][\d,.٠-٩]*\s*(\bSAR\b|ر\.س|⃁)/.test(s) && !x.el.closest('[contenteditable="true"], textarea, input')) add('error', 'currency', 'An amount is written with “SAR”, “ر.س” or U+20C1 — draw the riyal glyph (kit/riyal.svg) before the number: “' + s.trim().slice(0, 40) + '”', x.el);
     });
     if (document.querySelector('svg path[d^="M7.9 0 9.9 0"]')) add('error', 'currency', 'The 2.0 handover\'s rough riyal sketch is drawn — use the official sign, kit/riyal.svg', document.querySelector('svg path[d^="M7.9 0 9.9 0"]').closest('svg'));

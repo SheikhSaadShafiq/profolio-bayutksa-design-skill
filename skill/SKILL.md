@@ -18,7 +18,11 @@ user in a wireframe. Then the Design QA passes it.
    - `flow.json`: the screens, every named state, the scenario controls, and the **state
      matrix**. Every region that shows data gets its loading, empty, error and no-results
      state, even when the PRD is silent.
-   - `state.json`, `data.json`, `actions.json`: realistic KSA sample rows and every action.
+   - `state.json`, `data.json`, `actions.json`: realistic KSA sample rows, incomplete ones
+     included, and every action.
+   - **the field matrix**: what every field shows when the source didn't send it ("Not shared",
+     hidden, "From 900,000"). **Locked or gated data** (not bought, not paid, a role that may
+     not see it) gets a lock state, with 2–3 variants the user picks (flow.json `options`).
    - a greyscale wireframe of each screen, web and phone, wired to them (`kit/wireframe.css`).
    Run `node qa/prototype.mjs designs/<feature> --wireframe` and send it with the plan paragraph.
    **Stop. No hi-fi file until the user says go.** A small change gets a small wireframe of the
@@ -27,8 +31,13 @@ user in a wireframe. Then the Design QA passes it.
    from the product's components and the pattern kit (`kit/kit.css`), with the same flow.json
    and JSON. The wireframe's columns and states carry over unchanged.
 4. **Design QA (gate 2).** Run `node qa/prototype.mjs designs/<feature> --shots` until it
-   exits 0. It renders every state, web and phone, and measures them. Look at `qa/shots/`
-   yourself before delivering. Exit 3 means no browser was available: say so when you
+   exits 0. It renders and measures, web and phone:
+   - every state;
+   - every interaction: the rail, the header's controls, every menu and sheet;
+   - the data at its extremes: empty, long, Arabic, zero;
+   - every option variant.
+   Look at `qa/shots/` yourself before delivering, interactions and extremes included. Report
+   the coverage it prints, never more. Exit 3 means no browser was available: say so when you
    deliver, and ask for the QA button in the prototype to be pressed.
 5. **Deliver** `designs/<feature>/prototype.html`, published as an artifact wherever you can,
    with `qa/handoff.md` completed (OUTPUT CONTRACT). Every control in it works:
@@ -130,6 +139,10 @@ inline.
 - deliver while `node qa/prototype.mjs` reports errors, or without saying that the visual QA did not run
 - leave a control that does nothing: wire it (`data-pf-*`), or mark it `data-pf-inert="why"`
 - write prototype JavaScript of your own, or match clicks by their text: the runtime does both
+- leave a field without what it shows when the data lacks it: a blank, "undefined" or "null" fails
+- design locked or gated content without a lock state, or settle how it looks without offering
+  the user 2–3 options at the wireframe gate
+- call a prototype checked beyond the coverage the QA printed
 - design a list, table or dropdown without its loading, empty, error and (when it filters)
   no-results states, even when the PRD is silent, nor promise in an empty state a feature the
   page does not have

@@ -265,6 +265,11 @@ for (const sf of screenFiles) {
   if (cur) E('currency', `${where}: an amount written as “${cur[0].trim()}” — draw the riyal glyph before the number (kit/riyal.svg)`);
   for (const m of h.matchAll(/\sstyle="([^"]*)"/g)) for (const v of m[1].matchAll(/var\((--[\w-]+)\s*\)/g)) if (!cssDefs.has(v[1])) { E('vars', `${where}: var(${v[1]}) is used but no stylesheet the screen links defines it`); break; }
 }
+/* options: each open design decision is drawn — its key is used by a screen */
+for (const o of flow.options || []) {
+  if (!o.key || !Array.isArray(o.variants) || o.variants.length < 2) { E('options', `option ${JSON.stringify(o.key || o.title)}: needs a key and at least two variants as [value, "label"]`); continue; }
+  if (!screenFiles.some((sf) => sf.html.includes(o.key))) E('options', `option "${o.key}" is not used by any screen (data-pf-show="${o.key}=…")`);
+}
 /* states: their steps name real actions */
 for (const s of states) stepsOf([].concat(s.do || []).map((d) => (typeof d === 'string' ? { do: d } : d)), `state "${s.id}"`, Object.fromEntries([...actionNames].map((a) => [a, true])));
 
@@ -335,7 +340,7 @@ function build(qa) {
     theme: flow.theme || '', platforms: PLATFORMS, start: flow.start || (states[0] && states[0].id), wireframe: WIRE,
     screens: screens.map((s) => ({ id: s.id, title: s.title || s.id, route: s.route || '', size: s.size || null, files: Object.fromEntries(PLATFORMS.map((p) => [p, fileOf(s, p) ? bundlePath(resolve(DIR, fileOf(s, p))) : null]).filter(([, v]) => v)) })),
     pages: pageEntries, states: states.map((s) => ({ id: s.id, screen: s.screen || (screens[0] && screens[0].id), group: s.group, title: s.title, set: s.set || {}, do: s.do || [], notes: s.notes || '', try: s.try || [] })),
-    controls: flow.controls || [], alias, menu: NAV.menu, labels: NAV.labels, qa,
+    controls: flow.controls || [], options: flow.options || [], shell: flow.shell || null, alias, menu: NAV.menu, labels: NAV.labels, qa,
   };
   return `<!doctype html>
 <html lang="en">
@@ -356,6 +361,7 @@ function build(qa) {
     </section>
     <aside class="pfp-notes" aria-label="Notes">
       <div id="pfp-note"></div>
+      <div id="pfp-options" class="pfp-options"></div>
       <div><h3>States</h3><div id="pfp-states" class="pfp-states"></div></div>
       <div id="pfp-issues" class="pfp-issues"></div>
     </aside>
@@ -365,6 +371,7 @@ function build(qa) {
 <script type="text/plain" id="pfp-runtime">${safe(KIT('runtime.js'), 'kit/runtime.js')}</script>
 <script type="text/plain" id="pfp-qa">${safe(KIT('qa.js'), 'kit/qa.js')}</script>
 <script type="text/plain" id="pfp-kitcss">${safe(KIT('kit.css'), 'kit/kit.css')}</script>
+<script type="text/plain" id="pfp-layer">${safe(KIT('layer.js'), 'kit/layer.js')}</script>
 ${files.join('\n')}
 <script>${safe(KIT('player.js'), 'kit/player.js')}</script>
 </body>
@@ -385,6 +392,7 @@ async function visual() {
   const qaSrc = KIT('qa.js');
   const found = [];
   const baseline = { web: new Set(), phone: new Set() };
+  const sweep = { interactions: 0, extremes: 0, options: 0 };
   try {
     for (const pl of PLATFORMS) {
       const page = await b.page(SIZE[pl]);
@@ -412,6 +420,50 @@ async function visual() {
         if (st !== true) found.push({ level: 'error', check: 'runtime', message: `state "${s.id}" did not open: ${st}`, state: s.id, platform: pl });
         if (shots) { const [w, h] = await page.evaluate(() => window.__pfp.size()); await page.screenshot({ path: join(REPORT, 'shots', `${s.id}.${pl}.png`), clip: { x: 0, y: 0, width: w, height: h } }); }
       }
+      /* the sweep, from each screen's first state: every control that opens something, the data
+         at its extremes, every variant of an open design decision */
+      const record = (res, where) => {
+        const runtime = [...new Set([...(res.errors || []), ...(res.frameErrors || [])])];
+        for (const m of runtime) found.push({ level: 'error', check: 'runtime', message: 'the prototype errs: ' + m, state: where, platform: pl });
+        for (const i of res.issues || []) {
+          const product = LAYOUT.has(i.check) && baseline[pl].has(i.check + '|' + i.message);
+          found.push({ ...i, level: product ? 'product' : i.level, state: where, platform: pl });
+        }
+      };
+      const shot = async (name) => { if (!shots) return; const [w, h] = await page.evaluate(() => window.__pfp.size()); await page.screenshot({ path: join(REPORT, 'shots', `${name}.${pl}.png`), clip: { x: 0, y: 0, width: w, height: h } }); };
+      const first = new Map();
+      for (const s of states) { const sc = s.screen || screens[0].id; if (!first.has(sc)) first.set(sc, s.id); }
+      const startSc = (states.find((s) => s.id === flow.start) || {}).screen;
+      if (flow.start) first.set(startSc || screens[0].id, flow.start);
+      const go = (id) => page.evaluate(([i, p]) => window.__pfp.go(i, p), [id, pl]);
+      for (const sid of first.values()) {
+        await go(sid);
+        const ts = await page.evaluate(() => window.__pfp.targets());
+        for (const [n, t] of (Array.isArray(ts) ? ts : []).entries()) {
+          await go(sid);
+          const it = await page.evaluate((x) => window.__pfp.interact(x), t);
+          record(await page.evaluate((x) => window.__pfp.qa({ interaction: x }), it), `${sid} › ${t.label}`);
+          await shot(`${sid}.i${n + 1}-${t.kind}`);
+          await page.evaluate(() => window.__pfp.closeShell());
+          sweep.interactions++;
+        }
+        const lists = [...new Set((flow.matrix || []).filter((r) => r.list && !/^not drawn/i.test((r.kinds || {}).empty || '')).map((r) => r.list))];
+        if (lists.length) for (const kind of ['missing', 'long', 'arabic', 'zero']) {
+          await go(sid);
+          await page.evaluate(([k, l]) => window.__pfp.extremes(k, l), [kind, lists]);
+          record(await page.evaluate(() => window.__pfp.qa({})), `${sid} · ${kind} data`);
+          await shot(`${sid}.x-${kind}`);
+          sweep.extremes++;
+        }
+        for (const o of flow.options || []) for (const [v] of o.variants || []) {
+          await go(sid);
+          await page.evaluate(([k, x]) => window.__pfp.setVar(k, x), [o.key, v]);
+          record(await page.evaluate(() => window.__pfp.qa({})), `${sid} · ${o.key}=${v}`);
+          await shot(`${sid}.o-${String(o.key).replace(/\W+/g, '')}-${v}`);
+          await page.evaluate(([k]) => window.__pfp.setVar(k, undefined), [o.key]);
+          sweep.options++;
+        }
+      }
       await page.close();
     }
   } finally { await b.close(); }
@@ -424,7 +476,8 @@ async function visual() {
     merged.set(k, e);
   }
   const list = [...merged.values()].sort((a, b) => ({ error: 0, warn: 1, product: 2 }[a.level] - { error: 0, warn: 1, product: 2 }[b.level]));
-  return { ran: true, browser: b.name, renders: states.length * PLATFORMS.length, issues: list };
+  const coverage = `${states.length} states × ${PLATFORMS.length} platform${PLATFORMS.length > 1 ? 's' : ''} · ${sweep.interactions} interactions · ${sweep.extremes} extreme-data · ${sweep.options} option renders`;
+  return { ran: true, browser: b.name, renders: states.length * PLATFORMS.length + sweep.interactions + sweep.extremes + sweep.options, coverage, issues: list };
 }
 
 /* ── run ─────────────────────────────────────────────────────────────── */
@@ -435,7 +488,7 @@ writeFileSync(OUT, build({ ran: false, note: 'QA running', errors: 0, warnings: 
 const v = errors.length && errors.some((e) => ['flow', 'coverage', 'files'].includes(e.check)) ? { ran: false, note: 'the static checks failed first' } : await visual();
 const all = [...staticIssues.map((i) => ({ ...i, platform: '', states: [] })), ...(v.issues || [])];
 const nErr = all.filter((i) => i.level === 'error').length, nWarn = all.filter((i) => i.level === 'warn').length, nProd = all.filter((i) => i.level === 'product').length;
-qa = { ran: !!v.ran, note: v.note || '', browser: v.browser || '', renders: v.renders || 0, errors: nErr, warnings: nWarn, product: nProd, issues: all.slice(0, 80), built: new Date().toISOString() };
+qa = { ran: !!v.ran, note: v.note || '', browser: v.browser || '', renders: v.renders || 0, coverage: v.coverage || '', errors: nErr, warnings: nWarn, product: nProd, issues: all.slice(0, 80), built: new Date().toISOString() };
 writeFileSync(OUT, build(qa));
 mkdirSync(REPORT, { recursive: true });
 const name = WIRE ? 'wireframe' : 'prototype';
@@ -498,7 +551,7 @@ const size = statSync(OUT).size / 1048576;
 log(`  ${name}: ${relative(process.cwd(), OUT)} — ${size.toFixed(1)} MB · ${screens.length} screen(s) · ${states.length} states · ${PLATFORMS.join(' + ')} · ${Object.keys(pageEntries).length} product page(s) · ${Object.keys(alias).length} shell state(s)`);
 if (size > 15) log('  warning: over 15 MB — an artifact holds 16 MB; bundle fewer product pages: --pages linked');
 log(`  static: ${staticIssues.filter((i) => i.level === 'error').length ? '✗' : '✓'} ${staticIssues.filter((i) => i.level === 'error').length} error(s) · validate.py ${validate ? (validate.ok ? '✓' : '✗') : '—'}`);
-log(`  visual: ${qa.ran ? `${nErr ? '✗' : '✓'} ${qa.renders} renders (${qa.browser})` : `not run — ${qa.note}`}`);
+log(`  visual: ${qa.ran ? `${nErr ? '✗' : '✓'} ${qa.renders} renders (${qa.browser}) — ${qa.coverage}` : `not run — ${qa.note}`}`);
 for (const i of all.filter((x) => x.level !== 'product').slice(0, 30)) log(`    ${i.level.padEnd(5)} ${i.check.padEnd(9)} ${[i.platform, (i.states || []).slice(0, 4).join(', ') + ((i.states || []).length > 4 ? ` +${i.states.length - 4}` : '')].filter(Boolean).join(' · ')}${i.platform ? ': ' : ''}${i.message}`);
 if (all.filter((x) => x.level !== 'product').length > 30) log(`    … ${relative(process.cwd(), join(REPORT, name + '.md'))} has all ${all.length}`);
 if (nProd) log(`  ${nProd} issue(s) are the product's own (its compiled page has them too) — listed in the report, not counted`);

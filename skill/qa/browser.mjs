@@ -10,7 +10,8 @@
  *
  * When there is none, it installs puppeteer-core (and, on Linux, @sparticuz/chromium) into
  * a cache folder with npm, once, and tries again. Returns { page(viewport), close, name }
- * or { error }. Each page has goto(url), evaluate(fn, arg), screenshot({ path, clip }).
+ * or { error }. Each page has goto(url), evaluate(fn, arg), screenshot({ path, clip }) and
+ * mouse.move(x, y, { steps }), a real pointer.
  */
 import { existsSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -58,7 +59,7 @@ function wrapPlaywright(browser, name) {
     name,
     async page({ width, height }) {
       const page = await browser.newPage({ viewport: { width, height }, deviceScaleFactor: 1 });
-      return { goto: (u) => page.goto(u, { waitUntil: 'load', timeout: 60000 }), evaluate: (fn, arg) => page.evaluate(fn, arg), screenshot: (o) => page.screenshot(o), setViewport: (v) => page.setViewportSize(v), close: () => page.close() };
+      return { goto: (u) => page.goto(u, { waitUntil: 'load', timeout: 60000 }), evaluate: (fn, arg) => page.evaluate(fn, arg), screenshot: (o) => page.screenshot(o), setViewport: (v) => page.setViewportSize(v), mouse: { move: (x, y, o) => page.mouse.move(x, y, o) }, close: () => page.close() };
     },
     close: () => browser.close(),
   };
@@ -69,7 +70,7 @@ function wrapPuppeteer(browser, name) {
     async page({ width, height }) {
       const page = await browser.newPage();
       await page.setViewport({ width, height, deviceScaleFactor: 1 });
-      return { goto: (u) => page.goto(u, { waitUntil: 'load', timeout: 60000 }), evaluate: (fn, arg) => page.evaluate(fn, arg), screenshot: (o) => page.screenshot(o), setViewport: (v) => page.setViewport({ ...v, deviceScaleFactor: 1 }), close: () => page.close() };
+      return { goto: (u) => page.goto(u, { waitUntil: 'load', timeout: 60000 }), evaluate: (fn, arg) => page.evaluate(fn, arg), screenshot: (o) => page.screenshot(o), setViewport: (v) => page.setViewport({ ...v, deviceScaleFactor: 1 }), mouse: { move: (x, y, o) => page.mouse.move(x, y, o) }, close: () => page.close() };
     },
     close: () => browser.close(),
   };

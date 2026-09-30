@@ -35,9 +35,11 @@ const BAD = page('bad', `
   <div style="width:1200px;margin:20px">
     <div style="display:grid;grid-template-columns:repeat(6,200px);background:#f5f5f5"><div>Contact</div><div>Property</div><div>Price</div><div>Beds</div><div>Location</div><div>Action</div></div>
     ${[1, 2].map(() => `<div style="display:flex;gap:30px;padding:16px">${[90, 150, 60, 130, 70].map((w) => `<div style="width:${w}px;height:14px;background:#efefef"></div>`).join('')}</div>`).join('')}
-  </div>`);
+  </div>
+  <div data-pf-item style="display:flex;gap:12px;margin:20px"><span data-pf-text="$.district"></span><span data-pf-text="$.beds">undefined</span></div>
+  <div style="position:relative;height:24px;margin:20px;font:14px/20px monospace"><span style="position:absolute;left:0;top:0">Al Malqa, Riyadh</span><span style="position:absolute;left:9.6ch;top:0">4 Beds · 5 Baths</span></div>`);
 
-/* the kit's table: aligned by construction */
+/* the kit's table: aligned by construction; a hidden empty field; a text that wraps beside another */
 const GOOD = page('good', `
   <div class="pfk-table" style="--pfk-cols: minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr) 200px;width:1100px;margin:20px">
     <div class="pfk-thead"><div class="pfk-th">Contact</div><div class="pfk-th">Price</div><div class="pfk-th">Location</div><div class="pfk-th pfk-th--end">Actions</div></div>
@@ -45,7 +47,9 @@ const GOOD = page('good', `
       <div class="pfk-td"><span class="pfk-amount pfk-value--strong"><i class="pfk-riyal" aria-label="SAR"></i><span>1,${i}00,000</span></span></div>
       <div class="pfk-td"><span class="pfk-value">Riyadh</span></div>
       <div class="pfk-td pfk-td--end"><button class="pfk-btn${i === 2 ? ' pfk-btn--soft' : ''}" data-pf-do="x"><span>${i === 2 ? 'View in TruLeads →' : 'Buy for 40 Credits'}</span></button></div></div>`).join('')}
-  </div>`);
+  </div>
+  <div data-pf-item style="margin:20px"><span data-pf-text="$.city">Riyadh</span><span data-pf-text="$.district" style="display:none"></span></div>
+  <p style="width:260px;margin:20px;font:14px/20px monospace"><span>Riyadh, Al Malqa district, north of the ring road</span> <b>Villa</b></p>`);
 
 const b = await launch({ install: true, log: console.log });
 if (b.error) { console.log(`  no browser — ${b.error}`); process.exit(3); }
@@ -63,6 +67,9 @@ expect(has('dead', /Select City/), 'dead: a clickable box that does nothing');
 expect(has('currency', /SAR/), 'currency: an amount written with SAR');
 expect(has('currency', /sketch/), 'currency: the 2.0 handover\'s rough riyal');
 expect(has('skeleton', /does not follow/), 'skeleton: blocks that do not follow the columns');
+expect(has('blank', /“district” shows nothing/), 'blank: a field the data lacks renders nothing');
+expect(has('blank', /renders as “undefined”/), 'blank: a field renders as “undefined”');
+expect(has('overlap', /Al Malqa, Riyadh.*overlaps.*4 Beds/), 'overlap: two texts drawn over each other');
 const good = await run(GOOD);
 const gerr = good.issues.filter((i) => i.level === 'error' && i.check !== 'fonts');
 expect(!gerr.length, `the kit's table passes (${gerr.map((i) => i.check + ': ' + i.message).join(' | ') || 'no errors'})`);

@@ -89,7 +89,16 @@ for them. For each requirement, go through:
 - loading: slow, failed, and partial data;
 - each role (P5), flag-off (P6) and no permission;
 - repeated actions: a double submit, an action already done, two tabs open;
-- what follows success: a toast, a redirect, a refresh, the updated count.
+- what follows success: a toast, a redirect, a refresh, the updated count;
+- **each field the screen shows**: required or optional, and what shows when the source did not
+  send it, e.g. no rooms, no district, no price, or a budget with only a minimum. This is the
+  field matrix; put incomplete rows in `data.json`;
+- **locked or gated data**: not bought yet, not paid for, a role that may not see it, expired.
+  Design the lock state, and prepare 2–3 variants for the user to pick (flow.json `options`);
+- **limits and quotas**: a balance, a cap, a maximum count;
+- **time**: expiring, expired, stale data;
+- **someone else acting**: taken, changed or deleted meanwhile;
+- **one idea that would make it better than asked**: optional, flagged as such, never in the way.
 
 Each case that changes the screen becomes a named state in flow.json, or "not drawn → ‹compiled
 file›". Every other case goes in the handoff notes.
@@ -123,10 +132,12 @@ Then:
    - Use real copy.
    - Wire it with the same attributes the hi-fi will use.
    - Add numbered pins for what the user should look at.
+   - Draw every variant of each open decision (the lock state, the hero), switchable in the
+     player (flow.json `options`).
 3. `node qa/prototype.mjs designs/<feature> --wireframe`, then send `wireframe.html` with:
    - the plan;
    - the edge-case list and the state matrix;
-   - the one or two structural questions still open.
+   - the one or two structural questions still open, and the options to pick from.
 4. **Stop.** Change the wireframe until the user says go: it is cheap here and expensive in
    hi-fi. A small change to an existing screen gets a small wireframe of the changed area.
    Skip this gate only when the user says "skip".

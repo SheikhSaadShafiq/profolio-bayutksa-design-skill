@@ -2,9 +2,10 @@
  "ran": true,
  "note": "",
  "browser": "Playwright Chromium",
- "renders": 26,
+ "renders": 55,
+ "coverage": "13 states × 2 platforms · 15 interactions · 8 extreme-data · 6 option renders",
  "errors": 0,
- "warnings": 8,
+ "warnings": 10,
  "product": 0,
  "issues": [
   {
@@ -30,7 +31,20 @@
     "gone",
     "loading",
     "empty",
-    "error"
+    "error",
+    "owner › Open side menu",
+    "owner › listings--drawer-notifications-mark-all-as",
+    "owner › listings--drawer-profile-information-faisal-al-harbi",
+    "owner › City",
+    "owner › Price",
+    "owner › Newest FirstHighest PriceLowest Price",
+    "owner · missing data",
+    "owner · long data",
+    "owner · arabic data",
+    "owner · zero data",
+    "owner · opt.lock=blur",
+    "owner · opt.lock=mask",
+    "owner · opt.lock=avatar"
    ]
   },
   {
@@ -55,7 +69,20 @@
     "gone",
     "loading",
     "empty",
-    "error"
+    "error",
+    "owner › Open side menu",
+    "owner › listings--drawer-notifications-mark-all-as",
+    "owner › listings--drawer-profile-information-faisal-al-harbi",
+    "owner › City",
+    "owner › Price",
+    "owner › Newest FirstHighest PriceLowest Price",
+    "owner · missing data",
+    "owner · long data",
+    "owner · arabic data",
+    "owner · zero data",
+    "owner · opt.lock=blur",
+    "owner · opt.lock=mask",
+    "owner · opt.lock=avatar"
    ]
   },
   {
@@ -82,7 +109,20 @@
     "gone",
     "loading",
     "empty",
-    "error"
+    "error",
+    "owner › Open side menu",
+    "owner › listings--drawer-notifications-mark-all-as",
+    "owner › listings--drawer-profile-information-faisal-al-harbi",
+    "owner › City",
+    "owner › Price",
+    "owner › Newest FirstHighest PriceLowest Price",
+    "owner · missing data",
+    "owner · long data",
+    "owner · arabic data",
+    "owner · zero data",
+    "owner · opt.lock=blur",
+    "owner · opt.lock=mask",
+    "owner · opt.lock=avatar"
    ]
   },
   {
@@ -109,7 +149,20 @@
     "gone",
     "loading",
     "empty",
-    "error"
+    "error",
+    "owner › Open side menu",
+    "owner › listings--drawer-notifications-mark-all-as",
+    "owner › listings--drawer-profile-information-faisal-al-harbi",
+    "owner › City",
+    "owner › Price",
+    "owner › Newest FirstHighest PriceLowest Price",
+    "owner · missing data",
+    "owner · long data",
+    "owner · arabic data",
+    "owner · zero data",
+    "owner · opt.lock=blur",
+    "owner · opt.lock=mask",
+    "owner · opt.lock=avatar"
    ]
   },
   {
@@ -171,7 +224,37 @@
    "states": [
     "filtered"
    ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“Unlock for 40 credits” is 138 × 18 px — under the build's 32 px on a phone (the platforms ask 44)",
+   "box": {
+    "x": 28,
+    "y": 250,
+    "w": 138,
+    "h": 18
+   },
+   "states": [
+    "owner · opt.lock=mask"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“Unlock for 20 credits” is 138 × 18 px — under the build's 32 px on a phone (the platforms ask 44)",
+   "box": {
+    "x": 28,
+    "y": 746,
+    "w": 138,
+    "h": 18
+   },
+   "states": [
+    "owner · opt.lock=mask"
+   ]
   }
  ],
- "built": "2026-09-30T13:34:14.639Z"
+ "built": "2026-09-30T18:20:00.273Z"
 }

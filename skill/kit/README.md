@@ -6,6 +6,7 @@ one whole feature built this way; copy its shape.
 | file | what it is |
 |---|---|
 | `runtime.js` | makes a screen behave, by `data-pf-*` attributes and three JSON blocks |
+| `layer.js` | shows a compiled product state (the expanded rail, a popover, a drawer) over any screen, in its own layer |
 | `kit.css` | the pattern kit: layouts the product does not draw yet, and the 2.0 controls as classes (`pfk-*`) |
 | `wireframe.css` | low fidelity at the shell's true proportions (`wf-*`) |
 | `qa.js` | the Design QA, measured inside a rendered screen |
@@ -66,6 +67,17 @@ shared JSON in:
   `"none"`, or a list of page ids. A wireframe bundles none by default.
 - **size**: a screen's own viewport. The 2.0 phone is 360 × 800; the default is 1440 × 900
   and 375 × 812.
+- **options**: the open design decisions, each with 2–3 variants the user flips live in the
+  player at the wireframe gate. For example, how a locked contact looks:
+  `{"key": "opt.lock", "title": "Locked contact", "question": "…", "variants": [["blur", "A · …"], ["mask", "B · …"], ["avatar", "C · …"]]}`.
+  - The markup shows each variant by `data-pf-show="opt.lock=mask"`.
+  - `state.json` sets the default.
+  - Once the user picks, write `"chosen": "mask"`. The hi-fi may keep all variants until then.
+  - The QA renders every variant.
+- **shell.rail**: the rail as the design changes it, applied wherever the product's rail
+  draws: the design's own rail, the other pages', the expanded rail and the phone's menu.
+  `{"add": [{"key": "leads-marketplace", "label": "Leads Marketplace", "after": "leads", "icon": "prop-shop", "page": "marketplace"}], "selected": "leads-marketplace"}`.
+  The icon is another item's (`prop-shop` is Credits & Packages); `page` is where it goes.
 
 ## The runtime
 
@@ -113,12 +125,21 @@ The braces do + − × ÷.
 
 **The shell is the product's, and works by itself.** Copy the compiled page's shell and leave it
 as it is:
-- the rail opens the other pages, and it expands on hover;
-- the header's bell, avatar, Post a Listing and help open their compiled states over your screen,
-  through the `data-pf-go` the compiled page already carries;
-- Download App and Go to Bayut.sa say where they go.
+- **the rail** opens the other pages. It expands on a real hover, or on its expand button, and
+  pushes the page aside as the product does (`PUSH_CONTENT_ON_SIDEBAR_EXPAND`);
+- **the header's bell, avatar, Post a Listing and help** open their compiled states over your
+  screen, through the `data-pf-go` the compiled page already carries. On a phone, the menu and
+  the drawers do the same;
+- **Download App and Go to Bayut.sa** say where they go.
+
+A compiled state opens in its own layer (`kit/layer.js`): a transparent frame over the screen,
+with the state's own stylesheet, showing only the state's top layer. It therefore looks exactly
+as the product draws it on any page, 2.0 or current, and nothing of it enters your DOM.
+
 A control the QA still calls dead gets `data-pf-go` (a compiled state), `data-pf-toast`, or
-`data-pf-inert`.
+`data-pf-inert`. The 2.0 phone page never wired its bell and avatar, so give them
+`data-pf-go="states/listings--drawer-notifications-mark-all-as.html"` and
+`states/listings--drawer-profile-information-faisal-al-harbi.html`.
 
 ## The patterns (kit.css)
 
@@ -139,6 +160,8 @@ a compiled 2.0 screen. A pattern needs no `style` attribute.
 | dialog | `pfk-mask` (`data-pf-overlay`, `data-pf-scrim`) › `pfk-dialog` › `__head` `__title` `__close` · `__body` · `__foot` · `__note`; `pfk-summary`, `pfk-kv`, `pfk-callout` (`--warn`) |
 | empty · no results · error · first use | `pfk-empty` › `__art` (`--grey` for offline) with the build's own art, `__title`, `__text`, `__actions` |
 | phone (2.0, 360) | `pfk-strip` · `pfk-seg--sm` · `pfk-fchip` (`--set`) · `pfk-tabs--sm` · `pfk-list` › `pfk-lead` (`--good`, `--muted`) · `pfk-mask--sheet` › `pfk-sheet` › `__handle` `__title` · `pfk-bar` |
+| locked content | `pfk-lock` (with the product's lock icon), `pfk-masked`, `pfk-avatar` › `pfk-avatar__lock` |
+| missing value | `pfk-missing` (a value the source did not share) |
 | runtime pieces | `pfk-toasts` › `pfk-toast` · `pfk-skel` · `pfk-busy` |
 
 **The empty-state recipe.** Pick the art by meaning, from the build's own:
@@ -152,6 +175,28 @@ Then:
 - one action that exists, such as Clear filters, Try Again or Refresh.
 
 Never promise a feature the page does not have, like "turn on notifications" with no switch.
+
+**Missing data: every field says what it shows when the source didn't send it.** A lead
+without rooms, a district or a price is normal, not an error. For each field a screen shows, the
+plan decides one of:
+- a fallback: `data-pf-default="Not shared"`, greyed with `pfk-missing`;
+- hide it and close the gap: `data-pf-show="$.district"`;
+- a sentence that works with whatever exists: "From 900,000" when there is only a minimum,
+  "3 Beds" when there are no baths.
+Say what is missing where the layout can't: "Rooms not shared" on a card; "Not shared" under
+a column header. `data.json` carries incomplete rows so the prototype shows them, and the QA
+empties, lengthens and translates the first row of every list to be sure: a blank value, or
+"undefined", "null" or "NaN", fails.
+
+**Locked content: design the lock, and offer options.** Something the user may not see yet
+needs a state of its own: the contact of an unbought lead, a premium number, a field their role
+cannot see. Offer 2–3 variants as flow.json `options`, e.g.:
+- A: blurred, with `pfk-lock` "Unlocks after purchase";
+- B: masked (`pfk-masked`: "M••• A•••••", "+966 55 ••• ••37") with an inline "Unlock for 40 credits";
+- C: an initials avatar with the lock (`pfk-avatar` + `pfk-avatar__lock`).
+The lock icon is the product's (`atoms/icon.html` → `#icon-lock-bages`; name the file in pf-also).
+The real value never reaches the page before it is unlocked: the data carries a placeholder,
+a masked value or initials, and the handoff says the API must too.
 
 ## Wireframes (wireframe.css)
 
@@ -183,6 +228,18 @@ It writes one file and checks:
   - `runtime`.
   `rows`, `targets` and `small` are warnings.
 
+Then the **sweep**, from each screen's first state:
+- **every interaction**: each shell control and the rail's hover; every `data-pf-menu` and
+  `data-pf-open`. Each result is checked (`shell`: it opens something visible, on the screen,
+  styled, and an expanded rail pushes the page aside; `clip`: a menu or sheet is not cut off),
+  and the whole screen is measured again;
+- **the data at its extremes**: the first row of every list in the matrix emptied, lengthened,
+  in Arabic and at zero;
+- **every option variant**.
+
+The badge and the report say what was covered: "13 states × 2 platforms · 15 interactions ·
+8 extreme-data · 6 option renders". Never call a prototype checked beyond that.
+
 An issue the compiled source page has too is the product's own; it is listed and not counted.
 
 - **Exit 0:** QA passed.
@@ -191,7 +248,8 @@ An issue the compiled source page has too is the product's own; it is listed and
   then npm's `@sparticuz/chromium` on Linux. Deliver it saying the visual QA did not run, and ask
   for the QA button in the prototype to be pressed.
 
-With `--shots`, look at the PNGs in `qa/shots/` before delivering. Numbers don't catch everything
+With `--shots`, look at the PNGs in `qa/shots/` before delivering: the states, and the
+interactions (`<state>.i<n>-<kind>`), extremes (`.x-<kind>`) and options (`.o-…`). Numbers don't catch everything
 a designer's eye does: one hero per row, a calm hierarchy, nothing competing.
 
 ## Gotchas

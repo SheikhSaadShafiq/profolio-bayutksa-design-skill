@@ -41,6 +41,8 @@ jobs:
         run: npm install -g playwright@1.63.0 && playwright install --with-deps chromium
       - name: the Design QA catches what it must
         run: node tests/kit/qa-catches.mjs
+      - name: the QA opens every menu and sees one cut off
+        run: node tests/kit/sweep-catches.mjs
       - name: the prototype works
         run: node tests/kit/runtime.mjs
       - name: the worked example passes its QA

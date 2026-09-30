@@ -107,7 +107,7 @@
           <button class="wf-btn wf-btn--ghost" data-pf-page="/credits-usage">Top up</button>
           <div class="wf-anchor">
             <button class="wf-select" data-pf-menu="sort"><span data-pf-show="sort=added">Newest first</span><span data-pf-show="sort=-price">Price: high to low</span><span data-pf-show="sort=price">Price: low to high</span></button>
-            <div class="wf-menu" data-pf-menu-panel="sort">
+            <div class="wf-menu wf-menu--end" data-pf-menu-panel="sort">
               <button class="wf-menu__item" data-pf-set="sort=added; menu=''" data-pf-class="wf-menu__item--on: sort=added">Newest first</button>
               <button class="wf-menu__item" data-pf-set="sort=-price; menu=''" data-pf-class="wf-menu__item--on: sort=-price">Price: high to low</button>
               <button class="wf-menu__item" data-pf-set="sort=price; menu=''" data-pf-class="wf-menu__item--on: sort=price">Price: low to high</button>
@@ -126,18 +126,18 @@
           <template>
             <div class="wf-tr" data-pf-class="wf-tr--tint: $.status=bought; wf-tr--muted: $.status=gone">
               <div class="wf-td"><div class="wf-col">
-                <span class="wf-col" data-pf-show="$.status!=bought"><span class="wf-blur wf-blur--name"></span><span class="wf-blur wf-blur--phone"></span></span>
-                <span class="wf-row" data-pf-show="$.status=bought"><b data-pf-text="$.name"></b><span class="wf-pill wf-pill--dark" data-pf-new-copy>Bought</span></span>
-                <span class="wf-text" data-pf-show="$.status=bought" data-pf-text="$.phone"></span>
-                <span class="wf-meta" data-pf-show="$.status!=bought" data-pf-text="$.addedLabel"></span>
-                <span class="wf-meta" data-pf-show="$.status=bought" data-pf-new-copy>Bought by <span data-pf-text="$.buyer"></span> · <span data-pf-text="$.when"></span></span>
+                <span class="wf-col" data-pf-show="$.status!=bought && opt.lock=blur"><span class="wf-blur wf-blur--name"></span><span class="wf-blur wf-blur--phone"></span><span><span class="wf-lock" data-pf-new-copy>Unlocks after purchase</span></span></span><span class="wf-col" data-pf-show="$.status!=bought && opt.lock=mask"><span class="wf-masked" data-pf-text="$.maskedName" data-pf-default="Name hidden"></span><span class="wf-masked wf-meta" data-pf-text="$.maskedPhone" data-pf-default="Phone hidden"></span><span data-pf-show="$.status=open && $.credits"><button class="wf-btn wf-btn--ghost" data-pf-set="lead=$.id; price=$.credits; leadKind=owner" data-pf-do="buy"><span>Unlock for <span data-pf-text="$.credits" data-pf-fmt="n"></span> credits</span></button></span></span><span class="wf-row" data-pf-show="$.status!=bought && opt.lock=avatar"><span class="wf-avatar"><span data-pf-text="$.initials" data-pf-default="?"></span><span class="wf-avatar__lock"></span></span><span class="wf-col"><b data-pf-new-copy>Contact locked</b><span class="wf-meta" data-pf-new-copy>Buy to see name and phone</span></span></span>
+                <span class="wf-row" data-pf-show="$.status=bought"><b data-pf-text="$.name" data-pf-default="Name not shared"></b><span class="wf-pill wf-pill--dark" data-pf-new-copy>Bought</span></span>
+                <span class="wf-text" data-pf-show="$.status=bought" data-pf-text="$.phone" data-pf-default="Phone not shared"></span>
+                <span class="wf-meta" data-pf-show="$.status!=bought && $.addedLabel" data-pf-text="$.addedLabel"></span>
+                <span class="wf-meta" data-pf-show="$.status=bought" data-pf-new-copy>Bought by <span data-pf-text="$.buyer" data-pf-default="your agency"></span><span data-pf-show="$.when"> · <span data-pf-text="$.when"></span></span></span>
               </div></div>
-              <div class="wf-td"><div class="wf-col"><span><span class="wf-pill" data-pf-text="$.purposeLabel"></span></span><span class="wf-text" data-pf-text="$.intent"></span></div></div>
-              <div class="wf-td"><div class="wf-col"><span class="wf-meta" data-pf-text="$.priceLabel"></span><span class="wf-amount"><i class="pfk-riyal" aria-label="SAR"></i><span data-pf-text="$.price" data-pf-fmt="n"></span></span></div></div>
-              <div class="wf-td"><span class="wf-strong"><span data-pf-text="$.beds"></span> <span data-pf-show="$.beds=1">Bed</span><span data-pf-show="$.beds!=1">Beds</span> · <span data-pf-text="$.baths"></span> <span data-pf-show="$.baths=1">Bath</span><span data-pf-show="$.baths!=1">Baths</span></span></div>
-              <div class="wf-td"><span class="wf-row"><span class="wf-icon"></span><span><span data-pf-text="$.district"></span>, <span data-pf-text="$.city"></span></span></span></div>
+              <div class="wf-td"><div class="wf-col"><span data-pf-show="$.purposeLabel"><span class="wf-pill" data-pf-text="$.purposeLabel"></span></span><span class="wf-text" data-pf-text="$.intent" data-pf-default="Details not shared" data-pf-class="wf-missing: !$.intent"></span></div></div>
+              <div class="wf-td"><div class="wf-col"><span class="wf-meta" data-pf-text="$.priceLabel" data-pf-default="Price"></span><span data-pf-show="$.price"><span class="wf-amount"><i class="pfk-riyal" aria-label="SAR"></i><span data-pf-text="$.price" data-pf-fmt="n"></span></span></span><span class="wf-missing" data-pf-show="!$.price" data-pf-new-copy>Not shared</span></div></div>
+              <div class="wf-td"><span class="wf-strong"><span data-pf-show="$.beds"><span data-pf-text="$.beds"></span> <span data-pf-show="$.beds=1">Bed</span><span data-pf-show="$.beds!=1">Beds</span></span><span data-pf-show="$.beds && $.baths"> · </span><span data-pf-show="$.baths"><span data-pf-text="$.baths"></span> <span data-pf-show="$.baths=1">Bath</span><span data-pf-show="$.baths!=1">Baths</span></span><span class="wf-missing" data-pf-show="!$.beds && !$.baths" data-pf-new-copy>Not shared</span></span></div>
+              <div class="wf-td"><span class="wf-row"><span class="wf-icon"></span><span><span data-pf-show="$.district" data-pf-text="$.district"></span><span data-pf-show="$.district && $.city">, </span><span data-pf-show="$.city" data-pf-text="$.city"></span><span class="wf-missing" data-pf-show="!$.district && !$.city" data-pf-new-copy>Location not shared</span></span></span></div>
               <div class="wf-td wf-td--end">
-                <button class="wf-btn wf-btn--primary" data-pf-show="$.status=open" data-pf-set="lead=$.id; price=$.credits; leadKind=owner" data-pf-do="buy"><span>Buy for <span data-pf-text="$.credits"></span> credits</span></button>
+                <button class="wf-btn wf-btn--primary" data-pf-show="$.status=open && $.credits" data-pf-set="lead=$.id; price=$.credits; leadKind=owner" data-pf-do="buy"><span>Buy for <span data-pf-text="$.credits" data-pf-fmt="n"></span> credits</span></button>
                 <button class="wf-btn" data-pf-show="$.status=bought" data-pf-page="/lms/leads">View in TruLeads →</button>
                 <span class="wf-meta" data-pf-show="$.status=gone" data-pf-new-copy>No longer available</span>
               </div>
@@ -174,18 +174,18 @@
           <template>
             <div class="wf-tr" data-pf-class="wf-tr--tint: $.status=bought; wf-tr--muted: $.status=gone">
               <div class="wf-td"><div class="wf-col">
-                <span class="wf-col" data-pf-show="$.status!=bought"><span class="wf-blur wf-blur--name"></span><span class="wf-blur wf-blur--phone"></span></span>
-                <span class="wf-row" data-pf-show="$.status=bought"><b data-pf-text="$.name"></b><span class="wf-pill wf-pill--dark" data-pf-new-copy>Bought</span></span>
-                <span class="wf-text" data-pf-show="$.status=bought" data-pf-text="$.phone"></span>
-                <span class="wf-meta" data-pf-show="$.status!=bought" data-pf-text="$.addedLabel"></span>
-                <span class="wf-meta" data-pf-show="$.status=bought" data-pf-new-copy>Bought by <span data-pf-text="$.buyer"></span> · <span data-pf-text="$.when"></span></span>
+                <span class="wf-col" data-pf-show="$.status!=bought && opt.lock=blur"><span class="wf-blur wf-blur--name"></span><span class="wf-blur wf-blur--phone"></span><span><span class="wf-lock" data-pf-new-copy>Unlocks after purchase</span></span></span><span class="wf-col" data-pf-show="$.status!=bought && opt.lock=mask"><span class="wf-masked" data-pf-text="$.maskedName" data-pf-default="Name hidden"></span><span class="wf-masked wf-meta" data-pf-text="$.maskedPhone" data-pf-default="Phone hidden"></span><span data-pf-show="$.status=open && $.credits"><button class="wf-btn wf-btn--ghost" data-pf-set="lead=$.id; price=$.credits; leadKind=seeker" data-pf-do="buy"><span>Unlock for <span data-pf-text="$.credits" data-pf-fmt="n"></span> credits</span></button></span></span><span class="wf-row" data-pf-show="$.status!=bought && opt.lock=avatar"><span class="wf-avatar"><span data-pf-text="$.initials" data-pf-default="?"></span><span class="wf-avatar__lock"></span></span><span class="wf-col"><b data-pf-new-copy>Contact locked</b><span class="wf-meta" data-pf-new-copy>Buy to see name and phone</span></span></span>
+                <span class="wf-row" data-pf-show="$.status=bought"><b data-pf-text="$.name" data-pf-default="Name not shared"></b><span class="wf-pill wf-pill--dark" data-pf-new-copy>Bought</span></span>
+                <span class="wf-text" data-pf-show="$.status=bought" data-pf-text="$.phone" data-pf-default="Phone not shared"></span>
+                <span class="wf-meta" data-pf-show="$.status!=bought && $.addedLabel" data-pf-text="$.addedLabel"></span>
+                <span class="wf-meta" data-pf-show="$.status=bought" data-pf-new-copy>Bought by <span data-pf-text="$.buyer" data-pf-default="your agency"></span><span data-pf-show="$.when"> · <span data-pf-text="$.when"></span></span></span>
               </div></div>
-              <div class="wf-td"><div class="wf-col"><span><span class="wf-pill" data-pf-text="$.purposeLabel"></span></span><span class="wf-text" data-pf-text="$.types"></span></div></div>
-              <div class="wf-td"><div class="wf-col"><span class="wf-meta" data-pf-text="$.priceLabel"></span><span class="wf-amount"><i class="pfk-riyal" aria-label="SAR"></i><span data-pf-text="$.min" data-pf-fmt="n"></span> – <span data-pf-text="$.max" data-pf-fmt="n"></span></span></div></div>
-              <div class="wf-td"><span class="wf-strong"><span data-pf-text="$.beds"></span> Beds · <span data-pf-text="$.baths"></span> Baths</span></div>
-              <div class="wf-td"><span class="wf-row"><span class="wf-icon"></span><span data-pf-text="$.city"></span></span></div>
+              <div class="wf-td"><div class="wf-col"><span data-pf-show="$.purposeLabel"><span class="wf-pill" data-pf-text="$.purposeLabel"></span></span><span class="wf-text" data-pf-text="$.types" data-pf-default="Any property type" data-pf-class="wf-missing: !$.types"></span></div></div>
+              <div class="wf-td"><div class="wf-col"><span class="wf-meta" data-pf-text="$.priceLabel" data-pf-default="Price"></span><span class="wf-row" data-pf-show="$.min || $.max"><span class="wf-meta" data-pf-show="$.min && !$.max" data-pf-new-copy>From</span><span class="wf-meta" data-pf-show="!$.min && $.max" data-pf-new-copy>Up to</span><span class="wf-amount"><i class="pfk-riyal" aria-label="SAR"></i><span><span data-pf-show="$.min" data-pf-text="$.min" data-pf-fmt="n"></span><span data-pf-show="$.min && $.max"> – </span><span data-pf-show="$.max" data-pf-text="$.max" data-pf-fmt="n"></span></span></span></span><span class="wf-missing" data-pf-show="!$.min && !$.max" data-pf-new-copy>Not shared</span></div></div>
+              <div class="wf-td"><span class="wf-strong"><span data-pf-show="$.beds"><span data-pf-text="$.beds"></span> <span data-pf-show="$.beds=1">Bed</span><span data-pf-show="$.beds!=1">Beds</span></span><span data-pf-show="$.beds && $.baths"> · </span><span data-pf-show="$.baths"><span data-pf-text="$.baths"></span> <span data-pf-show="$.baths=1">Bath</span><span data-pf-show="$.baths!=1">Baths</span></span><span class="wf-missing" data-pf-show="!$.beds && !$.baths" data-pf-new-copy>Not shared</span></span></div>
+              <div class="wf-td"><span class="wf-row"><span class="wf-icon"></span><span><span data-pf-show="$.city" data-pf-text="$.city"></span><span class="wf-missing" data-pf-show="!$.city" data-pf-new-copy>Location not shared</span></span></span></div>
               <div class="wf-td wf-td--end">
-                <button class="wf-btn wf-btn--primary" data-pf-show="$.status=open" data-pf-set="lead=$.id; price=$.credits; leadKind=seeker" data-pf-do="buy"><span>Buy for <span data-pf-text="$.credits"></span> credits</span></button>
+                <button class="wf-btn wf-btn--primary" data-pf-show="$.status=open && $.credits" data-pf-set="lead=$.id; price=$.credits; leadKind=seeker" data-pf-do="buy"><span>Buy for <span data-pf-text="$.credits" data-pf-fmt="n"></span> credits</span></button>
                 <button class="wf-btn" data-pf-show="$.status=bought" data-pf-page="/lms/leads">View in TruLeads →</button>
                 <span class="wf-meta" data-pf-show="$.status=gone" data-pf-new-copy>No longer available</span>
               </div>
@@ -230,15 +230,15 @@
     <div class="wf-modal__body">
       <div class="wf-card wf-pad">
         <div data-pf-list="owner" data-pf-filter="id=@lead" data-pf-count="dialog"><template>
-          <div class="wf-col"><span class="wf-row"><span class="wf-pill" data-pf-text="$.purposeLabel"></span><span class="wf-meta" data-pf-text="$.expires"></span></span>
-          <span class="wf-amount"><i class="pfk-riyal" aria-label="SAR"></i><span data-pf-text="$.price" data-pf-fmt="n"></span></span>
-          <span class="wf-text"><span data-pf-text="$.beds"></span> Beds · <span data-pf-text="$.baths"></span> Baths · <span data-pf-text="$.district"></span>, <span data-pf-text="$.city"></span></span></div>
+          <div class="wf-col"><span class="wf-row"><span class="wf-pill" data-pf-text="$.purposeLabel"></span><span class="wf-meta" data-pf-show="$.expires" data-pf-text="$.expires"></span></span>
+          <span data-pf-show="$.price"><span class="wf-amount"><i class="pfk-riyal" aria-label="SAR"></i><span data-pf-text="$.price" data-pf-fmt="n"></span></span></span><span class="wf-missing" data-pf-show="!$.price" data-pf-new-copy>Not shared</span>
+          <span class="wf-text wf-row"><span class=""><span data-pf-show="$.beds"><span data-pf-text="$.beds"></span> <span data-pf-show="$.beds=1">Bed</span><span data-pf-show="$.beds!=1">Beds</span></span><span data-pf-show="$.beds && $.baths"> · </span><span data-pf-show="$.baths"><span data-pf-text="$.baths"></span> <span data-pf-show="$.baths=1">Bath</span><span data-pf-show="$.baths!=1">Baths</span></span><span class="wf-missing" data-pf-show="!$.beds && !$.baths" data-pf-new-copy>Rooms not shared</span></span> · <span><span data-pf-show="$.district" data-pf-text="$.district"></span><span data-pf-show="$.district && $.city">, </span><span data-pf-show="$.city" data-pf-text="$.city"></span><span class="wf-missing" data-pf-show="!$.district && !$.city" data-pf-new-copy>Location not shared</span></span></span></div>
         </template></div>
         <div data-pf-list="seeker" data-pf-filter="id=@lead" data-pf-count="dialog"><template>
-          <div class="wf-col"><span class="wf-row"><span class="wf-pill" data-pf-text="$.purposeLabel"></span><span class="wf-meta" data-pf-text="$.expires"></span></span>
-          <span class="wf-text" data-pf-text="$.types"></span>
-          <span class="wf-amount"><i class="pfk-riyal" aria-label="SAR"></i><span data-pf-text="$.min" data-pf-fmt="n"></span> – <span data-pf-text="$.max" data-pf-fmt="n"></span></span>
-          <span class="wf-text"><span data-pf-text="$.beds"></span> Beds · <span data-pf-text="$.city"></span></span></div>
+          <div class="wf-col"><span class="wf-row"><span class="wf-pill" data-pf-text="$.purposeLabel"></span><span class="wf-meta" data-pf-show="$.expires" data-pf-text="$.expires"></span></span>
+          <span class="wf-text" data-pf-text="$.types" data-pf-default="Any property type" data-pf-class="wf-missing: !$.types"></span>
+          <span class="wf-row" data-pf-show="$.min || $.max"><span class="wf-meta" data-pf-show="$.min && !$.max" data-pf-new-copy>From</span><span class="wf-meta" data-pf-show="!$.min && $.max" data-pf-new-copy>Up to</span><span class="wf-amount"><i class="pfk-riyal" aria-label="SAR"></i><span><span data-pf-show="$.min" data-pf-text="$.min" data-pf-fmt="n"></span><span data-pf-show="$.min && $.max"> – </span><span data-pf-show="$.max" data-pf-text="$.max" data-pf-fmt="n"></span></span></span></span><span class="wf-missing" data-pf-show="!$.min && !$.max" data-pf-new-copy>Not shared</span>
+          <span class="wf-text wf-row"><span class=""><span data-pf-show="$.beds"><span data-pf-text="$.beds"></span> <span data-pf-show="$.beds=1">Bed</span><span data-pf-show="$.beds!=1">Beds</span></span><span data-pf-show="$.beds && $.baths"> · </span><span data-pf-show="$.baths"><span data-pf-text="$.baths"></span> <span data-pf-show="$.baths=1">Bath</span><span data-pf-show="$.baths!=1">Baths</span></span><span class="wf-missing" data-pf-show="!$.beds && !$.baths" data-pf-new-copy>Rooms not shared</span></span> · <span><span data-pf-show="$.city" data-pf-text="$.city"></span><span class="wf-missing" data-pf-show="!$.city" data-pf-new-copy>Location not shared</span></span></span></div>
         </template></div>
       </div>
       <div class="wf-row wf-between"><span class="wf-strong" data-pf-new-copy>Lead price</span><span class="wf-num"><span data-pf-text="price"></span> credits</span></div>
