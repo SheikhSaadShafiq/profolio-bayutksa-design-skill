@@ -1,11 +1,204 @@
 {
- "ran": false,
- "note": "built with --no-qa",
- "browser": "",
- "renders": 0,
+ "ran": true,
+ "note": "",
+ "browser": "Playwright Chromium",
+ "renders": 26,
  "errors": 0,
- "warnings": 0,
+ "warnings": 9,
  "product": 0,
- "issues": [],
- "built": "2026-09-30T13:18:29.371Z"
+ "issues": [
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“All” is 31 × 24 px — under the build's 32 px on a phone (the platforms ask 44)",
+   "box": {
+    "x": 36,
+    "y": 76,
+    "w": 31,
+    "h": 24
+   },
+   "states": [
+    "owner",
+    "seeker",
+    "first-visit",
+    "no-results",
+    "buy",
+    "bought",
+    "insufficient",
+    "staff-cap",
+    "gone",
+    "loading",
+    "empty",
+    "error"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“Sale” is 34 × 24 px — under the build's 32 px on a phone (the platforms ask 44)",
+   "box": {
+    "x": 69,
+    "y": 76,
+    "w": 34,
+    "h": 24
+   },
+   "states": [
+    "owner",
+    "first-visit",
+    "no-results",
+    "buy",
+    "bought",
+    "insufficient",
+    "staff-cap",
+    "gone",
+    "loading",
+    "empty",
+    "error"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“Rent” is 36 × 24 px — under the build's 32 px on a phone (the platforms ask 44)",
+   "box": {
+    "x": 105,
+    "y": 76,
+    "w": 36,
+    "h": 24
+   },
+   "states": [
+    "owner",
+    "seeker",
+    "first-visit",
+    "filtered",
+    "no-results",
+    "buy",
+    "bought",
+    "insufficient",
+    "staff-cap",
+    "gone",
+    "loading",
+    "empty",
+    "error"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“Top up” is 44 × 18 px — under the build's 32 px on a phone (the platforms ask 44)",
+   "box": {
+    "x": 300,
+    "y": 164,
+    "w": 44,
+    "h": 18
+   },
+   "states": [
+    "owner",
+    "seeker",
+    "first-visit",
+    "filtered",
+    "no-results",
+    "buy",
+    "bought",
+    "insufficient",
+    "staff-cap",
+    "gone",
+    "loading",
+    "empty",
+    "error"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "dead",
+   "platform": "phone",
+   "message": "“button” looks clickable and does nothing — wire it (data-pf-…) or mark it data-pf-inert=\"why\"",
+   "box": {
+    "x": 296,
+    "y": 12,
+    "w": 36,
+    "h": 36
+   },
+   "states": [
+    "owner",
+    "seeker",
+    "first-visit",
+    "filtered",
+    "no-results",
+    "buy",
+    "bought",
+    "insufficient",
+    "staff-cap",
+    "gone",
+    "loading",
+    "empty",
+    "error"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“Buy” is 31 × 24 px — under the build's 32 px on a phone (the platforms ask 44)",
+   "box": {
+    "x": 69,
+    "y": 76,
+    "w": 31,
+    "h": 24
+   },
+   "states": [
+    "seeker"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“Got it” is 36 × 18 px — under the build's 32 px on a phone (the platforms ask 44)",
+   "box": {
+    "x": 39,
+    "y": 245,
+    "w": 36,
+    "h": 18
+   },
+   "states": [
+    "first-visit"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“All” is 24 × 24 px — under the build's 32 px on a phone (the platforms ask 44)",
+   "box": {
+    "x": 36,
+    "y": 76,
+    "w": 24,
+    "h": 24
+   },
+   "states": [
+    "filtered"
+   ]
+  },
+  {
+   "level": "warn",
+   "check": "targets",
+   "platform": "phone",
+   "message": "“Sale” is 41 × 24 px — under the build's 32 px on a phone (the platforms ask 44)",
+   "box": {
+    "x": 62,
+    "y": 76,
+    "w": 41,
+    "h": 24
+   },
+   "states": [
+    "filtered"
+   ]
+  }
+ ],
+ "built": "2026-09-30T13:22:11.365Z"
 }

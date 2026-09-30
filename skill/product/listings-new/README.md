@@ -33,12 +33,16 @@ product. At launch the product is compiled again and compared.
 - **Geist is the UI face, on My Listings only.** Figtree draws the empty states, the modals and
   most sheet and drawer titles (the web page title is the product header's — the current theme);
   the Listing Performance drawer and sheet titles are Geist. Arabic is not in the handover.
-- **The riyal is a glyph** — never "SAR": the screens draw the build's own riyal glyph wherever the
-  handover wrote "SAR" (the designer's decision). An amount you add: copy the build's
-  `svg[data-pf-riyal]` (or a card price's glyph) from a `listings-new` file and put it before the
-  number, sized to it: height max(7px, 0.6 × the amount's font-size), width height × 11/12, fill
-  `currentColor`, `vertical-align: baseline`, `margin-inline-end: 0.22em` only where a space
-  followed — the current theme's icon-font class (`.currency-Saudi_Riyal_Symbol`) does not load here.
+- **The riyal is a glyph** — never "SAR". The screens draw the official riyal sign, `kit/riyal.svg`,
+  wherever the handover wrote "SAR" (the designer's decision) and wherever it drew its own
+  `icon("sar")`. That icon is a rough four-bar sketch, not the official sign, so it was redrawn on
+  2026-09-30; the designer should update the handover. An amount you add takes `kit/riyal.svg`
+  (or a `svg[data-pf-riyal]` copied from a `listings-new` file) before the number, sized to it:
+  - height max(7px, 0.6 × the amount's font-size);
+  - width height × 916/1024;
+  - fill `currentColor` and `vertical-align: baseline`;
+  - `margin-inline-end: 0.22em`, only where a space followed.
+  The current theme's icon-font class (`.currency-Saudi_Riyal_Symbol`) does not load here.
   A user's own text (a listing description) keeps "SAR" as they typed it.
 - **Markup**: the handover's build writes its styles inline. A block copied from a
   `listings-new` file keeps them (name that file in pf-base or pf-also); a value you add is
