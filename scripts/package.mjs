@@ -392,11 +392,8 @@ function assetsOf() {
   const walk = (d) => readdirSync(join(SKILL, d), { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(`${d}/${e.name}`) : e.name.startsWith('.') ? [] : [`${d}/${e.name}`]));
   return [...walk('css'), 'pages/prototype.js'].sort();
 }
-const SOURCE = (() => {
-  const repo = 'SheikhSaadShafiq/profolio-bayutksa-design-skill';
-  const ref = process.env.SKILL_REF || (() => { try { return execSync('git rev-parse --abbrev-ref HEAD', { cwd: ROOT }).toString().trim(); } catch { return 'main'; } })();
-  return { repo, ref, raw: `https://raw.githubusercontent.com/${repo}/refs/heads/${ref}/skill/`, assets: assetsOf() };
-})();
+/* the .skill packs every compiled page and component in screens.tar.xz (scripts/skill-file.mjs); qa/fetch.py unpacks them */
+const SOURCE = { archive: 'screens.tar.xz', assets: assetsOf() };
 const registry = {
   built: new Date().toISOString().slice(0, 10), product: FLAGS.sha, clock: CLOCK.registry,
   counts: { atoms: Object.values(components).filter((c) => c.level === 'atom').length, molecules: Object.values(components).filter((c) => c.level === 'molecule').length, organisms: Object.values(components).filter((c) => c.level === 'organism').length, icons: icons.length, pages: Object.keys(pages).length, states: Object.values(pages).reduce((n, p) => n + p.states.length, 0) },

@@ -552,7 +552,7 @@ def main(argv):
     reg = load_registry()
     missing_css = [a for a in (reg.get('source') or {}).get('assets', []) if a.startswith('css/') and not os.path.exists(os.path.join(ROOT, a))]
     if missing_css:
-        print(f'  css/ is not installed ({len(missing_css)} files) — the checks read it. From skill/: python3 qa/fetch.py --css')
+        print(f'  css/ is missing {len(missing_css)} of its files — the checks read it. Reinstall the .skill (it carries css/)')
         return 2
     known = known_classes(reg)
     report = Report()

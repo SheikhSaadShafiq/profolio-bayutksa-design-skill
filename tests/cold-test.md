@@ -12,21 +12,21 @@ behaves the same way. Test it cold.
 
 ## 1 · Set up a fresh session
 
-**Claude Code (recommended).** Install the `.skill` file from the latest release: it carries
-the instructions, registry, tokens and both knowledge bases, and fetches pages and `css/` from
-GitHub by path.
+**Claude Code (recommended).** Build the `.skill` file (`npm run package && npm run skill:file`)
+and install it. It carries everything: the instructions, registry, tokens, both knowledge bases,
+`css/`, and every page, packed in `screens.tar.xz`. Nothing is fetched. If
+`~/.claude/skills/profolio-ksa-design` is a link to this repo, remove the link first.
 
 ```bash
-curl -LO https://github.com/SheikhSaadShafiq/profolio-bayutksa-design-skill/releases/latest/download/profolio-ksa-design.skill
-mkdir -p ~/.claude/skills && unzip -o profolio-ksa-design.skill -d ~/.claude/skills/
+mkdir -p ~/.claude/skills && unzip -o dist/profolio-ksa-design.skill -d ~/.claude/skills/
 ```
 
 Then open a new Claude Code session **in an empty folder** — not this repo, and not a session
-that has seen this conversation — and paste one PRD below. The session fetches what it needs
-with `python3 qa/fetch.py --css` and `python3 qa/fetch.py <page> [<state>…]`.
+that has seen this conversation — and paste one PRD below. The session unpacks what it needs
+with `python3 qa/fetch.py <page> [<state>…]`.
 
 **claude.ai.** Upload the same `.skill` file under Settings → Capabilities → Skills, with code
-execution allowed to reach `raw.githubusercontent.com`, and start a new chat.
+execution on, and start a new chat.
 
 ---
 

@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Fetch the compiled files a design needs, from registry.json, into this package.
+"""Unpack the compiled files a design needs, from screens.tar.xz, into this folder.
 
     python3 qa/fetch.py <page> [<state> ...] [--375] [--roles] [--dry-run]
     python3 qa/fetch.py --flow <name> [--375] [--dry-run]
     python3 qa/fetch.py --component <slug> [<slug> ...] [--dry-run]
     python3 qa/fetch.py --css [--dry-run]
 
-Run from skill/. <page> is a registry.pages id (or one of its aliases).
+Run from the skill's folder (skill/ in the repo). <page> is a registry.pages id (or one of its aliases).
 A <state> is a registry state id, with or without its @web / @375 suffix,
 or a pattern ('message-*', 'loading', 'empty', 'error').
 
@@ -20,8 +20,8 @@ It expands, in this order:
   --flow <name>            every step of registry.flows[<name>]
   --component              the arguments are components: registry.components[x].file
   --css                    every shared file: css/ and pages/prototype.js
-                           (registry.source.assets) — before grepping css/ or
-                           running qa/validate.py
+                           (registry.source.assets) — the .skill carries them
+                           as files; this checks they are all here
   and, for every page file, the stylesheets and scripts it links that are not
   here yet (../css/…, prototype.js), so it renders as the product does.
 
@@ -31,30 +31,30 @@ the suffix is not in the file name; any other state has both (when the page
 has a 375 file). The 375 files are fetched with --375, and always for a
 phone-only state named on its own.
 
-Each file prints with its size: "have" (already here), "get" (fetched now)
-or "need" (--dry-run: not here; its size asked of the server). Missing files
-come from the public repo — registry.json -> source.raw + the file's path, its
-GitHub link — into the same relative path, so their ../css/ links hold.
-A read-only skill folder (claude.ai mounts skills read-only) is not written:
-copy the skill somewhere writable first; the message says how.
+Each file prints with its size: "have" (already here), "get" (unpacked now)
+or "need" (--dry-run: not here yet). Every page, state and component is packed
+in screens.tar.xz, next to registry.json (the .skill carries it; one pass reads
+it, about 2 s), and unpacks into the same relative path, so its ../css/ links
+hold. Nothing needs the internet. A read-only skill folder (claude.ai mounts
+skills read-only) is not written: copy the skill somewhere writable first; the
+message says how.
 
-Exits 1 when a file could not be fetched, 2 on a page or state the registry
+Exits 1 when a file is not in the archive, 2 on a page or state the registry
 does not know. Standard library only.
 """
 import fnmatch
 import json
 import os
 import re
+import shutil
 import sys
-import urllib.error
-import urllib.parse
-import urllib.request
+import tarfile
 from difflib import get_close_matches
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PHONE_ONLY = ('375', '360')
 ROLES = ('as-staff', 'as-individual')
-RAW = 'https://raw.githubusercontent.com/{repo}/refs/heads/{ref}/skill/{path}'
+ARCHIVE = os.path.join(ROOT, 'screens.tar.xz')
 
 
 def die(msg):
@@ -65,7 +65,7 @@ def die(msg):
 def load_registry():
     path = os.path.join(ROOT, 'registry.json')
     if not os.path.exists(path):
-        die('registry.json is missing — run from skill/')
+        die('registry.json is missing — run from the skill\'s folder')
     with open(path, encoding='utf-8') as f:
         return json.load(f)
 
@@ -156,7 +156,7 @@ def expand(reg, page, states, phone, roles):
         got = [(p, l) for p, l in state_files(page, entry, s) if l == 'web' or phone or (only in PHONE_ONLY and name in named)]
         files += got
         if not got:
-            notes.append(f'{page}/{s}: phone only — add --375 to fetch it')
+            notes.append(f'{page}/{s}: phone only — add --375 to unpack it')
         if phone and only == 'web':
             notes.append(f'{page}/{s}: web only — no 375 file')
     return files, notes
@@ -166,15 +166,6 @@ def human(n):
     if n is None:
         return '?'
     return f'{n / 1048576:.1f} MB' if n >= 1048576 else f'{n / 1024:.0f} KB' if n >= 1024 else f'{n} B'
-
-
-def url_of(reg, path):
-    src = reg.get('source') or {}
-    if src.get('raw'):
-        return src['raw'] + urllib.parse.quote(path, safe='/')
-    if not src.get('repo') or not src.get('ref'):
-        die('registry.json has no source.repo / source.ref to fetch from')
-    return RAW.format(repo=src['repo'], ref=urllib.parse.quote(src['ref'], safe='/'), path=urllib.parse.quote(path, safe='/'))
 
 
 LINKED = re.compile(r'(?:href|src)="([^"]+)"|@import\s+(?:url\()?["\']([^"\']+)["\']|url\(["\']?([^"\')]+)')
@@ -206,42 +197,31 @@ def writable_or_die(paths):
     if not missing or os.access(ROOT, os.W_OK):
         return
     home = os.path.join(os.path.expanduser('~'), os.path.basename(ROOT))
-    print(f'  {ROOT} is read-only, so nothing can be fetched into it. Work on a copy:')
+    print(f'  {ROOT} is read-only, so nothing can be unpacked into it. Work on a copy:')
     print(f'\n    cp -r "{ROOT}" "{home}" && cd "{home}"\n')
     print('  then run this command again from there, and write designs/ there.')
     sys.exit(2)
 
 
-def request(url, method='GET'):
-    req = urllib.request.Request(url, method=method, headers={'Accept-Encoding': 'identity', 'User-Agent': 'profolio-skill-fetch'})
-    return urllib.request.urlopen(req, timeout=60)
-
-
-def remote_size(url):
-    try:
-        with request(url, 'HEAD') as r:
-            n = r.headers.get('Content-Length')
-            return int(n) if n else None, None
-    except (urllib.error.URLError, OSError) as e:
-        return None, getattr(e, 'code', None) or str(getattr(e, 'reason', e))
-
-
-def fetch(url, dest):
-    tmp = dest + '.part'
-    try:
-        os.makedirs(os.path.dirname(dest), exist_ok=True)
-        with request(url) as r, open(tmp, 'wb') as f:
-            while True:
-                chunk = r.read(1 << 16)
-                if not chunk:
-                    break
-                f.write(chunk)
-        os.replace(tmp, dest)
-        return os.path.getsize(dest), None
-    except (urllib.error.URLError, OSError) as e:
-        if os.path.exists(tmp):
-            os.remove(tmp)
-        return None, getattr(e, 'code', None) or str(getattr(e, 'reason', e))
+def unpack(paths, dry=False):
+    """one pass through screens.tar.xz -> {path: size} of the paths it holds; written here unless dry"""
+    want, found = set(paths), {}
+    if not want or not os.path.exists(ARCHIVE):
+        return found
+    with tarfile.open(ARCHIVE, 'r:xz') as tf:
+        for m in tf:
+            if m.name not in want or not m.isfile():
+                continue
+            found[m.name] = m.size
+            if not dry:
+                dest = os.path.join(ROOT, m.name)
+                os.makedirs(os.path.dirname(dest), exist_ok=True)
+                with tf.extractfile(m) as src, open(dest + '.part', 'wb') as out:
+                    shutil.copyfileobj(src, out)
+                os.replace(dest + '.part', dest)
+            if len(found) == len(want):
+                break
+    return found
 
 
 def main(argv):
@@ -291,36 +271,37 @@ def main(argv):
     seen, total, failed, need = set(), 0, 0, 0
     queue = [p for p, _ in files]
     while queue:
-        path = queue.pop(0)
-        if path in seen:
-            continue
-        seen.add(path)
-        dest = os.path.join(ROOT, path)
-        if os.path.exists(dest):
-            n = os.path.getsize(dest)
-            total += n
-            print(f'  have {human(n):>8}  {path}')
-            queue += [a for a in linked_assets(path) if a not in seen and a not in queue]
-            continue
-        url = url_of(reg, path)
-        if dry:
-            n, err = remote_size(url)
-            need += 1
-            total += n or 0
-            print(f'  need {human(n):>8}  {path}' + (f'   ({err})' if err else ''))
-            failed += bool(err)
-            continue
-        n, err = fetch(url, dest)
-        if err:
-            failed += 1
-            print(f'  FAIL {"":>8}  {path}   ({err}: {url})')
-        else:
-            total += n
-            print(f'  get  {human(n):>8}  {path}')
-            queue += [a for a in linked_assets(path) if a not in seen and a not in queue]
+        todo = [p for p in dict.fromkeys(queue) if p not in seen]
+        seen.update(todo)
+        queue, missing = [], []
+        for path in todo:
+            dest = os.path.join(ROOT, path)
+            if os.path.exists(dest):
+                n = os.path.getsize(dest)
+                total += n
+                print(f'  have {human(n):>8}  {path}')
+                queue += linked_assets(path)
+            else:
+                missing.append(path)
+        found = unpack(missing, dry)
+        for path in missing:
+            n = found.get(path)
+            if n is None:
+                failed += 1
+                why = 'not in screens.tar.xz' if os.path.exists(ARCHIVE) else 'screens.tar.xz is missing'
+                print(f'  FAIL {"":>8}  {path}   ({why} — reinstall the .skill)')
+            elif dry:
+                need += 1
+                total += n
+                print(f'  need {human(n):>8}  {path}')
+            else:
+                total += n
+                print(f'  get  {human(n):>8}  {path}')
+                queue += linked_assets(path)
+        queue = [a for a in queue if a not in seen]
     for note in notes:
         print(f'  note {note}')
-    print(f'\n  {len(seen)} files, {human(total)}' + (f' — {need} to fetch' if dry else '') + (f' — {failed} failed' if failed else ''))
+    print(f'\n  {len(seen)} files, {human(total)}' + (f' — {need} to unpack' if dry else '') + (f' — {failed} failed' if failed else ''))
     return 1 if failed else 0
 
 

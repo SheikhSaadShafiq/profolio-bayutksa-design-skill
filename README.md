@@ -35,20 +35,18 @@ it got against the product it came from.
 The skill designs Profolio KSA screens from a PRD. It asks the PM and the designer only what the
 PRD leaves open (goal and metric, stories, scope and release, roles, flags; pages, design
 language, states, copy), works out the edge cases itself, and composes the design from the
-product's own compiled HTML. That HTML stays here on GitHub: the skill finds what a PRD needs
-in its design knowledge base (`node qa/find.mjs "<PRD words>"`) and fetches just those files
-(`python3 qa/fetch.py <page> <state>`).
+product's own compiled HTML. The `.skill` packs all of it (1,623 files, about 450 MB) into one
+compressed `screens.tar.xz` of about 7 MB: the skill finds what a PRD needs in its design
+knowledge base (`node qa/find.mjs "<PRD words>"`) and unpacks just those files
+(`python3 qa/fetch.py <page> <state>`). Nothing needs the internet.
 
-**Get it** — download
-[`profolio-ksa-design.skill`](https://github.com/SheikhSaadShafiq/profolio-bayutksa-design-skill/releases/latest/download/profolio-ksa-design.skill)
-from the [latest release](https://github.com/SheikhSaadShafiq/profolio-bayutksa-design-skill/releases/latest).
-It carries the instructions, the registry, the tokens and the product and design knowledge
-bases. The stylesheets and pages stay here, and the skill fetches only what a PRD needs.
+**Get it** — build it (below) and share `dist/profolio-ksa-design.skill` (about 9 MB), or
+publish it to your organisation's skills. It carries everything: the instructions, the
+registry, the tokens, both knowledge bases, the stylesheets and every compiled page and
+component. It holds no link to this repo.
 
 **claude.ai** — upload the `.skill` file under Settings → Capabilities → Skills (code execution
-on). The skill downloads pages from `raw.githubusercontent.com`, so the chat's code execution needs
-network access to that domain. Without it the skill still runs the intake (the gap check, the
-questions, the edge cases and the plan) and says which pages it could not open.
+on). It needs no network access.
 
 **Claude Code** — a `.skill` file is a zip; unzip it into your skills folder:
 
@@ -56,19 +54,15 @@ questions, the edge cases and the plan) and says which pages it could not open.
 mkdir -p ~/.claude/skills && unzip -o profolio-ksa-design.skill -d ~/.claude/skills/
 ```
 
-Then, in any session, paste a PRD ("design this for Profolio KSA: …"). To have every page local
-instead (about 450 MB), clone this repo and link its `skill/` folder:
+Then, in any session, paste a PRD ("design this for Profolio KSA: …"). To have every page
+unpacked instead (about 450 MB), clone this repo and link its `skill/` folder:
 `ln -s "$PWD/skill" ~/.claude/skills/profolio-ksa-design`.
 
-**Build a release** — pages are fetched from `skill/registry.json` → `source.ref`, so build
-from `main`:
+**Build it** — writes `dist/profolio-ksa-design.skill`. The build fails if the skill would pass
+30 MB unpacked (a skill's limit), or if a link to this repo is inside:
 
 ```bash
-SKILL_REF=main npm run package && npm run skill:file
-```
-
-```bash
-gh release create skill-vX.Y dist/profolio-ksa-design.skill --title "Profolio KSA design skill vX.Y"
+npm run package && npm run skill:file
 ```
 
 ## Running it
