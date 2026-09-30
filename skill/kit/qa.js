@@ -216,17 +216,16 @@
         if (head && rowsE.length) {
           var h = edges(head.children[k]);
           if (h) {
-            /* the column's own alignment, from its cells: the edge they agree on (left for text,
-               right for an end column, centre for a centred one); the header is held to that edge */
-            var spread = function (k2) { var v = rowsE.map(function (e) { return e[k2]; }); return Math.max.apply(null, v) - Math.min.apply(null, v); };
-            /* the edges the cells agree on equally well (identical buttons agree on all three):
-               the header need only sit on one of them */
-            var best = Math.min(spread('l'), spread('r'), spread('c'));
-            var axes = rowsE.length < 2 ? ['l', 'r', 'c'] : ['l', 'r', 'c'].filter(function (a) { return spread(a) <= best + 1; });
+            /* the column's own alignment, from its cells' CSS — the edge they are set to align on
+               (a flex cell's justify-content, else its text-align): left for text, right for an
+               end column, centre for a centred one. Not guessed from text widths, which differ by
+               font. The header is held to that edge. */
+            var cst = cs(body[0].children[k]), jc = /flex/.test(cst.display) ? cst.justifyContent : '';
+            var axis = /end|right/.test(jc) ? 'r' : /center/.test(jc) ? 'c' : /right|end/.test(cst.textAlign) ? 'r' : /center/.test(cst.textAlign) ? 'c' : 'l';
+            if (cst.direction === 'rtl' && axis !== 'c' && !/end|right|left/.test(jc + cst.textAlign)) axis = 'r';
             var off = function (a) { return h[a] - median(rowsE.map(function (e) { return e[a]; })); };
-            var axis = axes.sort(function (a, b2) { return Math.abs(off(a)) - Math.abs(off(b2)); })[0];
-            var near = off(axis);
             var edge = axis === 'l' ? 'left edge' : axis === 'r' ? 'right edge' : 'centre';
+            var near = off(axis);
             if (Math.abs(near) > 2) add('error', 'align', 'Column header “' + label(head.children[k]) + '” sits ' + Math.round(Math.abs(near)) + ' px ' + (near > 0 ? 'right' : 'left') + ' of its column\'s content (the column aligns on its ' + edge + ') — give header and cells one padding and one alignment (kit: .pfk-th / .pfk-td)', head.children[k]);
           }
         }
