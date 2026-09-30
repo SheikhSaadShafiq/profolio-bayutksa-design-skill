@@ -346,6 +346,10 @@ const mhtml = await page.evaluate(({ html, parts, base, also }) => {
   hits.forEach((n) => { const sp = d.createElement('span'); sp.setAttribute('data-pf-new-copy', ''); sp.textContent = 'Leads Marketplace'; n.replaceWith(sp); });
   /* the header's bell opens the product's notifications drawer (the phone draws it as a drawer) */
   d.querySelectorAll('.pf-badge button:not([data-pf-go])').forEach((btn) => btn.setAttribute('data-pf-go', 'states/listings--drawer-notifications-mark-all-as.html'));
+  /* and its avatar (the profile ring) opens the profile drawer */
+  const ring = tpl('9').querySelector('.pf-progress-text');
+  const avatar = ring && (ring.closest('button') || ring.closest('.pf-progress') || ring.parentElement);
+  if (avatar && !avatar.closest('[data-pf-go]')) avatar.setAttribute('data-pf-go', 'states/listings--drawer-profile-information-faisal-al-harbi.html');
   tpl('27').replaceChildren(frag(parts.strip));
   tpl('65').replaceChildren(frag(parts.tabs));
   tpl('65').removeAttribute('class');

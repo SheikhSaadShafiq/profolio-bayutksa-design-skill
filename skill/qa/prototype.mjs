@@ -119,7 +119,7 @@ function resolveFrom(fromAbs, fromHtml, ref, { phone = false } = {}) {
   if (base) cands.push(resolve(dirname(join(SKILL, base)), ref));
   const bare = ref.replace(/^(\.\.\/)+/, '');
   cands.push(join(SKILL, bare), join(SKILL, 'pages', bare));
-  if (phone && /\.html$/.test(ref) && !/\.mobile\.html$/.test(ref)) cands.unshift(...cands.filter((c) => /\.html$/.test(c)).map((c) => c.replace(/\.html$/, '.mobile.html')));
+  if (phone && /\.html$/.test(ref) && !/\.mobile\.html$/.test(ref)) cands.unshift(...cands.filter((c) => /\.html$/.test(c) && !/\.mobile\.html$/.test(c)).map((c) => c.replace(/\.html$/, '.mobile.html')));
   return cands.find((c) => existsSync(c) && statSync(c).isFile()) || cands.find((c) => c.startsWith(join(SKILL, 'pages') + '/')) || null;
 }
 
@@ -138,7 +138,12 @@ function fetchMissing(paths) {
   for (const [page, e] of byPage) {
     const args = [join(SKILL, 'qa', 'fetch.py'), page, ...e.states, ...(e.phone ? ['--375'] : [])];
     const r = spawnSync('python3', args, { cwd: SKILL, encoding: 'utf8' });
-    if (r.status !== 0) W('fetch', `python3 qa/fetch.py ${args.slice(1).join(' ')} failed: ${(r.stdout + r.stderr).trim().split('\n').slice(-2).join(' ')}`);
+    if (r.status === 0) continue;
+    /* one name fetch.py refuses fails the whole call: fetch the rest one by one */
+    for (const st of e.states) {
+      const one = spawnSync('python3', [join(SKILL, 'qa', 'fetch.py'), page, st, ...(e.phone ? ['--375'] : [])], { cwd: SKILL, encoding: 'utf8' });
+      if (one.status !== 0) W('fetch', `python3 qa/fetch.py ${page} ${st}${e.phone ? ' --375' : ''} failed: ${(one.stdout + one.stderr).trim().split('\n').slice(-1)[0]}`);
+    }
   }
 }
 
@@ -192,7 +197,10 @@ for (const sf of screenFiles) {
   }
 }
 for (const e of Object.values(pageEntries)) for (const f of Object.values(e.files)) { const abs = join(SKILL, f); if (!existsSync(abs)) missing.push(abs); needed.set(f, abs); }
-if (missing.length) { log(`  fetching ${missing.length} compiled file(s) the prototype opens…`); fetchMissing(missing); }
+/* and the compiled files each screen was made from (pf-base, pf-also): validate.py and the QA's
+   baseline hold the screen to them */
+for (const sf of screenFiles) for (const src of sourcesOf(sf.html)) { const abs = join(SKILL, src); if (!existsSync(abs)) missing.push(abs); }
+if (missing.length) { log(`  fetching ${missing.length} compiled file(s) the prototype opens or was made from…`); fetchMissing(missing); }
 for (const [bp, abs] of [...needed]) if (!existsSync(abs)) { needed.delete(bp); if (Object.values(alias).includes(bp)) W('fetch', `${bp} could not be fetched — its click will say it is not part of this prototype`); }
 for (const e of Object.values(pageEntries)) for (const [p, f] of Object.entries(e.files)) if (!needed.has(f)) delete e.files[p];
 for (const [id, e] of Object.entries(pageEntries)) if (!Object.keys(e.files).length) delete pageEntries[id];

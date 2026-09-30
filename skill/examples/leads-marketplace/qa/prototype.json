@@ -4,7 +4,7 @@
  "browser": "Playwright Chromium",
  "renders": 26,
  "errors": 0,
- "warnings": 9,
+ "warnings": 8,
  "product": 0,
  "issues": [
   {
@@ -114,33 +114,6 @@
   },
   {
    "level": "warn",
-   "check": "dead",
-   "platform": "phone",
-   "message": "“button” looks clickable and does nothing — wire it (data-pf-…) or mark it data-pf-inert=\"why\"",
-   "box": {
-    "x": 296,
-    "y": 12,
-    "w": 36,
-    "h": 36
-   },
-   "states": [
-    "owner",
-    "seeker",
-    "first-visit",
-    "filtered",
-    "no-results",
-    "buy",
-    "bought",
-    "insufficient",
-    "staff-cap",
-    "gone",
-    "loading",
-    "empty",
-    "error"
-   ]
-  },
-  {
-   "level": "warn",
    "check": "targets",
    "platform": "phone",
    "message": "“Buy” is 31 × 24 px — under the build's 32 px on a phone (the platforms ask 44)",
@@ -200,5 +173,5 @@
    ]
   }
  ],
- "built": "2026-09-30T13:22:11.365Z"
+ "built": "2026-09-30T13:29:11.671Z"
 }
