@@ -1,7 +1,8 @@
 # Intake — from a PRD to a plan
 
 Read this when a PRD arrives, before your first reply. Do the steps in order. Produce no
-design until the designer has answered and you have sent the plan.
+hi-fi until the user has answered, you have sent the plan with its wireframe, and they said
+go (SKILL.md → THE FLOW).
 
 ## 0 · PRD gap check
 
@@ -39,9 +40,8 @@ Fill every row with a proposed answer and a confidence: high, medium or low. Pre
 tables. Then ask only:
 
 - a row you could not fill, or filled at low confidence;
-- what a row's own text orders you to ask: D2 when the PRD is ambiguous, D4 on every PRD, D5
-  for a new empty state, D7 for Arabic timing, D8 for regenerating
-  pages, and P8 for another meaning.
+- what a row's own text orders you to ask: D2 when the PRD is ambiguous, D4 on every PRD,
+  D7 for Arabic timing, D8 for regenerating pages, and P8 for another meaning.
 
 Write "asked" after the confidence ("high; regenerate asked"). Ask nothing else: a medium row
 states what you will assume. Never ask what SKILL.md already decides — shipped copy wins, and
@@ -72,12 +72,12 @@ reply confirms every row you didn't ask: don't ask it again.
 | D1 | A new page, a change to an existing page, or a new cross-page component? | | |
 | D2 | Which page(s): route and registry id. If the PRD is ambiguous, list the candidates and ask. | | |
 | D3 | Entry point: how does the user arrive here? | | |
-| D4 | Asked on every PRD. Design language: current Profolio (Figtree, teal) or Profolio 2.0 (Geist, green)? Propose the theme SKILL.md gives the page. 2.0 exists only for My Listings (`listings-new`). On another page there are no 2.0 tokens: flag it, ask, and keep it [TBC]. In the same row: reuse existing components only, or new ones allowed? Density: match the page, or a new layout? Illustration and empty-state art: the product's own only? | | |
-| D5 | States: for each page in D2, name its compiled loading, empty, error and message-* from `pages[x].states` (or "none"). `empty` is a new account, not the feature's own empty. Ask only about states with no compiled file, and always about a new empty state the PRD is silent on. Answer flag-off and no-permission ("not drawn" if so). | | |
+| D4 | Asked on every PRD. Design language: current Profolio (Figtree, teal) or Profolio 2.0 (Geist, green)? Propose the theme the page has today. 2.0 is compiled for My Listings (`listings-new`); on another page it is allowed and flagged: the shell from a `listings-new` file, the kit's 2.0 patterns, `--pf-ml-*` tokens, every borrowed choice [TBC] for the designer's sign-off (SKILL.md → THEMES). In the same row: reuse existing components only, or kit patterns and new ones allowed? Density: match the page, or a new layout? Illustration and empty-state art: the product's own only? | | |
+| D5 | States: for each page in D2, name its compiled loading, empty, error and message-* from `node qa/registry.mjs page X` (or "none"). `empty` is a new account, not the feature's own empty. The feature's own states you work out yourself: the state matrix (§ 3), in flow.json, with proposed copy — shown in the wireframe, never asked. Answer flag-off and no-permission ("not drawn" if so). | | |
 | D6 | Any component the catalogue lacks? List what you think is missing. | | |
 | D7 | Copy: final or placeholder? Arabic now or deferred? | | |
 | D8 | Does it change an existing component? Paste the page ids in its `used_on` verbatim, never a count; a `registry.shell` component reaches every signed-in page. Ask whether to regenerate them. | | |
-| D9 | Responsive: web only, or web and phone (375; 360 in Profolio 2.0)? | | |
+| D9 | Responsive: web only, or web and phone (375; 360 in Profolio 2.0)? Whatever is chosen, the prototype carries every state on every platform named — the QA holds it to flow.json. | | |
 
 ## 3 · Edge cases and scenarios — work them out, don't ask
 
@@ -91,11 +91,44 @@ for them. For each requirement, go through:
 - repeated actions: a double submit, an action already done, two tabs open;
 - what follows success: a toast, a redirect, a refresh, the updated count.
 
-Each case that changes the screen becomes a state: a design file, or "not drawn → ‹compiled
-file›". Every other case goes in the handoff notes. Show the list with the plan.
+Each case that changes the screen becomes a named state in flow.json, or "not drawn → ‹compiled
+file›". Every other case goes in the handoff notes.
 
-## 4 · The plan
+Then the **state matrix** (flow.json `matrix`): one row per region that shows data — a table, a
+list, a dropdown's options, a counter, a dialog's content. For each, name the state for:
+- **default**;
+- **loading**: skeleton rows built from the region's own row;
+- **empty**: nothing yet, and when it comes;
+- **error**: what failed, and how to retry;
+- **no-results**: when it filters or searches, with a way out;
+- **first-use**: when the feature is new to the user.
+
+A kind that cannot happen gets `"not drawn: <why>"`. Design these even when the PRD is silent:
+the PRD's silence is not an answer, and the QA fails a list without them.
+
+## 4 · The plan and the wireframe — gate 1
 
 After the reply, the first text of your next turn is the plan: ONE prose paragraph, no bullets
-and no table, sent before any tool call that writes to `designs/`. Put the edge-case list
-under it. Then build, following SKILL.md → HOW A DESIGN IS MADE.
+and no table, sent before any tool call that writes to `designs/`. It covers:
+- the layout you chose and why the data calls for it, e.g. "one field per column, the contact
+  first";
+- where the entry point sits;
+- what each state shows.
+
+Then:
+1. Write `designs/<feature>/flow.json` (screens, states, controls, the matrix) and `state.json`,
+   `data.json`, `actions.json`: realistic KSA rows, every action (kit/README.md).
+2. Write the wireframe of each screen, web and phone as D9 says, with `kit/wireframe.css`.
+   - Show the product shell's proportions.
+   - Use real copy.
+   - Wire it with the same attributes the hi-fi will use.
+   - Add numbered pins for what the user should look at.
+3. `node qa/prototype.mjs designs/<feature> --wireframe`, then send `wireframe.html` with:
+   - the plan;
+   - the edge-case list and the state matrix;
+   - the one or two structural questions still open.
+4. **Stop.** Change the wireframe until the user says go: it is cheap here and expensive in
+   hi-fi. A small change to an existing screen gets a small wireframe of the changed area.
+   Skip this gate only when the user says "skip".
+
+Then build the hi-fi, following SKILL.md → HOW A HI-FI IS MADE.

@@ -216,12 +216,14 @@
         if (head && rowsE.length) {
           var h = edges(head.children[k]);
           if (h) {
-            var dl = h.l - median(rowsE.map(function (e) { return e.l; }));
-            var dr = h.r - median(rowsE.map(function (e) { return e.r; }));
-            var dc = h.c - median(rowsE.map(function (e) { return e.c; }));
-            var near = [dl, dr, dc].sort(function (a, b) { return Math.abs(a) - Math.abs(b); })[0];
-            var edge = near === dl ? 'left edge' : near === dr ? 'right edge' : 'centre';
-            if (Math.abs(near) > 2) add('error', 'align', 'Column header “' + label(head.children[k]) + '” sits ' + Math.round(Math.abs(near)) + ' px ' + (near > 0 ? 'right' : 'left') + ' of its column\'s content (nearest edge: ' + edge + ') — give header and cells one padding and one alignment (kit: .pfk-th / .pfk-td)', head.children[k]);
+            /* the column's own alignment, from its cells: the edge they agree on (left for text,
+               right for an end column, centre for a centred one); the header is held to that edge */
+            var spread = function (k2) { var v = rowsE.map(function (e) { return e[k2]; }); return Math.max.apply(null, v) - Math.min.apply(null, v); };
+            var axis = ['l', 'r', 'c'].sort(function (a, b2) { return spread(a) - spread(b2) || (a === 'l' ? -1 : 1); })[0];
+            if (rowsE.length < 2) axis = 'l';
+            var near = h[axis] - median(rowsE.map(function (e) { return e[axis]; }));
+            var edge = axis === 'l' ? 'left edge' : axis === 'r' ? 'right edge' : 'centre';
+            if (Math.abs(near) > 2) add('error', 'align', 'Column header “' + label(head.children[k]) + '” sits ' + Math.round(Math.abs(near)) + ' px ' + (near > 0 ? 'right' : 'left') + ' of its column\'s content (the column aligns on its ' + edge + ') — give header and cells one padding and one alignment (kit: .pfk-th / .pfk-td)', head.children[k]);
           }
         }
         /* buttons in one column share a height */

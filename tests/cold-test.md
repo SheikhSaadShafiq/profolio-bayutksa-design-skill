@@ -139,13 +139,13 @@ Listings.
 - The first text after the designer's reply is the plan, one paragraph, before any file is
   written to `designs/`.
 - Designs in `designs/`, each from a compiled file named in `pf-base` (every other file it
-  copied from in `pf-also`), `src="../pages/prototype.js"`; one file per state, and the phone
-  files when in scope (`.mobile.html`).
-- `python3 qa/validate.py designs/<name>*.html` (checks 1–3, the named files only) passes; the
-  grader re-runs it.
+  copied from in `pf-also`), the kit linked, links two folders up (`designs/<feature>/`); one
+  screen per page (states are flow.json scenarios), and the phone file when in scope.
+- `node qa/prototype.mjs designs/<feature>` exits 0: it runs `qa/validate.py` checks 1–3 and the
+  visual QA on every state. The grader re-runs it.
 - No style on new copy and no style the pf-base / pf-also files don't carry; no hex colour.
 - New theme (C): the product's header and rail untouched; values added are `var(--pf-ml-…)`;
-  an amount uses the build's `svg[data-pf-riyal]`; Geist as the build draws it; 360 phone files.
+  an amount uses the official riyal (`pfk-riyal`, `svg[data-pf-riyal]`, `kit/riyal.svg`); Geist as the build draws it; 360 phone files.
 - Ends with the output contract: the plan, components used, components added and why,
   layout differences, PRD deviations, every [TBC], pages affected (page ids verbatim), how to
   QA against live (the route pattern, never `fixture_url`; a flag-off state against a build
@@ -159,3 +159,36 @@ carry, or a hex colour; skips the empty state; offers the prompt to an individua
 asks for a live account with a flag turned off; gives "pages affected" as a count; quotes a
 measurement no `qa/measure.mjs` command reproduces; restyles the shell or draws "SAR" in the
 new theme; or calls the result pixel-perfect without the overlay.
+
+## 5 · v2 acceptance — the Leads Marketplace brief
+
+The v2 skill is accepted when a fresh session gets the brief from the Leads Marketplace session
+(`examples/leads-marketplace/README.md` → the brief; in full: the session report's § 2) and
+produces, on claude.ai and in Claude Code:
+
+1. **A plan and a wireframe first.** Before any hi-fi, it sends:
+   - the plan paragraph;
+   - flow.json with the state matrix;
+   - `wireframe.html`, built with `--wireframe`, clickable, at the shell's proportions.
+
+   It then waits for go.
+2. **Empty states nobody asked for.**
+   - First visit, no leads yet, no results with Clear filters, error with Try again, and
+     loading, for each list.
+   - The art matches the meaning, and nothing promises a feature that isn't there.
+3. **The Design QA before delivery.** `node qa/prototype.mjs` passes. With no browser, the
+   agent says the QA did not run.
+   - No header is off its column, no button is squashed or uneven, no text is clipped or
+     overlapping.
+   - The skeleton follows the columns.
+4. **The official riyal**, never SAR and never the handover's sketch.
+5. **One prototype**, `prototype.html`, published as an artifact where possible. Never loose
+   files.
+6. **Everything works:**
+   - filters, sort and tabs change the rows;
+   - buying deducts credits and unblurs the row;
+   - the rail opens the other pages, and the bell, avatar and Post a Listing open;
+   - every flow.json state is reachable by using the page.
+
+The automatic half of this runs in CI (`npm run test:kit`): the QA catches each defect of the
+first session, and the worked example works and passes.

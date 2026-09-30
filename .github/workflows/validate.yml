@@ -20,3 +20,29 @@ jobs:
       - name: validate.py
         working-directory: skill
         run: python3 qa/validate.py
+
+  # the kit: the Design QA sees every defect it was built for, the worked example's prototype
+  # works when used, and its QA passes — in a real headless Chromium
+  kit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            skill
+            tests
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Playwright's Chromium
+        run: npm install -g playwright@1.63.0 && playwright install --with-deps chromium
+      - name: the Design QA catches what it must
+        run: node tests/kit/qa-catches.mjs
+      - name: the prototype works
+        run: node tests/kit/runtime.mjs
+      - name: the worked example passes its QA
+        working-directory: skill
+        run: node qa/prototype.mjs examples/leads-marketplace --no-install

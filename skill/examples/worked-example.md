@@ -1,9 +1,21 @@
-# Worked example — ad licences expiring soon, on the Overview
+# Worked example — ad licences expiring soon, on the Overview (a small change, current theme)
 
-One complete trace, as the skill is meant to run: a PRD, the intake (`INTAKE.md`: the gap
-check, the screens, the product and design questions, the edge cases), the confirmation, the
-pages produced, and the output contract. The six designs it produced are in `designs/` (a full install; the core
-install does not carry them) and pass `qa/validate.py`.
+> **Read this for the intake and the output contract on a small change to an existing
+> current-theme page.** It was made before the v2 flow, so its designs are separate state files
+> and it has no wireframe or prototype. For the whole v2 flow, see
+> `examples/leads-marketplace/README.md`: plan, flow.json and its state matrix, wireframe, hi-fi,
+> Design QA, prototype. The intake (§§ 2–4) and the contract (§ 6) hold for both.
+
+One complete trace:
+- a PRD;
+- the intake (`INTAKE.md`): the gap check, the screens, the product and design questions, the
+  edge cases;
+- the confirmation;
+- the pages produced;
+- the output contract.
+
+The six designs it produced are in `designs/` (a full install; the core install does not carry
+them) and pass `qa/validate.py`.
 
 ---
 

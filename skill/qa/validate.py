@@ -14,7 +14,7 @@ Exits 1 when any check fails. Standard library only.
 The checks
   1  no style value outside the copied sources
   2  a hex or rgb colour in a design        (outside css/; not in a compiled reference)
-  3  a class on a page that registry.json does not know
+  3  a class on a page that registry.json and the kit (kit/kit.css, kit/wireframe.css) do not know
   4  a registry entry whose file does not exist
   5  a page missing a state its registry entry lists
   6  a component class that neither stylesheet defines
@@ -631,7 +631,7 @@ def main(argv):
             continue
         for c in classes_in(SCRIPT_STYLE_RE.sub('', html)) - known:
             unknown.setdefault(c, rel(path))
-    report.add(3, 'every class on a page is in registry.json', [f'.{c} — first on {where}' for c, where in sorted(unknown.items())], f'{len(known)} classes known')
+    report.add(3, 'every class on a page is in registry.json or the kit', [f'.{c} — first on {where}' for c, where in sorted(unknown.items())], f'{len(known)} classes known')
 
     if not design_only and core:
         print('  .skill install: the package checks 4-7 need atoms/, molecules/ and organisms/ — skipped')
