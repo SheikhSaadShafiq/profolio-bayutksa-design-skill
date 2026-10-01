@@ -1,0 +1,183 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "design-review/v1",
+  "title": "Design review",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "skill_name",
+    "skill_version",
+    "mode",
+    "goal",
+    "verdict",
+    "findings"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "skill_name": {
+      "type": "string"
+    },
+    "skill_version": {
+      "type": "string"
+    },
+    "reviewed": {
+      "type": "string",
+      "description": "ISO 8601 date"
+    },
+    "mode": {
+      "enum": [
+        "structure",
+        "craft",
+        "quick"
+      ]
+    },
+    "goal": {
+      "type": "string",
+      "description": "who is here and what they came to do, in one line"
+    },
+    "screens": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "file": {
+            "type": "string"
+          },
+          "platform": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "context": {
+      "type": "string",
+      "description": "the context card the review measured against"
+    },
+    "verdict": {
+      "enum": [
+        "ready",
+        "ready after fixes",
+        "not ready"
+      ]
+    },
+    "works": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "what to keep, so a fix does not lose it"
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "severity",
+          "dimension",
+          "where",
+          "what",
+          "why",
+          "fix"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^R-[0-9]{3}$"
+          },
+          "severity": {
+            "enum": [
+              "blocking",
+              "important",
+              "polish"
+            ]
+          },
+          "dimension": {
+            "enum": [
+              "task",
+              "flow",
+              "hierarchy",
+              "states",
+              "content",
+              "type",
+              "spacing",
+              "colour",
+              "components",
+              "consistency",
+              "copy",
+              "motion",
+              "responsive",
+              "accessibility"
+            ]
+          },
+          "where": {
+            "type": "object",
+            "required": [
+              "screen"
+            ],
+            "properties": {
+              "screen": {
+                "type": "string"
+              },
+              "node": {
+                "type": "string"
+              },
+              "selector": {
+                "type": "string"
+              },
+              "region": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 4,
+                "maxItems": 4
+              }
+            }
+          },
+          "what": {
+            "type": "string"
+          },
+          "measured": {
+            "type": "string",
+            "description": "the value behind the finding, if there is one"
+          },
+          "why": {
+            "type": "string"
+          },
+          "fix": {
+            "type": "string"
+          },
+          "new_value": {
+            "type": "boolean",
+            "description": "the fix needs a value the context card does not have"
+          },
+          "default_used": {
+            "type": "string",
+            "description": "the rubric default a finding measured against, when the card had no value"
+          },
+          "status": {
+            "enum": [
+              "open",
+              "fixed",
+              "worse"
+            ],
+            "description": "on a re-review"
+          },
+          "proposal": {
+            "type": "boolean",
+            "description": "the fix departs from the product's own patterns: a proposal for the designer, not a fix"
+          }
+        }
+      }
+    }
+  }
+}

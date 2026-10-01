@@ -1,0 +1,1387 @@
+{
+  "schema_version": 1,
+  "context_skill_name": "profolio-ksa-design",
+  "context_skill_version": "2.2",
+  "built": "2026-10-01",
+  "product": {
+    "name": "Bayut Profolio KSA",
+    "summary": "The agent and seller portal at profolio.bayut.sa: listings, credits, leads (TruLeads), reports and agency staff, for the KSA property market.",
+    "audience": "agency owners, agency staff and individual sellers",
+    "market": "KSA",
+    "design_system": "profolio-ksa-design (registry.json, css/tokens.css, kit/)"
+  },
+  "sources": [
+    {
+      "kind": "design-system-skill",
+      "ref": "css/tokens.css",
+      "hash": "c8e0219cf2d4"
+    },
+    {
+      "kind": "design-system-skill",
+      "ref": "css/profolio.css",
+      "hash": "89aba537d4a0"
+    },
+    {
+      "kind": "design-system-skill",
+      "ref": "registry.json",
+      "hash": "61633d00feac"
+    },
+    {
+      "kind": "design-system-skill",
+      "ref": "product/copy.md",
+      "hash": "cd8279335f77"
+    }
+  ],
+  "platforms": [
+    {
+      "id": "web",
+      "width": 1440,
+      "height": 900,
+      "min_target": 24,
+      "provenance": "measured",
+      "notes": "compiled at 1440 (measured); the rail is 60 px, 220 px expanded, and pushes the page. min_target is WCAG 2.2's 24px (2.5.8): this skill's target, not a product measurement"
+    },
+    {
+      "id": "phone",
+      "width": 375,
+      "height": 812,
+      "min_target": 32,
+      "provenance": "measured",
+      "notes": "the product's controls are 32 px tall on the phone (the platforms ask 44): new controls take 44 where the layout allows"
+    }
+  ],
+  "locales": [
+    {
+      "id": "en",
+      "dir": "ltr",
+      "font": "Figtree",
+      "provenance": "measured"
+    },
+    {
+      "id": "ar",
+      "dir": "rtl",
+      "font": "Droid Arabic Kufi",
+      "provenance": "measured"
+    }
+  ],
+  "formats": {
+    "currency": {
+      "code": "SAR",
+      "sign": "the riyal sign, drawn from kit/riyal.svg (the icon font's U+E900), never the letters",
+      "position": "before"
+    },
+    "digits": {
+      "en": "western",
+      "ar": "western"
+    },
+    "time": "Riyadh time (Asia/Riyadh)",
+    "provenance": "measured"
+  },
+  "tokens": {
+    "color": {
+      "--pf-gray-900": {
+        "value": "#4f4f4f",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-gray-800": {
+        "value": "#626262",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-gray-700": {
+        "value": "#707070",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-gray-600": {
+        "value": "#9D9D9D",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-gray-550": {
+        "value": "#BABABA",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-gray-500": {
+        "value": "#C2C2C2",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-gray-400": {
+        "value": "#DEDEDE",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-gray-300": {
+        "value": "#E6E6E6",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-gray-200": {
+        "value": "#f5f5f5",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-gray-100": {
+        "value": "#f0f0f0",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-primary": {
+        "value": "#006169",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-primary-hover": {
+        "value": "#006169",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-primary-light": {
+        "value": "#F7FCFC",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-primary-light-1": {
+        "value": "#A6C8CA",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-primary-light-2": {
+        "value": "#CCDFE1",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-primary-light-3": {
+        "value": "#E1F2F0",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-primary-light-4": {
+        "value": "#F2FAFA",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-secondary": {
+        "value": "#28b16d",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-secondary-hover": {
+        "value": "#28b16d",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-link": {
+        "value": "#1890ff",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-link-hover": {
+        "value": "#0D79DF",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-base": {
+        "value": "#222",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-heading": {
+        "value": "#222",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-success": {
+        "value": "#28b16d",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-success-hover": {
+        "value": "#0CAB7C",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-warning": {
+        "value": "#f0a742",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-warning-hover": {
+        "value": "#D47407",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-danger": {
+        "value": "#f73131",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-error": {
+        "value": "#f73131",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-error-hover": {
+        "value": "#df4d4f",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-info": {
+        "value": "#2C99FF",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-info-hover": {
+        "value": "#0D79DF",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-info-color-alt": {
+        "value": "#479eeb",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-dark": {
+        "value": "#272B41",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-dark-hover": {
+        "value": "#131623",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-gray": {
+        "value": "#5A5F7D",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-gray-lightest": {
+        "value": "#bdbdbd",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-gray-dark": {
+        "value": "#707070",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-gray-hover": {
+        "value": "#363A51",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-light": {
+        "value": "#9D9D9D",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-light-hover": {
+        "value": "#e2e6ea",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-white": {
+        "value": "#fff",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-dash": {
+        "value": "#f0f0f0",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-white-hover": {
+        "value": "#5A5F7D",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-extra-light": {
+        "value": "#ADB4D2",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-border-color-light": {
+        "value": "#F1F2F6",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-border-color-normal": {
+        "value": "#DEDEDE",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-border-color-deep": {
+        "value": "#C6D0DC",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-bg-gray-color-deep": {
+        "value": "#EFF0F3",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-bg-gray-color-light": {
+        "value": "#F8F9FB",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-bg-gray-color-normal": {
+        "value": "#F4F5F7",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-light-gray": {
+        "value": "#868EAE",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-slider-rail": {
+        "value": "rgba(95,99,242,0.2)",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-gray-solid": {
+        "value": "#9D9D9D",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-health-color-low": {
+        "value": "#FF7258",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-health-color-avg": {
+        "value": "#FFDC65",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-health-color-good": {
+        "value": "#98DAB9",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-health-color-default": {
+        "value": "#C1BFBF",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-placeholder": {
+        "value": "#9D9D9D",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-label-muted": {
+        "value": "#707070",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-dubizzle-primary": {
+        "value": "#E00000",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-primary": {
+        "value": "#006169",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-success": {
+        "value": "#28b16d",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-warning": {
+        "value": "#f0a742",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-error": {
+        "value": "#f73131",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-info": {
+        "value": "#2c99ff",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-link": {
+        "value": "#1890ff",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-text-base": {
+        "value": "#000",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-bg-base": {
+        "value": "#fff",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-text-disabled": {
+        "value": "rgba(0, 0, 0, 0.25)",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-text-placeholder": {
+        "value": "#9D9D9D",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-text": {
+        "value": "rgba(0, 0, 0, 0.88)",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-text-secondary": {
+        "value": "rgba(0, 0, 0, 0.65)",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-text-tertiary": {
+        "value": "rgba(0, 0, 0, 0.45)",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-text-quaternary": {
+        "value": "rgba(0, 0, 0, 0.25)",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-fill": {
+        "value": "rgba(0, 0, 0, 0.15)",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-fill-secondary": {
+        "value": "rgba(0, 0, 0, 0.06)",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-fill-tertiary": {
+        "value": "rgba(0, 0, 0, 0.04)",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-fill-quaternary": {
+        "value": "rgba(0, 0, 0, 0.02)",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-bg-solid": {
+        "value": "rgb(0, 0, 0)",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-bg-solid-hover": {
+        "value": "rgba(0, 0, 0, 0.75)",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-bg-solid-active": {
+        "value": "rgba(0, 0, 0, 0.95)",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-bg-layout": {
+        "value": "#f5f5f5",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-bg-container": {
+        "value": "#ffffff",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-bg-elevated": {
+        "value": "#ffffff",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-bg-spotlight": {
+        "value": "rgba(0, 0, 0, 0.85)",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-border": {
+        "value": "#d9d9d9",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-border-secondary": {
+        "value": "#f0f0f0",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-primary-bg": {
+        "value": "#97a8a7",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-primary-bg-hover": {
+        "value": "#649c99",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-primary-border": {
+        "value": "#458f8e",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-primary-border-hover": {
+        "value": "#2a8182",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-primary-hover": {
+        "value": "#137075",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-primary-active": {
+        "value": "#003b42",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-primary-text-hover": {
+        "value": "#137075",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-primary-text": {
+        "value": "#006169",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-primary-text-active": {
+        "value": "#003b42",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-success-bg": {
+        "value": "#e1f0e6",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-success-bg-hover": {
+        "value": "#c5e3d0",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-success-border": {
+        "value": "#98d6b1",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-success-border-hover": {
+        "value": "#6fc996",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-success-hover": {
+        "value": "#6fc996",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-success-active": {
+        "value": "#198a55",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-success-text-hover": {
+        "value": "#4abd7f",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-success-text": {
+        "value": "#28b16d",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-success-text-active": {
+        "value": "#198a55",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-error-bg": {
+        "value": "#fff2f0",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-error-bg-hover": {
+        "value": "#ffdcd6",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-error-bg-filled-hover": {
+        "value": "#ffd4cf",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-error-bg-active": {
+        "value": "#ffb6ad",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-error-border": {
+        "value": "#ffb6ad",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-error-border-hover": {
+        "value": "#ff8d85",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-error-hover": {
+        "value": "#ff615c",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-error-active": {
+        "value": "#d11f25",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-error-text-hover": {
+        "value": "#ff615c",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-error-text": {
+        "value": "#f73131",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-error-text-active": {
+        "value": "#d11f25",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-warning-bg": {
+        "value": "#fffbf0",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-warning-bg-hover": {
+        "value": "#fff9eb",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-warning-border": {
+        "value": "#ffebbf",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-warning-border-hover": {
+        "value": "#ffda96",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-warning-hover": {
+        "value": "#ffda96",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-warning-active": {
+        "value": "#c9832c",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-warning-text-hover": {
+        "value": "#fcc66f",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-warning-text": {
+        "value": "#f0a742",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-warning-text-active": {
+        "value": "#c9832c",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-info-bg": {
+        "value": "#f0faff",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-info-bg-hover": {
+        "value": "#cfeeff",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-info-border": {
+        "value": "#a6ddff",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-info-border-hover": {
+        "value": "#7dc9ff",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-info-hover": {
+        "value": "#7dc9ff",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-info-active": {
+        "value": "#1a76d9",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-info-text-hover": {
+        "value": "#54b2ff",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-info-text": {
+        "value": "#2c99ff",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-info-text-active": {
+        "value": "#1a76d9",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-link-hover": {
+        "value": "#69c0ff",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-link-active": {
+        "value": "#096dd9",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-bg-mask": {
+        "value": "rgba(0, 0, 0, 0.45)",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-white": {
+        "value": "#fff",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-fill-content": {
+        "value": "rgba(0, 0, 0, 0.06)",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-fill-content-hover": {
+        "value": "rgba(0, 0, 0, 0.15)",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-fill-alter": {
+        "value": "rgba(0, 0, 0, 0.02)",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-bg-container-disabled": {
+        "value": "rgba(0, 0, 0, 0.04)",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-border-bg": {
+        "value": "#ffffff",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-split": {
+        "value": "rgba(5, 5, 5, 0.06)",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-text-heading": {
+        "value": "rgba(0, 0, 0, 0.88)",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-text-label": {
+        "value": "rgba(0, 0, 0, 0.65)",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-text-description": {
+        "value": "rgba(0, 0, 0, 0.45)",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-text-light-solid": {
+        "value": "#fff",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-highlight": {
+        "value": "#f73131",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-bg-text-hover": {
+        "value": "rgba(0, 0, 0, 0.06)",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-bg-text-active": {
+        "value": "rgba(0, 0, 0, 0.15)",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-icon": {
+        "value": "rgba(0, 0, 0, 0.45)",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-icon-hover": {
+        "value": "rgba(0, 0, 0, 0.88)",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-error-outline": {
+        "value": "rgba(255, 38, 5, 0.06)",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-color-warning-outline": {
+        "value": "rgba(255, 188, 5, 0.06)",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      }
+    },
+    "type": {
+      "families": {
+        "latin": {
+          "value": "Figtree",
+          "provenance": "measured",
+          "source": "registry.themes.current"
+        },
+        "arabic": {
+          "value": "Droid Arabic Kufi",
+          "provenance": "measured",
+          "source": "registry.themes.current"
+        }
+      },
+      "scale": [
+        {
+          "name": "--pf-font-size-sm",
+          "size": 12,
+          "provenance": "measured",
+          "use": "named size"
+        },
+        {
+          "name": "--pf-font-size",
+          "size": 14,
+          "provenance": "measured",
+          "use": "named size"
+        },
+        {
+          "name": "--pf-font-size-heading-5",
+          "size": 16,
+          "provenance": "measured",
+          "use": "named size"
+        },
+        {
+          "name": "--pf-font-size-lg",
+          "size": 16,
+          "provenance": "measured",
+          "use": "named size"
+        },
+        {
+          "name": "--pf-font-size-heading-4",
+          "size": 20,
+          "provenance": "measured",
+          "use": "named size"
+        },
+        {
+          "name": "--pf-font-size-xl",
+          "size": 20,
+          "provenance": "measured",
+          "use": "named size"
+        },
+        {
+          "name": "--pf-font-size-heading-3",
+          "size": 24,
+          "provenance": "measured",
+          "use": "named size"
+        },
+        {
+          "name": "--pf-font-size-heading-2",
+          "size": 30,
+          "provenance": "measured",
+          "use": "named size"
+        },
+        {
+          "name": "--pf-font-size-heading-1",
+          "size": 38,
+          "provenance": "measured",
+          "use": "named size"
+        }
+      ],
+      "line_heights": {
+        "--pf-line-height": {
+          "value": "1.571",
+          "provenance": "measured"
+        },
+        "--pf-line-height-lg": {
+          "value": "1.5",
+          "provenance": "measured"
+        },
+        "--pf-line-height-sm": {
+          "value": "1.6666666666666667",
+          "provenance": "measured"
+        },
+        "--pf-line-height-heading-1": {
+          "value": "1.2105263157894737",
+          "provenance": "measured"
+        },
+        "--pf-line-height-heading-2": {
+          "value": "1.2666666666666666",
+          "provenance": "measured"
+        },
+        "--pf-line-height-heading-3": {
+          "value": "1.3333333333333333",
+          "provenance": "measured"
+        },
+        "--pf-line-height-heading-4": {
+          "value": "1.4",
+          "provenance": "measured"
+        },
+        "--pf-line-height-heading-5": {
+          "value": "1.5",
+          "provenance": "measured"
+        },
+        "--pf-button-content-line-height": {
+          "value": "2",
+          "provenance": "measured"
+        },
+        "--pf-button-content-line-height-sm": {
+          "value": "1.5714285714285714",
+          "provenance": "measured"
+        },
+        "--pf-button-content-line-height-lg": {
+          "value": "1.5",
+          "provenance": "measured"
+        },
+        "--pf-modal-title-line-height": {
+          "value": "1.5",
+          "provenance": "measured"
+        },
+        "--pf-menu-group-title-line-height": {
+          "value": "1.571",
+          "provenance": "measured"
+        },
+        "--pf-menu-horizontal-line-height": {
+          "value": "46px",
+          "provenance": "measured"
+        },
+        "--pf-select-option-line-height": {
+          "value": "1.571",
+          "provenance": "measured"
+        },
+        "--pf-steps-title-line-height": {
+          "value": "32px",
+          "provenance": "measured"
+        }
+      }
+    },
+    "space": {
+      "--pf-padding-xxs": {
+        "value": "4px",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-padding-xs": {
+        "value": "8px",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-padding-sm": {
+        "value": "12px",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-padding": {
+        "value": "16px",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-padding-md": {
+        "value": "20px",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-padding-lg": {
+        "value": "24px",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-padding-xl": {
+        "value": "32px",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-margin-xxs": {
+        "value": "4px",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-margin-xs": {
+        "value": "8px",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-margin-sm": {
+        "value": "12px",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-margin": {
+        "value": "16px",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-margin-md": {
+        "value": "20px",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-margin-lg": {
+        "value": "24px",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-margin-xl": {
+        "value": "32px",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      }
+    },
+    "radius": {
+      "--pf-border-radius": {
+        "value": "6px",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-border-radius-lg": {
+        "value": "8px",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-border-radius-xs": {
+        "value": "2px",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-border-radius-sm": {
+        "value": "4px",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      }
+    },
+    "shadow": {
+      "--pf-box-shadow": {
+        "value": "0 2px 8px rgba(0, 0, 0, 0.15)",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-box-shadow-secondary": {
+        "value": "0 6px 16px 0 rgba(0, 0, 0, 0.08),\n      0 3px 6px -4px rgba(0, 0, 0, 0.12),\n      0 9px 28px 8px rgba(0, 0, 0, 0.05)",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      },
+      "--pf-box-shadow-tertiary": {
+        "value": "0 1px 2px 0 rgba(0, 0, 0, 0.03),\n      0 1px 6px -1px rgba(0, 0, 0, 0.02),\n      0 2px 4px 0 rgba(0, 0, 0, 0.02)",
+        "provenance": "measured",
+        "source": "skill/css/tokens.css"
+      }
+    },
+    "motion": {
+      "durations": {
+        "--pf-motion-duration-fast": {
+          "value": "0.1s",
+          "provenance": "measured",
+          "source": "skill/css/profolio.css"
+        },
+        "--pf-motion-duration-mid": {
+          "value": "0.2s",
+          "provenance": "measured",
+          "source": "skill/css/profolio.css"
+        },
+        "--pf-motion-duration-slow": {
+          "value": "0.3s",
+          "provenance": "measured",
+          "source": "skill/css/profolio.css"
+        }
+      },
+      "easings": {
+        "--pf-motion-ease-out-circ": {
+          "value": "cubic-bezier(0.08, 0.82, 0.17, 1)",
+          "provenance": "measured",
+          "source": "skill/css/tokens.css"
+        },
+        "--pf-motion-ease-in-out-circ": {
+          "value": "cubic-bezier(0.78, 0.14, 0.15, 0.86)",
+          "provenance": "measured",
+          "source": "skill/css/tokens.css"
+        },
+        "--pf-motion-ease-out": {
+          "value": "cubic-bezier(0.215, 0.61, 0.355, 1)",
+          "provenance": "measured",
+          "source": "skill/css/tokens.css"
+        },
+        "--pf-motion-ease-in-out": {
+          "value": "cubic-bezier(0.645, 0.045, 0.355, 1)",
+          "provenance": "measured",
+          "source": "skill/css/tokens.css"
+        },
+        "--pf-motion-ease-out-back": {
+          "value": "cubic-bezier(0.12, 0.4, 0.29, 1.46)",
+          "provenance": "measured",
+          "source": "skill/css/tokens.css"
+        },
+        "--pf-motion-ease-in-back": {
+          "value": "cubic-bezier(0.71, -0.46, 0.88, 0.6)",
+          "provenance": "measured",
+          "source": "skill/css/tokens.css"
+        },
+        "--pf-motion-ease-in-quint": {
+          "value": "cubic-bezier(0.755, 0.05, 0.855, 0.06)",
+          "provenance": "measured",
+          "source": "skill/css/tokens.css"
+        },
+        "--pf-motion-ease-out-quint": {
+          "value": "cubic-bezier(0.23, 1, 0.32, 1)",
+          "provenance": "measured",
+          "source": "skill/css/tokens.css"
+        }
+      }
+    },
+    "breakpoints": {
+      "991px": {
+        "value": "991px",
+        "provenance": "derived",
+        "use": "used 44 times"
+      },
+      "767px": {
+        "value": "767px",
+        "provenance": "derived",
+        "use": "used 29 times"
+      },
+      "992px": {
+        "value": "992px",
+        "provenance": "derived",
+        "use": "used 19 times"
+      },
+      "768px": {
+        "value": "768px",
+        "provenance": "derived",
+        "use": "used 18 times"
+      },
+      "640px": {
+        "value": "640px",
+        "provenance": "derived",
+        "use": "used 11 times"
+      }
+    },
+    "file": "css/tokens.css",
+    "in_use": {
+      "sizes": [
+        10,
+        11,
+        11.1,
+        13,
+        15,
+        18,
+        22
+      ],
+      "colours": [
+        "rgb(34, 34, 34)",
+        "rgb(112, 112, 112)",
+        "rgb(0, 97, 105)",
+        "rgb(98, 98, 98)",
+        "rgb(79, 79, 79)",
+        "rgb(32, 142, 87)",
+        "rgb(242, 250, 250)",
+        "rgb(157, 157, 157)",
+        "rgb(40, 177, 109)",
+        "rgb(255, 255, 255)",
+        "rgb(247, 49, 49)",
+        "rgb(237, 237, 237)"
+      ],
+      "from": [
+        "pages/ad-license.html",
+        "pages/agency-staff.html",
+        "pages/agent-performance.html",
+        "pages/checkout.html",
+        "pages/credits-usage.html",
+        "pages/dashboard.html",
+        "pages/invite.html",
+        "pages/listings-new.html",
+        "pages/listings.html",
+        "pages/lms-leads.html",
+        "pages/maintenance.html",
+        "pages/packages.html"
+      ],
+      "provenance": "derived"
+    }
+  },
+  "grid": {
+    "web": {
+      "base": 4,
+      "provenance": "derived"
+    },
+    "phone": {
+      "base": 4,
+      "provenance": "derived"
+    }
+  },
+  "components": {
+    "registry": "registry.json",
+    "count": 276,
+    "names": [
+      "icon",
+      "button",
+      "flex",
+      "antd-button",
+      "antd-typography",
+      "antd-modal",
+      "antd-drawer",
+      "auth-info",
+      "header-link",
+      "notification-centre",
+      "popover",
+      "progress",
+      "avatar",
+      "logo",
+      "card",
+      "group",
+      "feedback-tab",
+      "antd-badge",
+      "antd-progress",
+      "antd-card",
+      "antd-menu",
+      "antd-layout-header",
+      "antd-layout-sider",
+      "antd-layout-footer",
+      "tag",
+      "antd-tag",
+      "text",
+      "antd-divider",
+      "antd-spin",
+      "post-listing-menu",
+      "header-component",
+      "post-listing-menu-scrim",
+      "loader-wrapper",
+      "image",
+      "antd-image",
+      "custom-card",
+      "infinite-scroll",
+      "list",
+      "feedback-attachment",
+      "post-listing-header-scrim",
+      "app-link",
+      "antd-popover",
+      "card-component",
+      "notification-card",
+      "divider",
+      "heading",
+      "antd-message",
+      "antd-input-x",
+      "antd-skeleton",
+      "label",
+      "text-input",
+      "select-input",
+      "antd-select",
+      "skeleton-body",
+      "antd-tabs",
+      "empty-state",
+      "empty-state-block",
+      "antd-input",
+      "number",
+      "antd-radio"
+    ],
+    "notes": "the product's components, cut from its own render, most used first; kit/README.md has the patterns it does not draw yet",
+    "provenance": "measured"
+  },
+  "voice": {
+    "copy_source": "product/copy.md and product/copy/ (English beside Arabic, verbatim); copy.md's \"hidden by\" column marks the areas no KSA screen shows: those strings are not reused",
+    "terms": {
+      "Credits": {
+        "ar": "نقطة",
+        "ar_also": [
+          "ائتمانات",
+          "الاعتمادات"
+        ]
+      },
+      "Listing": {
+        "ar": "اعلان"
+      },
+      "Listings": {
+        "ar": "الإعلانات"
+      },
+      "Leads": {
+        "ar": "العملاء المحتملين"
+      },
+      "Agent": {
+        "ar": "المسوق العقاري"
+      },
+      "Agency": {
+        "ar": "منشاة"
+      },
+      "Staff": {
+        "ar": "الموظفون"
+      }
+    },
+    "casing": {
+      "button": "title"
+    },
+    "tone": "plain and direct: short labels and messages, as in the examples. The product's casing varies (\"Clear filters\", \"Reset Filters\"), so take an existing string's casing from product/copy/ rather than a rule",
+    "examples": [
+      "No Record Found — لا توجد بيانات",
+      "Retry — اعادة المحاولة",
+      "We are under scheduled maintenance. — نحن في فترة صيانة مجدولة.",
+      "Apply filters to organize data accordingly — قم بتطبيق عوامل التصفية لتنظيم البيانات وفقًا لذلك",
+      "Clear filters — مسح المرشحات",
+      "Filters — فلاتر البحث",
+      "Reset Filters — اعادة ضبط الفلاتر",
+      "Search — ابحث",
+      "Show More — عرض المزيد",
+      "Cancel — إلغاء"
+    ],
+    "provenance": "derived"
+  },
+  "assets": {
+    "icons": "atoms/icon.html (every icon the product draws) and css/sprite.svg",
+    "illustrations": "the empty-state art in the compiled pages (registry: empty states)",
+    "style": "the product's own line icons; new art in the same stroke and palette is flagged [new]"
+  },
+  "a11y": {
+    "target": "WCAG 2.2 AA",
+    "min_contrast": 4.5,
+    "notes": "the product states no target; this skill holds new work to WCAG 2.2 AA"
+  },
+  "rules": [
+    "KSA only: not Oman, Bahrain, Qatar, Jordan, Egypt or Zameen, and not the consumer side of bayut.sa.",
+    "An amount is drawn with the riyal sign (kit/riyal.svg, the icon font's U+E900), never written as \"SAR\", \"ر.س\" or U+20C1.",
+    "Use the product's copy verbatim (product/copy/); a string it does not have is new copy, flagged.",
+    "Times of day are in Riyadh time.",
+    "Arabic RTL is not compiled: say so rather than mirroring a screen by hand.",
+    "A value the product neither names (css/tokens.css, documented in tokens.md) nor draws (tokens.in_use) is a proposal for the designer, flagged [new]."
+  ],
+  "gaps": [
+    "grid columns, gutters and margins are not measured yet; the base comes from the named spacing values",
+    "motion: the product animates with antd's durations (tokens.motion); it states nothing for reduced motion"
+  ]
+}

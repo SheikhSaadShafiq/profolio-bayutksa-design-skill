@@ -1,0 +1,166 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "design-interaction/v1",
+  "title": "Interaction spec",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "skill_name",
+    "skill_version",
+    "controls"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "skill_name": {
+      "type": "string"
+    },
+    "skill_version": {
+      "type": "string"
+    },
+    "context": {
+      "type": "string"
+    },
+    "controls": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "screen",
+          "kind",
+          "action",
+          "states"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "screen": {
+            "type": "string"
+          },
+          "element": {
+            "type": "string",
+            "description": "node id or CSS selector"
+          },
+          "kind": {
+            "type": "string",
+            "description": "button, link, field, select, toggle, tab, row, card, menu item, gesture\u2026"
+          },
+          "action": {
+            "type": "string",
+            "description": "what it does"
+          },
+          "states": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "state name -> how it looks, in the product's components and tokens; [new] where the product has none"
+          },
+          "disabled_reason": {
+            "type": "string"
+          },
+          "feedback": {
+            "type": "object",
+            "properties": {
+              "instant": {
+                "type": "string"
+              },
+              "running": {
+                "type": "string"
+              },
+              "long": {
+                "type": "string"
+              },
+              "done": {
+                "type": "string"
+              },
+              "failed": {
+                "type": "string"
+              },
+              "undo": {
+                "type": "string"
+              },
+              "optimistic": {
+                "type": "boolean"
+              },
+              "very_long": {
+                "type": "string"
+              }
+            }
+          },
+          "input": {
+            "type": "object",
+            "properties": {
+              "target": {
+                "type": [
+                  "array",
+                  "object"
+                ],
+                "description": "[width, height] measured, or platform id -> [width, height]"
+              },
+              "min_target": {
+                "type": [
+                  "number",
+                  "object"
+                ],
+                "description": "a number, or platform id -> number"
+              },
+              "gesture": {
+                "type": "string"
+              },
+              "alternative": {
+                "type": "string"
+              },
+              "keys": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              },
+              "spacing": {
+                "type": "number",
+                "description": "the gap to the nearest other target"
+              },
+              "proposed": {
+                "type": "boolean",
+                "description": "sizes for a control that is not built yet"
+              }
+            }
+          },
+          "focus": {
+            "type": "object",
+            "properties": {
+              "after": {
+                "type": "string",
+                "description": "where focus goes after the action"
+              },
+              "returns_to": {
+                "type": "string"
+              }
+            }
+          },
+          "new": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "what in this spec the product does not draw yet"
+          },
+          "copy_slot": {
+            "type": "string",
+            "description": "the design-copy slot id that holds this control's final words"
+          }
+        }
+      }
+    },
+    "tbc": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

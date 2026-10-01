@@ -1,0 +1,510 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "design-context/v1",
+  "title": "Design context card",
+  "description": "What every design-* skill works inside: the product's platforms, tokens, grid, components, voice, assets and rules, each value with its provenance. Written to design/context.json by design-context, or by any design-* skill's context step.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "product",
+    "sources",
+    "platforms",
+    "tokens"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "context_skill_name": {
+      "type": "string"
+    },
+    "context_skill_version": {
+      "type": "string"
+    },
+    "built": {
+      "type": "string",
+      "description": "ISO 8601 date the card was written"
+    },
+    "product": {
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "audience": {
+          "type": "string"
+        },
+        "market": {
+          "type": "string"
+        },
+        "design_system": {
+          "type": "string",
+          "description": "the design-system skill or library this card was read from, if any"
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "kind",
+          "ref"
+        ],
+        "properties": {
+          "kind": {
+            "enum": [
+              "card",
+              "design-system-skill",
+              "code",
+              "render",
+              "screenshot",
+              "url",
+              "figma",
+              "brief",
+              "assumed"
+            ]
+          },
+          "ref": {
+            "type": "string"
+          },
+          "hash": {
+            "type": "string",
+            "description": "the first 12 hex digits of the file's sha1, so a later skill can tell the card is stale"
+          }
+        }
+      }
+    },
+    "platforms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "width": {
+            "type": "number"
+          },
+          "height": {
+            "type": "number"
+          },
+          "min_target": {
+            "type": "number",
+            "description": "smallest hit target, in px or pt"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "provenance": {
+            "$ref": "#/$defs/provenance"
+          }
+        }
+      }
+    },
+    "locales": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "dir"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "dir": {
+            "enum": [
+              "ltr",
+              "rtl"
+            ]
+          },
+          "font": {
+            "type": "string"
+          },
+          "provenance": {
+            "$ref": "#/$defs/provenance"
+          }
+        }
+      }
+    },
+    "tokens": {
+      "type": "object",
+      "properties": {
+        "file": {
+          "type": "string",
+          "description": "the token sheet, if there is one"
+        },
+        "color": {
+          "$ref": "#/$defs/valueMap"
+        },
+        "type": {
+          "type": "object",
+          "properties": {
+            "families": {
+              "$ref": "#/$defs/valueMap"
+            },
+            "scale": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/typeStep"
+              }
+            }
+          }
+        },
+        "space": {
+          "$ref": "#/$defs/valueMap"
+        },
+        "radius": {
+          "$ref": "#/$defs/valueMap"
+        },
+        "shadow": {
+          "$ref": "#/$defs/valueMap"
+        },
+        "motion": {
+          "type": "object",
+          "properties": {
+            "durations": {
+              "$ref": "#/$defs/valueMap"
+            },
+            "easings": {
+              "$ref": "#/$defs/valueMap"
+            },
+            "reduced": {
+              "type": "string",
+              "description": "what the product does under prefers-reduced-motion"
+            }
+          }
+        },
+        "breakpoints": {
+          "$ref": "#/$defs/valueMap"
+        },
+        "in_use": {
+          "type": "object",
+          "description": "what the shipped product draws that its token sheet does not name: the product's own values, even off its scale",
+          "properties": {
+            "sizes": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            },
+            "colours": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "from": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "provenance": {
+              "$ref": "#/$defs/provenance"
+            }
+          }
+        }
+      }
+    },
+    "grid": {
+      "type": "object",
+      "description": "per platform id",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "columns": {
+            "type": "number"
+          },
+          "gutter": {
+            "type": "number"
+          },
+          "margin": {
+            "type": "number"
+          },
+          "max_width": {
+            "type": "number"
+          },
+          "base": {
+            "type": "number",
+            "description": "the spacing unit, e.g. 4 or 8"
+          },
+          "provenance": {
+            "$ref": "#/$defs/provenance"
+          }
+        }
+      }
+    },
+    "components": {
+      "type": "object",
+      "properties": {
+        "registry": {
+          "type": "string"
+        },
+        "count": {
+          "type": "number"
+        },
+        "names": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "notes": {
+          "type": "string"
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        }
+      }
+    },
+    "voice": {
+      "type": "object",
+      "properties": {
+        "tone": {
+          "type": "string"
+        },
+        "copy_source": {
+          "type": "string"
+        },
+        "terms": {
+          "type": "object",
+          "additionalProperties": {
+            "type": [
+              "string",
+              "object"
+            ]
+          },
+          "description": "the product's word for a thing; per locale when it differs"
+        },
+        "examples": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        },
+        "casing": {
+          "type": "object",
+          "additionalProperties": {
+            "enum": [
+              "title",
+              "sentence",
+              "upper",
+              "mixed"
+            ]
+          },
+          "description": "slot kind -> the casing the product's own strings use, counted"
+        }
+      }
+    },
+    "assets": {
+      "type": "object",
+      "properties": {
+        "icons": {
+          "type": "string"
+        },
+        "illustrations": {
+          "type": "string"
+        },
+        "images": {
+          "type": "string"
+        },
+        "style": {
+          "type": "string"
+        }
+      }
+    },
+    "a11y": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "e.g. WCAG 2.2 AA"
+        },
+        "min_contrast": {
+          "type": "number"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        }
+      }
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "the product's own rules; they override a skill's defaults"
+    },
+    "gaps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "what the card could not find, said plainly"
+    },
+    "formats": {
+      "type": "object",
+      "description": "how the product writes values, per locale where they differ",
+      "properties": {
+        "currency": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string"
+            },
+            "sign": {
+              "type": "string",
+              "description": "the symbol, or how it is drawn (an icon, a glyph)"
+            },
+            "position": {
+              "enum": [
+                "before",
+                "after"
+              ]
+            },
+            "decimals": {
+              "type": "integer"
+            }
+          }
+        },
+        "digits": {
+          "type": "object",
+          "additionalProperties": {
+            "enum": [
+              "western",
+              "arabic-indic",
+              "persian"
+            ]
+          },
+          "description": "locale id -> the digits used"
+        },
+        "date": {
+          "type": "string",
+          "description": "e.g. 31 Dec 2026"
+        },
+        "time": {
+          "type": "string",
+          "description": "e.g. 2:30 pm, and the time zone"
+        },
+        "number": {
+          "type": "string",
+          "description": "grouping and decimal marks, e.g. 1,250.50"
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        }
+      }
+    },
+    "patterns": {
+      "type": "object",
+      "description": "how the product already does the common moments, so new work does them the same way",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "field_error": {
+          "type": "string"
+        },
+        "empty": {
+          "type": "string"
+        },
+        "loading": {
+          "type": "string"
+        },
+        "success": {
+          "type": "string"
+        },
+        "confirm": {
+          "type": "string"
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "provenance": {
+      "enum": [
+        "measured",
+        "derived",
+        "stated",
+        "assumed"
+      ]
+    },
+    "value": {
+      "type": "object",
+      "required": [
+        "value",
+        "provenance"
+      ],
+      "properties": {
+        "value": {},
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        },
+        "source": {
+          "type": "string"
+        },
+        "use": {
+          "type": "string"
+        }
+      }
+    },
+    "valueMap": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/value"
+      }
+    },
+    "typeStep": {
+      "type": "object",
+      "required": [
+        "name",
+        "size",
+        "provenance"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "size": {
+          "type": "number"
+        },
+        "line": {
+          "type": "number"
+        },
+        "weight": {
+          "type": "number"
+        },
+        "family": {
+          "type": "string"
+        },
+        "use": {
+          "type": "string"
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        }
+      }
+    }
+  }
+}

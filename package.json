@@ -39,7 +39,9 @@
     "skill:file": "node scripts/skill-file.mjs",
     "test:kit": "node tests/kit/qa-catches.mjs && node tests/kit/sweep-catches.mjs && node tests/kit/runtime.mjs && cd skill && node qa/prototype.mjs examples/leads-marketplace --no-install",
     "kit:riyal": "python3 scripts/kit/riyal.py && node scripts/kit/riyal-migrate.mjs",
-    "example:leads": "node scripts/examples/leads-marketplace.mjs && cd skill && node qa/prototype.mjs examples/leads-marketplace"
+    "example:leads": "node scripts/examples/leads-marketplace.mjs && cd skill && node qa/prototype.mjs examples/leads-marketplace",
+    "skills:build": "node scripts/design-skills.mjs",
+    "test:design-skills": "node tests/design-skills/run.mjs"
   },
   "devDependencies": {
     "antd": "5.22.1",

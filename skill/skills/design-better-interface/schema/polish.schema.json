@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "design-better-interface/v1",
+  "title": "Polish findings",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "skill_name",
+    "skill_version",
+    "mode",
+    "findings"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "skill_name": {
+      "type": "string"
+    },
+    "skill_version": {
+      "type": "string"
+    },
+    "context": {
+      "type": "string"
+    },
+    "mode": {
+      "enum": [
+        "quick",
+        "full"
+      ]
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "severity",
+          "domain",
+          "screen",
+          "title",
+          "fix"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^P-[0-9]{3}$"
+          },
+          "severity": {
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "domain": {
+            "enum": [
+              "accessibility",
+              "layout",
+              "writing",
+              "typography",
+              "visual"
+            ]
+          },
+          "screen": {
+            "type": "string",
+            "description": "the screen's HTML file name, without its folder: scripts/annotate.mjs matches on it"
+          },
+          "selector": {
+            "type": "string",
+            "description": "the CSS selector scripts/annotate.mjs pins; or give a region"
+          },
+          "title": {
+            "type": "string"
+          },
+          "measured": {
+            "type": "string"
+          },
+          "fix": {
+            "type": "string"
+          },
+          "new_value": {
+            "type": "boolean"
+          },
+          "region": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 4,
+            "maxItems": 4,
+            "description": "[x, y, width, height] on the screen, for a screenshot"
+          },
+          "review": {
+            "type": "string",
+            "description": "the design-review finding this refines, e.g. R-007"
+          }
+        }
+      }
+    }
+  }
+}

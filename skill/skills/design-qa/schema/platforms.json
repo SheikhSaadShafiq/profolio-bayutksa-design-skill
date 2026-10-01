@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "note": "Per-platform minimums. This file is configuration, not part of the skill \u2014 a skill that hardcodes 44px has decided which OS you are building for. Add or remove platforms freely; QA reads whatever is here and whatever the registry declares.",
+  "platforms": {
+    "web": {
+      "hit_target_min": 24,
+      "adjacent_gap_min": 8,
+      "breakpoints": [
+        480,
+        768,
+        992,
+        1440
+      ],
+      "gestures": false,
+      "safe_area": false,
+      "focus_visible_required": true
+    },
+    "phone": {
+      "hit_target_min": 24,
+      "adjacent_gap_min": 8,
+      "breakpoints": [
+        360,
+        375,
+        390,
+        414
+      ],
+      "gestures": true,
+      "safe_area": true,
+      "focus_visible_required": false,
+      "notes": "A web product on a phone: WCAG 2.2's 24px (2.5.8) is the minimum, 44 is the comfortable size. A native iOS or Android app uses its platform's row instead."
+    },
+    "ios": {
+      "hit_target_min": 44,
+      "adjacent_gap_min": 8,
+      "breakpoints": [
+        375,
+        390,
+        428
+      ],
+      "gestures": true,
+      "safe_area": true,
+      "focus_visible_required": false,
+      "notes": "44pt is the Apple HIG minimum. Safe area insets apply top and bottom."
+    },
+    "android": {
+      "hit_target_min": 48,
+      "adjacent_gap_min": 8,
+      "breakpoints": [
+        360,
+        393,
+        412
+      ],
+      "gestures": true,
+      "safe_area": true,
+      "focus_visible_required": false,
+      "notes": "48dp is the Material minimum. Back gesture reserves the screen edges."
+    },
+    "tablet": {
+      "hit_target_min": 44,
+      "adjacent_gap_min": 12,
+      "breakpoints": [
+        768,
+        834,
+        1024
+      ],
+      "gestures": true,
+      "safe_area": true,
+      "focus_visible_required": false
+    },
+    "desktop": {
+      "hit_target_min": 24,
+      "adjacent_gap_min": 8,
+      "breakpoints": [
+        1280,
+        1440,
+        1920
+      ],
+      "gestures": false,
+      "safe_area": false,
+      "focus_visible_required": true
+    }
+  }
+}

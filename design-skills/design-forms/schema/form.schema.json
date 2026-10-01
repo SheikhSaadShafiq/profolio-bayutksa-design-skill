@@ -1,0 +1,291 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "design-forms/v1",
+  "title": "Form spec",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "skill_name",
+    "skill_version",
+    "purpose",
+    "sections",
+    "submit"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "skill_name": {
+      "type": "string"
+    },
+    "skill_version": {
+      "type": "string"
+    },
+    "context": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "marks": {
+      "enum": [
+        "optional",
+        "required"
+      ],
+      "description": "which kind of field carries a marker"
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "fields"
+        ],
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "label",
+                "input",
+                "required"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": [
+                    "string",
+                    "object"
+                  ],
+                  "description": "a string, or locale id -> string",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "help": {
+                  "type": [
+                    "string",
+                    "object"
+                  ],
+                  "description": "a string, or locale id -> string",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "placeholder": {
+                  "type": [
+                    "string",
+                    "object"
+                  ],
+                  "description": "a string, or locale id -> string",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "input": {
+                  "type": "string",
+                  "description": "text, textarea, email, tel, select, radio, checkbox, switch, date…"
+                },
+                "inputmode": {
+                  "type": "string"
+                },
+                "autocomplete": {
+                  "type": "string"
+                },
+                "default": {},
+                "required": {
+                  "type": "boolean"
+                },
+                "why": {
+                  "type": "string",
+                  "description": "the need this field serves"
+                },
+                "limits": {
+                  "type": "object",
+                  "additionalProperties": {}
+                },
+                "rules": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "rule",
+                      "when",
+                      "message"
+                    ],
+                    "properties": {
+                      "rule": {
+                        "type": "string"
+                      },
+                      "when": {
+                        "type": "array",
+                        "items": {
+                          "enum": [
+                            "choose",
+                            "leave",
+                            "change-after-error",
+                            "submit",
+                            "server"
+                          ]
+                        },
+                        "description": "every moment the rule runs"
+                      },
+                      "message": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "string"
+                        },
+                        "description": "locale id -> message"
+                      },
+                      "copy_slot": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "edges": {
+                  "type": "object",
+                  "properties": {
+                    "empty": {
+                      "type": "string"
+                    },
+                    "longest": {
+                      "type": "string"
+                    },
+                    "other_script": {
+                      "type": "string"
+                    },
+                    "pasted": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "options": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "value",
+                      "label"
+                    ],
+                    "properties": {
+                      "value": {
+                        "type": "string"
+                      },
+                      "label": {
+                        "type": [
+                          "string",
+                          "object"
+                        ],
+                        "description": "a string, or locale id -> string",
+                        "additionalProperties": {
+                          "type": "string"
+                        }
+                      },
+                      "copy_slot": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "show_when": {
+                  "type": "string",
+                  "description": "the condition that shows this field, e.g. reason = other"
+                },
+                "accept": {
+                  "type": "string",
+                  "description": "a file field: the types and the largest size, e.g. image/*, 5 MB"
+                },
+                "copy_slot": {
+                  "type": "string",
+                  "description": "the design-copy slot id that holds this field's final words"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "submit": {
+      "type": "object",
+      "required": [
+        "label"
+      ],
+      "properties": {
+        "label": {
+          "type": [
+            "string",
+            "object"
+          ],
+          "description": "a string, or locale id -> string",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "while": {
+          "type": [
+            "string",
+            "object"
+          ],
+          "description": "a string, or locale id -> string",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "success": {
+          "type": [
+            "string",
+            "object"
+          ],
+          "description": "a string, or locale id -> string",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "failure": {
+          "type": [
+            "string",
+            "object"
+          ],
+          "description": "a string, or locale id -> string",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "draft": {
+          "type": [
+            "string",
+            "object"
+          ],
+          "description": "a string, or locale id -> string",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "copy_slot": {
+          "type": "string"
+        }
+      }
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "for a multi-step form: the step titles"
+    },
+    "tbc": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

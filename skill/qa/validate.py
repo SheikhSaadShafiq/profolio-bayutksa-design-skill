@@ -3,11 +3,11 @@
 
     python3 qa/validate.py                      the whole package and every design in designs/ (run from skill/)
     python3 qa/validate.py designs/x.html ...   only those designs: checks 1-3
-    python3 qa/validate.py --package designs/x.html   those designs, and the package's checks 4-8
+    python3 qa/validate.py --package designs/x.html   those designs, and the package's checks 4-9
     python3 qa/validate.py --design-only        every design in designs/: checks 1-3
 
 On a .skill install (no atoms/, molecules/, organisms/) the package checks
-4-8 are skipped and say so; they never fail a design.
+4-9 are skipped and say so; they never fail a design.
 
 Exits 1 when any check fails. Standard library only.
 
@@ -22,6 +22,8 @@ The checks
      disagree with each other or with what the compiled files draw
   8  a component drew an element in a compiled file without its marker there
      (data-pf-i): the compile lost it, so where it is used is undercounted
+  9  context.json, the card every design-* skill starts from, was read from
+     files that have changed since (scripts/package.mjs writes it)
 
 References and designs. The files under pages/ and atoms/ molecules/
 organisms/ are compiled from the product's own render and carry its inline
@@ -50,7 +52,7 @@ A style on an element carrying data-pf-new-copy always fails: an element
 you create or retype takes a registry utility (fz-12, mb-8 …), never a style
 attribute — in the new theme, only var(--pf-ml-*) declarations.
 """
-import html as entities
+import hashlib, html as entities
 import json
 import os
 import re
@@ -521,6 +523,27 @@ def marker_gaps():
     return (gaps if len(gaps) > allowed else []), len(files), len(gaps)
 
 
+def card_stale():
+    """9: each source the context card was read from still has the hash it records"""
+    path = os.path.join(ROOT, 'context.json')
+    if not os.path.exists(path):
+        return ['context.json is missing: npm run package writes it'], 0
+    with open(path, encoding='utf-8') as fh:
+        card = json.load(fh)
+    stale = []
+    srcs = [x for x in card.get('sources', []) if x.get('kind') == 'design-system-skill']
+    for x in srcs:
+        f = os.path.join(ROOT, x['ref'])
+        if not os.path.exists(f):
+            stale.append(f"{x['ref']}: gone")
+            continue
+        with open(f, 'rb') as fh:
+            h = hashlib.sha1(fh.read()).hexdigest()[:12]
+        if h != x.get('hash'):
+            stale.append(f"{x['ref']}: changed since the card was written (run npm run package)")
+    return stale, len(srcs)
+
+
 def registry_consistency(reg):
     """a  pages[x] lists y                          -> x is in components[y].used_on
     b  x in used_on but pages[x] does not list y -> y is in shell.components and x is signed in
@@ -663,7 +686,7 @@ def main(argv):
     report.add(3, 'every class on a page is in registry.json or the kit', [f'.{c} — first on {where}' for c, where in sorted(unknown.items())], f'{len(known)} classes known')
 
     if not design_only and core:
-        print('  .skill install: the package checks 4-8 need atoms/, molecules/ and organisms/ — skipped')
+        print('  .skill install: the package checks 4-9 need atoms/, molecules/ and organisms/ — skipped')
     if not design_only and not core:
         # 4 — every registry file exists
         missing = []
@@ -701,6 +724,10 @@ def main(argv):
         # 8 — every component that drew something in a file carries its marker there
         gaps, nfiles, ngaps = marker_gaps()
         report.add(8, 'every component a compiled file draws carries its marker there', gaps, f'{nfiles} files, {ngaps} with a missing marker (at most 1% allowed)')
+
+        # 9 — the context card matches the files it was read from
+        stale, nsrc = card_stale()
+        report.add(9, 'context.json is current', stale, f'{nsrc} sources, hashes checked')
 
     failed = report.print()
     return 1 if failed else 0
