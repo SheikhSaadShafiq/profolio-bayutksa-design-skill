@@ -94,7 +94,7 @@ Every string the compiled files of `pages/agent-performance` draw — 26 web, 22
 | Saud Al-Bishi | fixture: fixtures/extra.mjs | data | container/pages/agent-performance/LeaderBoard.js:445 · container/pages/agent-performance/LeaderBoard.js:358 | web: as-individual, as-staff, modal-not-ranked__inline-2 · @375: as-individual, as-staff, drawer-not-ranked__inline-2 |
 | How to Earn TruPoints? | كيفية كسب نقاط التميز؟ | t | container/pages/agent-performance/AgentActivity.js:131 | as-individual, as-staff (web and @375) |
 | Upgraded to Signature | fixture: fixtures/extra.mjs | data | container/pages/agent-performance/AgentActivity.js:100 | as-individual, as-staff, drawer-trupointsTM-46 (web and @375) |
-| Sep 27, 2026, 1:24 pm ⟨{date}⟩ ×16 | value | data | container/pages/agent-performance/AgentActivity.js:103 | as-individual, as-staff, drawer-trupointsTM-46 (web and @375) |
+| Sep 29, 2026, 11:24 am ⟨{date}⟩ ×16 | value | data | container/pages/agent-performance/AgentActivity.js:103 | as-individual, as-staff, drawer-trupointsTM-46 (web and @375) |
 | +10 ⟨{n}⟩ ×3 | value | data | container/pages/agent-performance/AgentActivity.js:110 | as-individual, as-staff, drawer-trupointsTM-46 (web and @375) |
 | Posted a listing | fixture: fixtures/extra.mjs | data | container/pages/agent-performance/AgentActivity.js:100 | as-individual, as-staff, drawer-trupointsTM-46 (web and @375) |
 | Upgraded to Hot | fixture: fixtures/extra.mjs | data | container/pages/agent-performance/AgentActivity.js:100 | as-individual, as-staff, drawer-trupointsTM-46 (web and @375) |

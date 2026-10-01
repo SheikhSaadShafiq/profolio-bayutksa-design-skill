@@ -36,11 +36,11 @@ user in a wireframe. Then the Design QA passes it.
    - every interaction: the rail, the header's controls, every menu and sheet;
    - the data at its extremes: empty, long, Arabic, zero;
    - every option variant.
-   Look at `qa/shots/` yourself before delivering, interactions and extremes included. Report
+   Look at `designs/<feature>/qa/shots/` yourself before delivering, interactions and extremes included. Report
    the coverage it prints, never more. Exit 3 means no browser was available: say so when you
    deliver, and ask for the QA button in the prototype to be pressed.
 5. **Deliver** `designs/<feature>/prototype.html`, published as an artifact wherever you can,
-   with `qa/handoff.md` completed (OUTPUT CONTRACT). Every control in it works:
+   with `designs/<feature>/qa/handoff.md` completed (OUTPUT CONTRACT). Every control in it works:
    - filters, tabs, sort and search change the sample rows;
    - dialogs, sheets, toasts and busy buttons behave;
    - the rail opens the product's other pages;
@@ -190,9 +190,10 @@ inline.
   `as-staff.html`, `as-individual.html`, `<state>-as-staff.html`. Every other state is the
   owner's, bar `pages[x].state_roles`; `product/roles.md` says what each role cannot reach.
 - **Scope**: English, web 1440 and phone 375. Arabic RTL is not compiled — say so rather
-  than mirroring a screen by hand. The fixture's "today" is `registry.clock.day`; times of day
-  are shown in the browser's zone (`registry.clock.shown_in`, not Riyadh; the `TIMEZONE`
-  constant is read nowhere) — any day-based rule names its timezone.
+  than mirroring a screen by hand. The fixture's "today" is `registry.clock.day`. Times of day
+  are shown in Riyadh time (`registry.clock.shown_in`), as a user in KSA sees them: the product
+  formats them in the browser's zone, and its `TIMEZONE` constant is read nowhere. Any
+  day-based rule names its timezone.
 
 ## THEMES — current, and Profolio 2.0
 

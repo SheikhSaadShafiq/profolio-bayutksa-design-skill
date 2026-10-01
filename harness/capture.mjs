@@ -28,6 +28,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { serve, REPO } from './serve.mjs';
 import { prepareContext, routeHandler } from './page.mjs';
+import { ZONE } from './devices.mjs';
 
 const { chromium } = pkg;
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -115,7 +116,7 @@ async function snap(page, name, captureSrc, locale, extra = {}) {
 
 async function captureRoute(browser, base, route, locale) {
   const ctx = await browser.newContext({
-    viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1, locale: locale === 'ar' ? 'ar-SA' : 'en',
+    viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1, locale: locale === 'ar' ? 'ar-SA' : 'en', timezoneId: ZONE,
   });
   /* the cookie, the first-visit flags and the route handler are
      harness/page.mjs's — the same ones compile.mjs opens its pages with, so

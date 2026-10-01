@@ -83,7 +83,7 @@ Every string the compiled files of `pages/post-ad` draw — 16 web, 7 phone (@37
 | License Info | معلومات رخصة فال | t | tenant/bayut/components/post-listing/RegaDetailFields.js:152 | web: modal-listing-details-from-rega-ad-license · @375: drawer-listing-details-from-rega-ad-license |
 | FAL License no. | رقم رخصة فال | t | tenant/bayut/components/post-listing/RegaDetailFields.js:187 | web: modal-listing-details-from-rega-ad-license · @375: drawer-listing-details-from-rega-ad-license |
 | Created date | تاريخ الاصدار | t | tenant/bayut/components/post-listing/RegaDetailFields.js:187 | web: modal-listing-details-from-rega-ad-license · @375: drawer-listing-details-from-rega-ad-license |
-| 2026-09-28 ⟨{n}-{n}-{n}⟩ ×2 | value | data | tenant/bayut/components/post-listing/RegaDetailFields.js:190 | web: modal-listing-details-from-rega-ad-license · @375: drawer-listing-details-from-rega-ad-license |
+| 2026-09-30 ⟨{n}-{n}-{n}⟩ ×2 | value | data | tenant/bayut/components/post-listing/RegaDetailFields.js:190 | web: modal-listing-details-from-rega-ad-license · @375: drawer-listing-details-from-rega-ad-license |
 | Expiry Date | تاريخ الانتهاء | t | tenant/bayut/components/post-listing/RegaDetailFields.js:187 | web: modal-listing-details-from-rega-ad-license · @375: drawer-listing-details-from-rega-ad-license |
 | Ad Responsible Info | معلومات مسؤول الإعلان | t | tenant/bayut/components/post-listing/RegaDetailFields.js:152 | web: modal-listing-details-from-rega-ad-license · @375: drawer-listing-details-from-rega-ad-license |
 | Responsible Name | اسم المسؤول | t | tenant/bayut/components/post-listing/RegaDetailFields.js:187 | web: modal-listing-details-from-rega-ad-license · @375: drawer-listing-details-from-rega-ad-license |

@@ -119,7 +119,7 @@ Every string the compiled files of `pages/agency-staff` draw — 37 web, 30 phon
 | OTP Verification | تأكيد رمز التحقق | t | components/common/modals/antd-modals.js:33 · components/common/drawer/drawer.js:90 | form-invite-user-otp-errors, modal-invite-user-otp (web and @375) |
 | You've received a 4-digit code on:+966501234567 ⟨You've received a 4-digit code on:{n}⟩ | لقد تلقيت رمزًا من 4 أرقام على: + {n} | t+ | components/invite-user/otp-verification.js:88 | form-invite-user-otp-errors, modal-invite-user-otp (web and @375) |
 | Incorrect OTP | خطا في رمز التحقق | t | components/invite-user/otp-verification.js:93 | form-invite-user-otp-errors (web and @375) |
-| 57 ⟨{n}⟩ ×4 | value | data | components/common/textWithIcon/styled.js:3 | form-invite-user-otp-errors, modal-invite-user-otp (web and @375) |
+| 57 ⟨{n}⟩ ×3 | value | data | components/common/textWithIcon/styled.js:3 | form-invite-user-otp-errors, modal-invite-user-otp (web and @375) |
 | I didn't receive any code | لم اتلق اي رمز | t | components/invite-user/otp-verification.js:111 | form-invite-user-otp-errors, modal-invite-user-otp (web and @375) |
 | Resend OTP | اعادة ارسال رمز التحقق | t | components/common/button/button.js:40 | form-invite-user-otp-errors, modal-invite-user-otp (web and @375) |
 | Continue | متابعة | t | components/common/button/button.js:40 | form-invite-user-otp-errors, modal-invite-user-otp (web and @375) |

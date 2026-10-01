@@ -8,7 +8,7 @@ Labels are verbatim. ‹…› is fixture data by its kind (‹date›, ‹time�
 - **Page title**: Settings
 - **Navigation**: User Settings · Agency Settings · Licenses · Preferences · Change Password
 - **Repeated cards**: 
-  - **UserSettings** — 4× FAL License: · ‹id› · Verified · ‹title› · (sometimes CR Number:) · ‹id› · ‹text› · ‹phone› · ‹email› · ‹text› · Owner · ‹text› · Valid until · ‹date› · (sometimes Share with agency staff) · ‹switch›
+  - **LicenseCard** — 4× FAL License: · ‹id› · Verified · ‹title› · (sometimes CR Number:) · ‹id› · ‹text› · ‹phone› · ‹email› · ‹text› · Owner · ‹text› · Valid until · ‹date› · (sometimes Share with agency staff) · ‹switch›
 - **Buttons and links**: Add FAL license
 
 ## Phone 375 — what differs from web
@@ -22,7 +22,6 @@ Labels are verbatim. ‹…› is fixture data by its kind (‹date›, ‹time�
 
 - **Navigation**: -Agency Settings
 - **Repeated cards**: 
-  - **UserSettings** — none
   - **LicenseCard** — 4× FAL License: · ‹id› · Verified · ‹title› · (sometimes CR Number:) · ‹id› · ‹text› · ‹phone› · ‹email› · ‹text› · Owner · ‹text› · Valid until · ‹date›
 - **Buttons and links**: +Why is this important? · +User Settings
 - **Figures**: Profile Completeness
@@ -32,8 +31,7 @@ Labels are verbatim. ‹…› is fixture data by its kind (‹date›, ‹time�
 
 - **Tabs**: -Agency Settings
 - **Repeated cards**: 
-  - **UserSettings** — none
-  - **items** — 4× FAL License: · ‹id› · Verified · ‹title› · (sometimes CR Number:) · ‹id› · ‹text› · ‹phone› · ‹email› · ‹text› · Owner · ‹text› · Valid until · ‹date›
+  - **LicenseCard** — 4× FAL License: · ‹id› · Verified · ‹title› · (sometimes CR Number:) · ‹id› · ‹text› · ‹phone› · ‹email› · ‹text› · Owner · ‹text› · Valid until · ‹date›
 - **Figures**: Profile Completeness
 - **Buttons and links**: Why is this important? · User Settings
 - **Other product copy shown**: FAL License Verification · Nafath Verification

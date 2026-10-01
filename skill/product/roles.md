@@ -83,7 +83,7 @@ Whether a staff or individual user sees any other owner state the same way is no
 
 ## The fixture's clock
 
-The fixture is recorded on **2026-09-29** — 08:58–21:34 Asia/Riyadh (05:58–18:34 UTC), each of the 1221 compiled files at its own moment. Its dates are computed from that moment (`harness/fixtures.mjs` `day()`: UTC midnight, n days back), so "today" on every compiled page is 2026-09-29, and a relative date — "an hour ago", "3 days ago", Last 7 Days, a posted-on date — is relative to it. A time of day is shown in Asia/Karachi (UTC+5), the zone the pages were compiled in, not Riyadh: a lead task the fixture sets at 12:30 Riyadh shows "2:30 pm". Never quote a fixture time as Riyadh time.
+The fixture is recorded on **2026-10-01** — 10:10–12:41 Asia/Riyadh (07:10–09:41 UTC), each of the 1221 compiled files at its own moment. Its dates are computed from that moment (`harness/fixtures.mjs` `day()`: UTC midnight, n days back), so "today" on every compiled page is 2026-10-01, and a relative date — "an hour ago", "3 days ago", Last 7 Days, a posted-on date — is relative to it. A time of day is shown in Riyadh time, as a user in KSA sees it: a lead task the fixture sets at 12:30 Riyadh shows "12:30 pm".
 
 ## By page
 

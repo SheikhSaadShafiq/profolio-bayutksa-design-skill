@@ -351,7 +351,7 @@
       "token": "elevation.sheet",
       "declared": "0 -8px 32px rgba(0,0,0,0.16)",
       "value": "0 -8px 40px rgba(23,26,31,0.18)",
-      "basis": "the build paints it on Listing Performance bottom sheet, Delete listing sheet, Filter value sheet, Filters sheet, Sort sheet, Share sheet, Request Services sheet, Listing actions sheet, Date range sheet, TruCheck sheet",
+      "basis": "the build paints it on Listing Performance bottom sheet, Delete listing sheet, Filters sheet, Filter value sheet, Sort sheet, Share sheet, Request Services sheet, Listing actions sheet, Date range sheet, TruCheck sheet",
       "variants": [
         "elevation.sheetExplainer"
       ]
@@ -383,7 +383,7 @@
       "token": "type.subtype",
       "declared": "Geist 12/16 · 600 · #249F62",
       "value": "Geist 11/normal · 600 · #10603A",
-      "basis": "the phone draws it so ×182 (screen, Listing Performance bottom sheet; \"Apartment for Daily Rental\"); also, rarely, Geist 12/normal · 600 · #249F62 ×3 (Delete listing sheet, TruCheck sheet); Geist 10/normal · 700 · #10603A ×8 (screen); the web draws it Geist 11/normal · 600 · #208E57 ×239",
+      "basis": "the phone draws it so ×182 (screen, Listing Performance bottom sheet; \"Apartment for Sale\"); also, rarely, Geist 12/normal · 600 · #249F62 ×3 (Delete listing sheet, TruCheck sheet); Geist 10/normal · 700 · #10603A ×8 (screen); the web draws it Geist 11/normal · 600 · #208E57 ×239",
       "variants": [
         "type.subtypeWeb"
       ]
@@ -392,7 +392,7 @@
       "token": "type.location",
       "declared": "Geist 12/16 · 400 · #707070",
       "value": "Geist 12/normal · 400 · #626262",
-      "basis": "the phone draws it so ×159 (screen, Listing Performance bottom sheet; \"Abu Markha, Madinah\"); also, rarely, Geist 12/normal · 400 · #707070 ×3 (Delete listing sheet, TruCheck sheet); Geist 11/normal · 400 · #222222 ×7 (screen); the web draws it Geist 14/normal · 400 · #222222 ×244",
+      "basis": "the phone draws it so ×159 (screen, Listing Performance bottom sheet; \"Al Hazm, West Riyadh\"); also, rarely, Geist 12/normal · 400 · #707070 ×3 (Delete listing sheet, TruCheck sheet); Geist 11/normal · 400 · #222222 ×7 (screen); the web draws it Geist 14/normal · 400 · #222222 ×244",
       "variants": [
         "type.locationNotLive",
         "type.locationWeb"
@@ -402,7 +402,7 @@
       "token": "type.stat",
       "declared": "Geist 14/18 · 700",
       "value": "Geist 12/normal · 700",
-      "basis": "the phone draws it so ×423 (screen; \"4,180\"); the web draws it Geist 16/normal · 700 ×609",
+      "basis": "the phone draws it so ×423 (screen; \"1,288\"); the web draws it Geist 16/normal · 700 ×609",
       "variants": [
         "type.statPerformance"
       ]

@@ -9,7 +9,7 @@ Every string the compiled files of `pages/packages` draw — 22 web, 19 phone (@
 | 6250 ⟨{n}⟩ ×10 | value | data | components/common/textWithIcon/styled.js:3 · components/common/statistic/index.js:93 | all but error, loading (web and @375) |
 | credits | ائتمانات · also الاعتمادات | t | components/common/iconSubText/icon-with-subtext.js:33 | all |
 | Package End Date | تاريخ انتهاء الحزمة | t | components/common/statistic/index.js:93 | all |
-| Apr 02, 2027 ⟨{date}⟩ | value | data | components/common/statistic/index.js:93 | all but error, loading (web and @375) |
+| Apr 04, 2027 ⟨{date}⟩ | value | data | components/common/statistic/index.js:93 | all but error, loading (web and @375) |
 | Top-ups Purchased | تم شراء عمليات تعبئة الرصيد | t | components/common/statistic/index.js:93 | all |
 | 0 ⟨{n}⟩ ×5 | value | data | components/common/statistic/index.js:93 · components/common/textWithIcon/styled.js:3 | all |
 | Available Credits | النقاط المتاحة | t | components/common/statistic/index.js:93 · tenant/bayut/components/credit-info-drawer/creditInfoDrawer.js:125 | all |

@@ -59,7 +59,7 @@ Every string the compiled files of `pages/post-listing` draw — 24 web, 21 phon
 | OTP Verification | تأكيد رمز التحقق | t | components/common/modals/antd-modals.js:33 · components/common/drawer/drawer.js:90 | flow-post-listing-02-otp, message-otp-incorrect (web and @375) |
 | You've received a 4-digit code on: | لقد تلقيت رمزًا من 4 أرقام على: | t | components/otp-verification-modal/otp-verification-modal.js:237 | flow-post-listing-02-otp, message-otp-incorrect (web and @375) |
 | +966501234567 ⟨{n}⟩ | value | data | components/render-text/render-text.js:3 | flow-post-listing-02-otp, message-otp-incorrect (web and @375) |
-| 00:57 ⟨{time}⟩ ×3 | value | data | components/common/textWithIcon/styled.js:3 | flow-post-listing-02-otp, message-otp-incorrect (web and @375) |
+| 00:58 ⟨{time}⟩ ×3 | value | data | components/common/textWithIcon/styled.js:3 | flow-post-listing-02-otp, message-otp-incorrect (web and @375) |
 | I didn't receive any code | لم اتلق اي رمز | t | components/otp-verification-modal/otp-verification-modal.js:265 | flow-post-listing-02-otp, message-otp-incorrect (web and @375) |
 | Resend OTP | اعادة ارسال رمز التحقق | t | components/common/button/button.js:40 | flow-post-listing-02-otp, message-otp-incorrect (web and @375) |
 | Verify | تأكيد | t | components/common/button/button.js:40 | flow-post-listing-02-otp, message-otp-incorrect (web and @375) |
@@ -67,12 +67,12 @@ Every string the compiled files of `pages/post-listing` draw — 24 web, 21 phon
 | Your ad license will be verified against the provided CR Number | سيتم التحقق من رخصة إعلانك مع رقم السجل التجاري المقدم | t | tenant/common/components/post-listing/national-cr-form.js:60 | form-cr-number (web and @375) |
 | e.g 7010000000 | not in translations | code (placeholder) | components/common/textInput/styled.js:9 | form-cr-number (web and @375) |
 | Permanently Skip this step by verifying your FAL License | تجاوز هذه الخطوة بشكل دائم من خلال التحقق من رخصة فال | t | components/common/button/button.js:40 | form-cr-number (web and @375) |
-| Please enter a valid advertisement license number | الرجاء إدخال رقم رخصة إعلان صحيح | t | components/common/group/group.js:8 | form-license-invalid (web and @375) |
+| Please enter a valid advertisement license number | الرجاء إدخال رقم رخصة إعلان صحيح | t | components/common/errorMessage/errorMessage.js:26 | form-license-invalid (web and @375) |
 | Provide Your National ID Number | ادخل رقمك الوطني | t | components/common/heading/heading.js:10 | form-national-id, form-national-id-invalid (web and @375) |
 | Your ad license will be verified against the provided ID. | سيتم التحقق من رخصة إعلانك مع الهوية المقدمة. | t | tenant/common/components/post-listing/national-cr-form.js:60 | form-national-id, form-national-id-invalid (web and @375) |
 | e.g 1100000000 | not in translations | code (placeholder) | components/common/textInput/styled.js:9 | form-national-id, form-national-id-invalid (web and @375) |
 | Please enter a valid national ID number | الرجاء إدخال رقم وطني صحيح | t | components/common/errorMessage/errorMessage.js:26 | form-national-id-invalid (web and @375) |
-| Please enter AD License to continue | الرجاء إدخال رخصة الإعلان للمتابعة | t | components/common/group/group.js:8 | inline-continue (web and @375) |
+| Please enter AD License to continue | الرجاء إدخال رخصة الإعلان للمتابعة | t | components/common/errorMessage/errorMessage.js:26 | inline-continue (web and @375) |
 | Ad license not found on REGA. Check the number and try again. | fixture: fixtures/listing-form.mjs | data | — | message-license-not-found (web and @375) |
 | Invalid OTP code | رمز التحقق غير صحيح | t | — | message-otp-incorrect (web and @375) |
 | Get the Bayut KSA App | حمل تطبيق بيوت السعودية | t | tenant/common/components/downloadAppModal/downloadAppModal.js:22 | web: modal-download-app · @375: none |

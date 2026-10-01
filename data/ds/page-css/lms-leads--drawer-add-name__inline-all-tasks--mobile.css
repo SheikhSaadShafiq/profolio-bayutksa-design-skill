@@ -800,18 +800,18 @@ ul { list-style: outside none none; margin: 0px; padding: 0px; }
 }
 .pf-text-field .anticon-close-circle svg { height: 20px; width: 20px; }
 .pf-text-field .pf-input-suffix { line-height: 0; }
-.leads-unified-tabs-mobile .pf-tabs-nav { margin: 0px; }
-.leads-unified-tabs-mobile .pf-tabs-nav-list { width: 100%; }
-.leads-unified-tabs-mobile .pf-tabs-tab { flex: 1 1 0%; -webkit-box-pack: center; justify-content: center; margin: 0px !important; font-size: 14px !important; }
-.leads-unified-table .pf-tabs-tab { font-size: 16px; padding: 12px 8px; }
-.leads-unified-table .pf-tabs-tab .pf-tabs-tab-btn { color: rgb(98, 98, 98); font-weight: 400; }
-.leads-unified-table .pf-tabs-tab.pf-tabs-tab-active .pf-tabs-tab-btn { color: rgb(0, 97, 105); font-weight: 700; }
-.leads-unified-table .pf-tabs-tab.pf-tabs-tab-active .pf-tabs-tab-btn .tab-count { font-weight: 500; }
-.leads-unified-table .pf-tabs-ink-bar { background: rgb(0, 97, 105); height: 2px; }
 .total-leads-unified.pf-card { min-width: 274px; flex-shrink: 0; border: 1px solid rgb(235, 235, 235); width: 274px !important; }
 .total-leads-unified .pf-card-body { width: 100%; height: 100%; padding: 19px 12px 12px !important; }
 @media screen and (max-width: 991px) {
 .total-leads-unified.pf-card { width: 187px !important; min-width: 187px; }
 .total-leads-unified .pf-card-body { padding: 16px 0px 0px !important; }
 }
+.leads-unified-table .pf-tabs-tab { font-size: 16px; padding: 12px 8px; }
+.leads-unified-table .pf-tabs-tab .pf-tabs-tab-btn { color: rgb(98, 98, 98); font-weight: 400; }
+.leads-unified-table .pf-tabs-tab.pf-tabs-tab-active .pf-tabs-tab-btn { color: rgb(0, 97, 105); font-weight: 700; }
+.leads-unified-table .pf-tabs-tab.pf-tabs-tab-active .pf-tabs-tab-btn .tab-count { font-weight: 500; }
+.leads-unified-table .pf-tabs-ink-bar { background: rgb(0, 97, 105); height: 2px; }
+.leads-unified-tabs-mobile .pf-tabs-nav { margin: 0px; }
+.leads-unified-tabs-mobile .pf-tabs-nav-list { width: 100%; }
+.leads-unified-tabs-mobile .pf-tabs-tab { flex: 1 1 0%; -webkit-box-pack: center; justify-content: center; margin: 0px !important; font-size: 14px !important; }
 html body { overflow-y: hidden; }

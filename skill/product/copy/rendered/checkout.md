@@ -74,7 +74,7 @@ Every string the compiled files of `pages/checkout` draw — 28 web, 25 phone (@
 | In 2 months | خلال شهرين | t | components/checkout/tabby.js:203 | form-method-tabby, form-tabby-date-of-birth-filled, form-tabby-date-of-birth-open, form-tabby-date-of-birth-required, inline-tabby, message-tabby-unable-to-approve (web and @375) |
 | In 3 months | خلال 3 أشهر | t | components/checkout/tabby.js:203 | form-method-tabby, form-tabby-date-of-birth-filled, form-tabby-date-of-birth-open, form-tabby-date-of-birth-required, inline-tabby, message-tabby-unable-to-approve (web and @375) |
 | Pay | ادفع | t | components/prop-shop/Ordersummary.js:276 | form-method-tabby, form-tabby-date-of-birth-filled, form-tabby-date-of-birth-open, form-tabby-date-of-birth-required, inline-tabby, message-tabby-unable-to-approve (web and @375) |
-| Sep | not in translations | code | — | form-tabby-date-of-birth-open (web and @375) |
+| Oct | not in translations | code | — | form-tabby-date-of-birth-open (web and @375) |
 | 2026 ⟨{n}⟩ ×32 | value | data | — | form-tabby-date-of-birth-open (web and @375) |
 | Su | value | data | — | form-tabby-date-of-birth-open (web and @375) |
 | Mo | value | data | — | form-tabby-date-of-birth-open (web and @375) |

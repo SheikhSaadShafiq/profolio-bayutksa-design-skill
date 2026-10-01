@@ -598,9 +598,8 @@ export function visibleLines(html) {
  * frozen for each file). The fixture's dates are computed from that moment
  * (harness/fixtures.mjs day(): UTC midnight, n days back), so a relative date
  * on a page — "an hour ago", "3 days ago", Last 7 Days — is relative to it.
- * The harness browser sets no timezoneId (harness/page.mjs openPage), so it
- * renders a time of day in the compiling machine's zone; `zone` says which
- * (measured: see RENDER_ZONE).
+ * The harness browser renders in harness/devices.mjs ZONE, Asia/Riyadh, and
+ * a time of day shows in that zone; `zone` says which (see RENDER_ZONE).
  * @param {string[]} times  capturedAt ISO strings, one per compiled file
  */
 export function fixtureClock(times, zone = RENDER_ZONE) {
@@ -622,14 +621,12 @@ export function capturedAt(path) {
 /** the capture of a compiled file: data/live/<page>[--<state>][--mobile].capture.json */
 export const captureOf = (root, { page, state, dev }) => join(root, 'data', 'live', `${page}${state ? `--${state}` : ''}${dev === 'mobile' ? '--mobile' : ''}.capture.json`);
 
-/* The zone the compiled pages show a time of day in — measured, not assumed:
-   the lms fixture writes its times in Riyadh time (harness/fixtures/lms.mjs
-   riyadh(), at(1, 12, 30) → 12:30+03:00) and the compiled page shows them two
-   hours later (lms-leads.html "2:30 pm"; the lead drawer: 16:05 → "6:05 pm",
-   21:14 → "11:14 pm", 9:37 → "11:37 am") — UTC+5, the compiling Mac's
-   Asia/Karachi. Change it here if the harness is given timezoneId 'Asia/Riyadh'
-   and the pages are compiled again. */
-export const RENDER_ZONE = { name: 'Asia/Karachi', offset: '+5', hours: 5 };
+/* The zone the compiled pages show a time of day in: harness/devices.mjs ZONE.
+   Measured, not assumed: the lms fixture writes its times in Riyadh time
+   (harness/fixtures/lms.mjs riyadh(), at(1, 12, 30) → 12:30+03:00), and the
+   compiled lms-leads.html shows "12:30 pm". Before 2026-10-01 the harness set no
+   zone and the pages showed the compiling Mac's UTC+5 ("2:30 pm"). */
+export const RENDER_ZONE = { name: 'Asia/Riyadh', offset: '+3', hours: 3 };
 
 /* ── 6 · the product/ texts ───────────────────────────────────────────── */
 const row = (cells) => `| ${cells.join(' | ')} |`;
@@ -763,7 +760,7 @@ Whether a staff or individual user sees any other owner state the same way is no
 ${clock ? `
 ## The fixture's clock
 
-The fixture is recorded on **${clock.day}** — ${clock.riyadh.slice(11)} Asia/Riyadh (${clock.utc.slice(11)} UTC), each of the ${clock.files} compiled files at its own moment. Its dates are computed from that moment (\`harness/fixtures.mjs\` \`day()\`: UTC midnight, n days back), so "today" on every compiled page is ${clock.day}, and a relative date — "an hour ago", "3 days ago", Last 7 Days, a posted-on date — is relative to it. A time of day is shown in ${clock.shown_in}, the zone the pages were compiled in, not Riyadh: a lead task the fixture sets at 12:30 Riyadh shows "2:30 pm". Never quote a fixture time as Riyadh time.
+The fixture is recorded on **${clock.day}** — ${clock.riyadh.slice(11)} Asia/Riyadh (${clock.utc.slice(11)} UTC), each of the ${clock.files} compiled files at its own moment. Its dates are computed from that moment (\`harness/fixtures.mjs\` \`day()\`: UTC midnight, n days back), so "today" on every compiled page is ${clock.day}, and a relative date — "an hour ago", "3 days ago", Last 7 Days, a posted-on date — is relative to it. ${clock.shown_in.startsWith('Asia/Riyadh') ? 'A time of day is shown in Riyadh time, as a user in KSA sees it: a lead task the fixture sets at 12:30 Riyadh shows "12:30 pm".' : `A time of day is shown in ${clock.shown_in}, the zone the pages were compiled in, not Riyadh. Never quote a fixture time as Riyadh time.`}
 ` : ''}
 ## By page
 

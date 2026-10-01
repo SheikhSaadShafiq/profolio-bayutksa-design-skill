@@ -557,12 +557,12 @@ ul { list-style: outside none none; margin: 0px; padding: 0px; }
 @media only screen and (max-width: 767px) {
 .pf-div--v2 .admin-footer .admin-footer__copyright { text-align: center; }
 }
-.leads-unified-tabs-mobile .pf-tabs-nav { margin: 0px; }
-.leads-unified-tabs-mobile .pf-tabs-nav-list { width: 100%; }
-.leads-unified-table .pf-tabs-ink-bar { background: rgb(0, 97, 105); height: 2px; }
 .total-leads-unified.pf-card { min-width: 274px; flex-shrink: 0; border: 1px solid rgb(235, 235, 235); width: 274px !important; }
 .total-leads-unified .pf-card-body { width: 100%; height: 100%; padding: 19px 12px 12px !important; }
 @media screen and (max-width: 991px) {
 .total-leads-unified.pf-card { width: 187px !important; min-width: 187px; }
 .total-leads-unified .pf-card-body { padding: 16px 0px 0px !important; }
 }
+.leads-unified-table .pf-tabs-ink-bar { background: rgb(0, 97, 105); height: 2px; }
+.leads-unified-tabs-mobile .pf-tabs-nav { margin: 0px; }
+.leads-unified-tabs-mobile .pf-tabs-nav-list { width: 100%; }

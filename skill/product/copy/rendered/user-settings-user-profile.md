@@ -145,7 +145,7 @@ Every string the compiled files of `pages/user-settings-user-profile` draw — 3
 | Retry | اعادة المحاولة | t | components/common/image-uploads/image-upload-item.js:288 | form-profile-photo-rejected (web and @375) |
 | The picture is not clear. Please upload a clear headshot with a solid background. | fixture: fixtures/forms.mjs | data | components/common/errorMessage/errorMessage.js:26 | form-profile-photo-rejected (web and @375) |
 | Whatsapp number is invalid | fixture: fixtures/forms.mjs | data | — | message-profile-failed (web and @375) |
-| Profile has been updated | تم تحديث الملف الشخصي | t | — | web: message-profile-saved, message-save-changes · @375: message-profile-saved |
+| Profile has been updated | تم تحديث الملف الشخصي | t | — | message-profile-saved, message-save-changes (web and @375) |
 | Agency Details | تفاصيل الوكالة | t | components/common/heading/heading.js:10 | modal-convert-to-agency (web and @375) |
 | Name (English) | الاسم (بالإنجليزية) | t | components/common/flex/styled.js:3 | modal-convert-to-agency (web and @375) |
 | Enter Name | أدخل الاسم | t (placeholder) | components/common/textInput/styled.js:9 | modal-convert-to-agency (web and @375) |
