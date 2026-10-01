@@ -753,3 +753,7 @@ console.log(`  skill/ — ${c.atoms} atoms (icon holds ${c.icons}) · ${c.molecu
 console.log(`  usage — ${U.fileCount} files scanned · ${[...U.usedOn.values()].filter((x) => x.length).length} components drawn · shell ${U.shell.size} · ${U.unresolved.size} markers name no registry component`);
 console.log(`  ${folded.length} page containers folded into pages[].source · ${utilities.length} utility classes · ${Object.values(pages).reduce((n, p) => n + p.own.length, 0)} page-own classes`);
 if (newcomers.length) console.log(`  placed by rule, for review:\n    ${newcomers.join('\n    ')}`);
+
+/* last, once registry.json, product/ and pages/ are written: the context card every design-*
+   skill starts from (scripts/skill/context-card.mjs) */
+{ const { contextCard } = await import('./skill/context-card.mjs'); const c = contextCard(); console.log(`  context.json — the card for the design-* skills: ${Object.keys(c.tokens.color || {}).length} colours, ${c.tokens.type.scale.length} type sizes, ${c.voice.examples.length} real strings`); }

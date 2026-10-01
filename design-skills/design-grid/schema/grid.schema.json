@@ -1,0 +1,168 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "design-grid/v1",
+  "title": "Layout grid",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "skill_name",
+    "skill_version",
+    "grids"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "skill_name": {
+      "type": "string"
+    },
+    "skill_version": {
+      "type": "string"
+    },
+    "context": {
+      "type": "string"
+    },
+    "grids": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "platform",
+          "width",
+          "margin",
+          "provenance"
+        ],
+        "properties": {
+          "platform": {
+            "type": "string"
+          },
+          "width": {
+            "type": "number",
+            "description": "the viewport width this grid applies from"
+          },
+          "columns": {
+            "type": "integer"
+          },
+          "gutter": {
+            "type": "number"
+          },
+          "margin": {
+            "type": "number"
+          },
+          "max_width": {
+            "type": "number"
+          },
+          "offset": {
+            "type": "number",
+            "description": "a fixed rail's width"
+          },
+          "provenance": {
+            "enum": [
+              "measured",
+              "derived",
+              "assumed"
+            ]
+          },
+          "from": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "the screens it was measured on"
+          },
+          "status": {
+            "enum": [
+              "current",
+              "proposed"
+            ],
+            "description": "what the product does now, or what this design proposes at the same width"
+          },
+          "tracks": {
+            "type": "string",
+            "description": "the column tracks when they are not equal, as CSS: e.g. 2fr 1fr 1fr 140px"
+          }
+        }
+      }
+    },
+    "spacing": {
+      "type": "object",
+      "properties": {
+        "base": {
+          "type": "number"
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "provenance": {
+          "enum": [
+            "measured",
+            "derived",
+            "assumed"
+          ]
+        }
+      }
+    },
+    "breakpoints": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
+    "placements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "screen",
+          "block",
+          "spans"
+        ],
+        "properties": {
+          "screen": {
+            "type": "string"
+          },
+          "block": {
+            "type": "string"
+          },
+          "spans": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "width -> columns, e.g. '1440': '1-8'"
+          },
+          "gap_after": {
+            "type": "number"
+          },
+          "changes": {
+            "type": "string",
+            "description": "what reflows, stacks or hides between widths"
+          }
+        }
+      }
+    },
+    "off_grid": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "screen": {
+            "type": "string"
+          },
+          "element": {
+            "type": "string"
+          },
+          "issue": {
+            "type": "string"
+          },
+          "fix": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

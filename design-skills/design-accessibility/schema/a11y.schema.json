@@ -1,0 +1,255 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "design-accessibility/v1",
+  "title": "Accessibility audit and annotations",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "skill_name",
+    "skill_version",
+    "target",
+    "checked",
+    "findings"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "skill_name": {
+      "type": "string"
+    },
+    "skill_version": {
+      "type": "string"
+    },
+    "context": {
+      "type": "string"
+    },
+    "target": {
+      "type": "string",
+      "description": "e.g. WCAG 2.2 AA"
+    },
+    "checked": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "sc",
+          "how",
+          "result"
+        ],
+        "properties": {
+          "sc": {
+            "type": "string",
+            "description": "success criterion, e.g. 1.4.3"
+          },
+          "how": {
+            "enum": [
+              "measured",
+              "judged",
+              "not applicable",
+              "not testable here"
+            ]
+          },
+          "result": {
+            "enum": [
+              "pass",
+              "fail",
+              "not tested"
+            ]
+          },
+          "qa_check": {
+            "type": "string",
+            "description": "design-qa's check id, when measured there"
+          },
+          "screen": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "sc",
+          "level",
+          "screen",
+          "issue",
+          "fix"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^A-[0-9]{3}$"
+          },
+          "sc": {
+            "type": "string"
+          },
+          "level": {
+            "enum": [
+              "A",
+              "AA",
+              "AAA"
+            ]
+          },
+          "blocks": {
+            "type": "boolean",
+            "description": "a person cannot complete the task at all"
+          },
+          "screen": {
+            "type": "string"
+          },
+          "element": {
+            "type": "string"
+          },
+          "issue": {
+            "type": "string"
+          },
+          "measured": {
+            "type": "string"
+          },
+          "how": {
+            "enum": [
+              "measured",
+              "judged"
+            ]
+          },
+          "fix": {
+            "type": "string"
+          },
+          "new_value": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "annotations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "screen"
+        ],
+        "properties": {
+          "screen": {
+            "type": "string"
+          },
+          "landmarks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "role": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                },
+                "element": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "headings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "level": {
+                  "type": "integer"
+                },
+                "text": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "focus_order": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "controls": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "element": {
+                  "type": "string"
+                },
+                "role": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "states": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "focus_management": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "when": {
+                  "type": "string"
+                },
+                "to": {
+                  "type": "string"
+                },
+                "returns_to": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "live": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "change": {
+                  "type": "string"
+                },
+                "politeness": {
+                  "enum": [
+                    "polite",
+                    "assertive"
+                  ]
+                }
+              }
+            }
+          },
+          "alternatives": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "element": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "next": {
+      "type": "string",
+      "description": "what testing with assistive technology should cover"
+    }
+  }
+}

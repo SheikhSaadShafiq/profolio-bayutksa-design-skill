@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "design-typography/v1",
+  "title": "Type spec",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "skill_name",
+    "skill_version",
+    "roles"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "skill_name": {
+      "type": "string"
+    },
+    "skill_version": {
+      "type": "string"
+    },
+    "context": {
+      "type": "string"
+    },
+    "roles": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "step"
+        ],
+        "properties": {
+          "step": {
+            "type": "string",
+            "description": "the card's type step, or [new]"
+          },
+          "size": {
+            "type": "number"
+          },
+          "weight": {
+            "type": "number"
+          },
+          "line": {
+            "type": "number"
+          },
+          "family": {
+            "type": "string"
+          },
+          "figures": {
+            "enum": [
+              "proportional",
+              "tabular"
+            ]
+          },
+          "new": {
+            "type": "boolean"
+          },
+          "fluid": {
+            "type": "object",
+            "properties": {
+              "min": {
+                "type": "number"
+              },
+              "max": {
+                "type": "number"
+              },
+              "css": {
+                "type": "string",
+                "description": "e.g. clamp(28px, 4vw, 40px)"
+              }
+            }
+          },
+          "color": {
+            "type": "string",
+            "description": "the colour token for this role"
+          },
+          "max_lines": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "scripts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "locale": {
+            "type": "string"
+          },
+          "family": {
+            "type": "string"
+          },
+          "size_adjust": {
+            "type": "string"
+          },
+          "line": {
+            "type": "number"
+          },
+          "digits": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "assignments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "screen",
+          "element",
+          "role"
+        ],
+        "properties": {
+          "screen": {
+            "type": "string"
+          },
+          "element": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "truncation": {
+            "type": "string"
+          },
+          "longest": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "boolean"
+            },
+            "description": "locale -> fits at its longest"
+          }
+        }
+      }
+    },
+    "sizes_per_screen": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer"
+      }
+    },
+    "new": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "renders": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "description": "selector -> the faces that actually render it (measure.mjs --fonts)"
+    }
+  }
+}

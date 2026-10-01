@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "design-motion/v1",
+  "title": "Motion spec",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "skill_name",
+    "skill_version",
+    "motions"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "skill_name": {
+      "type": "string"
+    },
+    "skill_version": {
+      "type": "string"
+    },
+    "context": {
+      "type": "string"
+    },
+    "tokens_used": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "recipe name -> the product's token"
+    },
+    "motions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "trigger",
+          "purpose",
+          "elements",
+          "enter"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "screen": {
+            "type": "string"
+          },
+          "trigger": {
+            "type": "string"
+          },
+          "purpose": {
+            "enum": [
+              "feedback",
+              "orientation",
+              "state change",
+              "attention",
+              "continuity",
+              "delight"
+            ]
+          },
+          "elements": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "enter": {
+            "$ref": "#/$defs/move"
+          },
+          "leave": {
+            "$ref": "#/$defs/move"
+          },
+          "stagger_ms": {
+            "type": "number"
+          },
+          "order": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "reduced": {
+            "type": "string",
+            "description": "what replaces it under prefers-reduced-motion"
+          },
+          "interruptible": {
+            "type": "boolean"
+          },
+          "new": {
+            "type": "boolean"
+          },
+          "frequency": {
+            "enum": [
+              "rarely",
+              "sometimes",
+              "constantly"
+            ]
+          },
+          "delay": {
+            "type": "string",
+            "description": "before it starts: a token, or ms"
+          },
+          "loop": {
+            "type": [
+              "boolean",
+              "integer"
+            ],
+            "description": "true to repeat (a spinner), or how many times"
+          },
+          "hold": {
+            "type": "string",
+            "description": "how long it stays before leaving (a toast), in ms"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "move": {
+      "type": "object",
+      "required": [
+        "property",
+        "duration",
+        "easing"
+      ],
+      "properties": {
+        "property": {
+          "type": "string",
+          "description": "transform, opacity, filter or colour: never width, height, top, left, margin or padding",
+          "not": {
+            "enum": [
+              "width",
+              "height",
+              "top",
+              "left",
+              "right",
+              "bottom",
+              "margin",
+              "padding"
+            ]
+          }
+        },
+        "from": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "string",
+          "description": "a token, or ms"
+        },
+        "easing": {
+          "type": "string",
+          "description": "a token, or a curve"
+        }
+      }
+    }
+  }
+}

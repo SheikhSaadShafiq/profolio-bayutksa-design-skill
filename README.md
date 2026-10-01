@@ -49,11 +49,26 @@ The skill designs Profolio KSA screens from a PRD.
   - the rail expands and pushes the page as the product does, and opens the other pages;
   - the header and the phone's menu open the product's own states, in the product's styles.
 
+It calls the **design-\* skills** as the work needs them: seventeen small skills, each one job,
+for any product (`design-skills/README.md` has the list and when each is called). They start
+from the context card this skill ships (`skill/context.json`). The Design QA runs at both gates,
+the wireframe and the hi-fi, and writes design-qa's `report.json`. After the user approves,
+the skill asks whether to make the dev deliverables (design-deliverables). The `.skill`
+carries a copy of each design-\* skill in `skills/`, used when one is not installed.
+
 `skill/kit/README.md` describes the runtime, the patterns and the QA.
 `skill/examples/leads-marketplace/` is one whole feature built this way; `npm run test:kit`
 proves it still works. That HTML stays here on GitHub: the skill finds what a PRD needs
 in its design knowledge base (`node qa/find.mjs "<PRD words>"`) and fetches just those files
 (`python3 qa/fetch.py <page> <state>`), at the version the `.skill` was built with.
+
+**The design-\* skills** — each is its own `.skill`, for any product, published to the
+organisation as Installed by default:
+
+```bash
+node scripts/design-skills.mjs        # dist/design-skills/<name>.skill, and skill/skills/
+node tests/design-skills/run.mjs      # the skills on a product that is not Profolio
+```
 
 **Get it** — build it (below) and share `dist/profolio-ksa-design.skill` (under 1 MB), or
 publish it to your organisation's skills. Nobody needs the repo link: the file knows it. It carries the instructions, the registry, the tokens and the product and design knowledge

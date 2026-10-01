@@ -31,7 +31,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SKILL = join(ROOT, 'skill');
 const NAME = 'profolio-ksa-design';
 const STAGE = join(ROOT, '.build', 'skill-file', NAME);
-const CARRIED = ['SKILL.md', 'INTAKE.md', 'registry.json', 'tokens.md', 'kb', 'product', 'qa', 'kit', 'examples/worked-example.md', 'examples/leads-marketplace'];
+const CARRIED = ['SKILL.md', 'INTAKE.md', 'registry.json', 'tokens.md', 'context.json', 'kb', 'product', 'qa', 'kit', 'skills', 'examples/worked-example.md', 'examples/leads-marketplace'];
 const fail = (msg) => { console.error(`  ${msg}`); process.exit(2); };
 const git = (...args) => execFileSync('git', args, { cwd: ROOT }).toString().trim();
 for (const f of CARRIED) if (!existsSync(join(SKILL, f))) fail(`missing skill/${f} — run npm run package`);

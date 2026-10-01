@@ -1,0 +1,195 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "design-copy/v1",
+  "title": "Copy deck",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "skill_name",
+    "skill_version",
+    "locales",
+    "slots"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "skill_name": {
+      "type": "string"
+    },
+    "skill_version": {
+      "type": "string"
+    },
+    "context": {
+      "type": "string",
+      "description": "the context card the copy was written inside"
+    },
+    "locales": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "slots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "screen",
+          "kind",
+          "text",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "screen": {
+            "type": "string"
+          },
+          "element": {
+            "type": "string",
+            "description": "node id or CSS selector"
+          },
+          "kind": {
+            "enum": [
+              "button",
+              "link",
+              "heading",
+              "label",
+              "placeholder",
+              "help",
+              "empty",
+              "error",
+              "field-error",
+              "confirm",
+              "toast",
+              "tooltip",
+              "body",
+              "badge",
+              "menu-item",
+              "onboarding",
+              "option",
+              "accessible-name",
+              "status-message"
+            ]
+          },
+          "purpose": {
+            "type": "string",
+            "description": "what the string must make the person understand or do"
+          },
+          "room": {
+            "type": "object",
+            "description": "width, lines and chars; or platform id -> those",
+            "additionalProperties": {}
+          },
+          "text": {
+            "type": "object",
+            "description": "locale id -> the string, or -> its plural forms (zero, one, two, few, many, other); a runtime value is written {name}",
+            "additionalProperties": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "zero": {
+                      "type": "string"
+                    },
+                    "one": {
+                      "type": "string"
+                    },
+                    "two": {
+                      "type": "string"
+                    },
+                    "few": {
+                      "type": "string"
+                    },
+                    "many": {
+                      "type": "string"
+                    },
+                    "other": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "other"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          },
+          "status": {
+            "oneOf": [
+              {
+                "enum": [
+                  "reused",
+                  "new",
+                  "proposal"
+                ]
+              },
+              {
+                "type": "object",
+                "additionalProperties": {
+                  "enum": [
+                    "reused",
+                    "new",
+                    "proposal"
+                  ]
+                }
+              }
+            ],
+            "description": "reused, new or proposal; or locale id -> one of those"
+          },
+          "source": {
+            "type": "string",
+            "description": "where a reused string comes from"
+          },
+          "replaces": {
+            "type": "string",
+            "description": "for a proposal: the product's current string"
+          },
+          "review": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "who must check it: e.g. native Arabic, legal, pricing"
+          },
+          "fits": {
+            "type": "object",
+            "description": "locale id -> fits; or platform id -> (locale id -> fits)",
+            "additionalProperties": {}
+          },
+          "notes": {
+            "type": "string"
+          },
+          "group": {
+            "type": "string",
+            "description": "the moment a slot belongs to: empty-state, confirm-dialog, refund-form…"
+          },
+          "measured_in": {
+            "type": "string",
+            "description": "the face each language was measured in"
+          }
+        }
+      }
+    },
+    "tbc": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "inconsistencies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "where the product says the same thing two ways, and which one this deck follows"
+    }
+  }
+}

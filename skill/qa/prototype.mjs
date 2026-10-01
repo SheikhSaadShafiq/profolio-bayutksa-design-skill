@@ -504,6 +504,32 @@ const md = [`# Design QA — ${flow.title || flow.name || basename(DIR)} (${name
   ...all.map((i) => `| ${i.level} | ${i.check} | ${[i.platform, (i.states || []).join(', ')].filter(Boolean).join(' · ')} | ${String(i.message).replace(/\|/g, '\\|').replace(/\n/g, '<br>')} |`)].join('\n');
 writeFileSync(join(REPORT, `${name}.md`), md + '\n');
 
+/* the same QA as design-qa's report.json (schema v1): the one report design-deliverables reads.
+   Each check maps to design-qa's id where one exists; this skill's own checks keep a pf. prefix.
+   The product's own issues (in the compiled page a design starts from) are notes: not the design's. */
+const DQA = { align: 'lay.align', overlap: 'lay.overlap', fonts: 'res.font', images: 'res.image', overflow: 'brk.render', vars: 'tok.resolve', spacing: 'lay.spacing', skeleton: 'lay.skeleton', rows: 'lay.rows', targets: 'a11y.target', small: 'a11y.small', blank: 'cpy.undefined', dead: 'int.dead', matrix: 'cov.state' };
+const dqaId = (i) => {
+  if (i.check === 'controls') return /squashed/.test(i.message) ? 'lay.squashed' : 'lay.controls';
+  if (i.check === 'clip') return /opens cut off/.test(i.message) ? 'int.clip' : 'lay.clip';
+  if (i.check === 'shell') return /off the screen/.test(i.message) ? 'int.offscreen' : /unstyled/.test(i.message) ? 'int.unstyled' : /opens nothing/.test(i.message) ? 'int.dead' : 'pf.shell';
+  if (i.check === 'matrix' && /empty/i.test(i.message)) return 'cov.empty';
+  return DQA[i.check] || 'pf.' + i.check;
+};
+const dqaHint = (id) => (/^(ovf|brk)|^cpy\.undefined/.test(id) ? 'edge-cases' : /^(a11y|rtl|mot)/.test(id) ? 'accessibility' : /^cov/.test(id) ? 'state-screens' : /^(lay|int|res)/.test(id) ? 'acceptance' : 'open-questions');
+const dqaFindings = all.map((i) => {
+  const id = dqaId(i);
+  return { check: id, severity: i.level === 'error' ? 'blocker' : i.level === 'warn' ? 'warning' : 'note', screen: flow.name || basename(DIR), case: [i.platform, (i.states || []).join(', ')].filter(Boolean).join(' · ') || null, node: null, css_path: null, role: null, message: (i.level === 'product' ? "The product's own, in the compiled page this design starts from (not counted): " : '') + i.message, expected: null, actual: null, evidence: i.box ? `box ${i.box.x},${i.box.y},${i.box.w},${i.box.h}` : null, waived: false, waiver: null, section_hint: dqaHint(id) };
+});
+const dqaCounts = { blocker: dqaFindings.filter((f) => f.severity === 'blocker').length, warning: dqaFindings.filter((f) => f.severity === 'warning').length, note: dqaFindings.filter((f) => f.severity === 'note').length, waived: 0, skipped_checks: 0 };
+writeFileSync(join(REPORT, WIRE ? 'report.wireframe.json' : 'report.json'), JSON.stringify({
+  schema_version: 1, generated_at: qa.built, qa_skill_name: 'profolio-ksa-design',
+  qa_skill_version: String((REG.source && REG.source.ref) || '').replace(/^refs\/tags\/skill-v/, '') || 'dev',
+  ids_available: false, render_available: !!qa.ran,
+  scope: { feature: flow.name || basename(DIR), pages: (flow.screens || []).map((s) => s.id), platforms: PLATFORMS, locales: ['en'], profile: WIRE ? 'wireframe' : 'hifi' },
+  verdict: !qa.ran || dqaCounts.blocker ? 'blocked' : dqaCounts.warning ? 'pass_with_warnings' : 'pass',
+  counts: dqaCounts, findings: dqaFindings, render_coverage: qa.coverage || null, render_browser: qa.browser || null,
+}, null, 1));
+
 /* ── the handoff: what the developers need, from what the design already says ─────────── */
 if (!WIRE) {
   const strip = (h) => h.replace(/<(\w+)\b[^>]*\sdata-pf-text="([^"]*)"[^>]*>[^<]*<\/\1>/g, (m, t, k) => `‹${k.replace(/^[@$.]+/, '')}›`).replace(/<(script|style|template)[\s\S]*?<\/\1>/gi, (m) => (/^<template/i.test(m) ? m.replace(/^<template[^>]*>|<\/template>$/gi, '') : ' ')).replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();

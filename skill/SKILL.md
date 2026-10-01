@@ -13,7 +13,8 @@ user in a wireframe. Then the Design QA passes it.
 ## THE FLOW — two gates you do not skip
 
 1. **Intake**: `INTAKE.md`, before your first reply. Run the gap check, find the screens, ask
-   the questions, and work out the edge cases yourself.
+   the questions, and work out the edge cases yourself. A pattern the product does not draw
+   yet gets a cited reference board first (design-inspiration).
 2. **Plan + wireframe (gate 1).** Write the plan into `designs/<feature>/`:
    - `flow.json`: the screens, every named state, the scenario controls, and the **state
      matrix**. Every region that shows data gets its loading, empty, error and no-results
@@ -24,14 +25,25 @@ user in a wireframe. Then the Design QA passes it.
      hidden, "From 900,000"). **Locked or gated data** (not bought, not paid, a role that may
      not see it) gets a lock state, with 2–3 variants the user picks (flow.json `options`).
    - a greyscale wireframe of each screen, web and phone, wired to them (`kit/wireframe.css`).
-   Run `node qa/prototype.mjs designs/<feature> --wireframe` and send it with the plan paragraph.
+   - its words (design-copy: the product's own strings first), each control's states and
+     feedback (design-interaction), each form's fields and validation (design-forms), and a
+     new layout's grid (design-grid).
+   Before you send it: critique the structure (design-review, `structure`), then run
+   `node qa/prototype.mjs designs/<feature> --wireframe`, the Design QA's wireframe profile.
+   Send the wireframe with the plan paragraph.
    **Stop. No hi-fi file until the user says go.** A small change gets a small wireframe of the
    changed area. The gate is skipped only when the user says "skip".
 3. **Hi-fi.** Take the compiled page and keep its shell and containers. Compose inside them
    from the product's components and the pattern kit (`kit/kit.css`), with the same flow.json
-   and JSON. The wireframe's columns and states carry over unchanged.
-4. **Design QA (gate 2).** Run `node qa/prototype.mjs designs/<feature> --shots` until it
-   exits 0. It renders and measures, web and phone:
+   and JSON. The wireframe's columns and states carry over unchanged. As the design needs them:
+   design-typography (banners, a new hierarchy), design-illustration (empty states, first use:
+   the product's art first), design-prompt-images (photos), design-animation-opportunities then
+   design-motion (state changes), design-copy (the final English and Arabic), and
+   design-accessibility (WCAG 2.2 AA, with its annotations).
+4. **Design QA (gate 2).** Critique the craft (design-review, `craft`), polish the details
+   (design-better-interface), then run `node qa/prototype.mjs designs/<feature> --shots` until
+   it exits 0. It writes `qa/report.json` in design-qa's format, the one report
+   design-deliverables reads. It renders and measures, web and phone:
    - every state;
    - every interaction: the rail, the header's controls, every menu and sheet;
    - the data at its extremes: empty, long, Arabic, zero;
@@ -40,7 +52,9 @@ user in a wireframe. Then the Design QA passes it.
    the coverage it prints, never more. Exit 3 means no browser was available: say so when you
    deliver, and ask for the QA button in the prototype to be pressed.
 5. **Deliver** `designs/<feature>/prototype.html`, published as an artifact wherever you can,
-   with `designs/<feature>/qa/handoff.md` completed (OUTPUT CONTRACT). Every control in it works:
+   with `designs/<feature>/qa/handoff.md` completed (OUTPUT CONTRACT). Then ask: "Shall I make the dev
+   deliverables?" On yes, run design-deliverables with `qa/report.json`. Every control in the
+   prototype works:
    - filters, tabs, sort and search change the sample rows;
    - dialogs, sheets, toasts and busy buttons behave;
    - the rail opens the product's other pages;
@@ -49,6 +63,32 @@ user in a wireframe. Then the Design QA passes it.
 
 `kit/README.md` has everything the runtime, the patterns, the wireframe and the QA do.
 `examples/leads-marketplace/` is one whole feature built this way (README there).
+
+## THE design-* SKILLS — called as the work needs them
+
+Seventeen small skills, each one job, for any product. This skill calls them at the steps
+above; a person can call any of them directly too.
+
+| skill | for |
+|---|---|
+| design-context | the product's design language: this skill ships it as `context.json` |
+| design-inspiration | a pattern the product lacks: Mobbin and the web, cited |
+| design-copy · design-forms · design-interaction | words · forms · states and feedback |
+| design-grid · design-typography | layout · type, banners included |
+| design-illustration · design-prompt-images | art (the product's first) · photo prompts |
+| design-animation-opportunities · design-motion | where motion helps · how it moves |
+| design-accessibility | WCAG 2.2 AA, with annotations for engineering |
+| design-review · design-better-interface | the critique · the polish pass, pinned on the design |
+| design-qa · design-deliverables | the measured QA · the hand-over, gated on its report |
+| design-apple-hig | a native Apple app |
+
+- **Installed → by name.** Each is published to the organisation, installed by default. If one
+  is not installed, read `skills/<name>/SKILL.md` in this skill's folder and follow it: this
+  skill carries a copy of each.
+- **Context first.** Copy `context.json` from this skill's folder to
+  `designs/<feature>/design/context.json` before calling any of them, so each starts already
+  knowing the product: its tokens, platforms, copy, rules.
+- **Their rules and this skill's both hold.** Where they differ, this skill's NEVER list wins.
 
 ## LOAD ORDER
 
