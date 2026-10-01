@@ -590,9 +590,9 @@ ul { list-style: outside none none; margin: 0px; padding: 0px; }
 .pf-history-breakdown-thumbnail { display: grid; border-radius: 6px; overflow: hidden; }
 .pf-history-breakdown-thumbnail .pf-image { display: block; }
 .pf-history-breakdown-thumbnail .pf-image-img { object-fit: cover; width: 100%; aspect-ratio: 1 / 1; }
-.pf-title-styled.pf-typography { font-size: var(--font-size,16px); }
+.pf-listing-container-title-styled.pf-typography { font-size: var(--font-size,16px); }
 @media (max-width: 768px) {
-.pf-title-styled.pf-typography { --font-size: 16px; }
+.pf-listing-container-title-styled.pf-typography { --font-size: 16px; }
 }
 .pf-flex-styled { display: flex; align-items: normal; justify-content: normal; gap: 8px; flex-direction: column; }
 .pf-flex-styled--v25 { display: flex; align-items: center; justify-content: space-between; }
@@ -608,15 +608,15 @@ ul { list-style: outside none none; margin: 0px; padding: 0px; }
 .pf-statistic-styled--v5.pf-statistic { line-height: 1.4; }
 .pf-statistic-styled--v5 .pf-statistic-title { font-size: 1em; margin-block-end: 0.1428em; color: rgb(112, 112, 112) !important; }
 .pf-statistic-styled--v5 .pf-statistic-content { font-size: 1.28571em; font-weight: 700; }
-.pf-credits-usage-main { padding: 20px 24px; background-color: transparent; }
+.pf-agancy-staff-main { padding: 20px 24px; background-color: transparent; }
 @media only screen and (max-width: 1199px) {
-.pf-credits-usage-main { padding: 24px 16px; }
+.pf-agancy-staff-main { padding: 24px 16px; }
 }
 @media only screen and (max-width: 480px) {
-.pf-credits-usage-main { padding: 4px 0px; }
+.pf-agancy-staff-main { padding: 4px 0px; }
 }
-.pf-credits-usage-main .pf-spin { margin-inline-end: 20px; }
-.pf-credits-usage-main .pf-spin:last-child { margin-inline-end: 0px; }
+.pf-agancy-staff-main .pf-spin { margin-inline-end: 20px; }
+.pf-agancy-staff-main .pf-spin:last-child { margin-inline-end: 0px; }
 .pf-wrapper { position: relative; width: 100%; height: 100%; }
 .pf-content-wrapper { height: 100%; }
 .pf-loader-overlay { position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; display: none; -webkit-box-pack: center; justify-content: center; -webkit-box-align: center; align-items: center; background: rgba(255, 255, 255, 0.5); z-index: 10; }

@@ -18,6 +18,12 @@
      also carries its styledComponentId, which is the class it paints with. */
   const rootEl = document.getElementById('root');
   const ck = rootEl && Object.keys(rootEl).find((k) => k.startsWith('__reactContainer'));
+  /* React renders into two trees in turn (double buffering). The container keeps
+     the root fiber it was created with, which can be the stale tree; the tree on
+     screen is its FiberRoot's current. A fiber's _debugOwner can be either copy
+     of the owner, so an owner is matched with its alternate too. */
+  const top = ck && ((rootEl[ck].stateNode && rootEl[ck].stateNode.current) || rootEl[ck]);
+  const same = (a, b) => !!a && !!b && (a === b || a === b.alternate);
   const rel = (f) => f.replace(/^.*?\/src\//, 'src/').replace(/\?.*$/, '');
   const sc = {};
   /* the first DOM element a composite fiber renders, in document order */
@@ -37,7 +43,7 @@
     for (let n = 0; q.length && n < 400; n++) {
       const f = q.shift();
       if (!f) continue;
-      if (f._debugOwner === fiber && f._debugSource && /\/src\//.test(f._debugSource.fileName)) return rel(f._debugSource.fileName);
+      if (same(f._debugOwner, fiber) && f._debugSource && /\/src\//.test(f._debugSource.fileName)) return rel(f._debugSource.fileName);
       q.push(f.child, f.sibling);
     }
     return null;
@@ -47,8 +53,8 @@
      components share a root) — that element is where the design system cuts
      the component out. components{} says which file defines each. */
   const components = {};
-  if (ck) {
-    const stack = [rootEl[ck]];
+  if (top) {
+    const stack = [top];
     while (stack.length) {
       const f = stack.pop();
       if (!f) continue;

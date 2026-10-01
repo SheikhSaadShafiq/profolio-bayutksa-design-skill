@@ -673,9 +673,9 @@ ul { list-style: outside none none; margin: 0px; padding: 0px; }
 .pf-tenant-list { -webkit-box-align: center; align-items: center; }
 .pf-listing-card-styled.pf-card { color: rgb(112, 112, 112); font-size: 12px; }
 .pf-listing-card-styled .pf-dropdown-styled--c { border: unset; cursor: pointer; padding: 0px; }
-.pf-listing-card-thumbnail { display: grid; border-radius: 6px; overflow: hidden; }
-.pf-listing-card-thumbnail .pf-image { display: block; }
-.pf-listing-card-thumbnail .pf-image-img { object-fit: cover; width: 100%; aspect-ratio: 1 / 1; }
+.pf-history-breakdown-thumbnail { display: grid; border-radius: 6px; overflow: hidden; }
+.pf-history-breakdown-thumbnail .pf-image { display: block; }
+.pf-history-breakdown-thumbnail .pf-image-img { object-fit: cover; width: 100%; aspect-ratio: 1 / 1; }
 .pf-flex-styled { display: flex; align-items: normal; justify-content: normal; gap: 8px; flex-direction: column; }
 .pf-flex-styled--v18 { display: flex; align-items: normal; justify-content: normal; }
 .pf-flex-styled--v5 { display: flex; align-items: center; justify-content: normal; gap: 8px; }
@@ -692,15 +692,15 @@ ul { list-style: outside none none; margin: 0px; padding: 0px; }
 @media only screen and (max-width: 767px) {
 .pf-health-container { gap: 0px !important; }
 }
-.pf-main { padding: 20px 24px; background-color: transparent; }
+.pf-agancy-staff-main { padding: 20px 24px; background-color: transparent; }
 @media only screen and (max-width: 1199px) {
-.pf-main { padding: 24px 16px; }
+.pf-agancy-staff-main { padding: 24px 16px; }
 }
 @media only screen and (max-width: 480px) {
-.pf-main { padding: 4px 0px; }
+.pf-agancy-staff-main { padding: 4px 0px; }
 }
-.pf-main .filters-scrollable { --radio-pill-font-size: .8571em; max-width: 100vw; margin-inline: -1rem; overflow-x: auto; --template: 1rem auto 1rem !important; --gap: 0 !important; }
-.pf-main .filters-scrollable::before, .pf-main .filters-scrollable::after { content: ""; width: 1rem; }
+.pf-agancy-staff-main .filters-scrollable { --radio-pill-font-size: .8571em; max-width: 100vw; margin-inline: -1rem; overflow-x: auto; --template: 1rem auto 1rem !important; --gap: 0 !important; }
+.pf-agancy-staff-main .filters-scrollable::before, .pf-agancy-staff-main .filters-scrollable::after { content: ""; width: 1rem; }
 .pf-health-tag { border-radius: 4px; box-shadow: rgba(0, 0, 0, 0.06) 2px 0px 4px; margin: 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; }
 .pf-card-styled { --_accent-color: #006169; }
 .pf-card-styled.pf-card { border-radius: clamp(0px, 9999 * (-100% - 4px + 100vw), 8px) / 8px; border-width: 1px; }

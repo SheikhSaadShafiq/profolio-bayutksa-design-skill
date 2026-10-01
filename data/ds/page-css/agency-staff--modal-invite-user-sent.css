@@ -171,6 +171,11 @@ a:is(:focus,[data-pf-focus]) { text-decoration: var(--pf-link-focus-decoration);
   0% { transform: scale(1); }
   100% { transform: scale(0.2); opacity: 0; }
 }
+.pf-wave { font-family: var(--pf-font-family); font-size: var(--pf-font-size); box-sizing: border-box; }
+.pf-wave::before, .pf-wave::after { box-sizing: border-box; }
+.pf-wave { position: absolute; background: transparent; pointer-events: none; box-sizing: border-box; color: var(--wave-color, var(--pf-color-primary)); box-shadow: currentcolor 0px 0px 0px 0px; opacity: 0.2; }
+.pf-wave.wave-motion-appear { transition: box-shadow 0.4s var(--pf-motion-ease-out-circ),opacity 2s var(--pf-motion-ease-out-circ); }
+.pf-wave.wave-motion-appear-active { box-shadow: currentcolor 0px 0px 0px 6px; opacity: 0; }
 .styleProfolio.pf-badge { --pf-badge-indicator-z-index: auto; --pf-badge-indicator-height: 20px; --pf-badge-indicator-height-sm: 14px; --pf-badge-dot-size: 6px; --pf-badge-text-font-size: 12px; --pf-badge-text-font-size-sm: 12px; --pf-badge-text-font-weight: normal; --pf-badge-status-size: 6px; }
 .pf-badge { font-family: var(--pf-font-family); font-size: var(--pf-font-size); box-sizing: border-box; }
 .pf-badge::before, .pf-badge::after { box-sizing: border-box; }

@@ -610,6 +610,8 @@ input[type="radio"], input[type="checkbox"] { box-sizing: border-box; padding: 0
 .rdrSelected, .rdrInRange, .rdrStartEdge, .rdrEndEdge { background: currentcolor; position: absolute; inset: 5px 0px; }
 .rdrStartEdge { border-top-left-radius: 1.042em; border-bottom-left-radius: 1.042em; left: 2px; }
 .rdrEndEdge { border-top-right-radius: 1.042em; border-bottom-right-radius: 1.042em; right: 2px; }
+.rdrDayStartOfMonth .rdrInRange, .rdrDayStartOfMonth .rdrEndEdge, .rdrDayStartOfWeek .rdrInRange, .rdrDayStartOfWeek .rdrEndEdge { border-top-left-radius: 1.042em; border-bottom-left-radius: 1.042em; left: 2px; }
+.rdrDayStartOfMonth .rdrDayInPreview, .rdrDayStartOfMonth .rdrDayEndPreview, .rdrDayStartOfWeek .rdrDayInPreview, .rdrDayStartOfWeek .rdrDayEndPreview { border-top-left-radius: 1.333em; border-bottom-left-radius: 1.333em; border-left-width: 1px; left: 0px; }
 .rdrDayStartPreview, .rdrDayInPreview, .rdrDayEndPreview { background: rgba(255, 255, 255, 0.09); position: absolute; inset: 3px 0px; pointer-events: none; border: 0px solid; z-index: 1; }
 .rdrDayStartPreview { border-top-width: 1px; border-left-width: 1px; border-bottom-width: 1px; border-top-left-radius: 1.333em; border-bottom-left-radius: 1.333em; left: 0px; }
 .rdrDayEndPreview { border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-top-right-radius: 1.333em; border-bottom-right-radius: 1.333em; right: 0px; }
@@ -621,7 +623,6 @@ input[type="radio"], input[type="checkbox"] { box-sizing: border-box; padding: 0
 .rdrInputRanges { padding: 10px 0px; }
 .rdrDayPassive { pointer-events: none; }
 .rdrDayPassive .rdrDayNumber span { color: rgb(213, 220, 224); }
-.rdrDayPassive .rdrInRange, .rdrDayPassive .rdrStartEdge, .rdrDayPassive .rdrEndEdge, .rdrDayPassive .rdrSelected, .rdrDayPassive .rdrDayStartPreview, .rdrDayPassive .rdrDayInPreview, .rdrDayPassive .rdrDayEndPreview { display: none; }
 .rdrDayDisabled { background-color: rgb(248, 248, 248); }
 .rdrDayDisabled .rdrDayNumber span { color: rgb(174, 185, 191); }
 .rdrMonthName { text-align: left; font-weight: 600; color: rgb(132, 144, 149); padding: 0.833em; }
@@ -867,6 +868,8 @@ ul { list-style: outside none none; margin: 0px; padding: 0px; }
 .pf-item-wraper .rdrCalendarWrapper .rdrMonthsHorizontal .rdrMonth .rdrMonthName { font-size: 13px; font-weight: 500; color: rgb(39, 43, 65); }
 .pf-item-wraper .rdrCalendarWrapper .rdrMonthsHorizontal .rdrDays .rdrStartEdge { border-top-left-radius: 1.042em; border-bottom-left-radius: 1.042em; right: 0px !important; left: 0px !important; }
 .pf-item-wraper .rdrCalendarWrapper .rdrMonthsHorizontal .rdrDays .rdrEndEdge { border-top-right-radius: 1.042em; border-bottom-right-radius: 1.042em; }
+.pf-item-wraper .rdrCalendarWrapper .rdrMonthsHorizontal .rdrDays .rdrDayStartOfMonth .rdrDayInPreview, .pf-item-wraper .rdrCalendarWrapper .rdrMonthsHorizontal .rdrDays .rdrDayStartOfMonth .rdrDayEndPreview, .pf-item-wraper .rdrCalendarWrapper .rdrMonthsHorizontal .rdrDays .rdrDayStartOfWeek .rdrDayInPreview, .pf-item-wraper .rdrCalendarWrapper .rdrMonthsHorizontal .rdrDays .rdrDayStartOfWeek .rdrDayEndPreview { border-radius: 0px; }
+.pf-item-wraper .rdrCalendarWrapper .rdrMonthsHorizontal .rdrDays .rdrDayEndOfWeek .rdrDayStartPreview.rdrDayEndPreview, .pf-item-wraper .rdrCalendarWrapper .rdrMonthsHorizontal .rdrDays .rdrDayStartOfWeek .rdrDayStartPreview.rdrDayEndPreview, .pf-item-wraper .rdrCalendarWrapper .rdrMonthsHorizontal .rdrDays .rdrDayEndOfMonth .rdrDayStartPreview.rdrDayEndPreview, .pf-item-wraper .rdrCalendarWrapper .rdrMonthsHorizontal .rdrDays .rdrDayStartOfMonth .rdrDayStartPreview.rdrDayEndPreview { border-radius: 1.042em; color: rgb(255, 255, 255) !important; }
 .pf-item-wraper .rdrCalendarWrapper .rdrMonthsHorizontal .rdrDays .rdrDayEndPreview, .pf-item-wraper .rdrCalendarWrapper .rdrMonthsHorizontal .rdrDays .rdrDayStartPreview, .pf-item-wraper .rdrCalendarWrapper .rdrMonthsHorizontal .rdrDays .rdrDayInPreview { border: 0px; background-color: rgba(0, 97, 105, 0.063); top: 0px; bottom: 0px; }
 .pf-item-wraper .rdrCalendarWrapper .rdrMonthsHorizontal .rdrDays .rdrStartEdge, .pf-item-wraper .rdrCalendarWrapper .rdrMonthsHorizontal .rdrDays .rdrEndEdge, .pf-item-wraper .rdrCalendarWrapper .rdrMonthsHorizontal .rdrDays .rdrDayStartPreview, .pf-item-wraper .rdrCalendarWrapper .rdrMonthsHorizontal .rdrDays .rdrDayEndPreview { background-color: rgb(0, 97, 105); }
 .pf-item-wraper .rdrCalendarWrapper .rdrMonthsHorizontal .rdrDays .rdrDay:not(.rdrDayPassive) .rdrDayEndPreview ~ .rdrDayNumber span, .pf-item-wraper .rdrCalendarWrapper .rdrMonthsHorizontal .rdrDays .rdrDay:not(.rdrDayPassive) .rdrStartEdge ~ .rdrDayNumber span, .pf-item-wraper .rdrCalendarWrapper .rdrMonthsHorizontal .rdrDays .rdrDay:not(.rdrDayPassive) .rdrEndEdge ~ .rdrDayNumber span { color: rgb(255, 255, 255); }

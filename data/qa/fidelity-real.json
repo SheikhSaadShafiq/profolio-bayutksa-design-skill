@@ -1,8 +1,8 @@
 {
-  "at": "2026-09-29T07:40:55.274Z",
+  "at": "2026-10-01T09:38:07.920Z",
   "against": "real account",
   "tolerancePx": 1,
-  "coverage": 75.8,
+  "coverage": 75.7,
   "fidelity": 63.4,
   "exact": 23.7,
   "rows": [
@@ -74,8 +74,8 @@
       "missing": 14,
       "moved": 75,
       "painted": 0,
-      "inherited": 20,
-      "exact": 121,
+      "inherited": 19,
+      "exact": 122,
       "extra": 12,
       "pageHeight": [
         958,
@@ -83,7 +83,7 @@
       ],
       "coverage": 93.9,
       "fidelity": 65.1,
-      "exactPct": 52.8,
+      "exactPct": 53.3,
       "score": 65.1,
       "worklist": [
         {
@@ -95,20 +95,20 @@
         {
           "kind": "moved",
           "at": "div.ant-col",
-          "box": "503×152 @601,152",
-          "detail": "w 503→509"
+          "box": "503×154 @601,378",
+          "detail": "w 503→507"
         },
         {
           "kind": "moved",
           "at": "div.ant-col.jDxNbh",
-          "box": "145×152 @1121,152",
-          "detail": "x 1121→1126 (+5 in its parent) · w 145→140"
+          "box": "145×154 @1121,378",
+          "detail": "x 1121→1125 (+4 in its parent) · w 145→141"
         },
         {
           "kind": "moved",
           "at": "span.ant-tag.fpgfJi",
-          "box": "98×33 @1168,499",
-          "detail": "x 1168→1175 (+7 in its parent) · w 98→91"
+          "box": "101×33 @1165,271",
+          "detail": "x 1165→1175 (+9 in its parent) · w 101→91"
         },
         {
           "kind": "extra",
@@ -131,8 +131,8 @@
         {
           "kind": "moved",
           "at": "strong",
-          "box": "81×22 @801,380",
-          "detail": "w 81→63"
+          "box": "81×22 @793,153",
+          "detail": "w 81→64"
         },
         {
           "kind": "moved",
@@ -493,22 +493,22 @@
       "page": "listings",
       "live": 890,
       "ours": 1022,
-      "matched": 468,
-      "clean": 195,
-      "missing": 422,
-      "moved": 259,
+      "matched": 466,
+      "clean": 194,
+      "missing": 424,
+      "moved": 258,
       "painted": 14,
-      "inherited": 118,
+      "inherited": 117,
       "exact": 91,
-      "extra": 554,
+      "extra": 556,
       "pageHeight": [
         1964,
         1826
       ],
-      "coverage": 52.6,
-      "fidelity": 41.7,
+      "coverage": 52.4,
+      "fidelity": 41.6,
       "exactPct": 10.2,
-      "score": 41.7,
+      "score": 41.6,
       "worklist": [
         {
           "kind": "extra",
@@ -1332,7 +1332,7 @@
         {
           "kind": "extra",
           "at": "div.pf-group-styled",
-          "box": "445×119 @42,1451",
+          "box": "444×119 @42,1451",
           "detail": "we draw it, the product does not"
         },
         {
@@ -1350,38 +1350,38 @@
         {
           "kind": "extra",
           "at": "td.pf-table-cell",
-          "box": "156×151 @503,1435",
+          "box": "157×151 @502,1435",
           "detail": "we draw it, the product does not"
         },
         {
           "kind": "moved",
           "at": "td.ant-table-cell",
           "box": "153×151 @522,378",
-          "detail": "x 522→503 (-19 in its parent) · w 153→156"
+          "detail": "x 522→502 (-20 in its parent) · w 153→157"
         },
         {
           "kind": "moved",
           "at": "td.ant-table-cell",
           "box": "153×151 @522,529",
-          "detail": "x 522→503 (-19 in its parent) · w 153→156"
+          "detail": "x 522→502 (-20 in its parent) · w 153→157"
         },
         {
           "kind": "extra",
           "at": "td.pf-table-cell",
-          "box": "129×151 @963,1435",
+          "box": "129×151 @964,1435",
           "detail": "we draw it, the product does not"
         },
         {
           "kind": "moved",
           "at": "td.ant-table-cell",
           "box": "126×151 @972,378",
-          "detail": "x 972→963 (-9 in its parent) · w 126→129"
+          "detail": "x 972→964 (-8 in its parent) · w 126→129"
         },
         {
           "kind": "moved",
           "at": "td.ant-table-cell",
           "box": "126×151 @972,529",
-          "detail": "x 972→963 (-9 in its parent) · w 126→129"
+          "detail": "x 972→964 (-8 in its parent) · w 126→129"
         },
         {
           "kind": "extra",
@@ -1507,7 +1507,7 @@
           "kind": "moved",
           "at": "th.ant-table-cell",
           "box": "153×54 @522,323",
-          "detail": "x 522→503 (-19 in its parent) · w 153→156"
+          "detail": "x 522→502 (-20 in its parent) · w 153→157"
         },
         {
           "kind": "extra",
@@ -1525,7 +1525,7 @@
           "kind": "moved",
           "at": "th.ant-table-cell",
           "box": "126×54 @972,323",
-          "detail": "x 972→963 (-9 in its parent) · w 126→129"
+          "detail": "x 972→964 (-8 in its parent) · w 126→129"
         },
         {
           "kind": "extra",

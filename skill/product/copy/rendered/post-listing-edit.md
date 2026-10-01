@@ -119,7 +119,7 @@ Every string the compiled files of `pages/post-listing-edit` draw — 47 web, 37
 | License Info | معلومات رخصة فال | t | tenant/bayut/components/post-listing/RegaDetailFields.js:152 | web: modal-listing-details-from-rega-ad-license · @375: drawer-listing-details-from-rega-ad-license |
 | FAL License no. | رقم رخصة فال | t | tenant/bayut/components/post-listing/RegaDetailFields.js:187 | web: modal-listing-details-from-rega-ad-license · @375: drawer-listing-details-from-rega-ad-license |
 | Created date | تاريخ الاصدار | t | tenant/bayut/components/post-listing/RegaDetailFields.js:187 | web: modal-listing-details-from-rega-ad-license · @375: drawer-listing-details-from-rega-ad-license |
-| 2026-09-25 ⟨{n}-{n}-{n}⟩ ×2 | value | data | tenant/bayut/components/post-listing/RegaDetailFields.js:190 | web: modal-listing-details-from-rega-ad-license · @375: drawer-listing-details-from-rega-ad-license |
+| 2026-09-27 ⟨{n}-{n}-{n}⟩ ×2 | value | data | tenant/bayut/components/post-listing/RegaDetailFields.js:190 | web: modal-listing-details-from-rega-ad-license · @375: drawer-listing-details-from-rega-ad-license |
 | Expiry Date | تاريخ الانتهاء | t | tenant/bayut/components/post-listing/RegaDetailFields.js:187 | web: modal-listing-details-from-rega-ad-license · @375: drawer-listing-details-from-rega-ad-license |
 | Ad Responsible Info | معلومات مسؤول الإعلان | t | tenant/bayut/components/post-listing/RegaDetailFields.js:152 | web: modal-listing-details-from-rega-ad-license · @375: drawer-listing-details-from-rega-ad-license |
 | Responsible Name | اسم المسؤول | t | tenant/bayut/components/post-listing/RegaDetailFields.js:187 | web: modal-listing-details-from-rega-ad-license · @375: drawer-listing-details-from-rega-ad-license |
@@ -220,7 +220,7 @@ Every string the compiled files of `pages/post-listing-edit` draw — 47 web, 37
 | small-kitchen.png size should be greater than 200 * 200 ⟨small-kitchen.png size should be greater than {n} * {n}⟩ | not in translations | code | — | message-image-too-small (web and @375) |
 | Listing could not be saved. Please try again. | fixture: fixtures/listing-form.mjs | data | — | message-save-failed, message-update-failed (web and @375) |
 | Changes saved successfully | تم حفظ التغييرات بنجاح | t | — | message-saved (web and @375) |
-| No videos added yet | لم تتم إضافة مقاطع فيديو بعد | t | components/post-listing/media-gallery/media-gallery-modal.js:275 · components/post-listing/media-gallery/media-gallery-modal.js:309 | web: modal-cover-add-more__modal-videos-0, modal-images-21-videos-0__modal-videos-0, modal-images-21-videos-0-2__modal-videos-0 · @375: none |
+| No videos added yet | لم تتم إضافة مقاطع فيديو بعد | t | components/post-listing/media-gallery/media-gallery-modal.js:309 | web: modal-cover-add-more__modal-videos-0, modal-images-21-videos-0__modal-videos-0, modal-images-21-videos-0-2__modal-videos-0 · @375: none |
 | Get the Bayut KSA App | حمل تطبيق بيوت السعودية | t | tenant/common/components/downloadAppModal/downloadAppModal.js:22 | web: modal-download-app · @375: none |
 | Scan the QR code to download the app | قم بسمح الكود لتحميل التطبيق | t | tenant/common/components/downloadAppModal/downloadAppModal.js:29 | web: modal-download-app · @375: none |
 | OR | أو | t | tenant/common/components/downloadAppModal/downloadAppModal.js:39 | web: modal-download-app · @375: none |

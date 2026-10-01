@@ -26,7 +26,7 @@ Labels are verbatim. ‹…› is fixture data by its kind (‹date›, ‹time�
 - **Fields**: +=All
 - **Figures**: — none
 - **Repeated cards**: 
-  - **items** — 10× Date · ‹date› · Views · ‹n› · Clicks · ‹n› · Total Leads · ‹n› · Calls · ‹n› · WhatsApp · ‹n› · SMS · ‹n› · Email · ‹n›
+  - **LeadsReports** — 10× Date · ‹date› · Views · ‹n› · Clicks · ‹n› · Total Leads · ‹n› · Calls · ‹n› · WhatsApp · ‹n› · SMS · ‹n› · Email · ‹n›
 
 ## As staff — what differs from the owner (web)
 

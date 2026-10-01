@@ -308,12 +308,12 @@ a:is(:focus,[data-pf-focus]) { text-decoration: var(--pf-link-focus-decoration);
   0% { background-position: 100% 50%; }
   100% { background-position: 0px 50%; }
 }
-.pf-space { display: inline-flex; }
-.pf-space-align-center { align-items: center; }
 .pf-divider { font-family: var(--pf-font-family); font-size: var(--pf-font-size); box-sizing: border-box; }
 .pf-divider::before, .pf-divider::after { box-sizing: border-box; }
 .pf-divider { box-sizing: border-box; margin: 0px; padding: 0px; color: var(--pf-color-text); font-size: var(--pf-font-size); line-height: var(--pf-line-height); list-style: none; font-family: var(--pf-font-family); border-block-start: var(--pf-line-width) solid var(--pf-color-split); }
 .pf-divider-horizontal { display: flex; clear: both; width: 100%; min-width: 100%; margin: var(--pf-margin-lg) 0; }
+.pf-space { display: inline-flex; }
+.pf-space-align-center { align-items: center; }
 .pf-input-group-wrapper-filled .pf-input-group .pf-input-filled:not(:is(:focus,[data-pf-focus])):not(:is(:focus-within,[data-pf-focus-within])):not(:first-child) { border-inline-start: var(--pf-line-width) var(--pf-line-type) var(--pf-color-split); }
 .pf-input-group-wrapper-filled .pf-input-group .pf-input-filled:not(:is(:focus,[data-pf-focus])):not(:is(:focus-within,[data-pf-focus-within])):not(:last-child) { border-inline-end: var(--pf-line-width) var(--pf-line-type) var(--pf-color-split); }
 .styleProfolio.pf-card { --pf-color-text-heading: #272B41; --pf-color-bg-container: #fff; --pf-card-padding-base: 12px; --pf-border-radius-lg: 10px; --pf-padding-lg: 12px; --pf-card-header-bg: #fff; --pf-card-header-font-size: 16px; --pf-card-header-font-size-sm: 14px; --pf-card-header-height: 56px; --pf-card-header-height-sm: 37.994px; --pf-card-actions-bg: #fff; --pf-card-actions-li-margin: 12px 0; --pf-card-tabs-margin-bottom: -17px; --pf-card-extra-color: rgba(0, 0, 0, 0.88); }

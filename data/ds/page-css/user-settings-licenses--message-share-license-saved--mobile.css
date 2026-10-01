@@ -574,16 +574,16 @@ a.pf-btn { padding-block-start: var(--btn-padding-y) !important; line-height: in
 .pf-user-settings-tabs-styled.pf-tabs { margin-inline: -16px; margin-block-end: -8px; }
 .pf-user-settings-tabs-styled.pf-tabs.agencyTabs .pf-tabs-tab .anticon { margin-right: 0px; }
 .pf-user-settings-tabs-styled .pf-tabs-nav { margin-block-end: 0px; }
-.pf-agancy-staff-main { padding: 20px 24px; background-color: transparent; }
+.pf-user-settings-main { padding: 20px 24px; background-color: transparent; }
 @media only screen and (max-width: 1199px) {
-.pf-agancy-staff-main { padding: 24px 16px; }
+.pf-user-settings-main { padding: 24px 16px; }
 }
 @media only screen and (max-width: 480px) {
-.pf-agancy-staff-main { padding: 4px 0px; }
+.pf-user-settings-main { padding: 4px 0px; }
 }
-.pf-agancy-staff-main .pf-tabs-tab span svg { padding-inline-end: 5px; }
-.pf-agancy-staff-main .pf-spin { margin-inline-end: 20px; }
-.pf-agancy-staff-main .pf-spin:last-child { margin-inline-end: 0px; }
+.pf-user-settings-main .pf-tabs-tab span svg { padding-inline-end: 5px; }
+.pf-user-settings-main .pf-spin { margin-inline-end: 20px; }
+.pf-user-settings-main .pf-spin:last-child { margin-inline-end: 0px; }
 .pf-wrapper { position: relative; width: 100%; height: 100%; }
 .pf-content-wrapper { height: 100%; }
 .pf-loader-overlay { position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; display: none; -webkit-box-pack: center; justify-content: center; -webkit-box-align: center; align-items: center; background: rgba(255, 255, 255, 0.5); z-index: 10; }
@@ -598,13 +598,13 @@ a.pf-btn { padding-block-start: var(--btn-padding-y) !important; line-height: in
 }
 .pf-tag-tag-styled--v4.pf-tag-green { color: rgb(40, 177, 109); background-color: rgb(229, 247, 235); }
 .pf-nav-wrapper { position: relative; }
-.pf-agency-staff-mobile-action-button { display: flex; gap: 16px; }
+.pf-license-card-action-button { display: flex; gap: 16px; }
 @media screen and (min-width: 992px) {
-.pf-agency-staff-mobile-action-button { justify-content: end; }
+.pf-license-card-action-button { justify-content: end; }
 }
 @media screen and (max-width: 991px) {
-.pf-agency-staff-mobile-action-button { background-color: rgb(255, 255, 255); position: fixed; bottom: 0px; left: 0px; right: 0px; box-shadow: rgba(0, 0, 0, 0.1) 0px -4px 10px 0px; padding: 16px; z-index: 2; gap: 10px; }
-.pf-agency-staff-mobile-action-button > * { flex-grow: 1; }
+.pf-license-card-action-button { background-color: rgb(255, 255, 255); position: fixed; bottom: 0px; left: 0px; right: 0px; box-shadow: rgba(0, 0, 0, 0.1) 0px -4px 10px 0px; padding: 16px; z-index: 2; gap: 10px; }
+.pf-license-card-action-button > * { flex-grow: 1; }
 }
 .pf-drawer-style .pf-drawer-title { --pf-font-size-lg: 20px; }
 @media only screen and (max-width: 767px) {

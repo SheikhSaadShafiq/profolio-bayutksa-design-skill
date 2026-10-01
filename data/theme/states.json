@@ -5,9 +5,10 @@
   "how": "02 · All bad",
   "group": "cases",
   "frame": "360x800",
-  "hash": "085c0e39675581a2022b8e6f18cadd29cfe962be",
+  "hash": "0bae6f54eb7b89f4bfc75df2abf93d58664dac20",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×9"
   ],
   "pct": 0,
   "ok": true
@@ -18,9 +19,10 @@
   "how": "02 · Daily rental",
   "group": "cases",
   "frame": "360x800",
-  "hash": "a7839dd59a48e180e184b18c85f5944867432578",
+  "hash": "27f6ce2c5566346f203875fc80eef4894bdafe3c",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×9"
   ],
   "pct": 0,
   "ok": true
@@ -31,9 +33,10 @@
   "how": "02 · Everything unfinished",
   "group": "cases",
   "frame": "360x800",
-  "hash": "9ab9368110dae80e1150efbd64f7b1cd2e819eb4",
+  "hash": "269492d94a78e744303152c708f6ab8eeae3d2c3",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×9"
   ],
   "pct": 0,
   "ok": true
@@ -44,9 +47,10 @@
   "how": "02 · Happy case",
   "group": "cases",
   "frame": "360x800",
-  "hash": "821d8e8267114db647a479018db546ce8638ac01",
+  "hash": "f5ffb27231a330e0620d09ae1c115c7f5f0327e2",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×9"
   ],
   "pct": 0,
   "ok": true
@@ -63,9 +67,10 @@
   "how": "02 · Just posted",
   "group": "cases",
   "frame": "360x800",
-  "hash": "67ceb935872e36c1f32a40fbf8e61d4a21234334",
+  "hash": "34b578207a4bf4b4c165ff0577dc53834ffd0246",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×9"
   ],
   "pct": 0,
   "ok": true
@@ -76,9 +81,10 @@
   "how": "02 · Low impression, high conversion",
   "group": "cases",
   "frame": "360x800",
-  "hash": "7acf25cb0b26bef39f9867c7c62cb03900e06eb5",
+  "hash": "a01139e922ed79fa41b990bcd5b16f9bfc5598ab",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×9"
   ],
   "pct": 0,
   "ok": true
@@ -89,9 +95,10 @@
   "how": "02 · Off-plan initial sale",
   "group": "cases",
   "frame": "360x800",
-  "hash": "fc1d8d652ba45b23bb5060e42236c2f4144ff021",
+  "hash": "8b6a50198b466a1a98332894556eff8b9e3bb71b",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×9"
   ],
   "pct": 0,
   "ok": true
@@ -102,9 +109,10 @@
   "how": "02 · Rank pending",
   "group": "cases",
   "frame": "360x800",
-  "hash": "1ac33aa93cf696bec0f439cdb38421fa355bb283",
+  "hash": "6a2719c232dde91245565ab11ad52908c8e57656",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×9"
   ],
   "pct": 0,
   "ok": true
@@ -180,9 +188,10 @@
   "how": "02 · Listing list",
   "group": "list",
   "frame": "360x2937",
-  "hash": "9472fa728bb9bba3e9bae2d77b4fd576bf27b6b9",
+  "hash": "4dcc80bcbd562bafaa28266ca438bdd4d02c2f82",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×9"
   ],
   "pct": 0,
   "ok": true
@@ -193,9 +202,10 @@
   "how": "02 · Not a package user",
   "group": "empty",
   "frame": "360x800",
-  "hash": "31547c554a872ef27fede10612cb1dd4c93b0984",
+  "hash": "780e75c41042ae1cfdca3f101ed46057c477689e",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×9"
   ],
   "pct": 0.001,
   "ok": true
@@ -232,9 +242,10 @@
   "how": "02 · Listing list",
   "group": "list",
   "frame": "360x800",
-  "hash": "9dfbc50e3d947e64d9340dbba220ca84e27f0616",
+  "hash": "4d2703116f678738c7896e2dd7e93ca415eb684e",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×9"
   ],
   "pct": 0,
   "ok": true
@@ -247,7 +258,8 @@
   "frame": "360x800",
   "hash": "6becb2fd257db1e7a928d963a9087ebbcfbcfa4c",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×10"
   ],
   "pct": 0.095,
   "ok": true
@@ -258,9 +270,10 @@
   "how": "02 · Amenities picker, then the build set as the note says",
   "group": "sheets",
   "frame": "360x3982",
-  "hash": "b09f11001043941ad687171706f6af55731e36c5",
+  "hash": "708ac3f645a702b9fc03bb0d5d9bfec9262948f9",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×10"
   ],
   "pct": 0.019,
   "ok": true
@@ -277,9 +290,10 @@
   "how": "prototype · tap the Daily rental card",
   "group": "cases",
   "frame": "360x800",
-  "hash": "3ca85269adc94d885b0a6ec94dc47e927a0e493c",
+  "hash": "5c92d2c75575c303fcc81c59e3965ef2cfa96e10",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×10"
   ],
   "pct": 0.095,
   "ok": true
@@ -290,9 +304,10 @@
   "how": "prototype · tap the Everything unfinished card",
   "group": "cases",
   "frame": "360x800",
-  "hash": "88d88590026717580d00e22bb4d77d5e745c4dc7",
+  "hash": "149b2ce0bb2185192ea2f608db2647a23f065664",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×10"
   ],
   "pct": 0.095,
   "ok": true
@@ -303,9 +318,10 @@
   "how": "prototype · tap the Happy case card",
   "group": "cases",
   "frame": "360x800",
-  "hash": "0c94ef477ee2c4ea55c8e24af7b40dffcebba56b",
+  "hash": "323b30f958e59c4750b78014a7fc6232a7efb4b2",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×10"
   ],
   "pct": 0.099,
   "ok": true
@@ -322,9 +338,10 @@
   "how": "prototype · tap the Just posted card",
   "group": "cases",
   "frame": "360x800",
-  "hash": "e46065bcc161cf4f17c8d101be1e0d131cc5030c",
+  "hash": "8ee3c5358ce95b33a9e9a15afc87cb6f1303c5f0",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×10"
   ],
   "pct": 0.095,
   "ok": true
@@ -335,9 +352,10 @@
   "how": "prototype · tap the Low impression, high conversion card",
   "group": "cases",
   "frame": "360x800",
-  "hash": "20b909f2abb97e7ba7670f9d3fd2d6c9f4966961",
+  "hash": "5327c09609cc3eeb0bb280e41b02871defca304b",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×10"
   ],
   "pct": 0.095,
   "ok": true
@@ -348,9 +366,10 @@
   "how": "prototype · tap the Off-plan initial sale card",
   "group": "cases",
   "frame": "360x800",
-  "hash": "c20bf378443c7f17d54c9959edee9008419cef18",
+  "hash": "ba8a44009852cfa7799358dd93185e4c8a359ac3",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×10"
   ],
   "pct": 0.095,
   "ok": true
@@ -367,9 +386,10 @@
   "how": "prototype · the first card’s row menu → Delete Listing",
   "group": "prototype",
   "frame": "360x800",
-  "hash": "2dc57974e89b90649e56009efc30709ab8598e7e",
+  "hash": "94bc0a012c2215b7c3fe9d12fd79b25b9c5dcb69",
   "decisions": [
    "header",
+   "riyal redrawn ×9",
    "riyal ×1"
   ],
   "pct": 0.197,
@@ -384,6 +404,7 @@
   "hash": "bc0c92b397eac18c6e7eeb4f7901a05c52ed2895",
   "decisions": [
    "header",
+   "riyal redrawn ×9",
    "riyal ×1"
   ],
   "pct": 0.197,
@@ -395,9 +416,10 @@
   "how": "02 · Filter sheet",
   "group": "filtering",
   "frame": "360x2937",
-  "hash": "8a373d8d510e3e5c5882daccc744136216983692",
+  "hash": "e5c5a3f5856c335fe95c314fb4f8520fbcb3873f",
   "decisions": [
    "header",
+   "riyal redrawn ×9",
    "riyal ×1"
   ],
   "pct": 0.054,
@@ -409,9 +431,10 @@
   "how": "02 · Improve Quality",
   "group": "sheets",
   "frame": "360x800",
-  "hash": "88ab22addf9c06f913eac76bad28e8c6d9b8c375",
+  "hash": "f88ca15fbe24dc95aa336c0fcf1f2e5b964a6b16",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×10"
   ],
   "pct": 0.095,
   "ok": true
@@ -422,9 +445,10 @@
   "how": "02 · Improve Quality",
   "group": "sheets",
   "frame": "360x3007",
-  "hash": "3e82118afe29309c8d9cf9da5a50205c1accae37",
+  "hash": "3558a53e73903addeaa3f9b8689c09b3f92c1b20",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×10"
   ],
   "pct": 0.025,
   "ok": true
@@ -435,9 +459,10 @@
   "how": "02 · Location: no match",
   "group": "filtering",
   "frame": "360x800",
-  "hash": "6f1417f5cb49c3920fcd7ec9c8b8a572563057d4",
+  "hash": "bcffcbb2001643a246d8df200e8481e0e27c1760",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×9"
   ],
   "pct": 0.197,
   "ok": true
@@ -448,9 +473,10 @@
   "how": "02 · Location search",
   "group": "filtering",
   "frame": "360x800",
-  "hash": "ee65b2fe29b515d6624c4d292e9a4c404582bcec",
+  "hash": "6d1d40cd7946d3a0ac0400186aa56f0cfc6d0fa6",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×9"
   ],
   "pct": 0.197,
   "ok": true
@@ -463,7 +489,8 @@
   "frame": "360x800",
   "hash": "9511121f746f2d87ed245a6617bcc15345dca8f5",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×9"
   ],
   "derived": "derived: neither build draws Mark as Booked (spec 03 · J; the phone row menu). Composed in the Request Services sheet's chrome from the build's own booking values (renderVals: bookKinds, bookCells, weekDays, bookMonthLabel, bookHint, confirmLabel, confirmOpacity); laid out per the spec's element table. Composed, not the build's: the arrangement, the chevrons, the title, the month and weekday type, the day cells' size and type, the band corners. Replace when the handover draws it.",
   "pct": 0.199,
@@ -477,7 +504,8 @@
   "frame": "360x800",
   "hash": "8a5e26df306f3d623731ee0a4511792bb53f30fe",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×9"
   ],
   "derived": "derived: neither build draws Mark as Booked (spec 03 · J; the phone row menu). Composed in the Request Services sheet's chrome from the build's own booking values (renderVals: bookKinds, bookCells, weekDays, bookMonthLabel, bookHint, confirmLabel, confirmOpacity); laid out per the spec's element table. Composed, not the build's: the arrangement, the chevrons, the title, the month and weekday type, the day cells' size and type, the band corners. Replace when the handover draws it.",
   "pct": 0.199,
@@ -489,9 +517,10 @@
   "how": "02 · Performance sheet",
   "group": "sheets",
   "frame": "360x800",
-  "hash": "d2cc804ffeec9821361d5c3b3d9f3057a1c11a24",
+  "hash": "56b3f57b4c020e8062f12a7e710312765b5dfd19",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×10"
   ],
   "pct": 0.095,
   "ok": true
@@ -502,9 +531,10 @@
   "how": "02 · Performance sheet",
   "group": "sheets",
   "frame": "360x2937",
-  "hash": "595e1aed64327a21f26291839edc1f9e20775a9a",
+  "hash": "28eb40f7dc066e35e6adda821dd2024b8eccb1ea",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×10"
   ],
   "pct": 0.026,
   "ok": true
@@ -517,7 +547,8 @@
   "frame": "360x800",
   "hash": "875690e888e464088f8b7908e06bf014cfabd461",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×10"
   ],
   "pct": 0.201,
   "ok": true
@@ -530,7 +561,8 @@
   "frame": "360x2588",
   "hash": "85eba1b515f709a31f8ab498fa200bbd96363505",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×10"
   ],
   "pct": 0.064,
   "ok": true
@@ -541,9 +573,10 @@
   "how": "prototype · Last 30 Days, in the performance sheet",
   "group": "prototype",
   "frame": "360x800",
-  "hash": "e5eb92d425712be7f99885c1cc574dbad381e525",
+  "hash": "92c7fd356aaf26de1be06d62b094504fee98872c",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×10"
   ],
   "pct": 0.197,
   "ok": true
@@ -554,9 +587,10 @@
   "how": "02 · Request Services",
   "group": "sheets",
   "frame": "360x800",
-  "hash": "6f72ce2339af1d27d7fdda9a7d83777fb7ea616d",
+  "hash": "5d0dc52f9d7878033a85816f0d50041c6f564ab1",
   "decisions": [
    "header",
+   "riyal redrawn ×9",
    "riyal ×1"
   ],
   "pct": 0.199,
@@ -568,9 +602,10 @@
   "how": "02 · Row menu",
   "group": "sheets",
   "frame": "360x800",
-  "hash": "4afb77ae4e831ff18e54305434a141823e9a0c6a",
+  "hash": "508be5b7b78a08eef84fae2f982772cf84fb921f",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×9"
   ],
   "pct": 0.197,
   "ok": true
@@ -583,7 +618,8 @@
   "frame": "360x800",
   "hash": "abb926151dfc637db212291a082db69d91fbae07",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×9"
   ],
   "pct": 0.199,
   "ok": true
@@ -594,9 +630,10 @@
   "how": "02 · Copy Bayut Link",
   "group": "sheets",
   "frame": "360x800",
-  "hash": "9ae03120629d443c91d09d08d7b9ff32dc6fa826",
+  "hash": "fb2c65ca7905467b0c65b5ac631baa68e8bcbe29",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×9"
   ],
   "pct": 0.197,
   "ok": true
@@ -607,9 +644,10 @@
   "how": "02 · Sort sheet",
   "group": "filtering",
   "frame": "360x800",
-  "hash": "5f74199e7548305a24e6e187db8bf4b7f5e086d4",
+  "hash": "2435ece3c6041567cd7f226e2b7acdd59f58db36",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×9"
   ],
   "pct": 0.197,
   "ok": true
@@ -620,9 +658,10 @@
   "how": "02 · Trend: sudden drop",
   "group": "trend",
   "frame": "360x800",
-  "hash": "ea292cd5c9446df4fe19d3337b2e6cec2aac2b2b",
+  "hash": "ad6173c86ea889d6284f169762e97344ecb22e88",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×10"
   ],
   "pct": 0.095,
   "ok": true
@@ -633,9 +672,10 @@
   "how": "02 · Trend: no data yet",
   "group": "trend",
   "frame": "360x800",
-  "hash": "e50891f8c2dad396b4af993bd3b47c1baa66a948",
+  "hash": "c9cb17efceb6f8a11c372cb230adaf9a65a7d0c6",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×10"
   ],
   "pct": 0.095,
   "ok": true
@@ -646,9 +686,10 @@
   "how": "02 · Trend: down then back up",
   "group": "trend",
   "frame": "360x800",
-  "hash": "42c905f383b0a70208d8f06c762592ab4d15fbaf",
+  "hash": "b67778192c3165c178ee0bb919fefe492045fcfa",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×10"
   ],
   "pct": 0.095,
   "ok": true
@@ -659,9 +700,10 @@
   "how": "02 · Trend: one day spike",
   "group": "trend",
   "frame": "360x800",
-  "hash": "1fa0f23cf9fedad2440bdb98da06058e02097830",
+  "hash": "832e8f7258fc8bbd517d7feeee9f743f87e73513",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×10"
   ],
   "pct": 0.095,
   "ok": true
@@ -672,9 +714,10 @@
   "how": "prototype · TruCheck on the first card",
   "group": "prototype",
   "frame": "360x800",
-  "hash": "e3ba73c938110d52fffb5d538b8f9b23e3bf8a26",
+  "hash": "70f67fea2d4db69a8e09110aafb3d2abdf2fc491",
   "decisions": [
    "header",
+   "riyal redrawn ×9",
    "riyal ×1"
   ],
   "pct": 0.197,
@@ -686,9 +729,10 @@
   "how": "prototype · TruCheck on the All bad card (the second)",
   "group": "prototype",
   "frame": "360x800",
-  "hash": "2a04fb1cd1958af22e6ca72ab573b0b3e5ecc9ad",
+  "hash": "fbe2a74ca8f83bc542e8703afd4f94006b7e0ad9",
   "decisions": [
    "header",
+   "riyal redrawn ×9",
    "riyal ×1"
   ],
   "pct": 0.197,
@@ -700,7 +744,7 @@
   "how": "prototype · apply a filter (the build runs its 1.8s filtering state)",
   "group": "filtering",
   "frame": "360x800",
-  "hash": "5426858c8177aa40fd4c4dff858afb759a7a383d",
+  "hash": "2054aff897ff5bbd56e7e6954c3790914ce67c05",
   "decisions": [
    "header"
   ],
@@ -713,9 +757,10 @@
   "how": "prototype · the Ad License tab (02’s chip selects \"license\", a tab the build does not have)",
   "group": "tabs",
   "frame": "360x800",
-  "hash": "57309edd921d85ed68ce96ac493919fb118acac9",
+  "hash": "fd67a63dd14f18d799530064b4167aff60066a39",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×5"
   ],
   "pct": 0.001,
   "ok": true
@@ -726,9 +771,10 @@
   "how": "prototype · the Ad License tab (02’s chip selects \"license\", a tab the build does not have)",
   "group": "tabs",
   "frame": "360x1298",
-  "hash": "9e657c96d22f975745ec34656205f163ecf9248c",
+  "hash": "7b3ad8f843795bf6c984c9cecee31ac057ae7d12",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×5"
   ],
   "pct": 0,
   "ok": true
@@ -739,9 +785,10 @@
   "how": "02 · Draft tab",
   "group": "tabs",
   "frame": "360x800",
-  "hash": "2995338ff1cbd1a1a5ba3f51c2a0538def0cb7d1",
+  "hash": "40b8629ee23f801b650a38fdc87e8300752dac3d",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×6"
   ],
   "pct": 0.001,
   "ok": true
@@ -752,9 +799,10 @@
   "how": "02 · Draft tab",
   "group": "tabs",
   "frame": "360x1927",
-  "hash": "2beca89c48b92639803480ef1c4b31a5993b5d1a",
+  "hash": "8f9a1e738b9b0aa3d42e14ad548c6c5cf1b77e1f",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×6"
   ],
   "pct": 0,
   "ok": true
@@ -765,9 +813,10 @@
   "how": "02 · Pending tab",
   "group": "tabs",
   "frame": "360x800",
-  "hash": "d96ffd244a7063debdbf716d0ba56b8492d648b1",
+  "hash": "761e129319ceda1f2e9c67a4d66811983f02dca3",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×7"
   ],
   "pct": 0.001,
   "ok": true
@@ -778,9 +827,10 @@
   "how": "02 · Pending tab",
   "group": "tabs",
   "frame": "360x2000",
-  "hash": "730ccd4865da3ad6ecd85d74b602eb6d2ce49c9e",
+  "hash": "d7a0155c1dbb77870bca5a39813857aa02f3f733",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×7"
   ],
   "pct": 0,
   "ok": true
@@ -791,9 +841,10 @@
   "how": "02 · Removed tab",
   "group": "tabs",
   "frame": "360x800",
-  "hash": "b3cdf77683b85a31d7790c79fcd7bdfca67c8d1b",
+  "hash": "dc1e2661ba0fcc0919741831781947c314f308a0",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×12"
   ],
   "pct": 0.001,
   "ok": true
@@ -804,9 +855,10 @@
   "how": "02 · Removed tab",
   "group": "tabs",
   "frame": "360x2979",
-  "hash": "e8b2973a452e7eeefcb2243b9c53d7733b699dbd",
+  "hash": "0e134b052f7351d1ba96a5ff0cbd7c9440f5dad9",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×12"
   ],
   "pct": 0,
   "ok": true
@@ -817,9 +869,10 @@
   "how": "prototype · Mark as Booked → confirm (the build's own toast)",
   "group": "sheets",
   "frame": "360x800",
-  "hash": "ed60812656a876552657007d935a9efd505c926b",
+  "hash": "bcb70768688ce6cbb1eba455403722ef5669d884",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×9"
   ],
   "pct": 0,
   "ok": true
@@ -830,9 +883,10 @@
   "how": "02 · Onboarding tour",
   "group": "onboarding",
   "frame": "360x800",
-  "hash": "cb243ffa6b4aaf66e1b40439ce1c1cfb44f80415",
+  "hash": "92c40054eb8bc11f172bbbd8247ee7dda94c9d8e",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×9"
   ],
   "pct": 0.193,
   "ok": true
@@ -843,9 +897,10 @@
   "how": "prototype · the onboarding tour, step 2 of 5",
   "group": "prototype",
   "frame": "360x800",
-  "hash": "551e174098b7603c75fa1bc39f56bbb97f0f0a22",
+  "hash": "566330557f058672511abc30ec12e9996782b8cf",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×9"
   ],
   "pct": 0.188,
   "ok": true
@@ -856,9 +911,10 @@
   "how": "prototype · the onboarding tour, step 3 of 5",
   "group": "prototype",
   "frame": "360x800",
-  "hash": "8f960f9800437a6a1a0a645d87a7d4035447ef10",
+  "hash": "d6c0312d2246d0795f8cf2b412f911c87f873600",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×9"
   ],
   "pct": 0.188,
   "ok": true
@@ -869,9 +925,10 @@
   "how": "prototype · the onboarding tour, step 4 of 5",
   "group": "prototype",
   "frame": "360x800",
-  "hash": "6dfa1e9fdce35adf15b125d101756127ca4f83bd",
+  "hash": "8aee21cc09dc66b0ff759b17703f0d342fb06e76",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×9"
   ],
   "pct": 0.188,
   "ok": true
@@ -884,7 +941,8 @@
   "frame": "360x800",
   "hash": "733dea39acd5249f26f974d82cc7c7861164e56b",
   "decisions": [
-   "header"
+   "header",
+   "riyal redrawn ×10"
   ],
   "pct": 0.19,
   "ok": true
@@ -934,7 +992,7 @@
   "how": "prototype · the onboarding tour with no listings, step 4 of 4",
   "group": "prototype",
   "frame": "360x800",
-  "hash": "1363dfa234d82bc0489ac20af16b8672590f032b",
+  "hash": "aef08069c51cd5e78316c34a1f85b5e0d412f38b",
   "decisions": [
    "header"
   ],
@@ -947,10 +1005,11 @@
   "how": "02c · Amenities picker",
   "group": "drawer",
   "frame": "1440x900",
-  "hash": "6bcbd809661bf47bf7a89e472f7499baaf59446d",
+  "hash": "fd819ae925eb6a2c8cc15f5ed8fb7bf299afd8e2",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×10",
    "riyal ×2"
   ],
   "pct": 0,
@@ -962,10 +1021,11 @@
   "how": "prototype · the All bad row → its drawer",
   "group": "cases",
   "frame": "1440x900",
-  "hash": "c38fe674fc5e3a32ff65096daa7d6ab033b9d1ab",
+  "hash": "32bad8c1be3110c472c27243420f4689a2f42b75",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×10",
    "riyal ×2"
   ],
   "pct": 0,
@@ -977,10 +1037,11 @@
   "how": "prototype · the All bad row → its drawer, whole",
   "group": "cases",
   "frame": "1440x2231",
-  "hash": "5cb6d0a1d02571702316897767c8791793c6b57c",
+  "hash": "183cd5063c1c61bdea4416d319dbc878e9852954",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×10",
    "riyal ×2"
   ],
   "pct": 0,
@@ -992,10 +1053,11 @@
   "how": "prototype · the Daily rental row → its drawer",
   "group": "cases",
   "frame": "1440x900",
-  "hash": "7269a2792cdf2beb71240c851dce28487a4cf6a4",
+  "hash": "dc1869b300426882f1865218ae2266edfd0f2efa",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×10",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1007,10 +1069,11 @@
   "how": "prototype · the Daily rental row → its drawer, whole",
   "group": "cases",
   "frame": "1440x2231",
-  "hash": "b6dd7de15fbdc5da8749424d1dd82da39d015591",
+  "hash": "46d71421104da04fb82bdb8cca7d0603f06b29e3",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×10",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1022,10 +1085,11 @@
   "how": "prototype · the Everything unfinished row → its drawer",
   "group": "cases",
   "frame": "1440x900",
-  "hash": "bf5f061f329b93c69a75673fec0b18c907dfa0f1",
+  "hash": "71518e7ae4fc32323efc12d5787bdf4fb2d30682",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×10",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1037,10 +1101,11 @@
   "how": "prototype · the Everything unfinished row → its drawer, whole",
   "group": "cases",
   "frame": "1440x2231",
-  "hash": "b131b1ca95a2b3b319da6abc5b20e3d7f0d784da",
+  "hash": "130a6ea622b7a7a0c66c58fd7aa1d04af6c903bb",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×10",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1058,10 +1123,11 @@
   "how": "prototype · the Happy case row → its drawer, whole",
   "group": "cases",
   "frame": "1440x2231",
-  "hash": "3c63e4a06782c15128dab288eb348362f2385522",
+  "hash": "666e77a97e7ab4dcf7f223b2a827f682d98c4ef3",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×10",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1085,10 +1151,11 @@
   "how": "prototype · the Just posted row → its drawer",
   "group": "cases",
   "frame": "1440x900",
-  "hash": "db3853d8868c790cd38a7e1e29db71eeb923f43b",
+  "hash": "0510b0fc0dc5af9a34770f102182ba9eb221ce68",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×10",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1100,10 +1167,11 @@
   "how": "prototype · the Just posted row → its drawer, whole",
   "group": "cases",
   "frame": "1440x2231",
-  "hash": "8937353f011861ad7b58e4813c80266552a436c0",
+  "hash": "e991dfd1e56236dbda1ce31e13660cc34b024a59",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×10",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1115,10 +1183,11 @@
   "how": "prototype · the Low impression, high conversion row → its drawer",
   "group": "cases",
   "frame": "1440x900",
-  "hash": "fdee9353e38423b613c4dceefd4b13750fcff33e",
+  "hash": "768caa9760aea2a528489e76136852532c9eec41",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×10",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1130,10 +1199,11 @@
   "how": "prototype · the Low impression, high conversion row → its drawer, whole",
   "group": "cases",
   "frame": "1440x2231",
-  "hash": "df3d0076c7dbaa14edcd0a42308717178e4e5272",
+  "hash": "55ab38cf44939551854543f40c525c356f9db3a7",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×10",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1145,10 +1215,11 @@
   "how": "prototype · the Off-plan initial sale row → its drawer",
   "group": "cases",
   "frame": "1440x900",
-  "hash": "d610849ca32d343f88ac8389eb1f17d386a8618f",
+  "hash": "d730aa10c877ab029d45810550a5fc25d6ea6d15",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×10",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1160,10 +1231,11 @@
   "how": "prototype · the Off-plan initial sale row → its drawer, whole",
   "group": "cases",
   "frame": "1440x2231",
-  "hash": "4ca837a5e9c85046354b8c9872a838a934e8839a",
+  "hash": "8c3a056166fee394e0cc0cca92bf885a4a6d8301",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×10",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1175,10 +1247,11 @@
   "how": "prototype · the Rank pending row → its drawer",
   "group": "cases",
   "frame": "1440x900",
-  "hash": "aea3a77a02a137dd3c1c1e5b6ae82343cec33a38",
+  "hash": "c59450fc8f8da4faa318215fe5c2c489f366997a",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×10",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1190,10 +1263,11 @@
   "how": "prototype · the Rank pending row → its drawer, whole",
   "group": "cases",
   "frame": "1440x2231",
-  "hash": "326299fec34a94d65131ace9a26dbb535cce8fd8",
+  "hash": "7aaab322536c96aa223b81a7b1750a23d01ec006",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×10",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1205,10 +1279,11 @@
   "how": "03 · F · Needs fixes",
   "group": "screens",
   "frame": "1440x900",
-  "hash": "192a1acbbad52ee95d1971134351899f2ac16c72",
+  "hash": "24bffbcc6b4bcce61db8713fcc950b37e09e0db8",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×10",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1226,10 +1301,11 @@
   "how": "03 · F · Needs fixes, the whole drawer",
   "group": "screens",
   "frame": "1440x2231",
-  "hash": "e0cf39bbf40b2990ba827b0aed6e56fa4aa74953",
+  "hash": "c07dbedfa98a402ac6a95df30c887352394c0ab4",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×10",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1241,10 +1317,11 @@
   "how": "03 · F · Perfect score",
   "group": "screens",
   "frame": "1440x900",
-  "hash": "78c6842e36dd8ba8838e1de6b73a53982dc588e7",
+  "hash": "141c5fcb2a663daa2de34d940a18728cf374dda4",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×10",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1256,10 +1333,11 @@
   "how": "prototype · Last 30 Days, in the drawer",
   "group": "prototype",
   "frame": "1440x900",
-  "hash": "8ca5bc6dd9620c5ab62abb19ed65e038592ca3e0",
+  "hash": "37a86e293d7c85cfa5911fbc209deb635716fd6d",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×10",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1271,10 +1349,11 @@
   "how": "03 · H",
   "group": "screens",
   "frame": "1440x900",
-  "hash": "278e062bd0d2cfa07c3d939b6a88eacbbebf41cc",
+  "hash": "48ca5cf33535b7f6092c4084a8f53455b9901885",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×9",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1292,10 +1371,11 @@
   "how": "03 · G",
   "group": "screens",
   "frame": "1440x900",
-  "hash": "392f74b43c3903bf1d315dc913cc6bc7773ca5ba",
+  "hash": "f3f7140d1a030923cea2338fdb96b27ecf5d431f",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×10",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1307,10 +1387,11 @@
   "how": "03 · G, the whole drawer",
   "group": "screens",
   "frame": "1440x2136",
-  "hash": "cc5c7c5681097a0b46cd311b7ad9a7315ea8d51a",
+  "hash": "1b4f1bf1fcff355769857a3992f162292a69b6d1",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×10",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1328,10 +1409,11 @@
   "how": "prototype · Refresh inside the Listing Performance drawer",
   "group": "prototype",
   "frame": "1440x900",
-  "hash": "08e1f546e8037071b8669932a630267f30622b61",
+  "hash": "0b65015b4f57f65f68294afa99d4bd433b54abfd",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×10",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1343,10 +1425,11 @@
   "how": "02c · Trend: sudden drop",
   "group": "drawer",
   "frame": "1440x900",
-  "hash": "fbcda1fb026f86ebc112ad26733b13c1b6a8efdb",
+  "hash": "edad05da43dccc56b1962484b05f6a2343ca5d36",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×10",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1364,10 +1447,11 @@
   "how": "02c · Trend: down then back up",
   "group": "drawer",
   "frame": "1440x900",
-  "hash": "b21afb3213c98ac5a8722611b04ae59f56c318da",
+  "hash": "1667b452133f6542417ed904ae1a64b3dfcdf800",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×10",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1379,10 +1463,11 @@
   "how": "02c · Trend: one day spike",
   "group": "drawer",
   "frame": "1440x900",
-  "hash": "975316877882cb27a7cb9dc843111f91022da096",
+  "hash": "f71b6dfb01ce253a351c0a9db3b387525533586a",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×10",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1469,10 +1554,11 @@
   "how": "03 · A · Default, the whole list",
   "group": "screens",
   "frame": "1440x2231",
-  "hash": "2f271c265ecfdb90e48d70978ddba07ef364c213",
+  "hash": "61586651f47b33fccdee7f294824a2660fdf31c2",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×9",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1484,10 +1570,11 @@
   "how": "prototype · ⋮ on the first row",
   "group": "prototype",
   "frame": "1440x900",
-  "hash": "f03a02a0c788ff49b3449ed24cb2ee48ab117ec7",
+  "hash": "3f5477ec5d06f5bf294aab314b309440649a03b6",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×9",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1499,10 +1586,11 @@
   "how": "prototype · Newest First",
   "group": "prototype",
   "frame": "1440x900",
-  "hash": "499c1f3089da97ccfdcffeba6f70be3244e8dd88",
+  "hash": "fb7379ce4794897f90d1648b5fe4c16c834c58b3",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×9",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1514,10 +1602,11 @@
   "how": "prototype · ⋮ → Change Ownership",
   "group": "prototype",
   "frame": "1440x900",
-  "hash": "cd47fd3b014a88841b3248577cb3323458c758bf",
+  "hash": "17362109634df76c8d747fece16e0038d9a89fa1",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×9",
    "riyal ×3"
   ],
   "pct": 0,
@@ -1529,10 +1618,11 @@
   "how": "prototype · ⋮ → Delete",
   "group": "prototype",
   "frame": "1440x900",
-  "hash": "d48a2f3b02ef0eaaed6a30da53ac10f6350adad5",
+  "hash": "fcff6eb2e6a88449510760deeb220059956247b6",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×9",
    "riyal ×3"
   ],
   "pct": 0,
@@ -1544,10 +1634,11 @@
   "how": "derived · the daily rental row → Mark as Booked (the build has its logic, not its template)",
   "group": "overlays",
   "frame": "1440x900",
-  "hash": "698c4dd4b587b8895cde010771f2e721298bf938",
+  "hash": "78352b11b866996ade2be5a5ae21fa58db2a588f",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×9",
    "riyal ×2"
   ],
   "derived": "derived: neither build draws Mark as Booked (spec 03 · J). Composed in the Request Services modal's chrome from the build's own booking values (renderVals: bookKinds, bookCells, weekDays, bookMonthLabel, selHint / selSummary, confirmLabel, confirmBg); laid out per the spec's element table. Composed, not the build's: the arrangement, the chevrons, the title, the month and weekday type, the day cells' size and type, the band corners. Replace when the handover draws it.",
@@ -1560,10 +1651,11 @@
   "how": "derived · the daily rental row → Mark as Booked (the build has its logic, not its template)",
   "group": "overlays",
   "frame": "1440x900",
-  "hash": "9c233c0afd512fbf2fa9e3013a9fcaab52a782df",
+  "hash": "342115590ea4f577c1147f8fe7b7e8fdb7229f82",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×9",
    "riyal ×2"
   ],
   "derived": "derived: neither build draws Mark as Booked (spec 03 · J). Composed in the Request Services modal's chrome from the build's own booking values (renderVals: bookKinds, bookCells, weekDays, bookMonthLabel, selHint / selSummary, confirmLabel, confirmBg); laid out per the spec's element table. Composed, not the build's: the arrangement, the chevrons, the title, the month and weekday type, the day cells' size and type, the band corners. Replace when the handover draws it.",
@@ -1576,10 +1668,11 @@
   "how": "derived · the daily rental row → Mark as Booked (the build has its logic, not its template)",
   "group": "overlays",
   "frame": "1440x900",
-  "hash": "3c9dd4474405c30e1d9ac4ad07b86d7e6d2b5e0d",
+  "hash": "3430f4e544daabeae8a6ae0b2703ff7c08fd6dd6",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×9",
    "riyal ×2"
   ],
   "derived": "derived: neither build draws Mark as Booked (spec 03 · J). Composed in the Request Services modal's chrome from the build's own booking values (renderVals: bookKinds, bookCells, weekDays, bookMonthLabel, selHint / selSummary, confirmLabel, confirmBg); laid out per the spec's element table. Composed, not the build's: the arrangement, the chevrons, the title, the month and weekday type, the day cells' size and type, the band corners. Replace when the handover draws it.",
@@ -1592,10 +1685,11 @@
   "how": "03 · K",
   "group": "screens",
   "frame": "1440x900",
-  "hash": "ee2f37e417548b2311b46ee7151240d39a65b0ef",
+  "hash": "46971c307dd85b4f3486cbec79aa0c6924e62656",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×9",
    "riyal ×3"
   ],
   "pct": 0,
@@ -1613,10 +1707,11 @@
   "how": "03 · I",
   "group": "screens",
   "frame": "1440x900",
-  "hash": "333ad7930f19ba8f101c2113bc2912de6913b567",
+  "hash": "e4ed6b717cf7156c98158fee86a32c21a3249826",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×10",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1628,10 +1723,11 @@
   "how": "02c · Copy Bayut Link",
   "group": "overlays",
   "frame": "1440x900",
-  "hash": "767b37016c1cfcdc9e6349211e64391b2425756f",
+  "hash": "b45d28f812176858d75bfcafdd6ccf6a643523ca",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×10",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1643,10 +1739,11 @@
   "how": "prototype · TruCheck on the first row",
   "group": "prototype",
   "frame": "1440x900",
-  "hash": "a368fec87e4fa81971ecf5e889b429c52d9d7d1e",
+  "hash": "7d196a1e2d04de46017ff024e08ff946bdd887c3",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×9",
    "riyal ×3"
   ],
   "pct": 0,
@@ -1658,10 +1755,11 @@
   "how": "02c · Not a package user",
   "group": "empty",
   "frame": "1440x900",
-  "hash": "962e09aefe8cb1d141bdc61d2ac65c72397bc0ae",
+  "hash": "a02f39adadda0b3a94fd02da489df72f226c4037",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×9",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1703,10 +1801,11 @@
   "how": "03 · A · Default",
   "group": "screens",
   "frame": "1440x900",
-  "hash": "b19e1ed753f87ab95c89666b531d86c4f60ff926",
+  "hash": "eb31b792216daa25ef12fddacd452987cce0d0b7",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×9",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1718,10 +1817,11 @@
   "how": "prototype · Refresh on the first row",
   "group": "prototype",
   "frame": "1440x900",
-  "hash": "26bfd6ce7e23e2f54c1d9a0c6a792f50bbae87de",
+  "hash": "bbebe0440687f962a39ee6e6cd65333370d7d521",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×9",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1733,10 +1833,11 @@
   "how": "prototype · apply a filter (the build runs its 1.8s busy state)",
   "group": "overlays",
   "frame": "1440x900",
-  "hash": "6162a9fb76c8317f87a9d30207a3a080e527d068",
+  "hash": "e6602484e351640d3f701a76910b03e98dcab0cc",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×9",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1754,10 +1855,11 @@
   "how": "03 · A · Sorting",
   "group": "screens",
   "frame": "1440x900",
-  "hash": "e5121de4034cc2243cda3c3bfdce7bf32f6245bc",
+  "hash": "bf5bb705382907b58c0e257b90d2562997b9fd1b",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×9",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1769,10 +1871,11 @@
   "how": "03 · E · All five statuses",
   "group": "screens",
   "frame": "1440x900",
-  "hash": "a9ebbb70c44f581652044af53de4f412f20338ae",
+  "hash": "0215845cd0bea4fd1479e9f55a7e8016002ca53a",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×5",
    "riyal ×7"
   ],
   "pct": 0,
@@ -1784,10 +1887,11 @@
   "how": "03 · E · All five statuses, the whole list",
   "group": "screens",
   "frame": "1440x1311",
-  "hash": "3d0ef6e9591f0d3c35bdba6f8ce67115dba7df2b",
+  "hash": "e1d1814782456441bd0650a3ae0cbad836509985",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×5",
    "riyal ×7"
   ],
   "pct": 0,
@@ -1805,10 +1909,11 @@
   "how": "03 · B · Both rows",
   "group": "screens",
   "frame": "1440x900",
-  "hash": "5358b355ce5df640c1bb85be50e0f5d087721483",
+  "hash": "9f24a870012acfe6cdecc64dcbaa22ae4e5e44df",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×6",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1820,10 +1925,11 @@
   "how": "03 · B · Both rows, the whole list",
   "group": "screens",
   "frame": "1440x1500",
-  "hash": "7bf410724969db4af9630ed1f324a6e32123f62b",
+  "hash": "3ec7fd2fa5299ccbb0f724ded90ba8100b2217a2",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×6",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1841,10 +1947,11 @@
   "how": "03 · C · All three states",
   "group": "screens",
   "frame": "1440x900",
-  "hash": "d302f48b01dcaf0547352309302e6eabe32c8eaa",
+  "hash": "5f4674e7dfa00b643472fa1e55e05e87bf34878a",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×7",
    "riyal ×3"
   ],
   "pct": 0,
@@ -1856,10 +1963,11 @@
   "how": "03 · C · All three states, the whole list",
   "group": "screens",
   "frame": "1440x1689",
-  "hash": "e23944734e6d22d295141e482eca8b3640459d9a",
+  "hash": "5e967a7392312e8dbc221a5575f7283a83522dc8",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×7",
    "riyal ×3"
   ],
   "pct": 0,
@@ -1877,10 +1985,11 @@
   "how": "03 · D · All four reasons",
   "group": "screens",
   "frame": "1440x900",
-  "hash": "15e3dc4b640ca1aad37d8757080b6b698d500b63",
+  "hash": "d3dc24a45c844c79cc1d82b73d7ec33ac922cad7",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×12",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1892,10 +2001,11 @@
   "how": "03 · D · All four reasons, the whole list",
   "group": "screens",
   "frame": "1440x2648",
-  "hash": "49dcd603858833f91ee58c563645b3ad50e0e2c3",
+  "hash": "0f92edf7448b96112488472d16fecc25ae45ac85",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×12",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1913,10 +2023,11 @@
   "how": "prototype · Mark as Booked → confirm (the build's own toast)",
   "group": "overlays",
   "frame": "1440x900",
-  "hash": "4ac9cdf4535009b134fd31296447c05f09aa6477",
+  "hash": "7402002d10ee607eaab0c3efa63c1d5f3834cea6",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×9",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1928,10 +2039,11 @@
   "how": "prototype · the onboarding tour, step 1 of 5",
   "group": "prototype",
   "frame": "1440x900",
-  "hash": "82c15d725eda3bf4cdb8b7360bf4bf3aadc7ed1e",
+  "hash": "8e88a7c46b30b8d787836fc729b66c0e12ede0b6",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×9",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1943,10 +2055,11 @@
   "how": "prototype · the onboarding tour, step 2 of 5",
   "group": "prototype",
   "frame": "1440x900",
-  "hash": "90b3e03352f94a584e89be689db11535d4c7ad3d",
+  "hash": "cefb99e1ba71d14560b9c153ebfeebcb70dff043",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×9",
    "riyal ×2"
   ],
   "pct": 0.123,
@@ -1958,10 +2071,11 @@
   "how": "prototype · the onboarding tour, step 3 of 5",
   "group": "prototype",
   "frame": "1440x900",
-  "hash": "87c559fb7b5887319dbd325d2e6bbb0d3dd68ab5",
+  "hash": "8e91f3b499effc78389f3dbe19b094320c9783e3",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×9",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1973,10 +2087,11 @@
   "how": "prototype · the onboarding tour, step 4 of 5",
   "group": "prototype",
   "frame": "1440x900",
-  "hash": "d42e980a366e5d42ab4fbc303c904ec8a898cd03",
+  "hash": "695436593e7b9d88fbf8221867136ed2dd763946",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×9",
    "riyal ×2"
   ],
   "pct": 0,
@@ -1988,10 +2103,11 @@
   "how": "prototype · the onboarding tour, step 5 of 5",
   "group": "prototype",
   "frame": "1440x900",
-  "hash": "c7bdd4544552e2c106df528ad4c307a338e23ab2",
+  "hash": "443fa10b4d0b0a6d724e74b2641eb033517fab28",
   "decisions": [
    "header",
    "rail",
+   "riyal redrawn ×9",
    "riyal ×2"
   ],
   "pct": 0.063,

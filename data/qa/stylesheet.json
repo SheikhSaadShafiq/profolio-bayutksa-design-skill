@@ -1,9 +1,9 @@
 {
-  "at": "2026-09-29T14:04:10.334Z",
-  "rules": 2995,
-  "rulesMobile": 3010,
-  "conflicts": 74371,
-  "conflictsMobile": 111500,
+  "at": "2026-10-01T08:59:48.730Z",
+  "rules": 2959,
+  "rulesMobile": 2953,
+  "conflicts": 74698,
+  "conflictsMobile": 111525,
   "rows": [
     {
       "name": "ad-license",
@@ -20,7 +20,7 @@
     {
       "name": "agent-performance",
       "device": "web",
-      "pct": 0.004,
+      "pct": 0.001,
       "ok": true
     },
     {
@@ -56,7 +56,7 @@
     {
       "name": "lms-leads",
       "device": "web",
-      "pct": 0.001,
+      "pct": 0.055,
       "ok": true
     },
     {
@@ -68,7 +68,7 @@
     {
       "name": "packages",
       "device": "web",
-      "pct": 0.017,
+      "pct": 0.067,
       "ok": true
     },
     {
@@ -110,7 +110,7 @@
     {
       "name": "reports-listing-report",
       "device": "web",
-      "pct": 0.001,
+      "pct": 0.037,
       "ok": true
     },
     {
@@ -164,7 +164,7 @@
     {
       "name": "agent-performance--mobile",
       "device": "mobile",
-      "pct": 0.003,
+      "pct": 0.007,
       "ok": true
     },
     {
@@ -194,13 +194,13 @@
     {
       "name": "listings--mobile",
       "device": "mobile",
-      "pct": 0.006,
+      "pct": 0.059,
       "ok": true
     },
     {
       "name": "lms-leads--mobile",
       "device": "mobile",
-      "pct": 0.192,
+      "pct": 0.004,
       "ok": true
     },
     {
@@ -254,13 +254,13 @@
     {
       "name": "reports-listing-report--mobile",
       "device": "mobile",
-      "pct": 0,
+      "pct": 0.138,
       "ok": true
     },
     {
       "name": "reports-summary--mobile",
       "device": "mobile",
-      "pct": 0.044,
+      "pct": 0.041,
       "ok": true
     },
     {
@@ -278,7 +278,7 @@
     {
       "name": "user-settings-licenses--mobile",
       "device": "mobile",
-      "pct": 0.211,
+      "pct": 0.212,
       "ok": true
     },
     {
@@ -290,7 +290,7 @@
     {
       "name": "user-settings-user-profile--mobile",
       "device": "mobile",
-      "pct": 0.004,
+      "pct": 0,
       "ok": true
     },
     {
@@ -512,7 +512,7 @@
     {
       "name": "agency-staff--form-invite-user-otp-errors",
       "device": "web",
-      "pct": 0.003,
+      "pct": 0,
       "ok": true
     },
     {
@@ -542,7 +542,7 @@
     {
       "name": "agency-staff--message-edit-user-failed",
       "device": "web",
-      "pct": 0.003,
+      "pct": 0.002,
       "ok": true
     },
     {
@@ -578,7 +578,7 @@
     {
       "name": "agency-staff--modal-edit-user-title-english__inline-browse-and-upload",
       "device": "web",
-      "pct": 0.003,
+      "pct": 0.001,
       "ok": true
     },
     {
@@ -608,7 +608,7 @@
     {
       "name": "agency-staff--modal-invite-user-otp",
       "device": "web",
-      "pct": 0.003,
+      "pct": 0,
       "ok": true
     },
     {
@@ -662,25 +662,25 @@
     {
       "name": "agent-performance--as-individual",
       "device": "web",
-      "pct": 0,
+      "pct": 0.002,
       "ok": true
     },
     {
       "name": "agent-performance--as-staff",
       "device": "web",
-      "pct": 0.002,
+      "pct": 0.001,
       "ok": true
     },
     {
       "name": "agent-performance--drawer-feedback",
       "device": "web",
-      "pct": 0.001,
+      "pct": 0,
       "ok": true
     },
     {
       "name": "agent-performance--drawer-learn-more",
       "device": "web",
-      "pct": 0.007,
+      "pct": 0.002,
       "ok": true
     },
     {
@@ -704,7 +704,7 @@
     {
       "name": "agent-performance--dropdown-filter-by-badges",
       "device": "web",
-      "pct": 0.003,
+      "pct": 0.001,
       "ok": true
     },
     {
@@ -722,25 +722,25 @@
     {
       "name": "agent-performance--loading",
       "device": "web",
-      "pct": 0,
+      "pct": 0.036,
       "ok": true
     },
     {
       "name": "agent-performance--menu-post-a-listing",
       "device": "web",
-      "pct": 0.003,
+      "pct": 0,
       "ok": true
     },
     {
       "name": "agent-performance--modal-download-app",
       "device": "web",
-      "pct": 0.001,
+      "pct": 0,
       "ok": true
     },
     {
       "name": "agent-performance--modal-help-support-profolio",
       "device": "web",
-      "pct": 0.026,
+      "pct": 0.011,
       "ok": true
     },
     {
@@ -758,7 +758,7 @@
     {
       "name": "agent-performance--modal-not-ranked__inline-3",
       "device": "web",
-      "pct": 0.001,
+      "pct": 0,
       "ok": true
     },
     {
@@ -770,7 +770,7 @@
     {
       "name": "agent-performance--modal-not-ranked__inline-5",
       "device": "web",
-      "pct": 0.001,
+      "pct": 0,
       "ok": true
     },
     {
@@ -788,7 +788,7 @@
     {
       "name": "agent-performance--popover-calls-received-9-calls",
       "device": "web",
-      "pct": 0.003,
+      "pct": 0.002,
       "ok": true
     },
     {
@@ -800,13 +800,13 @@
     {
       "name": "agent-performance--popover-notifications-mark-all-as",
       "device": "web",
-      "pct": 0.003,
+      "pct": 0,
       "ok": true
     },
     {
       "name": "agent-performance--rail-expanded",
       "device": "web",
-      "pct": 0.055,
+      "pct": 0.051,
       "ok": true
     },
     {
@@ -1046,7 +1046,7 @@
     {
       "name": "credits-usage--modal-help-support-profolio",
       "device": "web",
-      "pct": 0.027,
+      "pct": 0.01,
       "ok": true
     },
     {
@@ -1082,7 +1082,7 @@
     {
       "name": "credits-usage--rail-expanded",
       "device": "web",
-      "pct": 0.054,
+      "pct": 0.083,
       "ok": true
     },
     {
@@ -1196,19 +1196,19 @@
     {
       "name": "dashboard--modal-profile-completed",
       "device": "web",
-      "pct": 0.149,
+      "pct": 0.19,
       "ok": true
     },
     {
       "name": "dashboard--modal-publish-now",
       "device": "web",
-      "pct": 0.837,
+      "pct": 0.839,
       "ok": false
     },
     {
       "name": "dashboard--modal-publish-now__message-verify",
       "device": "web",
-      "pct": 0.986,
+      "pct": 0.839,
       "ok": false
     },
     {
@@ -1238,61 +1238,61 @@
     {
       "name": "dashboard--popover-1104-am-sep-26",
       "device": "web",
-      "pct": 0.011,
+      "pct": 0.014,
       "ok": true
     },
     {
       "name": "dashboard--popover-31",
       "device": "web",
-      "pct": 1.725,
+      "pct": 1.723,
       "ok": false
     },
     {
       "name": "dashboard--popover-33",
       "device": "web",
-      "pct": 1.688,
+      "pct": 1.686,
       "ok": false
     },
     {
       "name": "dashboard--popover-34",
       "device": "web",
-      "pct": 1.686,
+      "pct": 1.687,
       "ok": false
     },
     {
       "name": "dashboard--popover-39",
       "device": "web",
-      "pct": 1.671,
+      "pct": 1.669,
       "ok": false
     },
     {
       "name": "dashboard--popover-43",
       "device": "web",
-      "pct": 1.713,
+      "pct": 1.712,
       "ok": false
     },
     {
       "name": "dashboard--popover-46",
       "device": "web",
-      "pct": 1.764,
+      "pct": 1.763,
       "ok": false
     },
     {
       "name": "dashboard--popover-50",
       "device": "web",
-      "pct": 1.702,
+      "pct": 1.699,
       "ok": false
     },
     {
       "name": "dashboard--popover-54",
       "device": "web",
-      "pct": 0.007,
+      "pct": 0.005,
       "ok": true
     },
     {
       "name": "dashboard--popover-62",
       "device": "web",
-      "pct": 1.527,
+      "pct": 1.53,
       "ok": false
     },
     {
@@ -1334,13 +1334,13 @@
     {
       "name": "dashboard--tooltip-50-off",
       "device": "web",
-      "pct": 1.534,
+      "pct": 1.529,
       "ok": false
     },
     {
       "name": "dashboard--tooltip-booked",
       "device": "web",
-      "pct": 1.618,
+      "pct": 1.605,
       "ok": false
     },
     {
@@ -1376,7 +1376,7 @@
     {
       "name": "listings--action-detail-drawer",
       "device": "web",
-      "pct": 0.006,
+      "pct": 0.007,
       "ok": true
     },
     {
@@ -1388,73 +1388,73 @@
     {
       "name": "listings--as-individual",
       "device": "web",
-      "pct": 0.011,
+      "pct": 0.01,
       "ok": true
     },
     {
       "name": "listings--as-staff",
       "device": "web",
-      "pct": 0.011,
+      "pct": 0.01,
       "ok": true
     },
     {
       "name": "listings--date-posted-on",
       "device": "web",
-      "pct": 0.005,
+      "pct": 0.004,
       "ok": true
     },
     {
       "name": "listings--drawer-credit-info",
       "device": "web",
-      "pct": 0.006,
+      "pct": 0.008,
       "ok": true
     },
     {
       "name": "listings--drawer-feedback",
       "device": "web",
-      "pct": 0.005,
+      "pct": 0.006,
       "ok": true
     },
     {
       "name": "listings--drawer-filters",
       "device": "web",
-      "pct": 0.005,
+      "pct": 0.006,
       "ok": true
     },
     {
       "name": "listings--drawer-show-more",
       "device": "web",
-      "pct": 0.005,
+      "pct": 0.006,
       "ok": true
     },
     {
       "name": "listings--drawer-show-more__inline-button",
       "device": "web",
-      "pct": 0.005,
+      "pct": 0.006,
       "ok": true
     },
     {
       "name": "listings--drawer-show-more__popover-select-date-range",
       "device": "web",
-      "pct": 0.005,
+      "pct": 0.004,
       "ok": true
     },
     {
       "name": "listings--drawer-show-more__tooltip-0-1-billion",
       "device": "web",
-      "pct": 0.005,
+      "pct": 0.006,
       "ok": true
     },
     {
       "name": "listings--dropdown-select-property-types",
       "device": "web",
-      "pct": 0.033,
+      "pct": 0.012,
       "ok": true
     },
     {
       "name": "listings--dropdown-select-purpose",
       "device": "web",
-      "pct": 0.011,
+      "pct": 0.012,
       "ok": true
     },
     {
@@ -1472,7 +1472,7 @@
     {
       "name": "listings--inline-search",
       "device": "web",
-      "pct": 0.011,
+      "pct": 0.01,
       "ok": true
     },
     {
@@ -1490,7 +1490,7 @@
     {
       "name": "listings--menu-post-a-listing",
       "device": "web",
-      "pct": 0.008,
+      "pct": 0.322,
       "ok": true
     },
     {
@@ -1520,7 +1520,7 @@
     {
       "name": "listings--modal-otp",
       "device": "web",
-      "pct": 0.004,
+      "pct": 0.002,
       "ok": true
     },
     {
@@ -1532,7 +1532,7 @@
     {
       "name": "listings--modal-publish-now__message-verify",
       "device": "web",
-      "pct": 0.005,
+      "pct": 0.002,
       "ok": true
     },
     {
@@ -1544,103 +1544,103 @@
     {
       "name": "listings--modal-trucheck-eligible-trucheck-is",
       "device": "web",
-      "pct": 0.006,
+      "pct": 0.005,
       "ok": true
     },
     {
       "name": "listings--modal-trucheck",
       "device": "web",
-      "pct": 0.006,
+      "pct": 0.005,
       "ok": true
     },
     {
       "name": "listings--popover-1104-am-sep-26",
       "device": "web",
-      "pct": 0.014,
+      "pct": 0.017,
       "ok": true
     },
     {
       "name": "listings--popover-31",
       "device": "web",
-      "pct": 0.007,
+      "pct": 0.006,
       "ok": true
     },
     {
       "name": "listings--popover-33",
       "device": "web",
-      "pct": 0.009,
+      "pct": 0.008,
       "ok": true
     },
     {
       "name": "listings--popover-34",
       "device": "web",
-      "pct": 0.008,
+      "pct": 0.007,
       "ok": true
     },
     {
       "name": "listings--popover-39",
       "device": "web",
-      "pct": 0.01,
+      "pct": 0.009,
       "ok": true
     },
     {
       "name": "listings--popover-43",
       "device": "web",
-      "pct": 0.008,
+      "pct": 0.004,
       "ok": true
     },
     {
       "name": "listings--popover-46",
       "device": "web",
-      "pct": 0.01,
+      "pct": 0.009,
       "ok": true
     },
     {
       "name": "listings--popover-50",
       "device": "web",
-      "pct": 0.008,
+      "pct": 0.006,
       "ok": true
     },
     {
       "name": "listings--popover-54",
       "device": "web",
-      "pct": 0.008,
+      "pct": 0.006,
       "ok": true
     },
     {
       "name": "listings--popover-62",
       "device": "web",
-      "pct": 0.006,
+      "pct": 0.005,
       "ok": true
     },
     {
       "name": "listings--popover-account",
       "device": "web",
-      "pct": 0.011,
+      "pct": 0.012,
       "ok": true
     },
     {
       "name": "listings--popover-faisal-al-harbi-agency-user",
       "device": "web",
-      "pct": 0.011,
+      "pct": 0.012,
       "ok": true
     },
     {
       "name": "listings--popover-health",
       "device": "web",
-      "pct": 0.006,
+      "pct": 0.005,
       "ok": true
     },
     {
       "name": "listings--popover-images-do-not-match",
       "device": "web",
-      "pct": 0.011,
+      "pct": 0.013,
       "ok": true
     },
     {
       "name": "listings--popover-leads",
       "device": "web",
-      "pct": 0.012,
+      "pct": 0.015,
       "ok": true
     },
     {
@@ -1652,31 +1652,31 @@
     {
       "name": "listings--popover-notifications-mark-all-as",
       "device": "web",
-      "pct": 0.008,
+      "pct": 0.012,
       "ok": true
     },
     {
       "name": "listings--popover-notifications",
       "device": "web",
-      "pct": 0.008,
+      "pct": 0.012,
       "ok": true
     },
     {
       "name": "listings--popover-rega",
       "device": "web",
-      "pct": 0.017,
+      "pct": 0.014,
       "ok": true
     },
     {
       "name": "listings--popover-status-rejected",
       "device": "web",
-      "pct": 0.011,
+      "pct": 0.013,
       "ok": true
     },
     {
       "name": "listings--popover-timeline",
       "device": "web",
-      "pct": 0.014,
+      "pct": 0.017,
       "ok": true
     },
     {
@@ -1694,13 +1694,13 @@
     {
       "name": "listings--select-property-type",
       "device": "web",
-      "pct": 0.011,
+      "pct": 0.012,
       "ok": true
     },
     {
       "name": "listings--select-purpose",
       "device": "web",
-      "pct": 0.011,
+      "pct": 0.012,
       "ok": true
     },
     {
@@ -1718,7 +1718,7 @@
     {
       "name": "listings--tab-pending",
       "device": "web",
-      "pct": 0.003,
+      "pct": 0.007,
       "ok": true
     },
     {
@@ -1730,19 +1730,19 @@
     {
       "name": "listings--tooltip-50-off",
       "device": "web",
-      "pct": 0.011,
+      "pct": 0.013,
       "ok": true
     },
     {
       "name": "listings--tooltip-action",
       "device": "web",
-      "pct": 0.012,
+      "pct": 0.015,
       "ok": true
     },
     {
       "name": "listings--tooltip-booked",
       "device": "web",
-      "pct": 0.014,
+      "pct": 0.01,
       "ok": true
     },
     {
@@ -1766,19 +1766,19 @@
     {
       "name": "listings--tooltip-upgrade-service",
       "device": "web",
-      "pct": 0.012,
+      "pct": 0.015,
       "ok": true
     },
     {
       "name": "listings--tooltip-upgrade-unavailable",
       "device": "web",
-      "pct": 0.014,
+      "pct": 0.013,
       "ok": true
     },
     {
       "name": "listings--tooltip-upgrade",
       "device": "web",
-      "pct": 0.012,
+      "pct": 0.015,
       "ok": true
     },
     {
@@ -2198,7 +2198,7 @@
     {
       "name": "lms-leads--popover-clicked-total-number-of",
       "device": "web",
-      "pct": 0.009,
+      "pct": 0.021,
       "ok": true
     },
     {
@@ -2354,7 +2354,7 @@
     {
       "name": "packages--loading",
       "device": "web",
-      "pct": 0.048,
+      "pct": 0.006,
       "ok": true
     },
     {
@@ -2690,7 +2690,7 @@
     {
       "name": "post-listing-edit--flow-post-listing-07-description",
       "device": "web",
-      "pct": 0.02,
+      "pct": 0.006,
       "ok": true
     },
     {
@@ -2732,7 +2732,7 @@
     {
       "name": "post-listing-edit--inline-images-failed",
       "device": "web",
-      "pct": 0.007,
+      "pct": 0.006,
       "ok": true
     },
     {
@@ -2906,7 +2906,7 @@
     {
       "name": "post-listing-edit--rail-expanded",
       "device": "web",
-      "pct": 0.151,
+      "pct": 0.154,
       "ok": true
     },
     {
@@ -3194,13 +3194,13 @@
     {
       "name": "reports-listing-report--as-individual",
       "device": "web",
-      "pct": 0.018,
+      "pct": 0.002,
       "ok": true
     },
     {
       "name": "reports-listing-report--as-staff",
       "device": "web",
-      "pct": 0.004,
+      "pct": 0.003,
       "ok": true
     },
     {
@@ -3218,19 +3218,19 @@
     {
       "name": "reports-listing-report--error",
       "device": "web",
-      "pct": 0.003,
+      "pct": 0.005,
       "ok": true
     },
     {
       "name": "reports-listing-report--inline-listing-by-date",
       "device": "web",
-      "pct": 0.019,
+      "pct": 0.018,
       "ok": true
     },
     {
       "name": "reports-listing-report--loading",
       "device": "web",
-      "pct": 0,
+      "pct": 0.061,
       "ok": true
     },
     {
@@ -3242,7 +3242,7 @@
     {
       "name": "reports-listing-report--modal-download-app",
       "device": "web",
-      "pct": 0,
+      "pct": 0.002,
       "ok": true
     },
     {
@@ -3296,31 +3296,31 @@
     {
       "name": "reports-listing-report--popover-54",
       "device": "web",
-      "pct": 0.008,
+      "pct": 0.011,
       "ok": true
     },
     {
       "name": "reports-listing-report--popover-62",
       "device": "web",
-      "pct": 0.013,
+      "pct": 0.005,
       "ok": true
     },
     {
       "name": "reports-listing-report--popover-faisal-al-harbi-agency-user",
       "device": "web",
-      "pct": 0.021,
+      "pct": 0.034,
       "ok": true
     },
     {
       "name": "reports-listing-report--popover-notifications-mark-all-as",
       "device": "web",
-      "pct": 0.001,
+      "pct": 0.024,
       "ok": true
     },
     {
       "name": "reports-listing-report--rail-expanded",
       "device": "web",
-      "pct": 0.001,
+      "pct": 0.012,
       "ok": true
     },
     {
@@ -3332,7 +3332,7 @@
     {
       "name": "reports-summary--as-staff",
       "device": "web",
-      "pct": 0.001,
+      "pct": 0,
       "ok": true
     },
     {
@@ -3350,19 +3350,19 @@
     {
       "name": "reports-summary--error",
       "device": "web",
-      "pct": 0.031,
+      "pct": 0.003,
       "ok": true
     },
     {
       "name": "reports-summary--inline-clicks-407-3",
       "device": "web",
-      "pct": 0.003,
+      "pct": 0,
       "ok": true
     },
     {
       "name": "reports-summary--inline-div",
       "device": "web",
-      "pct": 0,
+      "pct": 0.005,
       "ok": true
     },
     {
@@ -3374,13 +3374,13 @@
     {
       "name": "reports-summary--inline-leads-13-8",
       "device": "web",
-      "pct": 0,
+      "pct": 0.007,
       "ok": true
     },
     {
       "name": "reports-summary--inline-sms-1",
       "device": "web",
-      "pct": 0.028,
+      "pct": 0.001,
       "ok": true
     },
     {
@@ -3404,13 +3404,13 @@
     {
       "name": "reports-summary--modal-help-support-profolio",
       "device": "web",
-      "pct": 0.001,
+      "pct": 0.007,
       "ok": true
     },
     {
       "name": "reports-summary--popover-calls-3",
       "device": "web",
-      "pct": 0,
+      "pct": 0.006,
       "ok": true
     },
     {
@@ -3428,13 +3428,13 @@
     {
       "name": "reports-summary--popover-today-yesterday-last-7",
       "device": "web",
-      "pct": 0.021,
+      "pct": 0.007,
       "ok": true
     },
     {
       "name": "reports-summary--popover-whatsapp-7",
       "device": "web",
-      "pct": 0.004,
+      "pct": 0,
       "ok": true
     },
     {
@@ -3452,7 +3452,7 @@
     {
       "name": "user-settings-agency-profile--as-staff",
       "device": "web",
-      "pct": 0.002,
+      "pct": 0,
       "ok": true
     },
     {
@@ -3464,31 +3464,31 @@
     {
       "name": "user-settings-agency-profile--empty",
       "device": "web",
-      "pct": 0.055,
+      "pct": 0,
       "ok": true
     },
     {
       "name": "user-settings-agency-profile--error",
       "device": "web",
-      "pct": 0.002,
+      "pct": 0.001,
       "ok": true
     },
     {
       "name": "user-settings-agency-profile--form-agency-errors",
       "device": "web",
-      "pct": 0.053,
+      "pct": 0,
       "ok": true
     },
     {
       "name": "user-settings-agency-profile--form-agency-filled",
       "device": "web",
-      "pct": 0.055,
+      "pct": 0,
       "ok": true
     },
     {
       "name": "user-settings-agency-profile--inline-icon",
       "device": "web",
-      "pct": 0.001,
+      "pct": 0.002,
       "ok": true
     },
     {
@@ -3500,7 +3500,7 @@
     {
       "name": "user-settings-agency-profile--loading",
       "device": "web",
-      "pct": 0,
+      "pct": 0.001,
       "ok": true
     },
     {
@@ -3530,7 +3530,7 @@
     {
       "name": "user-settings-agency-profile--modal-help-support-profolio",
       "device": "web",
-      "pct": 0.001,
+      "pct": 0.039,
       "ok": true
     },
     {
@@ -3554,13 +3554,13 @@
     {
       "name": "user-settings-agency-profile--profile-incomplete",
       "device": "web",
-      "pct": 0,
+      "pct": 0.055,
       "ok": true
     },
     {
       "name": "user-settings-agency-profile--rail-expanded",
       "device": "web",
-      "pct": 0.03,
+      "pct": 0.028,
       "ok": true
     },
     {
@@ -3752,7 +3752,7 @@
     {
       "name": "user-settings-licenses--modal-help-support-profolio",
       "device": "web",
-      "pct": 0.012,
+      "pct": 0.011,
       "ok": true
     },
     {
@@ -3788,7 +3788,7 @@
     {
       "name": "user-settings-licenses--rail-expanded",
       "device": "web",
-      "pct": 0,
+      "pct": 0.039,
       "ok": true
     },
     {
@@ -3914,13 +3914,13 @@
     {
       "name": "user-settings-user-profile--as-individual",
       "device": "web",
-      "pct": 0.002,
+      "pct": 0.001,
       "ok": true
     },
     {
       "name": "user-settings-user-profile--as-staff",
       "device": "web",
-      "pct": 0.001,
+      "pct": 0,
       "ok": true
     },
     {
@@ -3980,31 +3980,31 @@
     {
       "name": "user-settings-user-profile--inline-close-circle",
       "device": "web",
-      "pct": 0.001,
+      "pct": 0.002,
       "ok": true
     },
     {
       "name": "user-settings-user-profile--inline-close",
       "device": "web",
-      "pct": 0,
+      "pct": 0.001,
       "ok": true
     },
     {
       "name": "user-settings-user-profile--inline-generate-agent-description-english",
       "device": "web",
-      "pct": 0.002,
+      "pct": 0.001,
       "ok": true
     },
     {
       "name": "user-settings-user-profile--loading",
       "device": "web",
-      "pct": 0.001,
+      "pct": 0,
       "ok": true
     },
     {
       "name": "user-settings-user-profile--menu-post-a-listing",
       "device": "web",
-      "pct": 0.001,
+      "pct": 0.002,
       "ok": true
     },
     {
@@ -4022,7 +4022,7 @@
     {
       "name": "user-settings-user-profile--message-save-changes",
       "device": "web",
-      "pct": 0.037,
+      "pct": 0,
       "ok": true
     },
     {
@@ -4076,7 +4076,7 @@
     {
       "name": "user-settings-user-profile--profile-incomplete",
       "device": "web",
-      "pct": 0,
+      "pct": 0.001,
       "ok": true
     },
     {
@@ -4136,7 +4136,7 @@
     {
       "name": "ad-license--flow-ad-license-01-property-information--mobile",
       "device": "mobile",
-      "pct": 0.014,
+      "pct": 0,
       "ok": true
     },
     {
@@ -4208,7 +4208,7 @@
     {
       "name": "ad-license--loading--mobile",
       "device": "mobile",
-      "pct": 0,
+      "pct": 0.281,
       "ok": true
     },
     {
@@ -4304,7 +4304,7 @@
     {
       "name": "agency-staff--form-edit-user-errors--mobile",
       "device": "mobile",
-      "pct": 0.011,
+      "pct": 0.01,
       "ok": true
     },
     {
@@ -4352,7 +4352,7 @@
     {
       "name": "agency-staff--message-edit-user-failed--mobile",
       "device": "mobile",
-      "pct": 0.009,
+      "pct": 0.006,
       "ok": true
     },
     {
@@ -4376,7 +4376,7 @@
     {
       "name": "agency-staff--modal-invite-user-otp--mobile",
       "device": "mobile",
-      "pct": 0.076,
+      "pct": 0.06,
       "ok": true
     },
     {
@@ -4400,13 +4400,13 @@
     {
       "name": "agent-performance--as-individual--mobile",
       "device": "mobile",
-      "pct": 0.004,
+      "pct": 0.001,
       "ok": true
     },
     {
       "name": "agent-performance--as-staff--mobile",
       "device": "mobile",
-      "pct": 0.006,
+      "pct": 0.012,
       "ok": true
     },
     {
@@ -4418,7 +4418,7 @@
     {
       "name": "agent-performance--drawer-learn-more--mobile",
       "device": "mobile",
-      "pct": 0.014,
+      "pct": 0.006,
       "ok": true
     },
     {
@@ -4484,13 +4484,13 @@
     {
       "name": "agent-performance--dropdown-filter-by-badges--mobile",
       "device": "mobile",
-      "pct": 0.002,
+      "pct": 0,
       "ok": true
     },
     {
       "name": "agent-performance--empty--mobile",
       "device": "mobile",
-      "pct": 0.001,
+      "pct": 0.002,
       "ok": true
     },
     {
@@ -4514,7 +4514,7 @@
     {
       "name": "agent-performance--modal-quality-lister--mobile",
       "device": "mobile",
-      "pct": 0.005,
+      "pct": 0.001,
       "ok": true
     },
     {
@@ -4856,13 +4856,13 @@
     {
       "name": "dashboard--drawer-62--mobile",
       "device": "mobile",
-      "pct": 0.895,
+      "pct": 0.894,
       "ok": false
     },
     {
       "name": "dashboard--drawer-booked--mobile",
       "device": "mobile",
-      "pct": 4.35,
+      "pct": 4.351,
       "ok": false
     },
     {
@@ -4904,19 +4904,19 @@
     {
       "name": "dashboard--drawer-publish-now--mobile",
       "device": "mobile",
-      "pct": 2.232,
+      "pct": 2.224,
       "ok": false
     },
     {
       "name": "dashboard--drawer-publish-now__message-verify--mobile",
       "device": "mobile",
-      "pct": 2.22,
+      "pct": 2.224,
       "ok": false
     },
     {
       "name": "dashboard--drawer-request-signature-upgrade-the--mobile",
       "device": "mobile",
-      "pct": 1.764,
+      "pct": 1.769,
       "ok": false
     },
     {
@@ -4952,14 +4952,14 @@
     {
       "name": "dashboard--drawer-top-up-your-credits-as-individual--mobile",
       "device": "mobile",
-      "pct": 3.156,
-      "ok": false
+      "pct": 0,
+      "ok": true
     },
     {
       "name": "dashboard--drawer-top-up-your-credits-as-staff--mobile",
       "device": "mobile",
-      "pct": 2.662,
-      "ok": false
+      "pct": 0,
+      "ok": true
     },
     {
       "name": "dashboard--drawer-top-up-your-credits--mobile",
@@ -4982,7 +4982,7 @@
     {
       "name": "dashboard--dropdown-trucheck-eligible-view-on--mobile",
       "device": "mobile",
-      "pct": 7.172,
+      "pct": 7.184,
       "ok": false
     },
     {
@@ -5000,31 +5000,31 @@
     {
       "name": "dashboard--inline-canvas--mobile",
       "device": "mobile",
-      "pct": 6.501,
+      "pct": 6.523,
       "ok": false
     },
     {
       "name": "dashboard--inline-clicks-407-3--mobile",
       "device": "mobile",
-      "pct": 6.158,
+      "pct": 6.18,
       "ok": false
     },
     {
       "name": "dashboard--inline-emails-2--mobile",
       "device": "mobile",
-      "pct": 4.779,
+      "pct": 4.793,
       "ok": false
     },
     {
       "name": "dashboard--inline-leads-13-8--mobile",
       "device": "mobile",
-      "pct": 6.455,
+      "pct": 6.461,
       "ok": false
     },
     {
       "name": "dashboard--inline-sms-1--mobile",
       "device": "mobile",
-      "pct": 4.585,
+      "pct": 4.599,
       "ok": false
     },
     {
@@ -5042,7 +5042,7 @@
     {
       "name": "dashboard--modal-profile-completed--mobile",
       "device": "mobile",
-      "pct": 0.218,
+      "pct": 0.179,
       "ok": true
     },
     {
@@ -5054,7 +5054,7 @@
     {
       "name": "dashboard--popover-calls-3--mobile",
       "device": "mobile",
-      "pct": 4.864,
+      "pct": 4.877,
       "ok": false
     },
     {
@@ -5066,13 +5066,13 @@
     {
       "name": "dashboard--popover-whatsapp-7--mobile",
       "device": "mobile",
-      "pct": 5.044,
+      "pct": 5.057,
       "ok": false
     },
     {
       "name": "dashboard--tooltip-50-off--mobile",
       "device": "mobile",
-      "pct": 0.005,
+      "pct": 0.004,
       "ok": true
     },
     {
@@ -5114,13 +5114,13 @@
     {
       "name": "listings--as-individual--mobile",
       "device": "mobile",
-      "pct": 0.006,
+      "pct": 0.059,
       "ok": true
     },
     {
       "name": "listings--as-staff--mobile",
       "device": "mobile",
-      "pct": 0.006,
+      "pct": 0.059,
       "ok": true
     },
     {
@@ -5276,7 +5276,7 @@
     {
       "name": "listings--drawer-publish-now--mobile",
       "device": "mobile",
-      "pct": 0.018,
+      "pct": 0.009,
       "ok": true
     },
     {
@@ -5312,7 +5312,7 @@
     {
       "name": "listings--dropdown-trucheck-eligible-view-on--mobile",
       "device": "mobile",
-      "pct": 0.018,
+      "pct": 0.017,
       "ok": true
     },
     {
@@ -5330,7 +5330,7 @@
     {
       "name": "listings--inline-search--mobile",
       "device": "mobile",
-      "pct": 0.059,
+      "pct": 0.007,
       "ok": true
     },
     {
@@ -5366,7 +5366,7 @@
     {
       "name": "listings--modal-otp--mobile",
       "device": "mobile",
-      "pct": 0.02,
+      "pct": 0.009,
       "ok": true
     },
     {
@@ -5420,13 +5420,13 @@
     {
       "name": "listings--sticky-filters--mobile",
       "device": "mobile",
-      "pct": 0.017,
+      "pct": 0.018,
       "ok": true
     },
     {
       "name": "listings--tab-ad-license-requests--mobile",
       "device": "mobile",
-      "pct": 0.423,
+      "pct": 0.422,
       "ok": true
     },
     {
@@ -5438,7 +5438,7 @@
     {
       "name": "listings--tab-pending--mobile",
       "device": "mobile",
-      "pct": 0.162,
+      "pct": 0.161,
       "ok": true
     },
     {
@@ -5450,19 +5450,19 @@
     {
       "name": "listings--tooltip-50-off--mobile",
       "device": "mobile",
-      "pct": 0.019,
+      "pct": 0.021,
       "ok": true
     },
     {
       "name": "listings--tooltip-upgrade-none--mobile",
       "device": "mobile",
-      "pct": 0.021,
+      "pct": 0.019,
       "ok": true
     },
     {
       "name": "listings--tooltip-upgrade-unavailable--mobile",
       "device": "mobile",
-      "pct": 0.022,
+      "pct": 0.021,
       "ok": true
     },
     {
@@ -5780,7 +5780,7 @@
     {
       "name": "lms-leads--message-lead-name-saved--mobile",
       "device": "mobile",
-      "pct": 0.351,
+      "pct": 0,
       "ok": true
     },
     {
@@ -5918,7 +5918,7 @@
     {
       "name": "packages--loading--mobile",
       "device": "mobile",
-      "pct": 0,
+      "pct": 0.167,
       "ok": true
     },
     {
@@ -6272,7 +6272,7 @@
     {
       "name": "post-listing-edit--message-save-failed--mobile",
       "device": "mobile",
-      "pct": 0,
+      "pct": 0.082,
       "ok": true
     },
     {
@@ -6404,7 +6404,7 @@
     {
       "name": "post-listing-upgrade--message-upgrade-failed--mobile",
       "device": "mobile",
-      "pct": 0.002,
+      "pct": 0.262,
       "ok": true
     },
     {
@@ -6506,13 +6506,13 @@
     {
       "name": "reports-leads-reports--inline-2--mobile",
       "device": "mobile",
-      "pct": 1.951,
+      "pct": 1.961,
       "ok": false
     },
     {
       "name": "reports-leads-reports--inline-3--mobile",
       "device": "mobile",
-      "pct": 1.849,
+      "pct": 1.871,
       "ok": false
     },
     {
@@ -6584,13 +6584,13 @@
     {
       "name": "reports-listing-report--as-individual--mobile",
       "device": "mobile",
-      "pct": 0.06,
+      "pct": 0,
       "ok": true
     },
     {
       "name": "reports-listing-report--as-staff--mobile",
       "device": "mobile",
-      "pct": 0.037,
+      "pct": 0.032,
       "ok": true
     },
     {
@@ -6608,13 +6608,13 @@
     {
       "name": "reports-listing-report--drawer-profile-information-faisal-al-harbi--mobile",
       "device": "mobile",
-      "pct": 0.002,
+      "pct": 0,
       "ok": true
     },
     {
       "name": "reports-listing-report--empty--mobile",
       "device": "mobile",
-      "pct": 0.01,
+      "pct": 0,
       "ok": true
     },
     {
@@ -6626,13 +6626,13 @@
     {
       "name": "reports-listing-report--inline-listing-by-date--mobile",
       "device": "mobile",
-      "pct": 0.137,
+      "pct": 0,
       "ok": true
     },
     {
       "name": "reports-listing-report--loading--mobile",
       "device": "mobile",
-      "pct": 0,
+      "pct": 0.176,
       "ok": true
     },
     {
@@ -6662,7 +6662,7 @@
     {
       "name": "reports-summary--drawer-notifications-mark-all-as--mobile",
       "device": "mobile",
-      "pct": 0,
+      "pct": 0.016,
       "ok": true
     },
     {
@@ -6680,7 +6680,7 @@
     {
       "name": "reports-summary--drawer-search-by-calendar-today__drawer-last-3-months--mobile",
       "device": "mobile",
-      "pct": 0.001,
+      "pct": 0,
       "ok": true
     },
     {
@@ -6704,7 +6704,7 @@
     {
       "name": "reports-summary--dropdown-all--mobile",
       "device": "mobile",
-      "pct": 0.075,
+      "pct": 0,
       "ok": true
     },
     {
@@ -6716,13 +6716,13 @@
     {
       "name": "reports-summary--error--mobile",
       "device": "mobile",
-      "pct": 0.01,
+      "pct": 0.012,
       "ok": true
     },
     {
       "name": "reports-summary--inline-clicks-407-3--mobile",
       "device": "mobile",
-      "pct": 0.045,
+      "pct": 0,
       "ok": true
     },
     {
@@ -6740,7 +6740,7 @@
     {
       "name": "reports-summary--inline-leads-13-8--mobile",
       "device": "mobile",
-      "pct": 0.005,
+      "pct": 0.059,
       "ok": true
     },
     {
@@ -6788,7 +6788,7 @@
     {
       "name": "user-settings-agency-profile--as-staff--mobile",
       "device": "mobile",
-      "pct": 0.003,
+      "pct": 0.006,
       "ok": true
     },
     {
@@ -6824,13 +6824,13 @@
     {
       "name": "user-settings-agency-profile--error--mobile",
       "device": "mobile",
-      "pct": 0.004,
+      "pct": 0.01,
       "ok": true
     },
     {
       "name": "user-settings-agency-profile--form-agency-errors--mobile",
       "device": "mobile",
-      "pct": 0,
+      "pct": 0.244,
       "ok": true
     },
     {
@@ -6854,7 +6854,7 @@
     {
       "name": "user-settings-agency-profile--loading--mobile",
       "device": "mobile",
-      "pct": 0.003,
+      "pct": 0.001,
       "ok": true
     },
     {
@@ -6992,7 +6992,7 @@
     {
       "name": "user-settings-licenses--as-individual--mobile",
       "device": "mobile",
-      "pct": 0.001,
+      "pct": 0,
       "ok": true
     },
     {
@@ -7034,7 +7034,7 @@
     {
       "name": "user-settings-licenses--drawer-share-license-by-enabling__message-share--mobile",
       "device": "mobile",
-      "pct": 0.21,
+      "pct": 0,
       "ok": true
     },
     {
@@ -7064,8 +7064,8 @@
     {
       "name": "user-settings-licenses--message-share-license-saved--mobile",
       "device": "mobile",
-      "pct": 0.015,
-      "ok": true
+      "pct": 6.303,
+      "ok": false
     },
     {
       "name": "user-settings-licenses--mobile-menu--mobile",
@@ -7178,7 +7178,7 @@
     {
       "name": "user-settings-user-profile--as-individual--mobile",
       "device": "mobile",
-      "pct": 0.004,
+      "pct": 0.006,
       "ok": true
     },
     {
@@ -7214,7 +7214,7 @@
     {
       "name": "user-settings-user-profile--dropdown-1-2-riyadh-diriyah--mobile",
       "device": "mobile",
-      "pct": 0.181,
+      "pct": 0,
       "ok": true
     },
     {
@@ -7232,7 +7232,7 @@
     {
       "name": "user-settings-user-profile--empty--mobile",
       "device": "mobile",
-      "pct": 0,
+      "pct": 0.004,
       "ok": true
     },
     {
@@ -7244,7 +7244,7 @@
     {
       "name": "user-settings-user-profile--form-profile-errors--mobile",
       "device": "mobile",
-      "pct": 0.001,
+      "pct": 0.003,
       "ok": true
     },
     {
@@ -7280,31 +7280,31 @@
     {
       "name": "user-settings-user-profile--inline-generate-agent-description-english--mobile",
       "device": "mobile",
-      "pct": 0.001,
+      "pct": 0.015,
       "ok": true
     },
     {
       "name": "user-settings-user-profile--loading--mobile",
       "device": "mobile",
-      "pct": 0.001,
+      "pct": 0,
       "ok": true
     },
     {
       "name": "user-settings-user-profile--message-profile-failed--mobile",
       "device": "mobile",
-      "pct": 0.002,
+      "pct": 0,
       "ok": true
     },
     {
       "name": "user-settings-user-profile--message-profile-saved--mobile",
       "device": "mobile",
-      "pct": 0.001,
+      "pct": 0.005,
       "ok": true
     },
     {
       "name": "user-settings-user-profile--message-save-changes--mobile",
       "device": "mobile",
-      "pct": 0.006,
+      "pct": 0,
       "ok": true
     },
     {
@@ -7328,7 +7328,7 @@
     {
       "name": "user-settings-user-profile--profile-incomplete--mobile",
       "device": "mobile",
-      "pct": 0.003,
+      "pct": 0.001,
       "ok": true
     }
   ]

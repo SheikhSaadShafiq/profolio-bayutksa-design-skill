@@ -363,6 +363,7 @@ h5.pf-typography, div.pf-typography-h5, div.pf-typography-h5 > textarea, .pf-typ
 .pf-card .pf-card-meta-title { color: var(--pf-color-text-heading); font-weight: var(--pf-font-weight-strong); font-size: var(--pf-font-size-lg); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .pf-card .pf-card-meta-description { color: var(--pf-color-text-description); }
 .pf-card-bordered { border: var(--pf-line-width) var(--pf-line-type) var(--pf-color-border-secondary); }
+.styleProfolio.pf-spin { --pf-spin-content-height: 400px; --pf-spin-dot-size: 20px; --pf-spin-dot-size-sm: 14px; --pf-spin-dot-size-lg: 32px; }
 .styleProfolio.pf-avatar-css-var { --pf-avatar-container-size: 32px; --pf-avatar-container-size-lg: 40px; --pf-avatar-container-size-sm: 24px; --pf-avatar-text-font-size: 18px; --pf-avatar-text-font-size-lg: 24px; --pf-avatar-text-font-size-sm: 14px; --pf-avatar-group-space: 4px; --pf-avatar-group-overlapping: -8px; --pf-avatar-group-border-color: #ffffff; }
 .pf-avatar-css-var { font-family: var(--pf-font-family); font-size: var(--pf-font-size); box-sizing: border-box; }
 .pf-avatar-css-var::before, .pf-avatar-css-var::after { box-sizing: border-box; }
@@ -384,7 +385,6 @@ h5.pf-typography, div.pf-typography-h5, div.pf-typography-h5 > textarea, .pf-typ
   0% { background-position: 100% 50%; }
   100% { background-position: 0px 50%; }
 }
-.styleProfolio.pf-spin { --pf-spin-content-height: 400px; --pf-spin-dot-size: 20px; --pf-spin-dot-size-sm: 14px; --pf-spin-dot-size-lg: 32px; }
 .styleProfolio.pf-input-css-var { --pf-color-border: #DEDEDE; --pf-input-padding-block: 10px; --pf-input-padding-block-sm: 8px; --pf-input-padding-block-lg: 12px; --pf-input-padding-inline: 11px; --pf-input-padding-inline-sm: 7px; --pf-input-padding-inline-lg: 11px; --pf-input-addon-bg: rgba(0, 0, 0, 0.02); --pf-input-active-border-color: #006169; --pf-input-hover-border-color: #137075; --pf-input-active-shadow: 0 0 0 2px #0061691a; --pf-input-error-active-shadow: 0 0 0 2px rgba(255, 38, 5, 0.06); --pf-input-warning-active-shadow: 0 0 0 2px rgba(255, 188, 5, 0.06); --pf-input-hover-bg: #ffffff; --pf-input-active-bg: #ffffff; --pf-input-input-font-size: 14px; --pf-input-input-font-size-lg: 16px; --pf-input-input-font-size-sm: 14px; }
 .pf-input-css-var { box-sizing: border-box; }
 .pf-input-css-var::before, .pf-input-css-var::after { box-sizing: border-box; }

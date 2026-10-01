@@ -3,11 +3,11 @@
 
     python3 qa/validate.py                      the whole package and every design in designs/ (run from skill/)
     python3 qa/validate.py designs/x.html ...   only those designs: checks 1-3
-    python3 qa/validate.py --package designs/x.html   those designs, and the package's checks 4-7
+    python3 qa/validate.py --package designs/x.html   those designs, and the package's checks 4-8
     python3 qa/validate.py --design-only        every design in designs/: checks 1-3
 
 On a .skill install (no atoms/, molecules/, organisms/) the package checks
-4-7 are skipped and say so; they never fail a design.
+4-8 are skipped and say so; they never fail a design.
 
 Exits 1 when any check fails. Standard library only.
 
@@ -20,6 +20,8 @@ The checks
   6  a component class that neither stylesheet defines
   7  a component's used_on, used_in_states and the pages' component lists
      disagree with each other or with what the compiled files draw
+  8  a component drew an element in a compiled file without its marker there
+     (data-pf-i): the compile lost it, so where it is used is undercounted
 
 References and designs. The files under pages/ and atoms/ molecules/
 organisms/ are compiled from the product's own render and carry its inline
@@ -492,6 +494,33 @@ def drawn_by_marker(pages):
     return seen
 
 
+def marker_gaps():
+    """8: an element's owner and file (data-pf-c + data-pf-src) name a component that marks
+    itself elsewhere (data-pf-i Name@file), but no marker in this file names it. freeze.js
+    once walked React's stale tree and left 2,178 such gaps in 1,001 files; walking the
+    tree on screen leaves almost none. The new theme's pages (listings-new) are left out:
+    their product shell is copied in below the header's own marker, by construction."""
+    files = [os.path.join(d, f) for d, _, fs in os.walk(os.path.join(ROOT, 'pages')) for f in fs
+             if f.endswith('.html') and 'listings-new' not in d and not f.startswith('listings-new')]
+    marked, owners = {}, {}
+    known = set()
+    for f in files:
+        with open(f, encoding='utf-8', errors='ignore') as fh:
+            h = re.sub(r'<(script|style)\b[^>]*>.*?</\1\s*>', '', fh.read(), flags=re.S | re.I)
+        m = {i for v in re.findall(r'\sdata-pf-i="([^"]*)"', h) for i in v.split()}
+        o = set()
+        for tag in re.findall(r'<[a-zA-Z][^>]*\sdata-pf-c="[^"]*"[^>]*>', h):
+            c, sm = re.search(r'\sdata-pf-c="([^"]*)"', tag), re.search(r'\sdata-pf-src="([^":]*)', tag)
+            if c and sm:
+                o.add(f'{c.group(1)}@{sm.group(1)}')
+        marked[f], owners[f] = m, o
+        known |= m
+    gaps = [f'{rel(f)}: {", ".join(sorted(i for i in owners[f] if i in known and i not in marked[f]))[:120]}'
+            for f in files if any(i in known and i not in marked[f] for i in owners[f])]
+    allowed = max(1, len(files) // 100)                 # a 1% margin; the stale walk missed in 74% of files
+    return (gaps if len(gaps) > allowed else []), len(files), len(gaps)
+
+
 def registry_consistency(reg):
     """a  pages[x] lists y                          -> x is in components[y].used_on
     b  x in used_on but pages[x] does not list y -> y is in shell.components and x is signed in
@@ -634,7 +663,7 @@ def main(argv):
     report.add(3, 'every class on a page is in registry.json or the kit', [f'.{c} — first on {where}' for c, where in sorted(unknown.items())], f'{len(known)} classes known')
 
     if not design_only and core:
-        print('  .skill install: the package checks 4-7 need atoms/, molecules/ and organisms/ — skipped')
+        print('  .skill install: the package checks 4-8 need atoms/, molecules/ and organisms/ — skipped')
     if not design_only and not core:
         # 4 — every registry file exists
         missing = []
@@ -668,6 +697,10 @@ def main(argv):
 
         # 7 — used_on and the pages' lists say the same thing
         report.add(7, 'used_on, used_in_states and the pages\' component lists agree', registry_consistency(reg), f'{len(reg.get("components", {}))} components against {len(reg.get("pages", {}))} pages and what every compiled file draws')
+
+        # 8 — every component that drew something in a file carries its marker there
+        gaps, nfiles, ngaps = marker_gaps()
+        report.add(8, 'every component a compiled file draws carries its marker there', gaps, f'{nfiles} files, {ngaps} with a missing marker (at most 1% allowed)')
 
     failed = report.print()
     return 1 if failed else 0

@@ -15,7 +15,7 @@ Every string the compiled files of `pages/dashboard` draw — 45 web, 56 phone (
 | Signature | استثنائي | t | components/common/tag/styled.js:6 · components/common/statistic/index.js:93 +1 | all but loading (web and @375) |
 | Hot | مُميز | t | components/common/statistic/index.js:93 · components/widgets/LeadsStatsGraphWidget.js:207 +1 | all but loading (web and @375) |
 | Basic | أساسي | t | components/common/tag/styled.js:6 · components/common/statistic/index.js:93 +1 | all but loading (web and @375) |
-| 3 ⟨{n}⟩ | value | data | components/common/textWithIcon/textWithIcon.js:65 · components/common/statistic/index.js:93 +6 | all but empty, error, loading (web and @375) |
+| 3 ⟨{n}⟩ | value | data | components/common/textWithIcon/textWithIcon.js:65 · components/common/statistic/index.js:93 +5 | all but empty, error, loading (web and @375) |
 | Credits Balance | رصيد النقاط | t | components/common/textWithIcon/styled.js:3 · components/common/drawer/drawer.js:90 +1 | all but error, loading (web and @375) |
 | Available Credits | النقاط المتاحة | t | components/common/statistic/index.js:93 · tenant/bayut/components/credit-info-drawer/creditInfoDrawer.js:125 | all but error, loading (web and @375) |
 | Used | النقاط المستخدمة | t | components/common/statistic/index.js:93 | all but error, loading (web and @375) |
@@ -27,13 +27,13 @@ Every string the compiled files of `pages/dashboard` draw — 45 web, 56 phone (
 | Performance | الأداء | t | components/common/textWithIcon/styled.js:3 · components/common/dataTable/dataTable.js:185 | all but error, loading (web and @375) |
 | All | الكل | t | components/widgets/LeadsStatsGraphWidget.js:215 · components/common/select/styled.js:20 +2 | all but error, loading (web and @375) |
 | For Rent | للإيجار | t | components/common/segmented/segmented.js:8 · — | web: all but error, loading · @375: dropdown-all |
-| Views | المشاهدات | t | components/common/statistic/index.js:93 · components/table/table-components/listing-stats.js:90 +1 | all but error, loading (web and @375) |
+| Views | المشاهدات | t | components/common/statistic/index.js:93 · components/table/table-components/listing-stats.js:90 | all but error, loading (web and @375) |
 | 13% ⟨{n}%⟩ ×3 | value | data | components/common/statistic/index.js:51 | all but empty, error, loading (web and @375) |
-| Clicks | الزيارات | t | components/common/statistic/index.js:93 · components/table/table-components/listing-stats.js:90 +1 | all but error, loading (web and @375) |
-| Leads | العملاء المحتملين | t | components/common/statistic/index.js:93 · components/table/table-components/listing-stats.js:90 +1 | all but error, loading (web and @375) |
+| Clicks | الزيارات | t | components/common/statistic/index.js:93 · components/table/table-components/listing-stats.js:90 | all but error, loading (web and @375) |
+| Leads | العملاء المحتملين | t | components/common/statistic/index.js:93 · components/table/table-components/listing-stats.js:90 | all but error, loading (web and @375) |
 | Calls | المكالمات | t | components/common/statistic/index.js:93 · components/widgets/LeadsStatsGraphWidget.js:367 | web: all but error, loading · @375: inline-emails-2, inline-leads-13-8, inline-sms-1, popover-calls-3, popover-whatsapp-7 |
 | WhatsApp | واتساب | t | components/common/statistic/index.js:93 · components/widgets/LeadsStatsGraphWidget.js:367 | web: all but error, loading · @375: inline-emails-2, inline-leads-13-8, inline-sms-1, popover-calls-3, popover-whatsapp-7 |
-| 7 ⟨{n}⟩ ×6 | value | data | tenant/bayut/components/listing/listingCard.js:161 · components/table/table-components/listing-purpose.js:288 +7 | all but empty, error, loading (web and @375) |
+| 7 ⟨{n}⟩ ×6 | value | data | tenant/bayut/components/listing/listingCard.js:161 · components/table/table-components/listing-purpose.js:288 +6 | all but empty, error, loading (web and @375) |
 | SMS | الرسائل النصية | t | components/common/statistic/index.js:93 · components/widgets/LeadsStatsGraphWidget.js:367 | web: all but error, loading · @375: inline-emails-2, inline-leads-13-8, inline-sms-1, popover-calls-3, popover-whatsapp-7 |
 | Emails | الرسائل البريدية | t | components/common/statistic/index.js:93 · components/widgets/LeadsStatsGraphWidget.js:367 | web: all but error, loading · @375: inline-emails-2, inline-leads-13-8, inline-sms-1, popover-calls-3, popover-whatsapp-7 |
 | Recent Listings | الإعلانات الأخيرة | t | components/common/textWithIcon/styled.js:3 | all but loading (web and @375) |
@@ -52,9 +52,9 @@ Every string the compiled files of `pages/dashboard` draw — 45 web, 56 phone (
 | REGA ID: | رقم ترخيص الإعلان: | t | tenant/bayut/components/listing/listingCard.js:348 · components/table/table-components/listing-purpose.js:461 | all but empty, error, loading (web and @375) |
 | 7201340882 ⟨{n}⟩ ×8 | value | data | tenant/bayut/components/listing/listingCard.js:351 · components/table/table-components/listing-purpose.js:462 | all but empty, error, loading (web and @375) |
 | Posted on | تاريخ الإضافة | t | components/table/table-components/expiry-renewal.js:54 | web: all but empty, error, loading · @375: none |
-| Sep 27, 2026 ⟨{date}⟩ ×10 | value | data | components/table/table-components/expiry-renewal.js:56 | web: all but empty, error, loading · @375: none |
+| Sep 29, 2026 ⟨{date}⟩ ×10 | value | data | components/table/table-components/expiry-renewal.js:56 | web: all but empty, error, loading · @375: none |
 | REGA Ad Licence Expiry Date: | تاريخ انتهاء ترخيص الإعلان من الهيئة العامة للعقار | t | tenant/bayut/components/listing/listingCard.js:399 · components/table/table-components/expiry-renewal.js:72 | all but empty, error, loading (web and @375) |
-| Dec 26, 2026 ⟨{date}⟩ ×8 | value | data | tenant/bayut/components/listing/listingCard.js:400 · components/table/table-components/expiry-renewal.js:73 | all but empty, error, loading (web and @375) |
+| Dec 28, 2026 ⟨{date}⟩ ×8 | value | data | tenant/bayut/components/listing/listingCard.js:400 · components/table/table-components/expiry-renewal.js:73 | all but empty, error, loading (web and @375) |
 | Live | فعال | t | components/common/tag/styled.js:6 | web: all but empty, error, loading · @375: none |
 | Riyadh, North Riyadh, Al Masif | fixture: fixtures/extra.mjs | data | tenant/bayut/components/listing/listingCard.js:316 · components/table/table-components/listing-purpose.js:424 | all but empty, error, loading (web and @375) |
 | Rejected | مرفوض | t | components/common/tag/styled.js:6 | web: all but empty, error, loading · @375: none |
@@ -69,12 +69,12 @@ Every string the compiled files of `pages/dashboard` draw — 45 web, 56 phone (
 | 48235710 ⟨{n}⟩ ×2 | value | data | tenant/bayut/components/listing/listingCard.js:361 · components/table/table-components/listing-purpose.js:488 | all but empty, error, loading (web and @375) |
 | Villa for Sale \| Ready | not in translations | code | components/common/tag/styled.js:6 | all but empty, error, loading (web and @375) |
 | Al Diriyah, As Sulaymaniyah | fixture: fixtures/credits.mjs | data | tenant/bayut/components/listing/listingCard.js:316 · components/table/table-components/listing-purpose.js:424 | all but empty, error, loading (web and @375) |
-| Booked | محجوزة | t | components/common/tag/styled.js:6 · components/table/table-components/listing-purpose.js:297 +1 | all but empty, error, loading (web and @375) |
+| Booked | محجوزة | t | components/common/tag/styled.js:6 · components/common/drawer/drawer.js:90 | all but empty, error, loading (web and @375) |
 | Riyadh, East Riyadh, Al Yarmuk | fixture: fixtures/extra.mjs | data | tenant/bayut/components/listing/listingCard.js:316 · components/table/table-components/listing-purpose.js:424 | all but empty, error, loading (web and @375) |
 | Pending OTP Verification | fixture: fixtures.mjs | data | components/common/tag/styled.js:6 | web: all but empty, error, loading · @375: none |
 | Publish Now | نشر الآن | t | components/common/button/button.js:40 | all but empty, error, loading (web and @375) |
-| 5.0% ⟨{n}%⟩ | value | data | components/discount-tag/DiscountTag.js:121 · components/table/table-components/listing-purpose.js:325 +1 | all but empty, error, loading (web and @375) |
-| Off | خصم | t | components/discount-tag/DiscountTag.js:123 · components/table/table-components/listing-purpose.js:325 +1 | all but empty, error, loading (web and @375) |
+| 5.0% ⟨{n}%⟩ | value | data | components/discount-tag/DiscountTag.js:121 | all but empty, error, loading (web and @375) |
+| Off | خصم | t | components/discount-tag/DiscountTag.js:123 | all but empty, error, loading (web and @375) |
 | © 2026 – All Rights Reserved ⟨© {n} – All Rights Reserved⟩ | {n} + كل الحقوق محفوظة | t+ | layout/withAdminLayout.js:477 | all |
 | FEEDBACK | ملاحظاتك | t | components/feedback/FeedbackTab.js:98 | web: all but drawer-credits-balance, drawer-credits-balance-as-individual, drawer-credits-balance-as-staff, drawer-feedback +10 more · @375: page, app-banner-closed, as-individual, as-staff +15 more |
 | Bayut | بيوت | t | components/appBanner/appBanner.js:42 | web: none · @375: all but app-banner-closed |
@@ -83,9 +83,9 @@ Every string the compiled files of `pages/dashboard` draw — 45 web, 56 phone (
 | 3 Rooms ⟨{n} Rooms⟩ ×3 | {n} + غرف | t+ | components/common/textWithIcon/textWithIcon.js:65 | web: none · @375: all but empty, error, loading |
 | 3 Baths ⟨{n} Baths⟩ ×3 | {n} + دورات مياه | t+ | components/common/textWithIcon/textWithIcon.js:65 | web: none · @375: all but empty, error, loading |
 | Al Wurud | fixture: fixtures/credits.mjs | data | components/common/textWithIcon/textWithIcon.js:65 | web: none · @375: all but empty, error, loading |
-| Posted on Sep 27, 2026 ⟨Posted on {date}⟩ ×10 | تاريخ الإضافة + {date} | t+ | tenant/bayut/components/listing/listingCard.js:390 | web: none · @375: all but empty, error, loading |
+| Posted on Sep 29, 2026 ⟨Posted on {date}⟩ ×10 | تاريخ الإضافة + {date} | t+ | tenant/bayut/components/listing/listingCard.js:390 | web: none · @375: all but empty, error, loading |
 | Expiring on | الانتهاء في | t | components/common/flex/styled.js:3 | web: none · @375: all but empty, error, loading |
-| Oct 27, 2026 ⟨{date}⟩ | value | data | tenant/bayut/components/listing/listingCard.js:417 | web: none · @375: all but empty, error, loading |
+| Oct 29, 2026 ⟨{date}⟩ | value | data | tenant/bayut/components/listing/listingCard.js:417 | web: none · @375: all but empty, error, loading |
 | Al Masif | fixture: fixtures/credits.mjs | data | components/common/textWithIcon/textWithIcon.js:65 | web: none · @375: all but empty, error, loading |
 | Al Mughrizat | fixture: fixtures/credits.mjs | data | components/common/textWithIcon/textWithIcon.js:65 | web: none · @375: all but empty, error, loading |
 | Al Rawabi | fixture: fixtures/credits.mjs | data | components/common/textWithIcon/textWithIcon.js:65 | web: none · @375: all but empty, error, loading |
@@ -135,7 +135,7 @@ Every string the compiled files of `pages/dashboard` draw — 45 web, 56 phone (
 | Listing is 6 days old | fixture: fixtures/listings.mjs | data | components/listing-health/listing-health.js:106 | web: popover-50 · @375: drawer-50, drawer-50__drawer-refresh |
 | Listing is 5 days old | fixture: fixtures/listings.mjs | data | components/listing-health/listing-health.js:106 | web: popover-54 · @375: drawer-54, drawer-54__drawer-refresh |
 | Listing is 3 days old | fixture: fixtures/listings.mjs | data | components/listing-health/listing-health.js:106 | web: popover-62 · @375: drawer-62 |
-| Booked Until Oct 05, 2026 ⟨Booked Until {date}⟩ | محجوز حتى + {date} | t+ | components/common/textWithIcon/textWithIcon.js:65 | web: tooltip-booked · @375: drawer-booked |
+| Booked Until Oct 07, 2026 ⟨Booked Until {date}⟩ | محجوز حتى + {date} | t+ | components/common/textWithIcon/textWithIcon.js:65 | web: tooltip-booked · @375: drawer-booked |
 | Bayut Credits | رصيد حساب الأعمال | t | tenant/bayut/components/credit-info-drawer/creditInfoDrawer.js:96 | drawer-credits-balance, drawer-credits-balance-as-individual, drawer-credits-balance-as-staff (web and @375) |
 | What are Bayut Credits? | ما هو رصيد بيوت؟ | t | components/common/heading/heading.js:10 | drawer-credits-balance, drawer-credits-balance-as-individual, drawer-credits-balance-as-staff (web and @375) |
 | Credits are the currency used on Bayut. This credits system makes it easier and more flexible for you to advertise your properties on Bayut. When you sign a contract with us, you will receive credits that you can use to post property listings or upgrade them to increase your listings' visibility. | النقاط هي العملة المستخدمة على بيوت. يوفر لك نظام الرصيد طريقة أسهل وأكثر مرونة للإعلان عن عقاراتك على بيوت. عند توقيع عقد معنا، ستحصل على نقاط يمكنك استخدامها لنشر الإعلانات أو ترقيتها لزيادة ظهورها. | t | tenant/bayut/components/credit-info-drawer/creditInfoDrawer.js:109 | drawer-credits-balance, drawer-credits-balance-as-individual, drawer-credits-balance-as-staff (web and @375) |
@@ -174,7 +174,7 @@ Every string the compiled files of `pages/dashboard` draw — 45 web, 56 phone (
 | OTP Verification | تأكيد رمز التحقق | t | components/common/drawer/drawer.js:90 · components/common/modals/antd-modals.js:33 | web: modal-publish-now, modal-publish-now__message-verify · @375: drawer-publish-now, drawer-publish-now__message-verify |
 | You've received a 4-digit code on: | لقد تلقيت رمزًا من 4 أرقام على: | t | components/otp-verification-modal/otp-verification-modal.js:237 | web: modal-publish-now, modal-publish-now__message-verify · @375: drawer-publish-now, drawer-publish-now__message-verify |
 | +966501234567 ⟨{n}⟩ | value | data | components/render-text/render-text.js:3 | web: modal-publish-now, modal-publish-now__message-verify · @375: drawer-publish-now, drawer-publish-now__message-verify |
-| 00:57 ⟨{time}⟩ ×3 | value | data | components/common/textWithIcon/styled.js:3 | web: modal-publish-now, modal-publish-now__message-verify · @375: drawer-publish-now, drawer-publish-now__message-verify |
+| 00:57 ⟨{time}⟩ ×2 | value | data | components/common/textWithIcon/styled.js:3 | web: modal-publish-now, modal-publish-now__message-verify · @375: drawer-publish-now, drawer-publish-now__message-verify |
 | I didn't receive any code | لم اتلق اي رمز | t | components/otp-verification-modal/otp-verification-modal.js:265 | web: modal-publish-now, modal-publish-now__message-verify · @375: drawer-publish-now, drawer-publish-now__message-verify |
 | Resend OTP | اعادة ارسال رمز التحقق | t | components/common/button/button.js:40 | web: modal-publish-now, modal-publish-now__message-verify · @375: drawer-publish-now, drawer-publish-now__message-verify |
 | Verify | تأكيد | t | components/common/button/button.js:40 | web: modal-publish-now, modal-publish-now__message-verify · @375: drawer-publish-now, drawer-publish-now__message-verify |
@@ -191,7 +191,7 @@ Every string the compiled files of `pages/dashboard` draw — 45 web, 56 phone (
 | Last 3 Months | آخر 3 أشهر | t | components/common/datePicker/datePicker.js:59 | web: popover-today-yesterday-last-7 · @375: drawer-search-by-calendar-today, drawer-search-by-calendar-today__drawer-last-3-months, drawer-search-by-calendar-today__drawer-last-6-months, drawer-search-by-calendar-today__drawer-today, drawer-search-by-calendar-today__inline-last-30-days, popover-today-yesterday-last-7 |
 | Last 6 Months | آخر 6 أشهر | t | components/common/datePicker/datePicker.js:59 | web: popover-today-yesterday-last-7 · @375: drawer-search-by-calendar-today, drawer-search-by-calendar-today__drawer-last-3-months, drawer-search-by-calendar-today__drawer-last-6-months, drawer-search-by-calendar-today__drawer-today, drawer-search-by-calendar-today__inline-last-30-days, popover-today-yesterday-last-7 |
 | Last Year | العام الماضي | t | components/common/datePicker/datePicker.js:59 | web: popover-today-yesterday-last-7 · @375: drawer-search-by-calendar-today, drawer-search-by-calendar-today__drawer-last-3-months, drawer-search-by-calendar-today__drawer-last-6-months, drawer-search-by-calendar-today__drawer-today, drawer-search-by-calendar-today__inline-last-30-days, popover-today-yesterday-last-7 |
-| Jul 2026 ⟨{date}⟩ ×6 | value | data | components/common/datePicker/datePicker.js:59 | web: popover-today-yesterday-last-7 · @375: drawer-search-by-calendar-today, drawer-search-by-calendar-today__drawer-last-3-months, drawer-search-by-calendar-today__drawer-last-6-months, drawer-search-by-calendar-today__drawer-today, drawer-search-by-calendar-today__inline-last-30-days, popover-today-yesterday-last-7 |
+| Jul 2026 ⟨{date}⟩ ×7 | value | data | components/common/datePicker/datePicker.js:59 | web: popover-today-yesterday-last-7 · @375: drawer-search-by-calendar-today, drawer-search-by-calendar-today__drawer-last-3-months, drawer-search-by-calendar-today__drawer-last-6-months, drawer-search-by-calendar-today__drawer-today, drawer-search-by-calendar-today__inline-last-30-days, popover-today-yesterday-last-7 |
 | Sun | not in translations | code | components/common/datePicker/datePicker.js:59 | web: popover-today-yesterday-last-7 · @375: drawer-search-by-calendar-today, drawer-search-by-calendar-today__drawer-last-3-months, drawer-search-by-calendar-today__drawer-last-6-months, drawer-search-by-calendar-today__drawer-today, drawer-search-by-calendar-today__inline-last-30-days, popover-today-yesterday-last-7 |
 | Mon | not in translations | code | components/common/datePicker/datePicker.js:59 | web: popover-today-yesterday-last-7 · @375: drawer-search-by-calendar-today, drawer-search-by-calendar-today__drawer-last-3-months, drawer-search-by-calendar-today__drawer-last-6-months, drawer-search-by-calendar-today__drawer-today, drawer-search-by-calendar-today__inline-last-30-days, popover-today-yesterday-last-7 |
 | Tue | not in translations | code | components/common/datePicker/datePicker.js:59 | web: popover-today-yesterday-last-7 · @375: drawer-search-by-calendar-today, drawer-search-by-calendar-today__drawer-last-3-months, drawer-search-by-calendar-today__drawer-last-6-months, drawer-search-by-calendar-today__drawer-today, drawer-search-by-calendar-today__inline-last-30-days, popover-today-yesterday-last-7 |
@@ -199,7 +199,7 @@ Every string the compiled files of `pages/dashboard` draw — 45 web, 56 phone (
 | Thu | not in translations | code | components/common/datePicker/datePicker.js:59 | web: popover-today-yesterday-last-7 · @375: drawer-search-by-calendar-today, drawer-search-by-calendar-today__drawer-last-3-months, drawer-search-by-calendar-today__drawer-last-6-months, drawer-search-by-calendar-today__drawer-today, drawer-search-by-calendar-today__inline-last-30-days, popover-today-yesterday-last-7 |
 | Fri | not in translations | code | components/common/datePicker/datePicker.js:59 | web: popover-today-yesterday-last-7 · @375: drawer-search-by-calendar-today, drawer-search-by-calendar-today__drawer-last-3-months, drawer-search-by-calendar-today__drawer-last-6-months, drawer-search-by-calendar-today__drawer-today, drawer-search-by-calendar-today__inline-last-30-days, popover-today-yesterday-last-7 |
 | Sat | not in translations | code | components/common/datePicker/datePicker.js:59 | web: popover-today-yesterday-last-7 · @375: drawer-search-by-calendar-today, drawer-search-by-calendar-today__drawer-last-3-months, drawer-search-by-calendar-today__drawer-last-6-months, drawer-search-by-calendar-today__drawer-today, drawer-search-by-calendar-today__inline-last-30-days, popover-today-yesterday-last-7 |
-| Jul 02, 2026 - Sep 29, 2026 ⟨{date} - {date}⟩ ×4 | value | data | components/common/datePicker/datePicker.js:81 | web: popover-today-yesterday-last-7 · @375: drawer-search-by-calendar-today, drawer-search-by-calendar-today__drawer-last-3-months, drawer-search-by-calendar-today__drawer-last-6-months, drawer-search-by-calendar-today__drawer-today, drawer-search-by-calendar-today__inline-last-30-days, popover-today-yesterday-last-7 |
+| Jul 04, 2026 - Oct 01, 2026 ⟨{date} - {date}⟩ ×4 | value | data | components/common/datePicker/datePicker.js:81 | web: popover-today-yesterday-last-7 · @375: drawer-search-by-calendar-today, drawer-search-by-calendar-today__drawer-last-3-months, drawer-search-by-calendar-today__drawer-last-6-months, drawer-search-by-calendar-today__drawer-today, drawer-search-by-calendar-today__inline-last-30-days, popover-today-yesterday-last-7 |
 | Search | ابحث | t | components/common/button/button.js:40 | web: popover-today-yesterday-last-7 · @375: drawer-search-by-calendar-today, drawer-search-by-calendar-today__drawer-last-3-months, drawer-search-by-calendar-today__drawer-last-6-months, drawer-search-by-calendar-today__drawer-today, drawer-search-by-calendar-today__inline-last-30-days, popover-today-yesterday-last-7 |
 | Credit Top-up | شحن الرصيد | t | components/common/heading/heading.js:10 | web: modal-top-up-your-credits, modal-top-up-your-credits-as-individual, modal-top-up-your-credits-as-staff · @375: drawer-top-up-your-credits, drawer-top-up-your-credits-as-individual, drawer-top-up-your-credits-as-staff |
 | Ran out of credits? Add more credits to your account to post more listings and avail more services seamlessly. | نفذ رصيدك؟ أضف رصيدًا إلى حسابك لنشر المزيد من الإعلانات والاستفادة من المزيد من الخدمات | t | tenant/common/components/prop-shop/credit-top-ups/creditTopUps.js:236 | web: modal-top-up-your-credits, modal-top-up-your-credits-as-individual, modal-top-up-your-credits-as-staff · @375: drawer-top-up-your-credits, drawer-top-up-your-credits-as-individual, drawer-top-up-your-credits-as-staff |
@@ -230,7 +230,7 @@ Every string the compiled files of `pages/dashboard` draw — 45 web, 56 phone (
 | [object Object] | not in translations | code | components/common/EmptyState/EmptyState.js:149 | error (web and @375) |
 | Error | خطأ! | t | components/common/heading/heading.js:10 | web: error · @375: none |
 | Cannot convert undefined or null to object | not in translations | code | components/common/EmptyState/EmptyState.js:149 | web: error · @375: none |
-| Sep 14 ⟨Sep {n}⟩ ×2 | value | data | components/charts/chartjs.js:355 | inline-canvas (web and @375) |
+| Sep 16 ⟨Sep {n}⟩ ×2 | value | data | components/charts/chartjs.js:355 | inline-canvas (web and @375) |
 | Views: 1420 ⟨Views: {n}⟩ ×2 | المشاهدات + {n} | t+ | components/charts/chartjs.js:355 | inline-canvas (web and @375) |
 | All Leads | جميع الاستفسارات | t | components/widgets/LeadsStatsGraphWidget.js:367 | web: none · @375: inline-emails-2, inline-leads-13-8, inline-sms-1, popover-calls-3, popover-whatsapp-7 |
 | Get the Bayut KSA App | حمل تطبيق بيوت السعودية | t | tenant/common/components/downloadAppModal/downloadAppModal.js:22 | web: modal-download-app · @375: none |
@@ -250,7 +250,7 @@ Every string the compiled files of `pages/dashboard` draw — 45 web, 56 phone (
 | TruCheck is a cutting-edge technology solution that allows real estate agents to easily validate the properties they list on Bayut. | ترو تشيك هو حل تقني متقدم يتيح للوكلاء العقاريين التحقق بسهولة من صحة العقارات المدرجة على بيوت. | t | components/success-modal/successModalContent.js:56 | modal-trucheck-eligible-trucheck-is (web and @375) |
 | Please open Bayut app on your mobile phone and validate the authenticity and availability of the property listed. | يرجى فتح تطبيق بيوت على جوالك والتحقق من صحة وتوفر العقار المُدرج. | t | components/trucheckmodal/trucheckModal.js:95 | modal-trucheck-eligible-trucheck-is (web and @375) |
 | Apply for TruCheck | التقديم للحصول على ترو تشيك | t | components/common/button/button.js:40 | web: none · @375: modal-trucheck-eligible-trucheck-is |
-| 11:04 am, Sep 27, 2026 ⟨{date}⟩ | value | data | components/table/table-components/expiry-renewal.js:60 | web: popover-1104-am-sep-26 · @375: none |
+| 9:04 am, Sep 29, 2026 ⟨{date}⟩ | value | data | components/table/table-components/expiry-renewal.js:60 | web: popover-1104-am-sep-26 · @375: none |
 | Calls Clicked | المكالمات التي تم النقر عليها | t | components/widgets/LeadsStatsGraphWidget.js:186 | popover-calls-3 (web and @375) |
 | Calls Received | المكالمات المستلمة | t | components/widgets/LeadsStatsGraphWidget.js:186 | popover-calls-3 (web and @375) |
 | Calls Answered | المكالمات التي تمت الإجابة عليها | t | components/widgets/LeadsStatsGraphWidget.js:186 | popover-calls-3 (web and @375) |
@@ -264,3 +264,4 @@ Every string the compiled files of `pages/dashboard` draw — 45 web, 56 phone (
 | WhatsApp Clicked 7 ⟨WhatsApp Clicked {n}⟩ | الواتساب الذي تم النقر عليه + {n} | t+ | components/common/popup/popup.js:20 | web: popover-whatsapp-7 · @375: none |
 | Actual Price | السعر الفعلي | t | components/discount-tag/DiscountTag.js:95 | tooltip-50-off (web and @375) |
 | 1110 ⟨{n}⟩ | value | data | components/discount-tag/DiscountTag.js:96 | tooltip-50-off (web and @375) |
+| Mark Signature | تحويل الى اسثنائي | t | components/common/heading/heading.js:10 | web: tooltip-mark-signature · @375: none |

@@ -46,7 +46,7 @@ Every string the compiled files of `pages/reports-listing-report` draw — 23 we
 | 88240117 ⟨{n}⟩ ×10 | value | data | components/table/table-components/listing-purpose.js:434 | web: all but empty, error, inline-listing-by-date, loading · @375: none |
 | REGA ID: | رقم ترخيص الإعلان: | t | components/table/table-components/listing-purpose.js:461 | web: all but empty, error, inline-listing-by-date, loading · @375: none |
 | 7201340882 ⟨{n}⟩ ×8 | value | data | components/table/table-components/listing-purpose.js:462 | web: all but empty, error, inline-listing-by-date, loading · @375: none |
-| Sep 26, 2026 ⟨{date}⟩ ×10 | value | data | components/table/table-components/date.js:19 · components/common/statistic/index.js:93 +1 | all but empty, error, loading (web and @375) |
+| Sep 28, 2026 ⟨{date}⟩ ×10 | value | data | components/table/table-components/date.js:19 · components/common/statistic/index.js:93 +1 | all but empty, error, loading (web and @375) |
 | Al Masif, North Riyadh, Riyadh | fixture: fixtures/credits.mjs | data | components/table/table-components/listing-purpose.js:424 · tenant/common/components/reports/CardListingPerformance.js:131 | all but empty, error, inline-listing-by-date, loading (web and @375) |
 | Chalet for Rent ⟨{x} for Rent⟩ | {x} + للإيجار | t+ | components/common/tag/styled.js:6 · tenant/common/components/reports/CardListingPerformance.js:134 | all but empty, error, inline-listing-by-date, loading (web and @375) |
 | Al Mughrizat, North Riyadh, Riyadh | fixture: fixtures/credits.mjs | data | components/table/table-components/listing-purpose.js:424 · tenant/common/components/reports/CardListingPerformance.js:131 | all but empty, error, inline-listing-by-date, loading (web and @375) |
@@ -104,7 +104,7 @@ Every string the compiled files of `pages/reports-listing-report` draw — 23 we
 | Something went wrong, please try again | حدث خطا ما. اعد المحاولة من فضلك | t | components/common/EmptyState/EmptyState.js:149 | error (web and @375) |
 | Sale | بيع | t | components/common/dataTable/dataTable.js:185 | web: inline-listing-by-date · @375: none |
 | Rent | للإيجار | t | components/common/dataTable/dataTable.js:185 | web: inline-listing-by-date · @375: none |
-| Sep 29, 2026 ⟨{date}⟩ ×7 | value | data | components/table/table-components/date.js:16 · components/common/statistic/index.js:93 | inline-listing-by-date (web and @375) |
+| Oct 01, 2026 ⟨{date}⟩ ×7 | value | data | components/table/table-components/date.js:16 · components/common/statistic/index.js:93 | inline-listing-by-date (web and @375) |
 | Posted Listings | not in translations | code | components/common/statistic/index.js:93 | web: none · @375: inline-listing-by-date |
 | Refresh | إعادة نشر | t | components/common/statistic/index.js:93 | web: none · @375: inline-listing-by-date |
 | Photography | تصوير فوتوغرافي | t | components/common/statistic/index.js:93 | web: none · @375: inline-listing-by-date |

@@ -27,7 +27,7 @@ Every string the compiled files of `pages/credits-usage` draw — 20 web, 14 pho
 | Chalet for Rent ⟨{x} for Rent⟩ | {x} + للإيجار | t+ | components/common/tag/styled.js:6 | web: all but empty, error, loading · @375: all but as-staff, drawer-top-up-your-credits-as-staff, empty, error, loading |
 | 4 Rooms ⟨{n} Rooms⟩ ×4 | {n} + غرف | t+ | components/common/textWithIcon/styled.js:3 | all but empty, error, loading (web and @375) |
 | 79 Sq. M. ⟨{n} Sq. M.⟩ ×4 | {n} + م2 | t+ | components/common/textWithIcon/styled.js:3 | all but empty, error, loading (web and @375) |
-| Sep 28, 2026, 1:42 pm ⟨{date}⟩ ×9 | value | data | components/credits-usage/history-breakdown.js:197 | all but empty, error, loading (web and @375) |
+| Sep 30, 2026, 11:42 am ⟨{date}⟩ ×9 | value | data | components/credits-usage/history-breakdown.js:197 | all but empty, error, loading (web and @375) |
 | 5 Used ⟨{n} Used⟩ ×5 | {n} + النقاط المستخدمة | t+ | components/credits-usage/history-breakdown.js:51 | all but empty, error, loading (web and @375) |
 | Al Wurud, North Riyadh, Riyadh | fixture: fixtures/credits.mjs | data | components/credits-usage/history-breakdown.js:166 | all but empty, error, loading (web and @375) |
 | Floor for Sale ⟨{x} for Sale⟩ ×2 | {x} + للبيع | t+ | components/common/tag/styled.js:6 | all but empty, error, loading (web and @375) |

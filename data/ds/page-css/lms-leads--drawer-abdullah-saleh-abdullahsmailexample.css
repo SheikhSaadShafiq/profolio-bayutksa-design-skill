@@ -459,6 +459,7 @@ a:is(:focus,[data-pf-focus]) { text-decoration: var(--pf-link-focus-decoration);
 .pf-table-wrapper .pf-table-container { border-start-start-radius: var(--pf-table-header-border-radius); border-start-end-radius: var(--pf-table-header-border-radius); }
 .pf-table-wrapper .pf-table-container table > thead > tr:first-child > :first-child { border-start-start-radius: var(--pf-table-header-border-radius); }
 .pf-table-wrapper .pf-table-container table > thead > tr:first-child > :last-child { border-start-end-radius: var(--pf-table-header-border-radius); }
+.pf-table-wrapper .pf-table-tbody .pf-table-row > .pf-table-cell-row-hover { background: var(--pf-table-row-hover-bg); }
 .pf-table-wrapper .pf-table-container { position: relative; }
 .pf-table-wrapper .pf-table-container::before, .pf-table-wrapper .pf-table-container::after { position: absolute; top: 0px; bottom: 0px; z-index: calc(4); width: 30px; transition: box-shadow var(--pf-motion-duration-slow); content: ""; pointer-events: none; }
 .pf-table-wrapper .pf-table-container::before { inset-inline-start: 0px; }

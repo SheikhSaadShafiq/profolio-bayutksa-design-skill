@@ -35,6 +35,7 @@ import { PNG } from 'pngjs';
 import pixelmatch from 'pixelmatch';
 import STATES from './states.mjs';
 import { ownFrame } from './frame.mjs';
+import { ZONE } from '../../harness/devices.mjs';
 
 const { chromium } = pkg;
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -379,7 +380,7 @@ const DECIDE = ({ shell, device, W, H, riyal }) => {
 const fontFaces = new Map();
 const shoot = async (browser, device, st) => {
   const [W, H] = SIZE[device];
-  const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
+  const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1, timezoneId: ZONE });
   const page = await ctx.newPage();
   try {
     await page.goto(pathToFileURL(HANDOVER[device]).href, { waitUntil: 'load' });
@@ -532,7 +533,7 @@ for (const device of DEVICES) {
     const L = ledger[key];
     if (!L || !L.file || !results.has(st)) continue;
     const fh = results.get(st).h;
-    const ctx = await browser.newContext({ viewport: { width: W, height: fh }, deviceScaleFactor: 1 });
+    const ctx = await browser.newContext({ viewport: { width: W, height: fh }, deviceScaleFactor: 1, timezoneId: ZONE });
     const page = await ctx.newPage();
     await page.goto(pathToFileURL(join(ROOT, L.file)).href, { waitUntil: 'load' });
     await page.evaluate(() => document.fonts.ready);

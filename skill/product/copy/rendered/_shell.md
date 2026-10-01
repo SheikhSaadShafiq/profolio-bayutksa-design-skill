@@ -9,16 +9,16 @@ The header and the rail — and what opens inside them, such as the notification
 | Post a Listing | انشر إعلان | t | components/common/button/button.js:40 | most web files (every page) |
 | 99+ ⟨{n}+⟩ | value | data | components/notification-center/notification-center.js:163 | most files, web and @375 (every page) |
 | KSA | not in translations | code | components/svg.js:6938 | most files, web and @375 (every page) |
-| Overview | نظرة عامة | t | layout/MenueItems.js:153 · layout/withAdminLayout.js:322 +1 | most files, web and @375 (every page) |
-| Post Listing | نشر إعلان | t | layout/MenueItems.js:113 · layout/MenueItems.js:153 +2 | most files, web and @375 (every page) |
-| My Listings | إعلاناتي | t | layout/MenueItems.js:153 · layout/withAdminLayout.js:322 +1 | most files, web and @375 (every page) |
-| Credits Usage | استخدام نقاط الرصيد | t | layout/MenueItems.js:153 · layout/withAdminLayout.js:322 +1 | most files, web and @375 (every page) |
-| TruLeads | تروليدز | t | layout/MenueItems.js:153 · layout/withAdminLayout.js:322 +1 | most files, web and @375 (every page) |
-| Agent Performance | أداء المسوق العقاري | t | layout/MenueItems.js:153 · layout/withAdminLayout.js:322 +1 | most files, web and @375 (every page) |
-| Reports | التقارير | t | layout/MenueItems.js:128 · layout/MenueItems.js:252 +1 | most files, web and @375 (every page) |
-| Agency Staff | المستخدمين | t | layout/MenueItems.js:153 · layout/withAdminLayout.js:322 +1 | most files, web and @375 (every page) |
-| Settings | إعدادات | t | layout/MenueItems.js:153 · layout/withAdminLayout.js:322 +1 | most files, web and @375 (every page) |
-| Credits & Packages | الرصيد والباقات | t | layout/MenueItems.js:153 · layout/withAdminLayout.js:322 +1 | most files, web and @375 (every page) |
+| Overview | نظرة عامة | t | layout/MenueItems.js:153 · layout/withAdminLayout.js:322 | most files, web and @375 (every page) |
+| Post Listing | نشر إعلان | t | layout/MenueItems.js:113 · layout/MenueItems.js:153 +1 | most files, web and @375 (every page) |
+| My Listings | إعلاناتي | t | layout/MenueItems.js:153 · layout/withAdminLayout.js:322 | most files, web and @375 (every page) |
+| Credits Usage | استخدام نقاط الرصيد | t | layout/MenueItems.js:153 · layout/withAdminLayout.js:322 | most files, web and @375 (every page) |
+| TruLeads | تروليدز | t | layout/MenueItems.js:153 · layout/withAdminLayout.js:322 | most files, web and @375 (every page) |
+| Agent Performance | أداء المسوق العقاري | t | layout/MenueItems.js:153 · layout/withAdminLayout.js:322 | most files, web and @375 (every page) |
+| Reports | التقارير | t | layout/MenueItems.js:128 · layout/MenueItems.js:252 | most files, web and @375 (every page) |
+| Agency Staff | المستخدمين | t | layout/MenueItems.js:153 · layout/withAdminLayout.js:322 | most files, web and @375 (every page) |
+| Settings | إعدادات | t | layout/MenueItems.js:153 · layout/withAdminLayout.js:322 | most files, web and @375 (every page) |
+| Credits & Packages | الرصيد والباقات | t | layout/MenueItems.js:153 · layout/withAdminLayout.js:322 | most files, web and @375 (every page) |
 | 3 ⟨{n}⟩ | value | data | components/notification-center/notification-center.js:163 | web: as-staff, drawer-credits-balance-as-staff, inline-insufficient-credits-as-staff, modal-top-up-your-credits-as-staff · @375: as-staff, drawer-credits-balance-as-staff, drawer-top-up-your-credits-as-staff, inline-insufficient-credits-as-staff (20 pages) |
 | Sale/Rent Listing | إعلان بيع/إيجار | t | components/post-listing-menu/post-listing-menu.js:368 | web: menu-post-a-listing · @375: none (20 pages) |
 | Request Ad License | طلب رخصة إعلان | t | components/post-listing-menu/post-listing-menu.js:368 | web: menu-post-a-listing · @375: none (20 pages) |

@@ -811,7 +811,15 @@
     "bvLqKD",
     "gWJerV",
     "dKdvHQ",
-    "gWlzLE"
+    "gWlzLE",
+    "giPBpo",
+    "hPKoEW",
+    "gWFYEp",
+    "odShR",
+    "lmUcur",
+    "jtwumn",
+    "kGobFc",
+    "hEiCxv"
    ]
   },
   "src/tenant/bayut/components/post-listing/listing-preview/listing-preview.js:537:13": {
@@ -2744,6 +2752,13 @@
    "base": "main",
    "variants": [
     "dAXlsr"
+   ]
+  },
+  "src/components/license-card/license-card.js:51:7": {
+   "name": "pf-license-card-action-button",
+   "base": "action-button",
+   "variants": [
+    "jUmAXT"
    ]
   }
  }

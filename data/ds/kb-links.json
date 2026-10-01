@@ -1,5 +1,5 @@
 {
- "at": "2026-09-29T14:05:24.179Z",
+ "at": "2026-10-01T09:01:10.988Z",
  "byDef": {
   "src/components/utilities/auth-info/info.js": [
    {
@@ -2087,6 +2087,13 @@
     "href": "design/components/licenseskeleton.html",
     "kind": "notes",
     "title": "licenseSkeleton"
+   }
+  ],
+  "src/tenant/common/components/reports/CardListingByDate.js": [
+   {
+    "href": "product/copy/tenant-reports.html",
+    "kind": "copy",
+    "title": "Copy — tenant-reports"
    }
   ]
  },
