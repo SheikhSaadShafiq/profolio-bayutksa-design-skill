@@ -14,7 +14,7 @@ Exits 1 when any check fails. Standard library only.
 The checks
   1  no style value outside the copied sources
   2  a hex or rgb colour in a design        (outside css/; not in a compiled reference)
-  3  a class on a page that registry.json does not know
+  3  a class on a page that registry.json and the kit (kit/kit.css, kit/wireframe.css) do not know
   4  a registry entry whose file does not exist
   5  a page missing a state its registry entry lists
   6  a component class that neither stylesheet defines
@@ -41,6 +41,9 @@ whole. A style attribute passes when
     left, width, height or transform, in px or %, or
   - in the new My Listings (pf-base in pages/listings-new), every
     declaration is one its sources paint, or a var(--pf-ml-*) token.
+A style attribute holding only the pattern kit's own custom properties
+(--pfk-cols: the columns of a .pfk-table) passes; kit/kit.css classes (pfk-*)
+and kit/wireframe.css classes (wf-*) are known to check 3.
 A style on an element carrying data-pf-new-copy always fails: an element
 you create or retype takes a registry utility (fz-12, mb-8 …), never a style
 attribute — in the new theme, only var(--pf-ml-*) declarations.
@@ -167,7 +170,17 @@ def known_classes(reg):
         known.update(c.get('classes', []))
     for p in reg.get('pages', {}).values():
         known.update(p.get('own', []))
-    return known
+    return known | kit_classes()
+
+
+def kit_classes():
+    """the pattern kit's classes (kit/kit.css: pfk-*) and the wireframe's (kit/wireframe.css: wf-*)"""
+    out = set()
+    for name in ('kit.css', 'wireframe.css'):
+        path = os.path.join(ROOT, 'kit', name)
+        if os.path.exists(path):
+            out.update(c for c in CSS_CLASS_RE.findall(read(path)) if c.startswith(('pfk-', 'wf-')))
+    return out
 
 
 def stylesheet_classes():
@@ -383,6 +396,8 @@ def check_styles(path, html, m, src):
 
     found = {}                                               # (why, style) → [first line, tag, count]
     for line, tag, classes, style, new_copy in styled(html):
+        if all(d.split(':', 1)[0].strip().startswith('--pfk-') for d in declarations(style)):
+            continue                                         # a kit pattern's own setting: --pfk-cols (kit/README.md)
         if new_copy:
             if new_theme and all(token_valued(d) for d in declarations(style)):
                 continue
@@ -616,7 +631,7 @@ def main(argv):
             continue
         for c in classes_in(SCRIPT_STYLE_RE.sub('', html)) - known:
             unknown.setdefault(c, rel(path))
-    report.add(3, 'every class on a page is in registry.json', [f'.{c} — first on {where}' for c, where in sorted(unknown.items())], f'{len(known)} classes known')
+    report.add(3, 'every class on a page is in registry.json or the kit', [f'.{c} — first on {where}' for c, where in sorted(unknown.items())], f'{len(known)} classes known')
 
     if not design_only and core:
         print('  .skill install: the package checks 4-7 need atoms/, molecules/ and organisms/ — skipped')

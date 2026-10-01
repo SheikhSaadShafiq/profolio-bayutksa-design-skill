@@ -543,7 +543,7 @@ if (existsSync(join(NT, 'listings.html')) && themeStates && themeF) {
   registry.pages.listings.themes = { current: 'listings', new: 'listings-new' };
   registry.themes = {
     current: { scope: 'every page', tokens: 'tokens.md (the first table) · css/tokens.css', typefaces: ['Figtree', 'Droid Arabic Kufi'] },
-    new: { scope: ['listings'], page: 'listings-new', status: 'not yet live — due about mid-October 2026', tokens: 'tokens.md → My Listings — new theme · css/new-theme/tokens.css', typefaces: ['Geist (UI, My Listings only)', 'Figtree (titles, chrome)'], teal: 'the rank and Quality Score explainers; also the TruCheck glyph, the trend\'s selected metric pill and the tour\'s hero gradient', shell: 'the product shell is kept (the designer, 2026-09-29): every screen draws the product\'s own header, and the web screens its rail', tokens_follow: 'the build (the designer, 2026-09-29)', riyal: 'the build\'s glyph, svg[data-pf-riyal] — copy it from a listings-new file, height max(7px, 0.6 × the amount\'s font-size), width × 11/12, fill currentColor; never SAR, never the icon-font class (the designer, 2026-09-29)', same },
+    new: { scope: ['listings'], page: 'listings-new', status: 'not yet live — due about mid-October 2026', tokens: 'tokens.md → My Listings — new theme · css/new-theme/tokens.css', typefaces: ['Geist (UI, My Listings only)', 'Figtree (titles, chrome)'], teal: 'the rank and Quality Score explainers; also the TruCheck glyph, the trend\'s selected metric pill and the tour\'s hero gradient', shell: 'the product shell is kept (the designer, 2026-09-29): every screen draws the product\'s own header, and the web screens its rail', tokens_follow: 'the build (the designer, 2026-09-29)', riyal: 'the official riyal sign, kit/riyal.svg: the product\'s own icon-font glyph (U+E900) as an SVG. Wherever the handover drew its rough icon("sar") or wrote "SAR", the compiled screens draw this glyph (2026-09-30). Size: height max(7px, 0.6 × the amount\'s font-size), width height × 916/1024, fill currentColor. Never SAR, never the icon-font class.', same },
   };
   registry.counts.pages = Object.keys(registry.pages).length;
   registry.counts.states = Object.values(registry.pages).reduce((n, p) => n + p.states.length, 0);
@@ -587,12 +587,16 @@ product. At launch the product is compiled again and compared.
 - **Geist is the UI face, on My Listings only.** Figtree draws the empty states, the modals and
   most sheet and drawer titles (the web page title is the product header's — the current theme);
   the Listing Performance drawer and sheet titles are Geist. Arabic is not in the handover.
-- **The riyal is a glyph** — never "SAR": the screens draw the build's own riyal glyph wherever the
-  handover wrote "SAR" (the designer's decision). An amount you add: copy the build's
-  \`svg[data-pf-riyal]\` (or a card price's glyph) from a \`listings-new\` file and put it before the
-  number, sized to it: height max(7px, 0.6 × the amount's font-size), width height × 11/12, fill
-  \`currentColor\`, \`vertical-align: baseline\`, \`margin-inline-end: 0.22em\` only where a space
-  followed — the current theme's icon-font class (\`.currency-Saudi_Riyal_Symbol\`) does not load here.
+- **The riyal is a glyph** — never "SAR". The screens draw the official riyal sign, \`kit/riyal.svg\`,
+  wherever the handover wrote "SAR" (the designer's decision) and wherever it drew its own
+  \`icon("sar")\`. That icon is a rough four-bar sketch, not the official sign, so it was redrawn on
+  2026-09-30; the designer should update the handover. An amount you add takes \`kit/riyal.svg\`
+  (or a \`svg[data-pf-riyal]\` copied from a \`listings-new\` file) before the number, sized to it:
+  - height max(7px, 0.6 × the amount's font-size);
+  - width height × 916/1024;
+  - fill \`currentColor\` and \`vertical-align: baseline\`;
+  - \`margin-inline-end: 0.22em\`, only where a space followed.
+  The current theme's icon-font class (\`.currency-Saudi_Riyal_Symbol\`) does not load here.
   A user's own text (a listing description) keeps "SAR" as they typed it.
 - **Markup**: the handover's build writes its styles inline. A block copied from a
   \`listings-new\` file keeps them (name that file in pf-base or pf-also); a value you add is
@@ -667,7 +671,7 @@ performance budget, platform notes, open questions.
   for (const [k, v] of Object.entries(themeF.space)) NTR(`space.${k}`, `--pf-ml-space-${k}`, `${v}px`, 'padding, margin or gap');
   for (const [k, v] of Object.entries(themeF.type.family)) NTR(`type.family.${k}`, `--pf-ml-font-${k}`, v, (themeF.families.find((f) => f.family === v) || {}).share ? `${themeF.families.find((f) => f.family === v).share} of the text` : 'not painted');
   for (const x of themeF.variants || []) NTR(x.token, typeof x.value === 'object' && x.value.color ? `${x.css} + ${x.css}-color` : x.css, typeof x.value === 'object' ? `${x.value.size}/${x.value.line} · ${x.value.weight}${x.value.family ? ` · ${x.value.family}` : ''}${x.value.color ? ` · ${x.value.color}` : ''}` : /^(radius|target)\./.test(x.token) ? `${x.value}px` : x.value, `variant of \`${x.of}\` — ${x.where}`, '[variant]');
-  nt.push('| currency | `svg[data-pf-riyal]` | the build\'s riyal glyph | [decision] | the screens draw the build\'s riyal glyph wherever the handover wrote "SAR"; an amount you add copies it from a listings-new file, before the number: height max(7px, 0.6 × the amount\'s font-size), width height × 11/12, fill currentColor, margin-inline-end 0.22em only where a space followed |');
+  nt.push('| currency | `svg[data-pf-riyal]` · `kit/riyal.svg` | the official riyal sign (the product\'s icon-font glyph) | [decision] | the screens draw it wherever the handover wrote "SAR" or drew its own rough icon("sar"). An amount you add takes kit/riyal.svg before the number: height max(7px, 0.6 × the amount\'s font-size), width height × 916/1024, fill currentColor, margin-inline-end 0.22em only where a space followed |');
   for (const [k, r] of Object.entries(themeF.type)) if (k !== 'family') { const css = `--pf-ml-type-${k.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()}`; NTR(`type.${k}`, r.color ? `${css} + ${css}-color` : css, `${r.size}/${r.line} · ${r.weight}${r.family ? ` · ${r.family}` : ''}${r.color ? ` · ${r.color}` : ''}`, 'type role (phone, 360pt) — drawn as declared'); }
   for (const [k, m] of Object.entries(themeF.motion)) NTR(`motion.${k}`, `--pf-ml-motion-${k.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()}`, `${m.duration}ms ${m.curve}`, m.note || 'motion');
   for (const [k, v] of Object.entries(themeF.elevation)) NTR(`elevation.${k}`, `--pf-ml-elevation-${k.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()}`, v, 'elevation — painted as declared');

@@ -49,6 +49,12 @@ const BAR = 0.5;
 const HANDOVER = { web: join(SRC, 'my-listings-web.handover.html'), mobile: join(SRC, 'my-listings-mobile.handover.html') };
 const SIZE = { web: [1440, 900], mobile: [360, 800] };
 const DRAFT = "the designer's handover (Profolio 2.0 · My Listings · Draft 3, 15 Sep 2026)";
+/* the official riyal sign, as the product's icon font draws it (scripts/kit/riyal.py) */
+const RIYAL = (() => {
+  const svg = readFileSync(join(ROOT, 'skill', 'kit', 'riyal.svg'), 'utf8');
+  const [, w, h] = svg.match(/viewBox="0 0 ([\d.]+) ([\d.]+)"/);
+  return { d: svg.match(/ d="([^"]+)"/)[1], w: +w, h: +h };
+})();
 
 /* ── in the handover page ───────────────────────────────────────────── */
 
@@ -279,10 +285,12 @@ const SERIALIZE = async () => {
      · the shell stays the product's (2026-09-29): the handover's own header
        and rail are replaced by the product's (data/theme/shell.json, from
        scripts/theme/shell.mjs), its CSS scoped under [data-pf-shell];
-     · the riyal is a glyph, never "SAR": written-out "SAR" becomes the build's
-       own riyal glyph (the one it draws before every price), sized to its text. */
+     · the riyal is a glyph, never "SAR": written-out "SAR" becomes the riyal
+       glyph, sized to its text. That glyph is the official sign as the product's icon font draws it
+       (skill/kit/riyal.svg, 2026-09-30). The handover's own icon("sar"), drawn before every price,
+       is a rough four-bar sketch, so it is redrawn with the same shape at the same height. */
 const SHELL = existsSync(join(DATA, 'shell.json')) ? JSON.parse(readFileSync(join(DATA, 'shell.json'), 'utf8')) : null;
-const DECIDE = ({ shell, device, W, H }) => {
+const DECIDE = ({ shell, device, W, H, riyal }) => {
   const host = document.querySelector('[data-pf-theme-host]');
   const board = host.hasAttribute('data-screen-label') ? host : host.querySelectorAll('[data-screen-label]')[+host.getAttribute('data-pf-theme-board')];
   const done = [];
@@ -339,7 +347,18 @@ const DECIDE = ({ shell, device, W, H }) => {
   }
   /* the riyal glyph for every "SAR" written out — the gap after it only where a space followed
      the SAR (a label of its own already sits apart from its amount) */
-  const glyph = (fs, gap) => { const h = Math.max(7, Math.round(fs * 6) / 10), w = Math.round(h * 110 / 12) / 10; return `<svg data-pf-riyal width="${w}" height="${h}" viewBox="0 0 11 12" fill="currentColor" style="display:inline-block;vertical-align:baseline${gap ? ';margin-inline-end:0.22em' : ''}"><path d="M7.9 0 9.9 0 8.8 7.2 6.8 7.6Z"></path><path d="M4.3 2.2 6.3 2.2 5.2 8.6 3.2 9.0Z"></path><path d="M0 8.0 9.4 6.6 9.4 8.1 0 9.5Z"></path><path d="M0 10.1 8.2 8.9 8.2 10.3 0 11.5Z"></path></svg>`; };
+  const glyph = (fs, gap) => { const h = Math.max(7, Math.round(fs * 6) / 10), w = Math.round(h * riyal.w / riyal.h * 10) / 10; return `<svg data-pf-riyal width="${w}" height="${h}" viewBox="0 0 ${riyal.w} ${riyal.h}" fill="currentColor" style="display:inline-block;vertical-align:baseline${gap ? ';margin-inline-end:0.22em' : ''}"><path d="${riyal.d}"></path></svg>`; };
+  /* the handover's own glyph (icon("sar"): viewBox 0 0 11 12, four bars) → the official shape, same height */
+  let redrawn = 0;
+  for (const svg of host.querySelectorAll('svg[viewBox="0 0 11 12"]')) {
+    if (!svg.querySelector('path[d^="M7.9 0 9.9 0"]')) continue;
+    const h = parseFloat(svg.getAttribute('height'));
+    if (h) svg.setAttribute('width', String(Math.round(h * riyal.w / riyal.h * 10) / 10));
+    svg.setAttribute('viewBox', `0 0 ${riyal.w} ${riyal.h}`);
+    svg.innerHTML = `<path d="${riyal.d}"></path>`;
+    redrawn++;
+  }
+  if (redrawn) done.push(`riyal redrawn ×${redrawn}`);
   const walker = document.createTreeWalker(host, NodeFilter.SHOW_TEXT);
   const hits = [];
   /* never inside what a user types (a description, a field): that text is theirs, as written */
@@ -390,7 +409,7 @@ const shoot = async (browser, device, st) => {
     if (lifted !== 'ok') throw new Error(lifted);
     await page.setViewportSize({ width: W, height: H });
     await page.evaluate(FRAME_STILL);
-    const decided = await page.evaluate(DECIDE, { shell: SHELL ? SHELL[device] : null, device, W, H });
+    const decided = await page.evaluate(DECIDE, { shell: SHELL ? SHELL[device] : null, device, W, H, riyal: RIYAL });
     if (SHELL && !decided.includes('header')) throw new Error(`no header to swap (${decided.join(', ') || 'nothing'})`);
     await page.evaluate(() => document.fonts.ready);
     await page.waitForTimeout(400);

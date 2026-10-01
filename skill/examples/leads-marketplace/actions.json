@@ -1,0 +1,29 @@
+{
+  "tab-owner": [{ "set": { "tab": "owner", "filter.purpose": "", "filter.band": "", "filter.type": "", "menu": "" } }],
+  "tab-seeker": [{ "set": { "tab": "seeker", "filter.purpose": "", "filter.band": "", "filter.type": "", "menu": "" } }],
+  "buy": [
+    { "if": "role=staff && price>@cap", "then": [{ "open": "cap" }], "else": [
+      { "if": "balance<@price", "then": [{ "open": "insufficient" }], "else": [{ "open": "buy" }] }
+    ] }
+  ],
+  "confirm": [
+    { "set": { "buying": true } },
+    { "wait": 900 },
+    { "if": "lead=@race", "then": [
+      { "close": true },
+      { "set": { "buying": false } },
+      { "update": "owner", "where": "$.id=@lead", "with": { "status": "gone", "expires": "No longer available" } },
+      { "update": "seeker", "where": "$.id=@lead", "with": { "status": "gone", "expires": "No longer available" } },
+      { "toast": "gone" }
+    ], "else": [
+      { "close": true },
+      { "set": { "buying": false, "balance": "{@balance-@price}" } },
+      { "update": "owner", "where": "$.id=@lead", "with": { "status": "bought", "buyer": "You", "when": "Just now" } },
+      { "update": "seeker", "where": "$.id=@lead", "with": { "status": "bought", "buyer": "You", "when": "Just now" } },
+      { "toast": "bought" }
+    ] }
+  ],
+  "retry": [{ "set": { "net": "loading" } }, { "wait": 1200 }, { "set": { "net": "ready" } }],
+  "clear-filters": [{ "set": { "filter.purpose": "", "filter.city": "", "filter.band": "", "filter.type": "", "menu": "" } }],
+  "dismiss-intro": [{ "set": { "intro": false } }]
+}

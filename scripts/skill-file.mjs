@@ -4,10 +4,13 @@
  *
  * A .skill is a zip of one folder holding SKILL.md (claude.ai installs it under
  * Settings → Capabilities → Skills; Claude Code unzips it into ~/.claude/skills).
- * It carries what a session reads on every task: the instructions (SKILL.md,
- * INTAKE.md, the worked example), the indexes (registry.json, tokens.md), the
- * design knowledge base (kb/), the product knowledge base (product/) and the
- * scripts (qa/). The stylesheets and the compiled pages (about 450 MB) stay in
+ * It carries what a session reads on every task:
+ *   - the instructions: SKILL.md, INTAKE.md, and the worked examples (Leads Marketplace
+ *     without its built bundles);
+ *   - the indexes: registry.json, tokens.md;
+ *   - the knowledge bases: design (kb/) and product (product/);
+ *   - the scripts (qa/);
+ *   - the kit (kit/): the runtime, the patterns, the wireframe kit, the Design QA. The stylesheets and the compiled pages (about 450 MB) stay in
  * the public repo: qa/fetch.py downloads what a PRD needs from registry.source —
  * raw.githubusercontent.com, or github.com through git where that is blocked.
  *
@@ -28,7 +31,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SKILL = join(ROOT, 'skill');
 const NAME = 'profolio-ksa-design';
 const STAGE = join(ROOT, '.build', 'skill-file', NAME);
-const CARRIED = ['SKILL.md', 'INTAKE.md', 'registry.json', 'tokens.md', 'kb', 'product', 'qa', 'examples/worked-example.md'];
+const CARRIED = ['SKILL.md', 'INTAKE.md', 'registry.json', 'tokens.md', 'kb', 'product', 'qa', 'kit', 'examples/worked-example.md', 'examples/leads-marketplace'];
 const fail = (msg) => { console.error(`  ${msg}`); process.exit(2); };
 const git = (...args) => execFileSync('git', args, { cwd: ROOT }).toString().trim();
 for (const f of CARRIED) if (!existsSync(join(SKILL, f))) fail(`missing skill/${f} — run npm run package`);
@@ -47,7 +50,8 @@ if (tag) {
 }
 
 rmSync(join(ROOT, '.build', 'skill-file'), { recursive: true, force: true });
-const keep = (p) => !/(^|\/)(__pycache__|\.DS_Store)(\/|$)/.test(p);
+/* not the caches, and not what a build writes: the bundles and the QA's shots stay on GitHub */
+const keep = (p) => !/(^|\/)(__pycache__|\.DS_Store|shots)(\/|$)/.test(p) && !/examples\/[^/]+\/(prototype|wireframe)\.html$/.test(p.split('\\').join('/'));
 for (const f of CARRIED) { mkdirSync(dirname(join(STAGE, f)), { recursive: true }); cpSync(join(SKILL, f), join(STAGE, f), { recursive: true, filter: keep }); }
 mkdirSync(join(ROOT, 'dist'), { recursive: true });
 const out = join(ROOT, 'dist', `${NAME}.skill`);

@@ -229,7 +229,7 @@ def writable_or_die(paths):
         return
     home = os.path.join(os.path.expanduser('~'), os.path.basename(ROOT))
     print(f'  {ROOT} is read-only, so nothing can be fetched into it. Work on a copy:')
-    print(f'\n    cp -r "{ROOT}" "{home}" && cd "{home}"\n')
+    print(f'\n    cp -r "{ROOT}" "{home}" && chmod -R u+w "{home}" && cd "{home}"\n')   # a copy keeps the read-only mode: make it writable
     print('  then run this command again from there, and write designs/ there.')
     sys.exit(2)
 

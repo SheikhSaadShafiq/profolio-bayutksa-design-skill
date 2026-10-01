@@ -32,14 +32,30 @@ it got against the product it came from.
 
 ## Use the skill
 
-The skill designs Profolio KSA screens from a PRD. It asks the PM and the designer only what the
-PRD leaves open (goal and metric, stories, scope and release, roles, flags; pages, design
-language, states, copy), works out the edge cases itself, and composes the design from the
-product's own compiled HTML. That HTML stays here on GitHub: the skill finds what a PRD needs
+The skill designs Profolio KSA screens from a PRD.
+- It asks the PM and the designer only what the PRD leaves open:
+  - for the PM: goal and metric, stories, scope and release, roles, flags;
+  - for the designer: pages, design language, states, copy.
+- It works out the edge cases and every loading, empty, error and no-results state itself,
+  and what each field shows when the data lacks it.
+- It designs a lock state for gated content and offers 2–3 options to pick from, live in the
+  prototype.
+- It agrees the structure first, in a clickable wireframe, and waits for go.
+- It composes the design from the product's own compiled HTML and the pattern kit.
+- It delivers one working prototype, after a Design QA that renders every state, web and
+  phone, and measures it. The QA also opens every menu, sheet and shell control, and renders
+  the data at its extremes and every option. It prints what it covered. In the prototype:
+  - filters, dialogs and toasts work;
+  - the rail expands and pushes the page as the product does, and opens the other pages;
+  - the header and the phone's menu open the product's own states, in the product's styles.
+
+`skill/kit/README.md` describes the runtime, the patterns and the QA.
+`skill/examples/leads-marketplace/` is one whole feature built this way; `npm run test:kit`
+proves it still works. That HTML stays here on GitHub: the skill finds what a PRD needs
 in its design knowledge base (`node qa/find.mjs "<PRD words>"`) and fetches just those files
 (`python3 qa/fetch.py <page> <state>`), at the version the `.skill` was built with.
 
-**Get it** — build it (below) and share `dist/profolio-ksa-design.skill` (about 0.5 MB), or
+**Get it** — build it (below) and share `dist/profolio-ksa-design.skill` (under 1 MB), or
 publish it to your organisation's skills. Nobody needs the repo link: the file knows it. It carries the instructions, the registry, the tokens and the product and design knowledge
 bases. The stylesheets and pages stay here, and the skill fetches only what a PRD needs.
 

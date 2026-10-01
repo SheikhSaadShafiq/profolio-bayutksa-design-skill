@@ -39,3 +39,7 @@ data/theme/ours/
 
 # the .skill file — built by npm run skill:file, published as a GitHub release asset, never committed
 dist/
+
+# Design QA screenshots (node qa/prototype.mjs --shots): regenerated on every run
+skill/examples/*/qa/shots/
+skill/designs/*/qa/shots/

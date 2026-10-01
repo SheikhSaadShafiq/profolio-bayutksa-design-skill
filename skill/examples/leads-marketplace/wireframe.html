@@ -1,0 +1,2063 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leads Marketplace · wireframe</title>
+<meta name="description" content="Profolio KSA wireframe: Leads Marketplace · wireframe — 1 screen(s), 13 states, web + phone">
+<style>/* The prototype player (kit/player.js): the frame around a design, never part of it. */
+:root {
+  --pfp-bg: #eef0f3; --pfp-panel: #ffffff; --pfp-ink: #1f2328; --pfp-muted: #5c6470; --pfp-line: #dde1e6;
+  --pfp-accent: #1f7a4d; --pfp-accent-soft: #e6f4ec; --pfp-warn: #9a5b00; --pfp-warn-soft: #fff4e0; --pfp-bad: #b42318; --pfp-bad-soft: #fdecea;
+  --pfp-font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --pfp-bg: #16181c; --pfp-panel: #1f2227; --pfp-ink: #e8eaed; --pfp-muted: #9aa3ad; --pfp-line: #30353c; --pfp-accent: #4cc38a; --pfp-accent-soft: #1d3328; --pfp-warn: #f0b35a; --pfp-warn-soft: #3a2f1c; --pfp-bad: #f28b82; --pfp-bad-soft: #3b2220; }
+}
+:root[data-theme="dark"] { --pfp-bg: #16181c; --pfp-panel: #1f2227; --pfp-ink: #e8eaed; --pfp-muted: #9aa3ad; --pfp-line: #30353c; --pfp-accent: #4cc38a; --pfp-accent-soft: #1d3328; --pfp-warn: #f0b35a; --pfp-warn-soft: #3a2f1c; --pfp-bad: #f28b82; --pfp-bad-soft: #3b2220; }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body { background: var(--pfp-bg); color: var(--pfp-ink); font: 13px/1.45 var(--pfp-font); }
+.pfp { display: flex; flex-direction: column; min-height: 100%; }
+.pfp-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding: 10px 16px; background: var(--pfp-panel); border-bottom: 1px solid var(--pfp-line); position: sticky; top: 0; z-index: 5; }
+.pfp-title { display: flex; flex-direction: column; min-width: 0; margin-inline-end: auto; }
+.pfp-title b { font-size: 15px; font-weight: 650; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pfp-title span { color: var(--pfp-muted); font-size: 12px; }
+.pfp-group { display: flex; align-items: center; gap: 6px; }
+.pfp-group > label { color: var(--pfp-muted); font-size: 12px; }
+.pfp select, .pfp button { font: inherit; color: var(--pfp-ink); background: var(--pfp-panel); border: 1px solid var(--pfp-line); border-radius: 6px; padding: 5px 8px; min-height: 30px; }
+.pfp button { cursor: pointer; }
+.pfp button:hover, .pfp select:hover { border-color: var(--pfp-muted); }
+.pfp button:focus-visible, .pfp select:focus-visible { outline: 2px solid var(--pfp-accent); outline-offset: 1px; }
+.pfp-seg { display: inline-flex; border: 1px solid var(--pfp-line); border-radius: 6px; overflow: hidden; }
+.pfp-seg button { border: 0; border-radius: 0; min-height: 28px; }
+.pfp-seg button[aria-pressed="true"] { background: var(--pfp-accent-soft); color: var(--pfp-accent); font-weight: 600; }
+.pfp-qa { font-weight: 600; }
+.pfp-qa[data-state="pass"] { color: var(--pfp-accent); border-color: var(--pfp-accent); }
+.pfp-qa[data-state="warn"] { color: var(--pfp-warn); border-color: var(--pfp-warn); background: var(--pfp-warn-soft); }
+.pfp-qa[data-state="fail"] { color: var(--pfp-bad); border-color: var(--pfp-bad); background: var(--pfp-bad-soft); }
+.pfp-banner { padding: 8px 16px; background: var(--pfp-bad-soft); color: var(--pfp-bad); border-bottom: 1px solid var(--pfp-line); font-weight: 600; }
+.pfp-banner[data-kind="warn"] { background: var(--pfp-warn-soft); color: var(--pfp-warn); }
+.pfp-main { flex: 1; display: grid; grid-template-columns: minmax(0, 1fr) 300px; min-height: 0; }
+.pfp-stage { min-width: 0; padding: 16px; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.pfp-device { position: relative; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 8px 24px rgba(0,0,0,.08); border-radius: 4px; overflow: hidden; flex: none; }
+.pfp-device[data-platform="phone"] { border-radius: 18px; box-shadow: 0 0 0 8px #1f2328, 0 8px 28px rgba(0,0,0,.25); }
+.pfp-device iframe { border: 0; display: block; transform-origin: 0 0; background: #fff; }
+.pfp-caption { color: var(--pfp-muted); font-size: 12px; text-align: center; }
+.pfp-notes { background: var(--pfp-panel); border-inline-start: 1px solid var(--pfp-line); padding: 16px; overflow: auto; display: flex; flex-direction: column; gap: 14px; }
+.pfp-notes h2 { font-size: 15px; margin: 0; }
+.pfp-notes h3 { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--pfp-muted); margin: 0 0 6px; }
+.pfp-notes p { margin: 0; }
+.pfp-notes ul { margin: 0; padding-inline-start: 18px; }
+.pfp-states { display: flex; flex-direction: column; gap: 10px; }
+.pfp-states .pfp-sg { display: flex; flex-wrap: wrap; gap: 6px; }
+.pfp-states button { min-height: 26px; padding: 3px 8px; font-size: 12px; border-radius: 999px; }
+.pfp-states button[aria-pressed="true"] { background: var(--pfp-accent); border-color: var(--pfp-accent); color: #fff; }
+.pfp-issues { display: flex; flex-direction: column; gap: 6px; font-size: 12px; }
+.pfp-issues li { list-style: none; padding: 6px 8px; border-radius: 6px; background: var(--pfp-bad-soft); color: var(--pfp-bad); }
+.pfp-issues li[data-level="warn"] { background: var(--pfp-warn-soft); color: var(--pfp-warn); }
+.pfp-issues ul { padding: 0; }
+.pfp-muted { color: var(--pfp-muted); }
+.pfp-toast { position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); background: var(--pfp-ink); color: var(--pfp-panel); padding: 8px 14px; border-radius: 8px; z-index: 20; }
+.pfp[data-mode="shot"] .pfp-bar, .pfp[data-mode="shot"] .pfp-notes, .pfp[data-mode="shot"] .pfp-caption, .pfp[data-mode="shot"] .pfp-banner { display: none; }
+.pfp[data-mode="shot"] .pfp-main { display: block; }
+.pfp[data-mode="shot"] .pfp-stage { padding: 0; align-items: flex-start; }
+.pfp[data-mode="shot"] .pfp-device { box-shadow: none; border-radius: 0; }
+@media (max-width: 1100px) {
+  .pfp-main { grid-template-columns: minmax(0, 1fr); }
+  .pfp-notes { border-inline-start: 0; border-top: 1px solid var(--pfp-line); }
+}
+@media (max-width: 640px) {
+  .pfp-bar { padding: 8px 12px; }
+  .pfp-stage { padding: 8px; }
+}
+.pfp-options { display: flex; flex-direction: column; gap: 12px; }
+.pfp-options:empty { display: none; }
+.pfp-option p { margin: 0 0 6px; font-size: 12px; }
+.pfp-option .pfp-seg { flex-wrap: wrap; }
+</style>
+</head>
+<body>
+<div id="pfp" class="pfp">
+  <header id="pfp-bar" class="pfp-bar"></header>
+  <main id="pfp-main" class="pfp-main">
+    <section id="pfp-stage" class="pfp-stage" aria-label="Screen">
+      <div id="pfp-device" class="pfp-device"><iframe id="pfp-frame" title="Prototype screen"></iframe></div>
+      <div id="pfp-caption" class="pfp-caption"></div>
+    </section>
+    <aside class="pfp-notes" aria-label="Notes">
+      <div id="pfp-note"></div>
+      <div id="pfp-options" class="pfp-options"></div>
+      <div><h3>States</h3><div id="pfp-states" class="pfp-states"></div></div>
+      <div id="pfp-issues" class="pfp-issues"></div>
+    </aside>
+  </main>
+</div>
+<script type="application/json" id="pfp-manifest">{"name":"leads-marketplace","title":"Leads Marketplace · wireframe","theme":"Profolio 2.0, extended to a new page — borrowed tokens, [TBC] designer sign-off","platforms":["web","phone"],"start":"owner","wireframe":true,"screens":[{"id":"marketplace","title":"Leads Marketplace","route":"/leads-marketplace","size":{"phone":[360,800]},"files":{"web":"examples/leads-marketplace/wf-marketplace.html","phone":"examples/leads-marketplace/wf-marketplace.mobile.html"}}],"pages":{},"states":[{"id":"owner","screen":"marketplace","group":"Browse","title":"Owner Leads","set":{"tab":"owner"},"do":[],"notes":"Owners from Sell with Bayut who want an agent. One field per column; the contact stays blurred until your agency buys the lead.","try":["Buy the first lead","Filter by city: Abha has no leads","Row 3 is already bought by your agency — View in TruLeads","The last two leads came without rooms, district or price — see how each shows","Switch the locked-contact option (A/B/C) under Options"]},{"id":"seeker","screen":"marketplace","group":"Browse","title":"Seeker Leads","set":{"tab":"seeker"},"do":[],"notes":"Buyers and tenants from Find My Property: what they look for, their budget and where.","try":["Filter by property type","Sort by budget"]},{"id":"first-visit","screen":"marketplace","group":"Browse","title":"First visit","set":{"intro":true},"do":[],"notes":"The first time an agent opens the page: what the marketplace is and how buying works. Dismissed once, it never comes back.","try":[]},{"id":"filtered","screen":"marketplace","group":"Filter","title":"Filtered","set":{"filter.city":"Riyadh","filter.purpose":"sale"},"do":[],"notes":"Filters apply at once; the tab count stays the total, the table shows what matches.","try":[]},{"id":"no-results","screen":"marketplace","group":"Filter","title":"No results","set":{"filter.city":"Abha"},"do":[],"notes":"Leads exist, none match: say so and offer to clear the filters.","try":[]},{"id":"buy","screen":"marketplace","group":"Buy","title":"Buy dialog","set":{"lead":"O1","price":40,"leadKind":"owner","overlay":"buy"},"do":[],"notes":"The summary, the price in credits, the balance (a staff member's is their limit) and the no-refund rule.","try":[]},{"id":"bought","screen":"marketplace","group":"Buy","title":"Bought","set":{"lead":"O1","price":40,"leadKind":"owner"},"do":["confirm"],"notes":"Credits are deducted; the row unblurs, turns green and says who bought it; View in TruLeads opens the lead.","try":[]},{"id":"insufficient","screen":"marketplace","group":"Buy","title":"Not enough credits","set":{"balance":28,"lead":"O1","price":40,"overlay":"insufficient"},"do":[],"notes":"Opens instead of the buy dialog when the balance is under the price. Top up opens the existing credit top-up.","try":[]},{"id":"staff-cap","screen":"marketplace","group":"Buy","title":"Over the staff limit","set":{"role":"staff","lead":"O1","price":40,"overlay":"cap"},"do":[],"notes":"A staff member whose credit limit is under the price: the existing cap rule, in the product's words [TBC].","try":[]},{"id":"gone","screen":"marketplace","group":"Buy","title":"Taken meanwhile","set":{"lead":"O2","price":20,"race":"O2"},"do":["confirm"],"notes":"The last spot went, or the lead expired, while the dialog was open: nothing is charged and the row greys out.","try":[]},{"id":"loading","screen":"marketplace","group":"States","title":"Loading","set":{"net":"loading"},"do":[],"notes":"Skeleton rows built from the table's own row, so they follow its columns.","try":[]},{"id":"empty","screen":"marketplace","group":"States","title":"No leads","set":{"data":"none"},"do":[],"notes":"No open leads in the tab: say they arrive through the day.","try":[]},{"id":"error","screen":"marketplace","group":"States","title":"Error","set":{"net":"error"},"do":[],"notes":"The list failed to load: Try again reloads it.","try":[]}],"controls":[{"key":"balance","label":"Credits","options":[[72880,"72,880"],[28,"28 (low)"],[0,"0"]]},{"key":"role","label":"Viewer","options":[["owner","Agency owner"],["staff","Staff (limit 30)"]]},{"key":"data","label":"Leads","options":[["many","Some leads"],["none","No leads"]]},{"key":"net","label":"Network","options":[["ready","Loaded"],["loading","Loading"],["error","Fails"]]}],"options":[{"key":"opt.lock","title":"Locked contact","question":"How should a lead's contact look before your agency buys it?","variants":[["blur","A · Blurred, lock chip"],["mask","B · Masked, Unlock inline"],["avatar","C · Initials and a lock"]]}],"shell":{"rail":{"add":[{"key":"leads-marketplace","label":"Leads Marketplace","after":"leads","icon":"prop-shop","page":"marketplace"}],"selected":"leads-marketplace"}},"alias":{},"menu":{"all-listings":"/listings","credits_usage":"/credits-usage","leads":"/lms/leads","agent-performance":"/agent-performance","reports":"/reports/summary","agency-staff":"/agency-staff","settings":"/user-settings/user-profile","prop-shop":"/packages","dashboard":"/dashboard","post-listing":"/post-listing","inbox":"/inbox/received","summary":"/reports/summary","listing-reports":"/reports/listing-report","leads-reports":"/reports/leads-reports"},"labels":{"View All Listings":"/listings","My Listings":"/listings","Credits Usage":"/credits-usage","TruLeads":"/lms/leads","Agent Performance":"/agent-performance","Reports":"/reports/summary","Agency Staff":"/agency-staff","Settings":"/user-settings/user-profile","Credits & Packages":"/packages","Close":"/dashboard","Update":"/listings","Edit Listing":"/post-listing/88241126","Get an Ad License":"/ad-license","User Settings":"/user-settings/user-profile","Licenses":"/user-settings/licenses","Preferences":"/user-settings/preferences","Change Password":"/user-settings/change-password","Agency Settings":"/user-settings/agency-profile"},"qa":{"ran":true,"note":"","browser":"Playwright Chromium","renders":46,"coverage":"13 states × 2 platforms · 6 interactions · 8 extreme-data · 6 option renders","errors":0,"warnings":12,"product":0,"issues":[{"level":"warn","check":"rows","platform":"web","message":"Cells in the same row are aligned differently (some top, some centre) — 7 rows; use one alignment (kit rows centre)","box":{"x":85,"y":267,"w":1330,"h":97},"states":["owner","first-visit","buy","insufficient","staff-cap","gone","owner › Select City","owner › Price","owner › Newest firstPrice: high to lowPrice: low","owner · missing data","owner · long data","owner · arabic data","owner · zero data","owner · opt.lock=blur"]},{"level":"warn","check":"small","platform":"web","message":"Text “Ov” is 10 px","box":{"x":14,"y":12,"w":32,"h":32},"states":["owner","seeker","first-visit","filtered","no-results","buy","bought","insufficient","staff-cap","gone","loading","empty","error","owner › Select City","owner › Price","owner › Newest firstPrice: high to lowPrice: low","owner · missing data","owner · long data","owner · arabic data","owner · zero data","owner · opt.lock=blur","owner · opt.lock=mask","owner · opt.lock=avatar"]},{"level":"warn","check":"small","platform":"web","message":"Text “+” is 10 px","box":{"x":14,"y":54,"w":32,"h":32},"states":["owner","seeker","first-visit","filtered","no-results","buy","bought","insufficient","staff-cap","gone","loading","empty","error","owner › Select City","owner › Price","owner › Newest firstPrice: high to lowPrice: low","owner · missing data","owner · long data","owner · arabic data","owner · zero data","owner · opt.lock=blur","owner · opt.lock=mask","owner · opt.lock=avatar"]},{"level":"warn","check":"small","platform":"web","message":"Text “ML” is 10 px","box":{"x":14,"y":96,"w":32,"h":32},"states":["owner","seeker","first-visit","filtered","no-results","buy","bought","insufficient","staff-cap","gone","loading","empty","error","owner › Select City","owner › Price","owner › Newest firstPrice: high to lowPrice: low","owner · missing data","owner · long data","owner · arabic data","owner · zero data","owner · opt.lock=blur","owner · opt.lock=mask","owner · opt.lock=avatar"]},{"level":"warn","check":"small","platform":"web","message":"Text “Cr” is 10 px","box":{"x":14,"y":138,"w":32,"h":32},"states":["owner","seeker","first-visit","filtered","no-results","buy","bought","insufficient","staff-cap","gone","loading","empty","error","owner › Select City","owner › Price","owner › Newest firstPrice: high to lowPrice: low","owner · missing data","owner · long data","owner · arabic data","owner · zero data","owner · opt.lock=blur","owner · opt.lock=mask","owner · opt.lock=avatar"]},{"level":"warn","check":"small","platform":"web","message":"Text “TL” is 10 px","box":{"x":14,"y":180,"w":32,"h":32},"states":["owner","seeker","first-visit","filtered","no-results","buy","bought","insufficient","staff-cap","gone","loading","empty","error","owner › Select City","owner › Price","owner › Newest firstPrice: high to lowPrice: low","owner · missing data","owner · long data","owner · arabic data","owner · zero data","owner · opt.lock=blur","owner · opt.lock=mask","owner · opt.lock=avatar"]},{"level":"warn","check":"small","platform":"web","message":"Text “LM” is 10 px","box":{"x":14,"y":222,"w":32,"h":32},"states":["owner","seeker","first-visit","filtered","no-results","buy","bought","insufficient","staff-cap","gone","loading","empty","error","owner › Select City","owner › Price","owner › Newest firstPrice: high to lowPrice: low","owner · missing data","owner · long data","owner · arabic data","owner · zero data","owner · opt.lock=blur","owner · opt.lock=mask","owner · opt.lock=avatar"]},{"level":"warn","check":"small","platform":"web","message":"Text “AP” is 10 px","box":{"x":14,"y":264,"w":32,"h":32},"states":["owner","seeker","first-visit","filtered","no-results","buy","bought","insufficient","staff-cap","gone","loading","empty","error","owner › Select City","owner › Price","owner › Newest firstPrice: high to lowPrice: low","owner · missing data","owner · long data","owner · arabic data","owner · zero data","owner · opt.lock=blur","owner · opt.lock=mask","owner · opt.lock=avatar"]},{"level":"warn","check":"small","platform":"web","message":"Text “Rp” is 10 px","box":{"x":14,"y":306,"w":32,"h":32},"states":["owner","seeker","first-visit","filtered","no-results","buy","bought","insufficient","staff-cap","gone","loading","empty","error","owner › Select City","owner › Price","owner › Newest firstPrice: high to lowPrice: low","owner · missing data","owner · long data","owner · arabic data","owner · zero data","owner · opt.lock=blur","owner · opt.lock=mask","owner · opt.lock=avatar"]},{"level":"warn","check":"small","platform":"web","message":"Text “St” is 10 px","box":{"x":14,"y":348,"w":32,"h":32},"states":["owner","seeker","first-visit","filtered","no-results","buy","bought","insufficient","staff-cap","gone","loading","empty","error","owner › Select City","owner › Price","owner › Newest firstPrice: high to lowPrice: low","owner · missing data","owner · long data","owner · arabic data","owner · zero data","owner · opt.lock=blur","owner · opt.lock=mask","owner · opt.lock=avatar"]},{"level":"warn","check":"rows","platform":"web","message":"Cells in the same row are aligned differently (some top, some centre) — 6 rows; use one alignment (kit rows centre)","box":{"x":85,"y":267,"w":1330,"h":97},"states":["seeker","bought","loading"]},{"level":"warn","check":"rows","platform":"web","message":"Cells in the same row are aligned differently (some top, some centre) — 3 rows; use one alignment (kit rows centre)","box":{"x":85,"y":267,"w":1330,"h":97},"states":["filtered"]}],"built":"2026-09-30T18:18:43.866Z"}}</script>
+<script type="text/plain" id="pfp-runtime">/* Profolio KSA prototype runtime (kit/runtime.js).
+   It makes a design screen behave. It is wired only by data-pf-* attributes and three JSON
+   blocks, never by matching text; kit/README.md is the reference. It runs inside each
+   screen of a prototype (qa/prototype.mjs inlines it), or on its own when a design is served
+   over http.
+
+   Data, in the screen:
+     <script type="application/json" id="pf-state">   the variables' first values
+     <script type="application/json" id="pf-data">    the lists' rows ({"owner": [...]}, or per
+                                                       dataset: {"owner": {"many": [...], "none": []}})
+     <script type="application/json" id="pf-actions"> named actions: lists of steps
+   Bindings:  data-pf-show · data-pf-text · data-pf-class · data-pf-attr · data-pf-value
+              data-pf-list (+ <template>) · data-pf-overlay · data-pf-menu-panel · data-pf-skeleton
+   Actions:   data-pf-set · data-pf-toggle · data-pf-open · data-pf-close · data-pf-menu · data-pf-do
+              data-pf-go · data-pf-page · data-pf-toast · data-pf-href · data-pf-busy · data-pf-inert
+   The shell is the product's own and is handled here. The rail opens the other pages and
+   expands; the header's bell, avatar, Post a Listing and help open the compiled states their
+   data-pf-go names, over this screen. */
+(function () {
+  'use strict';
+  if (window.pf && window.pf.version) return;
+
+  var BOOT = window.PF_BOOT || {};
+  var inFrame = window.parent && window.parent !== window;
+  var S = {};                 // the variables
+  var INIT = {};              // their first values (pf-state), for a reset
+  var RAW = {};               // pf-data as written
+  var LIVE = {};              // pf-data as changed by actions (per list, per dataset)
+  var ACTIONS = {};
+  var errors = [];
+  var dead = [];
+  var fast = false;           // a scenario applies its steps without waiting
+  var rendering = false, dirty = false, counted = {};
+
+  /* ── errors: kept for QA, never thrown at the viewer ─────────────────── */
+  function fail(msg) {
+    errors.push(String(msg));
+    if (window.console) console.warn('[pf] ' + msg);
+    post({ pf: 'error', message: String(msg) });
+  }
+  window.addEventListener('error', function (e) { fail(e.message + (e.filename ? ' (' + e.filename.split('/').pop() + ':' + e.lineno + ')' : '')); });
+
+  function post(msg) { if (inFrame) try { window.parent.postMessage(msg, '*'); } catch (e) { /* no player */ } }
+
+  /* ── values ──────────────────────────────────────────────────────────── */
+  function literal(s) {
+    s = String(s).trim();
+    if (s === '') return '';
+    if (s === 'true') return true;
+    if (s === 'false') return false;
+    if (s === 'null') return null;
+    if (/^-?\d+(\.\d+)?$/.test(s)) return +s;
+    if ((s[0] === "'" && s[s.length - 1] === "'") || (s[0] === '"' && s[s.length - 1] === '"')) return s.slice(1, -1);
+    return s;
+  }
+  function field(item, path) {
+    var v = item;
+    path.split('.').forEach(function (k) { v = v == null ? undefined : v[k]; });
+    return v;
+  }
+  /* one operand: 'text' · 12 · @key · $.field · $index · a bare word (a key on the left, text on the right) */
+  function operand(tok, scope, bareIsKey) {
+    if (tok == null) return undefined;
+    if (tok[0] === '@') return S[tok.slice(1)];
+    if (tok === '$index') return scope ? scope.index : undefined;
+    if (tok.slice(0, 2) === '$.') return scope ? field(scope.item, tok.slice(2)) : undefined;
+    if (tok === '$') return scope ? scope.item : undefined;
+    if (bareIsKey && /^[A-Za-z_][\w.-]*$/.test(tok) && tok !== 'true' && tok !== 'false' && tok !== 'null') return S[tok];
+    return literal(tok);
+  }
+  /* {@balance - $.price} — + - * / over numbers, left to right */
+  function arith(src, scope) {
+    var parts = src.match(/'[^']*'|"[^"]*"|[@$]?[\w.$]+|[-+*/]/g) || [];
+    var acc = null, op = '+';
+    parts.forEach(function (p) {
+      if (/^[-+*/]$/.test(p)) { op = p; return; }
+      var v = operand(p, scope, true);
+      if (acc === null) { acc = v; return; }
+      var a = +acc, b = +v;
+      acc = op === '+' ? (typeof acc === 'string' && isNaN(a) ? acc + v : a + b) : op === '-' ? a - b : op === '*' ? a * b : b ? a / b : 0;
+    });
+    return acc;
+  }
+  function value(src, scope) {
+    src = String(src).trim();
+    if (src[0] === '{' && src[src.length - 1] === '}') return arith(src.slice(1, -1), scope);
+    if (src[0] === '@' || src === '$index' || src.slice(0, 2) === '$.' || src === '$') return operand(src, scope, false);
+    return literal(src);
+  }
+  function truthy(v) { return !(v === undefined || v === null || v === false || v === '' || v === 0 || v === 'false'); }
+  function same(a, b) {
+    if (a === undefined || a === null) a = '';
+    if (b === undefined || b === null) b = '';
+    if (typeof a === 'number' || typeof b === 'number') { if (a !== '' && b !== '' && !isNaN(+a) && !isNaN(+b)) return +a === +b; }
+    if (Array.isArray(a)) return a.map(String).indexOf(String(b)) > -1;
+    return String(a) === String(b);
+  }
+
+  /* ── expressions: a=b && (c>2 || !d) ─────────────────────────────────── */
+  var exprCache = {};
+  function tokens(src) {
+    var out = [], re = /\s*('(?:[^'])*'|"(?:[^"])*"|&&|\|\||>=|<=|!=|==|[=<>!()]|[^\s=<>!()&|]+)/g, m;
+    while ((m = re.exec(src)) && m[0].trim()) out.push(m[1]);
+    return out;
+  }
+  function parse(src) {
+    if (exprCache[src]) return exprCache[src];
+    var t = tokens(src), i = 0;
+    function peek() { return t[i]; }
+    function or() { var n = and(); while (peek() === '||') { i++; n = { op: '||', a: n, b: and() }; } return n; }
+    function and() { var n = not(); while (peek() === '&&') { i++; n = { op: '&&', a: n, b: not() }; } return n; }
+    function not() {
+      if (peek() === '!') { i++; return { op: '!', a: not() }; }
+      if (peek() === '(') { i++; var n = or(); if (peek() === ')') i++; return n; }
+      var left = t[i++], op = peek();
+      if (['=', '==', '!=', '>', '<', '>=', '<='].indexOf(op) > -1) { i++; return { op: op, l: left, r: t[i++] }; }
+      return { op: 'v', l: left };
+    }
+    var tree = t.length ? or() : { op: 'v', l: 'true' };
+    exprCache[src] = tree;
+    return tree;
+  }
+  function evaluate(src, scope) {
+    function run(n) {
+      switch (n.op) {
+        case '||': return run(n.a) || run(n.b);
+        case '&&': return run(n.a) && run(n.b);
+        case '!': return !run(n.a);
+        case 'v': return truthy(operand(n.l, scope, true));
+        default: {
+          var a = operand(n.l, scope, true), b = operand(n.r, scope, false);
+          if (n.op === '=' || n.op === '==') return same(a, b);
+          if (n.op === '!=') return !same(a, b);
+          a = +a; b = +b;
+          return n.op === '>' ? a > b : n.op === '<' ? a < b : n.op === '>=' ? a >= b : a <= b;
+        }
+      }
+    }
+    try { return run(parse(String(src))); } catch (e) { fail('expression "' + src + '": ' + e.message); return false; }
+  }
+  /* "a=1; b='x y'; c=@d" → [[a, '1'], …], split on ; outside quotes and braces */
+  function pairs(src) {
+    var out = [], depth = 0, q = null, cur = '';
+    String(src).split('').forEach(function (ch) {
+      if (q) { if (ch === q) q = null; cur += ch; return; }
+      if (ch === "'" || ch === '"') { q = ch; cur += ch; return; }
+      if (ch === '{') depth++;
+      if (ch === '}') depth--;
+      if (ch === ';' && !depth) { out.push(cur); cur = ''; return; }
+      cur += ch;
+    });
+    out.push(cur);
+    return out.map(function (s) { return s.trim(); }).filter(Boolean).map(function (s) {
+      var i = s.search(/[:=]/);
+      return i < 0 ? [s, 'true'] : [s.slice(0, i).trim(), s.slice(i + 1).trim()];
+    });
+  }
+
+  /* ── the store ───────────────────────────────────────────────────────── */
+  function set(key, v, quiet) {
+    if (same(S[key], v) && typeof S[key] === typeof v) return;
+    S[key] = v;
+    if (!quiet) schedule();
+  }
+  function schedule() {
+    if (rendering) { dirty = true; return; }
+    dirty = true;
+    (window.requestAnimationFrame || setTimeout)(function () { if (dirty) render(); });
+  }
+  function snapshot() { var o = {}; Object.keys(S).forEach(function (k) { if (!/^(count|total)\./.test(k)) o[k] = S[k]; }); return o; }
+
+  /* ── lists ───────────────────────────────────────────────────────────── */
+  function dataset() { return S.data == null || S.data === '' ? null : String(S.data); }
+  function rows(name) {
+    var raw = LIVE[name];
+    if (raw === undefined) { fail('data-pf-list="' + name + '": pf-data has no "' + name + '"'); return []; }
+    if (Array.isArray(raw)) return raw;
+    var ds = dataset();
+    if (ds && raw[ds]) return raw[ds];
+    if (ds && ds !== 'many' && !raw[ds]) return [];
+    var first = Object.keys(raw)[0];
+    return raw.many || raw[first] || [];
+  }
+  function filtered(el, name) {
+    var items = rows(name).map(function (item, index) { return { item: item, index: index }; });
+    var f = el.getAttribute('data-pf-filter');
+    if (f) {
+      var cs = f.split(';').map(function (c) {
+        var m = c.match(/^\s*([\w.]+)\s*(>=|<=|!=|~|=|>|<)\s*(.+?)\s*$/);
+        return m && { field: m[1], op: m[2], src: m[3] };
+      }).filter(Boolean);
+      items = items.filter(function (r) {
+        return cs.every(function (c) {
+          var want = value(c.src, r);
+          if (want === undefined || want === null || want === '' || want === 'all' || want === 'any') return true;
+          var have = field(r.item, c.field);
+          if (c.op === '=') return same(have, want);
+          if (c.op === '!=') return !same(have, want);
+          if (c.op === '~') return String(have == null ? '' : have).toLowerCase().indexOf(String(want).toLowerCase()) > -1;
+          var a = +have, b = +want;
+          return c.op === '>' ? a > b : c.op === '<' ? a < b : c.op === '>=' ? a >= b : a <= b;
+        });
+      });
+    }
+    var q = el.getAttribute('data-pf-search');
+    if (q) {
+      var parts = q.split(':'), term = String(S[parts[0].replace(/^@/, '').trim()] || '').toLowerCase().trim();
+      var fields = parts[1] ? parts[1].trim().split(/[\s,]+/) : null;
+      if (term) items = items.filter(function (r) {
+        var keys = fields || Object.keys(r.item);
+        return keys.some(function (k) { var v = field(r.item, k); return v != null && String(v).toLowerCase().indexOf(term) > -1; });
+      });
+    }
+    var sortKey = el.getAttribute('data-pf-sort');
+    if (sortKey) {
+      var by = String(value(sortKey) || '');
+      if (by) {
+        var desc = by[0] === '-', k = by.replace(/^[-+]/, '');
+        items.sort(function (x, y) {
+          var a = field(x.item, k), b = field(y.item, k);
+          var r = (typeof a === 'number' && typeof b === 'number') ? a - b : String(a == null ? '' : a).localeCompare(String(b == null ? '' : b), undefined, { numeric: true });
+          return desc ? -r : r;
+        });
+      }
+    }
+    return items;
+  }
+  function renderList(el) {
+    var name = el.getAttribute('data-pf-list');
+    var tpl = el.querySelector(':scope > template');
+    if (!tpl) { fail('data-pf-list="' + name + '" has no <template> child'); return; }
+    var items = filtered(el, name);
+    /* the counts, for empty and no-results states: count.<name> and total.<name> — or, for a
+       second list of the same rows (a dialog's one row), its own data-pf-count key */
+    var key = el.getAttribute('data-pf-count') || (counted[name] ? null : name);
+    if (key) {
+      counted[name] = true;
+      set('total.' + key, rows(name).length, true);
+      set('count.' + key, items.length, true);
+    }
+    var sig = JSON.stringify(items.map(function (r) { return [r.index, r.item]; }));
+    if (el.__pfSig === sig) return;
+    el.__pfSig = sig;
+    Array.prototype.slice.call(el.children).forEach(function (c) { if (c.__pfItem) c.remove(); });
+    var frag = document.createDocumentFragment();
+    items.forEach(function (r, n) {
+      var clone = tpl.content.cloneNode(true);
+      Array.prototype.forEach.call(clone.children, function (c) { c.__pfItem = { item: r.item, index: n, source: r.index, list: name }; c.setAttribute('data-pf-item', name + ':' + r.index); });
+      frag.appendChild(clone);
+    });
+    el.insertBefore(frag, tpl);
+  }
+  /* skeleton rows: the list's own row, filled like a real one (its first row's shape), then
+     every text a bar of its length and every control a block of its size — so they follow the
+     row's columns, whatever the row is */
+  function renderSkeleton(el) {
+    if (el.__pfSkel) return;
+    var name = el.getAttribute('data-pf-skeleton');
+    var target = document.querySelector('[data-pf-list="' + name + '"]');
+    var tpl = target && target.querySelector(':scope > template');
+    if (!tpl) { fail('data-pf-skeleton="' + name + '": no such list'); return; }
+    var all = rows(name);
+    if (!all.length) { var raw = LIVE[name] || []; all = Array.isArray(raw) ? raw : (raw.many || raw[Object.keys(raw)[0]] || []); }   /* the shape of a row even when the list is empty */
+    var sample = (all.filter(function (r) { return !r.status || r.status === 'open'; })[0]) || all[0] || {};
+    var n = +(el.getAttribute('data-pf-rows') || 5);
+    for (var i = 0; i < n; i++) {
+      var frag = tpl.content.cloneNode(true), tops = Array.prototype.slice.call(frag.children);
+      tops.forEach(function (c) { c.__pfItem = { item: sample, index: i, list: name }; });
+      Array.prototype.forEach.call(frag.querySelectorAll(BIND), function (e) { bind(e, { item: sample, index: i, list: name }); });
+      tops.forEach(function (c) { if (c.matches(BIND)) bind(c, { item: sample, index: i, list: name }); });
+      Array.prototype.forEach.call(frag.querySelectorAll('*'), function (e) {
+        if (e.__pfHidden) { e.remove(); return; }
+        Array.prototype.slice.call(e.attributes).forEach(function (at) { if (/^data-pf-/.test(at.name)) e.removeAttribute(at.name); });
+      });
+      Array.prototype.forEach.call(frag.querySelectorAll('i.pfk-riyal, svg[data-pf-riyal], svg.pfk-icon, .pfk-icon'), function (e) { e.remove(); });
+      Array.prototype.forEach.call(frag.querySelectorAll('button, [role=button], a, .pfk-btn, .wf-btn'), function (e) {
+        var bar = document.createElement('span');
+        bar.className = 'pfk-skel pfk-skel--block';
+        bar.style.cssText = 'display:inline-block;width:' + Math.min(220, Math.max(64, (e.textContent || '').trim().length * 8)) + 'px;height:36px';
+        e.replaceWith(bar);
+      });
+      var walker = document.createTreeWalker(frag, NodeFilter.SHOW_TEXT), texts = [];
+      for (var t = walker.nextNode(); t; t = walker.nextNode()) if (t.textContent.trim()) texts.push(t);
+      texts.forEach(function (t) {
+        var bar = document.createElement('span');
+        bar.className = 'pfk-skel';
+        bar.style.width = Math.min(180, Math.max(24, t.textContent.trim().length * 7)) + 'px';
+        t.replaceWith(bar);
+      });
+      tops.forEach(function (c) { delete c.__pfItem; c.removeAttribute('data-pf-item'); c.setAttribute('data-pf-skeleton-row', ''); c.setAttribute('aria-hidden', 'true'); });
+      el.appendChild(frag);
+    }
+    el.__pfSkel = true;
+  }
+
+  /* ── bindings ────────────────────────────────────────────────────────── */
+  function scopeOf(el) {
+    for (var e = el; e && e !== document; e = e.parentNode) if (e.__pfItem) return e.__pfItem;
+    return null;
+  }
+  function show(el, on) {
+    if (on) {
+      if (el.__pfHidden) { el.style.removeProperty('display'); if (el.__pfDisplay) el.style.setProperty('display', el.__pfDisplay[0], el.__pfDisplay[1]); el.__pfHidden = false; }
+    } else if (!el.__pfHidden) {
+      var d = el.style.getPropertyValue('display');
+      el.__pfDisplay = d ? [d, el.style.getPropertyPriority('display')] : null;
+      el.style.setProperty('display', 'none', 'important');
+      el.__pfHidden = true;
+    }
+  }
+  var fmt = {
+    n: function (v) { return v === '' || v == null || isNaN(+v) ? v : (+v).toLocaleString('en-US'); },
+    upper: function (v) { return String(v).toUpperCase(); },
+  };
+  var BIND = '[data-pf-show],[data-pf-text],[data-pf-class],[data-pf-attr],[data-pf-value],[data-pf-overlay],[data-pf-menu-panel]';
+  function render() {
+    rendering = true;
+    try {
+      for (var pass = 0; pass < 3 && dirty; pass++) {
+        dirty = false;
+        counted = {};
+        Array.prototype.forEach.call(document.querySelectorAll('[data-pf-list]'), function (el) { if (!el.closest('template')) renderList(el); });
+        Array.prototype.forEach.call(document.querySelectorAll('[data-pf-skeleton]'), function (el) { if (!el.closest('template')) renderSkeleton(el); });
+        Array.prototype.forEach.call(document.querySelectorAll(BIND), function (el) {
+          if (el.closest('template') || el.closest('[data-pf-skeleton-row]')) return;
+          bind(el, scopeOf(el));
+        });
+      }
+    } catch (e) { fail('render: ' + e.message); }
+    rendering = false;
+    post({ pf: 'state', state: snapshot() });
+  }
+  function bind(el, scope) {
+          var a;
+          if ((a = el.getAttribute('data-pf-overlay')) !== null) show(el, same(S.overlay, a) && !!a);
+          if ((a = el.getAttribute('data-pf-menu-panel')) !== null) show(el, same(S.menu, a) && !!a);
+          if ((a = el.getAttribute('data-pf-show')) !== null) show(el, evaluate(a, scope));
+          if ((a = el.getAttribute('data-pf-text')) !== null) {
+            var v = value(a[0] === '@' || a[0] === '$' || a[0] === '{' ? a : '@' + a, scope);
+            var f = el.getAttribute('data-pf-fmt');
+            if (v === undefined || v === null || v === '') v = el.getAttribute('data-pf-default') || '';
+            else if (f && fmt[f]) v = fmt[f](v);
+            if (el.textContent !== String(v)) el.textContent = String(v);
+          }
+          if ((a = el.getAttribute('data-pf-class')) !== null) pairs(a).forEach(function (p) {
+            p[0].split(/\s+/).forEach(function (c) { if (c) el.classList.toggle(c, evaluate(p[1], scope)); });
+          });
+          if ((a = el.getAttribute('data-pf-attr')) !== null) pairs(a).forEach(function (p) {
+            var on = evaluate(p[1], scope);
+            if (on) el.setAttribute(p[0], p[0] === 'aria-disabled' || p[0] === 'aria-selected' || p[0] === 'aria-pressed' ? 'true' : '');
+            else el.removeAttribute(p[0]);
+          });
+          if ((a = el.getAttribute('data-pf-value')) !== null && document.activeElement !== el) {
+            var cur = S[a.replace(/^@/, '')];
+            if (el.type === 'checkbox') el.checked = truthy(cur);
+            else if (el.value !== String(cur == null ? '' : cur)) el.value = cur == null ? '' : cur;
+          }
+  }
+
+  /* ── actions ─────────────────────────────────────────────────────────── */
+  function applyPairs(src, scope) { pairs(src).forEach(function (p) { set(p[0], value(p[1], scope)); }); }
+  function wait(ms) { return new Promise(function (r) { setTimeout(r, fast ? 0 : ms); }); }
+  function listWhere(name, where, fn) {
+    var raw = LIVE[name];
+    if (!raw) { fail('action: no list "' + name + '"'); return; }
+    var arr = Array.isArray(raw) ? raw : rows(name);
+    arr.forEach(function (item, index) { if (evaluate(where || 'true', { item: item, index: index })) fn(item, index, arr); });
+  }
+  function steps(list, scope) {
+    var chain = Promise.resolve();
+    (list || []).forEach(function (st) {
+      chain = chain.then(function () { return step(st, scope); });
+    });
+    return chain;
+  }
+  function step(st, scope) {
+    if (typeof st === 'string') {
+      if (ACTIONS[st]) return steps(ACTIONS[st], scope);
+      return (applyPairs(st, scope), undefined);
+    }
+    if (st.set) Object.keys(st.set).forEach(function (k) { set(k, typeof st.set[k] === 'string' ? value(st.set[k], scope) : st.set[k]); });
+    if (st.open !== undefined) set('overlay', st.open);
+    if (st.close) { set('overlay', ''); set('menu', ''); }
+    if (st.toast) toast(st.toast, scope);
+    if (st.update) listWhere(st.update, st.where, function (item) {
+      var w = st.with || {};
+      Object.keys(w).forEach(function (k) { item[k] = typeof w[k] === 'string' ? value(w[k], scope) : w[k]; });
+    });
+    if (st.remove) {
+      var gone = [];
+      listWhere(st.remove, st.where, function (item) { gone.push(item); });
+      var arr0 = rows(st.remove);
+      gone.forEach(function (item) { var i = arr0.indexOf(item); if (i > -1) arr0.splice(i, 1); });
+    }
+    if (st.add) {
+      var arr = rows(st.add);
+      if (LIVE[st.add] === undefined) fail('action: no list "' + st.add + '"');
+      else arr[st.at === 'end' ? 'push' : 'unshift'](JSON.parse(JSON.stringify(st.item || {})));
+    }
+    if (st.update || st.remove || st.add) Array.prototype.forEach.call(document.querySelectorAll('[data-pf-list]'), function (el) { el.__pfSig = null; });
+    schedule();
+    if (st.if !== undefined) return steps(evaluate(st.if, scope) ? st.then : st.else, scope);
+    if (st.do) return steps(ACTIONS[st.do] || (fail('action "' + st.do + '" is not in pf-actions'), []), scope);
+    if (st.page) { page(st.page); return; }
+    if (st.go) { post({ pf: 'go', state: st.go }); return; }
+    if (st.wait) return wait(st.wait);
+  }
+  function run(el, e) {
+    var scope = scopeOf(el), a;
+    if ((a = el.getAttribute('data-pf-set')) !== null) applyPairs(a, scope);
+    if ((a = el.getAttribute('data-pf-toggle')) !== null) a.split(/[\s,]+/).forEach(function (k) { if (k) set(k, !truthy(S[k])); });
+    if ((a = el.getAttribute('data-pf-menu')) !== null) set('menu', same(S.menu, a) ? '' : a);
+    if ((a = el.getAttribute('data-pf-open')) !== null) { set('overlay', a); set('menu', ''); }
+    if (el.hasAttribute('data-pf-close')) { if (S.menu) set('menu', ''); else set('overlay', ''); }
+    if ((a = el.getAttribute('data-pf-toast')) !== null) toast(a, scope);
+    if ((a = el.getAttribute('data-pf-href')) !== null) toast('Opens ' + a.replace(/^https?:\/\//, '').replace(/\/$/, '') + ', outside the prototype', scope);
+    var go = el.getAttribute('data-pf-go');
+    if (go) { if (/\.html($|[?#])/.test(go)) shell(go, el); else post({ pf: 'go', state: go }); }
+    if ((a = el.getAttribute('data-pf-page')) !== null) page(value(a, scope) || a);
+    if ((a = el.getAttribute('data-pf-do')) !== null) return steps(a.split(/[\s,]+/).filter(Boolean).map(function (n) { return ACTIONS[n] ? { do: n } : (fail('data-pf-do="' + n + '": no such action in pf-actions'), {}); }), scope);
+    return Promise.resolve();
+  }
+  var ACT = '[data-pf-set],[data-pf-toggle],[data-pf-menu],[data-pf-open],[data-pf-close],[data-pf-toast],[data-pf-href],[data-pf-go],[data-pf-page],[data-pf-do]';
+  function disabled(el) {
+    for (var e = el; e && e.nodeType === 1; e = e.parentElement) {
+      if (e.hasAttribute('disabled') || e.getAttribute('aria-disabled') === 'true') return true;
+      if (e.hasAttribute('data-pf-item') || e.hasAttribute('data-pf-list')) break;
+    }
+    return false;
+  }
+  document.addEventListener('click', function (e) {
+    var t = e.target.nodeType === 1 ? e.target : e.target.parentElement;
+    if (!t) return;
+    var el = t.closest(ACT);
+    /* a click outside an open menu closes it (its own trigger toggles it) */
+    if (S.menu && !t.closest('[data-pf-menu-panel="' + S.menu + '"]') && !(el && el.hasAttribute('data-pf-menu'))) set('menu', '');
+    /* a scrim: a click on the backdrop itself (not what sits on it) closes the menu or overlay */
+    if (t.hasAttribute('data-pf-scrim')) { e.preventDefault(); if (S.menu) set('menu', ''); else set('overlay', ''); return; }
+    if (el && !disabled(el)) {
+      e.preventDefault(); e.stopPropagation();
+      var ms = +(el.getAttribute('data-pf-busy') || 0);
+      if (ms && !fast) {
+        if (el.__pfBusy) return;
+        el.__pfBusy = true; el.classList.add('pfk-busy', 'pf-btn-loading'); el.setAttribute('aria-busy', 'true');
+        setTimeout(function () { el.__pfBusy = false; el.classList.remove('pfk-busy', 'pf-btn-loading'); el.removeAttribute('aria-busy'); run(el, e); }, ms);
+      } else run(el, e);
+      return;
+    }
+    if (el) return;                                  // disabled: nothing happens, as in the product
+    if (shellClick(t, e)) return;
+    var a = t.closest('a[href]');
+    if (a) { e.preventDefault(); linkOut(a); return; }
+    var looks = t.closest('button, [role=button], [role=tab], [role=menuitem], [role=option], [role=switch], [role=checkbox], .pf-btn');
+    if (looks && !disabled(looks) && !looks.closest('[data-pf-inert]')) {
+      var label = (looks.getAttribute('aria-label') || looks.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 40);
+      dead.push(label || looks.tagName.toLowerCase());
+      toast('“' + (label || 'This control') + '” is not wired in this prototype');
+    }
+  }, true);
+  document.addEventListener('input', function (e) {
+    var el = e.target, k = el.getAttribute && el.getAttribute('data-pf-value');
+    if (k === null || k === undefined) return;
+    k = k.replace(/^@/, '');
+    clearTimeout(el.__pfT);
+    el.__pfT = setTimeout(function () { set(k, el.type === 'checkbox' ? el.checked : el.type === 'number' ? literal(el.value) : el.value); }, fast ? 0 : 120);
+  }, true);
+  document.addEventListener('change', function (e) {
+    var el = e.target, k = el.getAttribute && el.getAttribute('data-pf-value');
+    if (k) set(k.replace(/^@/, ''), el.type === 'checkbox' ? el.checked : el.value);
+  }, true);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      if (closeShell()) return;
+      if (S.menu) set('menu', ''); else if (S.overlay) set('overlay', '');
+    } else if ((e.key === 'm' || e.key === 'M') && !/input|textarea|select/i.test((e.target.tagName || ''))) post({ pf: 'platform' });
+  });
+
+  /* ── toasts ──────────────────────────────────────────────────────────── */
+  function toast(what, scope) {
+    var host = document.getElementById('pfk-toasts');
+    if (!host) {
+      host = document.createElement('div');
+      host.id = 'pfk-toasts';
+      host.className = 'pfk-toasts';
+      host.setAttribute('role', 'status');
+      document.body.appendChild(host);
+    }
+    var tpl = document.querySelector('template[data-pf-toast="' + what + '"]'), node;
+    if (tpl) {
+      node = document.createElement('div');
+      node.appendChild(tpl.content.cloneNode(true));
+      node.__pfItem = scope || null;
+    } else {
+      node = document.createElement('div');
+      node.className = 'pfk-toast';
+      node.textContent = what;
+    }
+    host.appendChild(node);
+    schedule();
+    setTimeout(function () { node.classList.add('pfk-toast--out'); setTimeout(function () { node.remove(); }, 240); }, fast ? 3200 : 3000);
+  }
+
+  /* ── pages: another screen of the prototype, or a compiled product page ── */
+  function page(to) {
+    if (!to) return;
+    if (inFrame) post({ pf: 'page', to: String(to), state: snapshot() });
+    else toast('Opens ' + to + ' in the bundled prototype');
+  }
+  function linkOut(a) {
+    var href = a.getAttribute('href') || '';
+    var label = (a.textContent || '').replace(/\s+/g, ' ').trim();
+    var route = (BOOT.labels || {})[label];
+    if (route) return page(route);
+    if (/^https?:/.test(href)) return toast('Opens ' + href.replace(/^https?:\/\//, '').split('/')[0] + ', outside the prototype');
+    if (/^\//.test(href)) return page(href);
+    toast('“' + (label || href) + '” is not part of this prototype');
+  }
+
+  /* ── the shell: rail and header, the product's own ───────────────────── */
+  function railKey(li) {
+    var id = li.getAttribute('data-menu-id') || '';
+    return id.replace(/^rc-menu-uuid-\d+-\d+-/, '');
+  }
+  /* the header's links that leave the product: where they go */
+  var SHELL_OUT = { 'Download App': 'Opens the Profolio app in the App Store or Google Play', 'Go to Bayut.sa': 'Opens bayut.sa in a new tab', 'Help & Support': 'Opens Help & Support' };
+  function shellClick(t, e) {
+    var sh = t.closest('[data-pf-shell-root], .pf-layout-header, .pf-layout-sider');
+    if (sh) {
+      var c = t.closest('button, a, [role=button], [role=menuitem], li, div');
+      for (var n = t; n && n !== sh; n = n.parentElement) {
+        var lab = (n.textContent || '').replace(/\s+/g, ' ').trim();
+        if (SHELL_OUT[lab]) { e.preventDefault(); e.stopPropagation(); toast(SHELL_OUT[lab] + ' — outside the prototype'); return true; }
+        if (lab.length > 40) break;
+      }
+    }
+    var li = t.closest('[data-menu-id]');
+    if (li && li.closest('.pf-layout-sider, [data-pf-rail]')) {
+      e.preventDefault(); e.stopPropagation();
+      var key = railKey(li), label = (li.getAttribute('title') || li.textContent || '').replace(/\s+/g, ' ').trim();
+      var route = (BOOT.menu || {})[key] || (BOOT.labels || {})[label];
+      if (route) page(route); else toast('“' + label + '” is not part of this prototype');
+      return true;
+    }
+    return false;
+  }
+  /* ── the product's own states for the shell, in a layer over the screen ──
+     A compiled state is shown in a transparent frame of its own, with its own stylesheet
+     (kit/layer.js keeps only its top layer), so it looks as the product draws it on any page:
+     - the expanded rail, and the phone's menu;
+     - the bell, the avatar, Post a Listing, help;
+     - a tooltip.
+     Nothing of it is copied into the design's DOM. */
+  var layer = null;            // { frame, path, mode, trigger, info, waiters }
+  var pushed = null;           // what an expanded rail moved: [{ el, prop, value, prio }]
+  var layerLog = [];           // what opened, for the QA
+  function isPhone() { return BOOT.platform === 'phone' || innerWidth < 600; }
+  function railEdits() { return (BOOT.shell && BOOT.shell.rail) || null; }
+  function railSelected() {
+    var own = document.querySelector('.pf-layout-sider .pf-menu-item-selected[data-menu-id]');
+    return (railEdits() && railEdits().selected && BOOT.feature) ? railEdits().selected : own ? own.getAttribute('data-menu-id').replace(/^rc-menu-uuid-\d+-\d+-/, '') : null;
+  }
+  function stateMode(path) { return /rail-expanded|mobile-menu/.test(path) ? 'rail' : /tooltip-/.test(path) ? 'tooltip' : 'overlay'; }
+  var KIT_BASE = (function () { var s = document.currentScript && document.currentScript.src; return s ? s.replace(/[^/]*$/, '') : ''; })();
+  function layerDoc(path, mode, hover) {
+    return new Promise(function (resolve) {
+      if (!inFrame) {                                          /* served over http: the file, and kit/layer.js beside this script */
+        Promise.all([fetch(path).then(function (r) { return r.ok ? r.text() : ''; }), fetch(KIT_BASE + 'layer.js').then(function (r) { return r.ok ? r.text() : ''; })]).then(function (x) {
+          if (!x[0]) return resolve('');
+          var base = '<base href="' + new URL(path, location.href).href + '">';
+          resolve(x[0].replace(/<head[^>]*>/i, function (h) { return h + base; }).replace(/<\/body>/i, '<script>window.PF_LAYER=' + JSON.stringify({ mode: mode, path: path, hover: !!hover, rail: railEdits(), selected: railSelected() }) + '<\/script><script>' + x[1] + '<\/script></body>'));
+        }, function () { resolve(''); });
+        return;
+      }
+      var id = Math.random().toString(36).slice(2);
+      function on(ev) {
+        var m = ev.data;
+        if (!m || m.pf !== 'doc' || m.id !== id) return;
+        window.removeEventListener('message', on);
+        resolve(m.html || '');
+      }
+      window.addEventListener('message', on);
+      post({ pf: 'doc', id: id, path: path, from: BOOT.file || '', mode: mode, hover: !!hover, rail: railEdits(), selected: BOOT.feature ? railSelected() : null });
+      setTimeout(function () { window.removeEventListener('message', on); resolve(''); }, 6000);
+    });
+  }
+  function shell(path, trigger, opts) {
+    opts = opts || {};
+    if (layer && layer.path === path) { closeShell(); return Promise.resolve(null); }
+    closeShell();
+    var mode = stateMode(path);
+    var f = document.createElement('iframe');
+    f.setAttribute('data-pf-layer', path);
+    f.setAttribute('title', 'The product: ' + path.split('/').pop().replace(/\.html$/, ''));
+    f.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;border:0;margin:0;padding:0;z-index:2147483000;background:transparent;color-scheme:normal' + (mode === 'tooltip' ? ';pointer-events:none' : '');
+    f.allowTransparency = true;
+    var L = { frame: f, path: path, mode: mode, trigger: trigger || null, info: null, waiters: [] };
+    layer = L;
+    document.body.appendChild(f);
+    if (mode === 'rail' && !isPhone()) push(true);
+    return layerDoc(path, mode, opts.hover).then(function (html) {
+      if (layer !== L) return null;
+      if (!html) { L.info = { missing: true }; settle(L); closeShell(); toast('This opens a screen that is not part of this prototype'); return L.info; }
+      f.srcdoc = html;
+      return new Promise(function (r) { L.waiters.push(r); setTimeout(function () { if (!L.info) { L.info = { timeout: true }; settle(L); } }, 5000); });
+    });
+  }
+  function settle(L) {
+    layerLog.push({ path: L.path, mode: L.mode, info: L.info });
+    var w = L.waiters; L.waiters = [];
+    w.forEach(function (f) { f(L.info); });
+  }
+  function closeShell() {
+    if (!layer) return false;
+    var L = layer; layer = null;
+    if (!L.info) { L.info = { closed: true }; settle(L); }
+    L.frame.remove();
+    push(false);
+    return true;
+  }
+  window.addEventListener('message', function (ev) {
+    var m = ev.data;
+    if (!m || !m.pfLayer || !layer || ev.source !== layer.frame.contentWindow) return;
+    var L = layer;
+    if (m.type === 'ready') { L.info = m; settle(L); }
+    else if (m.type === 'empty') { L.info = m; settle(L); closeShell(); toast('Nothing opens here in this prototype'); }
+    else if (m.type === 'close') closeShell();
+    else if (m.type === 'go') shell(m.path, null);
+    else if (m.type === 'page') { closeShell(); page(m.to); }
+    else if (m.type === 'nav') {
+      closeShell();
+      var route = (BOOT.menu || {})[m.key] || (BOOT.labels || {})[m.label];
+      if (route) page(route);
+      else if (SHELL_OUT[m.label]) toast(SHELL_OUT[m.label] + ' — outside the prototype');
+      else toast('“' + (m.label || 'This') + '” is not part of this prototype');
+    }
+  });
+
+  /* the rail as this design changes it (flow.json shell.rail): a new item after a neighbour, with
+     another item's icon; which item is selected. The same edits run on every rail drawn. */
+  function editRail(sider, edits, selected) {
+    if (!sider || !edits) return;
+    (edits.add || []).forEach(function (a) {
+      if (sider.querySelector('[data-menu-id$="-' + a.key + '"]')) return;
+      var after = sider.querySelector('[data-menu-id$="-' + a.after + '"]');
+      if (!after) return;
+      var li = after.cloneNode(true);
+      li.setAttribute('data-menu-id', (after.getAttribute('data-menu-id') || '').replace(/^(rc-menu-uuid-\d+-\d+-).*$/, '$1') + a.key);
+      li.setAttribute('title', a.label);
+      li.classList.remove('pf-menu-item-selected');
+      if (a.page) li.setAttribute('data-pf-page', a.page);
+      /* its label: the text outside its icon (an expanded rail's items carry an empty title) */
+      var w = document.createTreeWalker(li, NodeFilter.SHOW_TEXT), swapped = false;
+      for (var t = w.nextNode(); t; t = w.nextNode()) if (t.textContent.trim() && !(t.parentElement && t.parentElement.closest('.anticon, svg'))) { t.textContent = a.label; swapped = true; break; }
+      if (!swapped) li.appendChild(document.createTextNode(a.label));
+      var src = a.icon && sider.querySelector('[data-menu-id$="-' + a.icon + '"] .anticon'), dst = li.querySelector('.anticon');
+      if (src && dst) dst.replaceWith(src.cloneNode(true));
+      after.parentNode.insertBefore(li, after.nextSibling);
+    });
+    if (selected) {
+      var sel = sider.querySelector('[data-menu-id$="-' + selected + '"]');
+      if (sel) { Array.prototype.forEach.call(sider.querySelectorAll('.pf-menu-item-selected'), function (e) { e.classList.remove('pf-menu-item-selected'); }); sel.classList.add('pf-menu-item-selected'); }
+    }
+  }
+
+  /* the product pushes the page aside when its rail expands (PUSH_CONTENT_ON_SIDEBAR_EXPAND) */
+  function push(on) {
+    if (!on) {
+      (pushed || []).forEach(function (p) { if (p.value) p.el.style.setProperty(p.prop, p.value, p.prio); else p.el.style.removeProperty(p.prop); });
+      pushed = null;
+      return;
+    }
+    var s = document.querySelector('.pf-layout-sider');
+    if (!s || pushed) return;
+    var w = s.getBoundingClientRect().width, W = 220;
+    if (W - w < 1) return;
+    pushed = [];
+    var save = function (el, prop, v) { pushed.push({ el: el, prop: prop, value: el.style.getPropertyValue(prop), prio: el.style.getPropertyPriority(prop) }); el.style.setProperty(prop, v, 'important'); };
+    var box = s;
+    while (box.parentElement && box.parentElement !== document.body && Math.abs(box.parentElement.getBoundingClientRect().width - w) < 2) box = box.parentElement;
+    var par = box.parentElement, pc = par && getComputedStyle(par);
+    if (getComputedStyle(s).position !== 'fixed' && pc && /flex/.test(pc.display) && !/column/.test(pc.flexDirection)) {
+      /* a rail in the page's flow (the 2.0 build): widen its box, the content reflows */
+      ['width', 'min-width', 'max-width', 'flex-basis'].forEach(function (p) { save(box, p, W + 'px'); });
+      return;
+    }
+    /* a fixed rail (the current theme): the content that starts where it ends moves over */
+    var c = Array.prototype.filter.call(document.querySelectorAll('body *'), function (e) {
+      if (e.closest('.pf-layout-sider')) return false;
+      return Math.abs(parseFloat(getComputedStyle(e).marginLeft) - w) < 2 && e.getBoundingClientRect().width > innerWidth * 0.5;
+    })[0];
+    if (c) save(c, 'margin-left', W + 'px');
+  }
+  /* the product opens the rail on hover — a real pointer, resting on it, not one that happens to be there */
+  var moved = false, hoverT = null;
+  document.addEventListener('pointermove', function (e) { if (e.movementX || e.movementY) moved = true; }, true);
+  document.addEventListener('pointerover', function (e) {
+    var rail = e.target.closest && e.target.closest('.pf-layout-sider');
+    if (!rail || !moved || layer || isPhone()) return;
+    var btn = rail.querySelector('[data-pf-go*="rail-expanded"]');
+    if (!btn) return;
+    clearTimeout(hoverT);
+    hoverT = setTimeout(function () { if (rail.matches(':hover') && !layer) shell(btn.getAttribute('data-pf-go'), null, { hover: true }); }, 180);
+  });
+  /* tooltips the product shows on hover: a data-pf-go to a …/tooltip-… state */
+  document.addEventListener('pointerover', function (e) {
+    var t = e.target.closest && e.target.closest('[data-pf-go*="tooltip-"]');
+    if (!t || (layer && layer.trigger === t)) return;
+    shell(t.getAttribute('data-pf-go'), t);
+    t.addEventListener('pointerleave', function out() { t.removeEventListener('pointerleave', out); if (layer && layer.trigger === t) closeShell(); });
+  });
+
+  /* ── boot ────────────────────────────────────────────────────────────── */
+  function json(id) {
+    var out = {};
+    Array.prototype.forEach.call(document.querySelectorAll('script[type="application/json"]#' + id + ', script[type="application/json"][data-pf="' + id.replace(/^pf-/, '') + '"]'), function (s) {
+      try { var o = JSON.parse(s.textContent || '{}'); Object.keys(o).forEach(function (k) { out[k] = o[k]; }); } catch (e) { fail(id + ' is not valid JSON: ' + e.message); }
+    });
+    return out;
+  }
+  function reset() {
+    S = JSON.parse(JSON.stringify(INIT));
+    LIVE = JSON.parse(JSON.stringify(RAW));
+    if (S.overlay === undefined) S.overlay = '';
+    if (S.menu === undefined) S.menu = '';
+    Array.prototype.forEach.call(document.querySelectorAll('[data-pf-list]'), function (el) { el.__pfSig = null; });
+  }
+  /* a named state: {set: {…}, do: [steps]} — from the start, without waiting */
+  function apply(state, carry) {
+    closeShell();
+    var toasts = document.getElementById('pfk-toasts');
+    if (toasts) toasts.textContent = '';                     /* a state starts clean: no toast from the last one */
+    reset();
+    if (carry) Object.keys(carry).forEach(function (k) { if (!/^(count|total)\./.test(k) && k !== 'overlay' && k !== 'menu') S[k] = carry[k]; });
+    state = state || {};
+    Object.keys(state.set || {}).forEach(function (k) { S[k] = state.set[k]; });
+    dirty = true; render();
+    fast = true;
+    return steps([].concat(state.do || []).map(function (d) { return typeof d === 'string' && ACTIONS[d] ? { do: d } : d; })).then(function () {
+      fast = false; dirty = true; render();
+    }, function (e) { fast = false; fail('state: ' + e.message); });
+  }
+  function boot() {
+    if (railEdits()) editRail(document.querySelector('.pf-layout-sider'), railEdits(), BOOT.feature ? railEdits().selected : null);
+    INIT = json('pf-state');
+    RAW = json('pf-data');
+    ACTIONS = json('pf-actions');
+    reset();
+    var start = BOOT.state ? apply(BOOT.state, BOOT.carry) : (dirty = true, render(), Promise.resolve());
+    start.then(function () { post({ pf: 'ready', screen: BOOT.screen || '', state: snapshot(), errors: errors }); });
+  }
+  window.addEventListener('message', function (ev) {
+    var m = ev.data;
+    if (!m || !m.pf) return;
+    if (m.pf === 'apply') apply(m.state, m.carry).then(function () { post({ pf: 'applied', id: m.id, state: snapshot(), errors: errors }); });
+    else if (m.pf === 'set') { set(m.key, m.value); }
+    else if (m.pf === 'rpc') {
+      var fn = window.pf && window.pf[m.fn];
+      Promise.resolve(typeof fn === 'function' ? fn.apply(null, m.args || []) : null).then(function (res) { post({ pf: 'rpc', id: m.id, result: JSON.parse(JSON.stringify(res === undefined ? null : res)) }); }, function (e) { post({ pf: 'rpc', id: m.id, error: String(e && e.message || e) }); });
+    }
+    else if (m.pf === 'qa') {
+      var go = function () { Promise.resolve(window.pfQA ? window.pfQA(m.options || {}) : { issues: [], note: 'qa.js is not loaded' }).then(function (r) { r.errors = errors.slice(); r.dead = dead.slice(); post({ pf: 'qa', id: m.id, result: r }); }); };
+      setTimeout(go, m.delay || 60);
+    }
+  });
+
+  /* ── for the QA: every control that opens something, opened; the data at its extremes ── */
+  function labelOf(e) { return ((e.getAttribute('aria-label') || e.getAttribute('title') || e.textContent || '') + '').replace(/\s+/g, ' ').trim().slice(0, 40); }
+  function displayed(e) { for (var n = e; n && n.nodeType === 1; n = n.parentElement) { var c = getComputedStyle(n); if (c.display === 'none' || c.visibility === 'hidden') return false; } var r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0; }
+  function targets() {
+    var out = [], had = {};
+    Array.prototype.forEach.call(document.querySelectorAll('[data-pf-go]'), function (e) {
+      var g = e.getAttribute('data-pf-go');
+      if (!/\.html($|[?#])/.test(g) || /tooltip-/.test(g) || had['go:' + g] || !displayed(e)) return;
+      had['go:' + g] = 1;
+      out.push({ kind: 'shell', key: g, label: labelOf(e) || g.split('/').pop().replace(/\.html$/, '') });
+    });
+    if (!isPhone() && document.querySelector('.pf-layout-sider [data-pf-go*="rail-expanded"]')) out.push({ kind: 'hover', key: 'rail', label: 'hovering the rail' });
+    ['menu', 'open'].forEach(function (k) {
+      Array.prototype.forEach.call(document.querySelectorAll('[data-pf-' + k + ']'), function (e) {
+        var id = e.getAttribute('data-pf-' + k);
+        if (!id || had[k + ':' + id] || !displayed(e)) return;
+        had[k + ':' + id] = 1;
+        out.push({ kind: k, key: id, label: labelOf(e) || id });
+      });
+    });
+    return out;
+  }
+  function textLeftUnder(right) {
+    /* the design's text that an expanded rail would lie over: left of its right edge, below the header */
+    var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT), r = document.createRange(), hits = 0;
+    for (var t = w.nextNode(); t; t = w.nextNode()) {
+      var el = t.parentElement;
+      if (!t.textContent.trim() || !el || el.closest('.pf-layout-sider, .pf-layout-header, [data-pf-layer], script, style, template')) continue;
+      r.selectNodeContents(t);
+      var b = r.getBoundingClientRect();
+      if (b.width < 1 || b.top < 64 || b.top > innerHeight) continue;
+      if (b.left < right - 2 && displayed(el)) hits++;
+    }
+    return hits;
+  }
+  function interact(t) {
+    closeShell(); set('menu', ''); set('overlay', '');
+    dirty = true; render();
+    if (t.kind === 'shell' || t.kind === 'hover') {
+      var path = t.kind === 'hover' ? document.querySelector('.pf-layout-sider [data-pf-go*="rail-expanded"]').getAttribute('data-pf-go') : t.key;
+      return shell(path, null, { hover: t.kind === 'hover' }).then(function (info) {
+        return new Promise(function (r) { setTimeout(r, 300); }).then(function () {
+          var rail = info && info.boxes && info.boxes.filter(function (b) { return !b.scrim; })[0];
+          return { target: t, layer: { path: path, mode: stateMode(path), info: info || null, pushed: !!pushed, covered: rail && stateMode(path) === 'rail' && !isPhone() ? textLeftUnder(rail.x + rail.w) : 0, scrim: !!(info && info.boxes && info.boxes.some(function (b) { return b.scrim; })) } };
+        });
+      });
+    }
+    if (t.kind === 'menu') set('menu', t.key); else set('overlay', t.key);
+    dirty = true; render();
+    return new Promise(function (r) { setTimeout(r, 250); }).then(function () {
+      var sel = t.kind === 'menu' ? '[data-pf-menu-panel="' + t.key + '"]' : '[data-pf-overlay="' + t.key + '"]';
+      var panels = Array.prototype.filter.call(document.querySelectorAll(sel), displayed);
+      return { target: t, panels: panels.length, selector: sel };
+    });
+  }
+  /* the first row of each named list, emptied, lengthened, in Arabic or at zero */
+  var AR = { name: 'عبدالرحمن بن فهد الزهراني', district: 'حي الملقا الشمالي', city: 'الرياض', types: 'فيلا، دوبلكس، شقة، أرض', intent: 'يرغب في وكيل لبيع العقار', label: 'نص عربي طويل' };
+  function extremes(kind, lists) {
+    (lists || Object.keys(LIVE)).forEach(function (name) {
+      var arr = LIVE[name] === undefined ? [] : rows(name);
+      var r = arr[0];
+      if (!r || typeof r !== 'object') return;
+      var sortBy = {};
+      Array.prototype.forEach.call(document.querySelectorAll('[data-pf-list="' + name + '"][data-pf-sort]'), function (el) { var v = String(value(el.getAttribute('data-pf-sort')) || '').replace(/^[-+]/, ''); if (v) sortBy[v] = 1; });
+      Object.keys(r).forEach(function (k) {
+        if (k === 'id' || k === 'status' || k === 'value' || sortBy[k]) return;   /* the sort key stays: the row stays where it is seen */
+        var v = r[k];
+        if (kind === 'missing') r[k] = null;
+        else if (kind === 'long') r[k] = typeof v === 'number' ? 999999999 : typeof v === 'string' ? (v + ' ' + v + ' ' + v).slice(0, 72) : v;
+        else if (kind === 'arabic') { if (typeof v === 'string') r[k] = AR[k] || AR.label; }
+        else if (kind === 'zero') { if (typeof v === 'number') r[k] = 0; }
+      });
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-pf-list]'), function (el) { el.__pfSig = null; });
+    dirty = true; render();
+    return new Promise(function (r) { setTimeout(r, 200); }).then(function () { return { extremes: kind }; });
+  }
+
+  window.pf = {
+    version: '2.1',
+    targets: targets,
+    interact: interact,
+    extremes: extremes,
+    closeShell: closeShell,
+    layerLog: layerLog,
+    shellOut: SHELL_OUT,
+    get: function (k) { return k ? S[k] : snapshot(); },
+    set: function (k, v) { set(k, v); },
+    apply: apply,
+    run: function (name) { return steps([{ do: name }]); },
+    toast: toast,
+    errors: errors,
+    dead: dead,
+    evaluate: evaluate,
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
+})();
+</script>
+<script type="text/plain" id="pfp-qa">/* Profolio KSA Design QA, inside a screen (kit/qa.js). window.pfQA(options) measures the
+   rendered screen and returns { issues: [{ level, check, message, box }], stats }. Every
+   number it reports is measured.
+
+   A headless run calls it for every state, web and phone: qa/prototype.mjs, before a
+   prototype is delivered. In the player it runs on the state on screen (the QA button).
+   { draw: true } also outlines each issue on the screen.
+
+   Checks:
+     align     a column's header does not line up with its cells (any edge, > 2 px)
+     controls  a button is not the height of the other buttons in its column (> 4 px), or is squashed
+     overlap   two pieces of visible text overlap
+     clip      text cut by its box, with no ellipsis
+     fonts     a web font the page uses is missing, or did not load
+     images    an image that did not load
+     dead      a control that does nothing: not wired (data-pf-*), not the shell's, not data-pf-inert
+     overflow  the page is wider than its viewport
+     currency  "SAR", "ر.س" or U+20C1 beside a number, or the 2.0 handover's rough riyal sketch
+     vars      an inline var(--x) with no value and no fallback
+     skeleton  a loading skeleton whose blocks don't follow the columns of the table above it
+     spacing   a button's label split into flex items, the gap between every word
+     blank     a bound value that renders nothing, or "undefined", "null", "NaN", when the data lacks it
+     shell     (in the sweep) a product state that opens nothing, off the screen, unstyled, or an
+               expanded rail lying over the page instead of pushing it aside
+     clip      (in the sweep, too) a menu or dialog cut off by a container or the screen's edge
+     rows      (warning) cells of one row aligned differently: some top, some centre
+     targets   (warning, phone) a control smaller than the build's 32 px (the platforms ask 44)
+     small     (warning) visible text under 11 px */
+(function () {
+  'use strict';
+  var SYSTEM = /^(system-ui|-apple-system|blinkmacsystemfont|segoe ui|roboto|helvetica neue|helvetica|arial|sans-serif|serif|monospace|times|times new roman|georgia|courier|courier new|menlo|monaco|apple color emoji|segoe ui emoji|noto color emoji|inherit|initial|cursive|fantasy|ui-sans-serif|ui-monospace)$/i;
+  var ACT = '[data-pf-set],[data-pf-toggle],[data-pf-menu],[data-pf-open],[data-pf-close],[data-pf-toast],[data-pf-href],[data-pf-go],[data-pf-page],[data-pf-do],[data-pf-value],[data-pf-inert]';
+
+  function cs(e) { return getComputedStyle(e); }
+  function rect(e) { var r = e.getBoundingClientRect(); return { x: Math.round(r.left + scrollX), y: Math.round(r.top + scrollY), w: Math.round(r.width), h: Math.round(r.height) }; }
+  function shown(e) {
+    for (var n = e; n && n.nodeType === 1; n = n.parentElement) {
+      var s = cs(n);
+      if (s.display === 'none' || s.visibility === 'hidden' || +s.opacity === 0) return false;
+    }
+    var r = e.getBoundingClientRect();
+    return r.width > 0.5 && r.height > 0.5 && r.right > 0 && r.bottom > 0 && r.left < innerWidth + 2;
+  }
+  function label(e) {
+    var t = (e.textContent || '').replace(/\s+/g, ' ').trim() || (e.getAttribute && (e.getAttribute('aria-label') || e.getAttribute('title'))) || '';
+    t = t.replace(/\s+/g, ' ').trim();
+    return t.length > 40 ? t.slice(0, 38) + '…' : t;
+  }
+  /* the box of what an element draws: its text, its images and icons, and any box that draws
+     itself inside it (a button, a pill, an icon drawn as a box) — whole, not its label */
+  function content(el) {
+    var box = null, range = document.createRange();
+    function add(r) {
+      if (!r || r.width < 0.5 || r.height < 0.5) return;
+      box = box ? { l: Math.min(box.l, r.left), r: Math.max(box.r, r.right), t: Math.min(box.t, r.top), b: Math.max(box.b, r.bottom) } : { l: r.left, r: r.right, t: r.top, b: r.bottom };
+    }
+    var cell = el.getBoundingClientRect();
+    var walk = document.createTreeWalker(el, NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT, {
+      acceptNode: function (n) {
+        if (n.nodeType === 1) {
+          var s = cs(n);
+          if (s.display === 'none' || s.visibility === 'hidden' || +s.opacity === 0) return NodeFilter.FILTER_REJECT;
+          if (/^(IMG|SVG|svg|INPUT|SELECT|TEXTAREA|CANVAS|VIDEO|BUTTON|I)$/.test(n.tagName)) return NodeFilter.FILTER_ACCEPT;
+          var r = n.getBoundingClientRect();
+          if (ownPaint(n) && r.width < cell.width * 0.95 && r.height < 120) return NodeFilter.FILTER_ACCEPT;
+          return NodeFilter.FILTER_SKIP;
+        }
+        return n.textContent.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
+      },
+    });
+    for (var n = walk.nextNode(); n; n = walk.nextNode()) {
+      if (n.nodeType === 3) { range.selectNodeContents(n); Array.prototype.forEach.call(range.getClientRects(), add); }
+      else {
+        add(n.getBoundingClientRect());
+        var last = n;                                             /* the box counts whole: go on after what is inside it */
+        while (last.lastChild) last = last.lastChild;
+        walk.currentNode = last;
+      }
+    }
+    return box;
+  }
+  function median(xs) { var s = xs.slice().sort(function (a, b) { return a - b; }); return s.length ? s[Math.floor(s.length / 2)] : 0; }
+  function painted(e) {
+    for (var i = 0, n = e; n && i < 4; i++, n = n.parentElement) {
+      var s = cs(n);
+      if (s.backgroundColor !== 'rgba(0, 0, 0, 0)' && s.backgroundColor !== 'transparent') return n;
+      if (parseFloat(s.borderTopWidth) > 0 && s.borderTopStyle !== 'none') return n;
+      if (s.outlineStyle !== 'none' && parseFloat(s.outlineWidth) > 0) return n;
+      if (s.boxShadow && s.boxShadow !== 'none') return n;
+      if (n.hasAttribute && n.hasAttribute('data-pf-item')) break;
+    }
+    return null;
+  }
+
+  var SHELL = '[data-pf-shell-root], [data-pf-shell], .pf-layout-sider, .pf-layout-header, [data-pf-rail]';
+  function inShell(e) { return !!(e && e.closest && e.closest(SHELL)); }
+  function bgOf(e) { for (var n = e; n && n.nodeType === 1; n = n.parentElement) { var b = cs(n).backgroundColor; if (b !== 'rgba(0, 0, 0, 0)' && b !== 'transparent') return b; } return 'rgb(255, 255, 255)'; }
+  /* a box that draws itself: a fill unlike what is behind it, a border or an outline */
+  function ownPaint(e) {
+    var s = cs(e), b = s.backgroundColor;
+    if (b !== 'rgba(0, 0, 0, 0)' && b !== 'transparent' && b !== bgOf(e.parentElement)) return true;
+    if (parseFloat(s.borderTopWidth) > 0 && s.borderTopStyle !== 'none' && parseFloat(s.borderBottomWidth) > 0) return true;
+    return s.outlineStyle !== 'none' && parseFloat(s.outlineWidth) > 0;
+  }
+  /* the size of the text an element holds (its biggest), not the font it inherits */
+  function textSize(e) {
+    var max = 0, w = document.createTreeWalker(e, NodeFilter.SHOW_TEXT);
+    for (var n = w.nextNode(); n; n = w.nextNode()) if (n.textContent.trim() && n.parentElement) max = Math.max(max, parseFloat(cs(n.parentElement).fontSize) || 0);
+    return max || parseFloat(cs(e).fontSize) || 14;
+  }
+  /* buttons: the innermost box that draws itself around a short label someone can press */
+  function buttonsIn(scope) {
+    var all = Array.prototype.filter.call(scope.querySelectorAll('*'), function (e) {
+      var t = (e.textContent || '').replace(/\s+/g, ' ').trim();
+      if (!t || t.length > 40 || !ownPaint(e) || !shown(e) || inShell(e)) return false;
+      if (e.closest('.pfk-pill, [class*="tag"], [class*="badge"], [class*="pill"], .pfk-skel')) return false;
+      var br = e.getBoundingClientRect();
+      if (br.width < 40 || (textSize(e) <= 12 && br.height <= 22)) return false;   /* a tag or a pill */
+      return cs(e).cursor === 'pointer' || /^(BUTTON|A)$/.test(e.tagName) || /button/.test(e.getAttribute('role') || '') ||
+        !!e.closest('[data-pf-do],[data-pf-open],[data-pf-page],[data-pf-set],[data-pf-go],[data-pf-toggle],[data-pf-menu]');
+    });
+    return all.filter(function (e) { return !all.some(function (o) { return o !== e && e.contains(o); }); });   /* the innermost box */
+  }
+  /* placeholder blocks: light grey, no text — a skeleton, whatever its class */
+  function placeholders(scope) {
+    function grey(c) { var v = c.split(',').map(function (x) { return +x; }); return Math.max(v[0], v[1], v[2]) - Math.min(v[0], v[1], v[2]) < 12 && v[0] > 200 && v[0] < 252; }
+    return Array.prototype.filter.call(scope.querySelectorAll('*'), function (e) {
+      if (e.children.length || (e.textContent || '').trim() || /^(svg|SVG|IMG|PATH|path|INPUT)$/.test(e.tagName)) return false;
+      if (e.closest('[data-pf-item], .wf-blur, .pfk-teaser, [class*="blur"]') && !e.closest('[data-pf-skeleton-row]')) return false;
+      var r = e.getBoundingClientRect();
+      if (r.height < 6 || r.height > 140 || r.width < 10 || !shown(e)) return false;
+      if (/skel/i.test(String(e.className))) return true;
+      var s = cs(e), m = /rgba?\((\d+, \d+, \d+)(?:, ([\d.]+))?\)/.exec(s.backgroundColor);
+      if (m && !(m[2] !== undefined && +m[2] < 0.5) && grey(m[1])) return true;
+      var g = /gradient/.test(s.backgroundImage) && (s.backgroundImage.match(/rgba?\((\d+, \d+, \d+)/g) || []).map(function (x) { return x.replace(/rgba?\(/, ''); });
+      return !!(g && g.length && g.every(grey));
+    });
+  }
+  /* ── tables: rows that share one set of columns ─────────────────────── */
+  function tables() {
+    var groups = {};
+    Array.prototype.forEach.call(document.querySelectorAll('body *'), function (e) {
+      var s = cs(e);
+      if (s.display !== 'grid' && s.display !== 'inline-grid') return;
+      var tracks = s.gridTemplateColumns.split(/\s+(?![^(]*\))/).filter(Boolean);
+      if (tracks.length < 3 || e.children.length < 3 || !shown(e)) return;
+      var r = e.getBoundingClientRect();
+      var key = tracks.map(function (t) { return Math.round(parseFloat(t)); }).join(',') + '@' + Math.round(r.left) + '/' + Math.round(r.width);
+      (groups[key] = groups[key] || []).push(e);
+    });
+    /* flex rows: three or more siblings with the same number of children */
+    Array.prototype.forEach.call(document.querySelectorAll('body *'), function (p) {
+      var kids = Array.prototype.filter.call(p.children, function (c) { var st = cs(c); return st.display === 'flex' && !/column/.test(st.flexDirection) && c.children.length >= 3 && shown(c); });
+      if (kids.length < 3) return;
+      var n = kids[0].children.length;
+      if (!kids.every(function (k) { return k.children.length === n; })) return;
+      var head = null;
+      for (var prev = p.previousElementSibling; prev && !head; prev = prev.previousElementSibling) {
+        var cand = prev.children.length === n && cs(prev).display === 'flex' ? prev : prev.querySelector && Array.prototype.filter.call(prev.querySelectorAll('*'), function (x) { return x.children.length === n && cs(x).display === 'flex'; })[0];
+        if (cand && shown(cand)) head = cand;
+      }
+      var key = 'flex@' + (head ? 'h' : '') + Math.round(p.getBoundingClientRect().left) + '#' + Array.prototype.indexOf.call(document.querySelectorAll('*'), p);
+      groups[key] = (head ? [head] : []).concat(kids);
+    });
+    return Object.keys(groups).map(function (k) { return groups[k]; }).filter(function (g) { return g.length >= 2; });
+  }
+  function isHead(row, group) {
+    if (row.querySelector('[role=columnheader], .pfk-th, th')) return true;
+    if (/thead|table-head|header-row/i.test(row.className)) return true;
+    return row === group[0] && !row.querySelector('button, [role=button], img, svg[data-pf-riyal]') && (row.textContent || '').length < 160;
+  }
+  function edges(cell) { var c = content(cell); return c && { l: c.l, r: c.r, c: (c.l + c.r) / 2, t: c.t, b: c.b }; }
+
+  window.pfQA = function (opt) {
+    opt = opt || {};
+    var out = [], stats = { tables: 0, controls: 0, texts: 0 };
+    var phone = innerWidth < 600;
+    function add(level, check, message, el) {
+      if (out.some(function (o) { return o.check === check && o.message === message; })) return;
+      out.push({ level: level, check: check, message: message, box: el && el.getBoundingClientRect ? rect(el) : null });
+      if (opt.draw && el && el.getBoundingClientRect) draw(el, level, out.length);
+    }
+
+    /* skeleton: under a column header, the blocks start where the columns start */
+    var skelDone = [];
+    function checkSkeleton(head) {
+      if (skelDone.indexOf(head) > -1) return;
+      skelDone.push(head);
+      var card = head.parentElement;
+      for (var up = 0; card && up < 3 && card.getBoundingClientRect().height < head.getBoundingClientRect().height * 3; up++) card = card.parentElement;
+      if (!card) return;
+      var hb = head.getBoundingClientRect();
+      var blocks = placeholders(card).filter(function (b) { return b.getBoundingClientRect().top > hb.bottom - 2 && !head.contains(b); });
+      if (blocks.length < 4) return;
+      var starts = Array.prototype.map.call(head.children, function (c) { var e = edges(c); return e ? e.l : c.getBoundingClientRect().left; });
+      var lefts = blocks.map(function (b) { return b.getBoundingClientRect().left; });
+      var hits = starts.filter(function (x) { return lefts.some(function (l) { return Math.abs(l - x) <= 16; }); }).length;
+      if (hits < Math.ceil(starts.length * 0.6)) add('error', 'skeleton', 'The loading skeleton does not follow the table\'s ' + starts.length + ' columns (blocks start under ' + hits + ' of them) — build it from the list\'s own row: data-pf-skeleton', blocks[0]);
+    }
+
+    /* align + controls + rows */
+    var found = tables();
+    /* a column header alone (its rows are not drawn: loading, empty) — checked for the skeleton */
+    Array.prototype.forEach.call(document.querySelectorAll('body *'), function (e) {
+      var s = cs(e);
+      if (s.display !== 'grid' || e.children.length < 3 || !shown(e) || inShell(e)) return;
+      var kids = Array.prototype.slice.call(e.children);
+      if (!kids.every(function (c) { var t = (c.textContent || '').trim(); return t && t.length < 24 && !c.querySelector('button, input, img'); })) return;
+      if (e.getBoundingClientRect().width < 600 || e.getBoundingClientRect().height > 64) return;
+      if (found.some(function (g) { return g.indexOf(e) > 0; })) return;
+      checkSkeleton(e);
+    });
+    stats.tables = found.length;
+    found.forEach(function (group) {
+      var head = isHead(group[0], group) ? group[0] : null;
+      var body = group.filter(function (r) { return r !== head; });
+      var n = Math.min.apply(null, group.map(function (r) { return r.children.length; }));
+      for (var k = 0; k < n; k++) {
+        var rowsE = body.map(function (r) { return edges(r.children[k]); }).filter(Boolean);
+        if (head && rowsE.length) {
+          var h = edges(head.children[k]);
+          if (h) {
+            /* the column's own alignment, from its cells' CSS — the edge they are set to align on
+               (a flex cell's justify-content, else its text-align): left for text, right for an
+               end column, centre for a centred one. Not guessed from text widths, which differ by
+               font. The header is held to that edge. */
+            var cst = cs(body[0].children[k]), jc = /flex/.test(cst.display) ? cst.justifyContent : '';
+            var axis = /end|right/.test(jc) ? 'r' : /center/.test(jc) ? 'c' : /right|end/.test(cst.textAlign) ? 'r' : /center/.test(cst.textAlign) ? 'c' : 'l';
+            if (cst.direction === 'rtl' && axis !== 'c' && !/end|right|left/.test(jc + cst.textAlign)) axis = 'r';
+            var off = function (a) { return h[a] - median(rowsE.map(function (e) { return e[a]; })); };
+            var edge = axis === 'l' ? 'left edge' : axis === 'r' ? 'right edge' : 'centre';
+            var near = off(axis);
+            if (Math.abs(near) > 2) add('error', 'align', 'Column header “' + label(head.children[k]) + '” sits ' + Math.round(Math.abs(near)) + ' px ' + (near > 0 ? 'right' : 'left') + ' of its column\'s content (the column aligns on its ' + edge + ') — give header and cells one padding and one alignment (kit: .pfk-th / .pfk-td)', head.children[k]);
+          }
+        }
+        /* buttons in one column share a height */
+        var btns = [];
+        body.forEach(function (r) { var cell = r.children[k]; if (cell) buttonsIn(cell).forEach(function (b) { if (!b.closest('[data-pf-inert]')) btns.push(b); }); });
+        if (btns.length >= 2) {
+          var hs = btns.map(function (b) { return b.getBoundingClientRect().height; }), mode = median(hs);
+          btns.forEach(function (b, i) {
+            if (Math.abs(hs[i] - mode) > 4) add('error', 'controls', '“' + label(b) + '” is ' + Math.round(hs[i]) + ' px tall; the other buttons in its column are ' + Math.round(mode) + ' px', b);
+          });
+        }
+      }
+      /* rows: one vertical alignment per row */
+      var mixed = 0;
+      body.slice(0, 8).forEach(function (r) {
+        var rr = r.getBoundingClientRect(), tops = [], mids = [];
+        Array.prototype.forEach.call(r.children, function (c) { var e = edges(c); if (e) { tops.push(e.t - rr.top); mids.push((e.t + e.b) / 2 - (rr.top + rr.bottom) / 2); } });
+        if (tops.length >= 3 && Math.max.apply(null, tops) - Math.min.apply(null, tops) > 6 && Math.max.apply(null, mids) - Math.min.apply(null, mids) > 6) mixed++;
+      });
+      if (mixed >= 2) add('warn', 'rows', 'Cells in the same row are aligned differently (some top, some centre) — ' + mixed + ' rows; use one alignment (kit rows centre)', body[0]);
+      if (head) checkSkeleton(head);
+    });
+
+    /* controls: squashed buttons anywhere */
+    var controls = Array.prototype.filter.call(document.querySelectorAll('button, [role=button], a[href], [role=tab], [role=menuitem], [role=option], [role=switch], [role=checkbox], select, input, textarea, .pf-btn, [data-pf-do], [data-pf-open], [data-pf-page], [data-pf-set], [data-pf-go], [data-pf-toggle], [data-pf-menu]'), shown);
+    Array.prototype.forEach.call(document.querySelectorAll('body *'), function (e) {
+      if (controls.length > 4000) return;
+      if (cs(e).cursor === 'pointer' && !(e.parentElement && cs(e.parentElement).cursor === 'pointer') && shown(e) && controls.indexOf(e) < 0) controls.push(e);
+    });
+    stats.controls = controls.length;
+    buttonsIn(document.body).forEach(function (p) {
+      var r = p.getBoundingClientRect(), fs = textSize(p);
+      if (r.height < Math.max(24, fs * 1.6)) add('error', 'controls', '“' + label(p) + '” is squashed: ' + Math.round(r.height) + ' px tall for ' + fs + ' px text', p);
+    });
+    if (phone) controls.forEach(function (c) {
+      var rr = c.getBoundingClientRect();
+      if ((rr.width < 32 || rr.height < 32) && rr.width > 0 && !inShell(c)) add('warn', 'targets', '“' + label(c) + '” is ' + Math.round(rr.width) + ' × ' + Math.round(rr.height) + ' px — under the build\'s 32 px on a phone (the platforms ask 44)', c);
+    });
+    /* dead: looks clickable, does nothing */
+    controls.forEach(function (c) {
+      if (c.matches('input:not([type=checkbox]):not([type=radio]):not([type=button]):not([type=submit]), textarea') && !c.closest('[data-pf-value]') && !c.hasAttribute('data-pf-value')) {
+        if (!c.readOnly && !c.disabled) add('warn', 'dead', 'The field “' + label(c) + '” is not bound (data-pf-value) — what is typed changes nothing', c);
+        return;
+      }
+      if (c.closest(ACT) || c.closest('[disabled], [aria-disabled="true"]')) return;
+      if (c.closest('[data-menu-id]') && c.closest('.pf-layout-sider, [data-pf-rail]')) return;
+      if (c.closest('a[href]')) return;                                  /* the runtime opens a link's page, or says it leaves */
+      if (c.closest('[data-pf-shell-open]')) return;
+      if (window.pf && pf.shellOut && inShell(c)) { var lb = label(c); if (Object.keys(pf.shellOut).some(function (k) { return lb.indexOf(k) === 0; })) return; }
+      if (c.closest('template')) return;
+      var shellPart = c.closest('[data-pf-shell-root], .pf-layout-sider, .pf-layout-header');
+      add(shellPart ? 'warn' : 'error', 'dead', '“' + (label(c) || c.tagName.toLowerCase()) + '” looks clickable and does nothing — wire it (data-pf-…) or mark it data-pf-inert="why"', c);
+    });
+
+    /* interaction: what a click opened (the QA's sweep passes it in) */
+    var it = opt.interaction;
+    if (it && it.target) {
+      var nm = '“' + (it.target.label || it.target.key) + '”';
+      if (it.layer) {
+        var inf = it.layer.info || {};
+        if (inf.missing) add('error', 'shell', nm + ' opens a product state this prototype does not hold (' + it.layer.path + ')');
+        else if (inf.type === 'empty' || inf.timeout) add('error', 'shell', nm + ' opens nothing' + (inf.timeout ? ' — the product state did not load' : ' — the product state shows no layer here'));
+        else {
+          var boxes = (inf.boxes || []).filter(function (b) { return !b.scrim && b.visible !== false; });
+          if (!boxes.length) add('error', 'shell', nm + ' opens nothing visible — the product state\'s layer is hidden');
+          else if (!inf.texts && it.layer.mode !== 'rail') add('warn', 'shell', nm + ' opens a layer with no text in it');
+          var inView = boxes.some(function (b) {
+            var w = Math.min(b.x + b.w, innerWidth) - Math.max(b.x, 0), h = Math.min(b.y + b.h, innerHeight) - Math.max(b.y, 0);
+            return w > 0 && h > 0 && w * h >= 0.3 * b.w * b.h;
+          });
+          if (boxes.length && !inView) add('error', 'shell', nm + ' opens off the screen');
+          var bad = Object.keys(inf.fonts || {}).filter(function (f) { return /^(times|times new roman|serif|-webkit-standard)$/i.test(f); });
+          if (bad.length) add('error', 'shell', nm + ' renders unstyled — its text falls back to ' + bad[0] + ' (the state\'s stylesheet did not load)');
+          if (it.layer.covered && !it.layer.scrim) add('error', 'shell', nm + ': the expanded rail lies over ' + it.layer.covered + ' piece(s) of the page\'s text — the product pushes the page aside');
+        }
+      } else if (!it.panels) add('error', 'dead', nm + ' opens nothing — ' + it.selector + ' does not show');
+      else Array.prototype.forEach.call(document.querySelectorAll(it.selector), function (p) {
+        if (!shown(p)) return;
+        /* a menu or a dialog cut by a container that clips it, or by the screen's edge */
+        var r = p.getBoundingClientRect(), v = { l: r.left, t: r.top, r: r.right, b: r.bottom };
+        for (var a = p.parentElement; a && a !== document.documentElement; a = a.parentElement) {
+          var ac = cs(a);
+          if (!/(hidden|clip|auto|scroll)/.test(ac.overflowX + ' ' + ac.overflowY)) continue;
+          var ar = a.getBoundingClientRect();
+          v = { l: Math.max(v.l, ar.left), t: Math.max(v.t, ar.top), r: Math.min(v.r, ar.right), b: Math.min(v.b, ar.bottom) };
+        }
+        v = { l: Math.max(v.l, 0), t: Math.max(v.t, 0), r: Math.min(v.r, innerWidth), b: Math.min(v.b, innerHeight) };
+        var full = r.width * r.height, seenA = Math.max(0, v.r - v.l) * Math.max(0, v.b - v.t);
+        if (full > 0 && seenA / full < 0.95) add('error', 'clip', nm + ' opens cut off: ' + Math.round((1 - seenA / full) * 100) + '% of it is hidden by the container that clips it, or the screen\'s edge', p);
+      });
+    }
+
+    /* blank: a value the data lacks renders nothing — a design shows a fallback, or hides it */
+    var isShown = function (e) { for (var n = e; n && n.nodeType === 1; n = n.parentElement) { var c = cs(n); if (c.display === 'none' || c.visibility === 'hidden') return false; } return true; };
+    Array.prototype.forEach.call(document.querySelectorAll('[data-pf-item] [data-pf-text], [data-pf-item][data-pf-text]'), function (e) {
+      if ((e.textContent || '').trim() || !isShown(e) || e.closest('[data-pf-skeleton-row], template')) return;
+      var f = e.getAttribute('data-pf-text').replace(/^[@$.]+/, '');
+      add('error', 'blank', '“' + f + '” shows nothing when the data lacks it — give it a fallback (data-pf-default="Not shared") or hide it (data-pf-show="$.' + f + '")', e.closest('[data-pf-item]') || e);
+    });
+
+    /* spacing: a button or chip whose words are separate flex items get the gap between each */
+    Array.prototype.forEach.call(document.querySelectorAll('button, [role=button], a, .pfk-btn, .wf-btn, [data-pf-do], [data-pf-set], [data-pf-open]'), function (b) {
+      var st = cs(b);
+      if (!/flex/.test(st.display) || !(parseFloat(st.columnGap) > 0) || !shown(b) || inShell(b)) return;
+      /* words: text runs and plain inline elements — a count pill or an icon is its own item */
+      var items = Array.prototype.filter.call(b.childNodes, function (n) { return n.nodeType === 3 ? n.textContent.trim() : n.nodeType === 1 && (n.textContent || '').trim() && cs(n).display !== 'none' && !/^(svg|SVG|IMG|I)$/.test(n.tagName) && !ownPaint(n); });
+      if (items.length >= 3) add('error', 'spacing', '“' + label(b) + '”: its words are ' + items.length + ' flex items, each ' + st.columnGap + ' apart — wrap the label in one element', b);
+    });
+
+    /* text: overlap, clip, small */
+    var texts = [], range = document.createRange();
+    var walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    for (var t = walk.nextNode(); t && texts.length < 3000; t = walk.nextNode()) {
+      if (!t.textContent.trim() || !t.parentElement || /^(SCRIPT|STYLE|TEMPLATE|NOSCRIPT)$/.test(t.parentElement.tagName) || t.parentElement.closest('template')) continue;
+      if (!shown(t.parentElement) || inShell(t.parentElement)) continue;
+      range.selectNodeContents(t);
+      var r = range.getBoundingClientRect();
+      if (r.width < 1 || r.height < 1) continue;
+      var cx0 = Math.min(innerWidth - 1, Math.max(0, r.left + r.width / 2)), cy0 = Math.min(innerHeight - 1, Math.max(0, r.top + r.height / 2));
+      var top = document.elementFromPoint(cx0, cy0);
+      var covered = r.top < innerHeight && r.bottom > 0 && top && !(top === t.parentElement || t.parentElement.contains(top) || top.contains(t.parentElement));
+      texts.push({ node: t, el: t.parentElement, r: r, lines: Array.prototype.slice.call(range.getClientRects()).filter(function (q) { return q.width >= 1 && q.height >= 1; }), covered: !!covered });
+    }
+    stats.texts = texts.length;
+    var buckets = {};
+    texts.forEach(function (x, i) {
+      for (var bx = Math.floor(x.r.left / 80); bx <= Math.floor(x.r.right / 80); bx++) for (var by = Math.floor(x.r.top / 40); by <= Math.floor(x.r.bottom / 40); by++) (buckets[bx + ',' + by] = buckets[bx + ',' + by] || []).push(i);
+    });
+    var seen = {};
+    Object.keys(buckets).forEach(function (k) {
+      var ids = buckets[k];
+      for (var a = 0; a < ids.length; a++) for (var b = a + 1; b < ids.length; b++) {
+        var A = texts[ids[a]], B = texts[ids[b]], key = ids[a] + ':' + ids[b];
+        if (seen[key]) continue; seen[key] = 1;
+        if (A.el === B.el || A.el.contains(B.el) || B.el.contains(A.el) || A.covered || B.covered) continue;
+        /* line by line: a text that wraps has a box around both lines, which is not where it draws */
+        var best = null;
+        A.lines.forEach(function (a) { B.lines.forEach(function (b2) {
+          var w = Math.min(a.right, b2.right) - Math.max(a.left, b2.left), h = Math.min(a.bottom, b2.bottom) - Math.max(a.top, b2.top);
+          if (w < 2 || h < 2) return;
+          var share = (w * h) / Math.min(a.width * a.height, b2.width * b2.height);
+          if (!best || share > best.share) best = { share: share, cx: Math.max(a.left, b2.left) + w / 2, cy: Math.max(a.top, b2.top) + h / 2 };
+        }); });
+        if (!best || best.share < 0.3) continue;
+        var cx = best.cx, cy = best.cy;
+        var hit = document.elementFromPoint(cx, cy);
+        if (!hit || !(A.el.contains(hit) || hit.contains(A.el) || B.el.contains(hit) || hit.contains(B.el))) continue;   /* one of them is covered: an overlay, not a clash */
+        add('error', 'overlap', '“' + label(A.el) + '” overlaps “' + label(B.el) + '”', A.el);
+      }
+    });
+    var clipped = [];
+    texts.forEach(function (x) {
+      for (var n = x.el, i = 0; n && i < 3; n = n.parentElement, i++) {
+        var s = cs(n);
+        if ((s.overflowX === 'hidden' || s.overflowX === 'clip') && n.scrollWidth > n.clientWidth + 1 && s.textOverflow !== 'ellipsis' && clipped.indexOf(n) < 0 && !n.closest('[aria-hidden="true"]')) {
+          var box = n.getBoundingClientRect();
+          if (x.r.right > box.right + 1 || x.r.left < box.left - 1) { clipped.push(n); add('error', 'clip', 'Text “' + label(n) + '” is cut at ' + Math.round(box.width) + ' px (it needs ' + n.scrollWidth + ')', n); }
+          break;
+        }
+      }
+      var fs = parseFloat(cs(x.el).fontSize);
+      if (fs < 11 && !x.el.closest('[class*="badge"], [class*="count"], sup, sub')) add('warn', 'small', 'Text “' + label(x.el) + '” is ' + fs + ' px', x.el);
+    });
+
+    /* fonts: every web font a visible text uses is present and loaded */
+    var fams = {};
+    texts.slice(0, 1500).forEach(function (x) { var f = cs(x.el).fontFamily.split(',')[0].replace(/["']/g, '').trim(); if (f && !SYSTEM.test(f)) fams[f] = x.el; });
+    var faces = {};
+    if (document.fonts) document.fonts.forEach(function (f) { var n = f.family.replace(/["']/g, ''); faces[n] = faces[n] || []; faces[n].push(f.status); });
+    Object.keys(fams).forEach(function (f) {
+      if (!faces[f]) add('error', 'fonts', 'The font “' + f + '” is used but not included — its @font-face is missing, so text falls back', fams[f]);
+      else if (faces[f].indexOf('loaded') < 0) add('error', 'fonts', 'The font “' + f + '” did not load (' + faces[f].join(', ') + ')', fams[f]);
+    });
+
+    /* images, overflow, currency, vars */
+    Array.prototype.forEach.call(document.images, function (im) { if (im.complete && !im.naturalWidth && shown(im)) add('error', 'images', 'An image did not load: ' + (im.getAttribute('src') || '').slice(0, 60), im); });
+    var sw = document.scrollingElement ? document.scrollingElement.scrollWidth : 0;
+    if (sw > innerWidth + 1) add('error', 'overflow', 'The page is ' + (sw - innerWidth) + ' px wider than its ' + innerWidth + ' px viewport — it scrolls sideways', document.body);
+    texts.forEach(function (x) {
+      var s = x.node.textContent;
+      if (/\b(undefined|NaN)\b|\[object Object\]|^\s*null\s*$/.test(s)) add('error', 'blank', 'A value renders as “' + s.trim().slice(0, 30) + '” — the data is missing and the design has no fallback', x.el);
+      if (/(\bSAR\b|ر\.س|⃁)\s*[\d٠-٩]|[\d٠-٩][\d,.٠-٩]*\s*(\bSAR\b|ر\.س|⃁)/.test(s) && !x.el.closest('[contenteditable="true"], textarea, input')) add('error', 'currency', 'An amount is written with “SAR”, “ر.س” or U+20C1 — draw the riyal glyph (kit/riyal.svg) before the number: “' + s.trim().slice(0, 40) + '”', x.el);
+    });
+    if (document.querySelector('svg path[d^="M7.9 0 9.9 0"]')) add('error', 'currency', 'The 2.0 handover\'s rough riyal sketch is drawn — use the official sign, kit/riyal.svg', document.querySelector('svg path[d^="M7.9 0 9.9 0"]').closest('svg'));
+    var rootStyle = cs(document.documentElement);
+    Array.prototype.forEach.call(document.querySelectorAll('[style*="var(--"]'), function (e) {
+      var re = /var\((--[\w-]+)\s*\)/g, m, st = e.getAttribute('style');
+      while ((m = re.exec(st))) if (!rootStyle.getPropertyValue(m[1]).trim() && !cs(e).getPropertyValue(m[1]).trim()) { add('error', 'vars', 'var(' + m[1] + ') has no value here — the token is not defined (link its stylesheet, or add a fallback)', e); break; }
+    });
+
+    out.sort(function (a, b) { return (a.level === 'error' ? 0 : 1) - (b.level === 'error' ? 0 : 1); });
+    return Promise.resolve({ issues: out, stats: stats, viewport: [innerWidth, innerHeight] });
+  };
+
+  /* outlines for the player's QA view */
+  function draw(el, level, n) {
+    var host = document.getElementById('pfk-qa-layer');
+    if (!host) { host = document.createElement('div'); host.id = 'pfk-qa-layer'; host.style.cssText = 'position:absolute;left:0;top:0;width:0;height:0;z-index:2147483646;pointer-events:none'; document.body.appendChild(host); }
+    var r = el.getBoundingClientRect(), box = document.createElement('div');
+    var colour = level === 'error' ? '#d92d20' : '#dc8b00';
+    box.style.cssText = 'position:absolute;left:' + (r.left + scrollX - 2) + 'px;top:' + (r.top + scrollY - 2) + 'px;width:' + (r.width + 4) + 'px;height:' + (r.height + 4) + 'px;outline:2px solid ' + colour + ';border-radius:3px';
+    var tag = document.createElement('span');
+    tag.textContent = n;
+    tag.style.cssText = 'position:absolute;left:-2px;top:-18px;background:' + colour + ';color:#fff;font:600 11px/16px system-ui;padding:0 5px;border-radius:3px';
+    box.appendChild(tag);
+    host.appendChild(box);
+  }
+})();
+</script>
+<script type="text/plain" id="pfp-kitcss">/* Profolio KSA pattern kit (kit/kit.css): the layouts the product does not draw yet, and the
+   runtime's own pieces (toasts, skeleton bars, busy buttons).
+
+   Every value is a token, or is measured from a compiled screen and named here. The 2.0
+   values come from pages/listings-new*.html (measured 2026-09-30; see kit/README.md), and
+   each colour, space and radius var() falls back to the same value, so a pattern draws the same
+   with or without css/new-theme/tokens.css. The face is the page's own where the 2.0 fonts are
+   not loaded: var(--pf-ml-font-ui, inherit).
+
+   Headers and cells share one grid (--pfk-cols) and one horizontal padding, so a column's
+   header sits over its cells by construction. The 2.0 build pads its header and row cells
+   differently, and a table copied from it drifts (Leads Marketplace, 2026-09-30: 12 px). */
+
+/* ── the runtime's pieces ──────────────────────────────────────────────── */
+.pfk-toasts { position: fixed; top: 76px; left: 50%; transform: translateX(-50%); z-index: 2000; display: flex; flex-direction: column; align-items: center; gap: 8px; pointer-events: none; }
+.pfk-toasts > * { pointer-events: auto; animation: pfk-in 200ms ease; }
+.pfk-toast { max-width: 520px; padding: 10px 16px; border-radius: var(--pf-ml-radius-md, 8px); background: var(--pf-ml-surface-card, #fff); color: var(--pf-ml-text-primary, #222); box-shadow: var(--pf-ml-elevation-toast, 0 10px 30px rgba(23,26,31,0.22)); font-weight: 500; font-size: 14px; line-height: 20px; font-family: var(--pf-ml-font-ui, inherit); }
+.pfk-toast--out, .pfk-toasts > .pfk-toast--out { opacity: 0; transform: translateY(-4px); transition: opacity 200ms ease, transform 200ms ease; }
+@keyframes pfk-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+.pfk-skel { display: inline-block; vertical-align: middle; height: 12px; width: 96px; max-width: 100%; border-radius: var(--pf-ml-radius-xs, 4px); background: linear-gradient(90deg, #F0F0F0 25%, #F7F7F7 37%, #F0F0F0 63%) 0 0 / 400% 100%; animation: pfk-shimmer 1.4s ease infinite; }
+.pfk-skel--block { border-radius: var(--pf-ml-radius-sm, 6px); }
+@keyframes pfk-shimmer { from { background-position: 100% 50%; } to { background-position: 0 50%; } }
+.pfk-busy { opacity: 0.7; cursor: progress !important; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .pfk-skel { animation: none; } .pfk-toasts > * { animation: none; } }
+
+/* ── table: one grid for the header and every row ─────────────────────── */
+.pfk-table { --pfk-cols: 1fr; --pfk-cell-x: 16px; background: var(--pf-ml-surface-card, #fff); border-radius: var(--pf-ml-radius-md, 8px); overflow: hidden; font-family: var(--pf-ml-font-ui, inherit); color: var(--pf-ml-text-primary, #222); }
+.pfk-thead, .pfk-tr { display: grid; grid-template-columns: var(--pfk-cols); align-items: center; }
+.pfk-thead { background: #F5F5F5; min-height: 42px; }              /* the 2.0 list header row (listings-new) */
+.pfk-th { font-weight: 400; font-size: 14px; line-height: 18px; font-family: var(--pf-ml-font-ui, inherit); color: var(--pf-ml-text-primary, #222); padding-block: 12px; }
+.pfk-tr { background: var(--pf-ml-surface-card, #fff); border-bottom: 1px solid var(--pf-ml-border-soft, #F0F0F0); padding-block: var(--pf-ml-space-xl, 16px); min-height: 72px; }
+.pfk-tr:last-child { border-bottom: 0; }
+.pfk-table--roomy .pfk-tr { padding-block: var(--pf-ml-space-section, 24px); }
+.pfk-th, .pfk-td { min-width: 0; padding-inline: 0 var(--pfk-cell-x); }
+.pfk-th:first-child, .pfk-td:first-child { padding-inline-start: var(--pfk-cell-x); }
+.pfk-th--end, .pfk-td--end { justify-self: stretch; text-align: end; display: flex; justify-content: flex-end; }
+.pfk-tr--good { background: var(--pf-ml-tint-green-050, #F0FAF5); }
+.pfk-tr--muted { opacity: 0.54; }                                  /* the product's disabled dim */
+.pfk-tbody-note { padding: var(--pf-ml-space-section, 24px) var(--pfk-cell-x); }
+
+/* ── cell content ──────────────────────────────────────────────────────── */
+.pfk-stack { display: flex; flex-direction: column; gap: var(--pf-ml-space-xxs, 2px); min-width: 0; }
+.pfk-stack--md { gap: var(--pf-ml-space-xs, 4px); }
+.pfk-inline { display: flex; align-items: center; gap: var(--pf-ml-space-sm, 6px); min-width: 0; flex-wrap: wrap; }
+.pfk-label { font-weight: 300; font-size: 12px; line-height: normal; font-family: var(--pf-ml-font-ui, inherit); color: var(--pf-ml-type-label-web-color, #4F4F4F); }
+.pfk-value { font-weight: 500; font-size: 14px; line-height: 18px; font-family: var(--pf-ml-font-ui, inherit); color: var(--pf-ml-text-primary, #222); }
+.pfk-value--strong { font-weight: 700; font-size: 16px; line-height: normal; font-family: var(--pf-ml-font-ui, inherit); }
+.pfk-value--hero { font-weight: 700; font-size: 20px; line-height: normal; font-family: var(--pf-ml-font-ui, inherit); }
+.pfk-meta { font-weight: 400; font-size: 12px; line-height: 16px; font-family: var(--pf-ml-font-ui, inherit); color: var(--pf-ml-text-muted, #707070); }
+.pfk-truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pfk-amount { display: inline-flex; align-items: baseline; gap: 0.22em; white-space: nowrap; }
+.pfk-amount > svg { height: max(7px, 0.6em); width: auto; flex: none; fill: currentColor; }
+.pfk-icon { width: 16px; height: 16px; flex: none; color: var(--pf-ml-text-muted, #707070); }
+.pfk-teaser { filter: blur(5px); user-select: none; pointer-events: none; }  /* a placeholder shown blurred — never real data */
+
+/* ── pills: the build's status tags (11px · 600 · radius 4 · 2px 6px) ─── */
+.pfk-pill { display: inline-flex; align-items: center; gap: 4px; height: 18px; padding: 2px 6px; border-radius: var(--pf-ml-radius-xs, 4px); font-weight: 600; font-size: 11px; line-height: 14px; font-family: var(--pf-ml-font-ui, inherit); white-space: nowrap; }
+.pfk-pill--good { color: var(--pf-ml-type-subtype-web-color, #208E57); background: var(--pf-ml-tint-green-100, #E9F7F0); }
+.pfk-pill--info { color: #2C6699; background: var(--pf-ml-tint-blue-050, #F0F7FC); }          /* the build's Booked tag */
+.pfk-pill--neutral { color: var(--pf-ml-text-tertiary, #626262); background: var(--pf-ml-border-soft, #F0F0F0); }
+.pfk-pill--warn { color: var(--pf-ml-status-warn, #C88B37); background: var(--pf-ml-tint-amber-050, #FEF8F0); }
+.pfk-pill--bad { color: var(--pf-ml-status-bad, #CE2929); background: var(--pf-ml-tint-red-050, #FFF2F2); }
+
+/* ── buttons: one height in a pattern (40 = target.iconButton) ────────── */
+.pfk-btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--pf-ml-space-sm, 6px); min-height: 40px; padding: 0 var(--pf-ml-space-xl, 16px); border-radius: var(--pf-ml-radius-sm, 6px); border: 1px solid transparent; font-weight: 500; font-size: 14px; line-height: 18px; font-family: var(--pf-ml-font-ui, inherit); white-space: nowrap; cursor: pointer; background: var(--pf-ml-brand-green, #28B16D); color: var(--pf-ml-text-on-brand, #fff); }
+.pfk-btn:hover { background: var(--pf-ml-brand-green-pressed, #208E57); }
+.pfk-btn--secondary { background: var(--pf-ml-surface-card, #fff); color: var(--pf-ml-text-primary, #222); border-color: var(--pf-ml-border-strong, #DEDEDE); }
+.pfk-btn--secondary:hover { background: var(--pf-ml-surface-card, #fff); border-color: var(--pf-ml-text-faint, #9D9D9D); }
+.pfk-btn--soft { background: var(--pf-ml-tint-green-050, #F0FAF5); color: var(--pf-ml-brand-green-ink, #249F62); }
+.pfk-btn--soft:hover { background: var(--pf-ml-tint-green-100, #E9F7F0); }
+.pfk-btn--link { background: none; border: 0; min-height: 0; padding: 0; color: var(--pf-ml-brand-green-ink, #249F62); }
+.pfk-btn--link:hover { background: none; text-decoration: underline; }
+.pfk-btn--block { width: 100%; }
+.pfk-btn[disabled], .pfk-btn[aria-disabled="true"] { opacity: 0.54; cursor: not-allowed; }  /* the product's disabled dim */
+.pfk-btn > svg { width: 16px; height: 16px; flex: none; }
+
+/* ── empty, error and first-use: one block, the build's empty-state type ─ */
+.pfk-empty { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--pf-ml-space-md, 8px); padding: 56px var(--pf-ml-space-section, 24px); }
+.pfk-empty__art { width: 88px; height: 88px; border-radius: 26px; display: grid; place-items: center; background: #F4F9F6; margin-bottom: var(--pf-ml-space-md, 8px); }   /* the build's empty art (listings-new/empty-*.html) */
+.pfk-empty__art--grey { background: #F6F7F8; }                                             /* its offline art */
+.pfk-empty__art > svg { width: 42px; height: 42px; }
+.pfk-empty__title { font: 700 20px/24px Figtree, sans-serif; color: var(--pf-ml-text-primary, #222); margin: 0; }   /* the build's empty-state title */
+.pfk-empty__text { font-weight: 400; font-size: 14px; line-height: 21px; font-family: var(--pf-ml-font-ui, inherit); color: var(--pf-ml-text-muted, #707070); max-width: 400px; margin: 0; }
+.pfk-empty__actions { display: flex; gap: var(--pf-ml-space-md, 8px); margin-top: var(--pf-ml-space-md, 8px); }
+
+/* ── a note inside a design: never part of the product ─────────────────── */
+.pfk-note { display: block; padding: 8px 12px; border-radius: 6px; background: #FFF7E6; color: #7A4B00; font: 400 12px/16px system-ui, sans-serif; }
+
+/* ── the riyal: <i class="pfk-riyal" aria-label="SAR"></i> before an amount ──
+   The official sign (kit/riyal.svg, the product's icon-font glyph) drawn in the text's colour,
+   sized as the 2.0 rule: height max(7px, 0.6 × the font-size), width × 916/1024. */
+.pfk-riyal { display: inline-block; flex: none; height: max(7px, 0.6em); aspect-ratio: 916 / 1024; background-color: currentColor; vertical-align: baseline; margin-inline-end: 0.22em; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 916 1024'%3E%3Cpath d='M570 907Q558 934 550 963.5Q542 993 539 1024L885 950Q897 923 905 894Q913 865 916 834ZM885 730Q897 703 905 673.5Q913 644 916 613L647 671V560L885 510Q897 483 905 453.5Q913 424 916 393L647 450V54Q616 71 588.5 94Q561 117 539 144V473L431 496V0Q400 17 373 40Q346 63 323 90V519L82 570Q70 597 62 626.5Q54 656 51 687L323 629V768L31 830Q19 857 11 886.5Q3 916 0 947L306 882Q324 878 339.5 867.5Q355 857 366 842L422 759Q426 752 428.5 744.5Q431 737 431 728V606L539 583V804L885 730Z'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 916 1024'%3E%3Cpath d='M570 907Q558 934 550 963.5Q542 993 539 1024L885 950Q897 923 905 894Q913 865 916 834ZM885 730Q897 703 905 673.5Q913 644 916 613L647 671V560L885 510Q897 483 905 453.5Q913 424 916 393L647 450V54Q616 71 588.5 94Q561 117 539 144V473L431 496V0Q400 17 373 40Q346 63 323 90V519L82 570Q70 597 62 626.5Q54 656 51 687L323 629V768L31 830Q19 857 11 886.5Q3 916 0 947L306 882Q324 878 339.5 867.5Q355 857 366 842L422 759Q426 752 428.5 744.5Q431 737 431 728V606L539 583V804L885 730Z'/%3E%3C/svg%3E") center / contain no-repeat; }
+
+/* ── 2.0 controls, as the build draws them (pages/listings-new.html, measured 2026-09-30) ──
+   The build writes its styles inline, so its selected look is another style attribute: here
+   it is a modifier class, which the runtime toggles (data-pf-class). */
+/* segmented (tpl 87–90): white, 44 px, an outline; the selected option tinted green */
+.pfk-seg { display: inline-flex; align-items: center; height: 44px; padding: 6px 5px; background: var(--pf-ml-surface-card, #fff); border-radius: var(--pf-ml-radius-md, 8px); outline: 1px solid var(--pf-ml-border-soft, #F0F0F0); outline-offset: -1px; }
+.pfk-seg__opt { padding: 8px 12px; border: 0; background: none; border-radius: var(--pf-ml-radius-sm, 6px); color: var(--pf-ml-text-muted, #707070); font-size: 14px; font-weight: 400; line-height: 19px; font-family: var(--pf-ml-font-ui, inherit); cursor: pointer; white-space: nowrap; }
+.pfk-seg__opt--on { padding: 8px 20px; background: var(--pf-ml-tint-green-050, #F0FAF5); color: var(--pf-ml-brand-green-ink, #249F62); font-weight: 600; }
+/* select field (tpl 109): 44 px, an inset hairline, a chevron */
+.pfk-select { display: inline-flex; align-items: center; justify-content: space-between; gap: 8px; height: 44px; min-width: 200px; padding: 0 12px; background: var(--pf-ml-surface-card, #fff); box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.18); border: 0; border-radius: var(--pf-ml-radius-sm, 6px); color: var(--pf-ml-text-faint, #9D9D9D); font-size: 14px; font-weight: 400; font-family: var(--pf-ml-font-ui, inherit); cursor: pointer; text-align: start; }
+.pfk-select--set { color: var(--pf-ml-text-primary, #222); }
+.pfk-select__label { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pfk-select__chevron { width: 16px; height: 16px; flex: none; color: var(--pf-ml-text-secondary, #4F4F4F); }
+.pfk-anchor { position: relative; display: inline-flex; }
+/* applied filters (tpl 182–184): 32 px pills, an outline, the name light */
+.pfk-chips { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.pfk-chip { display: inline-flex; align-items: center; gap: 5px; height: 32px; padding: 0 12px 0 16px; background: var(--pf-ml-surface-card, #fff); border: 0; border-radius: var(--pf-ml-radius-pill, 999px); outline: 1px solid var(--pf-ml-border-base, #E6E6E6); outline-offset: -1px; font-size: 14px; font-family: var(--pf-ml-font-ui, inherit); color: var(--pf-ml-text-primary, #222); cursor: pointer; }
+.pfk-chip__name { color: var(--pf-ml-text-muted, #707070); font-weight: 300; }
+.pfk-chip__x { width: 14px; height: 14px; color: var(--pf-ml-text-muted, #707070); }
+.pfk-clear { display: inline-flex; align-items: center; height: 32px; padding: 0 12px; border: 0; background: none; border-radius: var(--pf-ml-radius-sm, 6px); color: #F73131; font-size: 14px; font-weight: 500; font-family: var(--pf-ml-font-ui, inherit); cursor: pointer; }  /* the build's Clear All */
+/* outlined control (tpl 206: Newest First) */
+.pfk-outline { display: inline-flex; align-items: center; gap: 5px; padding: 8px 16px; border: 0; background: var(--pf-ml-surface-card, #fff); border-radius: var(--pf-ml-radius-sm, 6px); outline: 1px solid var(--pf-ml-border-base, #E6E6E6); outline-offset: -1px; color: var(--pf-ml-brand-green-ink, #249F62); font-size: 14px; font-weight: 500; font-family: var(--pf-ml-font-ui, inherit); cursor: pointer; white-space: nowrap; }
+.pfk-outline > svg { width: 15px; height: 15px; flex: none; }
+/* tabs (tpl 195–199): 40 px, a count pill, a 3 px ink under the selected one */
+.pfk-tabs { display: flex; align-items: center; gap: 7px; }
+.pfk-tab { position: relative; display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 12px; border: 0; background: none; cursor: pointer; color: var(--pf-ml-text-muted, #707070); font-size: 14px; font-weight: 500; font-family: var(--pf-ml-font-ui, inherit); white-space: nowrap; }
+.pfk-tab__count { padding: 0 8px; border-radius: 100px; background: #F5F5F5; color: var(--pf-ml-text-muted, #707070); font-size: 12px; font-weight: 400; }
+.pfk-tab--on { color: var(--pf-ml-brand-green-ink, #249F62); font-weight: 600; }
+.pfk-tab--on .pfk-tab__count { background: var(--pf-ml-tint-green-100, #E9F7F0); color: var(--pf-ml-brand-green-ink, #249F62); }
+.pfk-tab--on::after { content: ""; position: absolute; left: 0; bottom: -11px; width: 100%; height: 3px; background: var(--pf-ml-brand-green-ink, #249F62); }
+/* a dropdown menu under a field */
+.pfk-menu { position: absolute; top: calc(100% + 6px); inset-inline-start: 0; z-index: 30; min-width: 100%; max-height: 320px; overflow: auto; padding: 6px; background: var(--pf-ml-surface-card, #fff); border-radius: var(--pf-ml-radius-md, 8px); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 8px 20px 0 rgba(0, 0, 0, 0.06); }
+.pfk-menu--end { inset-inline-start: auto; inset-inline-end: 0; }
+.pfk-menu__item { display: flex; align-items: center; gap: 8px; width: 100%; min-height: 40px; padding: 0 12px; border: 0; background: none; border-radius: var(--pf-ml-radius-sm, 6px); color: var(--pf-ml-text-primary, #222); font-size: 14px; font-weight: 400; font-family: var(--pf-ml-font-ui, inherit); text-align: start; white-space: nowrap; cursor: pointer; }
+.pfk-menu__item:hover { background: #F5F5F5; }
+.pfk-menu__item--on { color: var(--pf-ml-brand-green-ink, #249F62); font-weight: 600; background: var(--pf-ml-tint-green-050, #F0FAF5); }
+/* dialog (listings-new/modal-request-services.html, tpl 2121–2203) */
+.pfk-mask { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 24px; background: var(--pf-ml-surface-scrim, rgba(23, 26, 31, 0.42)); }
+.pfk-dialog { width: 520px; max-width: 100%; max-height: 100%; display: flex; flex-direction: column; overflow: hidden; background: var(--pf-ml-surface-card, #fff); border-radius: var(--pf-ml-radius-lg, 12px); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 8px 20px 0 rgba(0, 0, 0, 0.06), 0 16px 40px 8px rgba(0, 0, 0, 0.04); font-family: var(--pf-ml-font-ui, inherit); }
+.pfk-dialog__head { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; border-bottom: 1px solid var(--pf-ml-border-soft, #F0F0F0); }
+.pfk-dialog__title { margin: 0; font: 600 15px/22px Figtree, sans-serif; color: var(--pf-ml-text-primary, #222); }
+.pfk-dialog__close { display: grid; place-items: center; width: 24px; height: 24px; padding: 0; border: 0; background: none; border-radius: var(--pf-ml-radius-xs, 4px); color: var(--pf-ml-text-muted, #707070); cursor: pointer; }
+.pfk-dialog__close > svg { width: 16px; height: 16px; }
+.pfk-dialog__body { display: flex; flex-direction: column; gap: 20px; padding: 20px 24px; overflow: auto; }
+.pfk-dialog__foot { display: flex; justify-content: flex-end; gap: 10px; padding: 16px 24px; border-top: 1px solid var(--pf-ml-border-soft, #F0F0F0); }
+.pfk-dialog__note { margin: 0; font: 400 12px/14px Figtree, sans-serif; color: var(--pf-ml-text-faint, #9D9D9D); }
+.pfk-dialog .pfk-btn { min-height: 37px; padding: 8px 24px; border-radius: var(--pf-ml-radius-md, 8px); font: 600 14px/21px Figtree, sans-serif; }
+.pfk-dialog .pfk-btn--secondary { padding: 8px 20px; border: 0; outline: 1px solid var(--pf-ml-border-base, #E6E6E6); outline-offset: -1px; color: var(--pf-ml-text-muted, #707070); font-weight: 500; }
+.pfk-summary { display: flex; flex-direction: column; gap: 6px; padding: 12px 16px; border-radius: var(--pf-ml-radius-md, 8px); background: #F9F9F9; outline: 1px solid var(--pf-ml-border-soft, #F0F0F0); outline-offset: -1px; }
+.pfk-kv { display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 14px; color: var(--pf-ml-text-secondary, #4F4F4F); }
+.pfk-kv > b { color: var(--pf-ml-text-primary, #222); font-weight: 600; }
+.pfk-callout { display: flex; gap: 10px; align-items: flex-start; padding: 12px 16px; border-radius: var(--pf-ml-radius-md, 8px); background: var(--pf-ml-tint-green-050, #F0FAF5); color: var(--pf-ml-text-secondary, #4F4F4F); font-size: 14px; line-height: 20px; }
+.pfk-callout--warn { background: var(--pf-ml-tint-amber-050, #FEF8F0); }
+/* a card on the page (the build's list card: white, radius 8) */
+.pfk-card { background: var(--pf-ml-surface-card, #fff); border-radius: var(--pf-ml-radius-md, 8px); }
+.pfk-card--pad { padding: 16px; }
+.pfk-row { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.pfk-between { justify-content: space-between; }
+.pfk-grow { flex: 1; min-width: 0; }
+
+/* ── 2.0 on a phone (pages/listings-new.mobile.html, 360 wide; measured 2026-09-30) ──────── */
+.pfk-strip { display: flex; align-items: center; gap: 6px; overflow-x: auto; padding: 0 16px; scrollbar-width: none; }
+.pfk-strip::-webkit-scrollbar { display: none; }
+.pfk-seg--sm { height: 32px; padding: 0 4px; gap: 2px; border-radius: 46px; flex: none; }
+.pfk-seg--sm .pfk-seg__opt { padding: 4px 5px; font-size: 12px; line-height: normal; border-radius: 26px; }
+.pfk-seg--sm .pfk-seg__opt--on { padding: 4px 8px; }
+.pfk-fchip { flex: none; display: inline-flex; align-items: center; gap: 4px; max-width: 148px; height: 32px; padding: 0 10px; background: var(--pf-ml-surface-card, #fff); border: 0; border-radius: 46px; outline: 1px solid var(--pf-ml-border-soft, #F0F0F0); outline-offset: -1px; color: var(--pf-ml-text-muted, #707070); font-size: 12px; font-weight: 400; font-family: var(--pf-ml-font-ui, inherit); cursor: pointer; white-space: nowrap; }
+.pfk-fchip--set { color: var(--pf-ml-brand-green-ink, #249F62); background: var(--pf-ml-tint-green-050, #F0FAF5); outline-color: var(--pf-ml-tint-green-200, #D4EFE2); font-weight: 600; }
+.pfk-fchip > svg { width: 12px; height: 12px; flex: none; }
+.pfk-tabs--sm { gap: 0; padding: 0 8px; overflow-x: auto; border-bottom: 1px solid var(--pf-ml-border-soft, #F0F0F0); scrollbar-width: none; }
+.pfk-tabs--sm .pfk-tab { height: auto; padding: 9px 8px; gap: 4px; font-size: 12px; }
+.pfk-tabs--sm .pfk-tab--on { color: var(--pf-ml-brand-green-deep, #10603A); }
+.pfk-tabs--sm .pfk-tab__count { padding: 0 6px; font-size: 10px; }
+.pfk-tabs--sm .pfk-tab--on .pfk-tab__count { color: var(--pf-ml-brand-green-deep, #10603A); }
+.pfk-tabs--sm .pfk-tab--on::after { bottom: -1px; }
+.pfk-list { display: flex; flex-direction: column; gap: 12px; padding: 12px 16px 24px; }
+.pfk-lead { display: flex; flex-direction: column; gap: 10px; padding: 12px; background: var(--pf-ml-surface-card, #fff); border-radius: var(--pf-ml-radius-lg, 12px); outline: 1px solid var(--pf-ml-border-soft, #F0F0F0); outline-offset: -1px; }
+.pfk-lead--good { background: var(--pf-ml-tint-green-050, #F0FAF5); outline-color: var(--pf-ml-tint-green-200, #D4EFE2); }
+.pfk-lead--muted { opacity: 0.54; }
+.pfk-sheet { position: fixed; inset: auto 0 0 0; z-index: 1001; display: flex; flex-direction: column; gap: 16px; max-height: calc(100% - 48px); overflow: auto; padding: 20px 16px 24px; background: var(--pf-ml-surface-sheet, #fff); border-radius: var(--pf-ml-radius-sheet, 20px) var(--pf-ml-radius-sheet, 20px) 0 0; box-shadow: 0 -10px 40px rgba(23, 26, 31, 0.2); font-family: var(--pf-ml-font-ui, inherit); }
+.pfk-sheet__handle { position: absolute; top: 8px; left: 50%; width: 36px; height: 4px; margin-left: -18px; border-radius: 20px; background: var(--pf-ml-border-strong, #DEDEDE); }
+.pfk-sheet__title { margin: 0; font: 700 17px/24px Figtree, sans-serif; color: var(--pf-ml-text-primary, #222); }
+.pfk-sheet .pfk-menu__item { min-height: 44px; padding: 0 4px; font-size: 14px; }
+.pfk-sheet .pfk-btn { min-height: 44px; }
+.pfk-mask--sheet { align-items: flex-end; padding: 0; }
+.pfk-bar { padding: 12px 16px 0; }
+
+/* ── locked content: what an agent sees before they may see it (the contact of an unbought lead,
+   a premium figure). Offer the options at the wireframe gate (flow.json options). The lock icon
+   is the product's own (atoms/icon.html → icon-lock-bages), never drawn. ─────────────────────── */
+.pfk-lock { display: inline-flex; align-items: center; gap: 4px; height: 20px; padding: 0 6px 0 2px; border-radius: var(--pf-ml-radius-xs, 4px); background: #F5F5F5; color: var(--pf-ml-text-tertiary, #626262); font-weight: 600; font-size: 11px; line-height: 14px; font-family: var(--pf-ml-font-ui, inherit); white-space: nowrap; }
+.pfk-lock > svg { width: 16px; height: 16px; flex: none; }
+.pfk-masked { font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
+.pfk-avatar { position: relative; flex: none; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--pf-ml-tint-green-100, #E9F7F0); color: var(--pf-ml-brand-green-deep, #10603A); font-weight: 600; font-size: 13px; font-family: var(--pf-ml-font-ui, inherit); }
+.pfk-avatar__lock { position: absolute; right: -4px; bottom: -4px; width: 18px; height: 18px; border-radius: 5px; box-shadow: 0 0 0 2px var(--pf-ml-surface-card, #fff); }
+.pfk-missing { color: var(--pf-ml-text-faint, #9D9D9D); font-weight: 400; }   /* a value the source did not share */
+.pfk-avatar__lock > svg { width: 100%; height: 100%; display: block; }
+</script>
+<script type="text/plain" id="pfp-layer">/* The shell layer (kit/layer.js). The product's compiled state for a shell control is shown
+   over a design screen, in its own frame with its own stylesheet, so it looks exactly as the
+   product draws it on any page, 2.0 or current. Covered states:
+     - the expanded rail;
+     - the phone menu;
+     - the bell, the avatar, Post a Listing, help;
+     - a tooltip.
+   The runtime (kit/runtime.js) opens this frame, transparent, over the whole screen. This
+   script shows only the state's top layer and hides the rest of the compiled page, so the
+   design stays visible underneath. It then tells the runtime what the user does there.
+
+   window.PF_LAYER = { mode: 'overlay' | 'rail' | 'tooltip', path } is set by whoever builds
+   the frame. The script reports ready (the boxes it shows and the font of their text), empty,
+   close, go (another compiled state), or nav (a page, by the rail key or label clicked). */
+(function () {
+  'use strict';
+  var L = window.PF_LAYER || { mode: 'overlay' };
+  function send(m) { m.pfLayer = true; try { window.parent.postMessage(m, '*'); } catch (e) { /* no runtime */ } }
+  function cs(e) { return getComputedStyle(e); }
+  function seen(e) {
+    for (var n = e, op = 1; n && n.nodeType === 1; n = n.parentElement) {
+      var c = cs(n);
+      if (c.display === 'none' || c.visibility === 'hidden') return false;
+      op *= +c.opacity;
+      if (op < 0.05) return false;
+    }
+    var r = e.getBoundingClientRect();
+    return r.width > 4 && r.height > 4;
+  }
+  /* once the rest is hidden: an element's own visibility (it is inherited, so its own value is
+     the truth), the opacity it gets from its ancestors, and a size */
+  function shows(e) {
+    if (cs(e).visibility !== 'visible') return false;
+    for (var n = e, op = 1; n && n.nodeType === 1; n = n.parentElement) { op *= +cs(n).opacity; if (op < 0.05) return false; }
+    var r = e.getBoundingClientRect();
+    return r.width > 4 && r.height > 4;
+  }
+  var HEAD = '.pf-layout-header, header.pf-layout-header';
+  var RAIL = '.pf-layout-sider';
+  var SCRIM = '[class*="scrim"], .pf-drawer-mask, .pf-modal-mask';
+
+
+  /* the rail as this design changes it (flow.json shell.rail): a new item after a neighbour, with
+     another item's icon; which item is selected. The same edits run on every rail drawn. */
+  function editRail(sider, edits, selected) {
+    if (!sider || !edits) return;
+    (edits.add || []).forEach(function (a) {
+      if (sider.querySelector('[data-menu-id$="-' + a.key + '"]')) return;
+      var after = sider.querySelector('[data-menu-id$="-' + a.after + '"]');
+      if (!after) return;
+      var li = after.cloneNode(true);
+      li.setAttribute('data-menu-id', (after.getAttribute('data-menu-id') || '').replace(/^(rc-menu-uuid-\d+-\d+-).*$/, '$1') + a.key);
+      li.setAttribute('title', a.label);
+      li.classList.remove('pf-menu-item-selected');
+      if (a.page) li.setAttribute('data-pf-page', a.page);
+      /* its label: the text outside its icon (an expanded rail's items carry an empty title) */
+      var w = document.createTreeWalker(li, NodeFilter.SHOW_TEXT), swapped = false;
+      for (var t = w.nextNode(); t; t = w.nextNode()) if (t.textContent.trim() && !(t.parentElement && t.parentElement.closest('.anticon, svg'))) { t.textContent = a.label; swapped = true; break; }
+      if (!swapped) li.appendChild(document.createTextNode(a.label));
+      var src = a.icon && sider.querySelector('[data-menu-id$="-' + a.icon + '"] .anticon'), dst = li.querySelector('.anticon');
+      if (src && dst) dst.replaceWith(src.cloneNode(true));
+      after.parentNode.insertBefore(li, after.nextSibling);
+    });
+    if (selected) {
+      var sel = sider.querySelector('[data-menu-id$="-' + selected + '"]');
+      if (sel) { Array.prototype.forEach.call(sider.querySelectorAll('.pf-menu-item-selected'), function (e) { e.classList.remove('pf-menu-item-selected'); }); sel.classList.add('pf-menu-item-selected'); }
+    }
+  }
+
+  function roots() {
+    var out = [];
+    if (L.mode === 'rail') {
+      var s = document.querySelector(RAIL);
+      editRail(s, L.rail, L.selected);
+      if (s && seen(s)) out.push(s);
+    } else {
+      /* the top layer: positioned, above the page (z ≥ 100), visible — not the header or the rail themselves */
+      Array.prototype.forEach.call(document.querySelectorAll('body *'), function (e) {
+        var c = cs(e);
+        if (c.position !== 'fixed' && c.position !== 'absolute') return;
+        if (!(parseInt(c.zIndex, 10) >= 100)) return;
+        if (e.matches(HEAD) || e.matches(RAIL) || e.matches(SCRIM)) return;
+        if (e.closest('[class*="feedback"]')) return;                  /* the always-on feedback tab: chrome, not this state */
+        if (!seen(e)) return;
+        out.push(e);
+      });
+      out = out.filter(function (e) { return !out.some(function (o) { return o !== e && o.contains(e); }); });
+    }
+    /* the scrim the product lays behind it, when it shows one */
+    Array.prototype.forEach.call(document.querySelectorAll(SCRIM), function (e) {
+      if (seen(e) && out.indexOf(e) < 0 && !out.some(function (o) { return o.contains(e); })) out.push(e);
+    });
+    return out;
+  }
+  function start() {
+    var found = roots();
+    found.forEach(function (e) { e.setAttribute('data-pf-show-root', ''); });
+    var st = document.createElement('style');
+    /* visibility is inherited: the kept parts are set visible explicitly, over their hidden ancestors */
+    st.textContent = 'html,body{background:transparent!important}' +
+      'body *:not([data-pf-show-root]):not([data-pf-show-root] *){visibility:hidden!important}' +
+      '[data-pf-show-root]{visibility:visible!important}' +
+      (L.mode === 'tooltip' ? 'html{pointer-events:none!important}' : '');
+    document.head.appendChild(st);
+    if (!found.length) { send({ type: 'empty' }); return; }
+    void document.body.offsetHeight;                                   /* the rule applies before anything is measured */
+    var fonts = {}, texts = 0;
+    found.forEach(function (r) {
+      var w = document.createTreeWalker(r, NodeFilter.SHOW_TEXT);
+      for (var t = w.nextNode(); t && texts < 60; t = w.nextNode()) {
+        if (!t.textContent.trim() || !shows(t.parentElement)) continue;
+        texts++;
+        var f = cs(t.parentElement).fontFamily.split(',')[0].replace(/["']/g, '').trim();
+        fonts[f] = (fonts[f] || 0) + 1;
+      }
+    });
+    send({
+      type: 'ready',
+      boxes: found.map(function (e) { var r = e.getBoundingClientRect(), c = cs(e); return { x: r.left, y: r.top, w: r.width, h: r.height, scrim: e.matches(SCRIM), bg: c.backgroundColor, visible: shows(e) }; }),
+      texts: texts,
+      fonts: fonts,
+    });
+  }
+  function label(e) { return (e.getAttribute('title') || e.getAttribute('aria-label') || e.textContent || '').replace(/\s+/g, ' ').trim(); }
+  document.addEventListener('click', function (e) {
+    var t = e.target.nodeType === 1 ? e.target : e.target.parentElement;
+    e.preventDefault(); e.stopPropagation();
+    var inside = t && t.closest('[data-pf-show-root]');
+    if (!inside || inside.matches(SCRIM)) { send({ type: 'close' }); return; }
+    var go = t.closest('[data-pf-go]');
+    if (go) { send({ type: 'go', path: go.getAttribute('data-pf-go') }); return; }
+    var li = t.closest('[data-menu-id]');
+    if (li && li.getAttribute('data-pf-page')) { send({ type: 'page', to: li.getAttribute('data-pf-page') }); return; }
+    if (li) { send({ type: 'nav', key: (li.getAttribute('data-menu-id') || '').replace(/^rc-menu-uuid-\d+-\d+-/, ''), label: label(li) }); return; }
+    if (t.closest('[class*="close"], [aria-label="Close"], [aria-label="close"]')) { send({ type: 'close' }); return; }
+    var a = t.closest('a, button, [role=button], [role=menuitem], li');
+    if (a) send({ type: 'nav', label: label(a) });
+  }, true);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') send({ type: 'close' }); });
+  /* the expanded rail follows the pointer: moving off it closes it, as in the product */
+  if (L.mode === 'rail' && L.hover) document.addEventListener('pointermove', function (e) {
+    var r = document.querySelector('[data-pf-show-root]');
+    if (r && !r.contains(e.target)) send({ type: 'close' });
+  });
+  if (document.readyState === 'complete') setTimeout(start, 30); else window.addEventListener('load', function () { setTimeout(start, 30); });
+})();
+</script>
+<script type="application/gzip-base64" data-path="examples/leads-marketplace/wf-marketplace.html">H4sIAAAAAAACE+1d25IjN3J976/IqVDsSLFNNm994zTp6RntSLFz9fRoHbJCMQGywC5sFwtlADUcSjsOPfkD7PWbn/wTfven6EscCdS9UMUim62VvB2h0DRxSSSAg0QiM4G6eODyuVqHFDy19KcHF/gP+CS4njg0cDCBEnd6cLGkisDcI0JSNXEiteicYa5iyqfTF5S4El4ScUNV6JM5hZ9/+iusmKALQZYUPl/R2RcXR6ZwTCsgSzpxwkXHpR/YnDow54GigZo4KzpzKqVSYrmC1Wb/939gRWfQH416+LdUIpqrSFAggQsLn68OIeAKPjAZEV9iKz4LbsAlinTCRWcu5cS5Yeooba07l1js4OIoHocZd9cw9wmWXC2Qgss+ZAkd6VHfd6YHABcByWcIwnwHiGCk45MZ9SfOG8HdaK5A52ANgAsZkqBUqcMUXTqgB2/ivP5AxQdGV07KdEiu6cQ5con0ZpwI15m+/nBxhITa0nzDpYIXTCoWXFfohlyqjh9nTn+/HeWX64SurBD2k4zpyxfbUX0qqMuUhG8kuaYVunOT24l07vSp2I74OxFpXFX5XcojX+dM37VjGPI/Oh0elBICnMa4WfsSCujqEGbU5yuo8sUCKtTEUR6TEOq+vni5XV8vr2mg4A0VCy6WJJhXB5NgiU6YKzG9fLNdI29pyIWqjqcw6UcyWi6JWDvTt+H23M/XcKXIYmFlfL7uSJ05vVIZ6YujgHzQf+CSpiLXhkmoWYshC5xpv8Ci18/la66cqiy8OPL6cflZpBTP05wpjYmZCjqda49LlfXDE3QxcTylQjk+OiJhKLskDH3anfPlkTP9kq8CnxMXLsPw4sgQvnUrq9WqOyPrSHUlOXKmX3FQHJ7ECdu0Egqm57RZmGi5QxIJ0YJ+Rk9xItXEeedRCI0YfShRtLMFmxPFsCINlKDAQxpI8KigzvQJ9f3bt0Lmcx4FCpY0iArkLz8QRUS+AbNrUDE9wB9LwvIt4c8Eag86HVgwIfXWxNQYVh5RoFc2k4fAgzmFTifBJZ2bHqak5kS4OPYh0f8IvtIzQdWK0lx3pMdXE4cFSvC4YYDS9jXnPla9FnyVFsFhyi+SQUYxoKvOnIfr6ZNoDVo44p5L2LWnYCH40oDn4miWoxXm1wz9qCzUXq8CKqShcEV9H1ZMeYYWrEiggASgJdMjkJTepGWfscCFl2t4I3hIhVqDJOtkKOlaV+3CH8jc07zCnEslId4vtLzVA73mkQAjP2AWrSUwdYgEtOJB5gqiwOfzG6mVCkzXxJjUFSWwIJXV3YujMB3oI5d9SH80487lE8dlcsmk7Jjpqo7RV1wBUyU4H8XY0IBLceUrHKGd8VMDlRJEbNJykJeWFhKSXjsgOArza8GjsKQfRSLkkpbxq8hswhEgudZtIyrp9fv3PMzhS6uuZji6oSE+efjwUTxC3RkJ3PLvF5qVhw8zItUGcGcfw4MiYWd6WRY2t2NUEp/uiVULZWf6jAu4Ij7dJ89CL9G74BkpG57f0kBVeS6stv3hzkibvy/gzaL13czhLFo7uHH8lhC3C9pIMPf4ZtD4dJ7rHGoXE2fO1NrOKZbu4BCkjOqyUyOHUwWGfszGqEjMpQsS+WriXGla8NRUNwLbOiXFXiGDRXY7IQlw/RhGcjVt/cUK798bfd42oUhEz50eiIcPnellsAZMtfEWc5cQQg1T88GodKYXii5Dnyg63ZGNz7ofiB/RjBfLjGSECujJ13dK0/JZVwscJxvti6OM1SKkqhi7K8jhImkLOV22CXLpirPg7o1As89eEGf4uCXimqRFCYYhst4Ch2bjKAqSB7EkKdTamd+ov7Qx/E2AB9v+yzzjSZqd75056HeGVhb6L+Hnn/4DhgUe0sQ9M8HtPKCxrMRBnFQzeeVF12I+9zudx72b+vk87j0HAmtKRHVes7w9D+1xr9Pv2bnCNnE6+z0rY5bsfU97HWd6lmvYKue1hMIu8nd3DdImmdFM31Yy67JNkrlILCeU45PzO0NgD8LZsHJL4YxEqnIYU2umb7cWLkMi1FLrkFlDSdpeW/oT832Sa0X/3msLX0ahTz/mmjAJe23jHV8FHo9kTjeapml7bekFCdxcI/jTisqGVbrZAlNnJUV7zNynRHRiY4rTuCXAX/6S1/9yP1FE5X6apfEUKSdmmg0GHbvtJjPRoMFHkZk8hBnx0V5/CJILlRp/bFYcm62nUg6JWiyDNYafYdnwUy2nyKw4wIrMOsauY5FxmKn16sz6U2M2BGOALzenbbZlDVxxRfxubExKZd1OnMdyfRPr5WIp71c6Y3vmk/2khvvmbSqe/JC4jVOKntgy4rX1JBm5vHk4iJZlTmMoZsmLpZo4gT74TFP7K/lAmE9maIHaNAO1DMXunm/RguuzJVrSNzE3J2GREUvz28gKuxfyHQ8hClvso5aTW3sNAZd6edc3o4M5E+K61HWmr+iKSmX8DQls6qp0QnNK04e1MXjs2kOfkM9Xm2oWK6IHU3Fdv0GnsGoVEP/b6dD8yTSvYph+765TZqOz1Rm/flBvreXmBn97lpombT+c7chYAyZurYPHP/IboRZPxi01Bh5QWDDquxCiz5f70TJ4VHDrMKl/elTwQ5j5kRDUhShQzIcZj9ClVbuLKpRb9Y4KkGqNxuZOJ1zcoI9NjqHfHS4E9LsD/P9CQK97rn/j3/3zk/Bjw16MXkWnQYgoz5k+jXtl3Z9H6SLEQbPUTs4BDQW0CaQm9wl1JfyOLMNH8IQoT9YWfMGNu7amAOj/m5U/vTSqj7VDx4UONW5/xUkKqJqgH70Q+iJvqE8VDyZOSdUQfCUnzokzbSJsrI+lmllrghI3Z4c1et/EScwJj4u65CNt80xT8ccj0Iffx3kjXNYOrjPncUUiZkbQJnmr7BqM6HQUC9QYPutKRVQkJ2ZBPII4dxkp6uayr3lAqwK51BaaDive50otsGhDfnlck4YfxIzB734HPFRd9NNOcCknu2JuC/cjAfG/nQ7GmWVKVGPR0NOdy5et1MB2LUreN4njeKGogDASc49IWlTdanjYttNLIm+qncZU6lYN0Sb9lQ6vq9gEMBk85ro0qB0iQwAqulmxgTd66CxWB0y3N2Hv8gTjLrC/n3VjRcuZbqWl6a0Md4bJZ13mPjIW3UlK7ZHeNZ4ztDEV1zHq+9pxZSbezCgsuACbsSVjz6L7agIlrTPnCmhCAx7CtkED0aEpVTwU08u8s4AphnGS1Rn7h1okGJLv3+sl0ALUeHqoLJRk80IiFA/60+YjQCEORXGMCtGhozpEQy9Y6yLbKGoaxjke5gL/ycAFDQsJ40+lRwQqjbaOhczXITj4b6fjEmETJE9021t2phhsY+9NpSth45ItdqYdG7bDmw28n3W1al1yHyV85fL20nJlAEpjDbN1zQqfReuCgEhGKBdGtEGmrTwUexiwbG/B5LdBcKxGVd0YrXdfO4exMpKMtwWyFuQU6zQKgiI0M/mDcd6Wof2SKsJ8mYef7QjCpGTB9RgepKSmRb331uNUh610DHBbaekAtQ98XKYsZJfaIjS9YEkiHiwEW5NSjPnV5VtsgdVIeEO+bm9qnrN4eMsL6kGFarqSXqXTtds0lBiQSnAMI7WP3IxipHbNkjV58Q5cX3/S10eZxhnCcg/igtI2YrYKRr7N8GgUL/zGGqZcTV/izObOYCHNJFHe5rYeJEXlrhBIOvkgYbAVGmxHuNZw0IbpciKb88Cqq5f77TKpBJtbpFCa0zytSbFYK9UxMIfN81oMyEk1xkIgTusRz7f/oEw7HfTkvJ0TnfbF3moS9PHPjY/n1e13uxDxjRr+3pV3VBb3r7m3G4fWekj19smfGF3lo4zh53/794bWt1GCrgvKXm6pgs+DayqajPR1ARRVI17VFNHspqDLUK1rTSkIkpwjZ9JrsoxpUu/fE7SOzPF0UWUvrBY3Vzus45KzMYLQce8BmlnDjSTtke+v6MqQrIl+J0KwDxSUJxAm2l7pknUXnnp0fgMzMr8ByXmgg9kpBroHdGXi03HUzE0FY6TulpncHJIuqBI2ofKWLgSV3rZxkVtN67SHCdoRtu08GzvZbSfaTPGSqLkedkkzj+2uk/1OrIEEXHlokEZHMRdGloEgwTU9xN/a7aznOYnjj4+39AMVa33/RLPWajrrhW/Vw93klr7F3FIhyoGJ9TP3YItJm17xJVUeC65hhbfaVqgcHkLoUyIpKBzqa8KCW8xWfNNDIgp9V++gaDlOFp8+7815EBgXvb4yEmQN72GCzPrTsLk0fWmcFItHxHiL425s781IvNeb3BndzKERuzX259CocyXYdB1+g3B4xkX7Sk8i95qqv4VjY9+ui3KowRa+i3LVu3VePNJxXPJfH1tD0+4dGvcOjXuHxh4dGuXFfe/RuPdo3Hs07j0a9x6Nu/doaEXHMrLmUlEcel8X55/3ZxhCv3p3xga5s2QBRkPjbvpxEw/5OsbEiZWq4H4m+LJuT7cQfJBSrCP4TQiK120Nu/lhajC5ZIFF0cgnlh00dWSy/kz1FZzm8vluZ/rNx7Z+oW0t1Ztm8N5NdO8m+rW6ifbqsrn30bQ4j9w7af5/OWnMdP/CXpqC3XNPbhqtJcePANGABKruEaKWPpvfjkPGjGbeI7PtpP5mXDKHMNMGYeOaySnodufMvRfm3gtTf+u0cpuTSObSvJWVXus7TvmTwyuu8KRn99QEXFHb6TX3UuGldgHj64mAt3EOwWWCzpW/Lr0rGb9/5uODaTS3bzEJPIDPI0lFl8n3/lK+pwFuLu4X6QNoRv7BwifXpny3OAStmU4eDHsW+zrxxcM1EKUfZhtDfAA/NN5SbQnT7tLPC0sT+c1fp/yiC/psqj0PEhbc1zeP8FE/Q29XbpNbrq8Dipc79cUiySOBrObvon5e8uKbgSvc+Py8vGt80YWrFVNzvZS0TJAlQbMTy8nFn3e5e09mOSFxgQ/kJjefOL6TQGDBPlIX9EuWHvfxqQlzJarySl76Eh4CSVOjxC/ZLCFAtzXmGJGt3y2FGV1wsfMsJFd/EkUR75IaWOBzi0b964KxeY2TbkIUYD/lIT4RKGHl8eSOFz72h/yalx3Tl/zgKx7QMbhsuaSufkVYz4zi2PluYZHrVW2ef8Q3HqcHiSPW3M72KFYBlxGfX49zDwgq3SZ1sReHWTfM24PpdW78EfCOoIsocEFEvnkZsnxxEr0lqdjCqfTJOtarD6rXLLmLBgvzIpphrCiEkucdk/cqLdXfvzdOXNu5qS4eq2DkziJpGk6etaeGAqmcupfQ2saXMvfxEn++/099/bLaz//1nzl3Rjbl1uHAl6Jrn9nMHlx0trlFlvhbmTt5rOcj4xn1sHTyplbvaBvDn/V4vI05tNVJhn4MmchbQhOaScam2/h/X3HSB80uELDO273F6zdq8XrL+VLWGn9Sp8p9IPMORrL6F/ZahMHcS1/4m7q5DrZ0a9+7l+7dS/e76/3uusfd9Vfs/6nb2pqO1eXXv2p8pxYe8cQaP4Nq7TW+tGSFTlgIE6j4Z1rz2vQelW2Tws8zGK9IuU0L5+0fsNoH2/GrVc17azr0+nEr0wXzxlX7fsRvXVl4DjcHouVMRvitjaJdx3wSIXatFKNBDyvfSdCRTmg60TakzMTyJq7hJhZeEjxUMENLEho7aO6Sw8bT94LzLF54gytFn/enT3GKKy+n72LB58GCidzgzyK5njgnvV6WRJQSE0dv4S6T2pw6RrMQSyMVGh2fGxZR8QnBeKTiPwrGKJQwNNBuqZjGGFggFU4UX5RsVVvYmVggo8WCzVnyNu62BqdXFca2Nj0VNvwirV+LUShstdohoNTd+I7dj481KDqPY2H1KX7VbslFKvFic6X5sIy+NQTmYbrYTTLnS2ocknFBVrgmtuXm8UuK3ZbyYBdBsNuXjqrv/3W+CY3Ae5qMQxk0thVKQO8OsKTLGRXGKK88ytL3DXGN0o/mE0owJ+G2JmG9J+ywQvUzyuvyXrT7KrXT+1uv1DZL9F2ymuIPClXCp1NpnX/tMnALLhRJlfmtu43rr0ImfamyC5fyplDb2M4VRz+fpMmyvc2iqAe4WSSvn2/Gb6KPlr+nlcaZ55jCg63OrlM2U6Wh4LBUTUoJEYliolUHE0SYmWZq+TOXfdpyl00/w3NFJQinCyjDV1RQ1GbwE5rXVnYOLuRcsFBpw8jEQddn/C2zoz9LHjjAXP0lTIwCos70xwPAO3nOGGInweEBoG8fE8wtLUxAbjFlSQKTgAu6WCeRsmM4HZyd9TAJkTaGof7bfH9qDAviS4oJpc/NjMFxcsn6TFNK0y/UldK09SdJ05e7xuCYtzQxRZvXkmyzfsbQS3LQA1TshCDzjFysR+V4Tq6NYBF9e+rg08WRGe5p23HXQ6mH3TQ7hh8PIB7ZMXyHy+xHvdYcppl73Udm8HduqPS3lorJxoI3Bif5AlOSH79ZMwbnn3R0UfLRM3MdxPeTcsmQv2Vr4npJamrtHYNz6cNL4v8LSfK0IWIMo+SnPiqP4ThhLB7vwei41+v18qkps3/4GNK5ovEhMCUczzR+FCJlL9bfxjBKSJl5HkN/UEhJiV/qtT4AT39QjVzzhFZioDQM4J/o5B32MKBKJoVMmJzGR0iDJFXfYEHaMzfyBfGWJIBLv/PPxBMkYOmc6MshY3B+f35yAsc9GPRHcHp6fJ4UyF0sQ2I///TfDf9BU36R4ptywxkR80/GQnqJCRm4dDDx02EVfgML/PS3Khrg9zaXn8HvWSQCJj2zNPOI+yN1XVKHuLdklcuMITcoQW5QgtzZcR3gLoMgIj7ke5CgLf5ERRVwgzLghr0mwB23BVx/tAXgvqZSEoTaVTQjjNYg7RhOemcwHA76dqR93Q5XjaA6roAqay0Pqq/rQTX8hWXal2S5JMsahF15RLESwIYlgA1LAOv371qmHTdibE2losIl62aEDc5rEBbrTiWMPfeIz1wNMg9HTNQJtBEMBgM465/30u7py144VYRJ4iONr4mYpQT0Va0xON+WGS/i8/k2om8TUEcVoGb85oH6vB6oo71Jv2+CRZ38a9xxX/tkXd5x+yV09kvoHA12EH/40aAWsm9w3mvebRFwLWTfYAvZd0WEFn2vFWGz+k12dNaH09PhiR1aV7eVe9XNNGsqD6erejgd/8Jy7yW5uandWS9/YD+wdWVvHW7YW0/PdpR8Ub+N4Bs1b67DlvganG6Br2fEI1rsfeWRpctq99bz3hD6g7ORHWDP7mRvzVrLY+xZPcZOfjXnha+ZUiwoweu4BK+Tsuw67+2IL95qYx2Nfnl86cOCTzyE2DMimKxB2An0+2fI4WCbc0IN1BpxdlLBWdZmy4PB6d0fDJ57fEZEjfj6xrIxblbbejvsjLzlseD4rBFao83Qcqt40lakzbqSBkHneWsAZBNf+CtXraWGdPYLi5v6w+LrmReJDbaJUQkQw8HdSpvTTUfFltLmeAtp84pHwsiafySeqrdKDOH0tAeDk36NVeLV3swQwwrU+lYzxKt6mJ3/Wna1IPL9IsbyKTHMckmp6Dnr3e2J8awJaH1tk9izDewl8bRa/pZIj7m1WtOoP4De+fDUjrKX+1eZsqby4HpZD65+b197WW7iW1m3viZLsWkTs4CpnNRmF2tzttugGt2FXeuKRG7FWlA52p2ensCwX6cXXd1KF+q11IWSc90BwPeY7QSGzHffH2hUJYG+myz6VzaLPl6pqQHbkyzLBLKOwdHf+TwE8y3OZtkVo8oZ/d4pASuXhPGbxuiUySiMexzD4Lhebr3De7zx1dZ2UmtYhtzJPqTWyXZS689UI+5LLustXD00osJ57zibrMSdURokuzDbp5nhuL+dPLva1mafF2UpxNIP1jZrYAm8BhV0DYrgGh2XoXVSCyzzfKa+CYnfVm5tqe8fl82oZ3uRaFtti28pXcYSTXn1FtSTfg8Gg9PTMr5OatH19rbQqhpET61b5dt6aA1vL7tSYB1C+pHfdiJsuAljp1X5pU98O8gvq7WqIr76o9EezPTH25npv8URWyDEXkaKMFFvsBqMTuHsbFi10n/Lo42W+VRz7dULvG/3dkawqHFWY/239dgc7UPs6Z212X+U7qgVOA6LcDyrQePdyrw4/OIWFvoNZogiMH69tomr49sLK/xCeLNZKkHDzz/9tYKHXFqsYfUsEursTjWsYW8vDpvjsy22wHeRuGEooC4D8gOrtXae90bQ758MnMazchFZ7/Zv+jyxqvvv6nF1slf96hCuVOQy3m4P7FdA1i9CbFgB2GhXmWN3CVYEzvHpbe2exsh1sgXCXpCliYbwqCfqLVxoTz85GfTKCBvV4uvFbZWsqrFrYN3IXtTj6/TWcstih7DuYc22KwOo86rIspgkzu9SzRqMmgHWUo3f6pz4eknExnibExgOe3B2Njq2WyZe3xZNVWmVNZVH0+tNxok5U0wPCBokNNycD8SPaFnSOH4qtUzqQYzRUp38KTCrE6fW1Mm7o7M6cWptHZcFtkomuaZWHuxZpTi1pk5+W8/qxKk1dS5nHinX0GkHei6+3yFAlOi3naSOEdWxuZ0kUPS7H9HGhKbDH8tBu/Z4WkvorCVyFhz8yrr+Gz7BJwMfbDe1Z9kajjP33zIKuthshs2xhd5d0wtueC9Ti5fpY4wvPgRHmQMMMqnX8dhEHiM9cKivWfouvnuSEozDlS8exyZ3K5nC/aMivVwpZBg+fa/XHsD3uTWYXOHKdScdxjS6WImIYu8PkyIrwpQRqLlEw7V+CfOxjlLOcZz1TQfVpzQPs4xqszqoOWtXl4pCF4PC87Ba4aeeMAXf34zfK8BkpjxDsHxEKMhey2OSTm2bGaLuvFEThJ9UT2bOCpdth/QwHwrv/Jjco+oYoH1y9jrkiX2gfLLPTvV/jKR+pHLPw757w+nQJ4+fVpeNeRqvJHbiOwnpl2qQam619Ad6uYClSvyxmVTAFJ9GLDXTKMyyWwm3kG8uk3iXu5PciCg0X7gmoescfDrIbSFHeJ8I//XU0p8e/B+4zbHTeKUAAA==</script>
+<script type="application/gzip-base64" data-path="examples/leads-marketplace/wf-marketplace.mobile.html">H4sIAAAAAAACE+1d23LcOHq+11P8ZrnWm1q11OdutdUdy571utYHOZJmU87UlAtNokWs2CQDgGr3eJ2aqzxAshe5zhPkLvd5FD9JCgAPIAmy2a3WjDdRlatkgTj8AD78h48/qNNHTmDzdYjB5UtvdnAqfoCH/OuphX1LFGDkzA5Ol5gjsF1EGeZTK+KL1thKin20xFPrluBVGFBugR34HPt8aq2Iw92pg2+JjVvyl0MgPuEEeS1mIw9PO6ITTriHZ28wchi8RfQG89BDNoavP/8VVoTiBUVLDL8N3cDHf3d6rKrnxg4XLTWKNvgymBMPW6WKaY9a3fLY//PfIMeD3rAtfmGcRjaPKAbkO7DwgtUh+AGHW8Ii5DExjEf8G3AQR61w0bIZm1o3hB+nwx3ZTFQ7OD2Ol3QeOGuwPSRqrhaiB4fcZgUtOb41OwCQm4Bp8VlLFcsqAKfziPPA1yrNuQ/qR6t17QaMW6l4PECMT60rF0NIAyey+RMGS+xH4FC0whSCEPsMXEzVNnAXA0XEe8KAcLxkh1Besjn2ghVc0Ug+sgBRgloemmNvar3FfmTNvv7Hf50eKzETmTVx3a6Q9poGK6sMhtPj+b6m6QecLIiNOBHdYJ9TrE03L/c7rS6zZs+x5+kzUHuJ6exA/LJExC/tkShMdohhWw2a1rERdYTwIZI/7MDLhGdusJpaxOc0iDsoLVhW2cerlh2E69nzaA2eXD3GKSLXLocFDZbwHK0jnq4iwGmo9cTxJ27o6/fIdmVnYAeMM7ApdghnR3Du2xjWQUQBXWPfXsM8WgtkHEqgiGOFbA6R7wX2DZMnRpTLngiTDRkQP8XK0elxmM2wbn/nosdMUieYWg5hS8JYSy1UeRJ/CDgQXsDdcbwVcuMACiePoznLlpyFyM8/zAvA0bwVrHxMs+Jc7VYr8CfA0XxaqJWKeC7K4xNVHM4OIl9HNP7EpxYPOPKOZHetpTU7PRaNkh/byM0wvmkgeLFaKvmlfLC96KrDCtlPjx1ya94ZqRwqkcKwh20O6f9aLdslYSaBOOVTi7kY81YY0TBg2DT1pDHDfAIL4nFMj5LqMzXJ/Bl9VKz0Xv0nmZuhSb7FlCFhql4GFC6Rt0U7in2u2l1gnzdvN4/WllAV6errp+OuS2sTvm66rrJuQWIFFL1Chlu8QJHHp9YL1e4+xGfCiZldBpRv7rfG9ogjZnsY0ZaaCbNqtwT+8hd9TbRf50J/Zr8Kb82avRA9F5WaPDYl5S7cHzNuaeDhWCnNcpbFj5bFcztHHvJt7bwslnxq+WIP5rPEMgC6RcRD81oIy1EZR4uFNfsgbIhHloRPYJMENgrzo8VjCPdsq50J0TWeWsdxL62IoWtsza6CEKIwXVJpktRiPmq1QK4SCHPNoNWamXSTwXhnSj+FkGiTr+RjPvUC5BD/Wmt/gz3MA39qFYwGDVZsavXFSqTbXS+KR4QPVLRQQjfHpa2lZRCJYuRoJ0+hb2olGuRZHr5PQaA2LRW/PAWB3LRI/KKNE1A+tZ6psxZPAuCU42XoIY6zIoBTRDmxPdzQbdJMGG21OPH5BB4fMY54xKbzILp2+VOIny4jjh3t8XXicWujlwyQhBXmK4z9Ql0wmMASJpLBHsXCwG9+A0HIj4RnM517EU3OqoZlL6IQ/2y1RCSTqb7aqnEIodcttch7VKll/z5x3hYcUwgjarsos2j5H3ec9BKxm/KkRSl2ikrg8ZEqfycDuJJZEMXgEsfBfuUSqQ4g0YwVA7yXS1ceQZabhzBPeSpsi5jv46NY4whlu4W6khG38J2nj4+I8xRCSmw8TXt7Kv3q18R3iv6lsEDS0KuNVzsKi4CCyd5m4hlUvFK0eb2rqco6NAiXbRs0oFvEkeEQ5MuLsse0AjPs2N9XIkF1+fGjPAINQC2MZOmgvIijHdEJdoR9KgEuB7NcpMYDYBhLckKGSfLAGg/Z7oomXuSc9Mmy+TXHSNAbzEUUO8rslgKKXNCY9BjWnpt8n1vMLySeYYKx8XkjgnWDKPpT4zg5G6oPXBpInDkDJpcyxJmdkqQwXNy0KFkjL88jXJ5dCAlIBXpV91Xnrh6YIvjNuw4qJin1mgLvXboJxjUxbDMkoVfuoVWh9+bYYVXnNH4WK5Tq9oIZfJ4KWF3vUVyRmRbJ1EBp4jniLrOU61jbQtWrmEv8sH4yopIUEnF381iPkqps111PJvkoEbAMgIsgWDLtLOaHkotSI6dDGKfENpz99En9NiTVYqMoI7nD+n3IR4GpwcoFgY1XSB//UbHvdJHeBDFFWLVOTQ5PXvVXW7/HR8hxsFOhyLRndx41sQYGe6Skma8r3IN5tM55F4lm13jADRu/coXPlOKrNIJ63mCVa92nkJIlousqznCjd7Z3x0sY+v17XVusSP0KFAERh8fekh1LItma/Ynglc7Xwtd//bcKObZB4nXOU9DME3iBf41piU3Qg8LjOCrUgsfjYvRYFyLjZagf+0LcKxCRI1mnbWtm6uHjRyQiWFussBoux73EdeQrK/NUFbGgGHsq6Xo/WAnywdiPmad/h1eqHwaIUnKLgbtU7Kqk3R20PoIXLrZvYI7sG2BB4EvG3QiaPIop5tSkHC/wgmLmaiHA3lZ61hZFkp9ouPiKYNhp9dW6LxG35VoxHLNsrHJ9imqmjvBTLF3W5V0WC1Ma0NpleLRpBWaXwRJzl/jXsMI+hxUN/OtDCD2MGAZO14CuEfF3nLqCyuyKruFMdVOebo7ZF7Saeg+wE68Wv5PYnVgrvtTYlVkrvUNR1Fr6iuMX4taegmCG2b8803niB77tgW974Nvui28rnvwHwu2BcHsg3HYi3DbNUto2wyzP/LVI7Qkx5WvIm7wSFTAR0b7qqFEYbTxIS+KLl7FCbX2yZs3iHdFGcQ2iURmYL2mwrFKehg4fpT1Wdfh9CDyoOoO7cZYVOndJfING1wuLZGZVN9l8ZvD153+v54Ny084MyaemHOq2lNGmHXygVB8o1TtQqnulN/8P8JnfGr+3wdF7IPj+hgm+JE6/N4Yv5jhMFN+3RcAlK6EzcA1X54GC+xuj4MR/RGr67CDh5BQfJzIg2UTyxjKweMLAIcgLrlUat7gioIi6wipITiFLp7zF1EPrmlzbgOFEqkJPssnGruQMCsnwWdrtXD0uLqCQ/uNHcYGhYAQK2bFPnjzVky/l74kcT55Ys7PCLYBmAxUyAmslEPnA+TGz3ODdBy6aMdPI82idH1hmCW89pqFnkauc79rkDGkpkw3SmnUiWK+aCmzGWC1ai+nLu0JVuW8mnIrk5Z1BKrngEiL9tSSJczulM+KKqrYJJ3oYHVPVqlhm46cWdkfBHh/dIi/KY9cUkad9qUsGhi7KbqOXeIypVsukjfdn+92WjPgedjtl1ku7HWeSb7nbkrCXjvK2a5m1tMSbQcw4LAhlfMdTLLtrSd94J0lace7Ue/FjAi4RryWFB7i6i0C7y5MXR1xZ44GUqqQ0GuJIBAJ3ApDsQGbFW8rW5nmY5EaXGV0mrViVl5BjQrMXzzX6tTICynWlebiZAq5QQQWRkldfxJk+k5Ms6qZ4RXTNVH4jN/v/mLVnJE4f6KQHOukhQ69WUvwpJBSzukS0tEoFeyyDvJL3YdR3RcW5V4X3K701qdE83zTB+avAoTqXoThjxgUbYJqZuDgt7ULFWonbckYVmFjACqaxkZx1lwaNQDhLWL3ieAapm98yLIgcbn7fe2W4i674t3ySRemCunSehVsoU1vTW+rwPm7gxKSVjfwnHOYYKF5EvoOd5CL7nQhsSWIF/oJQbXnmEVtPrWG73YRz3rDrdV53DausXNsXYn+8HQNs4rNosSA2wf4dg658T9XOs/CasC9zIdNskIMm31EoN0x82gYfTvgQROBj7EApA+DzM7k5rWcx0r/EV1qXAU2Pi0DeXOQquIRJpO0FVpW3XlvfhwroL9J5/moAEXd874QL2UE1HM5vMVWTVeug7h43hIS58RawuEo2NP6eRgkd6cHVr1T7jhpUjibUU6lZejP6CM7YTe7DHCrK44H4egvDQPhesKR25vy1IWROrGDxGyxpToy2jyLsko+rbF6qiLMXU/HHaBK9Tlis2qXyLRjiamlU4mFTWbJ9I8IpL729OgJx4FeYYmEPxFeSro3iHJwym5KQS5draqEw9OJvyxz/mQW+BcSRnygSr8+wNft8AILgtCYQR82HByBeRIgClUEqCoS0omSJfFUg0J9vk1jVCYy643FbFAnITKAn/6++nDKBBfIYFgWFz1lMwLK0Yul+Fcrk5e5CmfQrkzJJj03AUryUKJHOb/JYAX8C7eSJIB3yk6DIzrqbR2vhG2oyJ+lsoorM6jz4cnqslnvWdN3lUsplV8NO4PMBxCs7gR/E+5PP8iWKRaRw5x0hjPhdWyr5KY98sXrVPQErIfGT50R+f0o8+Ufky7Muzy1XaWqel9RLlvyCrJHjJqVpMDcB68yDt8j7Z5Q8k1H8BPrJrzLOnMAgESxe725/0G6323ppKuzvP4XY5jj2PNOO453utHrLVLzYsk6gn3Sl9nkCnW6uJO38TJ7sLrjyW0DoOkj6SnxtJYD4r3gx3WuLawwsqaTeL0t8hNhPSmVuneh77kQeRe4S+XDmtf4JuRT5JN0TmS83Aet3J8MhDNrQ7fRhNBqcJBW0hFfR2def/7PmH9Q9z/f4vjhw1on6kYmQJlcKAc4sUfjlsAy/rgF+8oswNfC70J5n8HsZUZ8wVx1NHXF/xI6DqhB3gVbawxhy3QLkugXIjQdVgDvz/Qh5oM8gQdug3eq02zdlwHWLgOu16wA3aAq4Tn8LwL3CjCEBtctojgiuQNoAhu0x9Hrdjhlpr5rhqhZUgxKostF0UL2qBlXvF9Zp36HlEi0rEHbpIk4KAOsVANYrAKzTuW+dNqjF2BozjqmD1vUI655UICz2lAoYe+0ijzgSZK5YMVql0PrQ7XZh3Dlpp9OTFzfFViHCkCf6eIXoPO1AXrucgPWhKHgen6+3UX2bgNovATWTVwfq62qg9vem/b73F1X6r9binntoXbS4nQI6OwV09rs7qL9o0Ej3dU/a9dZWAK6B7utuofsuEZWq75wjMq82sv1xB0aj3tAMrcu76r2yMc2G0uF0WQ2nwS+s996im5tKy3r2E/mJrEu2tbfBto7GO2q+qNNE8fXrjWuvIb66oy3w9RK5SKq9P7ho6ZBK23rS7kGnO+6bAfbyXmxrNpqOsZfVGBt+M/HCK8I58QvwGhTgNSzqrpP2jvgKGhnWfv+Xx5cMFjzkCoi9RJSwCoQNodMZCwm728QJFVCrxdmwhLNszIaBwej+A4PXbjBHtEJ9fW8wjJvdtvYOljFoGBYMxrXQ6m+GllPGk2SRNvtKEgSt140BkG187n9as4Ye0vgXVjfVweL53I3oBm6iXwBEr3u/2ma0KVRsqG0GW2ibd0FEla75B+TyalaiB6NRG7rDTgUr8W5vNESvBLWOkYZ4Vw2zk2/FqvmR5+UxppfEMNOKUtUzbt9vxDiuA1pHchJ75sDeIle65ReIucSp9Jr6nS60T3ojM8re7t9lyobSwfW2Glyd9r5smbbxjditV2hJNxkxA5iKRU2sWJPYboNrdB+81iWKnBJbUArtRqMh9DpVftHlnXyhdkNfKInrDgB+FI8tX3Xzw48HElVJGs4mRv/SxOiL/MwKsD3PHqkUmQlYfyKehw7huyj08Kd63RWjyur/zioASysSt2kV6ZTpKHELdQLdQbXeuhJXemAeOdeYN9NavSLkhvvQWsPttNafsUTcdwGrZrjagkSFk/Yg26zkdUZhkczKbJ80w6CznT673Jaz11VZCrGzEFG+1J6YFVoCr24JXd08uPqDIrSGlcB6LiEFoXgXjrMIYCNT3xkUadTxXjTaVmbxAuNlrNG4W82gDjtt6HZHoyK+hpXourgrtMqE6MhoKi+qodW7u+5KgXUIV8HKd4OI4WYqrLcJY6Oy/pIR3w76y8hWldRXp9/fA00/2I6m/yBWbCEg9jbiiNBqwqrbH8F43Cuz9B+CaCMzn3qu7WqF92FvMYLBjTOS9R+qsdnfh9qTlrX+/VFqUUtw7OXhOK5A4/3qvDj94g4M/QYaIg+Mb5ebuBzcXVm9EctfS0slaPj6819LeNDKYg+rbdBQ43v1sHrtvbywGYy3MIFXEb0hQkGd+egnUsl2nrT70OkMu1ZtrJxH1tX+qc+h0d2/qsbVcK/+1SFc8sghQTMb2CmBrJOHWK8EsP6uOsf8SrCkcAaju/KeiuQaboGwN2ipsiFc7NJqhkvw6cNht11EWL8SX2/u6mSVya6u0ZC9qcbX6M56y8BDGG1YPXelAHVSVlkGSuLkPt2sbr8eYA3d+K3ixPMlohvzbYbQ67VhPO4PzMzE+V3RVNZW2VA6ms43kRPxtWxFSEi4WeoKdEHTWF6qtVTpQYzRQhs9CszaxKUVbfTX0VmbuLSyjUN8UyNVXNFKB3vWKC6taKOb9axNXFrR5mzuomILWXYg9+LHHRJEkR3/IUjJImV/+G8CP3wWHJOgDj8Xk3bN+bSG1FlD5ixY4g6z/D98gS8KPtof7jMPHD/c/8hC0cW0mRiOLKR1Tf+el7iuJ9XL7JnILz4Ei6sARggpz/FEZR6L/sDCnhTph/gzLGmHcbry6bOYcjd2k78AkutPqyWvVn/5UZ49gB+1M5jcsNGmky5jml3MaYTF7A+TKitEuFKoWqGSWn5I6pnMUtYkzuYmc+bTPg+zB+VhZVJzNq6sFYWOSArXYbWSf690AuJrnMltQlFMuKs6LIYIOd1r+AqTVTlmhqh7H1Ql4SfNk50zwmXbJT3UU+Gtz8kdnJYC2hdrr0ue8APFyD6L6v8YMfkpqD0v++4Dp0uffDGsfGzUJ4YKaie+k5B+a1v0qp2WTlceFzA0iT+EnSqY/MebCsPUKrPsVsId9Fv+b8kWhs9dk5BtDr4caCbkWPxBZ/FT/Snt/wUi2BjdW3sAAA==</script>
+<script type="application/gzip-base64" data-path="kit/wireframe.css">H4sIAAAAAAACE61a3W7juBW+n6c4SDCYeGo6smN7EhktUPSiKHqz6KJXxSKgJcrmRCIFkortDQboQxT7OH2YfZLikNS/LDvTgQbxmOLP+T/fOfT9Z/hJyUSmXMLff/4zHLhiiaIZgxdu4O6Fm/tqaBZpPQkhlQdIeMxSbk5TSKQCulOMcbEDbVQRmUIxoCL+AAAJTt6yRNqhE+T8yFLgGmJFD2KGUwj8VbGTjmjKYCuPTE/dS6AGzJ5BrmRcRAb0nqXpJw1GFXYwl8pwKXQIFNYB5EdQlKd4MFDcF/zontGYKdxtvlwGG6CwWjfGpQAK+V4K5qlpyoBr+yWG7cnSonEwpoaSPCGfgRqj+LYwSHOeEHxhz0euZ181bq1xnSNnz0nCnUhVIQzP2OyrnkxBS+AGj4pSHr3Qbcqmdhc80K15YSzXwI2G6ghtqGHakzw7JMTgQig00zWlhOTJC4lkqpGQGX6x00I7JZJpkQnttBcDF3a0Yt4RTRWrCfmky0Uz+Hz/YXZI4A0IOSSEi5cQbucJPhs3ZNjRhHC7pPj4sawwLA7h9pHi4wdTLlgIt9ETPn5MywQXswgfP5bTHc5Llvj4sYSnaQi3DxSfch4XOC2Jlw/bzQeARAoTwjIIYP6QH+/ns+UK9EkblpGCT4HQPE8ZcSNTuPmZ7SSDf/7tZgr/kFtp5BQ0FZpopniyQQFIFcIrVXcl55MNbGn0slOyEHHjFRI82UDGBdkzvtubEOZB8LrfQEbVDqkMNvDNivEzvKHxE81/5WIXwlaqmCmylcdyxn4+Bfu58J8P7jOHt/Z2H+4/OwtAf4Hf//2fphd90k3XqTxNO8/zSiVu6RvEXOcpPYWwUzze2L/EsCxPqWHEW0II6yA/wjxR3QlKHlpvB+RgWSPWb9/caiUPIczhHh7aQr1NkmRTioULtBnC8MU8P4KWKY9ruePLyaamPknZcWP/kpgrFiHvobfkDdCU7wThhmU6hIgJw5ATmiOR+XEDOY1jq5P5Ij9WGrNE21XwBgcem30IDwucX7LovnmKFY15gdKox8ZI73PeUUWe0oh1iUZDRwtiJeldW7XuN9lAVCiNL3LJ3coOS4RIgQY5ZNTocZOKr+4J/q0fdqT3NhfsAG8gC+M8H8UaU71ncW8fP4fIJNHM2Knlfj58v3XVPKLORUudASyWVhvnrGwrjZHZmJpalNggzE3KKods2SktjCxXZJSjfGvLWudHS403mistt8EV+pa3wspCbVKrrXMeBB8HnfDK08ZCXOPAWjHlMav1AE9Xe11gpfMD1OSo64kera+S/ztFHzhzxIi7TWX0UgXQiKq440BNmkddfyBgeAZo3DWayrnk4T2e8JiXrB0Ufse/wzYUybS/8ahQlufMceeIxMUhzIfnbJk5MIYK+lpow5MTiaQwDPO3zjHi+Qnl/NLfmpHPMYcDB2+A61V1wH7Rmb0am40QBt56YRSHK7PKmKGdPRdjsdet0kZJsSvXDRwtimzwrR15pYpTYXASUzwKwdBtkVKFA7rcgWayEKapPR+OBqxjSzXDd16HwWyxYNmQXA57bhixughBSGc4rfP+BPp11/D+jB7vvuTHKQSz9YJlk00Zj1xAdAAuKpRiwvwFZVbux7PduRyE6HACSDBVZIeuwoS5MxKMzEHhuVMwigqdU9wWIppGd6vgIxAIZqv8OJl23A5WwcczS/7gl0y+w3mXtYfyyKbUMhavm0hhvh5ACg8XkEJpT13t2kC08W4mJOrU+1ZaqAFr8PPrnHCWloYmFMsZNVzsSFcJT0HMdlO4jRJ8IMAANoVbtsAHv8BTfpxs4JUpwyOaEmuHIWQ8jlNWRlP0eoVli4+nWyOuM+QyzPXCRyv+rcsYVWG1dTfnLC+I38P+IXTXC/rDJYMrS7jYM8VN19eCYACljTjf1ghCcsUzqk4/GrnZvXd7qY0tUpqrGx7TZrz1AuMliVkkFXUJoxAxUy7eNI6wltjFK9X7f8VcY+0a/2LrHjuEYZCU43+8wc7AzS8ILXMacXPCQLZa1oIU0hCapvLA4sotRV4Yt6FmKYvM+8xs3IaCK8H+dxlR6f8dM2pk1fkyqONPxd2lxNoAlWfKBLdVGNLEWJxX7XTz+2//vbmY+exqQjQbSq0ttxp+WW6zO6uq7xO5fGUKGzch7HkcMzGkhOrs52eZmyYa+4IwclhqJTlBe0cXmzvqG4Ua5blXlGcDbmzoVvexnFX3ohn0L+PpHjavDugh67YXVHs/VHu3AkVPdGfEMaz2OrQP+mpFZCm+JkkXwuFA6B4CbZFHXE0wOG/3EPIjDGX7p6enrtu30c4F08h5u2FzOXRVCf+xE7aGyFteF8l6fA8ktWEu+q42kuyQWUJiql5+ZKqzfbO6O2obqFgxYsMFVJGydg+1hCbuy1uj1xq6dpcfYGlKju1qzWCJ7JKOUVe32Rz55SGTcSvHE0bRczt3uUzRq2H6dj5qhJYZL3Mj80FL8Yd7e3M5P/Rwq9yFEMOtH7Wt4gs+zVk2sfTTfSkCL2Gc0a41y8Odk6DNN2Rr9VWztA8TrrQh0Z6npc7i5lgd8sp2jzZUmXBsT4ItoXIz+6UfmHt52lbdTMQeT3ncbAec8borgdIuWZab0/W1+6AxNQ/qNxCqmLF8rNon3+qzn5+pMjWcW7VKntVQlFkh4GtGmW5XsFfzjDRDx/BSK0a1SB5qKKzHWgTlutFOQUaPpfk9PDZB2QtLry3J/PrHq+qzrrs5A0GEk9JTZSIZ1RhBc6m5M4aEHxEac2GbrR28onZbehdMwf+bPayu1MSvhIsYq9FaapmMaVrbRsbF3QpByNTV3Qj9gdhm6GQy0vor+X+8Lj1d6QqorVL2TXLQzCctDp6ffZy9pvN2CXjXGGHpW5LXQDKv4HPm6cncyvjU7x2+v81cY+RWO9sdkkhp3hXHBkJJ1Y7dXJlIvpUXVracOGfKSC0E+FxhTU7+S4teg4t0dDHx94p2yEuYKFpM0a2WaWFYYzbeaDey2yIIxprl76iJOiHeaeRI9J7GqH+LEy147AWG+WLS5OD52d+Sva893eoCVHTgee26+pqqqpnHbHYergDP1Ls1E+EeHcAl7np0rBxrWSkV0V6qlkYVS6nhr1XjiwohDfW/axBFtmX464OcC7zVpwY0PcEB/0NBsR2XAn83kGDTVLBXpiDHnCsTi2BjpvlOlME+50MttJGwXVlUM28vgrN5e/B6iIsG0A6CoFTNF7yNn+NtfPMqvnnP3m9gCmnYmQL2sVf1WY/zur7Ym2+h2JTtBgHZqA+fj2IdT9yy9ZAz3iZz9kCDsesf7N8SIrAsqXtki6A7oXPr97Tu9oAI4ta8B4pbrazFSCurW7N6qbne3TsK0Pq26P8rRc+BxB7QG9U6faWGnvPN93vNFT8F6KHdyz8FGMz65+vtOpM47p6fvZaGMopyi4iXrwMc7lvVT2wpa/kuIOprbh9RudbcXn+N9woRoNoKL2XGMGW7Ac40ZsESL6jqAF1WUSlLTIlOPEtWCv8D7cQJgugmAAA=</script>
+<script type="application/gzip-base64" data-path="kit/kit.css">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</script>
+<script>/* The prototype player (kit/player.js). It is the page qa/prototype.mjs writes around a
+   design: one file holding every screen, state, stylesheet and product page the prototype
+   opens. A screen runs in its own frame at its real size (1440 × 900 on the web, 375 × 812
+   on a phone) with kit/runtime.js inside it. The player:
+     - lists the states;
+     - switches between web and phone (M);
+     - holds the scenario controls;
+     - shows each state's notes and the QA result.
+   A headless run (qa/prototype.mjs) drives it through window.__pfp. */
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var M = JSON.parse($('pfp-manifest').textContent);
+  var RUNTIME = $('pfp-runtime').textContent;
+  var QA = $('pfp-qa').textContent;
+  var KITCSS = $('pfp-kitcss').textContent;
+  var LAYER = ($('pfp-layer') || {}).textContent || '';
+  var blobs = {};
+  Array.prototype.forEach.call(document.querySelectorAll('script[data-path]'), function (s) { blobs[s.getAttribute('data-path')] = s; });
+  var cache = {};
+  var SIZE = { web: [1440, 900], phone: [375, 812] };
+
+  /* ── files: gzip + base64 in the page, text when asked for ───────────── */
+  function file(path) {
+    if (cache[path]) return cache[path];
+    var s = blobs[path];
+    if (!s) return Promise.resolve(null);
+    var b64 = s.textContent.trim(), bin = atob(b64), bytes = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    var p;
+    if (s.type === 'application/gzip-base64') {
+      if (!window.DecompressionStream) return Promise.reject(new Error('This browser cannot open the prototype (no DecompressionStream) — use a current Chrome, Safari or Firefox'));
+      p = new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).text();
+    } else p = Promise.resolve(new TextDecoder().decode(bytes));
+    cache[path] = p;
+    return p;
+  }
+  function frameHtml(path, boot) {
+    return file(path).then(function (html) {
+      if (html == null) throw new Error(path + ' is not in this prototype');
+      var links = [], re = /<link data-pf-css="([^"]+)"[^>]*>/g, m;
+      while ((m = re.exec(html))) links.push(m[1]);
+      return Promise.all(links.map(file)).then(function (css) {
+        var byPath = {};
+        links.forEach(function (p, i) { byPath[p] = css[i] || ''; });
+        html = html.replace(/<link data-pf-css="([^"]+)"[^>]*>/g, function (all, p) { return '<style data-pf-css="' + p + '">' + byPath[p] + '</style>'; });
+        var inject = '<style data-pf-kit>' + KITCSS + '</style>' +
+          '<script>window.PF_BOOT=' + JSON.stringify(boot).replace(/</g, '\\u003c') + '<\/script>' +
+          '<script>' + RUNTIME + '<\/script><script>' + QA + '<\/script>';
+        var at = html.search(/<\/body>\s*(<\/html>\s*)?$/i);
+        return at > -1 ? html.slice(0, at) + inject + html.slice(at) : html + inject;
+      });
+    });
+  }
+
+  /* a compiled state for the shell layer: its own stylesheet inlined, kit/layer.js, no runtime */
+  function layerHtml(path, opts) {
+    return file(path).then(function (html) {
+      if (html == null) return '';
+      var links = [], re = /<link data-pf-css="([^"]+)"[^>]*>/g, m;
+      while ((m = re.exec(html))) links.push(m[1]);
+      return Promise.all(links.map(file)).then(function (css) {
+        var byPath = {};
+        links.forEach(function (p, i) { byPath[p] = css[i] || ''; });
+        html = html.replace(/<link data-pf-css="([^"]+)"[^>]*>/g, function (all, p) { return '<style>' + byPath[p] + '</style>'; });
+        var inject = '<script>window.PF_LAYER=' + JSON.stringify(opts).replace(/</g, '\\u003c') + '<\/script><script>' + LAYER + '<\/script>';
+        var at = html.search(/<\/body>\s*(<\/html>\s*)?$/i);
+        return at > -1 ? html.slice(0, at) + inject + html.slice(at) : html + inject;
+      });
+    });
+  }
+
+  /* ── the page ────────────────────────────────────────────────────────── */
+  var root = $('pfp');
+  var frame = $('pfp-frame'), device = $('pfp-device');
+  var cur = { entry: null, platform: (M.platforms && M.platforms[0]) || 'web', state: null, ready: false };
+  var overrides = {}, snapshot = {}, waiters = [], qaWait = {}, rpcWait = {}, frameErrors = [];
+  /* call a function of the runtime in the frame (window.pf[fn]) and wait for its answer */
+  function call(fn, args, ms) {
+    return whenReady().then(function () {
+      return new Promise(function (r) {
+        var id = Math.random().toString(36).slice(2);
+        rpcWait[id] = function (m) { r(m.error ? { error: m.error } : m.result); };
+        send({ pf: 'rpc', id: id, fn: fn, args: args || [] });
+        setTimeout(function () { if (rpcWait[id]) { delete rpcWait[id]; r({ error: fn + ' did not answer' }); } }, ms || 12000);
+      });
+    });
+  }
+
+  function el(tag, attrs, kids) {
+    var e = document.createElement(tag);
+    Object.keys(attrs || {}).forEach(function (k) { if (k === 'text') e.textContent = attrs[k]; else if (k === 'on') Object.keys(attrs.on).forEach(function (ev) { e.addEventListener(ev, attrs.on[ev]); }); else e.setAttribute(k, attrs[k]); });
+    (kids || []).forEach(function (c) { if (c) e.appendChild(c); });
+    return e;
+  }
+  function toast(msg) {
+    var t = el('div', { class: 'pfp-toast', role: 'status', text: msg });
+    document.body.appendChild(t);
+    setTimeout(function () { t.remove(); }, 2600);
+  }
+  function sizeOf(entry, platform) { return (entry && entry.size && entry.size[platform]) || SIZE[platform] || SIZE.web; }
+  function fit() {
+    var s = sizeOf(cur.entry, cur.platform);
+    frame.style.width = s[0] + 'px'; frame.style.height = s[1] + 'px';
+    var shot = root.getAttribute('data-mode') === 'shot';
+    var st = $('pfp-stage'), cst = getComputedStyle(st);
+    var inner = st.getBoundingClientRect().width - parseFloat(cst.paddingLeft) - parseFloat(cst.paddingRight);
+    var avail = Math.max(280, Math.min(inner, document.documentElement.clientWidth - 32));
+    var k = shot ? 1 : Math.min(1, avail / s[0]);
+    if (cur.platform === 'phone' && !shot) k = Math.min(1, Math.max(0.5, (window.innerHeight - 140) / s[1]));
+    frame.style.transform = k === 1 ? 'none' : 'scale(' + k + ')';
+    device.style.width = Math.round(s[0] * k) + 'px'; device.style.height = Math.round(s[1] * k) + 'px';
+    device.setAttribute('data-platform', cur.platform);
+    $('pfp-caption').textContent = (cur.entry ? (cur.entry.title || cur.entry.id) + ' · ' : '') + (cur.platform === 'phone' ? 'Phone' : 'Web') + ' · ' + s[0] + ' × ' + s[1] + (k < 1 ? ' · shown at ' + Math.round(k * 100) + '%' : '');
+  }
+  window.addEventListener('resize', fit);
+
+  function find(to) {
+    to = String(to || '');
+    var s = M.screens.filter(function (x) { return x.id === to || x.route === to; })[0];
+    if (s) return s;
+    var pages = M.pages || {};
+    if (pages[to]) return pages[to];
+    return Object.keys(pages).map(function (k) { return pages[k]; }).filter(function (p) { return p.route === to || p.route === to.replace(/\/$/, ''); })[0] || null;
+  }
+  function load(entry, state, carry) {
+    var path = entry.files[cur.platform] || entry.files.web || entry.files.phone;
+    if (!entry.files[cur.platform]) toast('No ' + cur.platform + ' layout for ' + (entry.title || entry.id) + ' — showing ' + (entry.files.web ? 'web' : 'phone'));
+    cur.entry = entry; cur.ready = false; frameErrors = [];
+    var boot = { screen: entry.id, file: path, platform: cur.platform, state: state || null, carry: carry || null, menu: M.menu || {}, labels: M.labels || {}, shell: M.shell || null, feature: M.screens.some(function (x) { return x.id === entry.id; }) };
+    fit();
+    return frameHtml(path, boot).then(function (html) { frame.srcdoc = html; }, function (e) { toast(e.message); });
+  }
+  function whenReady() { return new Promise(function (r) { if (cur.ready) r(); else waiters.push(r); }); }
+  function send(msg) { try { frame.contentWindow.postMessage(msg, '*'); } catch (e) { /* not loaded */ } }
+
+  function stateById(id) { return M.states.filter(function (s) { return s.id === id; })[0]; }
+  function payload(st) {
+    var set = {};
+    Object.keys(overrides).forEach(function (k) { set[k] = overrides[k]; });
+    Object.keys(st.set || {}).forEach(function (k) { set[k] = st.set[k]; });
+    return { set: set, do: st.do || [] };
+  }
+  var applied = {};
+  function go(id) {
+    var st = stateById(id);
+    if (!st) { toast('No state "' + id + '"'); return Promise.resolve(); }
+    cur.state = id;
+    var entry = find(st.screen) || M.screens[0];
+    notes();
+    if (!cur.entry || cur.entry.id !== entry.id || !cur.ready) {
+      return load(entry, payload(st)).then(whenReady);
+    }
+    return new Promise(function (r) {
+      var key = Math.random().toString(36).slice(2);
+      applied[key] = r;
+      send({ pf: 'apply', state: payload(st), id: key });
+      setTimeout(function () { if (applied[key]) { delete applied[key]; r(); } }, 5000);
+    });
+  }
+  function setPlatform(p) {
+    if (p === cur.platform || !SIZE[p]) return Promise.resolve();
+    cur.platform = p;
+    Array.prototype.forEach.call(document.querySelectorAll('[data-platform-btn]'), function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-platform-btn') === p)); });
+    if (cur.state) { var st = stateById(cur.state); return load(find(st.screen) || M.screens[0], payload(st)).then(whenReady); }
+    return load(cur.entry || M.screens[0], null, snapshot).then(whenReady);
+  }
+
+  window.addEventListener('message', function (ev) {
+    var m = ev.data;
+    if (!m || !m.pf || ev.source !== frame.contentWindow) return;
+    if (m.pf === 'ready') { cur.ready = true; snapshot = m.state || {}; syncControls(); var w = waiters; waiters = []; w.forEach(function (f) { f(); }); }
+    else if (m.pf === 'applied') { snapshot = m.state || {}; syncControls(); if (applied[m.id]) { applied[m.id](); delete applied[m.id]; } }
+    else if (m.pf === 'state') { snapshot = m.state || {}; syncControls(); }
+    else if (m.pf === 'error') { frameErrors.push(m.message); }
+    else if (m.pf === 'go') { go(m.state); }
+    else if (m.pf === 'platform') { setPlatform(cur.platform === 'web' ? 'phone' : 'web'); }
+    else if (m.pf === 'page') {
+      var t = find(m.to);
+      if (!t) { toast('“' + m.to + '” is not part of this prototype'); return; }
+      cur.state = null; notes();
+      load(t, null, m.state || snapshot);
+    } else if (m.pf === 'file') {
+      var path = resolve(m.path, m.from);
+      (path ? file(path) : Promise.resolve(null)).then(function (html) {
+        send({ pf: 'file', id: m.id, html: html || '' });
+      });
+    } else if (m.pf === 'doc') {
+      var lp = resolve(m.path, m.from);
+      (lp ? layerHtml(lp, { mode: m.mode, path: lp, hover: !!m.hover, rail: m.rail || null, selected: m.selected || null }) : Promise.resolve('')).then(function (html) { send({ pf: 'doc', id: m.id, html: html || '' }); });
+    } else if (m.pf === 'rpc') { if (rpcWait[m.id]) { rpcWait[m.id](m); delete rpcWait[m.id]; } }
+    else if (m.pf === 'qa') { if (qaWait[m.id]) { qaWait[m.id](m.result); delete qaWait[m.id]; } }
+  });
+  /* a compiled state a click names (data-pf-go): the bundler's alias, the same folder, or
+     the same state of another page — the shell's states are the same on every page */
+  function resolve(target, from) {
+    var alias = (M.alias || {})[target];
+    if (alias && blobs[alias]) return alias;
+    var dir = String(from || '').replace(/[^/]*$/, '');
+    var parts = (dir + target).split('/'), out = [];
+    parts.forEach(function (p) { if (p === '..') out.pop(); else if (p && p !== '.') out.push(p); });
+    var joined = out.join('/');
+    if (blobs[joined]) return joined;
+    var name = target.split('/').pop().replace(/^[\w-]+--/, '');
+    var phone = /\.mobile\.html$/.test(name) || cur.platform === 'phone';
+    var base = name.replace(/(\.mobile)?\.html$/, '');
+    var hit = Object.keys(blobs).filter(function (k) { return /^pages\/[^/]+\//.test(k) && k.split('/').pop().replace(/(\.mobile)?\.html$/, '') === base && /\.mobile\.html$/.test(k) === phone; })[0];
+    return hit || null;
+  }
+
+  /* ── the controls ────────────────────────────────────────────────────── */
+  function build() {
+    var bar = $('pfp-bar');
+    var title = el('div', { class: 'pfp-title' }, [el('b', { text: M.title || M.name || 'Prototype' }), el('span', { text: (M.wireframe ? 'Wireframe — structure and flow, not visuals' : 'Prototype') + ' · Profolio KSA' + (M.theme ? ' · ' + M.theme : '') })]);
+    bar.appendChild(title);
+    if (M.screens.length > 1) {
+      var sel = el('select', { 'aria-label': 'Screen', on: { change: function () { var s = find(this.value); cur.state = null; notes(); load(s, null, snapshot); } } });
+      M.screens.forEach(function (s) { sel.appendChild(el('option', { value: s.id, text: s.title || s.id })); });
+      bar.appendChild(el('div', { class: 'pfp-group' }, [el('label', { text: 'Screen' }), sel]));
+    }
+    if ((M.platforms || []).length > 1) {
+      var seg = el('div', { class: 'pfp-seg', role: 'group', 'aria-label': 'Layout' });
+      M.platforms.forEach(function (p) { seg.appendChild(el('button', { type: 'button', 'data-platform-btn': p, 'aria-pressed': String(p === cur.platform), text: p === 'phone' ? 'Phone' : 'Web', on: { click: function () { setPlatform(p); } } })); });
+      bar.appendChild(el('div', { class: 'pfp-group' }, [seg]));
+    }
+    (M.controls || []).forEach(function (c) {
+      var sel = el('select', { 'data-control': c.key, 'aria-label': c.label, on: { change: function () { var v = c.options[this.selectedIndex][0]; overrides[c.key] = v; send({ pf: 'set', key: c.key, value: v }); } } });
+      c.options.forEach(function (o, i) { sel.appendChild(el('option', { value: String(i), text: o[1] })); });
+      bar.appendChild(el('div', { class: 'pfp-group' }, [el('label', { text: c.label }), sel]));
+    });
+    bar.appendChild(el('button', { type: 'button', text: 'Restart', on: { click: function () { overrides = {}; go(M.start || M.states[0].id); } } }));
+    var q = M.qa || {};
+    var cov = q.coverage ? ' · ' + q.coverage : '';
+    var qaBtn = el('button', { type: 'button', class: 'pfp-qa', 'data-state': !q.ran ? 'warn' : q.errors ? 'fail' : 'pass', title: q.coverage ? 'Covered: ' + q.coverage : '', text: !q.ran ? 'QA not run' : q.errors ? 'QA: ' + q.errors + ' issue' + (q.errors > 1 ? 's' : '') + cov : 'QA passed' + cov, on: { click: function () { runQA(); } } });
+    bar.appendChild(qaBtn);
+    if (q.ran && q.errors) root.insertBefore(el('div', { class: 'pfp-banner', text: 'Design QA found ' + q.errors + ' issue' + (q.errors > 1 ? 's' : '') + ' — this prototype is not ready to share. Open QA for the list.' }), $('pfp-main'));
+    else if (!q.ran && !M.wireframe) root.insertBefore(el('div', { class: 'pfp-banner', 'data-kind': 'warn', text: 'Visual QA did not run where this was built' + (q.note ? ' (' + q.note + ')' : '') + ' — press QA to check it in this browser.' }), $('pfp-main'));
+    (M.options || []).forEach(function (o) {
+      var box = $('pfp-options');
+      if (!box) return;
+      var seg = el('div', { class: 'pfp-seg', role: 'group', 'aria-label': o.title || o.key });
+      o.variants.forEach(function (v) {
+        seg.appendChild(el('button', { type: 'button', 'data-option': o.key, 'data-value': String(v[0]), 'aria-pressed': 'false', text: v[1] + (o.chosen === v[0] ? ' ✓' : ''), on: { click: function () { overrides[o.key] = v[0]; send({ pf: 'set', key: o.key, value: v[0] }); syncControls(); } } }));
+      });
+      box.appendChild(el('div', { class: 'pfp-option' }, [el('h3', { text: o.title || o.key }), o.question ? el('p', { class: 'pfp-muted', text: o.question }) : null, seg]));
+    });
+    var groups = {};
+    M.states.forEach(function (s) { var g = s.group || 'States'; (groups[g] = groups[g] || []).push(s); });
+    var box = $('pfp-states');
+    Object.keys(groups).forEach(function (g) {
+      var row = el('div', { class: 'pfp-sg' });
+      groups[g].forEach(function (s) { row.appendChild(el('button', { type: 'button', 'data-state-btn': s.id, 'aria-pressed': 'false', text: s.title || s.id, on: { click: function () { go(s.id); } } })); });
+      box.appendChild(el('div', {}, [el('h3', { text: g }), row]));
+    });
+  }
+  function syncControls() {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-option]'), function (b) {
+      b.setAttribute('aria-pressed', String(String(snapshot[b.getAttribute('data-option')]) === b.getAttribute('data-value')));
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-control]'), function (sel) {
+      var c = (M.controls || []).filter(function (x) { return x.key === sel.getAttribute('data-control'); })[0];
+      var v = snapshot[c.key], i = c.options.map(function (o) { return String(o[0]); }).indexOf(String(v));
+      if (i > -1 && sel.selectedIndex !== i) sel.selectedIndex = i;
+    });
+  }
+  function notes() {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-state-btn]'), function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-state-btn') === cur.state)); });
+    var st = cur.state && stateById(cur.state), box = $('pfp-note');
+    box.textContent = '';
+    if (!st) { box.appendChild(el('p', { class: 'pfp-muted', text: 'Browsing freely — pick a state to jump to it.' })); return; }
+    box.appendChild(el('h2', { text: st.title || st.id }));
+    if (st.notes) box.appendChild(el('p', { text: st.notes }));
+    if (st.try && st.try.length) box.appendChild(el('div', {}, [el('h3', { text: 'Try' }), el('ul', {}, st.try.map(function (t) { return el('li', { text: t }); }))]));
+  }
+
+  /* ── QA, in this browser ─────────────────────────────────────────────── */
+  function qa(opts) {
+    return whenReady().then(function () {
+      return new Promise(function (r) {
+        var id = Math.random().toString(36).slice(2);
+        qaWait[id] = function (res) { res.frameErrors = frameErrors.slice(); r(res); };
+        send({ pf: 'qa', id: id, options: opts || {}, delay: 120 });
+        setTimeout(function () { if (qaWait[id]) { delete qaWait[id]; r({ issues: [{ level: 'error', check: 'qa', message: 'QA did not answer in this frame' }] }); } }, 15000);
+      });
+    });
+  }
+  function runQA() {
+    qa({ draw: true }).then(function (res) {
+      var box = $('pfp-issues');
+      box.textContent = '';
+      var list = (res.issues || []);
+      box.appendChild(el('h3', { text: 'QA · this state · ' + cur.platform }));
+      if (!list.length) box.appendChild(el('p', { class: 'pfp-muted', text: 'No issues in this state.' }));
+      else box.appendChild(el('ul', {}, list.map(function (i) { return el('li', { 'data-level': i.level, text: (i.level === 'warn' ? 'Warning · ' : '') + i.message }); })));
+      (M.qa && M.qa.issues || []).length && box.appendChild(el('p', { class: 'pfp-muted', text: 'At build: ' + M.qa.errors + ' error(s), ' + M.qa.warnings + ' warning(s) across all states.' }));
+    });
+  }
+
+  window.__pfp = {
+    manifest: M,
+    size: function () { return sizeOf(cur.entry, cur.platform); },
+    go: function (id, platform) { return (platform ? setPlatform(platform) : Promise.resolve()).then(function () { return go(id); }).then(function () { return new Promise(function (r) { setTimeout(r, 250); }); }); },
+    qa: qa,
+    shot: function (on) { root.setAttribute('data-mode', on ? 'shot' : ''); fit(); },
+    state: function () { return snapshot; },
+    errors: function () { return frameErrors.slice(); },
+    targets: function () { return call('targets'); },
+    interact: function (t) { return call('interact', [t], 15000); },
+    extremes: function (kind, lists) { return call('extremes', [kind, lists]); },
+    setVar: function (k, v) { overrides[k] = v; send({ pf: 'set', key: k, value: v }); return new Promise(function (r) { setTimeout(r, 200); }); },
+    closeShell: function () { return call('closeShell'); },
+  };
+
+  build();
+  if (/[#&?]shot\b/.test(location.href)) root.setAttribute('data-mode', 'shot');
+  fit();
+  go(M.start || (M.states[0] && M.states[0].id));
+})();
+</script>
+</body>
+</html>

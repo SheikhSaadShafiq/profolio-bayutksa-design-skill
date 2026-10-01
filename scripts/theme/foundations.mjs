@@ -243,7 +243,7 @@ const shellStates = states.filter((s) => (s.decisions || []).includes('header'))
 const railStates = states.filter((s) => (s.decisions || []).includes('rail')).length;
 const decisions = [
   { what: 'The product shell is kept', how: `every screen (${shellStates} of ${states.length}) draws the product's own header, and every web screen (${railStates} of ${web}) its rail, in place of the handover's (scripts/theme/shell.mjs) — on a phone the rail is the header menu's drawer; the new theme is measured without them` },
-  { what: 'The riyal is a glyph', how: `"SAR" written out became the build's own riyal glyph in ${plural(riyal, 'place')} across ${plural(riyalStates, 'state')}${sarKept ? ` — kept as typed inside the agent's own listing description (an editable field) in ${plural(sarKept, 'state')}, by decision` : ''}` },
+  { what: 'The riyal is a glyph', how: `"SAR" written out became the official riyal sign (kit/riyal.svg, the product's icon-font glyph; the handover's own rough icon("sar") is redrawn the same way) in ${plural(riyal, 'place')} across ${plural(riyalStates, 'state')}${sarKept ? ` — kept as typed inside the agent's own listing description (an editable field) in ${plural(sarKept, 'state')}, by decision` : ''}` },
   { what: 'The drawer is 780px', how: 'both builds draw the Listing Performance drawer 780 wide (spec 02b agrees); 03 · F’s 680 is the Quality Score drawer’s width' },
   { what: 'Mark as Booked is derived', how: `${plural(derived.length, 'screen')} composed in the build from its own booking values, tagged [derived], until the handover draws it` },
 ];

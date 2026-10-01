@@ -1,0 +1,330 @@
+{
+  "name": "leads-marketplace",
+  "title": "Leads Marketplace",
+  "theme": "Profolio 2.0, extended to a new page — borrowed tokens, [TBC] designer sign-off",
+  "platforms": [
+    "web",
+    "phone"
+  ],
+  "start": "owner",
+  "pages": "all",
+  "screens": [
+    {
+      "id": "marketplace",
+      "title": "Leads Marketplace",
+      "route": "/leads-marketplace",
+      "web": "marketplace.html",
+      "phone": "marketplace.mobile.html",
+      "size": {
+        "phone": [
+          360,
+          800
+        ]
+      },
+      "wireframe": {
+        "web": "wf-marketplace.html",
+        "phone": "wf-marketplace.mobile.html"
+      }
+    }
+  ],
+  "controls": [
+    {
+      "key": "balance",
+      "label": "Credits",
+      "options": [
+        [
+          72880,
+          "72,880"
+        ],
+        [
+          28,
+          "28 (low)"
+        ],
+        [
+          0,
+          "0"
+        ]
+      ]
+    },
+    {
+      "key": "role",
+      "label": "Viewer",
+      "options": [
+        [
+          "owner",
+          "Agency owner"
+        ],
+        [
+          "staff",
+          "Staff (limit 30)"
+        ]
+      ]
+    },
+    {
+      "key": "data",
+      "label": "Leads",
+      "options": [
+        [
+          "many",
+          "Some leads"
+        ],
+        [
+          "none",
+          "No leads"
+        ]
+      ]
+    },
+    {
+      "key": "net",
+      "label": "Network",
+      "options": [
+        [
+          "ready",
+          "Loaded"
+        ],
+        [
+          "loading",
+          "Loading"
+        ],
+        [
+          "error",
+          "Fails"
+        ]
+      ]
+    }
+  ],
+  "states": [
+    {
+      "id": "owner",
+      "group": "Browse",
+      "title": "Owner Leads",
+      "set": {
+        "tab": "owner"
+      },
+      "notes": "Owners from Sell with Bayut who want an agent. One field per column; the contact stays blurred until your agency buys the lead.",
+      "try": [
+        "Buy the first lead",
+        "Filter by city: Abha has no leads",
+        "Row 3 is already bought by your agency — View in TruLeads",
+        "The last two leads came without rooms, district or price — see how each shows",
+        "Switch the locked-contact option (A/B/C) under Options"
+      ]
+    },
+    {
+      "id": "seeker",
+      "group": "Browse",
+      "title": "Seeker Leads",
+      "set": {
+        "tab": "seeker"
+      },
+      "notes": "Buyers and tenants from Find My Property: what they look for, their budget and where.",
+      "try": [
+        "Filter by property type",
+        "Sort by budget"
+      ]
+    },
+    {
+      "id": "first-visit",
+      "group": "Browse",
+      "title": "First visit",
+      "set": {
+        "intro": true
+      },
+      "notes": "The first time an agent opens the page: what the marketplace is and how buying works. Dismissed once, it never comes back."
+    },
+    {
+      "id": "filtered",
+      "group": "Filter",
+      "title": "Filtered",
+      "set": {
+        "filter.city": "Riyadh",
+        "filter.purpose": "sale"
+      },
+      "notes": "Filters apply at once; the tab count stays the total, the table shows what matches."
+    },
+    {
+      "id": "no-results",
+      "group": "Filter",
+      "title": "No results",
+      "set": {
+        "filter.city": "Abha"
+      },
+      "notes": "Leads exist, none match: say so and offer to clear the filters."
+    },
+    {
+      "id": "buy",
+      "group": "Buy",
+      "title": "Buy dialog",
+      "set": {
+        "lead": "O1",
+        "price": 40,
+        "leadKind": "owner",
+        "overlay": "buy"
+      },
+      "notes": "The summary, the price in credits, the balance (a staff member's is their limit) and the no-refund rule."
+    },
+    {
+      "id": "bought",
+      "group": "Buy",
+      "title": "Bought",
+      "set": {
+        "lead": "O1",
+        "price": 40,
+        "leadKind": "owner"
+      },
+      "do": [
+        "confirm"
+      ],
+      "notes": "Credits are deducted; the row unblurs, turns green and says who bought it; View in TruLeads opens the lead."
+    },
+    {
+      "id": "insufficient",
+      "group": "Buy",
+      "title": "Not enough credits",
+      "set": {
+        "balance": 28,
+        "lead": "O1",
+        "price": 40,
+        "overlay": "insufficient"
+      },
+      "notes": "Opens instead of the buy dialog when the balance is under the price. Top up opens the existing credit top-up."
+    },
+    {
+      "id": "staff-cap",
+      "group": "Buy",
+      "title": "Over the staff limit",
+      "set": {
+        "role": "staff",
+        "lead": "O1",
+        "price": 40,
+        "overlay": "cap"
+      },
+      "notes": "A staff member whose credit limit is under the price: the existing cap rule, in the product's words [TBC]."
+    },
+    {
+      "id": "gone",
+      "group": "Buy",
+      "title": "Taken meanwhile",
+      "set": {
+        "lead": "O2",
+        "price": 20,
+        "race": "O2"
+      },
+      "do": [
+        "confirm"
+      ],
+      "notes": "The last spot went, or the lead expired, while the dialog was open: nothing is charged and the row greys out."
+    },
+    {
+      "id": "loading",
+      "group": "States",
+      "title": "Loading",
+      "set": {
+        "net": "loading"
+      },
+      "notes": "Skeleton rows built from the table's own row, so they follow its columns."
+    },
+    {
+      "id": "empty",
+      "group": "States",
+      "title": "No leads",
+      "set": {
+        "data": "none"
+      },
+      "notes": "No open leads in the tab: say they arrive through the day."
+    },
+    {
+      "id": "error",
+      "group": "States",
+      "title": "Error",
+      "set": {
+        "net": "error"
+      },
+      "notes": "The list failed to load: Try again reloads it."
+    }
+  ],
+  "matrix": [
+    {
+      "region": "Owner leads table",
+      "list": "owner",
+      "kinds": {
+        "default": "owner",
+        "loading": "loading",
+        "empty": "empty",
+        "error": "error",
+        "no-results": "no-results",
+        "first-use": "first-visit",
+        "partial": "owner"
+      }
+    },
+    {
+      "region": "Seeker leads table",
+      "list": "seeker",
+      "kinds": {
+        "default": "seeker",
+        "loading": "loading",
+        "empty": "empty",
+        "error": "error",
+        "no-results": "no-results",
+        "first-use": "first-visit",
+        "partial": "seeker"
+      }
+    },
+    {
+      "region": "Buy dialog",
+      "filters": false,
+      "kinds": {
+        "default": "buy",
+        "loading": "not drawn: the Buy button shows its own loading while the purchase runs",
+        "empty": "not drawn: always holds the lead it opened for",
+        "error": "gone"
+      }
+    },
+    {
+      "region": "City filter menu",
+      "filters": false,
+      "kinds": {
+        "default": "owner",
+        "loading": "not drawn: the city list ships with the page",
+        "empty": "not drawn: the 13 regions always exist",
+        "error": "not drawn: static list"
+      },
+      "list": "cities"
+    }
+  ],
+  "shell": {
+    "rail": {
+      "add": [
+        {
+          "key": "leads-marketplace",
+          "label": "Leads Marketplace",
+          "after": "leads",
+          "icon": "prop-shop",
+          "page": "marketplace"
+        }
+      ],
+      "selected": "leads-marketplace"
+    }
+  },
+  "options": [
+    {
+      "key": "opt.lock",
+      "title": "Locked contact",
+      "question": "How should a lead's contact look before your agency buys it?",
+      "variants": [
+        [
+          "blur",
+          "A · Blurred, lock chip"
+        ],
+        [
+          "mask",
+          "B · Masked, Unlock inline"
+        ],
+        [
+          "avatar",
+          "C · Initials and a lock"
+        ]
+      ]
+    }
+  ]
+}
