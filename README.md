@@ -108,7 +108,8 @@ git push saad HEAD skill-vX.Y && npm run skill:file
 runs the same count (`node scripts/skill-file.mjs --check`). So what grows travels as one file:
 the design-\* family as `skills/design-skills.zip`, every copy area in `product/copy/areas.md`.
 Only what grows with the product's pages is a file each (`product/pages/`,
-`product/copy/rendered/`): about 100 entries of room, some 50 more pages.
+`product/copy/rendered/`, two per page): v2.2.1 holds 115 entries, which leaves room for
+about 40 more pages (the warning starts after about 17).
 
 ## Running it
 
