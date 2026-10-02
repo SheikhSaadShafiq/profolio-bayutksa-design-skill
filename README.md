@@ -53,8 +53,10 @@ It calls the **design-\* skills** as the work needs them: seventeen small skills
 for any product (`design-skills/README.md` has the list and when each is called). They start
 from the context card this skill ships (`skill/context.json`). The Design QA runs at both gates,
 the wireframe and the hi-fi, and writes design-qa's `report.json`. After the user approves,
-the skill asks whether to make the dev deliverables (design-deliverables). The `.skill`
-carries a copy of each design-\* skill in `skills/`, used when one is not installed.
+the skill asks whether to make the dev deliverables (design-deliverables). The design-\*
+skills are their own skills; the `.skill` carries only their index (`skills/index.json`), and
+where one is not installed, `python3 qa/fetch.py --skill <name>` fetches it from the `.skill`'s
+tag, checking every file's hash.
 
 `skill/kit/README.md` describes the runtime, the patterns and the QA.
 `skill/examples/leads-marketplace/` is one whole feature built this way; `npm run test:kit`
@@ -70,7 +72,7 @@ node scripts/design-skills.mjs        # dist/design-skills/<name>.skill, and ski
 node tests/design-skills/run.mjs      # the skills on a product that is not Profolio
 ```
 
-**Get it** — build it (below) and share `dist/profolio-ksa-design.skill` (under 1 MB), or
+**Get it** — build it (below) and share `dist/profolio-ksa-design.skill` (under 1.5 MB), or
 publish it to your organisation's skills. Nobody needs the repo link: the file knows it. It carries the instructions, the registry, the tokens and the product and design knowledge
 bases. The stylesheets and pages stay here, and the skill fetches only what a PRD needs.
 
@@ -101,6 +103,17 @@ SKILL_REF=skill-vX.Y npm run package && git commit -am "skill-vX.Y" && git tag s
 ```bash
 git push saad HEAD skill-vX.Y && npm run skill:file
 ```
+
+**What claude.ai refuses on upload.** More than 200 entries (folders count), and any zip inside
+the zip (a `.zip`, `.skill`, `.jar` or Office file), besides the documented rules (one folder
+named as SKILL.md's `name`; a name of at most 64 lowercase letters, digits and hyphens; a
+description of at most 1,024 characters). `scripts/lib/skill-upload.mjs` checks all of them on
+every build: `skill:file` and `design-skills.mjs` refuse a `.skill` that would fail, and warn
+past 150 entries; CI runs both (`--check`). So what grows is one file (every copy area in
+`product/copy/areas.md`), or not carried at all (the design-\* skills: only their index).
+Only what grows with the product's pages is a file each (`product/pages/`,
+`product/copy/rendered/`, two per page): v2.2.2 holds 115 entries, which leaves room for
+about 40 more pages (the warning starts after about 17).
 
 ## Running it
 

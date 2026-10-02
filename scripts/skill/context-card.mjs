@@ -8,7 +8,7 @@
  *     sheet does not name (motion) from the compiled css/profolio.css;
  *   - platforms: the widths the pages are compiled at (measured);
  *   - typefaces and themes: registry.themes;
- *   - voice: real strings from product/copy/ (measured);
+ *   - voice: real strings from product/copy/areas.md (measured);
  *   - rules: what this skill's SKILL.md holds the product to, quoted.
  *
  *   node scripts/skill/context-card.mjs        (run by scripts/package.mjs)
@@ -65,10 +65,15 @@ export function contextCard() {
 
   /* the product's own words for its main things, and their Arabic, from its copy tables */
   const pairs = [];
-  for (const f of readdirSync(join(SKILL, 'product', 'copy')).filter((x) => x.endsWith('.md'))) {
-    const hidden = /no compiled screen draws it|not defined for KSA|=false/.test(readFileSync(join(SKILL, 'product', 'copy.md'), 'utf8').split('\n').find((l) => l.includes(`copy/${f}`)) || '');
-    if (hidden) continue;
-    for (const m of readFileSync(join(SKILL, 'product', 'copy', f), 'utf8').matchAll(/^\| ([^|]+?) \| ([^|]+?) \|$/gm)) pairs.push([m[1].trim(), m[2].trim()]);
+  const index = readFileSync(join(SKILL, 'product', 'copy.md'), 'utf8').split('\n');
+  const hidden = new Map(), byArea = new Map();
+  for (const m of readFileSync(join(SKILL, 'product', 'copy', 'areas.md'), 'utf8').matchAll(/^\| ([^|]+?) \| ([^|]+?) \| ([^|]+?) \|$/gm)) {
+    const area = m[1].trim();
+    if (area === 'area') continue;
+    if (!hidden.has(area)) hidden.set(area, /no compiled screen draws it|not defined for KSA|=false/.test(index.find((l) => l.startsWith(`| ${area} |`)) || ''));
+    if (!byArea.has(area)) byArea.set(area, []);
+    byArea.get(area).push([m[2].trim(), m[3].trim()]);
+    if (!hidden.get(area)) pairs.push([m[2].trim(), m[3].trim()]);
   }
   const terms = {};
   for (const term of ['Credits', 'Listing', 'Listings', 'Leads', 'Agent', 'Agency', 'Staff', 'Package', 'Property', 'Profile']) {
@@ -86,11 +91,9 @@ export function contextCard() {
   /* ten real strings: the product's own words for the jobs every design has */
   const voice = [];
   for (const area of ['common-EmptyState', 'common-filters', 'common-drawer', 'checkout']) {
-    const f = join(SKILL, 'product', 'copy', `${area}.md`);
-    if (!existsSync(f)) continue;
-    for (const m of readFileSync(f, 'utf8').matchAll(/^\| ([^|]+?) \| ([^|]+?) \|$/gm)) {
-      if (/^(English|---)/.test(m[1]) || m[1].length > 70) continue;
-      voice.push(`${m[1].trim()} — ${m[2].trim()}`);
+    for (const [en, ar] of byArea.get(area) || []) {
+      if (en.length > 70) continue;
+      voice.push(`${en} — ${ar}`);
       if (voice.length >= 10) break;
     }
     if (voice.length >= 10) break;
@@ -113,6 +116,7 @@ export function contextCard() {
       { kind: 'design-system-skill', ref: 'css/profolio.css', hash: sha(join(SKILL, 'css', 'profolio.css')) },
       { kind: 'design-system-skill', ref: 'registry.json', hash: sha(join(SKILL, 'registry.json')) },
       { kind: 'design-system-skill', ref: 'product/copy.md', hash: sha(join(SKILL, 'product', 'copy.md')) },
+      { kind: 'design-system-skill', ref: 'product/copy/areas.md', hash: sha(join(SKILL, 'product', 'copy', 'areas.md')) },
     ],
     platforms: [
       { id: 'web', width: DEVICES.web.viewport.width, height: DEVICES.web.viewport.height, min_target: 24, provenance: 'measured', notes: 'compiled at 1440 (measured); the rail is 60 px, 220 px expanded, and pushes the page. min_target is WCAG 2.2\'s 24px (2.5.8): this skill\'s target, not a product measurement' },
@@ -129,10 +133,10 @@ export function contextCard() {
     grid: base ? { web: { base, provenance: 'derived' }, phone: { base, provenance: 'derived' } } : {},
     components: { registry: 'registry.json', count: Object.keys(reg.components || {}).length, names, notes: 'the product\'s components, cut from its own render, most used first; kit/README.md has the patterns it does not draw yet', provenance: 'measured' },
     voice: {
-      copy_source: 'product/copy.md and product/copy/ (English beside Arabic, verbatim); copy.md\'s "hidden by" column marks the areas no KSA screen shows: those strings are not reused',
+      copy_source: 'product/copy.md and product/copy/areas.md (English beside Arabic, verbatim); copy.md\'s "hidden by" column marks the areas no KSA screen shows: those strings are not reused',
       terms,
       casing: { button: casing.title >= casing.sentence ? 'title' : 'sentence' },
-      tone: 'plain and direct: short labels and messages, as in the examples. The product\'s casing varies ("Clear filters", "Reset Filters"), so take an existing string\'s casing from product/copy/ rather than a rule',
+      tone: 'plain and direct: short labels and messages, as in the examples. The product\'s casing varies ("Clear filters", "Reset Filters"), so take an existing string\'s casing from product/copy/areas.md rather than a rule',
       examples: voice,
       provenance: 'derived',
     },
@@ -145,7 +149,7 @@ export function contextCard() {
     rules: [
       'KSA only: not Oman, Bahrain, Qatar, Jordan, Egypt or Zameen, and not the consumer side of bayut.sa.',
       'An amount is drawn with the riyal sign (kit/riyal.svg, the icon font\'s U+E900), never written as "SAR", "ر.س" or U+20C1.',
-      'Use the product\'s copy verbatim (product/copy/); a string it does not have is new copy, flagged.',
+      'Use the product\'s copy verbatim (product/copy/areas.md); a string it does not have is new copy, flagged.',
       'Times of day are in Riyadh time.',
       'Arabic RTL is not compiled: say so rather than mirroring a screen by hand.',
       'A value the product neither names (css/tokens.css, documented in tokens.md) nor draws (tokens.in_use) is a proposal for the designer, flagged [new].',

@@ -5,6 +5,7 @@
     python3 qa/fetch.py --flow <name> [--375] [--dry-run]
     python3 qa/fetch.py --component <slug> [<slug> ...] [--dry-run]
     python3 qa/fetch.py --css [--dry-run]
+    python3 qa/fetch.py --skill [<name>]
 
 Run from skill/. <page> is a registry.pages id (or one of its aliases).
 A <state> is a registry state id, with or without its @web / @375 suffix,
@@ -24,6 +25,12 @@ It expands, in this order:
                            running qa/validate.py
   and, for every page file, the stylesheets and scripts it links that are not
   here yet (../css/…, prototype.js), so it renders as the product does.
+
+--skill <name> fetches a design-* skill into skills/<name>/, for when it is not
+installed: every file skills/index.json lists, from this skill's tag, each
+checked against its hash. Read skills/<name>/SKILL.md and follow it. No name
+lists them. The .skill does not carry them: claude.ai takes neither a skill of
+more than 200 files nor a zip inside one.
 
 A state id ending @web exists only as pages/<page>/<state>.html; one ending
 @375 (@360 on the new My Listings) only as pages/<page>/<state>.mobile.html —
@@ -64,6 +71,7 @@ PHONE_ONLY = ('375', '360')
 ROLES = ('as-staff', 'as-individual')
 RAW = 'https://raw.githubusercontent.com/{repo}/{ref}/skill/{path}'
 GIT_CACHE = os.path.join(tempfile.gettempdir(), 'profolio-ksa-design-git')
+SKILLS = os.path.join(ROOT, 'skills')
 UNREACHABLE = '''
   GitHub is not reachable from here — raw.githubusercontent.com: {raw}; github.com (git): {git}.
   The pages come from the skill's public repo: the user needs no link and no file.
@@ -309,15 +317,74 @@ def git_fetch(reg, paths):
     return got, None
 
 
+def skill_index():
+    """skills/index.json: every design-* skill this version knows, with its files (written by
+    scripts/design-skills.mjs). The skills themselves stay on GitHub at the same tag: claude.ai
+    takes neither a skill of more than 200 files nor a zip inside one."""
+    f = os.path.join(SKILLS, 'index.json')
+    if not os.path.exists(f):
+        die('no skills/index.json — this copy of the skill knows no design-* skills')
+    return json.load(open(f, encoding='utf-8')).get('skills', {})
+
+
+def fetch_skill(name):
+    """skills/<name>/, fetched once from the skill's GitHub repo at this skill's tag"""
+    import hashlib
+    index = skill_index()
+    if not name:
+        for n, s in index.items():
+            here = '  (here)' if os.path.exists(os.path.join(SKILLS, n, 'SKILL.md')) else ''
+            print(f'  {n:<34} {s["version"]}{here}')
+        print('\n  python3 qa/fetch.py --skill <name> fetches one into skills/<name>/, where it is not installed')
+        return 0
+    if name not in index:
+        near = get_close_matches(name, list(index), n=3, cutoff=0.5)
+        die(f'no skill "{name}"' + (f' — did you mean {", ".join(near)}?' if near else f' — there are {", ".join(index)}'))
+    entry = index[name]
+    have = os.path.join(SKILLS, name, 'SKILL.md')
+    if os.path.exists(have):
+        print(f'  have  skills/{name}/ ({entry["version"]}) — read skills/{name}/SKILL.md and follow it')
+        return 0
+    paths = [f'skills/{name}/{f}' for f, _, _ in entry['files']]
+    writable_or_die(paths)
+    reg = load_registry()
+    raw_err, got = None, {}
+    for path in paths:
+        n, err = fetch(url_of(reg, path), os.path.join(ROOT, path))
+        if err:
+            raw_err = err
+            break
+        got[path] = n
+    if raw_err:
+        more, git_err = git_fetch(reg, [p for p in paths if p not in got])
+        got.update(more)
+        if git_err:
+            print(UNREACHABLE.format(raw=raw_err, git=git_err).replace('The pages come', 'The skills and pages come'))
+            die(f'{name} is not installed and cannot be fetched: install it from the organisation\'s skills')
+    bad = []
+    for (f, size, sha), path in zip(entry['files'], paths):
+        dest = os.path.join(ROOT, path)
+        if not os.path.exists(dest) or hashlib.sha1(open(dest, 'rb').read()).hexdigest() != sha:
+            bad.append(f)
+    if bad:
+        shutil.rmtree(os.path.join(SKILLS, name), ignore_errors=True)
+        die(f'{name}: {len(bad)} file(s) differ from skills/index.json at {ref_name(reg)} ({", ".join(bad[:3])}) — removed; install it from the organisation\'s skills')
+    via = ' through github.com' if raw_err else ''
+    print(f'  got  skills/{name}/ ({entry["version"]}, {len(paths)} files{via}) — read skills/{name}/SKILL.md and follow it')
+    return 0
+
+
 def main(argv):
     flags = {'--help' if a == '-h' else a for a in argv if a.startswith('-')}
     args = [a for a in argv if not a.startswith('-')]
-    unknown = flags - {'--375', '--roles', '--dry-run', '--flow', '--component', '--css', '--help'}
-    if '--help' in flags or (not args and '--flow' not in flags and '--css' not in flags):
+    unknown = flags - {'--375', '--roles', '--dry-run', '--flow', '--component', '--css', '--skill', '--help'}
+    if '--help' in flags or (not args and not flags & {'--flow', '--css', '--skill'}):
         print(__doc__.strip())
         return 0 if '--help' in flags else 2
     if unknown:
         die(f'unknown option {", ".join(sorted(unknown))}')
+    if '--skill' in flags:
+        return fetch_skill(args[0] if args else None)
     reg = load_registry()
     phone, roles, dry = '--375' in flags, '--roles' in flags, '--dry-run' in flags
     files, notes = [], []
