@@ -42,7 +42,7 @@ user in a wireframe. Then the Design QA passes it.
    design-accessibility (WCAG 2.2 AA, with its annotations).
 4. **Design QA (gate 2).** Critique the craft (design-review, `craft`), polish the details
    (design-better-interface), then run `node qa/prototype.mjs designs/<feature> --shots` until
-   it exits 0. It writes `qa/report.json` in design-qa's format, the one report
+   it exits 0. It writes `designs/<feature>/qa/report.json` in design-qa's format, the one report
    design-deliverables reads. It renders and measures, web and phone:
    - every state;
    - every interaction: the rail, the header's controls, every menu and sheet;
@@ -53,7 +53,7 @@ user in a wireframe. Then the Design QA passes it.
    deliver, and ask for the QA button in the prototype to be pressed.
 5. **Deliver** `designs/<feature>/prototype.html`, published as an artifact wherever you can,
    with `designs/<feature>/qa/handoff.md` completed (OUTPUT CONTRACT). Then ask: "Shall I make the dev
-   deliverables?" On yes, run design-deliverables with `qa/report.json`. Every control in the
+   deliverables?" On yes, run design-deliverables with `designs/<feature>/qa/report.json`. Every control in the
    prototype works:
    - filters, tabs, sort and search change the sample rows;
    - dialogs, sheets, toasts and busy buttons behave;
@@ -83,8 +83,9 @@ above; a person can call any of them directly too.
 | design-apple-hig | a native Apple app |
 
 - **Installed → by name.** Each is published to the organisation, installed by default. If one
-  is not installed, read `skills/<name>/SKILL.md` in this skill's folder and follow it: this
-  skill carries a copy of each.
+  is not installed, `python3 qa/fetch.py --skill <name>` unpacks this skill's own copy into
+  `skills/<name>/` (no name lists them); read its `SKILL.md` and follow it, running its scripts
+  from there.
 - **Context first.** Copy `context.json` from this skill's folder to
   `designs/<feature>/design/context.json` before calling any of them, so each starts already
   knowing the product: its tokens, platforms, copy, rules.
@@ -116,7 +117,8 @@ SKILL.md, not in the user's project. Find that folder first and run every comman
 The `.skill` carries:
 - the instructions, `registry.json` and `tokens.md`;
 - the knowledge bases: `kb/` (design) and `product/` (product);
-- `qa/`, `kit/` and the examples.
+- `qa/`, `kit/` and the examples;
+- the design-* skills, as one file: `skills/design-skills.zip`.
 
 **A file the registry names is not here?** The stylesheets and every page are in the skill's
 public GitHub repo, at the version this skill was built with (`registry.source`). Never ask the
@@ -149,7 +151,7 @@ A state's id says which files it has:
 | "new page" | the nearest compiled page for its shell (registry aliases, organisms) + the pattern kit for what the product lacks |
 | a layout the product does not draw (a data table in 2.0, a lead card, an empty block) | `kit/README.md` → the patterns |
 | which flag or role gates this | `page X` → flags, `shell` → flags → grep `product/flags.md`; `product/roles.md` |
-| what does it say | `product/copy.md` → `copy/<area>.md` (translations), `copy/rendered/<page>.md` (what each screen draws) |
+| what does it say | `product/copy.md` → the area's lines in `copy/areas.md` (translations; grep it: each row starts with its area), `copy/rendered/<page>.md` (what each screen draws) |
 | which route, screen, flow | `product/routes.md`, `node qa/registry.mjs flows` |
 | how a component overflows, opens, errors · where it shows only in a state | `component X` → states → `product/usage.md` |
 | dates, "n days ago", day boundaries | `node qa/registry.mjs clock`, `product/roles.md` (the fixture's clock) |

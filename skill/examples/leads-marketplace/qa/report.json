@@ -1,8 +1,8 @@
 {
  "schema_version": 1,
- "generated_at": "2026-10-01T10:04:07.572Z",
+ "generated_at": "2026-10-02T06:32:05.277Z",
  "qa_skill_name": "profolio-ksa-design",
- "qa_skill_version": "2.1.2",
+ "qa_skill_version": "2.2.1",
  "ids_available": false,
  "render_available": true,
  "scope": {

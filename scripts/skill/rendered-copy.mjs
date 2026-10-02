@@ -2,7 +2,7 @@
  * The copy each compiled screen actually shows — product/copy/rendered/ —
  * and product/copy.md's index, with the areas a KSA flag hides.
  *
- * product/copy/<area>.md are the translation strings the build saw called by
+ * product/copy/areas.md holds the translation strings the build saw called by
  * name (t('…')). A compiled render shows more than that: relative dates
  * ("3 days ago", dayjs), date presets, strings a t() call spells with no
  * translation entry ("Get Top-up"), strings the code writes itself, the
@@ -1139,7 +1139,7 @@ export function copyAreaGates({ repo, tenant = 'bayut', flagsMd, areas, drawn })
 /**
  * product/copy.md: the translation tables' index, with the areas a flag
  * hides, and the pointer to what the renders show.
- *   areas   [{ area, strings }] — the copy/<area>.md files
+ *   areas   [{ area, strings, lines }] — the sections of copy/areas.md, with their lines
  *   gates   copyAreaGates() (or null)
  *   pages   the rendered/<page>.md names
  */
@@ -1152,13 +1152,13 @@ export function copyMd({ areas, gates = null, pages = [] }) {
   };
   return `# Copy — the product's own strings
 
-English beside Arabic, verbatim, from the product's translation files and code — one file per area. Use these exact words. These are the translation strings. A compiled render carries more shipped text (relative dates, date presets, API messages, hard-coded labels): see \`copy/rendered/<page>.md\` — every string each page's compiled files draw, with its Arabic, where it is drawn and whether it is a translation, code, or the fixture's data (\`_shell.md\`: the header and the rail). Before calling a string new, or claiming the product never says something, grep \`copy/rendered/\` (or \`pages/\`). Quote a render-only string with its file path, character for character. A string in neither is new copy, marked \`data-pf-new-copy\` and put to the designer in both languages.
+English beside Arabic, verbatim, from the product's translation files and code — every area in \`copy/areas.md\`, one section each: read an area's lines (below), or grep the file — each row starts with its area. Use these exact words. These are the translation strings. A compiled render carries more shipped text (relative dates, date presets, API messages, hard-coded labels): see \`copy/rendered/<page>.md\` — every string each page's compiled files draw, with its Arabic, where it is drawn and whether it is a translation, code, or the fixture's data (\`_shell.md\`: the header and the rail). Before calling a string new, or claiming the product never says something, grep \`copy/rendered/\` (or \`pages/\`). Quote a render-only string with its file path, character for character. A string in neither is new copy, marked \`data-pf-new-copy\` and put to the designer in both languages.
 
 **hidden by**: an area no compiled screen draws, and why — a KSA flag that switches it off, with the line that reads it (\`FLAG=false\`, \`OBJ.SUB=false\`, or \`FLAG (not defined for KSA)\`, which is false: its strings never show in KSA — never cite them as shipped), not in the KSA build (another tenant's), or no compiled screen draws it (reachable, not compiled). Blank: drawn.
 
-| area | strings | file | hidden by |
+| area | strings | lines in copy/areas.md | hidden by |
 |---|---|---|---|
-${areas.map(({ area, strings }) => `| ${area} | ${strings} | copy/${area}.md | ${hidden(area)} |`).join('\n')}
+${areas.map(({ area, strings, lines }) => `| ${area} | ${strings} | ${lines ? `${lines[0]}–${lines[1]}` : ''} | ${hidden(area)} |`).join('\n')}
 
 Rendered: ${pages.map((p) => `\`copy/rendered/${p}.md\``).join(' · ')}
 `;

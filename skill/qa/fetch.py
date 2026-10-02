@@ -5,6 +5,7 @@
     python3 qa/fetch.py --flow <name> [--375] [--dry-run]
     python3 qa/fetch.py --component <slug> [<slug> ...] [--dry-run]
     python3 qa/fetch.py --css [--dry-run]
+    python3 qa/fetch.py --skill [<name>]
 
 Run from skill/. <page> is a registry.pages id (or one of its aliases).
 A <state> is a registry state id, with or without its @web / @375 suffix,
@@ -24,6 +25,11 @@ It expands, in this order:
                            running qa/validate.py
   and, for every page file, the stylesheets and scripts it links that are not
   here yet (../css/…, prototype.js), so it renders as the product does.
+
+--skill <name> is not a fetch: it unpacks the copy of a design-* skill this
+skill carries (skills/design-skills.zip, one file, so the .skill stays under
+claude.ai's 200 files) into skills/<name>/, for when that skill is not
+installed. Read skills/<name>/SKILL.md and follow it. No name lists them.
 
 A state id ending @web exists only as pages/<page>/<state>.html; one ending
 @375 (@360 on the new My Listings) only as pages/<page>/<state>.mobile.html —
@@ -64,6 +70,8 @@ PHONE_ONLY = ('375', '360')
 ROLES = ('as-staff', 'as-individual')
 RAW = 'https://raw.githubusercontent.com/{repo}/{ref}/skill/{path}'
 GIT_CACHE = os.path.join(tempfile.gettempdir(), 'profolio-ksa-design-git')
+SKILLS = os.path.join(ROOT, 'skills')
+PACKED = os.path.join(SKILLS, 'design-skills.zip')   # skill-file.mjs packs skills/ into it
 UNREACHABLE = '''
   GitHub is not reachable from here — raw.githubusercontent.com: {raw}; github.com (git): {git}.
   The pages come from the skill's public repo: the user needs no link and no file.
@@ -309,15 +317,63 @@ def git_fetch(reg, paths):
     return got, None
 
 
+def carried_skills():
+    """name -> version of every design-* skill this skill carries, unpacked or in the archive"""
+    import zipfile
+    found = {}
+    def version(text):
+        m = re.search(r"^version:\s*['\"]?([^'\"\s]+)", text, re.M)
+        return m.group(1) if m else '?'
+    if os.path.exists(PACKED):
+        with zipfile.ZipFile(PACKED) as z:
+            for n in z.namelist():
+                if n.count('/') == 1 and n.endswith('/SKILL.md'):
+                    found[n.split('/')[0]] = version(z.read(n).decode('utf-8', 'replace'))
+    if os.path.isdir(SKILLS):
+        for d in os.listdir(SKILLS):
+            f = os.path.join(SKILLS, d, 'SKILL.md')
+            if os.path.exists(f):
+                found[d] = version(open(f, encoding='utf-8').read())
+    return dict(sorted(found.items()))
+
+
+def unpack_skill(name):
+    """skills/<name>/ from skills/design-skills.zip, once — the skill's own copy, at its version"""
+    import zipfile
+    carried = carried_skills()
+    if not name:
+        if not carried:
+            die('this copy of the skill carries no design-* skills (no skills/)')
+        for n, v in carried.items():
+            print(f'  {n:<34} {v}')
+        print('\n  python3 qa/fetch.py --skill <name> unpacks one into skills/<name>/')
+        return 0
+    if name not in carried:
+        near = get_close_matches(name, list(carried), n=3, cutoff=0.5)
+        die(f'no skill "{name}" here' + (f' — did you mean {", ".join(near)}?' if near else f' — it carries {", ".join(carried) or "none"}'))
+    have = os.path.join(SKILLS, name, 'SKILL.md')
+    if os.path.exists(have):
+        print(f'  have  skills/{name}/ ({carried[name]}) — read skills/{name}/SKILL.md and follow it')
+        return 0
+    writable_or_die([f'skills/{name}/SKILL.md'])
+    with zipfile.ZipFile(PACKED) as z:
+        members = [n for n in z.namelist() if n.startswith(name + '/')]
+        z.extractall(SKILLS, members)
+    print(f'  unpacked  skills/{name}/ ({carried[name]}, {sum(not m.endswith("/") for m in members)} files) — read skills/{name}/SKILL.md and follow it')
+    return 0
+
+
 def main(argv):
     flags = {'--help' if a == '-h' else a for a in argv if a.startswith('-')}
     args = [a for a in argv if not a.startswith('-')]
-    unknown = flags - {'--375', '--roles', '--dry-run', '--flow', '--component', '--css', '--help'}
-    if '--help' in flags or (not args and '--flow' not in flags and '--css' not in flags):
+    unknown = flags - {'--375', '--roles', '--dry-run', '--flow', '--component', '--css', '--skill', '--help'}
+    if '--help' in flags or (not args and not flags & {'--flow', '--css', '--skill'}):
         print(__doc__.strip())
         return 0 if '--help' in flags else 2
     if unknown:
         die(f'unknown option {", ".join(sorted(unknown))}')
+    if '--skill' in flags:
+        return unpack_skill(args[0] if args else None)
     reg = load_registry()
     phone, roles, dry = '--375' in flags, '--roles' in flags, '--dry-run' in flags
     files, notes = [], []

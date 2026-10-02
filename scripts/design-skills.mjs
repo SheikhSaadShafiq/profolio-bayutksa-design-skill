@@ -60,6 +60,8 @@ for (const name of skills) {
   if (!f.description || f.description.length > 1024) say(name, `description is ${f.description ? f.description.length : 0} characters (1 to 1,024)`);
   const log = existsSync(join(dir, 'CHANGELOG.md')) ? readFileSync(join(dir, 'CHANGELOG.md'), 'utf8') : '';
   if (!log.includes(`## [${f.version}]`)) say(name, `CHANGELOG.md has no entry for ${f.version}`);
+  /* claude.ai refuses a skill zip of more than 200 files; the build adds the shared ones */
+  { const n = walk(dir).length + SHARED_AS.size; if (n > 200) say(name, `up to ${n} files with the shared ones — claude.ai takes 200 at most`); }
   for (const file of walk(dir)) {
     if (!/\.(md|json|py|mjs|js|html|css|txt)$/.test(file)) continue;
     const text = readFileSync(file, 'utf8');

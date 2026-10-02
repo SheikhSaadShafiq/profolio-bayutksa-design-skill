@@ -54,7 +54,8 @@ for any product (`design-skills/README.md` has the list and when each is called)
 from the context card this skill ships (`skill/context.json`). The Design QA runs at both gates,
 the wireframe and the hi-fi, and writes design-qa's `report.json`. After the user approves,
 the skill asks whether to make the dev deliverables (design-deliverables). The `.skill`
-carries a copy of each design-\* skill in `skills/`, used when one is not installed.
+carries a copy of each design-\* skill, packed as one file (`skills/design-skills.zip`):
+`python3 qa/fetch.py --skill <name>` unpacks one where it is not installed.
 
 `skill/kit/README.md` describes the runtime, the patterns and the QA.
 `skill/examples/leads-marketplace/` is one whole feature built this way; `npm run test:kit`
@@ -70,7 +71,7 @@ node scripts/design-skills.mjs        # dist/design-skills/<name>.skill, and ski
 node tests/design-skills/run.mjs      # the skills on a product that is not Profolio
 ```
 
-**Get it** — build it (below) and share `dist/profolio-ksa-design.skill` (under 1 MB), or
+**Get it** — build it (below) and share `dist/profolio-ksa-design.skill` (under 1.5 MB), or
 publish it to your organisation's skills. Nobody needs the repo link: the file knows it. It carries the instructions, the registry, the tokens and the product and design knowledge
 bases. The stylesheets and pages stay here, and the skill fetches only what a PRD needs.
 
@@ -101,6 +102,13 @@ SKILL_REF=skill-vX.Y npm run package && git commit -am "skill-vX.Y" && git tag s
 ```bash
 git push saad HEAD skill-vX.Y && npm run skill:file
 ```
+
+**The 200-file limit.** claude.ai refuses a skill zip of more than 200 entries (folders count).
+`skill:file` counts them, refuses past 200 and warns past 150, naming the biggest folders; CI
+runs the same count (`node scripts/skill-file.mjs --check`). So what grows travels as one file:
+the design-\* family as `skills/design-skills.zip`, every copy area in `product/copy/areas.md`.
+Only what grows with the product's pages is a file each (`product/pages/`,
+`product/copy/rendered/`): about 100 entries of room, some 50 more pages.
 
 ## Running it
 

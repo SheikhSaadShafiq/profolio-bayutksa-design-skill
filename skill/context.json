@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "context_skill_name": "profolio-ksa-design",
-  "context_skill_version": "2.2",
-  "built": "2026-10-01",
+  "context_skill_version": "2.2.1",
+  "built": "2026-10-02",
   "product": {
     "name": "Bayut Profolio KSA",
     "summary": "The agent and seller portal at profolio.bayut.sa: listings, credits, leads (TruLeads), reports and agency staff, for the KSA property market.",
@@ -24,12 +24,17 @@
     {
       "kind": "design-system-skill",
       "ref": "registry.json",
-      "hash": "61633d00feac"
+      "hash": "66c100c476e3"
     },
     {
       "kind": "design-system-skill",
       "ref": "product/copy.md",
-      "hash": "cd8279335f77"
+      "hash": "14ae986eb602"
+    },
+    {
+      "kind": "design-system-skill",
+      "ref": "product/copy/areas.md",
+      "hash": "9a9349a8fde8"
     }
   ],
   "platforms": [
@@ -1316,7 +1321,7 @@
     "provenance": "measured"
   },
   "voice": {
-    "copy_source": "product/copy.md and product/copy/ (English beside Arabic, verbatim); copy.md's \"hidden by\" column marks the areas no KSA screen shows: those strings are not reused",
+    "copy_source": "product/copy.md and product/copy/areas.md (English beside Arabic, verbatim); copy.md's \"hidden by\" column marks the areas no KSA screen shows: those strings are not reused",
     "terms": {
       "Credits": {
         "ar": "نقطة",
@@ -1347,7 +1352,7 @@
     "casing": {
       "button": "title"
     },
-    "tone": "plain and direct: short labels and messages, as in the examples. The product's casing varies (\"Clear filters\", \"Reset Filters\"), so take an existing string's casing from product/copy/ rather than a rule",
+    "tone": "plain and direct: short labels and messages, as in the examples. The product's casing varies (\"Clear filters\", \"Reset Filters\"), so take an existing string's casing from product/copy/areas.md rather than a rule",
     "examples": [
       "No Record Found — لا توجد بيانات",
       "Retry — اعادة المحاولة",
@@ -1375,7 +1380,7 @@
   "rules": [
     "KSA only: not Oman, Bahrain, Qatar, Jordan, Egypt or Zameen, and not the consumer side of bayut.sa.",
     "An amount is drawn with the riyal sign (kit/riyal.svg, the icon font's U+E900), never written as \"SAR\", \"ر.س\" or U+20C1.",
-    "Use the product's copy verbatim (product/copy/); a string it does not have is new copy, flagged.",
+    "Use the product's copy verbatim (product/copy/areas.md); a string it does not have is new copy, flagged.",
     "Times of day are in Riyadh time.",
     "Arabic RTL is not compiled: say so rather than mirroring a screen by hand.",
     "A value the product neither names (css/tokens.css, documented in tokens.md) nor draws (tokens.in_use) is a proposal for the designer, flagged [new]."

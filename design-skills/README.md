@@ -86,8 +86,11 @@ version.
 ## Installing
 
 Publish each `.skill` to your organisation as **Installed by default**. The
-main skill also carries a copy of each in `skill/skills/` and uses it when one
-is not installed, so a design never stops for want of a skill.
+main skill also carries a copy of each, packed as one file
+(`skills/design-skills.zip`, so it stays under claude.ai's 200 files), and
+unpacks the one it needs when it is not installed
+(`python3 qa/fetch.py --skill <name>`), so a design never stops for want of a
+skill. Each skill is checked to stay under 200 files too.
 
 ## Building
 
