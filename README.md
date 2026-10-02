@@ -53,9 +53,10 @@ It calls the **design-\* skills** as the work needs them: seventeen small skills
 for any product (`design-skills/README.md` has the list and when each is called). They start
 from the context card this skill ships (`skill/context.json`). The Design QA runs at both gates,
 the wireframe and the hi-fi, and writes design-qa's `report.json`. After the user approves,
-the skill asks whether to make the dev deliverables (design-deliverables). The `.skill`
-carries a copy of each design-\* skill, packed as one file (`skills/design-skills.zip`):
-`python3 qa/fetch.py --skill <name>` unpacks one where it is not installed.
+the skill asks whether to make the dev deliverables (design-deliverables). The design-\*
+skills are their own skills; the `.skill` carries only their index (`skills/index.json`), and
+where one is not installed, `python3 qa/fetch.py --skill <name>` fetches it from the `.skill`'s
+tag, checking every file's hash.
 
 `skill/kit/README.md` describes the runtime, the patterns and the QA.
 `skill/examples/leads-marketplace/` is one whole feature built this way; `npm run test:kit`
@@ -103,12 +104,15 @@ SKILL_REF=skill-vX.Y npm run package && git commit -am "skill-vX.Y" && git tag s
 git push saad HEAD skill-vX.Y && npm run skill:file
 ```
 
-**The 200-file limit.** claude.ai refuses a skill zip of more than 200 entries (folders count).
-`skill:file` counts them, refuses past 200 and warns past 150, naming the biggest folders; CI
-runs the same count (`node scripts/skill-file.mjs --check`). So what grows travels as one file:
-the design-\* family as `skills/design-skills.zip`, every copy area in `product/copy/areas.md`.
+**What claude.ai refuses on upload.** More than 200 entries (folders count), and any zip inside
+the zip (a `.zip`, `.skill`, `.jar` or Office file), besides the documented rules (one folder
+named as SKILL.md's `name`; a name of at most 64 lowercase letters, digits and hyphens; a
+description of at most 1,024 characters). `scripts/lib/skill-upload.mjs` checks all of them on
+every build: `skill:file` and `design-skills.mjs` refuse a `.skill` that would fail, and warn
+past 150 entries; CI runs both (`--check`). So what grows is one file (every copy area in
+`product/copy/areas.md`), or not carried at all (the design-\* skills: only their index).
 Only what grows with the product's pages is a file each (`product/pages/`,
-`product/copy/rendered/`, two per page): v2.2.1 holds 115 entries, which leaves room for
+`product/copy/rendered/`, two per page): v2.2.2 holds 115 entries, which leaves room for
 about 40 more pages (the warning starts after about 17).
 
 ## Running it

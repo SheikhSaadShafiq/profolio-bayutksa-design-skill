@@ -83,9 +83,10 @@ above; a person can call any of them directly too.
 | design-apple-hig | a native Apple app |
 
 - **Installed → by name.** Each is published to the organisation, installed by default. If one
-  is not installed, `python3 qa/fetch.py --skill <name>` unpacks this skill's own copy into
-  `skills/<name>/` (no name lists them); read its `SKILL.md` and follow it, running its scripts
-  from there.
+  is not installed, `python3 qa/fetch.py --skill <name>` fetches it from this skill's GitHub
+  repo, at this skill's version, into `skills/<name>/` (no name lists them); read its `SKILL.md`
+  and follow it, running its scripts from there. If GitHub is not reachable, ask the user to
+  install it from the organisation's skills.
 - **Context first.** Copy `context.json` from this skill's folder to
   `designs/<feature>/design/context.json` before calling any of them, so each starts already
   knowing the product: its tokens, platforms, copy, rules.
@@ -118,7 +119,8 @@ The `.skill` carries:
 - the instructions, `registry.json` and `tokens.md`;
 - the knowledge bases: `kb/` (design) and `product/` (product);
 - `qa/`, `kit/` and the examples;
-- the design-* skills, as one file: `skills/design-skills.zip`.
+- `skills/index.json`: the design-* skills of this version. The skills themselves are their own
+  skills, fetched as above where one is not installed.
 
 **A file the registry names is not here?** The stylesheets and every page are in the skill's
 public GitHub repo, at the version this skill was built with (`registry.source`). Never ask the

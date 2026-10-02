@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 /**
  * The design-* skills: each folder in design-skills/ is one skill, built into its
- * own .skill file (a zip of the skill's folder) and into the copy the main skill
- * carries (skill/skills/<name>/), which it uses when that skill is not installed.
+ * own .skill file (a zip of the skill's folder) and into skill/skills/<name>/, on
+ * GitHub, with skill/skills/index.json listing each one's files and hashes. The
+ * main skill's .skill carries only that index: where a design-* skill is not
+ * installed, its qa/fetch.py --skill <name> fetches the files from its tag.
  *
  * The shared parts are added at build time from design-skills/_shared/, so
  * every skill carries the same context step and none drifts from the others:
@@ -16,25 +18,29 @@
  *   _shared/browser.mjs           → scripts/browser.mjs, for a skill whose instructions render or use a browser
  *
  *   node scripts/design-skills.mjs            build dist/design-skills/<name>.skill and skill/skills/
- *   node scripts/design-skills.mjs --check    validate only (CI)
+ *   node scripts/design-skills.mjs --check    validate, build in .build/ only, and check the
+ *                                             zips and that skill/skills/index.json is current (CI)
  *
  * Each skill is checked: its frontmatter names its folder, has a version and a
  * description of at most 1,024 characters; CHANGELOG.md has an entry for that
  * version; and nothing in it names a product. A design-* skill is plug and
- * play: the product comes from the context card, never from the skill.
+ * play: the product comes from the context card, never from the skill. Each
+ * built .skill passes claude.ai's upload checks (scripts/lib/skill-upload.mjs).
  */
-import { readdirSync, readFileSync, existsSync, mkdirSync, rmSync, cpSync, statSync } from 'node:fs';
+import { readdirSync, readFileSync, existsSync, mkdirSync, rmSync, cpSync, statSync, writeFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { join, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
+import { checkSkillZip } from './lib/skill-upload.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = join(ROOT, 'design-skills');
 const SHARED = join(SRC, '_shared');
 const STAGE = join(ROOT, '.build', 'design-skills');
-const DIST = join(ROOT, 'dist', 'design-skills');
-const CARRY = join(ROOT, 'skill', 'skills');
 const CHECK = process.argv.includes('--check');
+const DIST = CHECK ? join(ROOT, '.build', 'design-skills-check') : join(ROOT, 'dist', 'design-skills');
+const CARRY = join(ROOT, 'skill', 'skills');
 const PRODUCT = /\b(profolio|bayut|dubizzle|truleads|leads marketplace|rega|wafi)\b/i;     /* the main skill's product and its features: never inside a sub-skill */
 
 const SHARED_AS = new Set(['references/context.md', 'schema/context.schema.json', 'references/versioning.md', 'scripts/_version.py', 'scripts/scan.py', 'scripts/validate.py', 'scripts/measure.mjs', 'scripts/browser.mjs']);
@@ -60,8 +66,6 @@ for (const name of skills) {
   if (!f.description || f.description.length > 1024) say(name, `description is ${f.description ? f.description.length : 0} characters (1 to 1,024)`);
   const log = existsSync(join(dir, 'CHANGELOG.md')) ? readFileSync(join(dir, 'CHANGELOG.md'), 'utf8') : '';
   if (!log.includes(`## [${f.version}]`)) say(name, `CHANGELOG.md has no entry for ${f.version}`);
-  /* claude.ai refuses a skill zip of more than 200 files; the build adds the shared ones */
-  { const n = walk(dir).length + SHARED_AS.size; if (n > 200) say(name, `up to ${n} files with the shared ones — claude.ai takes 200 at most`); }
   for (const file of walk(dir)) {
     if (!/\.(md|json|py|mjs|js|html|css|txt)$/.test(file)) continue;
     const text = readFileSync(file, 'utf8');
@@ -84,12 +88,13 @@ for (const name of skills) {
 }
 if (problems.length) { console.log(problems.map((p) => '  ✗ ' + p).join('\n')); process.exit(1); }
 console.log(`  ✓ ${skills.length} design-* skills: ${skills.join(', ')}`);
-if (CHECK) process.exit(0);
 
 rmSync(STAGE, { recursive: true, force: true });
+rmSync(DIST, { recursive: true, force: true });
 mkdirSync(DIST, { recursive: true });
-rmSync(CARRY, { recursive: true, force: true });
-mkdirSync(CARRY, { recursive: true });
+if (!CHECK) { rmSync(CARRY, { recursive: true, force: true }); mkdirSync(CARRY, { recursive: true }); }
+const cache = (p) => /__pycache__|\.pyc$|\.DS_Store$/.test(p);
+const index = {};
 for (const name of skills) {
   const stage = join(STAGE, name);
   cpSync(join(SRC, name), stage, { recursive: true });
@@ -105,7 +110,25 @@ for (const name of skills) {
   const out = join(DIST, `${name}.skill`);
   rmSync(out, { force: true });
   execFileSync('zip', ['-qr', '-X', out, name, '-x', '*/__pycache__/*', '*.pyc', '*/.DS_Store'], { cwd: STAGE });
-  cpSync(stage, join(CARRY, name), { recursive: true, filter: (p) => !/__pycache__|\.pyc$|\.DS_Store$/.test(p) });
-  console.log(`  ${name}.skill — ${(statSync(out).size / 1024).toFixed(0)} KB`);
+  const up = checkSkillZip(out);
+  for (const p of up.problems) problems.push(`${name}.skill: claude.ai would refuse it — ${p}`);
+  for (const w of up.warnings) console.warn(`  warning: ${name}.skill — ${w}`);
+  /* what qa/fetch.py --skill fetches, and the hash each file must have */
+  const files = walk(stage).filter((f) => !cache(f)).map((f) => relative(stage, f).split('\\').join('/')).sort();
+  index[name] = { version: front(readFileSync(join(stage, 'SKILL.md'), 'utf8')).version,
+    files: files.map((f) => { const b = readFileSync(join(stage, f)); return [f, b.length, createHash('sha1').update(b).digest('hex')]; }) };
+  if (!CHECK) cpSync(stage, join(CARRY, name), { recursive: true, filter: (p) => !cache(p) });
+  console.log(`  ${name}.skill — ${(statSync(out).size / 1024).toFixed(0)} KB, ${up.entries} entries`);
 }
-console.log(`  wrote dist/design-skills/ and skill/skills/ (the copies the main skill carries)`);
+const indexJson = JSON.stringify({
+  about: 'The design-* skills of this version of the main skill, with each file and its sha1. Each is published on its own; where one is not installed, the main skill fetches its files from its own tag (python3 qa/fetch.py --skill <name>) and checks every hash. Written by scripts/design-skills.mjs.',
+  skills: index,
+}, null, 1) + '\n';
+if (CHECK) {
+  const have = existsSync(join(CARRY, 'index.json')) ? readFileSync(join(CARRY, 'index.json'), 'utf8') : '';
+  if (have !== indexJson) problems.push('skill/skills/index.json is not current — run node scripts/design-skills.mjs and commit skill/skills/');
+}
+if (problems.length) { console.log(problems.map((p) => '  ✗ ' + p).join('\n')); process.exit(1); }
+if (CHECK) { console.log('  ✓ every .skill passes claude.ai\'s upload checks; skill/skills/index.json is current'); process.exit(0); }
+writeFileSync(join(CARRY, 'index.json'), indexJson);
+console.log(`  wrote dist/design-skills/, skill/skills/ and skill/skills/index.json (what the main skill fetches where one is not installed)`);

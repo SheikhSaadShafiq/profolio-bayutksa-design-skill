@@ -85,18 +85,19 @@ version.
 
 ## Installing
 
-Publish each `.skill` to your organisation as **Installed by default**. The
-main skill also carries a copy of each, packed as one file
-(`skills/design-skills.zip`, so it stays under claude.ai's 200 files), and
-unpacks the one it needs when it is not installed
-(`python3 qa/fetch.py --skill <name>`), so a design never stops for want of a
-skill. Each skill is checked to stay under 200 files too.
+Publish each `.skill` to your organisation as **Installed by default**. Where
+one is not installed, the main skill fetches it from GitHub at its own version
+(`python3 qa/fetch.py --skill <name>`, every file checked against
+`skill/skills/index.json`), so a design never stops for want of a skill. Every
+`.skill` is checked against claude.ai's upload rules when it is built
+(`scripts/lib/skill-upload.mjs`: at most 200 entries, no zip inside, the
+frontmatter's rules).
 
 ## Building
 
 ```bash
-node scripts/design-skills.mjs            # dist/design-skills/<name>.skill, and skill/skills/
-node scripts/design-skills.mjs --check    # the checks only (CI)
+node scripts/design-skills.mjs            # dist/design-skills/<name>.skill, skill/skills/ and its index.json
+node scripts/design-skills.mjs --check    # the checks and the upload checks, nothing written (CI)
 node tests/design-skills/run.mjs          # the skills on a product that is not Profolio
 ```
 

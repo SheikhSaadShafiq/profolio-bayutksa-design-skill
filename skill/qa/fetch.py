@@ -26,10 +26,11 @@ It expands, in this order:
   and, for every page file, the stylesheets and scripts it links that are not
   here yet (../css/…, prototype.js), so it renders as the product does.
 
---skill <name> is not a fetch: it unpacks the copy of a design-* skill this
-skill carries (skills/design-skills.zip, one file, so the .skill stays under
-claude.ai's 200 files) into skills/<name>/, for when that skill is not
-installed. Read skills/<name>/SKILL.md and follow it. No name lists them.
+--skill <name> fetches a design-* skill into skills/<name>/, for when it is not
+installed: every file skills/index.json lists, from this skill's tag, each
+checked against its hash. Read skills/<name>/SKILL.md and follow it. No name
+lists them. The .skill does not carry them: claude.ai takes neither a skill of
+more than 200 files nor a zip inside one.
 
 A state id ending @web exists only as pages/<page>/<state>.html; one ending
 @375 (@360 on the new My Listings) only as pages/<page>/<state>.mobile.html —
@@ -71,7 +72,6 @@ ROLES = ('as-staff', 'as-individual')
 RAW = 'https://raw.githubusercontent.com/{repo}/{ref}/skill/{path}'
 GIT_CACHE = os.path.join(tempfile.gettempdir(), 'profolio-ksa-design-git')
 SKILLS = os.path.join(ROOT, 'skills')
-PACKED = os.path.join(SKILLS, 'design-skills.zip')   # skill-file.mjs packs skills/ into it
 UNREACHABLE = '''
   GitHub is not reachable from here — raw.githubusercontent.com: {raw}; github.com (git): {git}.
   The pages come from the skill's public repo: the user needs no link and no file.
@@ -317,49 +317,60 @@ def git_fetch(reg, paths):
     return got, None
 
 
-def carried_skills():
-    """name -> version of every design-* skill this skill carries, unpacked or in the archive"""
-    import zipfile
-    found = {}
-    def version(text):
-        m = re.search(r"^version:\s*['\"]?([^'\"\s]+)", text, re.M)
-        return m.group(1) if m else '?'
-    if os.path.exists(PACKED):
-        with zipfile.ZipFile(PACKED) as z:
-            for n in z.namelist():
-                if n.count('/') == 1 and n.endswith('/SKILL.md'):
-                    found[n.split('/')[0]] = version(z.read(n).decode('utf-8', 'replace'))
-    if os.path.isdir(SKILLS):
-        for d in os.listdir(SKILLS):
-            f = os.path.join(SKILLS, d, 'SKILL.md')
-            if os.path.exists(f):
-                found[d] = version(open(f, encoding='utf-8').read())
-    return dict(sorted(found.items()))
+def skill_index():
+    """skills/index.json: every design-* skill this version knows, with its files (written by
+    scripts/design-skills.mjs). The skills themselves stay on GitHub at the same tag: claude.ai
+    takes neither a skill of more than 200 files nor a zip inside one."""
+    f = os.path.join(SKILLS, 'index.json')
+    if not os.path.exists(f):
+        die('no skills/index.json — this copy of the skill knows no design-* skills')
+    return json.load(open(f, encoding='utf-8')).get('skills', {})
 
 
-def unpack_skill(name):
-    """skills/<name>/ from skills/design-skills.zip, once — the skill's own copy, at its version"""
-    import zipfile
-    carried = carried_skills()
+def fetch_skill(name):
+    """skills/<name>/, fetched once from the skill's GitHub repo at this skill's tag"""
+    import hashlib
+    index = skill_index()
     if not name:
-        if not carried:
-            die('this copy of the skill carries no design-* skills (no skills/)')
-        for n, v in carried.items():
-            print(f'  {n:<34} {v}')
-        print('\n  python3 qa/fetch.py --skill <name> unpacks one into skills/<name>/')
+        for n, s in index.items():
+            here = '  (here)' if os.path.exists(os.path.join(SKILLS, n, 'SKILL.md')) else ''
+            print(f'  {n:<34} {s["version"]}{here}')
+        print('\n  python3 qa/fetch.py --skill <name> fetches one into skills/<name>/, where it is not installed')
         return 0
-    if name not in carried:
-        near = get_close_matches(name, list(carried), n=3, cutoff=0.5)
-        die(f'no skill "{name}" here' + (f' — did you mean {", ".join(near)}?' if near else f' — it carries {", ".join(carried) or "none"}'))
+    if name not in index:
+        near = get_close_matches(name, list(index), n=3, cutoff=0.5)
+        die(f'no skill "{name}"' + (f' — did you mean {", ".join(near)}?' if near else f' — there are {", ".join(index)}'))
+    entry = index[name]
     have = os.path.join(SKILLS, name, 'SKILL.md')
     if os.path.exists(have):
-        print(f'  have  skills/{name}/ ({carried[name]}) — read skills/{name}/SKILL.md and follow it')
+        print(f'  have  skills/{name}/ ({entry["version"]}) — read skills/{name}/SKILL.md and follow it')
         return 0
-    writable_or_die([f'skills/{name}/SKILL.md'])
-    with zipfile.ZipFile(PACKED) as z:
-        members = [n for n in z.namelist() if n.startswith(name + '/')]
-        z.extractall(SKILLS, members)
-    print(f'  unpacked  skills/{name}/ ({carried[name]}, {sum(not m.endswith("/") for m in members)} files) — read skills/{name}/SKILL.md and follow it')
+    paths = [f'skills/{name}/{f}' for f, _, _ in entry['files']]
+    writable_or_die(paths)
+    reg = load_registry()
+    raw_err, got = None, {}
+    for path in paths:
+        n, err = fetch(url_of(reg, path), os.path.join(ROOT, path))
+        if err:
+            raw_err = err
+            break
+        got[path] = n
+    if raw_err:
+        more, git_err = git_fetch(reg, [p for p in paths if p not in got])
+        got.update(more)
+        if git_err:
+            print(UNREACHABLE.format(raw=raw_err, git=git_err).replace('The pages come', 'The skills and pages come'))
+            die(f'{name} is not installed and cannot be fetched: install it from the organisation\'s skills')
+    bad = []
+    for (f, size, sha), path in zip(entry['files'], paths):
+        dest = os.path.join(ROOT, path)
+        if not os.path.exists(dest) or hashlib.sha1(open(dest, 'rb').read()).hexdigest() != sha:
+            bad.append(f)
+    if bad:
+        shutil.rmtree(os.path.join(SKILLS, name), ignore_errors=True)
+        die(f'{name}: {len(bad)} file(s) differ from skills/index.json at {ref_name(reg)} ({", ".join(bad[:3])}) — removed; install it from the organisation\'s skills')
+    via = ' through github.com' if raw_err else ''
+    print(f'  got  skills/{name}/ ({entry["version"]}, {len(paths)} files{via}) — read skills/{name}/SKILL.md and follow it')
     return 0
 
 
@@ -373,7 +384,7 @@ def main(argv):
     if unknown:
         die(f'unknown option {", ".join(sorted(unknown))}')
     if '--skill' in flags:
-        return unpack_skill(args[0] if args else None)
+        return fetch_skill(args[0] if args else None)
     reg = load_registry()
     phone, roles, dry = '--375' in flags, '--roles' in flags, '--dry-run' in flags
     files, notes = [], []
