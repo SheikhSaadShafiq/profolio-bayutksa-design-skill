@@ -2236,7 +2236,9 @@
   "src/components/post-listing/post-listing-form/post-listing-form.js:770:11": {
    "name": "pf-post-listing-form-json-form-styled",
    "base": "json-form-styled",
-   "variants": []
+   "variants": [
+    "gontI"
+   ]
   },
   "src/components/post-listing/post-listing-form/post-listing-form-sections-layout.js:36:7": {
    "name": "pf-post-listing-form-sections-layout-card-listing",

@@ -183,7 +183,7 @@ def kit_classes():
     for name in ('kit.css', 'wireframe.css'):
         path = os.path.join(ROOT, 'kit', name)
         if os.path.exists(path):
-            out.update(c for c in CSS_CLASS_RE.findall(read(path)) if c.startswith(('pfk-', 'wf-')))
+            out.update(c for c in CSS_CLASS_RE.findall(read(path)) if c in ('pfk', 'wf') or c.startswith(('pfk-', 'wf-')))
     return out
 
 
@@ -637,6 +637,13 @@ def main(argv):
     # with no design named, every design in designs/ is checked
     if not designs:
         for path in html_files('designs'):
+            # what qa/prototype.mjs builds from a design's screens (prototype.html and
+            # wireframe.html beside its flow.json, and qa/) carries the player's own chrome:
+            # it is checked through the screens it is built from, not as a design
+            d, n = os.path.split(path)
+            built = n in ('prototype.html', 'wireframe.html') and os.path.exists(os.path.join(d, 'flow.json'))
+            if built or (os.sep + 'qa' + os.sep) in os.path.relpath(path, ROOT):
+                continue
             designs.append(os.path.abspath(path))
     print(f'\n  Profolio KSA skill — {rel(ROOT) if ROOT != os.getcwd() else "."}' + (f' · {len(designs)} design(s)' if designs else '') + (' · designs only, checks 1-3' if design_only else ''))
     for path in designs:

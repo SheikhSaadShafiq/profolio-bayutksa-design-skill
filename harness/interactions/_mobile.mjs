@@ -21,4 +21,17 @@ export default [
       await p.waitForTimeout(900);
     },
   },
+  {
+    name: 'mobile-menu-reports',
+    note: 'the navigation drawer with the Reports group open (MenueItems.js: an inline submenu). A design that adds an item to a group shows it here on a phone',
+    devices: ['mobile'],
+    shot: 'viewport',
+    trigger: '.ant-menu-submenu-title',
+    do: async (p) => {
+      await p.locator('.ant-layout-header button.ant-btn-link').first().tap({ timeout: 6000 });
+      await p.waitForTimeout(900);
+      await p.locator('.ant-menu-submenu-title', { hasText: 'Reports' }).first().tap({ timeout: 6000 });
+      await p.waitForTimeout(900);
+    },
+  },
 ];

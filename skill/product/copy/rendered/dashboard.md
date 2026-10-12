@@ -1,6 +1,6 @@
 # Rendered copy — dashboard
 
-Every string the compiled files of `pages/dashboard` draw — 45 web, 56 phone (@375) — in the order first drawn; the header and the rail are in `_shell.md`. Quote a string as it is here, with its file. `is`: **t** a translation · **t+** translations joined with values — ⟨pattern⟩: {{x}} the translation's placeholder, {n} a number ("75,000" is one), {date}, {time}, {x} a fixture value; ×N strings of one pattern; Arabic part by part · **code** drawn by the product, not in the translation files — spelled in its code or its data files (the Arabic beside it is the data file's own twin, `label` / `label_l1`; else "not in translations") · **data** the fixture's data, a mocked response or a value — not copy (copied unchanged into a design, it stays unmarked) · **note** quoted by a state note, drawn nowhere. A suffix says how the string is drawn: **(placeholder)** an input's placeholder attribute · **(value)** what a field holds, an input's or a textarea's value (the fixture's, unless a translation). The class is the first word — `t (placeholder)` is a **t** row: grep `| t |` and `| t (` for every t row. data-pf-src: without `src/`. files, per layout (web · @375): `all`, `all but` the states named, the states named, or `none`; `page` = `pages/dashboard.html` (`.mobile.html` for @375), a state = `pages/dashboard/<state>.html`.
+Every string the compiled files of `pages/dashboard` draw — 46 web, 57 phone (@375) — in the order first drawn; the header and the rail are in `_shell.md`. Quote a string as it is here, with its file. `is`: **t** a translation · **t+** translations joined with values — ⟨pattern⟩: {{x}} the translation's placeholder, {n} a number ("75,000" is one), {date}, {time}, {x} a fixture value; ×N strings of one pattern; Arabic part by part · **code** drawn by the product, not in the translation files — spelled in its code or its data files (the Arabic beside it is the data file's own twin, `label` / `label_l1`; else "not in translations") · **data** the fixture's data, a mocked response or a value — not copy (copied unchanged into a design, it stays unmarked) · **note** quoted by a state note, drawn nowhere. A suffix says how the string is drawn: **(placeholder)** an input's placeholder attribute · **(value)** what a field holds, an input's or a textarea's value (the fixture's, unless a translation). The class is the first word — `t (placeholder)` is a **t** row: grep `| t |` and `| t (` for every t row. data-pf-src: without `src/`. files, per layout (web · @375): `all`, `all but` the states named, the states named, or `none`; `page` = `pages/dashboard.html` (`.mobile.html` for @375), a state = `pages/dashboard/<state>.html`.
 
 | English | Arabic | is | data-pf-src | files |
 |---|---|---|---|---|
@@ -8,7 +8,7 @@ Every string the compiled files of `pages/dashboard` draw — 45 web, 56 phone (
 | Listings | الإعلانات | t | components/common/textWithIcon/styled.js:3 | all but loading (web and @375) |
 | View All Listings | عرض جميع الإعلانات | t | components/common/button/button.js:40 · components/common/link-with-icon/link-with-icon.js:33 | all but loading (web and @375) |
 | Active | فعال | t | components/common/statistic/index.js:93 | all but loading (web and @375) |
-| 20 ⟨{n}⟩ ×29 | value | data | components/common/statistic/index.js:93 · components/common/number/number.js:107 +8 | all but loading (web and @375) |
+| 20 ⟨{n}⟩ ×31 | value | data | components/common/statistic/index.js:93 · components/common/number/number.js:107 +8 | all but loading (web and @375) |
 | For Sale | للبيع | t | components/common/statistic/index.js:93 · components/common/segmented/segmented.js:8 +1 | all but loading (web and @375) |
 | To Rent | للايجار | t | components/common/statistic/index.js:93 | all but loading (web and @375) |
 | Daily Rentals | إيجارات يومية | t | components/common/statistic/index.js:93 · components/common/segmented/segmented.js:8 +1 | all but loading (web and @375) |
@@ -52,9 +52,9 @@ Every string the compiled files of `pages/dashboard` draw — 45 web, 56 phone (
 | REGA ID: | رقم ترخيص الإعلان: | t | tenant/bayut/components/listing/listingCard.js:348 · components/table/table-components/listing-purpose.js:461 | all but empty, error, loading (web and @375) |
 | 7201340882 ⟨{n}⟩ ×8 | value | data | tenant/bayut/components/listing/listingCard.js:351 · components/table/table-components/listing-purpose.js:462 | all but empty, error, loading (web and @375) |
 | Posted on | تاريخ الإضافة | t | components/table/table-components/expiry-renewal.js:54 | web: all but empty, error, loading · @375: none |
-| Sep 29, 2026 ⟨{date}⟩ ×10 | value | data | components/table/table-components/expiry-renewal.js:56 | web: all but empty, error, loading · @375: none |
+| Sep 29, 2026 ⟨{date}⟩ ×20 | value | data | components/table/table-components/expiry-renewal.js:56 | web: all but empty, error, loading · @375: none |
 | REGA Ad Licence Expiry Date: | تاريخ انتهاء ترخيص الإعلان من الهيئة العامة للعقار | t | tenant/bayut/components/listing/listingCard.js:399 · components/table/table-components/expiry-renewal.js:72 | all but empty, error, loading (web and @375) |
-| Dec 28, 2026 ⟨{date}⟩ ×8 | value | data | tenant/bayut/components/listing/listingCard.js:400 · components/table/table-components/expiry-renewal.js:73 | all but empty, error, loading (web and @375) |
+| Dec 28, 2026 ⟨{date}⟩ ×16 | value | data | tenant/bayut/components/listing/listingCard.js:400 · components/table/table-components/expiry-renewal.js:73 | all but empty, error, loading (web and @375) |
 | Live | فعال | t | components/common/tag/styled.js:6 | web: all but empty, error, loading · @375: none |
 | Riyadh, North Riyadh, Al Masif | fixture: fixtures/extra.mjs | data | tenant/bayut/components/listing/listingCard.js:316 · components/table/table-components/listing-purpose.js:424 | all but empty, error, loading (web and @375) |
 | Rejected | مرفوض | t | components/common/tag/styled.js:6 | web: all but empty, error, loading · @375: none |
@@ -76,16 +76,16 @@ Every string the compiled files of `pages/dashboard` draw — 45 web, 56 phone (
 | 5.0% ⟨{n}%⟩ | value | data | components/discount-tag/DiscountTag.js:121 | all but empty, error, loading (web and @375) |
 | Off | خصم | t | components/discount-tag/DiscountTag.js:123 | all but empty, error, loading (web and @375) |
 | © 2026 – All Rights Reserved ⟨© {n} – All Rights Reserved⟩ | {n} + كل الحقوق محفوظة | t+ | layout/withAdminLayout.js:477 | all |
-| FEEDBACK | ملاحظاتك | t | components/feedback/FeedbackTab.js:98 | web: all but drawer-credits-balance, drawer-credits-balance-as-individual, drawer-credits-balance-as-staff, drawer-feedback +10 more · @375: page, app-banner-closed, as-individual, as-staff +15 more |
+| FEEDBACK | ملاحظاتك | t | components/feedback/FeedbackTab.js:98 | web: all but drawer-credits-balance, drawer-credits-balance-as-individual, drawer-credits-balance-as-staff, drawer-feedback +10 more · @375: page, app-banner-closed, as-individual, as-staff +16 more |
 | Bayut | بيوت | t | components/appBanner/appBanner.js:42 | web: none · @375: all but app-banner-closed |
 | 1 Million + Installs | +1 مليون عملية تنزيل للتطبيق | t | components/appBanner/appBanner.js:45 | web: none · @375: all but app-banner-closed |
 | Install | تنزيل | t | components/common/button/button.js:40 | web: none · @375: all but app-banner-closed |
 | 3 Rooms ⟨{n} Rooms⟩ ×3 | {n} + غرف | t+ | components/common/textWithIcon/textWithIcon.js:65 | web: none · @375: all but empty, error, loading |
 | 3 Baths ⟨{n} Baths⟩ ×3 | {n} + دورات مياه | t+ | components/common/textWithIcon/textWithIcon.js:65 | web: none · @375: all but empty, error, loading |
 | Al Wurud | fixture: fixtures/credits.mjs | data | components/common/textWithIcon/textWithIcon.js:65 | web: none · @375: all but empty, error, loading |
-| Posted on Sep 29, 2026 ⟨Posted on {date}⟩ ×10 | تاريخ الإضافة + {date} | t+ | tenant/bayut/components/listing/listingCard.js:390 | web: none · @375: all but empty, error, loading |
+| Posted on Sep 29, 2026 ⟨Posted on {date}⟩ ×20 | تاريخ الإضافة + {date} | t+ | tenant/bayut/components/listing/listingCard.js:390 | web: none · @375: all but empty, error, loading |
 | Expiring on | الانتهاء في | t | components/common/flex/styled.js:3 | web: none · @375: all but empty, error, loading |
-| Oct 29, 2026 ⟨{date}⟩ | value | data | tenant/bayut/components/listing/listingCard.js:417 | web: none · @375: all but empty, error, loading |
+| Oct 29, 2026 ⟨{date}⟩ ×2 | value | data | tenant/bayut/components/listing/listingCard.js:417 | web: none · @375: all but empty, error, loading |
 | Al Masif | fixture: fixtures/credits.mjs | data | components/common/textWithIcon/textWithIcon.js:65 | web: none · @375: all but empty, error, loading |
 | Al Mughrizat | fixture: fixtures/credits.mjs | data | components/common/textWithIcon/textWithIcon.js:65 | web: none · @375: all but empty, error, loading |
 | Al Rawabi | fixture: fixtures/credits.mjs | data | components/common/textWithIcon/textWithIcon.js:65 | web: none · @375: all but empty, error, loading |

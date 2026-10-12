@@ -75,9 +75,23 @@ shared JSON in:
   - Once the user picks, write `"chosen": "mask"`. The hi-fi may keep all variants until then.
   - The QA renders every variant.
 - **shell.rail**: the rail as the design changes it, applied wherever the product's rail
-  draws: the design's own rail, the other pages', the expanded rail and the phone's menu.
-  `{"add": [{"key": "leads-marketplace", "label": "Leads Marketplace", "after": "leads", "icon": "prop-shop", "page": "marketplace"}], "selected": "leads-marketplace"}`.
-  The icon is another item's (`prop-shop` is Credits & Packages); `page` is where it goes.
+  draws: the design's own rail, the other pages', the expanded rail, an open group and the
+  phone's menu. **The only way to change the rail**: never edit its markup, never draw one.
+  - A top-level item, after a neighbour:
+    `{"add": [{"key": "leads-marketplace", "label": "Leads Marketplace", "after": "leads", "icon": "prop-shop", "page": "marketplace"}], "selected": "leads-marketplace"}`.
+    The icon is another item's (`prop-shop` is Credits & Packages); `page` is where it goes.
+  - An item inside a group: `under` names the group, `after` a child (else it goes last):
+    `{"key": "agency-report", "label": "Agency Report", "under": "reports", "after": "leads-reports", "page": "agency-report", "tag": "NEW"}`.
+    Reports is the product's one group: `summary`, `listing-reports`, `leads-reports`. A child
+    shows only where the group is open: the expanded rail's Reports opens it on a click
+    (`rail-expanded-reports`), the phone's menu likewise (`mobile-menu-reports`). The collapsed
+    rail shows the group's icon alone, as the product does.
+  - `tag: "NEW"`: the product's own NEW chip (`.pf-new-chip`, red, from the Post a Listing menu),
+    6 px after the label. Any other badge is new design: [TBC].
+  - `selected`: the item drawn selected. A selected child selects its group in the expanded
+    rail; the collapsed rail then selects nothing, as the product does on a report page.
+  - Keys are the product's (`node qa/registry.mjs shell`, or the `data-menu-id` ends in a
+    compiled page); they are matched whole.
 
 ## The runtime
 
@@ -225,11 +239,17 @@ It writes one file and checks:
   - `skeleton`: not the table's columns;
   - `spacing`: a label split into flex items;
   - `currency`;
+  - `unstyled`: a button, select or input in the browser's default style (an outset or inset
+    border): its stylesheet is missing, as in a control copied without it or written by hand;
+  - `rail`: on the web, the rail is not 60 px when the screen opens (it ships collapsed), or
+    has items its compiled page does not (or lost some), or is missing where the pf-base
+    draws it. A hand-built navigation fails here;
   - `runtime`.
   `rows`, `targets` and `small` are warnings.
 
 Then the **sweep**, from each screen's first state:
-- **every interaction**: each shell control and the rail's hover; every `data-pf-menu` and
+- **every interaction**: each shell control and the rail's hover; each group a `shell.rail` item
+  goes `under`, opened (its item must show, and no label in the rail may be cut off); every `data-pf-menu` and
   `data-pf-open`. Each result is checked (`shell`: it opens something visible, on the screen,
   styled, and an expanded rail pushes the page aside; `clip`: a menu or sheet is not cut off),
   and the whole screen is measured again;

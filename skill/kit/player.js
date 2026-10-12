@@ -196,6 +196,7 @@
   function resolve(target, from) {
     var alias = (M.alias || {})[target];
     if (alias && blobs[alias]) return alias;
+    if (blobs[target]) return target;                          /* already a bundle path: a layer's own link */
     var dir = String(from || '').replace(/[^/]*$/, '');
     var parts = (dir + target).split('/'), out = [];
     parts.forEach(function (p) { if (p === '..') out.pop(); else if (p && p !== '.') out.push(p); });

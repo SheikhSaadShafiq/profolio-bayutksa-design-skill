@@ -43,6 +43,8 @@ jobs:
         run: node tests/kit/qa-catches.mjs
       - name: the QA opens every menu and sees one cut off
         run: node tests/kit/sweep-catches.mjs
+      - name: the rail is the product's, and shell.rail adds to a group
+        run: node tests/kit/rail-catches.mjs
       - name: the prototype works
         run: node tests/kit/runtime.mjs
       - name: the worked example passes its QA

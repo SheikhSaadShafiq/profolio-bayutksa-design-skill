@@ -266,6 +266,21 @@ export function routeHandler({ base, mode = () => null, log = { answered: [], un
 
 export async function openPage(browser, base, { locale = 'en', mode = () => null, device = 'web' } = {}) {
   const ctx = await browser.newContext({ ...DEVICES[device], locale: locale === 'ar' ? 'ar-SA' : 'en' });
+  /* PF_CLOCK (an ISO time) moves the page's Date to it: a state compiled after the rest shows the
+     same dates and capturedAt as they do, so registry.clock stays one day. Only Date moves, by a
+     fixed offset, and time runs on: Playwright's clock fakes the timers too, and the app hangs. */
+  if (process.env.PF_CLOCK) await ctx.addInitScript((target) => {
+    const Real = Date, offset = target - Real.now();
+    function Shifted(...a) {
+      if (!(this instanceof Shifted)) return new Real(Real.now() + offset).toString();
+      return a.length ? new Real(...a) : new Real(Real.now() + offset);
+    }
+    Shifted.prototype = Real.prototype;
+    Shifted.now = () => Real.now() + offset;
+    Shifted.parse = Real.parse;
+    Shifted.UTC = Real.UTC;
+    window.Date = Shifted;
+  }, Date.parse(process.env.PF_CLOCK));
   await prepareContext(ctx);
   const page = await ctx.newPage();
   const log = { answered: [], unanswered: [], errors: [], blocked: 0 };

@@ -228,21 +228,10 @@ const html = await page.evaluate(({ html, parts, base, also }) => {
   d.querySelectorAll('link[rel="stylesheet"]').forEach((l) => l.setAttribute('href', l.getAttribute('href').replace(/^\.\.\/css\//, '../../css/')));
   head.appendChild(frag('<link rel="stylesheet" href="../../kit/kit.css">'));
   d.querySelectorAll('script').forEach((s) => s.remove());
-  /* the shell: its title, and a new rail item under TruLeads (the Credits & Packages icon, [TBC]) */
+  /* the shell: its title. The new rail item under TruLeads (the Credits & Packages icon, [TBC]) is
+     flow.json shell.rail, drawn by the runtime in every rail: never written into the markup */
   const title = q('.navbar-page-title');
   title.replaceChildren(frag('<span data-pf-new-copy>Leads Marketplace</span>'));
-  const leads = q('li[data-menu-id$="-leads"]'), shop = q('li[data-menu-id$="-prop-shop"]');
-  const item = leads.cloneNode(true);
-  item.setAttribute('data-menu-id', leads.getAttribute('data-menu-id').replace(/-leads$/, '-leads-marketplace'));
-  item.setAttribute('title', 'Leads Marketplace');
-  item.setAttribute('data-pf-page', 'marketplace');
-  const walker = d.createTreeWalker(item, NodeFilter.SHOW_TEXT);
-  for (let n = walker.nextNode(); n; n = walker.nextNode()) if (n.textContent.trim() === 'TruLeads') { const sp = d.createElement('span'); sp.setAttribute('data-pf-new-copy', ''); sp.textContent = 'Leads Marketplace'; n.replaceWith(sp); break; }
-  const icon = item.querySelector('.anticon'), shopIcon = shop && shop.querySelector('.anticon');
-  if (icon && shopIcon) icon.replaceWith(shopIcon.cloneNode(true));
-  d.querySelectorAll('.pf-menu-item-selected').forEach((e) => e.classList.remove('pf-menu-item-selected'));
-  item.classList.add('pf-menu-item-selected');
-  leads.after(item);
   /* My Listings' own drawers and their scrims: not this page */
   ['1021', '1491', '1492', '1745', '1746'].forEach((t) => tpl(t)?.remove());
   /* the rail's language switch: the product turns Arabic here, which is not compiled */

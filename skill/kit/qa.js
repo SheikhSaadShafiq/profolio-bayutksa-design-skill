@@ -20,6 +20,14 @@
      skeleton  a loading skeleton whose blocks don't follow the columns of the table above it
      spacing   a button's label split into flex items, the gap between every word
      blank     a bound value that renders nothing, or "undefined", "null", "NaN", when the data lacks it
+     unstyled  a button, select or input in the browser's own default style (an outset or inset
+               border, which the product's CSS never draws): its stylesheet is missing
+     rail      the shell is not the product's: on the web, a rail not 60 px when the screen opens
+               (it ships collapsed), items its compiled page does not draw or that are gone, or
+               no rail where the compiled page has one; a header missing, or not its height
+               (qa/prototype.mjs passes { rail: { w, keys }, header: { h } }, measured on the
+               pf-base); in the sweep, a label cut off in the expanded rail, an icon clipped
+               away, or a flow.json shell.rail item that does not show where it should
      shell     (in the sweep) a product state that opens nothing, off the screen, unstyled, or an
                expanded rail lying over the page instead of pushing it aside
      clip      (in the sweep, too) a menu or dialog cut off by a container or the screen's edge
@@ -305,6 +313,16 @@
           var bad = Object.keys(inf.fonts || {}).filter(function (f) { return /^(times|times new roman|serif|-webkit-standard)$/i.test(f); });
           if (bad.length) add('error', 'shell', nm + ' renders unstyled — its text falls back to ' + bad[0] + ' (the state\'s stylesheet did not load)');
           if (it.layer.covered && !it.layer.scrim) add('error', 'shell', nm + ': the expanded rail lies over ' + it.layer.covered + ' piece(s) of the page\'s text — the product pushes the page aside');
+          if (inf.rail) {
+            (inf.rail.items || []).forEach(function (x) {
+              if (x.cut) add('error', 'rail', nm + ': “' + x.label + '” is cut off in the expanded rail (220 px). Shorten the label (design-copy) and put it to the designer');
+              if (x.iconGone) add('error', 'rail', nm + ': “' + x.label + '”’s icon draws nothing: its clip path or mask is hidden or missing');
+            });
+            ((inf.rail.did || {}).skipped || []).forEach(function (x) {
+              if (x.under && !(it.target.kind === 'group' && it.target.key === x.under)) return;   /* a closed group shows no child */
+              add('error', 'rail', nm + ': flow.json shell.rail adds “' + x.key + '”' + (x.under ? ' under “' + x.under + '”' : '') + ', and it does not show here: its ' + (x.under ? '`under` group or `after`' : '`after`') + ' names no item of this rail (node qa/registry.mjs shell)');
+            });
+          }
         }
       } else if (!it.panels) add('error', 'dead', nm + ' opens nothing — ' + it.selector + ' does not show');
       else Array.prototype.forEach.call(document.querySelectorAll(it.selector), function (p) {
@@ -420,6 +438,36 @@
       var re = /var\((--[\w-]+)\s*\)/g, m, st = e.getAttribute('style');
       while ((m = re.exec(st))) if (!rootStyle.getPropertyValue(m[1]).trim() && !cs(e).getPropertyValue(m[1]).trim()) { add('error', 'vars', 'var(' + m[1] + ') has no value here — the token is not defined (link its stylesheet, or add a fallback)', e); break; }
     });
+
+    /* unstyled: a control in the browser's own default style. An outset or inset border is the
+       browser's alone (the product's CSS draws none), so the control's rules are missing: markup
+       copied without its stylesheet, or a control written by hand */
+    Array.prototype.forEach.call(document.querySelectorAll('button, select, input[type=button], input[type=submit], input[type=reset]'), function (b) {
+      if (!shown(b)) return;
+      var c = cs(b);
+      if (c.borderTopStyle === 'outset' || c.borderTopStyle === 'inset') add('error', 'unstyled', 'The control “' + label(b) + '” is drawn in the browser\'s default style (a ' + c.borderTopWidth + ' ' + c.borderTopStyle + ' border): its stylesheet is missing. Copy the product\'s component with its stylesheet, never by hand', b);
+    });
+
+    /* rail: on the web, the product's own, as compiled. It ships collapsed (60 px) and the runtime
+       expands it on hover; its items are its compiled page's, plus flow.json shell.rail's */
+    var sider = !phone && document.querySelector('.pf-layout-sider'), base = opt.rail || null;
+    var keyOf = function (e) { return (e.getAttribute('data-menu-id') || '').replace(/^rc-menu-uuid-\d+-\d+-/, ''); };
+    stats.rail = sider && shown(sider) ? Math.round(sider.getBoundingClientRect().width) : null;
+    if (stats.rail != null) {
+      var want = base && base.w ? base.w : 60;
+      if (Math.abs(stats.rail - want) > 1) add('error', 'rail', 'The rail is ' + stats.rail + ' px wide when the screen opens; the product\'s ships collapsed at ' + want + ' px and expands on hover. Keep the compiled page\'s rail as it is, and change it with flow.json shell.rail', sider);
+      if (base && base.keys) {
+        var have = Array.prototype.filter.call(sider.querySelectorAll('[data-menu-id]'), function (e) { return !e.closest('[data-pf-rail-add]'); }).map(keyOf);
+        var extra = have.filter(function (k) { return base.keys.indexOf(k) < 0; }), gone = base.keys.filter(function (k) { return have.indexOf(k) < 0; });
+        if (extra.length) add('error', 'rail', 'The rail has item(s) its compiled page does not draw: ' + extra.join(', ') + '. A new rail item is flow.json shell.rail (add, after or under a group), never written by hand', sider);
+        if (gone.length) add('error', 'rail', 'The rail lost item(s) its compiled page draws: ' + gone.join(', ') + '. Keep the compiled rail; a role that sees fewer items starts from that role\'s page', sider);
+      }
+    } else if (base && base.w && !phone) add('error', 'rail', 'The product\'s rail is missing: this screen\'s compiled page (pf-base) draws it at ' + base.w + ' px. Keep it; never draw a navigation of your own', document.body);
+    /* the header, likewise: where the pf-base draws the product's, the screen keeps it, at its height */
+    var head = document.querySelector('.pf-layout-header'), hb = opt.header || null;
+    stats.header = head && shown(head) ? Math.round(head.getBoundingClientRect().height) : null;
+    if (hb && hb.h && stats.header == null) add('error', 'rail', 'The product\'s header is missing: this screen\'s compiled page (pf-base) draws it at ' + hb.h + ' px. Keep it; never draw a header of your own', document.body);
+    else if (hb && hb.h && Math.abs(stats.header - hb.h) > 1) add('error', 'rail', 'The header is ' + stats.header + ' px tall; the product\'s is ' + hb.h + ' px (its compiled page). Keep the compiled header as it is', head);
 
     out.sort(function (a, b) { return (a.level === 'error' ? 0 : 1) - (b.level === 'error' ? 0 : 1); });
     return Promise.resolve({ issues: out, stats: stats, viewport: [innerWidth, innerHeight] });
