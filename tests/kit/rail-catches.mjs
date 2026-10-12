@@ -120,6 +120,7 @@ const run = (name, rail) => {
 const good = run('rail-good', null);
 expect(!good.of('rail').length, `the compiled rail with shell.rail passes \`rail\`${good.of('rail').length ? ': ' + good.of('rail')[0].message : ''}`);
 expect(!good.of('unstyled').length, `nothing is unstyled${good.of('unstyled').length ? ': ' + good.of('unstyled')[0].message : ''}`);
+expect(!good.of('overflow').length && !good.of('shell').length, `the expanded rail and the open group push the page aside, and it does not scroll sideways${[...good.of('overflow'), ...good.of('shell')].length ? ': ' + [...good.of('overflow'), ...good.of('shell')][0].message : ''}`);
 expect(good.shots.some((f) => /-group\.web\.png$/.test(f)), `the sweep opened the Reports group (${good.rep.coverage || 'no coverage'})`);
 expect(existsSync(join(good.dir, 'prototype.html')) && /rail-expanded-reports/.test(readFileSync(join(good.dir, 'prototype.html'), 'utf8')), 'the prototype holds the open group (pages/reports-summary/rail-expanded-reports.html)');
 expect(!(good.rep.issues || []).some((i) => i.check === 'rail' && /icon draws nothing/.test(i.message)), 'every rail icon draws in the expanded rail and the open group (Post Listing\'s clip path is the header\'s)');

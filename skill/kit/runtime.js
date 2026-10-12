@@ -734,7 +734,13 @@
       ['width', 'min-width', 'max-width', 'flex-basis'].forEach(function (p) { save(box, p, W + 'px'); });
       return;
     }
-    /* a fixed rail (the current theme): the content that starts where it ends moves over */
+    /* a fixed rail (the current theme): the product moves its main layout over by its own
+       --sidebar-offset (withAdminLayout.js; .pf-div .atbd-main-layout { margin-inline-start:
+       var(--sidebar-offset) }, with a 220 ms transition), and redraws its charts at the narrower
+       width. A static page cannot redraw them: what no longer fits is clipped, rather than the page
+       scrolling sideways. Not found by its computed margin: mid-transition, that is not 60 */
+    var main = document.querySelector('.atbd-main-layout');
+    if (main) { save(main, '--sidebar-offset', W + 'px'); save(main, 'overflow-x', 'clip'); return; }
     var c = Array.prototype.filter.call(document.querySelectorAll('body *'), function (e) {
       if (e.closest('.pf-layout-sider')) return false;
       return Math.abs(parseFloat(getComputedStyle(e).marginLeft) - w) < 2 && e.getBoundingClientRect().width > innerWidth * 0.5;
