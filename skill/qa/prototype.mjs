@@ -220,6 +220,16 @@ for (const bp of [...needed.keys()]) {
    baseline hold the screen to them */
 for (const sf of screenFiles) for (const src of sourcesOf(sf.html)) { const abs = join(SKILL, src); if (!existsSync(abs)) missing.push(abs); }
 if (missing.length) { log(`  fetching ${missing.length} compiled file(s) the prototype opens or was made from…`); fetchMissing(missing); }
+/* the shared files qa/validate.py reads (registry.source.assets: css/, prototype.js). A page
+   fetched on its own brings only the stylesheets it links, and validate.py then stops */
+{
+  const assets = ((REG.source || {}).assets || []).filter((a) => !existsSync(join(SKILL, a)));
+  if (assets.length) {
+    log(`  fetching the ${assets.length} shared file(s) qa/validate.py reads (python3 qa/fetch.py --css)…`);
+    const r = spawnSync('python3', [join(SKILL, 'qa', 'fetch.py'), '--css'], { cwd: SKILL, encoding: 'utf8' });
+    if (r.status !== 0) W('fetch', `python3 qa/fetch.py --css failed: ${(r.stdout + r.stderr).trim().split('\n').slice(-1)[0]}`);
+  }
+}
 for (const [bp, abs] of [...needed]) if (!existsSync(abs)) { needed.delete(bp); if (Object.values(alias).includes(bp)) W('fetch', `${bp} could not be fetched — its click will say it is not part of this prototype`); }
 for (const e of Object.values(pageEntries)) for (const [p, f] of Object.entries(e.files)) if (!needed.has(f)) delete e.files[p];
 for (const [id, e] of Object.entries(pageEntries)) if (!Object.keys(e.files).length) delete pageEntries[id];
