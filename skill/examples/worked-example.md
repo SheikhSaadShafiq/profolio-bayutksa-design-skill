@@ -46,8 +46,8 @@ them) and pass `qa/validate.py`.
 
 Read first: `registry.json`, `INTAKE.md`; grep `product/flags.md` for `SHOW_REGA_LICENSE_EXPIRY`
 and `AD_LICENSE_CREATION_ENABLED`; then `product/roles.md`, `product/pages/dashboard.md`,
-`product/copy/rendered/dashboard.md`, `product/copy/table.md`, `product/copy/tenant-listing.md`,
-`product/copy/page-ad-license.md`.
+`product/copy/rendered/dashboard.md`, and the `table`, `tenant-listing` and `page-ad-license`
+sections of `product/copy/areas.md` (their lines are in `product/copy.md`).
 
 **0 · PRD gap check**
 
