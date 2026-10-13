@@ -449,13 +449,13 @@
     });
 
     /* rail: on the web, the product's own, as compiled. It ships collapsed (60 px) and the runtime
-       expands it on hover; its items are its compiled page's, plus flow.json shell.rail's */
+       expands it on a click; its items are its compiled page's, plus flow.json shell.rail's */
     var sider = !phone && document.querySelector('.pf-layout-sider'), base = opt.rail || null;
     var keyOf = function (e) { return (e.getAttribute('data-menu-id') || '').replace(/^rc-menu-uuid-\d+-\d+-/, ''); };
     stats.rail = sider && shown(sider) ? Math.round(sider.getBoundingClientRect().width) : null;
     if (stats.rail != null) {
       var want = base && base.w ? base.w : 60;
-      if (Math.abs(stats.rail - want) > 1) add('error', 'rail', 'The rail is ' + stats.rail + ' px wide when the screen opens; the product\'s ships collapsed at ' + want + ' px and expands on hover. Keep the compiled page\'s rail as it is, and change it with flow.json shell.rail', sider);
+      if (Math.abs(stats.rail - want) > 1) add('error', 'rail', 'The rail is ' + stats.rail + ' px wide when the screen opens; the product\'s ships collapsed at ' + want + ' px and expands on a click. Keep the compiled page\'s rail as it is, and change it with flow.json shell.rail', sider);
       if (base && base.keys) {
         var have = Array.prototype.filter.call(sider.querySelectorAll('[data-menu-id]'), function (e) { return !e.closest('[data-pf-rail-add]'); }).map(keyOf);
         var extra = have.filter(function (k) { return base.keys.indexOf(k) < 0; }), gone = base.keys.filter(function (k) { return have.indexOf(k) < 0; });

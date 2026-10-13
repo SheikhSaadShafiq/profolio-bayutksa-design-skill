@@ -216,7 +216,11 @@
     var t = e.target.nodeType === 1 ? e.target : e.target.parentElement;
     e.preventDefault(); e.stopPropagation();
     var inside = t && t.closest('[data-pf-show-root]');
+    /* the expanded rail on the web stays open on a click beside it, as the product's does (it is
+       click-toggled: only its ‹ button collapses it); a drawer's scrim closes it */
+    if (!inside && L.mode === 'rail' && innerWidth >= 600) return;
     if (!inside || inside.matches(SCRIM)) { send({ type: 'close' }); return; }
+    if (t.closest('.sidebar-collapse-btn, [aria-label="Collapse side menu"]')) { send({ type: 'close' }); return; }
     var go = t.closest('[data-pf-go]');
     if (go) { send({ type: 'go', path: go.getAttribute('data-pf-go') }); return; }
     /* a group's title in the expanded rail, or in the phone's menu, opens or closes the group, as

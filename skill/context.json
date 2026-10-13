@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "context_skill_name": "profolio-ksa-design",
-  "context_skill_version": "2.3.2",
-  "built": "2026-10-12",
+  "context_skill_version": "2.3.3",
+  "built": "2026-10-13",
   "product": {
     "name": "Bayut Profolio KSA",
     "summary": "The agent and seller portal at profolio.bayut.sa: listings, credits, leads (TruLeads), reports and agency staff, for the KSA property market.",
@@ -24,7 +24,7 @@
     {
       "kind": "design-system-skill",
       "ref": "registry.json",
-      "hash": "1dccfe536c8f"
+      "hash": "11fa1fc4e634"
     },
     {
       "kind": "design-system-skill",

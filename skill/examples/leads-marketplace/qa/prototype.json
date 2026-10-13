@@ -2,8 +2,8 @@
  "ran": true,
  "note": "",
  "browser": "Playwright Chromium",
- "renders": 55,
- "coverage": "13 states × 2 platforms · 15 interactions · 8 extreme-data · 6 option renders",
+ "renders": 54,
+ "coverage": "13 states × 2 platforms · 14 interactions · 8 extreme-data · 6 option renders",
  "errors": 0,
  "warnings": 10,
  "product": 0,
@@ -256,5 +256,5 @@
    ]
   }
  ],
- "built": "2026-10-12T14:10:17.581Z"
+ "built": "2026-10-13T07:54:06.397Z"
 }

@@ -212,7 +212,7 @@ inline.
 - draw an icon
 - rebuild, retype or restyle the rail or the header, or draw a navigation of your own. Keep the
   compiled page's shell as it is: the rail ships collapsed at 60px and the runtime expands it on
-  hover. A rail change (a new item, at the top level or inside the Reports group, the product's
+  a click, as the product does. A rail change (a new item, at the top level or inside the Reports group, the product's
   NEW chip, which item is selected) is flow.json `shell.rail` (`kit/README.md`); the QA fails a
   rail that is not the product's (`rail`) and a control in the browser's default style (`unstyled`)
 - write an amount with "SAR", "ر.س" or U+20C1. In the current theme the riyal is the
@@ -225,9 +225,12 @@ inline.
 
 - **Type**: Figtree (variable 300–900, upright), Droid Arabic Kufi for Arabic — antd's
   `fontFamily`. Body text 14px / 22px. (The new My Listings adds Geist — THEMES.)
-- **Web shell**: header 60px; the rail ships collapsed at 60px (220px on hover); content
-  starts at 85px. Reports is a group (Summary, Listing Report, Leads & Reach Report) that a
-  click opens in the expanded rail. `node qa/registry.mjs shell` lists what it draws; it is on every signed-in page.
+- **Web shell**: header 60px; the rail ships collapsed at 60px. It is click-toggled, not
+  hovered (`PUSH_CONTENT_ON_SIDEBAR_EXPAND`, withAdminLayout.js): a click on it or its edge
+  button expands it to 220px and pushes the page aside, only its ‹ button collapses it, and
+  a click on a collapsed item goes to that page (Reports: Summary). Reports is a group
+  (Summary, Listing Report, Leads & Reach Report) that a click opens in the expanded rail.
+  Content starts at 85px. `node qa/registry.mjs shell` lists what it draws; it is on every signed-in page.
 - **Phone**: the product picks its phone layout by device, not width — a header with a menu
   button, the rail as a drawer, cards instead of tables, many modals and popovers as drawers.
 - **Disabled** controls are dimmed to 0.54. **Errors** are each page's own: take

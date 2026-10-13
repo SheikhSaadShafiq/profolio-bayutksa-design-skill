@@ -524,6 +524,13 @@
   /* the header's links that leave the product: where they go */
   var SHELL_OUT = { 'Download App': 'Opens the Profolio app in the App Store or Google Play', 'Go to Bayut.sa': 'Opens bayut.sa in a new tab', 'Help & Support': 'Opens Help & Support' };
   function shellClick(t, e) {
+    /* a click on the collapsed rail, off its items and buttons, expands it, as the product's
+       Sider onClick does (withAdminLayout.js); its edge button carries its own data-pf-go */
+    var collapsed = !isPhone() && t.closest('.pf-layout-sider');
+    if (collapsed && !t.closest('[data-menu-id], [data-pf-go], button, a, input, select')) {
+      var exp = collapsed.querySelector('[data-pf-go*="rail-expanded"]');
+      if (exp) { e.preventDefault(); e.stopPropagation(); shell(exp.getAttribute('data-pf-go'), exp); return true; }
+    }
     var sh = t.closest('[data-pf-shell-root], .pf-layout-header, .pf-layout-sider');
     if (sh) {
       var c = t.closest('button, a, [role=button], [role=menuitem], li, div');
@@ -621,7 +628,13 @@
     var m = ev.data;
     if (!m || !m.pfLayer || !layer || ev.source !== layer.frame.contentWindow) return;
     var L = layer;
-    if (m.type === 'ready') { L.info = m; settle(L); }
+    if (m.type === 'ready') {
+      /* the expanded rail (web) covers only itself and its edge button: the product's page stays
+         usable beside it, as it is pushed, not dimmed. clip-path clips hit-testing too */
+      var rb = L.mode === 'rail' && !isPhone() && (m.boxes || []).filter(function (b) { return !b.scrim; })[0];
+      if (rb) L.frame.style.clipPath = 'inset(0 ' + Math.max(0, Math.round(innerWidth - (rb.x + rb.w + 24))) + 'px 0 0)';
+      L.info = m; settle(L);
+    }
     else if (m.type === 'empty') { L.info = m; settle(L); closeShell(); toast('Nothing opens here in this prototype'); }
     else if (m.type === 'close') closeShell();
     else if (m.type === 'go') shell(m.path, null, { hover: !!m.hover });
@@ -747,17 +760,8 @@
     })[0];
     if (c) save(c, 'margin-left', W + 'px');
   }
-  /* the product opens the rail on hover — a real pointer, resting on it, not one that happens to be there */
-  var moved = false, hoverT = null;
-  document.addEventListener('pointermove', function (e) { if (e.movementX || e.movementY) moved = true; }, true);
-  document.addEventListener('pointerover', function (e) {
-    var rail = e.target.closest && e.target.closest('.pf-layout-sider');
-    if (!rail || !moved || layer || isPhone()) return;
-    var btn = rail.querySelector('[data-pf-go*="rail-expanded"]');
-    if (!btn) return;
-    clearTimeout(hoverT);
-    hoverT = setTimeout(function () { if (rail.matches(':hover') && !layer) shell(btn.getAttribute('data-pf-go'), null, { hover: true }); }, 180);
-  });
+  /* the rail does not open on hover: in KSA it is click-toggled (PUSH_CONTENT_ON_SIDEBAR_EXPAND
+     makes withAdminLayout.js drop its onMouseEnter and onMouseLeave), so shellClick opens it */
   /* tooltips the product shows on hover: a data-pf-go to a …/tooltip-… state */
   document.addEventListener('pointerover', function (e) {
     var t = e.target.closest && e.target.closest('[data-pf-go*="tooltip-"]');
@@ -831,7 +835,7 @@
       had['go:' + g] = 1;
       out.push({ kind: 'shell', key: g, label: labelOf(e) || g.split('/').pop().replace(/\.html$/, '') });
     });
-    if (!isPhone() && document.querySelector('.pf-layout-sider [data-pf-go*="rail-expanded"]')) out.push({ kind: 'hover', key: 'rail', label: 'hovering the rail' });
+    /* the expanded rail is opened by the collapsed rail's button: a data-pf-go target above */
     /* a group the design adds an item to (shell.rail add.under), opened in the expanded rail or the
        phone's menu: the item must show there */
     if (railMenu()) {

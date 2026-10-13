@@ -2,7 +2,8 @@
 /**
  * The prototype works: the worked example (skill/examples/leads-marketplace), built and driven
  * the way a person uses it:
- * - the rail expands for a moving pointer only, pushes the page aside and shows the new item;
+ * - the rail is click-toggled as the product's: hover does nothing; a click expands it, pushes the
+ *   page aside (still usable) and shows the new item; only its ‹ button collapses it;
  * - the bell opens the product's notifications, styled, on the design's own 2.0 page;
  * - filter to nothing, clear, buy a lead;
  * - switch the locked-contact option; read the fields the source did not share;
@@ -51,20 +52,45 @@ const styled = (l) => l.info.texts > 0 && l.info.boxes.some((x) => x.visible && 
 let failed = 0;
 const expect = (ok, what) => { console.log(`  ${ok ? 'ok  ' : 'FAIL'} ${what}`); if (!ok) failed++; };
 
-/* the rail: a pointer resting on it at load does nothing; a moving one expands it over a pushed page */
+/* the rail, as the product's: click-toggled (PUSH_CONTENT_ON_SIDEBAR_EXPAND, withAdminLayout.js).
+   Hover does nothing; a click expands it over a pushed page that stays usable; only ‹ collapses it */
 const home = await leftmost();
-await inFrame(`d.querySelector('.pf-layout-sider').dispatchEvent(new w.PointerEvent('pointerover',{bubbles:true})); return 1;`); await wait(500);
-expect(!(await layerOpen()), 'a pointer resting on the rail at load does not expand it');
 expect(await inFrame(`const li=d.querySelector('.pf-layout-sider [data-menu-id$="-leads-marketplace"]'); return !!li && li.classList.contains('pf-menu-item-selected') && li.previousElementSibling.matches('[data-menu-id$="-leads"]');`), 'the page\'s rail has Leads Marketplace after TruLeads, selected');
 const item = await at('.pf-layout-sider li[data-menu-id$="-leads"]');
-await p.mouse.move(item.x + 300 * item.k, item.y); await p.mouse.move(item.x, item.y, { steps: 6 });
+await p.mouse.move(item.x + 300 * item.k, item.y); await p.mouse.move(item.x, item.y, { steps: 6 }); await wait(700);
+expect(!(await layerOpen()), 'a pointer moving over the rail does not expand it: the product\'s is click-toggled');
+/* a blank point of the collapsed rail: off its items and buttons */
+const blank = await p.evaluate(() => {
+  const f = document.getElementById('pfp-frame'), d = f.contentDocument, s = d.querySelector('.pf-layout-sider').getBoundingClientRect();
+  const fr = f.getBoundingClientRect(), k = fr.width / f.offsetWidth;
+  for (let y = s.bottom - 160; y > s.top + 80; y -= 10) { const e = d.elementFromPoint(s.left + s.width / 2, y); if (e && e.closest('.pf-layout-sider') && !e.closest('[data-menu-id], button, a')) return { x: fr.left + (s.left + s.width / 2) * k, y: fr.top + y * k, k }; }
+  return null;
+});
+await p.mouse.click(blank.x, blank.y);
 const rail = await ready(/rail-expanded/);
-expect(!!rail && styled(rail), 'a moving pointer on the rail expands it, styled');
+expect(!!rail && styled(rail), 'a click on the rail expands it, styled');
 const box = rail && rail.info.boxes.find((x) => !x.scrim);
 expect(!!box && (await leftmost()) >= box.x + box.w - 2, `the expanded rail pushes the page aside (text from ${home}px to ${await leftmost()}px, rail ends at ${box ? Math.round(box.x + box.w) : '?'}px)`);
 expect(JSON.stringify(await inLayer(`const li=d.querySelector('[data-menu-id$="-leads-marketplace"]'); return li && [li.previousElementSibling.matches('[data-menu-id$="-leads"]'), li.classList.contains('pf-menu-item-selected'), li.textContent.replace(/\\s+/g,' ').trim()];`)) === '[true,true,"Leads Marketplace"]', 'the expanded rail shows Leads Marketplace after TruLeads, selected');
-await p.mouse.move(item.x + 600 * item.k, item.y + 200 * item.k, { steps: 4 }); await until(async () => !(await layerOpen()), 2000);
-expect(!(await layerOpen()) && (await leftmost()) === home, 'moving off the rail closes it and the page returns');
+expect(await inFrame(`const e=d.elementFromPoint(w.innerWidth*0.6, w.innerHeight*0.5); return !!e && !e.closest('iframe[data-pf-layer]') && e.tagName!=='IFRAME';`), 'the page beside the expanded rail stays usable: a click there reaches the page');
+await p.mouse.move(item.x + 600 * item.k, item.y + 200 * item.k, { steps: 4 }); await wait(600);
+expect(await layerOpen(), 'moving off the expanded rail keeps it open, as the product does');
+/* Reports, clicked in the expanded rail with a real pointer, opens its group; clicked again, closes it */
+const inLayerAt = (sel) => p.evaluate((q) => { const f = document.getElementById('pfp-frame'), l = f.contentDocument.querySelector('iframe[data-pf-layer]'), b = l && l.contentDocument.querySelector(q); if (!b) return null; const fr = f.getBoundingClientRect(), k = fr.width / f.offsetWidth, r = b.getBoundingClientRect(); return { x: fr.left + (r.left + r.width / 2) * k, y: fr.top + (r.top + r.height / 2) * k }; }, sel);
+const reports = await inLayerAt('.pf-menu-submenu-title[data-menu-id$="-reports"]');
+if (reports) await p.mouse.click(reports.x, reports.y);
+const group = await ready(/rail-expanded-reports/);
+const kids = group && await inLayer(`return [...d.querySelectorAll('ul.pf-menu-sub li[data-menu-id]')].filter(x=>x.getBoundingClientRect().height>4).map(x=>x.textContent.trim());`);
+expect(!!group && JSON.stringify(kids) === '["Summary","Listing Report","Leads & Reach Report"]', `a click on Reports opens its group: ${JSON.stringify(kids)}`);
+expect(!!box && (await leftmost()) >= box.x + box.w - 2, 'the page stays pushed aside with the group open');
+const again = await inLayerAt('.pf-menu-submenu-title[data-menu-id$="-reports"]');
+if (again) await p.mouse.click(again.x, again.y);
+const shut = await until(async () => { const l = await lastLayer(); return l && /\/rail-expanded\.html$/.test(l.path) && l.info && l.info.type === 'ready' ? l : null; });
+expect(!!shut, 'a second click on Reports closes the group');
+const collapse = await p.evaluate(() => { const f = document.getElementById('pfp-frame'), l = f.contentDocument.querySelector('iframe[data-pf-layer]'), b = l && l.contentDocument.querySelector('.sidebar-collapse-btn'); if (!b) return null; const fr = f.getBoundingClientRect(), k = fr.width / f.offsetWidth, r = b.getBoundingClientRect(); return { x: fr.left + (r.left + r.width / 2) * k, y: fr.top + (r.top + r.height / 2) * k }; });
+if (collapse) await p.mouse.click(collapse.x, collapse.y);
+await until(async () => !(await layerOpen()), 2000);
+expect(!!collapse && !(await layerOpen()) && (await leftmost()) === home, 'its ‹ button collapses it and the page returns');
 
 /* the bell, on the design's own 2.0 page: the product's notifications, in its own styles */
 await click('[data-pf-go*="popover-notifications"]');

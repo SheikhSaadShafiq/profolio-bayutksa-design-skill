@@ -139,8 +139,10 @@ The braces do + − × ÷.
 
 **The shell is the product's, and works by itself.** Copy the compiled page's shell and leave it
 as it is:
-- **the rail** opens the other pages. It expands on a real hover, or on its expand button, and
-  pushes the page aside as the product does (`PUSH_CONTENT_ON_SIDEBAR_EXPAND`);
+- **the rail** opens the other pages. As in the product, it is click-toggled
+  (`PUSH_CONTENT_ON_SIDEBAR_EXPAND`): a click on the collapsed rail or its edge button expands
+  it and pushes the page aside, the page beside it stays usable, a click on Reports opens and
+  closes the group, and only the ‹ button collapses it. Hover does nothing;
 - **the header's bell, avatar, Post a Listing and help** open their compiled states over your
   screen, through the `data-pf-go` the compiled page already carries. On a phone, the menu and
   the drawers do the same;
@@ -248,7 +250,7 @@ It writes one file and checks:
   `rows`, `targets` and `small` are warnings.
 
 Then the **sweep**, from each screen's first state:
-- **every interaction**: each shell control and the rail's hover; each group a `shell.rail` item
+- **every interaction**: each shell control, the expanded rail among them; each group a `shell.rail` item
   goes `under`, opened (its item must show, and no label in the rail may be cut off); every `data-pf-menu` and
   `data-pf-open`. Each result is checked (`shell`: it opens something visible, on the screen,
   styled, and an expanded rail pushes the page aside; `clip`: a menu or sheet is not cut off),
