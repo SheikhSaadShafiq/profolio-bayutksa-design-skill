@@ -1,8 +1,8 @@
 {
  "schema_version": 1,
- "generated_at": "2026-10-02T06:56:05.925Z",
+ "generated_at": "2026-10-13T07:54:06.397Z",
  "qa_skill_name": "profolio-ksa-design",
- "qa_skill_version": "2.2.2",
+ "qa_skill_version": "2.3.2",
  "ids_available": false,
  "render_available": true,
  "scope": {
@@ -189,6 +189,6 @@
    "section_hint": "accessibility"
   }
  ],
- "render_coverage": "13 states × 2 platforms · 15 interactions · 8 extreme-data · 6 option renders",
+ "render_coverage": "13 states × 2 platforms · 14 interactions · 8 extreme-data · 6 option renders",
  "render_browser": "Playwright Chromium"
 }

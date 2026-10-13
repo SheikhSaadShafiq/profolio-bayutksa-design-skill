@@ -6,30 +6,30 @@ Quote the **route** (`/post-listing/:id/upgrade`) in a design and a QA note, nev
 
 | page | route | fixture URL | title | access | web | 375 | states |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| dashboard | `/dashboard` | = | Overview | signed in | `pages/dashboard.html` | `pages/dashboard.mobile.html` | 78 |
-| listings | `/listings` | = | My Listings | signed in | `pages/listings.html` | `pages/listings.mobile.html` | 101 |
-| credits-usage | `/credits-usage` | = | Credits Usage | signed in | `pages/credits-usage.html` | `pages/credits-usage.mobile.html` | 26 |
-| ad-license | `/ad-license` | = | Get a New Ad License | signed in | `pages/ad-license.html` | `pages/ad-license.mobile.html` | 29 |
-| lms-leads | `/lms/leads` | = | TruLeads | signed in | `pages/lms-leads.html` | `pages/lms-leads.mobile.html` | 101 |
-| reports-summary | `/reports/summary` | = | Reports · Summary | signed in | `pages/reports-summary.html` | `pages/reports-summary.mobile.html` | 29 |
-| reports-listing-report | `/reports/listing-report` | = | Reports · Listing Report | signed in | `pages/reports-listing-report.html` | `pages/reports-listing-report.mobile.html` | 25 |
-| reports-leads-reports | `/reports/leads-reports` | = | Reports · Leads | signed in | `pages/reports-leads-reports.html` | `pages/reports-leads-reports.mobile.html` | 35 |
-| user-settings-user-profile | `/user-settings/user-profile` | = | User Settings | signed in | `pages/user-settings-user-profile.html` | `pages/user-settings-user-profile.mobile.html` | 34 |
-| user-settings-agency-profile | `/user-settings/agency-profile` | = | Agency Settings | signed in | `pages/user-settings-agency-profile.html` | `pages/user-settings-agency-profile.mobile.html` | 24 |
-| user-settings-change-password | `/user-settings/change-password` | = | Change Password | signed in | `pages/user-settings-change-password.html` | `pages/user-settings-change-password.mobile.html` | 24 |
-| agency-staff | `/agency-staff` | = | Agency Staff | signed in | `pages/agency-staff.html` | `pages/agency-staff.mobile.html` | 44 |
-| agent-performance | `/agent-performance` | = | Agent Performance | signed in | `pages/agent-performance.html` | `pages/agent-performance.mobile.html` | 35 |
-| packages | `/packages` | = | Credits & Packages | signed in | `pages/packages.html` | `pages/packages.mobile.html` | 25 |
-| post-listing | `/post-listing` | = | Post a Listing | signed in | `pages/post-listing.html` | `pages/post-listing.mobile.html` | 27 |
-| user-settings-licenses | `/user-settings/licenses` | = | Licenses | signed in | `pages/user-settings-licenses.html` | `pages/user-settings-licenses.mobile.html` | 23 |
-| post-listing-edit | `/post-listing/:id` | `/post-listing/88240117` | Post a Listing · the form | signed in | `pages/post-listing-edit.html` | `pages/post-listing-edit.mobile.html` | 56 |
-| post-listing-upgrade | `/post-listing/:id/upgrade` | `/post-listing/88241126/upgrade` | Post a Listing · upgrade | signed in | `pages/post-listing-upgrade.html` | `pages/post-listing-upgrade.mobile.html` | 24 |
+| dashboard | `/dashboard` | = | Overview | signed in | `pages/dashboard.html` | `pages/dashboard.mobile.html` | 80 |
+| listings | `/listings` | = | My Listings | signed in | `pages/listings.html` | `pages/listings.mobile.html` | 103 |
+| credits-usage | `/credits-usage` | = | Credits Usage | signed in | `pages/credits-usage.html` | `pages/credits-usage.mobile.html` | 28 |
+| ad-license | `/ad-license` | = | Get a New Ad License | signed in | `pages/ad-license.html` | `pages/ad-license.mobile.html` | 31 |
+| lms-leads | `/lms/leads` | = | TruLeads | signed in | `pages/lms-leads.html` | `pages/lms-leads.mobile.html` | 103 |
+| reports-summary | `/reports/summary` | = | Reports · Summary | signed in | `pages/reports-summary.html` | `pages/reports-summary.mobile.html` | 31 |
+| reports-listing-report | `/reports/listing-report` | = | Reports · Listing Report | signed in | `pages/reports-listing-report.html` | `pages/reports-listing-report.mobile.html` | 27 |
+| reports-leads-reports | `/reports/leads-reports` | = | Reports · Leads | signed in | `pages/reports-leads-reports.html` | `pages/reports-leads-reports.mobile.html` | 37 |
+| user-settings-user-profile | `/user-settings/user-profile` | = | User Settings | signed in | `pages/user-settings-user-profile.html` | `pages/user-settings-user-profile.mobile.html` | 36 |
+| user-settings-agency-profile | `/user-settings/agency-profile` | = | Agency Settings | signed in | `pages/user-settings-agency-profile.html` | `pages/user-settings-agency-profile.mobile.html` | 26 |
+| user-settings-change-password | `/user-settings/change-password` | = | Change Password | signed in | `pages/user-settings-change-password.html` | `pages/user-settings-change-password.mobile.html` | 26 |
+| agency-staff | `/agency-staff` | = | Agency Staff | signed in | `pages/agency-staff.html` | `pages/agency-staff.mobile.html` | 46 |
+| agent-performance | `/agent-performance` | = | Agent Performance | signed in | `pages/agent-performance.html` | `pages/agent-performance.mobile.html` | 37 |
+| packages | `/packages` | = | Credits & Packages | signed in | `pages/packages.html` | `pages/packages.mobile.html` | 27 |
+| post-listing | `/post-listing` | = | Post a Listing | signed in | `pages/post-listing.html` | `pages/post-listing.mobile.html` | 29 |
+| user-settings-licenses | `/user-settings/licenses` | = | Licenses | signed in | `pages/user-settings-licenses.html` | `pages/user-settings-licenses.mobile.html` | 25 |
+| post-listing-edit | `/post-listing/:id` | `/post-listing/88240117` | Post a Listing · the form | signed in | `pages/post-listing-edit.html` | `pages/post-listing-edit.mobile.html` | 58 |
+| post-listing-upgrade | `/post-listing/:id/upgrade` | `/post-listing/88241126/upgrade` | Post a Listing · upgrade | signed in | `pages/post-listing-upgrade.html` | `pages/post-listing-upgrade.mobile.html` | 26 |
 | post-ad | `/post-ad/:id` | `/post-ad/88241127` | Magic Post Ad | public | `pages/post-ad.html` | `pages/post-ad.mobile.html` | 16 |
-| checkout | `/checkout?cart_id=:cart_id` | `/checkout?cart_id=4410231` | Checkout | signed in | `pages/checkout.html` | `pages/checkout.mobile.html` | 30 |
+| checkout | `/checkout?cart_id=:cart_id` | `/checkout?cart_id=4410231` | Checkout | signed in | `pages/checkout.html` | `pages/checkout.mobile.html` | 32 |
 | process-payment | `/content/process-payment` | = | Processing payment | public | `pages/process-payment.html` | `pages/process-payment.mobile.html` | 2 |
 | invite | `/invite?token=:token` | `/invite?token=b6f1e2c4-7a39-4d85-9e0f-3c2a8d71f5b4` | Agency Invitation | signed in | `pages/invite.html` | `pages/invite.mobile.html` | 4 |
 | maintenance | `/maintenance` | = | Maintenance | public | `pages/maintenance.html` | `pages/maintenance.mobile.html` | 0 |
-| user-settings-preferences | `/user-settings/preferences` | = | Preferences | signed in | `pages/user-settings-preferences.html` | `pages/user-settings-preferences.mobile.html` | 24 |
+| user-settings-preferences | `/user-settings/preferences` | = | Preferences | signed in | `pages/user-settings-preferences.html` | `pages/user-settings-preferences.mobile.html` | 26 |
 
 ## Who the product gives each route to
 

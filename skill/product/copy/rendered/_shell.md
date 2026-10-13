@@ -24,8 +24,11 @@ The header and the rail — and what opens inside them, such as the notification
 | Request Ad License | طلب رخصة إعلان | t | components/post-listing-menu/post-listing-menu.js:368 | web: menu-post-a-listing · @375: none (20 pages) |
 | NEW | جديد | t | components/post-listing-menu/post-listing-menu.js:372 | web: menu-post-a-listing · @375: none (20 pages) |
 | Daily Rental Listing | إعلان إيجار يومي | t | components/post-listing-menu/post-listing-menu.js:368 | web: menu-post-a-listing · @375: none (20 pages) |
-| العربية | not in translations | code | components/common/button/button.js:40 | web: modal-help-support-profolio, rail-expanded · @375: mobile-menu (20 pages) |
-| Help & Support | المساعدة والدعم | t | components/common/button/button.js:40 | web: modal-help-support-profolio, rail-expanded · @375: mobile-menu (20 pages) |
+| Summary | لمحة عامة | t | layout/withAdminLayout.js:322 · layout/MenueItems.js:141 | web: page, as-individual, as-staff, drawer-feedback +18 more · @375: page, as-individual, as-staff, drawer-feedback +21 more (20 pages) |
+| Listing Report | تقرير الإعلانات | t | layout/MenueItems.js:141 · layout/withAdminLayout.js:322 | web: page, as-individual, as-staff, drawer-feedback +20 more · @375: page, as-individual, as-staff, drawer-feedback +8 more (20 pages) |
+| Leads & Reach Report | تقرير الاستفسارات والتفاعل | t | layout/withAdminLayout.js:322 · layout/MenueItems.js:141 | web: page, as-individual, as-staff, drawer-feedback +22 more · @375: page, as-individual, as-staff, drawer-feedback +24 more (20 pages) |
+| العربية | not in translations | code | components/common/button/button.js:40 | web: modal-help-support-profolio, rail-expanded, rail-expanded-reports · @375: mobile-menu, mobile-menu-reports (20 pages) |
+| Help & Support | المساعدة والدعم | t | components/common/button/button.js:40 | web: modal-help-support-profolio, rail-expanded, rail-expanded-reports · @375: mobile-menu, mobile-menu-reports (20 pages) |
 | Faisal Al-Harbi | fixture: fixtures/user.json | data | components/utilities/auth-info/info.js:84 | web: popover-account, popover-faisal-al-harbi-agency-user · @375: none (20 pages) |
 | Agency User | not in translations | code | components/utilities/auth-info/info.js:89 | web: popover-account, popover-faisal-al-harbi-agency-user · @375: none (20 pages) |
 | faisal@najdhorizon.example | fixture: fixtures/user.json | data | components/utilities/auth-info/info.js:96 | web: popover-account, popover-faisal-al-harbi-agency-user · @375: none (20 pages) |
@@ -43,6 +46,3 @@ The header and the rail — and what opens inside them, such as the notification
 | 3 days ago ⟨{n} days ago⟩ | not in translations | code | components/common/text/text.js:8 | web: popover-notifications, popover-notifications-mark-all-as · @375: none (20 pages) |
 | No notifications found | لا يوجد إشعارات حاليًا | t | components/common/heading/heading.js:10 | web: popover-notifications-empty · @375: none (listings) |
 | Your notifications will appear here | ستظهر إشعاراتك هنا | t | components/common/EmptyState/EmptyState.js:149 | web: popover-notifications-empty · @375: none (listings) |
-| Leads & Reach Report | تقرير الاستفسارات والتفاعل | t | layout/withAdminLayout.js:322 | most files, web and @375 (reports-leads-reports) |
-| Listing Report | تقرير الإعلانات | t | layout/withAdminLayout.js:322 | most files, web and @375 (reports-listing-report) |
-| Summary | لمحة عامة | t | layout/withAdminLayout.js:322 | most files, web and @375 (reports-summary) |

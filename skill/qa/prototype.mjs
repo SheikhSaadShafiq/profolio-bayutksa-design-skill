@@ -204,10 +204,32 @@ for (const sf of screenFiles) {
   }
 }
 for (const e of Object.values(pageEntries)) for (const f of Object.values(e.files)) { const abs = join(SKILL, f); if (!existsSync(abs)) missing.push(abs); needed.set(f, abs); }
+/* beside each expanded rail and phone menu, its groups opened (registry: rail-expanded-<group>,
+   mobile-menu-<group>, e.g. Reports): a click on a group's title opens it, as in the product */
+for (const bp of [...needed.keys()]) {
+  const m = bp.match(/^pages\/([\w-]+)\/(rail-expanded|mobile-menu)(\.mobile)?\.html$/);
+  if (!m || !REG.pages[m[1]]) continue;
+  for (const sid of new Set((REG.pages[m[1]].states || []).map((x) => x.split('@')[0]).filter((x) => x.startsWith(m[2] + '-')))) {
+    const f = `pages/${m[1]}/${sid}${m[3] || ''}.html`, abs = join(SKILL, f);
+    if (!existsSync(abs)) missing.push(abs);
+    needed.set(f, abs);
+    for (const [as, to] of Object.entries(alias)) if (to === bp) alias[as.replace(new RegExp(`${m[2]}((\\.mobile)?\\.html)$`), `${sid}$1`)] = f;
+  }
+}
 /* and the compiled files each screen was made from (pf-base, pf-also): validate.py and the QA's
    baseline hold the screen to them */
 for (const sf of screenFiles) for (const src of sourcesOf(sf.html)) { const abs = join(SKILL, src); if (!existsSync(abs)) missing.push(abs); }
 if (missing.length) { log(`  fetching ${missing.length} compiled file(s) the prototype opens or was made from…`); fetchMissing(missing); }
+/* the shared files qa/validate.py reads (registry.source.assets: css/, prototype.js). A page
+   fetched on its own brings only the stylesheets it links, and validate.py then stops */
+{
+  const assets = ((REG.source || {}).assets || []).filter((a) => !existsSync(join(SKILL, a)));
+  if (assets.length) {
+    log(`  fetching the ${assets.length} shared file(s) qa/validate.py reads (python3 qa/fetch.py --css)…`);
+    const r = spawnSync('python3', [join(SKILL, 'qa', 'fetch.py'), '--css'], { cwd: SKILL, encoding: 'utf8' });
+    if (r.status !== 0) W('fetch', `python3 qa/fetch.py --css failed: ${(r.stdout + r.stderr).trim().split('\n').slice(-1)[0]}`);
+  }
+}
 for (const [bp, abs] of [...needed]) if (!existsSync(abs)) { needed.delete(bp); if (Object.values(alias).includes(bp)) W('fetch', `${bp} could not be fetched — its click will say it is not part of this prototype`); }
 for (const e of Object.values(pageEntries)) for (const [p, f] of Object.entries(e.files)) if (!needed.has(f)) delete e.files[p];
 for (const [id, e] of Object.entries(pageEntries)) if (!Object.keys(e.files).length) delete pageEntries[id];
@@ -387,7 +409,7 @@ ${files.join('\n')}
 }
 
 /* ── 6 · the visual QA ───────────────────────────────────────────────── */
-const LAYOUT = new Set(['align', 'controls', 'rows', 'overlap', 'clip', 'small', 'targets', 'skeleton']);
+const LAYOUT = new Set(['align', 'controls', 'rows', 'overlap', 'clip', 'small', 'targets', 'skeleton', 'rail', 'unstyled']);
 const SIZE = { web: { width: 1440, height: 900 }, phone: { width: 375, height: 812 } };
 async function visual() {
   if (flag('--no-qa')) return { ran: false, note: 'built with --no-qa' };
@@ -399,6 +421,8 @@ async function visual() {
   const qaSrc = KIT('qa.js');
   const found = [];
   const baseline = { web: new Set(), phone: new Set() };
+  const railOf = new Map();          // a pf-base → its rail on the web: { w, keys }, held against the design's
+  const headOf = new Map();          // a pf-base + platform → its header: { h }
   const sweep = { interactions: 0, extremes: 0, options: 0 };
   try {
     for (const pl of PLATFORMS) {
@@ -411,12 +435,19 @@ async function visual() {
         await page.goto(pathToFileURL(abs).href);
         const res = await page.evaluate((src) => { const s = document.createElement('script'); s.textContent = src; document.head.appendChild(s); return window.pfQA({}); }, qaSrc);
         for (const i of res.issues) if (LAYOUT.has(i.check)) baseline[pl].add(i.check + '|' + i.message);
+        headOf.set(base + '|' + pl, await page.evaluate(() => { const h = document.querySelector('.pf-layout-header'); return h ? { h: Math.round(h.getBoundingClientRect().height) } : null; }));
+        if (pl === 'web') railOf.set(base, await page.evaluate(() => {
+          const s = document.querySelector('.pf-layout-sider');
+          return s ? { w: Math.round(s.getBoundingClientRect().width), keys: [...s.querySelectorAll('[data-menu-id]')].map((e) => e.getAttribute('data-menu-id').replace(/^rc-menu-uuid-\d+-\d+-/, '')) } : null;
+        }));
       }
       await page.goto(pathToFileURL(OUT).href + '#shot');
       for (let t = 0; t < 120 && !(await page.evaluate(() => !!(window.__pfp))); t++) await new Promise((r) => setTimeout(r, 250));
       for (const s of states) {
         const st = await page.evaluate(([id, p]) => window.__pfp.go(id, p).then(() => true, (e) => String(e)), [s.id, pl]);
-        const res = await page.evaluate(() => window.__pfp.qa({}));
+        const sf = screenFiles.find((f) => f.screen.id === (s.screen || screens[0].id) && f.platform === pl);
+        const src0 = sf && sourcesOf(sf.html)[0];
+        const res = await page.evaluate((o) => window.__pfp.qa(o), { rail: (src0 && railOf.get(src0)) || null, header: (src0 && headOf.get(src0 + '|' + pl)) || null });
         const runtime = [...new Set([...(res.errors || []), ...(res.frameErrors || [])])];
         for (const m of runtime) found.push({ level: 'error', check: 'runtime', message: 'the prototype errs: ' + m, state: s.id, platform: pl });
         for (const d of new Set(res.dead || [])) found.push({ level: 'error', check: 'dead', message: `“${d}” was clicked and is not wired`, state: s.id, platform: pl });

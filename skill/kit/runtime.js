@@ -524,6 +524,13 @@
   /* the header's links that leave the product: where they go */
   var SHELL_OUT = { 'Download App': 'Opens the Profolio app in the App Store or Google Play', 'Go to Bayut.sa': 'Opens bayut.sa in a new tab', 'Help & Support': 'Opens Help & Support' };
   function shellClick(t, e) {
+    /* a click on the collapsed rail, off its items and buttons, expands it, as the product's
+       Sider onClick does (withAdminLayout.js); its edge button carries its own data-pf-go */
+    var collapsed = !isPhone() && t.closest('.pf-layout-sider');
+    if (collapsed && !t.closest('[data-menu-id], [data-pf-go], button, a, input, select')) {
+      var exp = collapsed.querySelector('[data-pf-go*="rail-expanded"]');
+      if (exp) { e.preventDefault(); e.stopPropagation(); shell(exp.getAttribute('data-pf-go'), exp); return true; }
+    }
     var sh = t.closest('[data-pf-shell-root], .pf-layout-header, .pf-layout-sider');
     if (sh) {
       var c = t.closest('button, a, [role=button], [role=menuitem], li, div');
@@ -621,10 +628,16 @@
     var m = ev.data;
     if (!m || !m.pfLayer || !layer || ev.source !== layer.frame.contentWindow) return;
     var L = layer;
-    if (m.type === 'ready') { L.info = m; settle(L); }
+    if (m.type === 'ready') {
+      /* the expanded rail (web) covers only itself and its edge button: the product's page stays
+         usable beside it, as it is pushed, not dimmed. clip-path clips hit-testing too */
+      var rb = L.mode === 'rail' && !isPhone() && (m.boxes || []).filter(function (b) { return !b.scrim; })[0];
+      if (rb) L.frame.style.clipPath = 'inset(0 ' + Math.max(0, Math.round(innerWidth - (rb.x + rb.w + 24))) + 'px 0 0)';
+      L.info = m; settle(L);
+    }
     else if (m.type === 'empty') { L.info = m; settle(L); closeShell(); toast('Nothing opens here in this prototype'); }
     else if (m.type === 'close') closeShell();
-    else if (m.type === 'go') shell(m.path, null);
+    else if (m.type === 'go') shell(m.path, null, { hover: !!m.hover });
     else if (m.type === 'page') { closeShell(); page(m.to); }
     else if (m.type === 'nav') {
       closeShell();
@@ -635,31 +648,82 @@
     }
   });
 
-  /* the rail as this design changes it (flow.json shell.rail): a new item after a neighbour, with
-     another item's icon; which item is selected. The same edits run on every rail drawn. */
+  /* the rail as this design changes it (flow.json shell.rail), the same on every rail drawn (the
+     design's own, the other pages', the expanded rail, the open group, the phone's menu):
+     - add: an item after a neighbour (`after`), or inside a group (`under`: "reports", into its
+       open submenu, after `after` or last). It is copied from an item of the same level, so it
+       keeps the product's classes and markers; `icon` borrows another item's icon (top level);
+       `tag: "NEW"` adds the product's own NEW chip (.pf-new-chip, the Post a Listing menu's), 6 px
+       after the label as the product spaces it. A group drawn closed or flattened (the collapsed
+       rail) shows no child, so nothing is added there;
+     - selected: the item drawn selected. A group whose selected child is not drawn is drawn
+       selected (antd), unless the rail is collapsed: there the product selects nothing.
+     Keys are compared whole: "reports" is not "listing-reports". Returns what it did. */
   function editRail(sider, edits, selected) {
-    if (!sider || !edits) return;
+    var did = { added: [], skipped: [] };
+    if (!sider || !edits) return did;
+    function keyOf(e) { return (e.getAttribute('data-menu-id') || '').replace(/^rc-menu-uuid-\d+-\d+-/, ''); }
+    function byKey(k) { var all = sider.querySelectorAll('[data-menu-id]'); for (var i = 0; i < all.length; i++) if (keyOf(all[i]) === k) return all[i]; return null; }
+    function itemOf(e) { return !e ? null : e.matches('.pf-menu-submenu-title') ? e.closest('.pf-menu-submenu') : e.closest('li'); }
+    function kids(list) { return Array.prototype.filter.call(list.children, function (c) { return c.matches('li[data-menu-id], li.pf-menu-submenu'); }); }
     (edits.add || []).forEach(function (a) {
-      if (sider.querySelector('[data-menu-id$="-' + a.key + '"]')) return;
-      var after = sider.querySelector('[data-menu-id$="-' + a.after + '"]');
-      if (!after) return;
-      var li = after.cloneNode(true);
-      li.setAttribute('data-menu-id', (after.getAttribute('data-menu-id') || '').replace(/^(rc-menu-uuid-\d+-\d+-).*$/, '$1') + a.key);
-      li.setAttribute('title', a.label);
-      li.classList.remove('pf-menu-item-selected');
+      if (!a || !a.key) return;
+      if (byKey(a.key)) { did.added.push(a.key); return; }
+      var list, after, tpl;
+      if (a.under) {
+        var title = byKey(a.under), group = title && title.closest('.pf-menu-submenu');
+        list = group && group.querySelector('ul.pf-menu-sub');
+        if (!list) { did.skipped.push({ key: a.key, under: a.under || null }); return; }
+        var ks = kids(list);
+        tpl = ks.filter(function (c) { return c.matches('li[data-menu-id]'); }).pop();
+        after = itemOf(a.after && byKey(a.after));
+        if (!after || after.parentNode !== list) after = ks[ks.length - 1];
+      } else {
+        after = itemOf(a.after && byKey(a.after));
+        if (!after) { did.skipped.push({ key: a.key, under: a.under || null }); return; }
+        list = after.parentNode;
+        tpl = after.matches('li.pf-menu-item[data-menu-id]') ? after : kids(list).filter(function (c) { return c.matches('li.pf-menu-item[data-menu-id]'); })[0];
+      }
+      if (!tpl || !after) { did.skipped.push({ key: a.key, under: a.under || null }); return; }
+      var li = tpl.cloneNode(true);
+      li.setAttribute('data-menu-id', (tpl.getAttribute('data-menu-id') || '').replace(/^(rc-menu-uuid-\d+-\d+-).*$/, '$1') + a.key);
+      li.setAttribute('data-pf-rail-add', a.key);
+      if (li.getAttribute('title')) li.setAttribute('title', a.label);   /* the collapsed rail's tooltip; an expanded rail's items carry none */
+      li.classList.remove('pf-menu-item-selected', 'pf-menu-item-active');
+      li.removeAttribute('data-pf-go');
       if (a.page) li.setAttribute('data-pf-page', a.page);
-      /* its label: the text outside its icon (an expanded rail's items carry an empty title) */
-      var w = document.createTreeWalker(li, NodeFilter.SHOW_TEXT), swapped = false;
-      for (var t = w.nextNode(); t; t = w.nextNode()) if (t.textContent.trim() && !(t.parentElement && t.parentElement.closest('.anticon, svg'))) { t.textContent = a.label; swapped = true; break; }
-      if (!swapped) li.appendChild(document.createTextNode(a.label));
-      var src = a.icon && sider.querySelector('[data-menu-id$="-' + a.icon + '"] .anticon'), dst = li.querySelector('.anticon');
-      if (src && dst) dst.replaceWith(src.cloneNode(true));
-      after.parentNode.insertBefore(li, after.nextSibling);
+      Array.prototype.forEach.call(li.querySelectorAll('.pf-new-chip'), function (c) { c.remove(); });
+      /* its label: the text outside its icon */
+      var w = document.createTreeWalker(li, NodeFilter.SHOW_TEXT), host = null;
+      for (var t = w.nextNode(); t; t = w.nextNode()) if (t.textContent.trim() && !(t.parentElement && t.parentElement.closest('.anticon, svg'))) { t.textContent = a.label; host = t.parentElement; break; }
+      if (!host) { li.appendChild(document.createTextNode(a.label)); host = li; }
+      var src = !a.under && a.icon && byKey(a.icon), ico = src && src.querySelector('.anticon'), dst = li.querySelector('.anticon');
+      if (ico && dst) dst.replaceWith(ico.cloneNode(true));
+      if (a.tag) {
+        var chip = document.createElement('span');
+        chip.className = 'pf-new-chip';
+        chip.textContent = a.tag;
+        chip.style.marginInlineStart = '6px';
+        chip.style.verticalAlign = 'middle';
+        host.appendChild(chip);
+      }
+      list.insertBefore(li, after.nextSibling);
+      did.added.push(a.key);
     });
     if (selected) {
-      var sel = sider.querySelector('[data-menu-id$="-' + selected + '"]');
-      if (sel) { Array.prototype.forEach.call(sider.querySelectorAll('.pf-menu-item-selected'), function (e) { e.classList.remove('pf-menu-item-selected'); }); sel.classList.add('pf-menu-item-selected'); }
+      Array.prototype.forEach.call(sider.querySelectorAll('.pf-menu-item-selected, .pf-menu-submenu-selected'), function (e) { e.classList.remove('pf-menu-item-selected', 'pf-menu-submenu-selected'); });
+      var sel = byKey(selected), add = (edits.add || []).filter(function (a) { return a && a.key === selected; })[0];
+      var item = itemOf(sel);
+      if (item) {
+        item.classList.add(item.matches('.pf-menu-submenu') ? 'pf-menu-submenu-selected' : 'pf-menu-item-selected');
+        var up = item.parentNode && item.parentNode.closest && item.parentNode.closest('.pf-menu-submenu');
+        if (up) up.classList.add('pf-menu-submenu-selected');
+      } else if (add && add.under) {
+        var g = itemOf(byKey(add.under));
+        if (g && g.matches('.pf-menu-submenu')) g.classList.add('pf-menu-submenu-selected');
+      }
     }
+    return did;
   }
 
   /* the product pushes the page aside when its rail expands (PUSH_CONTENT_ON_SIDEBAR_EXPAND) */
@@ -683,24 +747,21 @@
       ['width', 'min-width', 'max-width', 'flex-basis'].forEach(function (p) { save(box, p, W + 'px'); });
       return;
     }
-    /* a fixed rail (the current theme): the content that starts where it ends moves over */
+    /* a fixed rail (the current theme): the product moves its main layout over by its own
+       --sidebar-offset (withAdminLayout.js; .pf-div .atbd-main-layout { margin-inline-start:
+       var(--sidebar-offset) }, with a 220 ms transition), and redraws its charts at the narrower
+       width. A static page cannot redraw them: what no longer fits is clipped, rather than the page
+       scrolling sideways. Not found by its computed margin: mid-transition, that is not 60 */
+    var main = document.querySelector('.atbd-main-layout');
+    if (main) { save(main, '--sidebar-offset', W + 'px'); save(main, 'overflow-x', 'clip'); return; }
     var c = Array.prototype.filter.call(document.querySelectorAll('body *'), function (e) {
       if (e.closest('.pf-layout-sider')) return false;
       return Math.abs(parseFloat(getComputedStyle(e).marginLeft) - w) < 2 && e.getBoundingClientRect().width > innerWidth * 0.5;
     })[0];
     if (c) save(c, 'margin-left', W + 'px');
   }
-  /* the product opens the rail on hover — a real pointer, resting on it, not one that happens to be there */
-  var moved = false, hoverT = null;
-  document.addEventListener('pointermove', function (e) { if (e.movementX || e.movementY) moved = true; }, true);
-  document.addEventListener('pointerover', function (e) {
-    var rail = e.target.closest && e.target.closest('.pf-layout-sider');
-    if (!rail || !moved || layer || isPhone()) return;
-    var btn = rail.querySelector('[data-pf-go*="rail-expanded"]');
-    if (!btn) return;
-    clearTimeout(hoverT);
-    hoverT = setTimeout(function () { if (rail.matches(':hover') && !layer) shell(btn.getAttribute('data-pf-go'), null, { hover: true }); }, 180);
-  });
+  /* the rail does not open on hover: in KSA it is click-toggled (PUSH_CONTENT_ON_SIDEBAR_EXPAND
+     makes withAdminLayout.js drop its onMouseEnter and onMouseLeave), so shellClick opens it */
   /* tooltips the product shows on hover: a data-pf-go to a …/tooltip-… state */
   document.addEventListener('pointerover', function (e) {
     var t = e.target.closest && e.target.closest('[data-pf-go*="tooltip-"]');
@@ -774,7 +835,13 @@
       had['go:' + g] = 1;
       out.push({ kind: 'shell', key: g, label: labelOf(e) || g.split('/').pop().replace(/\.html$/, '') });
     });
-    if (!isPhone() && document.querySelector('.pf-layout-sider [data-pf-go*="rail-expanded"]')) out.push({ kind: 'hover', key: 'rail', label: 'hovering the rail' });
+    /* the expanded rail is opened by the collapsed rail's button: a data-pf-go target above */
+    /* a group the design adds an item to (shell.rail add.under), opened in the expanded rail or the
+       phone's menu: the item must show there */
+    if (railMenu()) {
+      var groups = {};
+      ((railEdits() || {}).add || []).forEach(function (a) { if (a && a.under && !groups[a.under]) { groups[a.under] = 1; out.push({ kind: 'group', key: a.under, label: (isPhone() ? 'the menu’s “' : 'the rail’s “') + a.under + '” group, opened' }); } });
+    }
     ['menu', 'open'].forEach(function (k) {
       Array.prototype.forEach.call(document.querySelectorAll('[data-pf-' + k + ']'), function (e) {
         var id = e.getAttribute('data-pf-' + k);
@@ -784,6 +851,11 @@
       });
     });
     return out;
+  }
+  /* the compiled state the shell's navigation opens: the expanded rail (web), the menu (phone) */
+  function railMenu() {
+    var e = isPhone() ? document.querySelector('[data-pf-go*="mobile-menu"]') : document.querySelector('.pf-layout-sider [data-pf-go*="rail-expanded"]');
+    return e ? e.getAttribute('data-pf-go') : null;
   }
   function textLeftUnder(right) {
     /* the design's text that an expanded rail would lie over: left of its right edge, below the header */
@@ -801,8 +873,9 @@
   function interact(t) {
     closeShell(); set('menu', ''); set('overlay', '');
     dirty = true; render();
-    if (t.kind === 'shell' || t.kind === 'hover') {
-      var path = t.kind === 'hover' ? document.querySelector('.pf-layout-sider [data-pf-go*="rail-expanded"]').getAttribute('data-pf-go') : t.key;
+    if (t.kind === 'shell' || t.kind === 'hover' || t.kind === 'group') {
+      var exp = t.kind !== 'shell' && railMenu();
+      var path = t.kind === 'hover' ? exp : t.kind === 'group' ? exp.replace(/(rail-expanded|mobile-menu)((\.mobile)?\.html)/, '$1-' + t.key + '$2') : t.key;
       return shell(path, null, { hover: t.kind === 'hover' }).then(function (info) {
         return new Promise(function (r) { setTimeout(r, 300); }).then(function () {
           var rail = info && info.boxes && info.boxes.filter(function (b) { return !b.scrim; })[0];

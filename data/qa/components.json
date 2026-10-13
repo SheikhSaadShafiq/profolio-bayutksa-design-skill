@@ -1,8 +1,8 @@
 {
- "at": "2026-10-01T09:35:15.440Z",
+ "at": "2026-10-12T12:11:45.798Z",
  "bar": 1,
- "ok": 1559,
- "measured": 1771,
+ "ok": 1562,
+ "measured": 1774,
  "results": {
   "AuthInfo_src_components_utilities_auth-info_info_js__1": {
    "component": "auth-info",
@@ -32,8 +32,8 @@
    "component": "button",
    "level": "atom",
    "device": "web",
-   "pct": 0.469,
-   "ok": true,
+   "pct": null,
+   "ok": false,
    "rules": 34
   },
   "Button_src_components_common_button_button_js__3": {
@@ -556,6 +556,14 @@
    "ok": true,
    "rules": 23
   },
+  "Avatar_src_components_common_avatar_avatar_js__m11": {
+   "component": "avatar",
+   "level": "atom",
+   "device": "mobile",
+   "pct": 0,
+   "ok": true,
+   "rules": 12
+  },
   "ChevronRightIcon_src_components_svg_js__1": {
    "component": "chevron-right-icon",
    "level": "atom",
@@ -864,7 +872,7 @@
    "component": "home",
    "level": "page",
    "device": "web",
-   "pct": 2.675,
+   "pct": 2.188,
    "ok": false,
    "rules": 496
   },
@@ -2644,7 +2652,15 @@
    "ok": false,
    "rules": 70
   },
-  "pf-menu__m4": {
+  "pf-menu__m5": {
+   "component": "antd-menu",
+   "level": "organism",
+   "device": "mobile",
+   "pct": 0,
+   "ok": true,
+   "rules": 44
+  },
+  "pf-menu__m6": {
    "component": "antd-menu",
    "level": "organism",
    "device": "mobile",
@@ -5252,13 +5268,13 @@
    "ok": true,
    "rules": 89
   },
-  "HistoryBreakdown_src_components_credits-usage_history-breakd__3": {
+  "HistoryBreakdown_src_components_credits-usage_history-breakd__4": {
    "component": "history-breakdown",
    "level": "organism",
    "device": "web",
-   "pct": 0.444,
+   "pct": 0,
    "ok": true,
-   "rules": 89
+   "rules": 88
   },
   "HistoryBreakdown_src_components_credits-usage_history-breakd__m7": {
    "component": "history-breakdown",
@@ -5708,6 +5724,14 @@
    "ok": true,
    "rules": 19
   },
+  "ListingBreakdown_src_components_widgets_listing-breakdown_li__2": {
+   "component": "listing-breakdown",
+   "level": "organism",
+   "device": "web",
+   "pct": 1.132,
+   "ok": false,
+   "rules": 98
+  },
   "ListingBreakdown_src_components_widgets_listing-breakdown_li__1": {
    "component": "listing-breakdown",
    "level": "organism",
@@ -5715,14 +5739,6 @@
    "pct": 0.052,
    "ok": true,
    "rules": 120
-  },
-  "ListingBreakdown_src_components_widgets_listing-breakdown_li__2": {
-   "component": "listing-breakdown",
-   "level": "organism",
-   "device": "web",
-   "pct": 1.13,
-   "ok": false,
-   "rules": 98
   },
   "ListingBreakdown_src_components_widgets_listing-breakdown_li__4": {
    "component": "listing-breakdown",
@@ -8548,14 +8564,6 @@
    "ok": true,
    "rules": 2
   },
-  "LocationSelect_src_tenant_bayut_components_post-listing_loca__1": {
-   "component": "location-select",
-   "level": "organism",
-   "device": "web",
-   "pct": 0.006,
-   "ok": true,
-   "rules": 15
-  },
   "LocationSelect_src_tenant_bayut_components_post-listing_loca__2": {
    "component": "location-select",
    "level": "organism",
@@ -8563,6 +8571,14 @@
    "pct": 0,
    "ok": true,
    "rules": 58
+  },
+  "LocationSelect_src_tenant_bayut_components_post-listing_loca__1": {
+   "component": "location-select",
+   "level": "organism",
+   "device": "web",
+   "pct": 0.006,
+   "ok": true,
+   "rules": 15
   },
   "LocationSelect_src_tenant_bayut_components_post-listing_loca__3": {
    "component": "location-select",
@@ -9896,15 +9912,15 @@
    "component": "listing-reports",
    "level": "page",
    "device": "web",
-   "pct": 1.047,
-   "ok": false,
+   "pct": 0.342,
+   "ok": true,
    "rules": 322
   },
   "ListingReports_src_container_pages_reports_listing-reports_j__3": {
    "component": "listing-reports",
    "level": "page",
    "device": "web",
-   "pct": 0,
+   "pct": 0.128,
    "ok": true,
    "rules": 229
   },
@@ -9912,7 +9928,7 @@
    "component": "listing-reports",
    "level": "page",
    "device": "web",
-   "pct": 0.005,
+   "pct": 0.256,
    "ok": true,
    "rules": 322
   },
@@ -10588,12 +10604,28 @@
    "ok": true,
    "rules": 45
   },
-  "SmartCreditsUtilizationModal_src_tenant_common_components_sm__m2": {
+  "SmartCreditsUtilizationModal_src_tenant_common_components_sm__2": {
+   "component": "smart-credits-utilization-modal",
+   "level": "atom",
+   "device": "web",
+   "pct": 0,
+   "ok": true,
+   "rules": 45
+  },
+  "SmartCreditsUtilizationModal_src_tenant_common_components_sm__m3": {
    "component": "smart-credits-utilization-modal",
    "level": "atom",
    "device": "mobile",
    "pct": 0,
    "ok": true,
+   "rules": 45
+  },
+  "SmartCreditsUtilizationModal_src_tenant_common_components_sm__m4": {
+   "component": "smart-credits-utilization-modal",
+   "level": "atom",
+   "device": "mobile",
+   "pct": 3.214,
+   "ok": false,
    "rules": 45
   },
   "UserProfile_src_container_pages_user-settings_profile_js__1": {

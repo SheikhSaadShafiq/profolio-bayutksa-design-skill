@@ -1,5 +1,5 @@
 {
-  "at": "2026-10-01T09:41:39.246Z",
+  "at": "2026-10-12T11:20:37.005Z",
   "bar": 0.5,
   "rows": [
     {
@@ -498,6 +498,17 @@
       "pct": 0
     },
     {
+      "name": "ad-license--mobile-menu-reports--mobile",
+      "device": "mobile",
+      "file": "deliverables/mobile/states/ad-license--mobile-menu-reports.html",
+      "kb": 397,
+      "heights": [
+        812,
+        812
+      ],
+      "pct": 0
+    },
+    {
       "name": "ad-license--modal-download-app",
       "device": "web",
       "file": "deliverables/states/ad-license--modal-download-app.html",
@@ -546,6 +557,17 @@
       "device": "web",
       "file": "deliverables/states/ad-license--rail-expanded.html",
       "kb": 453,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "ad-license--rail-expanded-reports",
+      "device": "web",
+      "file": "deliverables/states/ad-license--rail-expanded-reports.html",
+      "kb": 456,
       "heights": [
         900,
         900
@@ -1059,6 +1081,17 @@
       "pct": 0
     },
     {
+      "name": "agency-staff--mobile-menu-reports--mobile",
+      "device": "mobile",
+      "file": "deliverables/mobile/states/agency-staff--mobile-menu-reports.html",
+      "kb": 367,
+      "heights": [
+        812,
+        812
+      ],
+      "pct": 0
+    },
+    {
       "name": "agency-staff--modal-delete-user",
       "device": "web",
       "file": "deliverables/states/agency-staff--modal-delete-user.html",
@@ -1283,6 +1316,17 @@
       "device": "web",
       "file": "deliverables/states/agency-staff--rail-expanded.html",
       "kb": 408,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "agency-staff--rail-expanded-reports",
+      "device": "web",
+      "file": "deliverables/states/agency-staff--rail-expanded-reports.html",
+      "kb": 411,
       "heights": [
         900,
         900
@@ -1653,6 +1697,17 @@
       "pct": 0
     },
     {
+      "name": "agent-performance--mobile-menu-reports--mobile",
+      "device": "mobile",
+      "file": "deliverables/mobile/states/agent-performance--mobile-menu-reports.html",
+      "kb": 439,
+      "heights": [
+        812,
+        812
+      ],
+      "pct": 0
+    },
+    {
       "name": "agent-performance--modal-download-app",
       "device": "web",
       "file": "deliverables/states/agent-performance--modal-download-app.html",
@@ -1816,6 +1871,17 @@
         900
       ],
       "pct": 0.051
+    },
+    {
+      "name": "agent-performance--rail-expanded-reports",
+      "device": "web",
+      "file": "deliverables/states/agent-performance--rail-expanded-reports.html",
+      "kb": 498,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.038
     },
     {
       "name": "checkout",
@@ -2302,6 +2368,17 @@
       "pct": 0
     },
     {
+      "name": "checkout--mobile-menu-reports--mobile",
+      "device": "mobile",
+      "file": "deliverables/mobile/states/checkout--mobile-menu-reports.html",
+      "kb": 335,
+      "heights": [
+        812,
+        812
+      ],
+      "pct": 0
+    },
+    {
       "name": "checkout--modal-download-app",
       "device": "web",
       "file": "deliverables/states/checkout--modal-download-app.html",
@@ -2394,6 +2471,17 @@
       "device": "web",
       "file": "deliverables/states/checkout--rail-expanded.html",
       "kb": 380,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "checkout--rail-expanded-reports",
+      "device": "web",
+      "file": "deliverables/states/checkout--rail-expanded-reports.html",
+      "kb": 384,
       "heights": [
         900,
         900
@@ -2687,6 +2775,17 @@
       "pct": 0
     },
     {
+      "name": "credits-usage--mobile-menu-reports--mobile",
+      "device": "mobile",
+      "file": "deliverables/mobile/states/credits-usage--mobile-menu-reports.html",
+      "kb": 401,
+      "heights": [
+        812,
+        812
+      ],
+      "pct": 0
+    },
+    {
       "name": "credits-usage--modal-download-app",
       "device": "web",
       "file": "deliverables/states/credits-usage--modal-download-app.html",
@@ -2773,6 +2872,17 @@
         900
       ],
       "pct": 0.083
+    },
+    {
+      "name": "credits-usage--rail-expanded-reports",
+      "device": "web",
+      "file": "deliverables/states/credits-usage--rail-expanded-reports.html",
+      "kb": 461,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.063
     },
     {
       "name": "dashboard",
@@ -3512,6 +3622,17 @@
       "pct": 0
     },
     {
+      "name": "dashboard--mobile-menu-reports--mobile",
+      "device": "mobile",
+      "file": "deliverables/mobile/states/dashboard--mobile-menu-reports.html",
+      "kb": 795,
+      "heights": [
+        812,
+        812
+      ],
+      "pct": 0
+    },
+    {
       "name": "dashboard--modal-download-app",
       "device": "web",
       "file": "deliverables/states/dashboard--modal-download-app.html",
@@ -3835,6 +3956,17 @@
       "device": "web",
       "file": "deliverables/states/dashboard--rail-expanded.html",
       "kb": 922,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "dashboard--rail-expanded-reports",
+      "device": "web",
+      "file": "deliverables/states/dashboard--rail-expanded-reports.html",
+      "kb": 930,
       "heights": [
         900,
         900
@@ -4700,6 +4832,17 @@
       "pct": 0
     },
     {
+      "name": "listings--mobile-menu-reports--mobile",
+      "device": "mobile",
+      "file": "deliverables/mobile/states/listings--mobile-menu-reports.html",
+      "kb": 647,
+      "heights": [
+        812,
+        812
+      ],
+      "pct": 0
+    },
+    {
       "name": "listings--modal-booking",
       "device": "web",
       "file": "deliverables/states/listings--modal-booking.html",
@@ -5160,6 +5303,17 @@
         900
       ],
       "pct": 0.011
+    },
+    {
+      "name": "listings--rail-expanded-reports",
+      "device": "web",
+      "file": "deliverables/states/listings--rail-expanded-reports.html",
+      "kb": 796,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.013
     },
     {
       "name": "listings--select-property-type",
@@ -6713,6 +6867,17 @@
       "pct": 0
     },
     {
+      "name": "lms-leads--mobile-menu-reports--mobile",
+      "device": "mobile",
+      "file": "deliverables/mobile/states/lms-leads--mobile-menu-reports.html",
+      "kb": 512,
+      "heights": [
+        812,
+        812
+      ],
+      "pct": 0
+    },
+    {
       "name": "lms-leads--modal-download-app",
       "device": "web",
       "file": "deliverables/states/lms-leads--modal-download-app.html",
@@ -6981,6 +7146,17 @@
       "device": "web",
       "file": "deliverables/states/lms-leads--rail-expanded.html",
       "kb": 625,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.004
+    },
+    {
+      "name": "lms-leads--rail-expanded-reports",
+      "device": "web",
+      "file": "deliverables/states/lms-leads--rail-expanded-reports.html",
+      "kb": 626,
       "heights": [
         900,
         900
@@ -7439,6 +7615,17 @@
       "pct": 0
     },
     {
+      "name": "packages--mobile-menu-reports--mobile",
+      "device": "mobile",
+      "file": "deliverables/mobile/states/packages--mobile-menu-reports.html",
+      "kb": 491,
+      "heights": [
+        812,
+        812
+      ],
+      "pct": 0
+    },
+    {
       "name": "packages--modal-download-app",
       "device": "web",
       "file": "deliverables/states/packages--modal-download-app.html",
@@ -7498,6 +7685,17 @@
       "device": "web",
       "file": "deliverables/states/packages--rail-expanded.html",
       "kb": 522,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.028
+    },
+    {
+      "name": "packages--rail-expanded-reports",
+      "device": "web",
+      "file": "deliverables/states/packages--rail-expanded-reports.html",
+      "kb": 525,
       "heights": [
         900,
         900
@@ -8154,6 +8352,17 @@
       "pct": 0
     },
     {
+      "name": "post-listing--mobile-menu-reports--mobile",
+      "device": "mobile",
+      "file": "deliverables/mobile/states/post-listing--mobile-menu-reports.html",
+      "kb": 322,
+      "heights": [
+        812,
+        812
+      ],
+      "pct": 0
+    },
+    {
       "name": "post-listing--modal-download-app",
       "device": "web",
       "file": "deliverables/states/post-listing--modal-download-app.html",
@@ -8246,6 +8455,17 @@
       "device": "web",
       "file": "deliverables/states/post-listing--rail-expanded.html",
       "kb": 351,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "post-listing--rail-expanded-reports",
+      "device": "web",
+      "file": "deliverables/states/post-listing--rail-expanded-reports.html",
+      "kb": 354,
       "heights": [
         900,
         900
@@ -8935,6 +9155,17 @@
       "pct": 0
     },
     {
+      "name": "post-listing-edit--mobile-menu-reports--mobile",
+      "device": "mobile",
+      "file": "deliverables/mobile/states/post-listing-edit--mobile-menu-reports.html",
+      "kb": 572,
+      "heights": [
+        812,
+        812
+      ],
+      "pct": 0
+    },
+    {
       "name": "post-listing-edit--modal-add-amenities",
       "device": "web",
       "file": "deliverables/states/post-listing-edit--modal-add-amenities.html",
@@ -9175,6 +9406,17 @@
         900
       ],
       "pct": 0.154
+    },
+    {
+      "name": "post-listing-edit--rail-expanded-reports",
+      "device": "web",
+      "file": "deliverables/states/post-listing-edit--rail-expanded-reports.html",
+      "kb": 1053,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.151
     },
     {
       "name": "post-listing-upgrade",
@@ -9573,6 +9815,17 @@
       "pct": 0
     },
     {
+      "name": "post-listing-upgrade--mobile-menu-reports--mobile",
+      "device": "mobile",
+      "file": "deliverables/mobile/states/post-listing-upgrade--mobile-menu-reports.html",
+      "kb": 477,
+      "heights": [
+        812,
+        812
+      ],
+      "pct": 0
+    },
+    {
       "name": "post-listing-upgrade--modal-download-app",
       "device": "web",
       "file": "deliverables/states/post-listing-upgrade--modal-download-app.html",
@@ -9621,6 +9874,17 @@
       "device": "web",
       "file": "deliverables/states/post-listing-upgrade--rail-expanded.html",
       "kb": 468,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "post-listing-upgrade--rail-expanded-reports",
+      "device": "web",
+      "file": "deliverables/states/post-listing-upgrade--rail-expanded-reports.html",
+      "kb": 471,
       "heights": [
         900,
         900
@@ -10134,6 +10398,17 @@
       "pct": 0
     },
     {
+      "name": "reports-leads-reports--mobile-menu-reports--mobile",
+      "device": "mobile",
+      "file": "deliverables/mobile/states/reports-leads-reports--mobile-menu-reports.html",
+      "kb": 517,
+      "heights": [
+        812,
+        812
+      ],
+      "pct": 0
+    },
+    {
       "name": "reports-leads-reports--modal-download-app",
       "device": "web",
       "file": "deliverables/states/reports-leads-reports--modal-download-app.html",
@@ -10259,6 +10534,17 @@
       "device": "web",
       "file": "deliverables/states/reports-leads-reports--rail-expanded.html",
       "kb": 540,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "reports-leads-reports--rail-expanded-reports",
+      "device": "web",
+      "file": "deliverables/states/reports-leads-reports--rail-expanded-reports.html",
+      "kb": 551,
       "heights": [
         900,
         900
@@ -10486,6 +10772,17 @@
       "pct": 0
     },
     {
+      "name": "reports-listing-report--mobile-menu-reports--mobile",
+      "device": "mobile",
+      "file": "deliverables/mobile/states/reports-listing-report--mobile-menu-reports.html",
+      "kb": 546,
+      "heights": [
+        812,
+        812
+      ],
+      "pct": 0
+    },
+    {
       "name": "reports-listing-report--modal-download-app",
       "device": "web",
       "file": "deliverables/states/reports-listing-report--modal-download-app.html",
@@ -10638,6 +10935,17 @@
         900
       ],
       "pct": 0.012
+    },
+    {
+      "name": "reports-listing-report--rail-expanded-reports",
+      "device": "web",
+      "file": "deliverables/states/reports-listing-report--rail-expanded-reports.html",
+      "kb": 600,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.001
     },
     {
       "name": "reports-summary",
@@ -11014,6 +11322,17 @@
       "pct": 0
     },
     {
+      "name": "reports-summary--mobile-menu-reports--mobile",
+      "device": "mobile",
+      "file": "deliverables/mobile/states/reports-summary--mobile-menu-reports.html",
+      "kb": 448,
+      "heights": [
+        812,
+        812
+      ],
+      "pct": 0
+    },
+    {
       "name": "reports-summary--modal-download-app",
       "device": "web",
       "file": "deliverables/states/reports-summary--modal-download-app.html",
@@ -11133,6 +11452,17 @@
         900
       ],
       "pct": 0
+    },
+    {
+      "name": "reports-summary--rail-expanded-reports",
+      "device": "web",
+      "file": "deliverables/states/reports-summary--rail-expanded-reports.html",
+      "kb": 548,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0.016
     },
     {
       "name": "user-settings-agency-profile",
@@ -11454,6 +11784,17 @@
       "pct": 0
     },
     {
+      "name": "user-settings-agency-profile--mobile-menu-reports--mobile",
+      "device": "mobile",
+      "file": "deliverables/mobile/states/user-settings-agency-profile--mobile-menu-reports.html",
+      "kb": 356,
+      "heights": [
+        812,
+        812
+      ],
+      "pct": 0
+    },
+    {
       "name": "user-settings-agency-profile--modal-agency-saved",
       "device": "web",
       "file": "deliverables/states/user-settings-agency-profile--modal-agency-saved.html",
@@ -11562,6 +11903,17 @@
         900
       ],
       "pct": 0.028
+    },
+    {
+      "name": "user-settings-agency-profile--rail-expanded-reports",
+      "device": "web",
+      "file": "deliverables/states/user-settings-agency-profile--rail-expanded-reports.html",
+      "kb": 404,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
     },
     {
       "name": "user-settings-change-password",
@@ -11938,6 +12290,17 @@
       "pct": 0
     },
     {
+      "name": "user-settings-change-password--mobile-menu-reports--mobile",
+      "device": "mobile",
+      "file": "deliverables/mobile/states/user-settings-change-password--mobile-menu-reports.html",
+      "kb": 322,
+      "heights": [
+        812,
+        812
+      ],
+      "pct": 0
+    },
+    {
       "name": "user-settings-change-password--modal-download-app",
       "device": "web",
       "file": "deliverables/states/user-settings-change-password--modal-download-app.html",
@@ -12008,6 +12371,17 @@
       "device": "web",
       "file": "deliverables/states/user-settings-change-password--rail-expanded.html",
       "kb": 359,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "user-settings-change-password--rail-expanded-reports",
+      "device": "web",
+      "file": "deliverables/states/user-settings-change-password--rail-expanded-reports.html",
+      "kb": 362,
       "heights": [
         900,
         900
@@ -12290,6 +12664,17 @@
       "pct": 0
     },
     {
+      "name": "user-settings-licenses--mobile-menu-reports--mobile",
+      "device": "mobile",
+      "file": "deliverables/mobile/states/user-settings-licenses--mobile-menu-reports.html",
+      "kb": 364,
+      "heights": [
+        812,
+        812
+      ],
+      "pct": 0
+    },
+    {
       "name": "user-settings-licenses--modal-download-app",
       "device": "web",
       "file": "deliverables/states/user-settings-licenses--modal-download-app.html",
@@ -12376,6 +12761,17 @@
         900
       ],
       "pct": 0.039
+    },
+    {
+      "name": "user-settings-licenses--rail-expanded-reports",
+      "device": "web",
+      "file": "deliverables/states/user-settings-licenses--rail-expanded-reports.html",
+      "kb": 406,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
     },
     {
       "name": "user-settings-preferences",
@@ -12631,6 +13027,17 @@
       "pct": 0
     },
     {
+      "name": "user-settings-preferences--mobile-menu-reports--mobile",
+      "device": "mobile",
+      "file": "deliverables/mobile/states/user-settings-preferences--mobile-menu-reports.html",
+      "kb": 326,
+      "heights": [
+        812,
+        812
+      ],
+      "pct": 0
+    },
+    {
       "name": "user-settings-preferences--modal-download-app",
       "device": "web",
       "file": "deliverables/states/user-settings-preferences--modal-download-app.html",
@@ -12712,6 +13119,17 @@
       "device": "web",
       "file": "deliverables/states/user-settings-preferences--rail-expanded.html",
       "kb": 363,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "user-settings-preferences--rail-expanded-reports",
+      "device": "web",
+      "file": "deliverables/states/user-settings-preferences--rail-expanded-reports.html",
+      "kb": 366,
       "heights": [
         900,
         900
@@ -13291,6 +13709,17 @@
       "pct": 0
     },
     {
+      "name": "user-settings-user-profile--mobile-menu-reports--mobile",
+      "device": "mobile",
+      "file": "deliverables/mobile/states/user-settings-user-profile--mobile-menu-reports.html",
+      "kb": 483,
+      "heights": [
+        812,
+        812
+      ],
+      "pct": 0
+    },
+    {
       "name": "user-settings-user-profile--modal-convert-to-agency",
       "device": "web",
       "file": "deliverables/states/user-settings-user-profile--modal-convert-to-agency.html",
@@ -13427,6 +13856,17 @@
       "device": "web",
       "file": "deliverables/states/user-settings-user-profile--rail-expanded.html",
       "kb": 520,
+      "heights": [
+        900,
+        900
+      ],
+      "pct": 0
+    },
+    {
+      "name": "user-settings-user-profile--rail-expanded-reports",
+      "device": "web",
+      "file": "deliverables/states/user-settings-user-profile--rail-expanded-reports.html",
+      "kb": 522,
       "heights": [
         900,
         900

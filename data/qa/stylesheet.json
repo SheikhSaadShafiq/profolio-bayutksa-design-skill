@@ -1,9 +1,9 @@
 {
-  "at": "2026-10-01T08:59:48.730Z",
-  "rules": 2959,
-  "rulesMobile": 2953,
-  "conflicts": 74698,
-  "conflictsMobile": 111525,
+  "at": "2026-10-12T11:33:31.441Z",
+  "rules": 2981,
+  "rulesMobile": 3000,
+  "conflicts": 76374,
+  "conflictsMobile": 114644,
   "rows": [
     {
       "name": "ad-license",
@@ -438,6 +438,12 @@
       "ok": true
     },
     {
+      "name": "ad-license--rail-expanded-reports",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "ad-license--rail-expanded",
       "device": "web",
       "pct": 0,
@@ -654,6 +660,12 @@
       "ok": true
     },
     {
+      "name": "agency-staff--rail-expanded-reports",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "agency-staff--rail-expanded",
       "device": "web",
       "pct": 0,
@@ -801,6 +813,12 @@
       "name": "agent-performance--popover-notifications-mark-all-as",
       "device": "web",
       "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--rail-expanded-reports",
+      "device": "web",
+      "pct": 0.038,
       "ok": true
     },
     {
@@ -966,6 +984,12 @@
       "ok": true
     },
     {
+      "name": "checkout--rail-expanded-reports",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "checkout--rail-expanded",
       "device": "web",
       "pct": 0,
@@ -1077,6 +1101,12 @@
       "name": "credits-usage--popover-notifications-mark-all-as",
       "device": "web",
       "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "credits-usage--rail-expanded-reports",
+      "device": "web",
+      "pct": 0.063,
       "ok": true
     },
     {
@@ -1321,6 +1351,12 @@
     },
     {
       "name": "dashboard--popover-whatsapp-7",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--rail-expanded-reports",
       "device": "web",
       "pct": 0,
       "ok": true
@@ -1683,6 +1719,12 @@
       "name": "listings--project-units",
       "device": "web",
       "pct": 0.003,
+      "ok": true
+    },
+    {
+      "name": "listings--rail-expanded-reports",
+      "device": "web",
+      "pct": 0.013,
       "ok": true
     },
     {
@@ -2256,6 +2298,12 @@
       "ok": true
     },
     {
+      "name": "lms-leads--rail-expanded-reports",
+      "device": "web",
+      "pct": 0.004,
+      "ok": true
+    },
+    {
       "name": "lms-leads--rail-expanded",
       "device": "web",
       "pct": 0.004,
@@ -2397,6 +2445,12 @@
       "name": "packages--popover-notifications-mark-all-as",
       "device": "web",
       "pct": 0.017,
+      "ok": true
+    },
+    {
+      "name": "packages--rail-expanded-reports",
+      "device": "web",
+      "pct": 0.028,
       "ok": true
     },
     {
@@ -2623,6 +2677,12 @@
     },
     {
       "name": "post-listing--popover-notifications-mark-all-as",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--rail-expanded-reports",
       "device": "web",
       "pct": 0,
       "ok": true
@@ -2904,6 +2964,12 @@
       "ok": true
     },
     {
+      "name": "post-listing-edit--rail-expanded-reports",
+      "device": "web",
+      "pct": 0.151,
+      "ok": true
+    },
+    {
       "name": "post-listing-edit--rail-expanded",
       "device": "web",
       "pct": 0.154,
@@ -3025,6 +3091,12 @@
     },
     {
       "name": "post-listing-upgrade--popover-notifications-mark-all-as",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--rail-expanded-reports",
       "device": "web",
       "pct": 0,
       "ok": true
@@ -3186,6 +3258,12 @@
       "ok": true
     },
     {
+      "name": "reports-leads-reports--rail-expanded-reports",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "reports-leads-reports--rail-expanded",
       "device": "web",
       "pct": 0,
@@ -3318,6 +3396,12 @@
       "ok": true
     },
     {
+      "name": "reports-listing-report--rail-expanded-reports",
+      "device": "web",
+      "pct": 0.001,
+      "ok": true
+    },
+    {
       "name": "reports-listing-report--rail-expanded",
       "device": "web",
       "pct": 0.012,
@@ -3438,6 +3522,12 @@
       "ok": true
     },
     {
+      "name": "reports-summary--rail-expanded-reports",
+      "device": "web",
+      "pct": 0.016,
+      "ok": true
+    },
+    {
       "name": "reports-summary--rail-expanded",
       "device": "web",
       "pct": 0,
@@ -3555,6 +3645,12 @@
       "name": "user-settings-agency-profile--profile-incomplete",
       "device": "web",
       "pct": 0.055,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--rail-expanded-reports",
+      "device": "web",
+      "pct": 0,
       "ok": true
     },
     {
@@ -3684,6 +3780,12 @@
       "ok": true
     },
     {
+      "name": "user-settings-change-password--rail-expanded-reports",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "user-settings-change-password--rail-expanded",
       "device": "web",
       "pct": 0,
@@ -3786,6 +3888,12 @@
       "ok": true
     },
     {
+      "name": "user-settings-licenses--rail-expanded-reports",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "user-settings-licenses--rail-expanded",
       "device": "web",
       "pct": 0.039,
@@ -3877,6 +3985,12 @@
     },
     {
       "name": "user-settings-preferences--popover-notifications-mark-all-as",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--rail-expanded-reports",
       "device": "web",
       "pct": 0,
       "ok": true
@@ -4080,6 +4194,12 @@
       "ok": true
     },
     {
+      "name": "user-settings-user-profile--rail-expanded-reports",
+      "device": "web",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "user-settings-user-profile--rail-expanded",
       "device": "web",
       "pct": 0,
@@ -4213,6 +4333,12 @@
     },
     {
       "name": "ad-license--message-submit-failed--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "ad-license--mobile-menu-reports--mobile",
       "device": "mobile",
       "pct": 0,
       "ok": true
@@ -4368,6 +4494,12 @@
       "ok": true
     },
     {
+      "name": "agency-staff--mobile-menu-reports--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "agency-staff--mobile-menu--mobile",
       "device": "mobile",
       "pct": 0,
@@ -4501,6 +4633,12 @@
     },
     {
       "name": "agent-performance--loading--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "agent-performance--mobile-menu-reports--mobile",
       "device": "mobile",
       "pct": 0,
       "ok": true
@@ -4650,6 +4788,12 @@
       "ok": true
     },
     {
+      "name": "checkout--mobile-menu-reports--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "checkout--mobile-menu--mobile",
       "device": "mobile",
       "pct": 0,
@@ -4735,6 +4879,12 @@
     },
     {
       "name": "credits-usage--loading--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "credits-usage--mobile-menu-reports--mobile",
       "device": "mobile",
       "pct": 0,
       "ok": true
@@ -5029,6 +5179,12 @@
     },
     {
       "name": "dashboard--loading--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "dashboard--mobile-menu-reports--mobile",
       "device": "mobile",
       "pct": 0,
       "ok": true
@@ -5343,6 +5499,12 @@
       "name": "listings--member-area--mobile",
       "device": "mobile",
       "pct": 0.093,
+      "ok": true
+    },
+    {
+      "name": "listings--mobile-menu-reports--mobile",
+      "device": "mobile",
+      "pct": 0,
       "ok": true
     },
     {
@@ -5784,6 +5946,12 @@
       "ok": true
     },
     {
+      "name": "lms-leads--mobile-menu-reports--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "lms-leads--mobile-menu--mobile",
       "device": "mobile",
       "pct": 0,
@@ -5928,6 +6096,12 @@
       "ok": true
     },
     {
+      "name": "packages--mobile-menu-reports--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "packages--mobile-menu--mobile",
       "device": "mobile",
       "pct": 0,
@@ -6067,6 +6241,12 @@
     },
     {
       "name": "post-listing--message-otp-incorrect--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "post-listing--mobile-menu-reports--mobile",
       "device": "mobile",
       "pct": 0,
       "ok": true
@@ -6288,6 +6468,12 @@
       "ok": true
     },
     {
+      "name": "post-listing-edit--mobile-menu-reports--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "post-listing-edit--mobile-menu--mobile",
       "device": "mobile",
       "pct": 0,
@@ -6405,6 +6591,12 @@
       "name": "post-listing-upgrade--message-upgrade-failed--mobile",
       "device": "mobile",
       "pct": 0.262,
+      "ok": true
+    },
+    {
+      "name": "post-listing-upgrade--mobile-menu-reports--mobile",
+      "device": "mobile",
+      "pct": 0,
       "ok": true
     },
     {
@@ -6558,6 +6750,12 @@
       "ok": true
     },
     {
+      "name": "reports-leads-reports--mobile-menu-reports--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "reports-leads-reports--mobile-menu--mobile",
       "device": "mobile",
       "pct": 0,
@@ -6633,6 +6831,12 @@
       "name": "reports-listing-report--loading--mobile",
       "device": "mobile",
       "pct": 0.176,
+      "ok": true
+    },
+    {
+      "name": "reports-listing-report--mobile-menu-reports--mobile",
+      "device": "mobile",
+      "pct": 0,
       "ok": true
     },
     {
@@ -6756,6 +6960,12 @@
       "ok": true
     },
     {
+      "name": "reports-summary--mobile-menu-reports--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "reports-summary--mobile-menu--mobile",
       "device": "mobile",
       "pct": 0,
@@ -6859,6 +7069,12 @@
     },
     {
       "name": "user-settings-agency-profile--message-agency-failed--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-agency-profile--mobile-menu-reports--mobile",
       "device": "mobile",
       "pct": 0,
       "ok": true
@@ -6978,6 +7194,12 @@
       "ok": true
     },
     {
+      "name": "user-settings-change-password--mobile-menu-reports--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
       "name": "user-settings-change-password--mobile-menu--mobile",
       "device": "mobile",
       "pct": 0,
@@ -7064,8 +7286,14 @@
     {
       "name": "user-settings-licenses--message-share-license-saved--mobile",
       "device": "mobile",
-      "pct": 6.303,
-      "ok": false
+      "pct": 0.015,
+      "ok": true
+    },
+    {
+      "name": "user-settings-licenses--mobile-menu-reports--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
     },
     {
       "name": "user-settings-licenses--mobile-menu--mobile",
@@ -7135,6 +7363,12 @@
     },
     {
       "name": "user-settings-preferences--message-push-notification-failed--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-preferences--mobile-menu-reports--mobile",
       "device": "mobile",
       "pct": 0,
       "ok": true
@@ -7303,6 +7537,12 @@
     },
     {
       "name": "user-settings-user-profile--message-save-changes--mobile",
+      "device": "mobile",
+      "pct": 0,
+      "ok": true
+    },
+    {
+      "name": "user-settings-user-profile--mobile-menu-reports--mobile",
       "device": "mobile",
       "pct": 0,
       "ok": true

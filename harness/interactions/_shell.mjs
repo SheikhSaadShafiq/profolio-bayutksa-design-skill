@@ -32,6 +32,18 @@ export default [
     },
   },
   {
+    name: 'rail-expanded-reports',
+    note: 'the expanded rail with the Reports group open: Summary, Listing Report, Leads & Reach Report (MenueItems.js: an inline submenu, its children .reports-submenu-child). A design that adds an item to a group starts from it',
+    shot: 'viewport',
+    trigger: '.ant-layout-sider .ant-menu-submenu-title',
+    do: async (p) => {
+      await p.locator('button.sidebar-expand-btn').first().click({ timeout: 6000 });
+      await p.waitForTimeout(900);
+      await p.locator('.ant-layout-sider .ant-menu-submenu-title', { hasText: 'Reports' }).first().click({ timeout: 6000 });
+      await p.waitForTimeout(900);
+    },
+  },
+  {
     name: 'menu-post-a-listing',
     note: 'the Post a Listing menu in the header (post-listing-menu.js)',
     trigger: `${HEADER} button:has-text("Post a Listing")`,

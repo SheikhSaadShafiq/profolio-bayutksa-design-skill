@@ -159,6 +159,7 @@ A state's id says which files it has:
 | dates, "n days ago", day boundaries | `node qa/registry.mjs clock`, `product/roles.md` (the fixture's clock) |
 | REGA, Nafath, FAL, credits | `product/ksa.md` |
 | an icon | `atoms/icon.html` by the name the product uses, or a compiled screen's own svg (copy it, name its file in pf-also) |
+| the rail (left nav): a new item, a group's items, NEW, what is selected | flow.json `shell.rail` (`kit/README.md`); the Reports group open: `rail-expanded-reports` (web), `mobile-menu-reports` (phone), on every page |
 | My Listings in the **new theme** (Profolio 2.0) | `product/listings-new/README.md` first, then `page listings-new`, `tokens.md` → *My Listings — new theme* |
 
 ## LOCKED
@@ -209,6 +210,11 @@ inline.
 - state a flag's effect its Gates column (`product/flags.md`) does not give
 - read the whole stylesheet, or the whole registry
 - draw an icon
+- rebuild, retype or restyle the rail or the header, or draw a navigation of your own. Keep the
+  compiled page's shell as it is: the rail ships collapsed at 60px and the runtime expands it on
+  a click, as the product does. A rail change (a new item, at the top level or inside the Reports group, the product's
+  NEW chip, which item is selected) is flow.json `shell.rail` (`kit/README.md`); the QA fails a
+  rail that is not the product's (`rail`) and a control in the browser's default style (`unstyled`)
 - write an amount with "SAR", "ر.س" or U+20C1. In the current theme the riyal is the
   icon-font glyph (`.currency-Saudi_Riyal_Symbol`) before the number. Everywhere the icon
   font does not load (2.0, the kit, a wireframe), it is `<i class="pfk-riyal" aria-label="SAR"></i>`
@@ -219,8 +225,12 @@ inline.
 
 - **Type**: Figtree (variable 300–900, upright), Droid Arabic Kufi for Arabic — antd's
   `fontFamily`. Body text 14px / 22px. (The new My Listings adds Geist — THEMES.)
-- **Web shell**: header 60px; the rail ships collapsed at 60px (220px on hover); content
-  starts at 85px. `node qa/registry.mjs shell` lists what it draws; it is on every signed-in page.
+- **Web shell**: header 60px; the rail ships collapsed at 60px. It is click-toggled, not
+  hovered (`PUSH_CONTENT_ON_SIDEBAR_EXPAND`, withAdminLayout.js): a click on it or its edge
+  button expands it to 220px and pushes the page aside, only its ‹ button collapses it, and
+  a click on a collapsed item goes to that page (Reports: Summary). Reports is a group
+  (Summary, Listing Report, Leads & Reach Report) that a click opens in the expanded rail.
+  Content starts at 85px. `node qa/registry.mjs shell` lists what it draws; it is on every signed-in page.
 - **Phone**: the product picks its phone layout by device, not width — a header with a menu
   button, the rail as a drawer, cards instead of tables, many modals and popovers as drawers.
 - **Disabled** controls are dimmed to 0.54. **Errors** are each page's own: take
@@ -302,7 +312,9 @@ A PRD arrives: read `INTAKE.md` and follow it before your first reply.
 3. **Wire it.** Bind the rows to `data.json` (`data-pf-list` + a `<template>`).
    - Every control acts (`data-pf-set`, `-do`, `-open`, `-menu`, `-page`, `-go`).
    - Every state of flow.json is reachable by using the page, not only from the player's list.
-   - A new rail item under its neighbour gets `data-pf-page` to its screen.
+   - A new rail item, at the top level or inside a group such as Reports, is flow.json
+     `shell.rail` (`after`, `under`, `tag: "NEW"`, `selected`). The runtime draws it in every
+     rail: collapsed, expanded, the open group and the phone's menu. Never edit the rail's markup.
 4. **Run `node qa/prototype.mjs designs/<feature> --shots`.** It runs `qa/validate.py`
    checks 1–3 too:
    - no style your pf-base and pf-also files don't carry (bar re-measured geometry and
