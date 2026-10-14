@@ -209,7 +209,8 @@ The braces do + − × ÷.
 | binding | does |
 |---|---|
 | `data-pf-show="expr"` | shows the element when true (it restores the element's own `display`) |
-| `data-pf-text="key"` · `data-pf-fmt="n"` · `data-pf-default="…"` | its text is the value (`n`: 72,880 · `money`: 1,250.00 · `upper`) |
+| `data-pf-text="key"` · `data-pf-fmt="n"` · `data-pf-default="…"` | its text is the value (`n`: 72,880 · `money`: 1,250.00 · `upper`); a sum in braces works too: `data-pf-text="{@balance-@price}"` |
+| `data-pf-var="--pfk-value: $.score"` | sets a pattern's own custom property per row (`--pfk-*`, `--pfx-*` only): a score ring's value, a bar's fill |
 | `data-pf-class="cls: expr; cls2: expr"` | toggles classes — a control's selected look |
 | `data-pf-attr="aria-selected: expr"` | toggles an attribute |
 | `data-pf-value="key"` | an input's value, both ways |
@@ -340,13 +341,27 @@ cannot see. Offer 2–3 variants as flow.json `options`, e.g.:
 - B: masked (`pfk-masked`: "M••• A•••••", "+966 55 ••• ••37") with an inline "Unlock for 40 credits";
 - C: an initials avatar with the lock (`pfk-avatar` + `pfk-avatar__lock`).
 The lock icon is the product's (`atoms/icon.html` → `#icon-lock-bages`; name the file in pf-also).
-The real value never reaches the page before it is unlocked: the data carries a placeholder,
-a masked value or initials, and the handoff says the API must too.
+In the product, the real value never reaches the page before it is unlocked: the API sends a
+placeholder, a masked value or initials, and the handoff says so. The prototype must reveal it,
+so `data.json` keeps it in its own field (`contact`), shown only by the state after the unlock
+(`data-pf-show="$.unlocked"`); say in the handoff that the API sends it only then.
+
+**Dialogs and sheets** (`data-pf-overlay`) are `position: fixed`: put them at the page's root,
+outside any scrolling container, so nothing clips them and the QA measures them as the
+product would show them.
 
 ## Visual elements (kit.css, v2.4) — for B and C
 
-What turns a list into a design. Each is a 2.0 token pattern, QA-clean as it is; C restyles
-them through its `--pfx-*` tokens. Direction A may not use them.
+What turns a list into a design. Each is a 2.0 token pattern, QA-clean as it is. Direction A
+may not use them.
+
+**Restyling them (C, or B in product tokens)**: set their hooks once, on the direction's own
+container in `new.css`, never by restyling a `pfk-` class:
+`.pfx-board { --pfk-accent: var(--pfx-ink); --pfk-accent-soft: var(--pfx-wash); --pfk-radius: 16px; --pfk-figure: 28px; }`.
+Hooks: `--pfk-accent` (fills, rings, meters, the selected tile) · `--pfk-accent-ink` (text on
+tints, a rising delta) · `--pfk-accent-soft` (tints) · `--pfk-warn` · `--pfk-surface` ·
+`--pfk-line` · `--pfk-radius` · `--pfk-figure` (the hero number's size). A ring's or a bar's
+value per row: `data-pf-var="--pfk-value: $.score"`.
 
 | element | classes | for |
 |---|---|---|
@@ -356,7 +371,7 @@ them through its `--pfx-*` tokens. Direction A may not use them.
 | stat tiles | `pfk-stats` › `pfk-stat` (`--on`; a `<button>` to filter) › `__value` · `__label` · `pfk-delta--up` / `--down` | the numbers that matter now, each a way in |
 | avatar stack | `pfk-avatars` › `pfk-avatar` × n · `pfk-avatars__more` | who else is here: agencies that unlocked, agents on a lead |
 | score ring | `pfk-ring` (`style="--pfk-value: 72"`, `--lg`) › `pfk-ring__value` | a match or quality score, read at a glance |
-| meter · bar | `pfk-meter` › `pfk-meter__seg` (`--on`, `--warn`) · `pfk-bar` (`--pfk-value`) | slots taken, a quota, progress |
+| meter · progress | `pfk-meter` › `pfk-meter__seg` (`--on`, `--warn`) · `pfk-progress` (`--pfk-value`; not `pfk-bar`, the 2.0 phone's filter bar) | slots taken, a quota, progress |
 | thumbnails | `pfk-thumbs` › `<img>` · `pfk-thumbs__more` | the listings behind a number, shown |
 | icon chips | `pfk-ichips` › `pfk-ichip` (`--good`, `--warn`) with the product's icon | facts with their icon: beds, purpose, slots left |
 | insight band | `pfk-band` (`--warn`) › icon · `pfk-band__text` · an action | one sentence on what matters now |
@@ -402,6 +417,9 @@ It writes one file and checks:
   - `targets` (phone): a control under 24 px is an error, under 32 px a warning; a link inside
     a sentence is exempt;
   - `alike`: a direction's main list drawn as A's (above, directions);
+  - `focus`: a control the keyboard reaches that shows no focus (its outline set as a border or
+    removed, and no `:focus-visible` rule drawing one). The kit's controls have one. A dialog
+    that opens takes the focus, and gives it back when it closes (the runtime);
   - `rail`: on the web, the rail is not 60 px when the screen opens (it ships collapsed), or
     has items its compiled page does not (or lost some), or is missing where the pf-base
     draws it. A hand-built navigation fails here;
@@ -446,3 +464,10 @@ a designer's eye does: one hero per row, a calm hierarchy, nothing competing.
   `"empty": "not drawn: the 13 regions always exist"`.
 - **In a copied phone page**, controls the build never wired (the 2.0 phone's bell) get a
   `data-pf-go` to the compiled state: `states/listings--drawer-notifications-mark-all-as.html`.
+  It is the one change the shell allows: an attribute on a control that is already there.
+  Nothing in the shell is redrawn, restyled or moved.
+- **The 2.0 phone header's title** sits beside the bell and its badge: a long page title runs
+  under the badge, and the QA does not measure the shell. Keep it to one or two words
+  ("Marketplace"), [TBC] if it shortens the PRD's name.
+- **The QA takes minutes on a big design.** While fixing, check one direction or one state:
+  `--only B`, `--state browse`. It exits 5 when that part passes; run it whole before delivering.

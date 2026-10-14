@@ -53,7 +53,8 @@ tables. Then ask only:
 Write "asked" after the confidence ("high; regenerate asked"). Ask nothing else: a medium row
 states what you will assume. Never ask what SKILL.md already decides — shipped copy wins, and
 the design is English (Arabic RTL is not compiled). D4 is the exception: ask it on every PRD,
-with the theme SKILL.md gives the page as your proposed answer.
+with the theme SKILL.md gives the page as your proposed answer. A row the PRD or the PM has
+already answered (D4, D7, any other) is not asked again: quote the answer, confidence high.
 
 At most one question per row. Each question names its row and carries your proposed answer,
 so a yes is enough. Group the questions under **For the PM** and **For the designer**. The one
@@ -166,11 +167,12 @@ Once the user has answered:
    - the decisions log.
 
    Write `designs/<feature>/research/research.json` and run `node qa/board.mjs designs/<feature>`.
-2. **The plan**: ONE prose paragraph, no bullets and no table, sent before any tool call that
-   writes the rest of `designs/<feature>/`. It covers:
+2. **The plan**: ONE prose paragraph of about 150 words, no bullets and no table, sent before
+   any tool call that writes the rest of `designs/<feature>/`. The detail (every state, the
+   field matrix) goes in `intake.md`, not in the paragraph. It covers:
    - the layout the data calls for, e.g. "one field per column, the contact first";
    - where the entry point sits;
-   - what each state shows;
+   - the states that matter most, in a clause;
    - the top findings it draws on and where each was seen, by name, and what each direction bets on:
      its layout and its hero (A a table, B a list beside its detail, C cards led by the score…).
 3. Write `designs/<feature>/flow.json`: screens, states, controls, the matrix, and

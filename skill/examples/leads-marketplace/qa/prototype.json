@@ -5,7 +5,7 @@
  "renders": 116,
  "coverage": "13 states × 2 platforms · 16 interactions · 68 extreme-data · 6 option renders",
  "errors": 0,
- "warnings": 100,
+ "warnings": 98,
  "product": 7,
  "issues": [
   {
@@ -1399,61 +1399,10 @@
    "level": "warn",
    "check": "contrast",
    "platform": "phone",
-   "message": "Text “72,880 credits available” is 3.97:1 (#707070 on #e6e6e6) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
-   "box": {
-    "x": 16,
-    "y": 157,
-    "w": 138,
-    "h": 16
-   },
-   "states": [
-    "owner",
-    "seeker",
-    "first-visit",
-    "filtered",
-    "no-results",
-    "gone",
-    "loading",
-    "empty",
-    "error",
-    "owner · missing data",
-    "owner · long data",
-    "owner · arabic data",
-    "owner · zero data",
-    "seeker · missing data",
-    "seeker · long data",
-    "seeker · arabic data",
-    "seeker · zero data",
-    "owner · new copy long",
-    "owner · new copy in Arabic",
-    "seeker · new copy long",
-    "seeker · new copy in Arabic",
-    "first-visit · new copy long",
-    "first-visit · new copy in Arabic",
-    "filtered · new copy long",
-    "filtered · new copy in Arabic",
-    "no-results · new copy long",
-    "no-results · new copy in Arabic",
-    "gone · new copy in Arabic",
-    "loading · new copy long",
-    "loading · new copy in Arabic",
-    "empty · new copy long",
-    "empty · new copy in Arabic",
-    "error · new copy long",
-    "error · new copy in Arabic",
-    "owner · opt.lock=blur",
-    "owner · opt.lock=mask",
-    "owner · opt.lock=avatar"
-   ]
-  },
-  {
-   "level": "warn",
-   "check": "contrast",
-   "platform": "phone",
-   "message": "Text “Top up” is 2.71:1 (#249f62 on #e6e6e6) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
+   "message": "Text “Top up” is 3.16:1 (#249f62 on #f6f7fb) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "box": {
     "x": 300,
-    "y": 148,
+    "y": 164,
     "w": 44,
     "h": 32
    },
@@ -1488,7 +1437,7 @@
    "message": "Text “Rooms not shared” is 2.71:1 (#9d9d9d on #ffffff) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "box": {
     "x": 50,
-    "y": 314,
+    "y": 346,
     "w": 116,
     "h": 18
    },
@@ -1520,7 +1469,7 @@
    "message": "Text “Buy for 40 Credits” is 2.76:1 (#ffffff on #28b16d) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "box": {
     "x": 131,
-    "y": 379,
+    "y": 411,
     "w": 119,
     "h": 18
    },
@@ -1571,7 +1520,7 @@
    "message": "Text “40” is 2.76:1 (#ffffff on #28b16d) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "box": {
     "x": 182,
-    "y": 379,
+    "y": 411,
     "w": 18,
     "h": 18
    },
@@ -1622,15 +1571,24 @@
    "message": "Text “Not shared” is 2.71:1 (#9d9d9d on #ffffff) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "box": {
     "x": 28,
-    "y": 787,
+    "y": 819,
     "w": 304,
     "h": 18
    },
    "states": [
     "owner",
     "first-visit",
+    "buy",
     "bought",
+    "insufficient",
+    "staff-cap",
     "gone",
+    "owner › Open side menu",
+    "owner › listings--drawer-notifications-mark-all-as",
+    "owner › listings--drawer-profile-information-faisal-al-harbi",
+    "owner › City",
+    "owner › Price",
+    "owner › Newest FirstHighest PriceLowest Price",
     "owner · missing data",
     "owner · long data",
     "owner · arabic data",
@@ -1649,7 +1607,7 @@
    "message": "Text “Buy for 20 Credits” is 2.76:1 (#ffffff on #28b16d) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "box": {
     "x": 131,
-    "y": 880,
+    "y": 912,
     "w": 120,
     "h": 18
    },
@@ -1697,7 +1655,7 @@
    "message": "Text “20” is 2.76:1 (#ffffff on #28b16d) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "box": {
     "x": 182,
-    "y": 880,
+    "y": 912,
     "w": 18,
     "h": 18
    },
@@ -1745,7 +1703,7 @@
    "message": "Text “Bought” is 3.75:1 (#208e57 on #e9f7f0) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "box": {
     "x": 164,
-    "y": 1197,
+    "y": 1229,
     "w": 50,
     "h": 18
    },
@@ -1785,7 +1743,7 @@
    "message": "Text “View in TruLeads →” is 3.17:1 (#249f62 on #f0faf5) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "box": {
     "x": 116,
-    "y": 1357,
+    "y": 1389,
     "w": 128,
     "h": 18
    },
@@ -1847,7 +1805,7 @@
    "message": "Text “Buy for 30 Credits” is 2.76:1 (#ffffff on #28b16d) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "box": {
     "x": 131,
-    "y": 407,
+    "y": 439,
     "w": 119,
     "h": 18
    },
@@ -1869,7 +1827,7 @@
    "message": "Text “30” is 2.76:1 (#ffffff on #28b16d) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "box": {
     "x": 182,
-    "y": 407,
+    "y": 439,
     "w": 18,
     "h": 18
    },
@@ -1891,7 +1849,7 @@
    "message": "Text “Buy for 15 Credits” is 2.76:1 (#ffffff on #28b16d) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "box": {
     "x": 133,
-    "y": 687,
+    "y": 719,
     "w": 116,
     "h": 18
    },
@@ -1913,7 +1871,7 @@
    "message": "Text “15” is 2.76:1 (#ffffff on #28b16d) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "box": {
     "x": 184,
-    "y": 687,
+    "y": 719,
     "w": 15,
     "h": 18
    },
@@ -1935,7 +1893,7 @@
    "message": "Text “Any property type” is 2.71:1 (#9d9d9d on #ffffff) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "box": {
     "x": 28,
-    "y": 825,
+    "y": 857,
     "w": 304,
     "h": 18
    },
@@ -2057,7 +2015,7 @@
    "message": "Text “Clear filters” is 2.76:1 (#ffffff on #28b16d) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "box": {
     "x": 125,
-    "y": 454,
+    "y": 486,
     "w": 111,
     "h": 40
    },
@@ -2124,7 +2082,7 @@
    "message": "Text “Try Again” is 2.76:1 (#ffffff on #28b16d) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "box": {
     "x": 132,
-    "y": 418,
+    "y": 450,
     "w": 95,
     "h": 40
    },
@@ -2171,7 +2129,7 @@
    "message": "Text “Location not shared” is 2.71:1 (#9d9d9d on #ffffff) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "box": {
     "x": 180,
-    "y": 563,
+    "y": 595,
     "w": 126,
     "h": 18
    },
@@ -2179,9 +2137,25 @@
     "owner · missing data",
     "seeker · missing data"
    ]
+  },
+  {
+   "level": "warn",
+   "check": "contrast",
+   "platform": "phone",
+   "message": "Text “Buy for 999,999,999 Credits” is 2.76:1 (#ffffff on #28b16d) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
+   "box": {
+    "x": 99,
+    "y": 721,
+    "w": 184,
+    "h": 18
+   },
+   "states": [
+    "owner · long data",
+    "seeker · long data"
+   ]
   }
  ],
- "built": "2026-10-14T14:04:38.852Z",
+ "built": "2026-10-14T14:36:30.634Z",
  "directions": [],
  "chosen": null,
  "newTokens": []

@@ -1,8 +1,8 @@
 {
  "schema_version": 1,
- "generated_at": "2026-10-14T14:04:38.852Z",
+ "generated_at": "2026-10-14T14:36:30.634Z",
  "qa_skill_name": "profolio-ksa-design",
- "qa_skill_version": "2.4",
+ "qa_skill_version": "2.5",
  "ids_available": false,
  "render_available": true,
  "scope": {
@@ -22,7 +22,7 @@
  "verdict": "pass_with_warnings",
  "counts": {
   "blocker": 0,
-  "warning": 100,
+  "warning": 98,
   "note": 7,
   "waived": 0,
   "skipped_checks": 0
@@ -832,30 +832,14 @@
    "check": "pf.contrast",
    "severity": "warning",
    "screen": "leads-marketplace",
-   "case": "phone · owner, seeker, first-visit, filtered, no-results, gone, loading, empty, error, owner · missing data, owner · long data, owner · arabic data, owner · zero data, seeker · missing data, seeker · long data, seeker · arabic data, seeker · zero data, owner · new copy long, owner · new copy in Arabic, seeker · new copy long, seeker · new copy in Arabic, first-visit · new copy long, first-visit · new copy in Arabic, filtered · new copy long, filtered · new copy in Arabic, no-results · new copy long, no-results · new copy in Arabic, gone · new copy in Arabic, loading · new copy long, loading · new copy in Arabic, empty · new copy long, empty · new copy in Arabic, error · new copy long, error · new copy in Arabic, owner · opt.lock=blur, owner · opt.lock=mask, owner · opt.lock=avatar",
-   "node": null,
-   "css_path": null,
-   "role": null,
-   "message": "Text “72,880 credits available” is 3.97:1 (#707070 on #e6e6e6) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
-   "expected": null,
-   "actual": null,
-   "evidence": "box 16,157,138,16",
-   "waived": false,
-   "waiver": null,
-   "section_hint": "open-questions"
-  },
-  {
-   "check": "pf.contrast",
-   "severity": "warning",
-   "screen": "leads-marketplace",
    "case": "phone · owner, seeker, first-visit, filtered, no-results, bought, gone, loading, empty, error, owner · missing data, owner · long data, owner · arabic data, owner · zero data, seeker · missing data, seeker · long data, seeker · arabic data, seeker · zero data, owner · opt.lock=blur, owner · opt.lock=mask, owner · opt.lock=avatar",
    "node": null,
    "css_path": null,
    "role": null,
-   "message": "Text “Top up” is 2.71:1 (#249f62 on #e6e6e6) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
+   "message": "Text “Top up” is 3.16:1 (#249f62 on #f6f7fb) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 300,148,44,32",
+   "evidence": "box 300,164,44,32",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"
@@ -871,7 +855,7 @@
    "message": "Text “Rooms not shared” is 2.71:1 (#9d9d9d on #ffffff) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 50,314,116,18",
+   "evidence": "box 50,346,116,18",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"
@@ -887,7 +871,7 @@
    "message": "Text “Buy for 40 Credits” is 2.76:1 (#ffffff on #28b16d) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 131,379,119,18",
+   "evidence": "box 131,411,119,18",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"
@@ -903,7 +887,7 @@
    "message": "Text “40” is 2.76:1 (#ffffff on #28b16d) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 182,379,18,18",
+   "evidence": "box 182,411,18,18",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"
@@ -912,14 +896,14 @@
    "check": "pf.contrast",
    "severity": "warning",
    "screen": "leads-marketplace",
-   "case": "phone · owner, first-visit, bought, gone, owner · missing data, owner · long data, owner · arabic data, owner · zero data, seeker · missing data, seeker · zero data, owner · opt.lock=blur, owner · opt.lock=mask, owner · opt.lock=avatar",
+   "case": "phone · owner, first-visit, buy, bought, insufficient, staff-cap, gone, owner › Open side menu, owner › listings--drawer-notifications-mark-all-as, owner › listings--drawer-profile-information-faisal-al-harbi, owner › City, owner › Price, owner › Newest FirstHighest PriceLowest Price, owner · missing data, owner · long data, owner · arabic data, owner · zero data, seeker · missing data, seeker · zero data, owner · opt.lock=blur, owner · opt.lock=mask, owner · opt.lock=avatar",
    "node": null,
    "css_path": null,
    "role": null,
    "message": "Text “Not shared” is 2.71:1 (#9d9d9d on #ffffff) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 28,787,304,18",
+   "evidence": "box 28,819,304,18",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"
@@ -935,7 +919,7 @@
    "message": "Text “Buy for 20 Credits” is 2.76:1 (#ffffff on #28b16d) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 131,880,120,18",
+   "evidence": "box 131,912,120,18",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"
@@ -951,7 +935,7 @@
    "message": "Text “20” is 2.76:1 (#ffffff on #28b16d) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 182,880,18,18",
+   "evidence": "box 182,912,18,18",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"
@@ -967,7 +951,7 @@
    "message": "Text “Bought” is 3.75:1 (#208e57 on #e9f7f0) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 164,1197,50,18",
+   "evidence": "box 164,1229,50,18",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"
@@ -983,7 +967,7 @@
    "message": "Text “View in TruLeads →” is 3.17:1 (#249f62 on #f0faf5) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 116,1357,128,18",
+   "evidence": "box 116,1389,128,18",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"
@@ -1015,7 +999,7 @@
    "message": "Text “Buy for 30 Credits” is 2.76:1 (#ffffff on #28b16d) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 131,407,119,18",
+   "evidence": "box 131,439,119,18",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"
@@ -1031,7 +1015,7 @@
    "message": "Text “30” is 2.76:1 (#ffffff on #28b16d) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 182,407,18,18",
+   "evidence": "box 182,439,18,18",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"
@@ -1047,7 +1031,7 @@
    "message": "Text “Buy for 15 Credits” is 2.76:1 (#ffffff on #28b16d) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 133,687,116,18",
+   "evidence": "box 133,719,116,18",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"
@@ -1063,7 +1047,7 @@
    "message": "Text “15” is 2.76:1 (#ffffff on #28b16d) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 184,687,15,18",
+   "evidence": "box 184,719,15,18",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"
@@ -1079,7 +1063,7 @@
    "message": "Text “Any property type” is 2.71:1 (#9d9d9d on #ffffff) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 28,825,304,18",
+   "evidence": "box 28,857,304,18",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"
@@ -1191,7 +1175,7 @@
    "message": "Text “Clear filters” is 2.76:1 (#ffffff on #28b16d) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 125,454,111,40",
+   "evidence": "box 125,486,111,40",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"
@@ -1255,7 +1239,7 @@
    "message": "Text “Try Again” is 2.76:1 (#ffffff on #28b16d) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 132,418,95,40",
+   "evidence": "box 132,450,95,40",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"
@@ -1303,7 +1287,7 @@
    "message": "Text “Location not shared” is 2.71:1 (#9d9d9d on #ffffff) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 180,563,126,18",
+   "evidence": "box 180,595,126,18",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"
@@ -1319,7 +1303,7 @@
    "message": "Text “Buy for 999,999,999 Credits” is 2.76:1 (#ffffff on #28b16d) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 99,689,184,18",
+   "evidence": "box 99,721,184,18",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"
@@ -1335,7 +1319,7 @@
    "message": "Text “999,999,999” is 2.76:1 (#ffffff on #28b16d) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 150,689,82,18",
+   "evidence": "box 150,721,82,18",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"
@@ -1348,10 +1332,10 @@
    "node": null,
    "css_path": null,
    "role": null,
-   "message": "Text “Top up Top up” is 2.71:1 (#249f62 on #e6e6e6) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
+   "message": "Text “Top up Top up” is 3.16:1 (#249f62 on #f6f7fb) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 254,148,91,32",
+   "evidence": "box 254,164,91,32",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"
@@ -1367,7 +1351,7 @@
    "message": "Text “Rooms not shared Rooms not shared” is 2.71:1 (#9d9d9d on #ffffff) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 50,314,236,18",
+   "evidence": "box 50,346,236,18",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"
@@ -1383,7 +1367,7 @@
    "message": "Text “Not shared Not shared” is 2.71:1 (#9d9d9d on #ffffff) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 28,811,304,18",
+   "evidence": "box 28,843,304,18",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"
@@ -1399,7 +1383,7 @@
    "message": "Text “Bought Bought” is 3.75:1 (#208e57 on #e9f7f0) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 164,1221,91,18",
+   "evidence": "box 164,1253,91,18",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"
@@ -1415,7 +1399,7 @@
    "message": "Text “View in TruLeads → View in TruLeads →” is 3.17:1 (#249f62 on #f0faf5) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 50,1381,260,18",
+   "evidence": "box 50,1413,260,18",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"
@@ -1428,10 +1412,10 @@
    "node": null,
    "css_path": null,
    "role": null,
-   "message": "Text “نص عربي” is 2.71:1 (#249f62 on #e6e6e6) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
+   "message": "Text “نص عربي” is 3.16:1 (#249f62 on #f6f7fb) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 288,162,56,32",
+   "evidence": "box 288,178,56,32",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"
@@ -1447,7 +1431,7 @@
    "message": "Text “نص عربي بطول الن” is 2.71:1 (#9d9d9d on #ffffff) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 50,328,105,18",
+   "evidence": "box 50,360,105,18",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"
@@ -1463,7 +1447,7 @@
    "message": "Text “نص عربي بط” is 2.71:1 (#9d9d9d on #ffffff) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 28,801,304,18",
+   "evidence": "box 28,833,304,18",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"
@@ -1479,7 +1463,7 @@
    "message": "Text “نص عربي” is 3.75:1 (#208e57 on #e9f7f0) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 164,1211,56,18",
+   "evidence": "box 164,1243,56,18",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"
@@ -1495,7 +1479,7 @@
    "message": "Text “نص عربي بطول النص” is 3.17:1 (#249f62 on #f0faf5) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 117,1371,126,18",
+   "evidence": "box 117,1403,126,18",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"
@@ -1552,22 +1536,6 @@
    "check": "pf.contrast",
    "severity": "warning",
    "screen": "leads-marketplace",
-   "case": "phone · bought · new copy in Arabic",
-   "node": null,
-   "css_path": null,
-   "role": null,
-   "message": "Text “72,840 credits available” is 3.97:1 (#707070 on #e6e6e6) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
-   "expected": null,
-   "actual": null,
-   "evidence": "box 16,171,138,16",
-   "waived": false,
-   "waiver": null,
-   "section_hint": "open-questions"
-  },
-  {
-   "check": "pf.contrast",
-   "severity": "warning",
-   "screen": "leads-marketplace",
    "case": "phone · owner · opt.lock=mask",
    "node": null,
    "css_path": null,
@@ -1575,7 +1543,7 @@
    "message": "Text “Unlock for 40 credits” is 3.38:1 (#249f62 on #ffffff) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 28,237,138,18",
+   "evidence": "box 28,269,138,18",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"
@@ -1591,7 +1559,7 @@
    "message": "Text “40” is 3.38:1 (#249f62 on #ffffff) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 100,237,18,18",
+   "evidence": "box 100,269,18,18",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"
@@ -1607,7 +1575,7 @@
    "message": "Text “Unlock for 20 credits” is 3.38:1 (#249f62 on #ffffff) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 28,755,138,18",
+   "evidence": "box 28,787,138,18",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"
@@ -1623,7 +1591,7 @@
    "message": "Text “20” is 3.38:1 (#249f62 on #ffffff) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 100,755,18,18",
+   "evidence": "box 100,787,18,18",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"

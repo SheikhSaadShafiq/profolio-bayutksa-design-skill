@@ -37,6 +37,7 @@
                expanded rail lying over the page instead of pushing it aside
      clip      (in the sweep, too) a menu or dialog cut off by a container or the screen's edge
      rows      (warning) cells of one row aligned differently: some top, some centre
+     focus     a control the keyboard reaches that shows no focus (its outline hidden, no :focus-visible rule)
      targets   (phone) a control under 24 px: an error; under the build's 32 px: a warning (the
                platforms ask 44). A link inside a sentence is exempt
      small     (warning) visible text under 11 px */
@@ -108,6 +109,23 @@
 
   var SHELL = '[data-pf-shell-root], [data-pf-shell], .pf-layout-sider, .pf-layout-header, [data-pf-rail]';
   function inShell(e) { return !!(e && e.closest && e.closest(SHELL)); }
+  /* the ancestors whose overflow really clips an element: a fixed or absolute box escapes every
+     ancestor below its containing block (a transformed ancestor, or for absolute a positioned one) */
+  function clippers(el, stop, self) {
+    var out = [], need = null, st = function (e) { return getComputedStyle(e); };
+    if (self && /(hidden|clip|auto|scroll)/.test(st(el).overflowX + ' ' + st(el).overflowY)) out.push(el);
+    var cbFixed = function (a) { var s = st(a); return s.transform !== 'none' || s.perspective !== 'none' || (s.filter && s.filter !== 'none') || /paint|layout|strict|content/.test(s.contain || '') || /transform|filter/.test(s.willChange || ''); };
+    var cbAbs = function (a) { return st(a).position !== 'static' || cbFixed(a); };
+    var p0 = st(el).position;
+    need = p0 === 'fixed' ? cbFixed : p0 === 'absolute' ? cbAbs : null;
+    for (var a = el.parentElement; a && a !== stop; a = a.parentElement) {
+      if (need) { if (!need(a)) continue; need = null; }
+      var s = st(a);
+      if (/(hidden|clip|auto|scroll)/.test(s.overflowX + ' ' + s.overflowY)) out.push(a);
+      if (s.position === 'fixed') need = cbFixed; else if (s.position === 'absolute') need = cbAbs;
+    }
+    return out;
+  }
   /* what lies over the page on purpose: an open menu, dialog, drawer, popover, toast or scrim */
   var LAYER = '[data-pf-menu-panel], [data-pf-overlay], .pfk-menu, .pfk-mask, .pfk-toast, .pfk-toasts, .pf-modal-wrap, .pf-modal-mask, .pf-drawer, .pf-dropdown, .pf-select-dropdown, .pf-popover, .pf-picker-dropdown, .pf-message, .pf-notification, .pf-tooltip, [role="dialog"], [role="menu"], [role="listbox"]';
   /* WCAG relative luminance and contrast, from computed rgb()/rgba() */
@@ -311,13 +329,46 @@
       var tiny = rr.width < 24 || rr.height < 24;
       add(tiny ? 'error' : 'warn', 'targets', '“' + label(c) + '” is ' + Math.round(rr.width) + ' × ' + Math.round(rr.height) + ' px — ' + (tiny ? 'under 24 px, too small to tap on a phone: give it padding or a bigger row' : 'under the build\'s 32 px on a phone (the platforms ask 44)'), c);
     });
+    /* focus: a control the keyboard reaches shows where focus is (WCAG 2.4.7). Read from the
+       stylesheets: a :focus or :focus-visible rule that draws something, or nothing that hides
+       the browser's own ring (an outline set as a border, or outline: none on focus) */
+    var fRules = [], oRules = [];
+    (function walk(list) {
+      Array.prototype.forEach.call(list || [], function (r) {
+        if (r.cssRules && r.media) { if (matchMedia(r.media.mediaText).matches) walk(r.cssRules); return; }
+        if (r.cssRules && !r.selectorText) { walk(r.cssRules); return; }
+        if (!r.selectorText) return;
+        r.selectorText.split(',').forEach(function (part) {
+          if (/:focus(?!-within)/.test(part)) fRules.push({ sel: part.replace(/:focus(-visible)?/g, '').replace(/::?(before|after)\b/g, '').trim() || '*', st: r.style });
+          else if (r.style.getPropertyValue('outline-style') && !/:(hover|active|checked|disabled)/.test(part)) oRules.push({ sel: part, st: r.style });
+        });
+      });
+    })(Array.prototype.reduce.call(document.styleSheets, function (all, sh) { try { return all.concat(Array.prototype.slice.call(sh.cssRules)); } catch (e) { return all; } }, []));
+    var matches = function (el, sel) { try { return el.matches(sel); } catch (e) { return false; } };
+    var draws = function (st) {
+      var os = st.getPropertyValue('outline-style'), ow = st.getPropertyValue('outline-width');
+      return (os && os !== 'none' && ow !== '0px' && ow !== '0') || (st.getPropertyValue('box-shadow') && st.getPropertyValue('box-shadow') !== 'none') ||
+        st.getPropertyValue('border-color') || st.getPropertyValue('border-top-color') || st.getPropertyValue('background-color') || st.getPropertyValue('text-decoration-line');
+    };
+    var focusSeen = {};
+    controls.forEach(function (c) {
+      if (!(c.matches('button, a[href], input, select, textarea, [tabindex]') && c.tabIndex >= 0) || inShell(c) || c.disabled || c.getAttribute('aria-disabled') === 'true' || !shown(c)) return;
+      var fr = fRules.filter(function (r) { return matches(c, r.sel); });
+      if (fr.some(function (r) { return draws(r.st); })) return;
+      var hidden = fr.some(function (r) { var os = r.st.getPropertyValue('outline-style'), ow = r.st.getPropertyValue('outline-width'); return os === 'none' || ow === '0px' || ow === '0'; }) ||
+        oRules.some(function (r) { return matches(c, r.sel); });
+      if (!hidden || focusSeen[label(c)]) return;
+      focusSeen[label(c)] = 1;
+      add('error', 'focus', '“' + (label(c) || c.tagName.toLowerCase()) + '” shows no keyboard focus: its outline is set (or removed) and no :focus-visible rule draws one — add one (kit.css has it for pfk- controls)', c);
+    });
+
     /* dead: looks clickable, does nothing */
     controls.forEach(function (c) {
       if (c.matches('input:not([type=checkbox]):not([type=radio]):not([type=button]):not([type=submit]), textarea') && !c.closest('[data-pf-value]') && !c.hasAttribute('data-pf-value')) {
         if (!c.readOnly && !c.disabled) add('warn', 'dead', 'The field “' + label(c) + '” is not bound (data-pf-value) — what is typed changes nothing', c);
         return;
       }
-      if (c.closest(ACT) || c.closest('[disabled], [aria-disabled="true"]')) return;
+      if (c.closest(ACT) || c.closest('[disabled], [aria-disabled="true"], [data-pf-skeleton-row]')) return;   /* a skeleton row is a picture of a row */
       if (c.closest('[data-menu-id]') && c.closest('.pf-layout-sider, [data-pf-rail]')) return;
       if (c.closest('a[href]')) return;                                  /* the runtime opens a link's page, or says it leaves */
       if (c.closest('[data-pf-shell-open]')) return;
@@ -366,12 +417,10 @@
         if (!shown(p)) return;
         /* a menu or a dialog cut by a container that clips it, or by the screen's edge */
         var r = p.getBoundingClientRect(), v = { l: r.left, t: r.top, r: r.right, b: r.bottom };
-        for (var a = p.parentElement; a && a !== document.documentElement; a = a.parentElement) {
-          var ac = cs(a);
-          if (!/(hidden|clip|auto|scroll)/.test(ac.overflowX + ' ' + ac.overflowY)) continue;
+        clippers(p, document.documentElement).forEach(function (a) {
           var ar = a.getBoundingClientRect();
           v = { l: Math.max(v.l, ar.left), t: Math.max(v.t, ar.top), r: Math.min(v.r, ar.right), b: Math.min(v.b, ar.bottom) };
-        }
+        });
         v = { l: Math.max(v.l, 0), t: Math.max(v.t, 0), r: Math.min(v.r, innerWidth), b: Math.min(v.b, innerHeight) };
         var full = r.width * r.height, seenA = Math.max(0, v.r - v.l) * Math.max(0, v.b - v.t);
         if (full > 0 && seenA / full < 0.95) add('error', 'clip', nm + ' opens cut off: ' + Math.round((1 - seenA / full) * 100) + '% of it is hidden by the container that clips it, or the screen\'s edge', p);
@@ -409,10 +458,7 @@
       var covered = r.top < innerHeight && r.bottom > 0 && top && !(top === t.parentElement || t.parentElement.contains(top) || top.contains(t.parentElement));
       /* where it draws: each line clipped by the boxes that clip it (an ellipsis, a scroll box) */
       var cut = { left: -1e9, top: -1e9, right: 1e9, bottom: 1e9 };
-      for (var an = t.parentElement; an && an !== document.body; an = an.parentElement) {
-        var ao = cs(an);
-        if (/(hidden|clip|auto|scroll)/.test(ao.overflowX + ' ' + ao.overflowY)) { var ab = an.getBoundingClientRect(); cut = { left: Math.max(cut.left, ab.left), top: Math.max(cut.top, ab.top), right: Math.min(cut.right, ab.right), bottom: Math.min(cut.bottom, ab.bottom) }; }
-      }
+      clippers(t.parentElement, document.body, true).forEach(function (an) { var ab = an.getBoundingClientRect(); cut = { left: Math.max(cut.left, ab.left), top: Math.max(cut.top, ab.top), right: Math.min(cut.right, ab.right), bottom: Math.min(cut.bottom, ab.bottom) }; });
       var lines = Array.prototype.slice.call(range.getClientRects()).map(function (q) { var l = Math.max(q.left, cut.left), tp = Math.max(q.top, cut.top), rt = Math.min(q.right, cut.right), bt = Math.min(q.bottom, cut.bottom); return { left: l, top: tp, right: rt, bottom: bt, width: rt - l, height: bt - tp }; }).filter(function (q) { return q.width >= 1 && q.height >= 1; });
       texts.push({ node: t, el: t.parentElement, r: r, lines: lines, covered: !!covered, layer: !!t.parentElement.closest(LAYER) });
     }
@@ -472,8 +518,10 @@
       if (ratio + 0.005 >= need || lowSeen[key + label(x.el)]) return;
       lowSeen[key + label(x.el)] = 1;
       /* a direction's own pattern (pfx-*) is the design's choice: under AA it fails. The product's and
-         the kit's palette (2.0's white on green is 2.76:1) is the designer's to know: a warning */
-      var own = !!x.el.closest('[class*="pfx-"]');
+         the kit's palette (2.0's white on green is 2.76:1) is the designer's to know: a warning, in
+         every direction alike — a kit control inside a pfx- container is still the kit's */
+      var styled = x.el.closest('[class]');
+      var own = !!styled && /(^|\s)pfx-/.test(styled.getAttribute('class') || '');
       add(own ? 'error' : 'warn', 'contrast', 'Text “' + label(x.el) + '” is ' + ratio.toFixed(2) + ':1 (' + hex(fg) + ' on ' + hex(bg) + ') — WCAG AA asks ' + need + ':1' + (own ? '' : ': the product\'s own palette, for the designer'), x.el);
     });
     /* squeezed: three lines or more of a word or two each — its box is too narrow for it */
@@ -490,9 +538,17 @@
       if (inShell(c) || c.closest(LAYER + ', template, [disabled], [aria-disabled="true"], [data-pf-skeleton-row]')) return;
       var r = c.getBoundingClientRect();
       if (r.width < 4 || r.height < 4) return;
-      var x = r.left + r.width / 2, y = r.top + r.height / 2;
-      if (x < 0 || y < 0 || x >= innerWidth || y >= innerHeight) return;
-      var hit = document.elementFromPoint(x, y);
+      var x = r.left + r.width / 2, y = r.top + r.height / 2, hit, saved = null;
+      if (x < 0 || y < 0 || x >= innerWidth || y >= innerHeight) {
+        /* below the fold: scroll it into view to test it, then put every scroll back */
+        saved = [[document.scrollingElement || document.documentElement, 0, 0]];
+        for (var p = c.parentElement; p; p = p.parentElement) if (p.scrollHeight > p.clientHeight || p.scrollWidth > p.clientWidth) saved.push([p, 0, 0]);
+        saved.forEach(function (sv) { sv[1] = sv[0].scrollTop; sv[2] = sv[0].scrollLeft; });
+        c.scrollIntoView({ block: 'center', inline: 'center' });
+        r = c.getBoundingClientRect(); x = r.left + r.width / 2; y = r.top + r.height / 2;
+      }
+      if (x >= 0 && y >= 0 && x < innerWidth && y < innerHeight) hit = document.elementFromPoint(x, y);
+      if (saved) saved.forEach(function (sv) { sv[0].scrollTop = sv[1]; sv[0].scrollLeft = sv[2]; });
       if (!hit || hit === c || c.contains(hit) || hit.contains(c)) return;
       if (hit.closest(LAYER) || hit.closest('iframe[data-pf-layer], .pfp-qa-layer, #pfk-qa-layer') || inShell(hit)) return;
       if (cs(c).pointerEvents === 'none') return;

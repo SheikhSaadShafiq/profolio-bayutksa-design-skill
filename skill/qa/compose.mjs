@@ -17,6 +17,8 @@
  *   node qa/compose.mjs replace <screen> "<selector>" <html file | -> [--nth N]
  *   node qa/compose.mjs insert  <screen> "<selector>" <html file | -> --before|--after|--prepend|--append [--nth N]
  *       put a block (from `block`) or your own markup in a screen; - reads it from stdin.
+ *   node qa/compose.mjs empty <screen> "<selector>" [--nth N]
+ *       keep an element, drop its children (start's --empty does the same, and may repeat)
  *   node qa/compose.mjs also <screen> <compiled file> [...]
  *       add compiled files to the screen's pf-also, where qa/validate.py check 1 looks.
  *
@@ -148,7 +150,8 @@ function featureDir(from) {
 
 const NEW_CSS = {
   B: `/* Direction B · competitor-led: new patterns (pfx-* classes only), in the product's colours and type.
-   Every colour, border and face is a product token: var(--pf-…) from css/tokens.css (tokens.md).
+   Every colour, border and face is a product token (tokens.md): var(--pf-…) from css/tokens.css,
+   or on a 2.0 page var(--pf-ml-…) from css/new-theme/tokens.css.
    Never a literal colour or font here, never a product class (.pf-…): wrap one in a pfx- container. */
 `,
   C: `/* Direction C · bold: new patterns (pfx-* classes only) and a new visual language.
@@ -159,6 +162,9 @@ const NEW_CSS = {
 }
 `,
 };
+
+/* keep an element and drop its children */
+function emptyOut(html, sel, file) { const el = one(html, sel, file); return html.slice(0, el.open) + html.slice(html.lastIndexOf('</', el.end - 1)); }
 
 /* ── the commands ──────────────────────────────────────────────────────── */
 const cmd = pos[0];
@@ -187,8 +193,9 @@ if (cmd === 'start') {
     .filter(([id, f]) => existsSync(join(feat, f)) && !new RegExp(`id="${id}"`).test(html))
     .map(([id, f]) => `<script type="application/json" id="${id}" data-src="${toPosix(relative(dstDir, join(feat, f)))}"></script>`);
   html = html.replace(/<\/head>/i, `${links.join('')}${json.join('')}</head>`);
-  const empty = opt('--empty');
-  if (empty) { const el = one(html, empty, from); html = html.slice(0, el.open) + html.slice(html.lastIndexOf('</', el.end - 1)); }
+  const empties = argv.flatMap((a, i) => (argv[i - 1] === '--empty' ? [a] : []));   /* --empty may repeat: a phone page has several containers */
+  for (const sel of empties) html = emptyOut(html, sel, from);
+  const empty = empties.join('", "');
   mkdirSync(dstDir, { recursive: true });
   writeFileSync(dst, html);
   console.log(`  ${toPosix(relative(SKILL, dst))} — from ${toPosix(relative(SKILL, src))}${dirOpt ? ` · direction ${dirOpt}` : ''} · ${links.length} stylesheet(s) · ${json.length} JSON block(s)${empty ? ` · "${empty}" emptied` : ''}`);
@@ -219,11 +226,16 @@ if (cmd === 'start') {
     const where = ['--before', '--after', '--prepend', '--append'].find(flag);
     if (!where) die('insert needs --before, --after, --prepend or --append');
     const closeAt = html.lastIndexOf('</', el.end - 1);
-    const at = { '--before': el.start, '--after': el.end, '--prepend': el.open, '--append': closeAt > el.open ? closeAt : el.end }[where];
+    const at = { '--before': el.start, '--after': el.end, '--prepend': el.open, '--append': closeAt >= el.open ? closeAt : el.end }[where];   /* an emptied element: its close follows its open */
     html = html.slice(0, at) + add + html.slice(at);
   }
   writeFileSync(abs(file), html);
   console.log(`  ${file}: ${cmd === 'replace' ? 'replaced' : 'inserted ' + ['--before', '--after', '--prepend', '--append'].find(flag).slice(2)} "${sel}" (${add.length.toLocaleString()} chars)`);
+} else if (cmd === 'empty') {
+  const [, file, sel] = pos;
+  if (!file || !sel) die('usage: node qa/compose.mjs empty <screen> "<selector>" [--nth N]');
+  writeFileSync(abs(file), emptyOut(read(abs(file)), sel, file));
+  console.log(`  ${file}: "${sel}" emptied — fill it with insert --append`);
 } else if (cmd === 'also') {
   const [, file, ...files] = pos;
   if (!file || !files.length) die('usage: node qa/compose.mjs also <screen> <compiled file> [...]');

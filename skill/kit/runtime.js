@@ -268,15 +268,20 @@
     var n = +(el.getAttribute('data-pf-rows') || 5);
     for (var i = 0; i < n; i++) {
       var frag = tpl.content.cloneNode(true), tops = Array.prototype.slice.call(frag.children);
-      tops.forEach(function (c) { c.__pfItem = { item: sample, index: i, list: name }; });
-      Array.prototype.forEach.call(frag.querySelectorAll(BIND), function (e) { bind(e, { item: sample, index: i, list: name }); });
-      tops.forEach(function (c) { if (c.matches(BIND)) bind(c, { item: sample, index: i, list: name }); });
+      /* bound as a row, its state-driven classes off: a skeleton row is never the selected one */
+      var sk = { item: sample, index: i, list: name, skeleton: true };
+      tops.forEach(function (c) { c.__pfItem = sk; });
+      Array.prototype.forEach.call(frag.querySelectorAll(BIND), function (e) { bind(e, sk); });
+      tops.forEach(function (c) { if (c.matches(BIND)) bind(c, sk); });
       Array.prototype.forEach.call(frag.querySelectorAll('*'), function (e) {
         if (e.__pfHidden) { e.remove(); return; }
         Array.prototype.slice.call(e.attributes).forEach(function (at) { if (/^data-pf-/.test(at.name)) e.removeAttribute(at.name); });
       });
       Array.prototype.forEach.call(frag.querySelectorAll('i.pfk-riyal, svg[data-pf-riyal], svg.pfk-icon, .pfk-icon'), function (e) { e.remove(); });
       Array.prototype.forEach.call(frag.querySelectorAll('button, [role=button], a, .pfk-btn, .wf-btn'), function (e) {
+        /* a control becomes a block of its size; a clickable row or card (the row itself, or one
+           holding several elements) keeps its shape, and its contents become bars */
+        if (tops.indexOf(e) > -1 || e.querySelector('div, p, section, article, ul, ol, li, h1, h2, h3, h4, h5, h6, img')) { e.removeAttribute('href'); e.setAttribute('tabindex', '-1'); e.setAttribute('data-pf-inert', 'a skeleton row'); return; }
         var bar = document.createElement('span');
         bar.className = 'pfk-skel pfk-skel--block';
         bar.style.cssText = 'display:inline-block;width:' + Math.min(220, Math.max(64, (e.textContent || '').trim().length * 8)) + 'px;height:36px';
@@ -316,7 +321,7 @@
     money: function (v) { return v === '' || v == null || isNaN(+v) ? v : (+v).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); },
     upper: function (v) { return String(v).toUpperCase(); },
   };
-  var BIND = '[data-pf-show],[data-pf-text],[data-pf-class],[data-pf-attr],[data-pf-value],[data-pf-overlay],[data-pf-menu-panel]';
+  var BIND = '[data-pf-show],[data-pf-text],[data-pf-class],[data-pf-var],[data-pf-attr],[data-pf-value],[data-pf-overlay],[data-pf-menu-panel]';
   function render() {
     rendering = true;
     try {
@@ -332,7 +337,22 @@
       }
     } catch (e) { fail('render: ' + e.message); }
     rendering = false;
+    focusOverlay();
     post({ pf: 'state', state: snapshot() });
+  }
+  /* a dialog that opens takes the focus (its first control), and gives it back when it closes */
+  var openFor = '', opener = null;
+  function focusOverlay() {
+    var now = S.overlay ? String(S.overlay) : '';
+    if (now === openFor) return;
+    if (now) {
+      var box = Array.prototype.filter.call(document.querySelectorAll('[data-pf-overlay="' + now + '"]'), displayed)[0];
+      var first = box && Array.prototype.filter.call(box.querySelectorAll('button, a[href], input, select, textarea, [tabindex]:not([tabindex="-1"])'), function (e) { return displayed(e) && !e.disabled; })[0];
+      if (!first) return;
+      if (!openFor) opener = document.activeElement;
+      try { first.focus({ preventScroll: true }); } catch (e) { /* not focusable */ }
+    } else if (opener && opener.focus && document.contains(opener)) { try { opener.focus({ preventScroll: true }); } catch (e) { /* gone */ } opener = null; }
+    openFor = now;
   }
   function bind(el, scope) {
           var a;
@@ -347,7 +367,12 @@
             if (el.textContent !== String(v)) el.textContent = String(v);
           }
           if ((a = el.getAttribute('data-pf-class')) !== null) pairs(a).forEach(function (p) {
-            p[0].split(/\s+/).forEach(function (c) { if (c) el.classList.toggle(c, evaluate(p[1], scope)); });
+            p[0].split(/\s+/).forEach(function (c) { if (c) el.classList.toggle(c, !(scope && scope.skeleton) && !!evaluate(p[1], scope)); });
+          });
+          if ((a = el.getAttribute('data-pf-var')) !== null) pairs(a).forEach(function (p) {   /* a pattern's own setting per row: --pfk-value: $.score */
+            if (!/^--pf[kx]-/.test(p[0])) return fail('data-pf-var sets --pfk-* or --pfx-* only, not ' + p[0]);
+            var x = value(p[1], scope);
+            if (x === undefined || x === null || x === '') el.style.removeProperty(p[0]); else el.style.setProperty(p[0], String(x));
           });
           if ((a = el.getAttribute('data-pf-attr')) !== null) pairs(a).forEach(function (p) {
             var on = evaluate(p[1], scope);

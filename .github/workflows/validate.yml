@@ -51,6 +51,8 @@ jobs:
         run: node tests/kit/runtime.mjs
       - name: the composer makes screens the QA accepts
         run: node tests/kit/compose.mjs
+      - name: the runtime's smaller pieces work
+        run: node tests/kit/runtime-pieces.mjs
       - name: the worked example passes its QA
         working-directory: skill
         run: node qa/prototype.mjs examples/leads-marketplace --no-install

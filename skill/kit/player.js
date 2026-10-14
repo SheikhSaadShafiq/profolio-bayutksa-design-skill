@@ -44,8 +44,15 @@
         var byPath = {};
         links.forEach(function (p, i) { byPath[p] = css[i] || ''; });
         html = html.replace(/<link data-pf-css="([^"]+)"[^>]*>/g, function (all, p) { return '<style data-pf-css="' + p + '">' + byPath[p] + '</style>'; });
-        var inject = '<style data-pf-kit>' + KITCSS + '</style>' +
-          '<script>window.PF_BOOT=' + JSON.stringify(boot).replace(/</g, '\\u003c') + '<\/script>' +
+        /* the kit where the screen links it, so a direction's new.css after it wins, as it does
+           in the screen itself; a screen without the link gets it before its new.css */
+        var kit = '<style data-pf-kit>' + KITCSS + '</style>';
+        if (/<link data-pf-kit>/.test(html)) html = html.replace(/<link data-pf-kit>/, function () { return kit; }).replace(/<link data-pf-kit>/g, '');
+        else {
+          var nc = html.search(/<style data-pf-css="[^"]*\/new\.css">/);
+          html = nc > -1 ? html.slice(0, nc) + kit + html.slice(nc) : html.replace(/<\/head>/i, function (h) { return kit + h; });
+        }
+        var inject = '<script>window.PF_BOOT=' + JSON.stringify(boot).replace(/</g, '\\u003c') + '<\/script>' +
           '<script>' + RUNTIME + '<\/script><script>' + QA + '<\/script>';
         var at = html.search(/<\/body>\s*(<\/html>\s*)?$/i);
         return at > -1 ? html.slice(0, at) + inject + html.slice(at) : html + inject;

@@ -64,8 +64,12 @@ try {
   expect(!read(A).includes('new.css') && !existsSync(join(DIR, 'A', 'new.css')), 'A links no new.css and gets none');
   const r = compose(['start', 'pages/listings.mobile.html', R]);
   expect(r.ok && read(R).includes('href="../../css/tokens.css"') && /data-src="data\.json"/.test(read(R)) && !broken(R).length, 'a root screen links two folders up and its JSON beside it');
-  const e = compose(['start', 'pages/listings.html', `${FEAT}/A/empty.html`, '--empty', 'main']);
-  expect(e.ok && /<main\b[^>]*>\s*<\/main>/.test(read(`${FEAT}/A/empty.html`)), '--empty keeps main and drops its children');
+  const e = compose(['start', 'pages/listings.html', `${FEAT}/A/empty.html`, '--empty', 'main', '--empty', 'header.pf-layout-header']);
+  expect(e.ok && /<main\b[^>]*>\s*<\/main>/.test(read(`${FEAT}/A/empty.html`)), '--empty keeps main and drops its children, and may repeat');
+  const ap = compose(['insert', `${FEAT}/A/empty.html`, 'main', '-', '--append'], '<section class="pfk-stack" data-pf-new-copy>Inside</section>');
+  expect(ap.ok && /<main\b[^>]*><section class="pfk-stack" data-pf-new-copy>Inside<\/section><\/main>/.test(read(`${FEAT}/A/empty.html`)), '--append into an emptied element lands inside it');
+  const em = compose(['empty', `${FEAT}/A/empty.html`, 'main']);
+  expect(em.ok && /<main\b[^>]*><\/main>/.test(read(`${FEAT}/A/empty.html`)), 'the empty command empties an element of a screen');
 
   /* the QA's static check accepts what the composer made */
   const v = spawnSync('python3', ['qa/validate.py', B, A, R], { cwd: SKILL, encoding: 'utf8' });

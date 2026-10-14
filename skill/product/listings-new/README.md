@@ -12,9 +12,10 @@ product. At launch the product is compiled again and compared.
   product's own header, and every web screen its rail — the current theme — in place of the
   handover's. On a phone the product's 60px header replaces the artboard's status bar and title
   (its rail is the header menu's drawer). Design inside it; never restyle it.
-- The intake asks every PRD for its design language — current Profolio or Profolio 2.0 (INTAKE.md, D4); 2.0 exists only for My Listings.
-- A page that has not been redesigned (dashboard, leads, reports …) is never drawn in the new
-  theme — there are no new tokens for it.
+- The intake asks every PRD for its design language — current Profolio or Profolio 2.0 (INTAKE.md, D4); 2.0 is compiled only for My Listings.
+- Another page is drawn in the current theme by default. 2.0 on it is allowed and flagged (the
+  owner's decision, 2026-09-30; SKILL.md → THEMES): the shell from a `listings-new` file, the
+  kit's 2.0 patterns and `--pf-ml-*` tokens, every borrowed choice [TBC] for the designer.
 
 ## Its rules
 

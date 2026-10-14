@@ -157,5 +157,6 @@ export function checkResearch(R, { now = Date.now() } = {}) {
   /* 10 · the decisions log */
   need((R.decisions || []).length && R.decisions.every((d) => /^\d{4}-\d{2}-\d{2}/.test(d.date || '') && d.what), 'decisions: the log — the shortlist and any swaps, rules verified, what was not checked — each { "date", "what", "why" }');
 
+  for (const q of R.queries || []) for (const k of q.kept || []) if (!ids.has(k)) warn(`query “${q.q}”: kept “${k}” is no reference, flow or competitor id`);
   return { errors, warnings, freshById, ids, short };
 }

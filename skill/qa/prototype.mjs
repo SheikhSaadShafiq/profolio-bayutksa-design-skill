@@ -40,9 +40,12 @@
  *   --shots        save a PNG of every state and platform to designs/<feature>/qa/shots/, to look at
  *   --pages all|linked|none   the product pages bundled for the rail (default: flow.json "pages", else all)
  *   --no-install   never npm-install a browser
+ *   --only B       the visual QA of one direction only, and --state <id> of one state only: a fast
+ *                  check while fixing. It exits 5 when it passes: never deliver on it, run it whole
  *
  * Exit status: 0 QA passed · 1 QA found errors · 3 built, but no browser here, so the visual QA
- * did not run — say so when you deliver · 2 a usage or setup error.
+ * did not run — say so when you deliver · 5 a partial QA passed (--only, --state) · 2 a usage or
+ * setup error.
  */
 import { readFileSync, writeFileSync, existsSync, mkdirSync, statSync } from 'node:fs';
 import { join, dirname, resolve, relative, basename, posix } from 'node:path';
@@ -123,6 +126,13 @@ if (DIRS.length) {
 }
 const ACTIVE = flow.chosen ? DIRS.filter((d) => d.id === flow.chosen) : DIRS;
 const DIRLIST = ACTIVE.length ? ACTIVE.map((d) => d.id) : [null];
+/* a partial run, to iterate fast: one direction, one state. Never the run you deliver on */
+const ONLY = opt('--only'), ONLY_STATE = opt('--state');
+if (ONLY && !DIRLIST.includes(ONLY)) die(`--only ${ONLY}: no such direction (${DIRLIST.filter(Boolean).join(', ') || 'none'})`);
+const VDIRS = ONLY ? [ONLY] : DIRLIST;
+const VSTATES = ONLY_STATE ? states.filter((s) => s.id === ONLY_STATE) : states;
+if (ONLY_STATE && !VSTATES.length) die(`--state ${ONLY_STATE}: no such state in flow.json`);
+const PARTIAL = [ONLY && `direction ${ONLY} only`, ONLY_STATE && `state ${ONLY_STATE} only`].filter(Boolean).join(', ');
 
 /* ── 2 · the files ───────────────────────────────────────────────────── */
 const fileOf = (s, p, d = null) => (WIRE ? (s.wireframe || {})[p] : d ? ((s.directions || {})[d] || {})[p] : s[p] || (p === 'phone' ? s.mobile : null));
@@ -326,7 +336,9 @@ for (const sf of screenFiles) {
        row, not a list to empty — unless the matrix names it (matrix[].count: a picker that searches) */
     if (key !== k.list && !(flow.matrix || []).some((r) => r.count === key)) continue;
     if (declared(k.list, 'empty') || (flow.matrix || []).some((r) => r.count === key && /^not drawn\b/i.test((r.kinds || {}).empty || ''))) continue;   /* the matrix says why it has none */
-    if (!shows.includes(`total.${key}`)) E('empty', `${where}: the list "${key}" has no empty state — show one when total.${key}=0 (data-pf-show), even if the PRD is silent`);
+    /* total.<key> counts the list's rows; a second view of the same rows (its own count key) is
+       empty when its own count is: count.<key>=0 answers too */
+    if (!shows.includes(`total.${key}`) && !(key !== k.list && shows.includes(`count.${key}`))) E('empty', `${where}: the list "${key}" has no empty state — show one when ${key !== k.list ? `count.${key}=0` : `total.${key}=0`} (data-pf-show), even if the PRD is silent`);
     if (k.filters && !shows.includes(`count.${key}`)) E('empty', `${where}: the list "${key}" filters, but nothing shows when no row matches — add a no-results state on count.${key}=0 with a way to clear the filters`);
   }
   for (const n of attrs(h, 'do').flatMap((x) => x.split(/[\s,]+/)).filter(Boolean)) if (!(n in acts.value)) E('actions', `${where}: data-pf-do="${n}" is no action in pf-actions`);
@@ -382,7 +394,7 @@ const matrix = flow.matrix || [];
    restyles a product class ── */
 const newTokens = [];                // { dir, name, value, why }: the bold direction's new language, for sign-off
 /* the kit's visual elements (kit/README.md → visual elements) are new design: B and C only */
-const ELEMENT_RE = /\bpfk-(grid|split|tile|stats?|delta|avatars|ring|meter|bar|thumbs|ichips?|band|spark|steps)(?:__[\w-]+|--[\w-]+)?(?![\w-])/;
+const ELEMENT_RE = /\bpfk-(grid|split|tile|stats?|delta|avatars|ring|meter|progress|thumbs|ichips?|band|spark|steps)(?:__[\w-]+|--[\w-]+)?(?![\w-])/;
 for (const d of ACTIVE.filter((x) => x.kind === 'existing')) for (const sf of screenFiles.filter((f) => f.dir === d.id)) {
   const m = [...sf.html.matchAll(/\sclass="([^"]*)"/g)].map((c) => (c[1].match(ELEMENT_RE) || [])[0]).find(Boolean);
   if (m) E('direction', `direction ${d.id} draws only the product's components, and ${relative(DIR, sf.abs)} uses the kit's visual element .${m} — new design, for B and C`);
@@ -470,7 +482,8 @@ function transform(abs, html) {
   html = html.replace(LINK_RE, (l) => {
     const href = (l.match(/\bhref=["']([^"']+)["']/) || [])[1];
     const found = href && resolveFrom(abs, html, href);
-    if (!found || /kit\/kit\.css$/.test(found)) return '';
+    if (found && /kit\/kit\.css$/.test(found)) return '<link data-pf-kit>';   /* the kit, where the screen links it: before a direction's new.css */
+    if (!found) return '';
     const bp = posixRel(found);
     if (!cssText.has(bp) && existsSync(found)) cssText.set(bp, read(found));
     return `<link data-pf-css="${bp}">`;
@@ -544,7 +557,7 @@ ${files.join('\n')}
 }
 
 /* ── 6 · the visual QA ───────────────────────────────────────────────── */
-const LAYOUT = new Set(['align', 'controls', 'rows', 'overlap', 'clip', 'small', 'targets', 'skeleton', 'rail', 'unstyled', 'contrast', 'covered', 'squeezed']);
+const LAYOUT = new Set(['align', 'controls', 'rows', 'overlap', 'clip', 'small', 'targets', 'skeleton', 'rail', 'unstyled', 'contrast', 'covered', 'squeezed', 'focus']);
 const SIZE = { web: { width: 1440, height: 900 }, phone: { width: 375, height: 812 } };
 async function visual() {
   if (flag('--no-qa')) return { ran: false, note: 'built with --no-qa' };
@@ -580,11 +593,11 @@ async function visual() {
       }
       await page.goto(pathToFileURL(OUT).href + '#shot');
       for (let t = 0; t < 120 && !(await page.evaluate(() => !!(window.__pfp))); t++) await new Promise((r) => setTimeout(r, 250));
-      for (const dd of DIRLIST) {
+      for (const dd of VDIRS) {
       /* each direction is a whole design: every state, the sweep, the extremes, the options */
       if (dd) await page.evaluate((x) => window.__pfp.dir(x), dd);
       const tag = (x) => (dd ? `${dd} › ` : '') + x;
-      for (const s of states) {
+      for (const s of VSTATES) {
         const st = await page.evaluate(([id, p]) => window.__pfp.go(id, p).then(() => true, (e) => String(e)), [s.id, pl]);
         const sf = screenFiles.find((f) => f.screen.id === (s.screen || screens[0].id) && f.platform === pl && f.dir === dd);
         const src0 = sf && sourcesOf(sf.html)[0];
@@ -615,7 +628,7 @@ async function visual() {
          a menu only a filtered or a per-row state reaches is opened there */
       const go = (id) => page.evaluate(([i, p]) => window.__pfp.go(i, p), [id, pl]);
       const swept = new Set();
-      for (const s of states) {
+      for (const s of VSTATES) {
         await go(s.id);
         const ts = await page.evaluate(() => window.__pfp.targets());
         for (const t of (Array.isArray(ts) ? ts : [])) {
@@ -642,6 +655,7 @@ async function visual() {
         if (Number.isInteger(r.row)) byState.get(at).rows[r.list] = r.row;
       }
       for (const [sid, g] of byState) for (const kind of ['missing', 'long', 'arabic', 'zero']) {
+        if (!VSTATES.some((s) => s.id === sid)) continue;
         await page.evaluate(() => window.__pfp.reset());
         await go(sid);
         const res = await page.evaluate(([k, l, r]) => window.__pfp.extremes(k, l, r), [kind, g.lists, g.rows]);
@@ -652,7 +666,7 @@ async function visual() {
       }
       /* the new copy, long and in Arabic, once for each set of it a state shows */
       const copySeen = new Set();
-      for (const s of states) {
+      for (const s of VSTATES) {
         await go(s.id);
         const texts = await page.evaluate(() => window.__pfp.newCopy());
         const sig = JSON.stringify(texts || []);
@@ -672,7 +686,7 @@ async function visual() {
          sets its key, else the start), and the state reset after each */
       for (const o of flow.options || []) {
         const where = o.state ? [o.state] : states.filter((s) => s.set && o.key in s.set).map((s) => s.id);
-        for (const sid of (where.length ? where : [flow.start || states[0].id])) for (const [v] of o.variants || []) {
+        for (const sid of (where.length ? where : [flow.start || states[0].id]).filter((x) => VSTATES.some((s) => s.id === x))) for (const [v] of o.variants || []) {
           await go(sid);
           await page.evaluate(([k, x]) => window.__pfp.setVar(k, x), [o.key, v]);
           record(await page.evaluate(() => window.__pfp.qa({})), `${sid} · ${o.key}=${v}`);
@@ -705,8 +719,9 @@ async function visual() {
   for (const g of sweepGaps) merged.set('gap|' + g, { level: 'warn', check: 'sweep', platform: '', message: `extreme data not tried: ${g}`, box: null, states: [] });
   const list = [...merged.values()].sort((a, b) => ({ error: 0, warn: 1, product: 2 }[a.level] - { error: 0, warn: 1, product: 2 }[b.level]));
   const nd = DIRLIST.length;
-  const coverage = `${states.length} states × ${PLATFORMS.length} platform${PLATFORMS.length > 1 ? 's' : ''}${nd > 1 ? ` × ${nd} directions` : ''} · ${sweep.interactions} interactions · ${sweep.extremes} extreme-data · ${sweep.options} option renders`;
-  return { ran: true, browser: b.name, renders: states.length * PLATFORMS.length * nd + sweep.interactions + sweep.extremes + sweep.options, coverage, issues: list };
+  const nv = VDIRS.length;
+  const coverage = `${VSTATES.length} states × ${PLATFORMS.length} platform${PLATFORMS.length > 1 ? 's' : ''}${nv > 1 ? ` × ${nv} directions` : ''} · ${sweep.interactions} interactions · ${sweep.extremes} extreme-data · ${sweep.options} option renders${PARTIAL ? ` — PARTIAL: ${PARTIAL}` : ''}`;
+  return { ran: true, browser: b.name, renders: VSTATES.length * PLATFORMS.length * nv + sweep.interactions + sweep.extremes + sweep.options, coverage, issues: list };
 }
 
 /* ── run ─────────────────────────────────────────────────────────────── */
@@ -718,7 +733,7 @@ const v = errors.length && errors.some((e) => ['flow', 'coverage', 'files'].incl
 const all = [...staticIssues.map((i) => ({ ...i, platform: '', states: [] })), ...(v.issues || [])];
 const nErr = all.filter((i) => i.level === 'error').length, nWarn = all.filter((i) => i.level === 'warn').length, nProd = all.filter((i) => i.level === 'product').length;
 qa = { ran: !!v.ran, note: v.note || '', browser: v.browser || '', renders: v.renders || 0, coverage: v.coverage || '', errors: nErr, warnings: nWarn, product: nProd, issues: all.slice(0, 80), built: new Date().toISOString(), directions: DIRLIST.filter(Boolean), chosen: flow.chosen || null, newTokens };
-writeFileSync(OUT, build(qa));
+writeFileSync(OUT, build(PARTIAL ? { ...qa, ran: false, note: `a partial QA (${PARTIAL}): run it whole before sharing` } : qa));
 mkdirSync(REPORT, { recursive: true });
 const name = WIRE ? 'wireframe' : 'prototype';
 writeFileSync(join(REPORT, `${name}.json`), JSON.stringify(qa, null, 1));
@@ -816,5 +831,6 @@ for (const i of all.filter((x) => x.level !== 'product').slice(0, 30)) log(`    
 if (all.filter((x) => x.level !== 'product').length > 30) log(`    … ${relative(process.cwd(), join(REPORT, name + '.md'))} has all ${all.length}`);
 if (nProd) log(`  ${nProd} issue(s) are the product's own (its compiled page has them too) — listed in the report, not counted`);
 if (nErr) { log(`  → fix the errors and run again. Until QA passes, the ${name} says “not ready to share”.`); process.exit(1); }
+if (PARTIAL && qa.ran) { log(`  → the partial QA (${PARTIAL}) passed. Run it whole, without --only and --state, before delivering.`); process.exit(5); }
 if (!qa.ran) { log(`  → built, but the visual QA did not run here. Deliver it saying so, and ask for the QA button in the ${name} to be pressed.`); process.exit(3); }
 log(`  → QA passed. Deliver ${relative(process.cwd(), OUT)}.`);

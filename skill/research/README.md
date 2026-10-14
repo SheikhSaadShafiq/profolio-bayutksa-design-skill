@@ -59,7 +59,10 @@ query in `queries` with its pass and what it gave you (`kept`).
 
 - **Wide, first: short queries naming the thing, 1–3 words**, never a sentence describing a
   layout. `search_screens`, mode `deep` (the default), limit 8: "lead marketplace", "credit
-  wallet", "unlock contact", "match score", "opportunity card". Measured 2026-10-14: a
+  wallet", "unlock contact", "opportunity card", "job feed", "locked preview". When a word
+  belongs to another domain too, add the domain's noun: "match score" returned sports scores,
+  "lead inbox" chat inboxes (2026-10-14); "property match" and "sales leads" stay on topic.
+  Measured 2026-10-14: a
   sentence describing "a table of leads with filters and an unlock button" returned six
   generic contact tables; "lead marketplace" returned real marketplaces with rich cards. A
   feeling ("urgency"), a quality ("modern") or an abstract idea ("spots left") returns noise:
