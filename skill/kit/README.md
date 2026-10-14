@@ -21,8 +21,10 @@ designs/<feature>/
   design/context.json         copied from the skill's context.json, for the design-* skills
   flow.json                   the plan: screens, states, scenario controls, the state matrix, the directions
   state.json data.json actions.json   the variables, the rows, the named actions — shared by every screen and direction
-  research/research.json      the research: competitors, Mobbin, trends, fresh moves (research/README.md)
-  research/img/<id>.webp      the Mobbin images kept, embedded in the board
+  research/research.json      the research: gaps, competitors by fit, flows, rules, the capability
+                              matrix, trends, ranked findings (research/README.md)
+  research/img/<id>.webp      the Mobbin images kept (img/<flow>-<pos>.webp for a flow's step)
+  research/summary.md         built with the board: the findings summary, to paste
   research/board.html         built: node qa/board.mjs designs/<feature> — rebuild it once flow.json
                               has its directions, then publish it as its own artifact
   A/ B/ C/                    the three directions: <screen>.html (+ .mobile.html) each; B and C may have new.css
@@ -103,7 +105,7 @@ phone, switched in the player and all QA'd:
   token in the handoff and on the board, for the designer's sign-off.
 - A direction's CSS styles only its own `pfx-*` classes, never a product class (`.pf-card`):
   wrap a product component in a `pfx-` container instead.
-- **fresh**: the research's fresh moves the direction draws (B at least one, C at least two),
+- **fresh**: the research's ranked findings the direction draws (B at least one, C at least two),
   each marked on the element that draws it: `data-pf-fresh="f2"`. B and C each draw at least
   one move of size `layout` or `hero`. The QA fails a listed move that no screen marks.
 - **chosen**: after gate 1, `"chosen": "B"`. The prototype then holds that direction alone, and

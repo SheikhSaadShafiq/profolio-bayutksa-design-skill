@@ -50,6 +50,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { gzipSync } from 'node:zlib';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { launch } from './browser.mjs';
+import { checkResearch } from './research.mjs';
 
 const SKILL = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const argv = process.argv.slice(2);
@@ -418,74 +419,24 @@ for (const d of ACTIVE) {
   }
 }
 
-/* ── 3c · the research behind the directions (research/research.json, kit/README.md → research):
-   competitors in the four groups, Mobbin references, recent trends, and the fresh moves each
-   direction draws — every move marked on its screens (data-pf-fresh) ── */
+/* ── 3c · the research behind the directions (research/research.json, research/README.md):
+   gaps, competitors by fit and approved, Mobbin wide then deep, flows, rules, the capability
+   matrix, trends and the ranked findings (qa/research.mjs) — and every finding a direction
+   lists, marked on its screens (data-pf-fresh) ── */
 const RES_FILE = join(DIR, 'research', 'research.json');
 let research = null;
 if (DIRS.length || existsSync(RES_FILE)) {
   if (!existsSync(RES_FILE)) E('research', `research/research.json is missing — directions start from the research: competitors, Mobbin, trends, fresh moves (kit/README.md → research)`);
   else { try { research = JSON.parse(read(RES_FILE)); } catch (e) { E('research', `research/research.json is not valid JSON: ${e.message}`); } }
 }
-const freshById = new Map();
-const SIZES = ['layout', 'hero', 'language', 'detail'];   // how much a fresh move changes
+let freshById = new Map();
 if (research) {
-  const R = research, ids = new Set();
-  const need = (cond, msg) => { if (!cond) E('research', msg); };
-  const comps = R.competitors || [];
-  const GROUPS = { ksa: 'KSA portals\' agent tools', regional: 'regional and global agent tools', saas: 'best-in-class SaaS for the pattern', bayut: 'Bayut\'s and dubizzle\'s own markets' };
-  const SEEN = ['site', 'app-store', 'mobbin', 'help-centre', 'press', 'search-summary'];
-  for (const c of comps) {
-    if (c.none) { need(GROUPS[c.group], `competitor entry ${JSON.stringify(c)}: group must be one of ${Object.keys(GROUPS).join(', ')}`); W('research', `group "${c.group}": searched, nothing does this job (${c.none}) — say so in the plan`); continue; }
-    need(c.name && GROUPS[c.group] && c.why && /^https?:/.test(c.url || ''), `competitor ${JSON.stringify(c.name || c)}: needs name, group (${Object.keys(GROUPS).join(', ')}), why it is relevant to this feature, and its url`);
-    need(!c.seen || SEEN.includes(c.seen), `competitor ${c.name}: seen is one of ${SEEN.join(', ')}`);
-    if (c.id) ids.add(c.id);
-  }
-  for (const [g, label] of Object.entries(GROUPS)) need(comps.some((c) => c.group === g), `no competitor from ${label} (group "${g}") — or, searched and none does this job: { "group": "${g}", "none": "what you searched" }`);
-  const refs = R.mobbin || [], web = R.web || [];
-  /* Mobbin, searched wide first: short queries name the thing (1–3 words), never the layout you
-     already have in mind — a sentence describing a table finds tables (2026-10-14) */
-  if (!R.mobbin_unavailable) {
-    const Q = R.queries || [], wide = Q.filter((q) => q.pass === 'wide');
-    need(wide.length >= 8, `at least 8 wide Mobbin queries, 1–3 words each ("lead marketplace", "credit wallet", "match score") — ${wide.length} in research.json queries`);
-    for (const q of Q) {
-      const n = String(q.q || '').trim().split(/\s+/).filter(Boolean).length;
-      need(q.q && ['wide', 'deep'].includes(q.pass), `query ${JSON.stringify(q)}: needs q and pass ("wide" or "deep")`);
-      if (q.pass === 'wide' && n > 3) E('research', `wide query “${q.q}” is ${n} words: 1–3, naming the thing ("lead marketplace"), not describing a layout`);
-      if (q.pass === 'deep' && n > 6) W('research', `deep query “${q.q}” is ${n} words: name the app and the screen ("Mercor explore opportunities")`);
-      if (q.pass === 'wide' && q.mode === 'standard') W('research', `wide query “${q.q}” ran in standard mode: deep mode ranks short queries far better`);
-    }
-  }
-  for (const r of [...refs, ...web]) { need(r.id && r.app && /^https?:/.test(r.url || '') && r.borrow, `reference ${JSON.stringify(r.id || r.app || r)}: needs id, app, url, and what to borrow`); if (r.id) ids.add(r.id); }
-  if (R.mobbin_unavailable) {
-    W('research', `Mobbin was not available: ${R.mobbin_unavailable} — the references come from the web; say so to the user`);
-    need(web.length >= 6, `Mobbin was not available, so at least 6 web references are needed — ${web.length} given`);
-  } else {
-    need(refs.length >= 6, `at least 6 Mobbin references (search_flows for journeys, search_screens for key screens) — ${refs.length} given`);
-    need(new Set(refs.map((r) => r.app)).size >= 3, 'the Mobbin references come from at least 3 different products');
-    for (const r of refs) need(/mobbin\.com/.test(r.url || ''), `Mobbin reference ${r.id}: cite its mobbin_url`);
-  }
-  const trends = R.trends || [];
-  need(trends.length >= 2, `at least 2 recent trend articles (title, url, date, takeaway) — ${trends.length} given`);
-  need(trends.some((t) => t.kind === 'visual'), 'at least 1 visual trend (kind "visual"): what the best products look like now — a gallery, a showcase, a design team\'s visual write-up — beside the UX ones (kind "ux")');
-  const ageOf = (t) => { const ym = /^\d{4}-\d{2}/.test(t.date || '') ? t.date.slice(0, 7) : /^\d{4}/.test(t.date || '') ? t.date.slice(0, 4) + '-12' : null; return ym ? (Date.now() - Date.parse(ym + '-01')) / 864e5 : Infinity; };
-  need(trends.filter((t) => ageOf(t) <= 548).length >= 2, `at least 2 trends from the last 18 months — ${trends.filter((t) => ageOf(t) <= 548).length} given`);
-  for (const t of trends) {
-    need(t.title && /^https?:/.test(t.url || '') && t.takeaway && /^\d{4}(-\d{2})?/.test(t.date || '') && ['ux', 'visual'].includes(t.kind), `trend ${JSON.stringify(t.title || t)}: needs title, url, date (YYYY-MM, or YYYY when the page gives only the year), kind ("ux" or "visual") and its takeaway`);
-    if (t.id) ids.add(t.id);
-    const ym = /^\d{4}-\d{2}/.test(t.date || '') ? t.date.slice(0, 7) : /^\d{4}/.test(t.date || '') ? t.date.slice(0, 4) + '-12' : null;   /* a year alone: its end, the kindest reading */
-    if (ym && (Date.now() - Date.parse(ym + '-01')) / 864e5 > 548) W('research', `trend “${t.title}” is from ${t.date}: older than 18 months`);
-  }
-  const fresh = R.fresh || [];
-  need(fresh.length >= 3, `at least 3 fresh moves, each from the references — ${fresh.length} given`);
-  need(fresh.filter((f) => SIZES.includes(f.size) && f.size !== 'detail').length >= 2, 'at least 2 fresh moves change the layout, the hero or the visual language (size "layout", "hero" or "language"), not a detail');
-  for (const f of fresh) {
-    need(f.id && f.title && f.what && (f.refs || []).length && SIZES.includes(f.size), `fresh move ${JSON.stringify(f.id || f.title || f)}: needs id, title, size (${SIZES.join(', ')}), what it changes, and the references it comes from`);
-    for (const r of f.refs || []) need(ids.has(r), `fresh move ${f.id}: “${r}” is no competitor, reference or trend id`);
-    if (f.id) freshById.set(f.id, f);
-  }
+  const r = checkResearch(research);
+  for (const m of r.errors) E('research', m);
+  for (const m of r.warnings) W('research', m);
+  freshById = r.freshById;
   const board = join(DIR, 'research', 'board.html');
-  need(existsSync(board) && statSync(board).mtimeMs >= statSync(RES_FILE).mtimeMs - 1000, 'research/board.html is missing or older than research.json — node qa/board.mjs ' + relative(SKILL, DIR));
+  if (!(existsSync(board) && statSync(board).mtimeMs >= statSync(RES_FILE).mtimeMs - 1000)) E('research', 'research/board.html is missing or older than research.json — node qa/board.mjs ' + relative(SKILL, DIR));
 }
 for (const d of ACTIVE) {
   const min = { existing: 0, competitor: 1, bold: 2 }[d.kind] || 0;
@@ -838,9 +789,9 @@ if (!WIRE) {
     '## Screens', '', '| screen | platform | file | compiled from |', '|---|---|---|---|',
     ...screenFiles.map((sf) => `| ${sf.screen.title || sf.screen.id} (${sf.screen.route || ''})${sf.dir ? ' · ' + sf.dir : ''} | ${sf.platform} | \`${relative(DIR, sf.abs)}\` | ${sourcesOf(sf.html).map((x) => `\`${x}\``).join(', ') || '—'} |`), '',
     ...(ACTIVE.length ? ['## Directions', '', flow.chosen ? `Chosen: **${flow.chosen}**. The others stay in the design's folder.` : 'Gate 1: pick one, or mix them.', '',
-      ...ACTIVE.flatMap((d) => [`### ${d.id} · ${d.title || ''} — ${KIND[d.kind] || d.kind}`, '', d.summary || '', '', ...(d.fresh || []).map((f) => `- fresh: ${(freshById.get(f) || {}).title || f}`),
+      ...ACTIVE.flatMap((d) => [`### ${d.id} · ${d.title || ''} — ${KIND[d.kind] || d.kind}`, '', d.summary || '', '', ...(d.fresh || []).map((f) => { const x = freshById.get(f) || {}; return `- finding: ${x.title || f}${x.impact ? ` (${x.impact} impact, ${x.effort} effort; lands: ${x.lands})` : ''}`; }),
         ...newTokens.filter((t) => t.dir === d.id).map((t) => `- [new] token \`${t.name}: ${t.value}\` — ${t.why} (designer sign-off)`), '']),
-      research ? `Research: \`research/board.html\`${flow.research && flow.research.board_url ? ` (${flow.research.board_url})` : ''}: ${(research.competitors || []).length} competitors, ${(research.mobbin || []).length} Mobbin references, ${(research.trends || []).length} trends, ${(research.fresh || []).length} fresh moves.` : '', ''] : []),
+      research ? `Research: \`research/board.html\`${flow.research && flow.research.board_url ? ` (${flow.research.board_url})` : ''}: ${(research.gaps || []).length} gaps, ${(research.competitors || []).filter((c) => c.status === 'shortlist').length} competitors shortlisted, ${(research.flows || []).length} flows, ${(research.rules || []).length} rules, ${(research.mobbin || []).length} Mobbin references, ${(research.trends || []).length} trends, ${(research.fresh || []).length} ranked findings. The summary: \`research/summary.md\`.` : '', ''] : []),
     '## States', '', '| state | group | what it shows |', '|---|---|---|',
     ...states.map((s) => `| ${s.title || s.id} (\`${s.id}\`) | ${s.group || ''} | ${(s.notes || '').replace(/\|/g, '\\|')} |`), '',
     '## State matrix', '', '| region | ' + ['default', 'loading', 'empty', 'no-results', 'error', 'first-use'].join(' | ') + ' |', '|---|---|---|---|---|---|---|',

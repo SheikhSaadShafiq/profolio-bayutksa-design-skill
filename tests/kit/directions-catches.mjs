@@ -38,29 +38,45 @@ const C_ADD = '<section class="pfx-band" data-pf-fresh="f2 f3"><p class="pfx-ban
 const B_CSS = '.pfx-summary { margin: 16px 24px 0; padding: 12px 16px; border-radius: var(--pf-border-radius-lg); background: var(--pf-color-primary-bg); color: var(--pf-color-primary); }\n.pfx-summary__line { margin: 0; }\n';
 const C_CSS = ':root { --pfx-ink: #0b3d2e; /* [new] a deeper green for the insight band */ --pfx-wash: #e3f2ec; /* [new] its quiet ground */ }\n.pfx-band { margin: 16px 24px 0; padding: 14px 18px; border-radius: 12px; background: var(--pfx-wash); color: var(--pfx-ink); }\n.pfx-band__line { margin: 0; font-weight: 600; }\n';
 
+/* a full study (research/README.md): gaps, a long list scored for fit and approved, Mobbin wide
+   then deep, a flow per shortlisted competitor, a rule, the capability matrix, trends, ranked findings */
+const C = [
+  ['c1', 'Wasalt Business', 'ksa', 'alternate', 'partly'], ['c2', 'Property Finder PF Expert', 'regional', 'shortlist', 'yes'],
+  ['c3', 'Rightmove Plus', 'regional', 'shortlist', 'yes'], ['c4', 'Stripe Dashboard', 'saas', 'shortlist', 'yes'],
+  ['c5', 'Mixpanel', 'saas', 'shortlist', 'yes'], ['c6', 'Profolio UAE', 'bayut', 'shortlist', 'yes'],
+  ['c7', 'HubSpot', 'saas', 'alternate', 'partly'], ['c8', 'Zillow Premier Agent', 'regional', 'alternate', 'partly'],
+  ['c9', 'Realtor.com Pro', 'regional', 'dropped', 'no'], ['c10', 'dubizzle', 'bayut', 'dropped', 'no'], ['c11', 'Notion', 'saas', 'dropped', 'no'],
+];
 const research = () => ({
   feature: 'Agency Report', question: 'An agency owner sees which agents bring leads and spend credits', made: '2026-10-14',
-  competitors: [
-    { id: 'c1', name: 'Wasalt Business', group: 'ksa', url: 'https://wasalt.sa/en/corporate', why: 'the KSA broker app agents already use' },
-    { id: 'c2', name: 'Property Finder PF Expert', group: 'regional', url: 'https://www.propertyfinder.ae/partnerhub/pf-expert/', why: 'performance analytics beside leads' },
-    { id: 'c3', name: 'Rightmove Plus', group: 'regional', url: 'https://hub.rightmove.co.uk/rightmove-plus/', why: 'market-share and lead reports' },
-    { id: 'c4', name: 'Stripe Dashboard', group: 'saas', url: 'https://stripe.com', why: 'reports with period comparison' },
-    { id: 'c5', name: 'Mixpanel', group: 'saas', url: 'https://mixpanel.com', why: 'insights in words' },
-    { id: 'c6', name: 'Profolio UAE', group: 'bayut', url: 'https://www.bayut.com', why: 'the same report next door' },
-  ],
+  depth: 'full', goal: 'weekly active agency owners', constraints: ['credits only'],
+  gaps: ['Who brought the leads', 'Where credits went', 'What changed this week', 'Which agent to coach', 'Report empty for a new agency', 'Export for the owner'].map((title, i) => ({ id: `G${i + 1}`, title, from: 'intake' })),
+  traits: ['an owner watches a team', 'leads cost credits', 'performance by person', 'a weekly rhythm'].map((title, i) => ({ id: `T${i + 1}`, title })),
+  competitors: C.map(([id, name, group, status, f]) => ({ id, name, group, status, url: `https://example.com/${id}`, why: `${name} fits the job`, mobbin: f === 'no' ? 'none' : 'strong', gaps: ['G1'],
+    fit: { T1: f, T2: f, T3: f, T4: f } })),
+  approved: { date: '2026-10-14', by: 'the PM', note: 'in the intake reply' },
   mobbin: ['Stripe', 'Mixpanel', 'Linear', 'Stripe', 'HubSpot', 'Mixpanel'].map((app, i) => ({ id: `m${i + 1}`, app, kind: 'screen', title: 'Report overview', url: `https://mobbin.com/screens/fixture-${i + 1}`, borrow: 'the comparison sits beside each number', avoid: 'too many tabs' })),
   mobbin_unavailable: null, web: [],
   queries: [...['agency report', 'team leaderboard', 'credits usage', 'lead sources', 'weekly summary', 'insight', 'analytics dashboard', 'agent performance'].map((q, i) => ({ q, pass: 'wide', tool: 'screens', mode: 'deep', kept: i < 3 ? [`m${i + 1}`] : [] })),
-    { q: 'Stripe balance overview', pass: 'deep', tool: 'flows', kept: ['m4'] }],
+    { q: 'Stripe balance overview and payouts by period', pass: 'deep', tool: 'flows', kept: ['F3'] }],
+  flows: ['c2', 'c3', 'c4', 'c5', 'c6'].map((c, i) => ({ id: `F${i + 1}`, competitor: c, title: 'Owner reviews the week', gaps: [`G${(i % 4) + 1}`], url: `https://mobbin.com/flows/fixture-${i + 1}`,
+    steps: [{ pos: 1, caption: 'The owner opens the report and sees the week in one line' }, { pos: 2, caption: 'A tap on an agent opens their leads and spend' }],
+    rule: i === 0 ? 'R1' : null, well: 'the week is read before any table', adopt: 'Open the Agency Report on a one-line summary of the week' })),
+  rules: [{ id: 'R1', competitor: 'c2', rule: 'Performance data refreshes daily and covers 90 days', title: 'PF Expert help: analytics', url: 'https://example.com/help', read: '2026-10-14' }],
+  capabilities: ['A summary of the week', 'Leads by agent', 'Credits by agent', 'Compare periods', 'Export'].map((title, i) => ({ id: `K${i + 1}`, title, gaps: [`G${(i % 4) + 1}`],
+    values: { us: i < 2 ? 'partly' : 'no', c2: 'yes', c3: 'yes', c4: i === 4 ? 'not-checked' : 'yes', c5: 'partly', c6: 'no' } })),
   trends: [
     { id: 't1', title: 'Dashboards that start with the answer', url: 'https://example.com/a', date: '2026-05', source: 'fixture', kind: 'visual', takeaway: 'lead with one sentence' },
     { id: 't2', title: 'Insight-first analytics', url: 'https://example.com/b', date: '2026-03', source: 'fixture', kind: 'ux', takeaway: 'explain the change' },
   ],
   fresh: [
-    { id: 'f1', title: 'One line on what changed this week', size: 'hero', what: 'a summary above the table', refs: ['m1', 't1'] },
-    { id: 'f2', title: 'An insight band', size: 'language', what: 'the biggest driver in words', refs: ['m2', 't2'] },
-    { id: 'f3', title: 'Agents ranked by contribution', size: 'layout', what: 'who brought the leads', refs: ['m5', 'c3'] },
+    { id: 'f1', title: 'One line on what changed this week', size: 'hero', what: 'a summary above the table', impact: 'high', effort: 'M', gaps: ['G3'], seen_at: ['c2', 'c4'], lands: 'Agency Report, top', refs: ['m1', 't1'] },
+    { id: 'f2', title: 'An insight band', size: 'language', what: 'the biggest driver in words', impact: 'high', effort: 'M', gaps: ['G1'], seen_at: ['c5'], lands: 'Agency Report, top', refs: ['m2', 't2'] },
+    { id: 'f3', title: 'Agents ranked by contribution', size: 'layout', what: 'who brought the leads', impact: 'high', effort: 'L', gaps: ['G1', 'G4'], seen_at: ['c3', 'F2'], lands: 'Agency Report, body', refs: ['m5', 'c3'] },
+    ...['Credits beside leads', 'Compare to last week', 'Coach an agent', 'Empty for a new agency', 'Export to the owner'].map((title, i) => ({ id: `f${i + 4}`, title, size: 'detail', what: title, impact: 'medium', effort: 'S',
+      gaps: [i === 3 ? 'G5' : i === 4 ? 'G6' : `G${i + 2}`], seen_at: ['c4'], lands: 'Agency Report', refs: ['m3'] })),
   ],
+  decisions: [{ date: '2026-10-14', what: 'Shortlisted PF Expert, Rightmove Plus, Stripe, Mixpanel, Profolio UAE', why: 'best fit on all four traits' }],
   rounds: [],
 });
 const flow = () => ({
@@ -106,7 +122,7 @@ const JUDGED = ['directions', 'direction', 'fresh', 'research'];
 const good = run('dirs-good', (x) => x, ['--shots']);
 const bad = (good.rep.issues || []).filter((i) => i.level === 'error' && JUDGED.includes(i.check));
 expect(!bad.length, `three directions with their research pass directions, direction, fresh and research${bad.length ? ': ' + bad[0].message : ''}`);
-expect(existsSync(join(good.dir, 'research', 'board.html')) && /Fresh moves/.test(readFileSync(join(good.dir, 'research', 'board.html'), 'utf8')), 'the board is built: competitors, references, trends, fresh moves');
+expect(existsSync(join(good.dir, 'research', 'board.html')) && /Start here[\s\S]*Findings, ranked[\s\S]*Compare[\s\S]*Competitors, flow by flow/.test(readFileSync(join(good.dir, 'research', 'board.html'), 'utf8')), 'the board is built: start here, ranked findings, the comparison, a section per competitor');
 expect(/× 3 directions/.test(good.rep.coverage || ''), `every direction is rendered (${good.rep.coverage || 'no coverage'})`);
 const shots = existsSync(join(good.dir, 'qa', 'shots')) ? readdirSync(join(good.dir, 'qa', 'shots')) : [];
 expect(['A', 'B', 'C'].every((d) => shots.some((f) => f.startsWith(d + '.report.'))), 'a shot of each direction');
@@ -140,7 +156,7 @@ expect(run('dirs-unmarked', (x) => ({ ...x, C: screen('C', C_ADD.replace(' data-
 expect(run('dirs-no-existing', (x) => ({ ...x, flow: { ...x.flow, directions: x.flow.directions.map((d) => (d.id === 'A' ? { ...d, kind: 'competitor', fresh: ['f1'] } : d)) }, A: screen('A', B_ADD.replace('pfx-summary', 'pfx-summary-a'), false) })).has('directions', /existing components/), 'no direction of existing components fails `directions`');
 expect(run('dirs-groups', (x) => ({ ...x, research: { ...x.research, competitors: x.research.competitors.filter((c) => c.group !== 'bayut') } })).has('research', /group "bayut"/), 'a competitor group missing fails `research`');
 expect(run('dirs-few-refs', (x) => ({ ...x, research: { ...x.research, mobbin: x.research.mobbin.slice(0, 3) } })).has('research', /at least 6 Mobbin references/), 'fewer than six Mobbin references fails `research`');
-expect(run('dirs-no-trends', (x) => ({ ...x, research: { ...x.research, trends: [] } })).has('research', /2 recent trend/), 'no trends fails `research`');
+expect(run('dirs-no-trends', (x) => ({ ...x, research: { ...x.research, trends: [] } })).has('research', /at least 2 trends from the last 18 months/), 'no trends fails `research`');
 expect(run('dirs-bad-ref', (x) => ({ ...x, research: { ...x.research, fresh: x.research.fresh.map((f) => (f.id === 'f2' ? { ...f, refs: ['m99'] } : f)) } })).has('research', /m99/), 'a fresh move from no real reference fails `research`');
 expect(run('dirs-stale-board', (x) => ({ ...x, board: 'stale' })).has('research', /board\.html is missing or older/), 'a board older than its research fails `research`');
 const web = run('dirs-no-mobbin', (x) => ({ ...x, research: { ...x.research, mobbin: [], mobbin_unavailable: 'the connector is not set up', web: x.research.mobbin.map((r) => ({ ...r, id: 'w' + r.id.slice(1), url: 'https://example.com/' + r.id })) , fresh: x.research.fresh.map((f) => ({ ...f, refs: f.refs.map((r) => r.replace(/^m/, 'w')) })) } }));
@@ -162,7 +178,7 @@ expect(run('dirs-long-query', (x) => ({ ...x, research: { ...x.research, queries
 expect(run('dirs-few-queries', (x) => ({ ...x, research: { ...x.research, queries: x.research.queries.slice(5) } })).has('research', /at least 8 wide Mobbin queries/), 'fewer than eight wide queries fails `research`');
 expect(run('dirs-no-visual', (x) => ({ ...x, research: { ...x.research, trends: x.research.trends.map((t) => ({ ...t, kind: 'ux' })) } })).has('research', /at least 1 visual trend/), 'no visual trend fails `research`');
 const small = run('dirs-detail', (x) => ({ ...x, research: { ...x.research, fresh: x.research.fresh.map((f) => ({ ...f, size: 'detail' })) } }));
-expect(small.has('research', /at least 2 fresh moves change/) && small.has('fresh', /direction C \(bold\) draws no fresh move that changes the layout or the hero/), 'moves that are only details fail `research` and `fresh`');
+expect(small.has('research', /at least 2 findings change/) && small.has('fresh', /direction C \(bold\) draws no fresh move that changes the layout or the hero/), 'moves that are only details fail `research` and `fresh`');
 expect(run('dirs-a-element', (x) => ({ ...x, A: screen('A', '<div class="pfk-stats"><button class="pfk-stat"><span class="pfk-stat__value">12</span></button></div>') })).has('direction', /visual element \.pfk-stats/), 'A with a visual element fails `direction`');
 /* measured: the same main list in A and C is one layout, whatever is added around it; as cards it is another */
 const LIST = (wrap) => `<div data-pf-list="rows" ${wrap}><template><div style="padding:16px 24px;border-bottom:1px solid #f0f0f0"><span data-pf-text="$.t"></span></div></template></div>`;
@@ -171,6 +187,22 @@ const same = run('dirs-alike', (x) => ({ ...x, A: withData(screen('A', LIST(''))
 expect(same.has('alike', /direction C draws its main list \(“rows”\) as A does/) && (same.rep.issues || []).some((i) => i.check === 'alike' && i.level === 'warn' && /direction B/.test(i.message)), 'the same list in C (an error) and in B (a warning) as in A is caught as one layout');
 const grid = run('dirs-grid', (x) => ({ ...x, A: withData(screen('A', LIST(''))), C: withData(screen('C', C_ADD + LIST('style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:16px 24px"'), true)) }), []);
 expect(!(grid.rep.issues || []).some((i) => i.check === 'alike' && /direction C/.test(i.message)) && /× 3 directions/.test(grid.rep.coverage || ''), 'the same rows as a grid of cards are another layout');
+/* v2.5: the competitive UX flow method, scaled by the size of the change */
+const light = run('dirs-light', (x) => ({ ...x, research: { ...x.research, depth: 'light', gaps: x.research.gaps.slice(0, 4),
+  competitors: x.research.competitors.map((c) => (['c3', 'c5'].includes(c.id) ? { ...c, status: 'alternate' } : c)),
+  flows: x.research.flows.filter((f) => ['c2', 'c4', 'c6'].includes(f.competitor)), capabilities: x.research.capabilities.slice(0, 3),
+  fresh: x.research.fresh.slice(0, 6).map((f) => ({ ...f, seen_at: f.seen_at.filter((c) => !['c3', 'F2'].includes(c)).concat('c4') })) } }));
+expect(!light.has('research'), `a light study (3 competitors, 4 gaps, 6 findings) passes${light.has('research') ? ': ' + (light.rep.issues || []).find((i) => i.check === 'research' && i.level === 'error').message : ''}`);
+const R0 = (x, f) => ({ ...x, research: f(x.research) });
+expect(run('dirs-unapproved', (x) => R0(x, (r) => ({ ...r, approved: null }))).has('research', /approved the shortlist in the intake reply/), 'a shortlist the PM has not approved fails `research`');
+expect(run('dirs-fit', (x) => R0(x, (r) => ({ ...r, competitors: r.competitors.map((c) => (c.id === 'c2' ? { ...c, fit: { T1: 'yes', T2: 'yes', T4: 'yes' } } : c)) }))).has('research', /fit scores every trait/), 'a competitor not scored on every trait fails `research`');
+expect(run('dirs-unranked', (x) => R0(x, (r) => ({ ...r, fresh: [r.fresh[3], ...r.fresh.slice(0, 3), ...r.fresh.slice(4)] }))).has('research', /high-impact finding below a medium one/), 'findings out of rank fail `research`');
+expect(run('dirs-gap', (x) => R0(x, (r) => ({ ...r, gaps: [...r.gaps, { id: 'G7', title: 'Share the report', from: 'PRD' }] }))).has('research', /gap G7 \(Share the report\): no flow or finding answers it/), 'a gap with no evidence, and none said, fails `research`');
+expect(run('dirs-no-flow', (x) => R0(x, (r) => ({ ...r, flows: r.flows.filter((f) => f.competitor !== 'c6') }))).has('research', /Profolio UAE is shortlisted and has no flow/), 'a shortlisted competitor without a flow fails `research`');
+expect(run('dirs-rule', (x) => R0(x, (r) => ({ ...r, rules: r.rules.map((q) => ({ ...q, read: undefined })) }))).has('research', /the date read/), 'a rule without the date it was read fails `research`');
+expect(run('dirs-matrix', (x) => R0(x, (r) => ({ ...r, capabilities: r.capabilities.map((k, i) => (i ? k : { ...k, values: { ...k.values, c4: undefined } })) }))).has('research', /“c4” is yes, partly, no or not-checked/), 'a capability matrix with a blank fails `research`');
+expect(run('dirs-deep', (x) => R0(x, (r) => ({ ...r, queries: [...r.queries, { q: 'landlord reviews a renter lead and messages them', pass: 'deep', tool: 'flows' }] }))).has('research', /names no app/), 'a deep query that names no app fails `research`');
+expect(/Findings, ranked/.test(readFileSync(join(good.dir, 'research', 'board.html'), 'utf8')) && /## Top findings[\s\S]*One line on what changed this week/.test(readFileSync(join(good.dir, 'research', 'summary.md'), 'utf8')), 'the board has the ranked findings, and summary.md is written');
 expect(run('dirs-seen', (x) => ({ ...x, research: { ...x.research, competitors: x.research.competitors.map((c) => (c.id === 'c1' ? { ...c, seen: 'a friend' } : c)) } })).has('research', /seen is one of/), 'an unknown `seen` source fails `research`');
 
 if (!process.argv.includes('--keep')) for (const f of readdirSync(join(SK, 'designs')).filter((f) => f.startsWith('_test-dirs'))) rmSync(join(SK, 'designs', f), { recursive: true, force: true });

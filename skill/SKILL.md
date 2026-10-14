@@ -15,26 +15,38 @@ the one picked.
 ## THE FLOW — research, three directions, two gates
 
 1. **Intake**: `INTAKE.md`, before your first reply. Run the gap check, find the screens, ask
-   the questions, and work out the edge cases yourself. Then choose the path:
-   - **new or changed UI** (a page, a section, a redesign, "make it better"): steps 2–5;
+   the questions, and work out the edge cases yourself. Then choose the path, by the size of
+   the change:
+   - **a new page, or a redesign** ("make it better"): a **full** study, steps 2–5;
+   - **a new section, or a change to a page**: a **light** study, steps 2–5;
+
+   For both, the same first reply carries the research's frame: the gaps (`G1`…), the traits
+   that define the experience, and the competitors' fit table with the shortlist, for the PM to
+   approve with their answers (INTAKE.md § 3b, P9). No separate stop.
    - **a small fix** (copy, a bug, a token, one state the product already draws): no research
      and no directions. Copy `context.json` to `designs/<feature>/design/`, run design-copy for
      new words (design-accessibility too when contrast, focus or a control changes), wireframe
      the changed area (`--wireframe`), wait for go, then hi-fi (steps 4–5).
-2. **Research** (`research/README.md`). Before any direction:
-   - competitors from all four groups, from `research/competitors.md` plus the feature's own;
-   - **Mobbin, wide then deep**: eight or more queries of **1–3 words** naming the thing
-     ("lead marketplace", "credit wallet", "match score"), in `deep` mode, never a sentence
-     describing a layout (a sentence about a table finds tables); then the best apps by name.
-     At least six references from three products, each cited;
-   - trends from the last 18 months, UX and at least one **visual**;
-   - three or more **fresh moves**, specific changes that make this better than the ordinary
-     version, each traced to its references and sized: at least two change the layout, the
-     hero or the visual language, not a detail.
+2. **Research** (`research/README.md`: the competitive UX flow method, light or full). Before
+   any direction, on the approved shortlist:
+   - **Mobbin, wide then deep**: queries of **1–3 words** naming the thing ("lead marketplace",
+     "credit wallet"), never a sentence describing a layout (a sentence about a table finds
+     tables); then each shortlisted app by name, one journey per gap ("Zillow landlord reviews
+     a renter lead"), documented as a **flow**: 2–5 steps with their positions and captions,
+     what they do well, what to adopt in a named screen;
+   - the **rules** behind those flows, read on each company's own help pages, dated;
+   - the **capability matrix**: Profolio today against each competitor, "not-checked" where
+     unseen, so the board says where they are ahead and where we are;
+   - **trends** from the last 18 months, UX and at least one **visual**;
+   - the **findings**, merged and ranked: impact on the goal (high, medium), effort (S, M, L),
+     the gaps they fix, where they were seen, where they land, and their size — at least two
+     change the layout, the hero or the visual language, not a detail;
+   - the **decisions** log.
 
-   Write `designs/<feature>/research/research.json` and run `node qa/board.mjs designs/<feature>`.
+   Write `designs/<feature>/research/research.json` and run `node qa/board.mjs designs/<feature>`
+   until it passes: it writes the board and `summary.md` (the findings summary to paste).
    Mobbin not connected: say so, and take the references from the web. **Then send the plan
-   paragraph** (INTAKE.md § 4): it names what the research found and what each direction bets on.
+   paragraph** (INTAKE.md § 4): the top findings and what each direction bets on.
 3. **The plan and three directions (gate 1).** In `designs/<feature>/`:
    - `flow.json`: the screens, every named state, the scenario controls, and the **state
      matrix**. Every region that shows data gets its loading, empty, error and no-results
@@ -229,7 +241,9 @@ inline.
 - design a new or changed UI before its research (competitors from all four groups, Mobbin, trends,
   fresh moves), or answer a redesign request from memory
 - search Mobbin with a sentence that describes the layout you already have in mind: search the
-  thing in 1–3 words, wide, then the best apps by name
+  thing in 1–3 words, wide, then each app by name with its journey
+- document a competitor the PM did not approve on the shortlist, describe a step or a rule you
+  did not see, or write "no" in the capability matrix for what you did not check ("not-checked")
 - show three directions that are one layout with things added: each has its own layout or hero,
   and bold never takes A's layout
 - polish one direction before the PM has picked at gate 1 (unless they said "skip"); on the

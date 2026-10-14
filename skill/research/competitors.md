@@ -1,8 +1,9 @@
 # Competitors — the starter list
 
-Who a Profolio KSA design is held against, in the four groups every plan names. A starter
-list: the plan picks the ones that do the feature's job, and adds feature-specific ones found
-on Mobbin and the web. What each is known for is what its own pages or the trade press say
+The long list a Profolio KSA study starts from, in four groups. Take candidates from every
+group, add the feature's own (found by the wide Mobbin pass and the web), then **shortlist by
+experience fit, not by market**: score each on the study's traits (research/README.md, step
+2). A local leader without the core mechanic teaches less than a foreign product that has it. What each is known for is what its own pages or the trade press say
 (the source column), not a claim about its current screens: Mobbin shows those.
 
 **Rule:** name a competitor's feature only from a source you opened or a screen you saw.
