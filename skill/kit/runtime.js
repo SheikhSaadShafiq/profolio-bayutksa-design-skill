@@ -232,9 +232,9 @@
     var items = filtered(el, name);
     /* the counts, for empty and no-results states: count.<name> and total.<name> — or, for a
        second list of the same rows (a dialog's one row), its own data-pf-count key */
-    var key = el.getAttribute('data-pf-count') || (counted[name] ? null : name);
+    var custom = el.getAttribute('data-pf-count'), key = custom || (counted[name] ? null : name);
     if (key) {
-      counted[name] = true;
+      if (!custom) counted[name] = true;            /* a list with its own key leaves the default to the others */
       set('total.' + key, rows(name).length, true);
       set('count.' + key, items.length, true);
     }
@@ -256,7 +256,10 @@
   function renderSkeleton(el) {
     if (el.__pfSkel) return;
     var name = el.getAttribute('data-pf-skeleton');
-    var target = document.querySelector('[data-pf-list="' + name + '"]');
+    /* the list it stands in for: data-pf-skeleton-from (a selector), else the nearest list of that
+       name, so a second list of the same rows (cards above a table) does not lend its shape */
+    var from = el.getAttribute('data-pf-skeleton-from'), target = from ? document.querySelector(from) : null;
+    for (var a = el.parentElement; !target && a; a = a.parentElement) target = a.querySelector('[data-pf-list="' + name + '"]');
     var tpl = target && target.querySelector(':scope > template');
     if (!tpl) { fail('data-pf-skeleton="' + name + '": no such list'); return; }
     var all = rows(name);
@@ -310,6 +313,7 @@
   }
   var fmt = {
     n: function (v) { return v === '' || v == null || isNaN(+v) ? v : (+v).toLocaleString('en-US'); },
+    money: function (v) { return v === '' || v == null || isNaN(+v) ? v : (+v).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); },
     upper: function (v) { return String(v).toUpperCase(); },
   };
   var BIND = '[data-pf-show],[data-pf-text],[data-pf-class],[data-pf-attr],[data-pf-value],[data-pf-overlay],[data-pf-menu-panel]';
@@ -826,7 +830,13 @@
 
   /* ── for the QA: every control that opens something, opened; the data at its extremes ── */
   function labelOf(e) { return ((e.getAttribute('aria-label') || e.getAttribute('title') || e.textContent || '') + '').replace(/\s+/g, ' ').trim().slice(0, 40); }
-  function displayed(e) { for (var n = e; n && n.nodeType === 1; n = n.parentElement) { var c = getComputedStyle(n); if (c.display === 'none' || c.visibility === 'hidden') return false; } var r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0; }
+  function displayed(e) {
+    for (var n = e; n && n.nodeType === 1; n = n.parentElement) { var c = getComputedStyle(n); if (c.display === 'none' || c.visibility === 'hidden') return false; }
+    var r = e.getBoundingClientRect();
+    if (r.width > 0 && r.height > 0) return true;
+    /* a box-less root (a copied antd modal's .pf-modal-root, its children position: fixed) shows when they do */
+    return Array.prototype.some.call(e.querySelectorAll('*'), function (k) { var b = k.getBoundingClientRect(); return b.width > 4 && b.height > 4 && getComputedStyle(k).visibility !== 'hidden'; });
+  }
   function targets() {
     var out = [], had = {};
     Array.prototype.forEach.call(document.querySelectorAll('[data-pf-go]'), function (e) {
@@ -883,35 +893,85 @@
         });
       });
     }
-    if (t.kind === 'menu') set('menu', t.key); else set('overlay', t.key);
-    dirty = true; render();
+    /* as a person does: click the trigger (its data-pf-set runs too: a per-row menu knows its row),
+       scrolled into view first; without one on screen, open it by its key */
+    var trig = Array.prototype.filter.call(document.querySelectorAll('[data-pf-' + t.kind + '="' + t.key + '"]'), displayed)[0];
+    if (trig) { trig.scrollIntoView({ block: 'center' }); trig.click(); }
+    else { if (t.kind === 'menu') set('menu', t.key); else set('overlay', t.key); dirty = true; render(); }
     return new Promise(function (r) { setTimeout(r, 250); }).then(function () {
       var sel = t.kind === 'menu' ? '[data-pf-menu-panel="' + t.key + '"]' : '[data-pf-overlay="' + t.key + '"]';
       var panels = Array.prototype.filter.call(document.querySelectorAll(sel), displayed);
       return { target: t, panels: panels.length, selector: sel };
     });
   }
-  /* the first row of each named list, emptied, lengthened, in Arabic or at zero */
+  /* the data at its extremes: a row of each named list emptied, lengthened, in Arabic or at zero
+     (flow.json matrix[].row picks the row, else the first), never the fields a condition reads
+     ("$.status=open": a long or Arabic value there would only hide its element); and the new
+     copy (data-pf-new-copy) long, or in Arabic. Returns how many values it changed: 0 means this
+     render tested nothing, and the QA does not count it */
   var AR = { name: 'عبدالرحمن بن فهد الزهراني', district: 'حي الملقا الشمالي', city: 'الرياض', types: 'فيلا، دوبلكس، شقة، أرض', intent: 'يرغب في وكيل لبيع العقار', label: 'نص عربي طويل' };
-  function extremes(kind, lists) {
+  function conditionFields() {
+    var out = {};
+    ['data-pf-show', 'data-pf-hide', 'data-pf-class', 'data-pf-sort', 'data-pf-filter'].forEach(function (a) {
+      Array.prototype.forEach.call(document.querySelectorAll('[' + a + ']'), function (e) { (e.getAttribute(a) || '').replace(/\$\.([\w]+)\s*(!?=|<|>)/g, function (m, f) { out[f] = 1; return m; }); });
+    });
+    return out;
+  }
+  /* the shape of the screen's main list (the one with most items): how many per row, how wide
+     against the page, how tall. Two directions with the same shape are one layout (qa/prototype.mjs) */
+  function shape() {
+    var best = null;
+    Array.prototype.forEach.call(document.querySelectorAll('[data-pf-list]'), function (l) {
+      if (!displayed(l)) return;
+      var items = Array.prototype.filter.call(l.children, function (c) { return c.tagName !== 'TEMPLATE' && displayed(c); });
+      if (!best || items.length > best.items.length) best = { list: l, items: items };
+    });
+    if (!best || best.items.length < 2) return null;
+    var main = document.querySelector('.pf-layout-content') || document.querySelector('main') || document.body;
+    var mw = main.getBoundingClientRect().width || window.innerWidth;
+    var rs = best.items.slice(0, 12).map(function (e) { return e.getBoundingClientRect(); });
+    var hs = rs.map(function (r) { return r.height; }).sort(function (a, b) { return a - b; });
+    return { list: best.list.getAttribute('data-pf-list'), perRow: rs.filter(function (r) { return Math.abs(r.top - rs[0].top) < 4; }).length,
+      width: Math.round(rs[0].width / mw * 100) / 100, height: Math.round(hs[Math.floor(hs.length / 2)]), items: best.items.length };
+  }
+  /* the new copy a state shows, to try each set of it once */
+  function newCopy() { return Array.prototype.filter.call(document.querySelectorAll('[data-pf-new-copy]'), function (e) { return displayed(e) && !e.children.length && e.textContent.trim(); }).map(function (e) { return e.textContent.trim(); }).sort(); }
+  function arabicLike(t) { var a = 'نص عربي بطول النص الأصلي '; var out = ''; while (out.length < t.length) out += a; return out.slice(0, Math.max(t.length, 8)).trim(); }
+  function extremes(kind, lists, at) {
+    var changed = 0;
+    if (kind === 'copy-long' || kind === 'copy-arabic') {
+      Array.prototype.forEach.call(document.querySelectorAll('[data-pf-new-copy]'), function (e) {
+        if (!displayed(e) || e.children.length) return;
+        var t = e.textContent.trim();
+        if (!t) return;
+        e.textContent = kind === 'copy-long' ? t + ' ' + t : arabicLike(t);   /* its length in Arabic, in this layout: does it still fit */
+        changed++;
+      });
+      return new Promise(function (r) { setTimeout(r, 150); }).then(function () { return { extremes: kind, changed: changed }; });
+    }
+    var keep = conditionFields();
     (lists || Object.keys(LIVE)).forEach(function (name) {
       var arr = LIVE[name] === undefined ? [] : rows(name);
-      var r = arr[0];
+      var r = arr[(at && at[name]) || 0] || arr[0];
       if (!r || typeof r !== 'object') return;
       var sortBy = {};
       Array.prototype.forEach.call(document.querySelectorAll('[data-pf-list="' + name + '"][data-pf-sort]'), function (el) { var v = String(value(el.getAttribute('data-pf-sort')) || '').replace(/^[-+]/, ''); if (v) sortBy[v] = 1; });
       Object.keys(r).forEach(function (k) {
         if (k === 'id' || k === 'status' || k === 'value' || sortBy[k]) return;   /* the sort key stays: the row stays where it is seen */
         var v = r[k];
-        if (kind === 'missing') r[k] = null;
-        else if (kind === 'long') r[k] = typeof v === 'number' ? 999999999 : typeof v === 'string' ? (v + ' ' + v + ' ' + v).slice(0, 72) : v;
-        else if (kind === 'arabic') { if (typeof v === 'string') r[k] = AR[k] || AR.label; }
-        else if (kind === 'zero') { if (typeof v === 'number') r[k] = 0; }
+        if ((kind === 'long' || kind === 'arabic') && keep[k]) return;
+        if (kind === 'missing') { if (v != null && v !== '') { r[k] = null; changed++; } }
+        else if (kind === 'long') {
+          if (typeof v === 'number') { r[k] = 999999999; changed++; }
+          else if (typeof v === 'string' && v.trim()) { r[k] = (v + ' ' + v + ' ' + v).slice(0, 72); changed++; }
+        }
+        else if (kind === 'arabic') { if (typeof v === 'string' && v.trim()) { r[k] = AR[k] || AR.label; changed++; } }
+        else if (kind === 'zero') { if (typeof v === 'number' && v !== 0) { r[k] = 0; changed++; } }
       });
     });
     Array.prototype.forEach.call(document.querySelectorAll('[data-pf-list]'), function (el) { el.__pfSig = null; });
     dirty = true; render();
-    return new Promise(function (r) { setTimeout(r, 200); }).then(function () { return { extremes: kind }; });
+    return new Promise(function (r) { setTimeout(r, 200); }).then(function () { return { extremes: kind, changed: changed }; });
   }
 
   window.pf = {
@@ -919,6 +979,8 @@
     targets: targets,
     interact: interact,
     extremes: extremes,
+    newCopy: newCopy,
+    shape: shape,
     closeShell: closeShell,
     layerLog: layerLog,
     shellOut: SHELL_OUT,

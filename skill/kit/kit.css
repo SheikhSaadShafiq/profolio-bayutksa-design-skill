@@ -70,6 +70,7 @@
 .pfk-btn--soft:hover { background: var(--pf-ml-tint-green-100, #E9F7F0); }
 .pfk-btn--link { background: none; border: 0; min-height: 0; padding: 0; color: var(--pf-ml-brand-green-ink, #249F62); }
 .pfk-btn--link:hover { background: none; text-decoration: underline; }
+@media (max-width: 599px) { .pfk-btn--link { min-height: 32px; } }   /* a text button is still a 32 px target on a phone (the build's minimum) */
 .pfk-btn--block { width: 100%; }
 .pfk-btn[disabled], .pfk-btn[aria-disabled="true"] { opacity: 0.54; cursor: not-allowed; }  /* the product's disabled dim */
 .pfk-btn > svg { width: 16px; height: 16px; flex: none; }
@@ -187,3 +188,91 @@
 .pfk-avatar__lock { position: absolute; right: -4px; bottom: -4px; width: 18px; height: 18px; border-radius: 5px; box-shadow: 0 0 0 2px var(--pf-ml-surface-card, #fff); }
 .pfk-missing { color: var(--pf-ml-text-faint, #9D9D9D); font-weight: 400; }   /* a value the source did not share */
 .pfk-avatar__lock > svg { width: 100%; height: 100%; display: block; }
+
+/* ── visual elements: what turns a list into a design (v2.4). New patterns, for directions B
+   and C only: direction A draws the product's components, and the QA fails an element there.
+   Every colour, radius and space is a 2.0 token (with its value as the fallback); the type is
+   the build's scale (pf-ml-type-*: 11/12 labels, 13/20 body, 16 title, 20 figure). B keeps them
+   as they are; C may restyle them through its own --pfx-* tokens in C/new.css. ─────────────── */
+
+/* layouts: a card grid, and a list beside its detail */
+.pfk-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(var(--pfk-min, 280px), 1fr)); gap: var(--pf-ml-space-xl, 16px); }
+.pfk-split { display: grid; grid-template-columns: minmax(0, 1fr) var(--pfk-side, 380px); gap: var(--pf-ml-space-xl, 16px); align-items: start; }
+.pfk-split__side { position: sticky; top: 16px; display: flex; flex-direction: column; gap: 12px; }
+@media (max-width: 767px) { .pfk-split { grid-template-columns: minmax(0, 1fr); } .pfk-split__side { position: static; } }
+
+/* a rich card: media, title, meta, the one figure read first, and its actions */
+.pfk-tile { display: flex; flex-direction: column; gap: 12px; min-width: 0; padding: 16px; background: var(--pf-ml-surface-card, #fff); border: 1px solid var(--pf-ml-border-soft, #F0F0F0); border-radius: var(--pf-ml-radius-lg, 12px); font-family: var(--pf-ml-font-ui, inherit); color: var(--pf-ml-text-primary, #222); transition: box-shadow 160ms ease, border-color 160ms ease; }
+.pfk-tile:hover { border-color: var(--pf-ml-border-strong, #DEDEDE); box-shadow: 0 6px 20px rgba(23, 26, 31, 0.08); }
+.pfk-tile--on { border-color: var(--pf-ml-brand-green, #28B16D); box-shadow: 0 0 0 1px var(--pf-ml-brand-green, #28B16D); }
+.pfk-tile--muted { background: #FAFAFA; }
+.pfk-tile__head { display: flex; align-items: flex-start; gap: 12px; min-width: 0; }
+.pfk-tile__media { flex: none; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 10px; background: var(--pf-ml-tint-green-050, #F0FAF5); color: var(--pf-ml-brand-green-deep, #10603A); }
+.pfk-tile__media > svg { width: 22px; height: 22px; }
+.pfk-tile__media > img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
+.pfk-tile__title { margin: 0; font-weight: 700; font-size: 16px; line-height: 22px; overflow-wrap: anywhere; }
+.pfk-tile__meta { margin: 0; font-size: 12px; line-height: 16px; color: var(--pf-ml-text-muted, #707070); }
+.pfk-tile__figure { font-weight: 700; font-size: 20px; line-height: 24px; font-variant-numeric: tabular-nums; }
+.pfk-tile__body { font-size: 13px; line-height: 20px; color: var(--pf-ml-text-secondary, #4F4F4F); }
+.pfk-tile__foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 12px; margin-top: auto; border-top: 1px solid var(--pf-ml-border-soft, #F0F0F0); }
+
+/* a stat tile: the number, what it counts, and how it moved; a whole tile may be a filter */
+.pfk-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+.pfk-stat { display: flex; flex-direction: column; gap: 4px; min-width: 0; padding: 14px 16px; background: var(--pf-ml-surface-card, #fff); border: 1px solid var(--pf-ml-border-soft, #F0F0F0); border-radius: var(--pf-ml-radius-lg, 12px); font-family: var(--pf-ml-font-ui, inherit); text-align: start; color: var(--pf-ml-text-primary, #222); }
+button.pfk-stat { cursor: pointer; font: inherit; }
+.pfk-stat--on { background: var(--pf-ml-tint-green-050, #F0FAF5); border-color: var(--pf-ml-tint-green-200, #D4EFE2); }
+.pfk-stat__value { font-weight: 700; font-size: 20px; line-height: 24px; font-variant-numeric: tabular-nums; }
+.pfk-stat__label { font-size: 12px; line-height: 16px; color: var(--pf-ml-text-muted, #707070); }
+.pfk-delta { display: inline-flex; align-items: center; gap: 4px; font-weight: 600; font-size: 12px; line-height: 16px; font-variant-numeric: tabular-nums; }
+.pfk-delta::before { content: ""; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; }
+.pfk-delta--up { color: var(--pf-ml-brand-green-deep, #10603A); }
+.pfk-delta--up::before { border-bottom: 5px solid currentColor; }
+.pfk-delta--down { color: var(--pf-ml-status-bad, #CE2929); }
+.pfk-delta--down::before { border-top: 5px solid currentColor; }
+
+/* social proof: a stack of avatars (the kit's pfk-avatar), and "+3" */
+.pfk-avatars { display: inline-flex; align-items: center; }
+.pfk-avatars > .pfk-avatar { width: 28px; height: 28px; font-size: 11px; font-weight: 600; box-shadow: 0 0 0 2px var(--pf-ml-surface-card, #fff); }
+.pfk-avatars > .pfk-avatar + .pfk-avatar { margin-inline-start: -8px; }
+.pfk-avatars__more { margin-inline-start: 6px; font-size: 12px; line-height: 16px; color: var(--pf-ml-text-muted, #707070); }
+
+/* a score ring: --pfk-value 0–100, the number inside */
+.pfk-ring { --pfk-value: 0; flex: none; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: conic-gradient(var(--pfk-ring, var(--pf-ml-brand-green, #28B16D)) calc(var(--pfk-value) * 1%), var(--pf-ml-border-soft, #F0F0F0) 0); font-family: var(--pf-ml-font-ui, inherit); }
+.pfk-ring__value { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: var(--pf-ml-surface-card, #fff); font-weight: 700; font-size: 13px; line-height: 16px; color: var(--pf-ml-text-primary, #222); font-variant-numeric: tabular-nums; }
+.pfk-ring--lg { width: 72px; height: 72px; }
+.pfk-ring--lg .pfk-ring__value { width: 58px; height: 58px; font-size: 18px; line-height: 22px; }
+
+/* a meter of slots (one segment each), and a bar */
+.pfk-meter { display: inline-flex; gap: 3px; width: var(--pfk-meter, 72px); }
+.pfk-meter__seg { flex: 1; height: 6px; border-radius: 3px; background: var(--pf-ml-border-base, #E6E6E6); }
+.pfk-meter__seg--on { background: var(--pf-ml-brand-green, #28B16D); }
+.pfk-meter__seg--warn { background: var(--pf-ml-status-warn, #C88B37); }
+.pfk-bar { --pfk-value: 0; position: relative; height: 6px; border-radius: 3px; background: var(--pf-ml-border-base, #E6E6E6); overflow: hidden; }
+.pfk-bar::after { content: ""; position: absolute; inset: 0 auto 0 0; width: calc(var(--pfk-value) * 1%); border-radius: inherit; background: var(--pfk-bar, var(--pf-ml-brand-green, #28B16D)); }
+
+/* thumbnails: the listings behind a number, shown, not counted */
+.pfk-thumbs { display: inline-flex; align-items: center; gap: 4px; }
+.pfk-thumbs > img, .pfk-thumbs > .pfk-thumb { width: 40px; height: 40px; border-radius: var(--pf-ml-radius-sm, 6px); object-fit: cover; background: #F0F0F0; }
+.pfk-thumbs__more { display: grid; place-items: center; width: 40px; height: 40px; border-radius: var(--pf-ml-radius-sm, 6px); background: var(--pf-ml-tint-green-050, #F0FAF5); color: var(--pf-ml-brand-green-deep, #10603A); font-weight: 600; font-size: 12px; }
+
+/* an icon chip: a fact with its icon (the product's icons: atoms/icon.html) */
+.pfk-ichips { display: flex; flex-wrap: wrap; gap: 6px; }
+.pfk-ichip { display: inline-flex; align-items: center; gap: 4px; height: 24px; padding: 0 8px; border-radius: var(--pf-ml-radius-pill, 999px); background: #F5F5F5; color: var(--pf-ml-text-secondary, #4F4F4F); font-size: 12px; line-height: 16px; white-space: nowrap; }
+.pfk-ichip > svg { width: 14px; height: 14px; flex: none; }
+.pfk-ichip--good { background: var(--pf-ml-tint-green-050, #F0FAF5); color: var(--pf-ml-brand-green-deep, #10603A); }
+.pfk-ichip--warn { background: var(--pf-ml-tint-amber-050, #FEF8F0); color: var(--pf-ml-text-primary, #222); }
+
+/* an insight band: one sentence that says what matters now, and its action */
+.pfk-band { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: var(--pf-ml-radius-lg, 12px); background: var(--pf-ml-tint-green-050, #F0FAF5); color: var(--pf-ml-text-primary, #222); font-size: 14px; line-height: 20px; font-family: var(--pf-ml-font-ui, inherit); }
+.pfk-band > svg { width: 20px; height: 20px; flex: none; color: var(--pf-ml-brand-green-deep, #10603A); }
+.pfk-band__text { flex: 1; min-width: 0; }
+.pfk-band--warn { background: var(--pf-ml-tint-amber-050, #FEF8F0); }
+
+/* a sparkline: an inline <svg viewBox="0 0 80 24"><polyline points="…"/></svg> */
+.pfk-spark { width: 80px; height: 24px; flex: none; fill: none; stroke: var(--pf-ml-brand-green, #28B16D); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* steps: what happens next, in order */
+.pfk-steps { display: flex; flex-direction: column; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.pfk-steps > li { position: relative; display: flex; gap: 12px; font-size: 13px; line-height: 20px; color: var(--pf-ml-text-secondary, #4F4F4F); }
+.pfk-steps__dot { flex: none; display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--pf-ml-tint-green-100, #E9F7F0); color: var(--pf-ml-brand-green-deep, #10603A); font-weight: 700; font-size: 11px; }
+.pfk-steps__dot--done { background: var(--pf-ml-brand-green, #28B16D); color: var(--pf-ml-text-on-brand, #fff); }

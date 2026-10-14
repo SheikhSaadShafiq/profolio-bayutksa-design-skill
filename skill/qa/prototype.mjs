@@ -92,6 +92,7 @@ if (flow.start && !stateIds.has(flow.start)) E('flow', `start "${flow.start}" is
 for (const c of flow.controls || []) if (!c.key || !Array.isArray(c.options) || !c.options.every((o) => Array.isArray(o) && o.length === 2)) E('flow', `control ${JSON.stringify(c.key || c)}: needs a key and options as [value, "label"] pairs`);
 
 /* ── 1b · directions: gate 1 shows complete designs of one flow, side by side ── */
+const LAYOUTS = { table: 'a table, one row per item', list: 'a list of slim cards, one per row', cards: 'a grid of cards', 'list-detail': 'a list beside the item it opens', feed: 'a feed of rich cards, each a small page', board: 'columns by status', dashboard: 'tiles and charts first, the items below', map: 'a map beside its items', wizard: 'one step at a time' };
 const KIND = { existing: 'Existing components only', competitor: 'Competitor-led: new patterns, the product\'s tokens', bold: 'Bold: new patterns and new visual language' };
 const DIRS = WIRE ? [] : (flow.directions || []);
 if (DIRS.length) {
@@ -105,6 +106,18 @@ if (DIRS.length) {
   if (!flow.chosen) {
     if (DIRS.length < 2) E('directions', 'gate 1 shows two or three directions; flow.json has one — or set "chosen"');
     if (!DIRS.some((d) => d.kind === 'existing')) E('directions', 'one direction draws only the product\'s existing components (kind "existing"), so the safest option is always on the table');
+    /* each direction is a different idea, not the same screen with a widget added: its layout and
+       its hero (the one thing read first) are declared, and bold never shares A's layout */
+    for (const d of DIRS) {
+      if (!LAYOUTS[d.layout]) E('directions', `direction ${d.id}: "layout" is one of ${Object.keys(LAYOUTS).join(', ')} — got ${JSON.stringify(d.layout)} (kit/README.md → directions)`);
+      if (!(typeof d.hero === 'string' && d.hero.trim().length > 3)) E('directions', `direction ${d.id}: "hero" says what the screen shows first, in a few words ("the match score, large, on each card")`);
+    }
+    const A = DIRS.find((d) => d.kind === 'existing');
+    const norm = (t) => String(t || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+    if (A) for (const d of DIRS.filter((x) => x !== A && LAYOUTS[x.layout])) {
+      if (d.kind === 'bold' && d.layout === A.layout) E('directions', `direction ${d.id} (bold) has A's layout, "${A.layout}": bold changes the layout itself (${Object.entries(LAYOUTS).filter(([k]) => k !== A.layout).slice(0, 4).map(([k, v]) => `${k}: ${v}`).join('; ')})`);
+      if (d.kind === 'competitor' && d.layout === A.layout && norm(d.hero) === norm(A.hero)) E('directions', `direction ${d.id} (competitor-led) has A's layout and A's hero: change one — the references' layout, or what is read first`);
+    }
   }
 }
 const ACTIVE = flow.chosen ? DIRS.filter((d) => d.id === flow.chosen) : DIRS;
@@ -299,10 +312,21 @@ for (const sf of screenFiles) {
   const filtered = new Set();
   for (const m of h.matchAll(/<[^>]*\sdata-pf-list="([^"]+)"[^>]*>/g)) if (/\sdata-pf-(filter|search)=/.test(m[0])) filtered.add(m[1]);
   const declared = (l, kind) => (flow.matrix || []).some((r) => r.list === l && /^not drawn\b/i.test((r.kinds || {})[kind] || ''));
-  for (const l of new Set(lists)) {
-    if (declared(l, 'empty')) continue;                      /* the matrix says why it has none */
-    if (!shows.includes(`total.${l}`)) E('empty', `${where}: the list "${l}" has no empty state — show one when total.${l}=0 (data-pf-show), even if the PRD is silent`);
-    if (filtered.has(l) && !shows.includes(`count.${l}`)) E('empty', `${where}: the list "${l}" filters, but nothing shows when no row matches — add a no-results state on count.${l}=0 with a way to clear the filters`);
+  /* each list element by its own count key: data-pf-count, else the list's name */
+  const keyed = new Map();
+  for (const m of h.matchAll(/<[^>]*\sdata-pf-list="([^"]+)"[^>]*>/g)) {
+    const key = (m[0].match(/\sdata-pf-count="([^"]+)"/) || [])[1] || m[1];
+    const k = keyed.get(key) || { list: m[1], filters: false };
+    if (/\sdata-pf-(filter|search)=/.test(m[0])) k.filters = true;
+    keyed.set(key, k);
+  }
+  for (const [key, k] of keyed) {
+    /* a second list of the same rows under its own count key (a dialog's one row) is a view of a
+       row, not a list to empty — unless the matrix names it (matrix[].count: a picker that searches) */
+    if (key !== k.list && !(flow.matrix || []).some((r) => r.count === key)) continue;
+    if (declared(k.list, 'empty') || (flow.matrix || []).some((r) => r.count === key && /^not drawn\b/i.test((r.kinds || {}).empty || ''))) continue;   /* the matrix says why it has none */
+    if (!shows.includes(`total.${key}`)) E('empty', `${where}: the list "${key}" has no empty state — show one when total.${key}=0 (data-pf-show), even if the PRD is silent`);
+    if (k.filters && !shows.includes(`count.${key}`)) E('empty', `${where}: the list "${key}" filters, but nothing shows when no row matches — add a no-results state on count.${key}=0 with a way to clear the filters`);
   }
   for (const n of attrs(h, 'do').flatMap((x) => x.split(/[\s,]+/)).filter(Boolean)) if (!(n in acts.value)) E('actions', `${where}: data-pf-do="${n}" is no action in pf-actions`);
   for (const [n, list] of Object.entries(acts.value)) stepsOf(Array.isArray(list) ? list : [list], `${where} pf-actions.${n}`, acts.value);
@@ -320,6 +344,13 @@ for (const sf of screenFiles) {
   if (cur) E('currency', `${where}: an amount written as “${cur[0].trim()}” — draw the riyal glyph before the number (kit/riyal.svg)`);
   for (const m of h.matchAll(/\sstyle="([^"]*)"/g)) for (const v of m[1].matchAll(/var\((--[\w-]+)\s*\)/g)) if (!cssDefs.has(v[1])) { E('vars', `${where}: var(${v[1]}) is used but no stylesheet the screen links defines it`); break; }
 }
+/* stand-ins: a step the product hands to someone else (a card form, a phone call), drawn as a placeholder */
+const standins = new Map();
+for (const sf of screenFiles) for (const m of sf.html.matchAll(/\sdata-pf-standin="([^"]*)"/g)) {
+  if (!m[1].trim()) { E('standin', `${relative(DIR, sf.abs)}: data-pf-standin needs what it stands in for ("Checkout.com card form")`); continue; }
+  (standins.get(m[1]) || standins.set(m[1], new Set()).get(m[1])).add(`${sf.screen.id}${sf.dir ? ' · ' + sf.dir : ''} (${sf.platform})`);
+}
+
 /* options: each open design decision is drawn — its key is used by a screen */
 for (const o of flow.options || []) {
   if (!o.key || !Array.isArray(o.variants) || o.variants.length < 2) { E('options', `option ${JSON.stringify(o.key || o.title)}: needs a key and at least two variants as [value, "label"]`); continue; }
@@ -337,10 +368,11 @@ const matrix = flow.matrix || [];
     const need = ['default', 'loading', 'empty', 'error'].concat(r.filters === false ? [] : r.filters || (r.list && screenFiles.some((sf) => new RegExp(`data-pf-list="${r.list}"[^>]*data-pf-(filter|search)=|data-pf-(filter|search)=[^>]*data-pf-list="${r.list}"`).test(sf.html))) ? ['no-results'] : []);
     for (const k of need) {
       const v = kinds[k];
-      if (!v) E('matrix', `region “${r.region}”: no ${k} state — name a state, or "not drawn: <why>"`);
+      if (!v) E('matrix', `region “${r.region}”: no ${k} state — name a state, "compiled: <file>" for a region the design leaves as the product draws it, or "not drawn: <why>"`);
+      else if (/^compiled:\s*/i.test(v)) { const f = v.replace(/^compiled:\s*/i, '').trim(); if (!existsSync(join(SKILL, f)) && !(REG.pages[(f.match(/^pages\/([\w-]+)/) || [])[1]])) E('matrix', `region “${r.region}”: ${k} → ${f} is no compiled file`); }
       else if (!/^not drawn\b/i.test(v) && !stateIds.has(v)) E('matrix', `region “${r.region}”: ${k} → "${v}" is no state in flow.json`);
     }
-    for (const [k, v] of Object.entries(kinds)) if (!need.includes(k) && typeof v === 'string' && !/^not drawn\b/i.test(v) && !stateIds.has(v)) E('matrix', `region “${r.region}”: ${k} → "${v}" is no state in flow.json`);
+    for (const [k, v] of Object.entries(kinds)) if (!need.includes(k) && typeof v === 'string' && !/^(not drawn|compiled:)/i.test(v) && !stateIds.has(v)) E('matrix', `region “${r.region}”: ${k} → "${v}" is no state in flow.json`);
   }
 }
 
@@ -348,6 +380,12 @@ const matrix = flow.matrix || [];
    declared once as --pfx-* with a [new] note. A direction's classes are its own (pfx-*): none
    restyles a product class ── */
 const newTokens = [];                // { dir, name, value, why }: the bold direction's new language, for sign-off
+/* the kit's visual elements (kit/README.md → visual elements) are new design: B and C only */
+const ELEMENT_RE = /\bpfk-(grid|split|tile|stats?|delta|avatars|ring|meter|bar|thumbs|ichips?|band|spark|steps)(?:__[\w-]+|--[\w-]+)?(?![\w-])/;
+for (const d of ACTIVE.filter((x) => x.kind === 'existing')) for (const sf of screenFiles.filter((f) => f.dir === d.id)) {
+  const m = [...sf.html.matchAll(/\sclass="([^"]*)"/g)].map((c) => (c[1].match(ELEMENT_RE) || [])[0]).find(Boolean);
+  if (m) E('direction', `direction ${d.id} draws only the product's components, and ${relative(DIR, sf.abs)} uses the kit's visual element .${m} — new design, for B and C`);
+}
 const COLOUR_LIT = /#[0-9a-f]{3,8}\b|\b(rgba?|hsla?|oklch|lab|lch)\(/i;
 for (const d of ACTIVE) {
   const local = new Map();
@@ -364,6 +402,10 @@ for (const d of ACTIVE) {
       if (!sel || sel.startsWith('@') || /^(from|to|\d+%)/.test(sel)) continue;
       for (const c of sel.matchAll(/\.(-?[a-zA-Z_][\w-]*)/g)) if (!c[1].startsWith('pfx-')) { E('direction', `direction ${d.id}: ${name} styles .${c[1]} — a direction's own CSS styles its own classes (pfx-*), never the product's`); break; }
     }
+    /* every var() it uses is defined: B and C link css/tokens.css (qa/compose.mjs start does), or
+       the product's colours silently fall away and the direction renders bare */
+    const own = new Set([...css.matchAll(/(--[\w-]+)\s*:/g)].map((m) => m[1]));
+    for (const v of new Set([...css.matchAll(/var\(\s*(--[\w-]+)\s*\)/g)].map((m) => m[1]))) if (!own.has(v) && !cssDefs.has(v)) E('direction', `direction ${d.id}: ${name} uses var(${v}), which no stylesheet its screens link defines — link css/tokens.css (node qa/compose.mjs start does)`);
     for (const m of css.matchAll(/(--[\w-]+|[a-z-]+)\s*:\s*([^;{}]+?)\s*(?:;|(?=\}))([ \t]*\/\*([\s\S]*?)\*\/)?/g)) {
       const [, prop, value, , note] = m;
       const literal = COLOUR_LIT.test(value) || (prop === 'font-family' && !/^(var\(|inherit|initial|unset)/.test(value.trim()));
@@ -386,14 +428,34 @@ if (DIRS.length || existsSync(RES_FILE)) {
   else { try { research = JSON.parse(read(RES_FILE)); } catch (e) { E('research', `research/research.json is not valid JSON: ${e.message}`); } }
 }
 const freshById = new Map();
+const SIZES = ['layout', 'hero', 'language', 'detail'];   // how much a fresh move changes
 if (research) {
   const R = research, ids = new Set();
   const need = (cond, msg) => { if (!cond) E('research', msg); };
   const comps = R.competitors || [];
   const GROUPS = { ksa: 'KSA portals\' agent tools', regional: 'regional and global agent tools', saas: 'best-in-class SaaS for the pattern', bayut: 'Bayut\'s and dubizzle\'s own markets' };
-  for (const c of comps) { need(c.name && GROUPS[c.group] && c.why && /^https?:/.test(c.url || ''), `competitor ${JSON.stringify(c.name || c)}: needs name, group (${Object.keys(GROUPS).join(', ')}), why it is relevant to this feature, and its url`); if (c.id) ids.add(c.id); }
-  for (const [g, label] of Object.entries(GROUPS)) need(comps.some((c) => c.group === g), `no competitor from ${label} (group "${g}")`);
+  const SEEN = ['site', 'app-store', 'mobbin', 'help-centre', 'press', 'search-summary'];
+  for (const c of comps) {
+    if (c.none) { need(GROUPS[c.group], `competitor entry ${JSON.stringify(c)}: group must be one of ${Object.keys(GROUPS).join(', ')}`); W('research', `group "${c.group}": searched, nothing does this job (${c.none}) — say so in the plan`); continue; }
+    need(c.name && GROUPS[c.group] && c.why && /^https?:/.test(c.url || ''), `competitor ${JSON.stringify(c.name || c)}: needs name, group (${Object.keys(GROUPS).join(', ')}), why it is relevant to this feature, and its url`);
+    need(!c.seen || SEEN.includes(c.seen), `competitor ${c.name}: seen is one of ${SEEN.join(', ')}`);
+    if (c.id) ids.add(c.id);
+  }
+  for (const [g, label] of Object.entries(GROUPS)) need(comps.some((c) => c.group === g), `no competitor from ${label} (group "${g}") — or, searched and none does this job: { "group": "${g}", "none": "what you searched" }`);
   const refs = R.mobbin || [], web = R.web || [];
+  /* Mobbin, searched wide first: short queries name the thing (1–3 words), never the layout you
+     already have in mind — a sentence describing a table finds tables (2026-10-14) */
+  if (!R.mobbin_unavailable) {
+    const Q = R.queries || [], wide = Q.filter((q) => q.pass === 'wide');
+    need(wide.length >= 8, `at least 8 wide Mobbin queries, 1–3 words each ("lead marketplace", "credit wallet", "match score") — ${wide.length} in research.json queries`);
+    for (const q of Q) {
+      const n = String(q.q || '').trim().split(/\s+/).filter(Boolean).length;
+      need(q.q && ['wide', 'deep'].includes(q.pass), `query ${JSON.stringify(q)}: needs q and pass ("wide" or "deep")`);
+      if (q.pass === 'wide' && n > 3) E('research', `wide query “${q.q}” is ${n} words: 1–3, naming the thing ("lead marketplace"), not describing a layout`);
+      if (q.pass === 'deep' && n > 6) W('research', `deep query “${q.q}” is ${n} words: name the app and the screen ("Mercor explore opportunities")`);
+      if (q.pass === 'wide' && q.mode === 'standard') W('research', `wide query “${q.q}” ran in standard mode: deep mode ranks short queries far better`);
+    }
+  }
   for (const r of [...refs, ...web]) { need(r.id && r.app && /^https?:/.test(r.url || '') && r.borrow, `reference ${JSON.stringify(r.id || r.app || r)}: needs id, app, url, and what to borrow`); if (r.id) ids.add(r.id); }
   if (R.mobbin_unavailable) {
     W('research', `Mobbin was not available: ${R.mobbin_unavailable} — the references come from the web; say so to the user`);
@@ -405,15 +467,20 @@ if (research) {
   }
   const trends = R.trends || [];
   need(trends.length >= 2, `at least 2 recent trend articles (title, url, date, takeaway) — ${trends.length} given`);
+  need(trends.some((t) => t.kind === 'visual'), 'at least 1 visual trend (kind "visual"): what the best products look like now — a gallery, a showcase, a design team\'s visual write-up — beside the UX ones (kind "ux")');
+  const ageOf = (t) => { const ym = /^\d{4}-\d{2}/.test(t.date || '') ? t.date.slice(0, 7) : /^\d{4}/.test(t.date || '') ? t.date.slice(0, 4) + '-12' : null; return ym ? (Date.now() - Date.parse(ym + '-01')) / 864e5 : Infinity; };
+  need(trends.filter((t) => ageOf(t) <= 548).length >= 2, `at least 2 trends from the last 18 months — ${trends.filter((t) => ageOf(t) <= 548).length} given`);
   for (const t of trends) {
-    need(t.title && /^https?:/.test(t.url || '') && t.takeaway && /^\d{4}-\d{2}/.test(t.date || ''), `trend ${JSON.stringify(t.title || t)}: needs title, url, date (YYYY-MM) and its takeaway`);
+    need(t.title && /^https?:/.test(t.url || '') && t.takeaway && /^\d{4}(-\d{2})?/.test(t.date || '') && ['ux', 'visual'].includes(t.kind), `trend ${JSON.stringify(t.title || t)}: needs title, url, date (YYYY-MM, or YYYY when the page gives only the year), kind ("ux" or "visual") and its takeaway`);
     if (t.id) ids.add(t.id);
-    if (/^\d{4}-\d{2}/.test(t.date || '') && (Date.now() - Date.parse(t.date.slice(0, 7) + '-01')) / 864e5 > 548) W('research', `trend “${t.title}” is from ${t.date}: older than 18 months`);
+    const ym = /^\d{4}-\d{2}/.test(t.date || '') ? t.date.slice(0, 7) : /^\d{4}/.test(t.date || '') ? t.date.slice(0, 4) + '-12' : null;   /* a year alone: its end, the kindest reading */
+    if (ym && (Date.now() - Date.parse(ym + '-01')) / 864e5 > 548) W('research', `trend “${t.title}” is from ${t.date}: older than 18 months`);
   }
   const fresh = R.fresh || [];
   need(fresh.length >= 3, `at least 3 fresh moves, each from the references — ${fresh.length} given`);
+  need(fresh.filter((f) => SIZES.includes(f.size) && f.size !== 'detail').length >= 2, 'at least 2 fresh moves change the layout, the hero or the visual language (size "layout", "hero" or "language"), not a detail');
   for (const f of fresh) {
-    need(f.id && f.title && f.what && (f.refs || []).length, `fresh move ${JSON.stringify(f.id || f.title || f)}: needs id, title, what it changes, and the references it comes from`);
+    need(f.id && f.title && f.what && (f.refs || []).length && SIZES.includes(f.size), `fresh move ${JSON.stringify(f.id || f.title || f)}: needs id, title, size (${SIZES.join(', ')}), what it changes, and the references it comes from`);
     for (const r of f.refs || []) need(ids.has(r), `fresh move ${f.id}: “${r}” is no competitor, reference or trend id`);
     if (f.id) freshById.set(f.id, f);
   }
@@ -423,6 +490,7 @@ if (research) {
 for (const d of ACTIVE) {
   const min = { existing: 0, competitor: 1, bold: 2 }[d.kind] || 0;
   if ((d.fresh || []).length < min) E('fresh', `direction ${d.id} (${d.kind}) draws at least ${min} fresh move${min > 1 ? 's' : ''} from the research — flow.json directions[].fresh`);
+  if (min && research && !(d.fresh || []).some((f) => ['layout', 'hero'].includes((freshById.get(f) || {}).size))) E('fresh', `direction ${d.id} (${d.kind}) draws no fresh move that changes the layout or the hero — a detail added to A's screen is A again`);
   for (const f of d.fresh || []) {
     if (research && !freshById.has(f)) E('fresh', `direction ${d.id}: fresh move “${f}” is not in research.json`);
     if (!screenFiles.some((sf) => sf.dir === d.id && new RegExp(`\\sdata-pf-fresh="[^"]*\\b${f.replace(/[^\w-]/g, '')}\\b`).test(sf.html))) E('fresh', `direction ${d.id} lists the fresh move “${f}”, and no screen draws it — mark the element that does with data-pf-fresh="${f}"`);
@@ -525,7 +593,7 @@ ${files.join('\n')}
 }
 
 /* ── 6 · the visual QA ───────────────────────────────────────────────── */
-const LAYOUT = new Set(['align', 'controls', 'rows', 'overlap', 'clip', 'small', 'targets', 'skeleton', 'rail', 'unstyled']);
+const LAYOUT = new Set(['align', 'controls', 'rows', 'overlap', 'clip', 'small', 'targets', 'skeleton', 'rail', 'unstyled', 'contrast', 'covered', 'squeezed']);
 const SIZE = { web: { width: 1440, height: 900 }, phone: { width: 375, height: 812 } };
 async function visual() {
   if (flag('--no-qa')) return { ran: false, note: 'built with --no-qa' };
@@ -540,6 +608,8 @@ async function visual() {
   const railOf = new Map();          // a pf-base → its rail on the web: { w, keys }, held against the design's
   const headOf = new Map();          // a pf-base + platform → its header: { h }
   const sweep = { interactions: 0, extremes: 0, options: 0 };
+  const sweepGaps = new Set();       // extremes that could change nothing: said, not counted
+  const shapes = new Map();          // a direction → its main list's shape on the web, at the start
   try {
     for (const pl of PLATFORMS) {
       const page = await b.page(SIZE[pl]);
@@ -576,6 +646,7 @@ async function visual() {
           found.push({ ...i, level: product ? 'product' : i.level, state: tag(s.id), platform: pl });
         }
         if (st !== true) found.push({ level: 'error', check: 'runtime', message: `state "${s.id}" did not open: ${st}`, state: tag(s.id), platform: pl });
+        if (dd && pl === 'web' && s.id === (flow.start || states[0].id)) shapes.set(dd, await page.evaluate(() => window.__pfp.shape()));
         if (shots) { const [w, h] = await page.evaluate(() => window.__pfp.size()); await page.screenshot({ path: join(REPORT, 'shots', `${dd ? dd + '.' : ''}${s.id}.${pl}.png`), clip: { x: 0, y: 0, width: w, height: h } }); }
       }
       /* the sweep, from each screen's first state: every control that opens something, the data
@@ -589,39 +660,85 @@ async function visual() {
         }
       };
       const shot = async (name) => { if (!shots) return; const [w, h] = await page.evaluate(() => window.__pfp.size()); await page.screenshot({ path: join(REPORT, 'shots', `${dd ? dd + '.' : ''}${name}.${pl}.png`), clip: { x: 0, y: 0, width: w, height: h } }); };
-      const first = new Map();
-      for (const s of states) { const sc = s.screen || screens[0].id; if (!first.has(sc)) first.set(sc, s.id); }
-      const startSc = (states.find((s) => s.id === flow.start) || {}).screen;
-      if (flow.start) first.set(startSc || screens[0].id, flow.start);
+      /* interactions: every control that opens something, from the first state that shows it —
+         a menu only a filtered or a per-row state reaches is opened there */
       const go = (id) => page.evaluate(([i, p]) => window.__pfp.go(i, p), [id, pl]);
-      for (const sid of first.values()) {
-        await go(sid);
+      const swept = new Set();
+      for (const s of states) {
+        await go(s.id);
         const ts = await page.evaluate(() => window.__pfp.targets());
-        for (const [n, t] of (Array.isArray(ts) ? ts : []).entries()) {
-          await go(sid);
+        for (const t of (Array.isArray(ts) ? ts : [])) {
+          const k = t.kind + '|' + t.key;
+          if (swept.has(k)) continue;
+          swept.add(k);
+          await go(s.id);
           const it = await page.evaluate((x) => window.__pfp.interact(x), t);
-          record(await page.evaluate((x) => window.__pfp.qa({ interaction: x }), it), `${sid} › ${t.label}`);
-          await shot(`${sid}.i${n + 1}-${t.kind}`);
+          record(await page.evaluate((x) => window.__pfp.qa({ interaction: x }), it), `${s.id} › ${t.label}`);
+          await shot(`${s.id}.i${swept.size}-${t.kind}`);
           await page.evaluate(() => window.__pfp.closeShell());
           sweep.interactions++;
         }
-        const lists = [...new Set((flow.matrix || []).filter((r) => r.list && !/^not drawn/i.test((r.kinds || {}).empty || '')).map((r) => r.list))];
-        if (lists.length) for (const kind of ['missing', 'long', 'arabic', 'zero']) {
-          await go(sid);
-          await page.evaluate(([k, l]) => window.__pfp.extremes(k, l), [kind, lists]);
-          record(await page.evaluate(() => window.__pfp.qa({})), `${sid} · ${kind} data`);
-          await shot(`${sid}.x-${kind}`);
-          sweep.extremes++;
+      }
+      /* the data at its extremes: each list from the state that shows its rows (its matrix
+         default), whatever its empty state is; a render that changes nothing is not counted */
+      const byState = new Map();
+      for (const r of flow.matrix || []) {
+        if (!r.list) continue;
+        const d = (r.kinds || {}).default;
+        const at = stateIds.has(d) ? d : (flow.start || states[0].id);
+        if (!byState.has(at)) byState.set(at, { lists: [], rows: {} });
+        byState.get(at).lists.push(r.list);
+        if (Number.isInteger(r.row)) byState.get(at).rows[r.list] = r.row;
+      }
+      for (const [sid, g] of byState) for (const kind of ['missing', 'long', 'arabic', 'zero']) {
+        await page.evaluate(() => window.__pfp.reset());
+        await go(sid);
+        const res = await page.evaluate(([k, l, r]) => window.__pfp.extremes(k, l, r), [kind, g.lists, g.rows]);
+        if (!res || !res.changed) { if (kind !== 'zero') sweepGaps.add(`${tag(sid)}: ${g.lists.join(', ')} had no ${kind === 'missing' ? 'value to remove' : 'text to change'} there — no row, or every field read by a condition`); continue; }
+        record(await page.evaluate(() => window.__pfp.qa({})), `${sid} · ${kind} data`);
+        await shot(`${sid}.x-${kind}`);
+        sweep.extremes++;
+      }
+      /* the new copy, long and in Arabic, once for each set of it a state shows */
+      const copySeen = new Set();
+      for (const s of states) {
+        await go(s.id);
+        const texts = await page.evaluate(() => window.__pfp.newCopy());
+        const sig = JSON.stringify(texts || []);
+        if (!texts || !texts.length || copySeen.has(sig)) continue;
+        copySeen.add(sig);
+        for (const kind of ['copy-long', 'copy-arabic']) {
+        await go(s.id);
+        const res = await page.evaluate((k) => window.__pfp.extremes(k), kind);
+        if (!res || !res.changed) break;
+        record(await page.evaluate(() => window.__pfp.qa({})), `${s.id} · new copy ${kind === 'copy-long' ? 'long' : 'in Arabic'}`);
+        await shot(`${s.id}.x-${kind}`);
+        sweep.extremes++;
+        await page.evaluate(() => window.__pfp.reset());
         }
-        for (const o of flow.options || []) for (const [v] of o.variants || []) {
+      }
+      /* every option variant, in the state it is drawn in (options[].state, else every state that
+         sets its key, else the start), and the state reset after each */
+      for (const o of flow.options || []) {
+        const where = o.state ? [o.state] : states.filter((s) => s.set && o.key in s.set).map((s) => s.id);
+        for (const sid of (where.length ? where : [flow.start || states[0].id])) for (const [v] of o.variants || []) {
           await go(sid);
           await page.evaluate(([k, x]) => window.__pfp.setVar(k, x), [o.key, v]);
           record(await page.evaluate(() => window.__pfp.qa({})), `${sid} · ${o.key}=${v}`);
           await shot(`${sid}.o-${String(o.key).replace(/\W+/g, '')}-${v}`);
-          await page.evaluate(([k]) => window.__pfp.setVar(k, undefined), [o.key]);
+          await page.evaluate(() => window.__pfp.reset());
           sweep.options++;
         }
       }
+      }
+      /* the directions measured against A: the same main list, drawn the same way (as many per
+         row, as wide, about as tall), is the same layout whatever was added around it */
+      const A = ACTIVE.find((d) => d.kind === 'existing'), sa = A && shapes.get(A.id);
+      if (pl === 'web' && sa && !flow.chosen) for (const d of ACTIVE.filter((x) => x !== A)) {
+        const sd = shapes.get(d.id);
+        if (!sd || sd.perRow !== sa.perRow || Math.abs(sd.width - sa.width) > 0.2 || Math.abs(sd.height - sa.height) / Math.max(sd.height, sa.height) > 0.25) continue;
+        const msg = `direction ${d.id} draws its main list (“${sd.list}”) as A does: ${sd.perRow} per row, ${Math.round(sd.width * 100)}% wide, ${sd.height} px tall against A's ${Math.round(sa.width * 100)}% and ${sa.height} px — the same layout with things added around it`;
+        found.push({ level: d.kind === 'bold' ? 'error' : 'warn', check: 'alike', message: msg + (d.kind === 'bold' ? '. Bold changes the layout: cards in a grid, a list beside its detail, a feed of rich cards (kit/README.md → visual elements)' : ''), state: `${d.id} › ${flow.start || states[0].id}`, platform: pl });
       }
       await page.close();
     }
@@ -634,6 +751,7 @@ async function visual() {
     if (!e.states.includes(i.state)) e.states.push(i.state);
     merged.set(k, e);
   }
+  for (const g of sweepGaps) merged.set('gap|' + g, { level: 'warn', check: 'sweep', platform: '', message: `extreme data not tried: ${g}`, box: null, states: [] });
   const list = [...merged.values()].sort((a, b) => ({ error: 0, warn: 1, product: 2 }[a.level] - { error: 0, warn: 1, product: 2 }[b.level]));
   const nd = DIRLIST.length;
   const coverage = `${states.length} states × ${PLATFORMS.length} platform${PLATFORMS.length > 1 ? 's' : ''}${nd > 1 ? ` × ${nd} directions` : ''} · ${sweep.interactions} interactions · ${sweep.extremes} extreme-data · ${sweep.options} option renders`;
@@ -729,6 +847,7 @@ if (!WIRE) {
     ...matrix.map((r) => `| ${r.region} | ` + ['default', 'loading', 'empty', 'no-results', 'error', 'first-use'].map((k) => (r.kinds || {})[k] || '—').join(' | ') + ' |'), '',
     '## New copy — English, Arabic to come', '', '| English | platforms | Arabic |', '|---|---|---|',
     ...[...copy].map(([t, p]) => `| ${t.replace(/\|/g, '\\|')} | ${[...p].join(', ')} | [TBC] |`), '',
+    ...(standins.size ? ['## Stand-ins — placeholders for a step the product hands on', '', ...[...standins].map(([w, at]) => `- **${w}**: ${[...at].join(', ')} [TBC]`), ''] : []),
     '## Data each list needs', '', ...[...fields].map(([l, f]) => `- **${l}**: ${[...f].join(', ')}`), '',
     '## Actions', '', ...Object.entries(acts).map(([n, st]) => `- **${n}**: ${JSON.stringify(st).slice(0, 220)}${JSON.stringify(st).length > 220 ? '…' : ''}`), '',
     '## Open — [TBC]', '', ...(tbc.length ? tbc.map((t) => `- ${t}`) : ['- none flagged in flow.json']),

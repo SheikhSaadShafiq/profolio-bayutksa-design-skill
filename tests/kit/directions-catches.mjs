@@ -50,23 +50,25 @@ const research = () => ({
   ],
   mobbin: ['Stripe', 'Mixpanel', 'Linear', 'Stripe', 'HubSpot', 'Mixpanel'].map((app, i) => ({ id: `m${i + 1}`, app, kind: 'screen', title: 'Report overview', url: `https://mobbin.com/screens/fixture-${i + 1}`, borrow: 'the comparison sits beside each number', avoid: 'too many tabs' })),
   mobbin_unavailable: null, web: [],
+  queries: [...['agency report', 'team leaderboard', 'credits usage', 'lead sources', 'weekly summary', 'insight', 'analytics dashboard', 'agent performance'].map((q, i) => ({ q, pass: 'wide', tool: 'screens', mode: 'deep', kept: i < 3 ? [`m${i + 1}`] : [] })),
+    { q: 'Stripe balance overview', pass: 'deep', tool: 'flows', kept: ['m4'] }],
   trends: [
-    { id: 't1', title: 'Dashboards that start with the answer', url: 'https://example.com/a', date: '2026-05', source: 'fixture', takeaway: 'lead with one sentence' },
-    { id: 't2', title: 'Insight-first analytics', url: 'https://example.com/b', date: '2026-03', source: 'fixture', takeaway: 'explain the change' },
+    { id: 't1', title: 'Dashboards that start with the answer', url: 'https://example.com/a', date: '2026-05', source: 'fixture', kind: 'visual', takeaway: 'lead with one sentence' },
+    { id: 't2', title: 'Insight-first analytics', url: 'https://example.com/b', date: '2026-03', source: 'fixture', kind: 'ux', takeaway: 'explain the change' },
   ],
   fresh: [
-    { id: 'f1', title: 'One line on what changed this week', what: 'a summary above the table', refs: ['m1', 't1'] },
-    { id: 'f2', title: 'An insight band', what: 'the biggest driver in words', refs: ['m2', 't2'] },
-    { id: 'f3', title: 'Agents ranked by contribution', what: 'who brought the leads', refs: ['m5', 'c3'] },
+    { id: 'f1', title: 'One line on what changed this week', size: 'hero', what: 'a summary above the table', refs: ['m1', 't1'] },
+    { id: 'f2', title: 'An insight band', size: 'language', what: 'the biggest driver in words', refs: ['m2', 't2'] },
+    { id: 'f3', title: 'Agents ranked by contribution', size: 'layout', what: 'who brought the leads', refs: ['m5', 'c3'] },
   ],
   rounds: [],
 });
 const flow = () => ({
   name: 'dirs', title: 'Agency Report — three directions', platforms: ['web'], start: 'report', pages: 'none',
   directions: [
-    { id: 'A', kind: 'existing', title: 'The product as it is', label: 'Existing', summary: 'Summary page reordered', fresh: [] },
-    { id: 'B', kind: 'competitor', title: 'Stripe-style summary', label: 'Competitor-led', summary: 'a one-line summary', fresh: ['f1'] },
-    { id: 'C', kind: 'bold', title: 'Insight-first', label: 'Bold', summary: 'an insight band in a new green', fresh: ['f2', 'f3'] },
+    { id: 'A', kind: 'existing', title: 'The product as it is', label: 'Existing', layout: 'dashboard', hero: 'the summary cards', summary: 'Summary page reordered', fresh: [] },
+    { id: 'B', kind: 'competitor', title: 'Stripe-style summary', label: 'Competitor-led', layout: 'dashboard', hero: 'one line on the week', summary: 'a one-line summary', fresh: ['f1'] },
+    { id: 'C', kind: 'bold', title: 'Insight-first', label: 'Bold', layout: 'feed', hero: 'the insight band', summary: 'an insight band in a new green', fresh: ['f2', 'f3'] },
   ],
   screens: [{ id: 'report', title: 'Agency Report', directions: { A: { web: 'A/report.html' }, B: { web: 'B/report.html' }, C: { web: 'C/report.html' } } }],
   states: [{ id: 'report', title: 'Agency Report', set: {} }],
@@ -143,6 +145,33 @@ expect(run('dirs-bad-ref', (x) => ({ ...x, research: { ...x.research, fresh: x.r
 expect(run('dirs-stale-board', (x) => ({ ...x, board: 'stale' })).has('research', /board\.html is missing or older/), 'a board older than its research fails `research`');
 const web = run('dirs-no-mobbin', (x) => ({ ...x, research: { ...x.research, mobbin: [], mobbin_unavailable: 'the connector is not set up', web: x.research.mobbin.map((r) => ({ ...r, id: 'w' + r.id.slice(1), url: 'https://example.com/' + r.id })) , fresh: x.research.fresh.map((f) => ({ ...f, refs: f.refs.map((r) => r.replace(/^m/, 'w')) })) } }));
 expect(!web.has('research') && (web.rep.issues || []).some((i) => i.check === 'research' && i.level === 'warn' && /Mobbin was not available/.test(i.message)), 'without Mobbin, six web references pass, with a warning to say so');
+/* the cold tests' cases: a group with nothing for the job, a blocked site seen elsewhere, a year-only date */
+const none = run('dirs-none', (x) => ({ ...x, research: { ...x.research, competitors: [...x.research.competitors.filter((c) => c.group !== 'ksa'), { group: 'ksa', none: 'Aqar, Wasalt: no agency report' }],
+  trends: x.research.trends.map((t, i) => (i ? { ...t, date: '2026' } : t)) } }));
+expect(!none.has('research') && (none.rep.issues || []).some((i) => i.check === 'research' && i.level === 'warn' && /group "ksa": searched, nothing/.test(i.message)), 'a group searched with nothing for the job, and a year-only trend date, pass with a warning');
+const si = run('dirs-standin', (x) => ({ ...x, B: screen('B', B_ADD + '<button class="pfk-btn" data-pf-standin="Checkout.com card form" data-pf-toast="Paid">Pay</button>', true) }));
+const hand = existsSync(join(si.dir, 'qa', 'handoff.md')) ? readFileSync(join(si.dir, 'qa', 'handoff.md'), 'utf8') : '';
+expect(!si.has('standin') && /## Stand-ins[\s\S]*Checkout\.com card form\*\*: \S+ · B \(web\)/.test(hand), 'a stand-in is listed in the handoff, with its screen and direction');
+expect(run('dirs-standin-empty', (x) => ({ ...x, B: screen('B', B_ADD + '<button class="pfk-btn" data-pf-standin="" data-pf-toast="Paid">Pay</button>', true) })).has('standin', /needs what it stands in for/), 'a stand-in that names nothing fails `standin`');
+/* v2.4: one idea per direction, a wide Mobbin search, a visual trend, big moves */
+const dirsOf = (x, f) => ({ ...x, flow: { ...x.flow, directions: x.flow.directions.map(f) } });
+expect(run('dirs-no-layout', (x) => dirsOf(x, (d) => (d.id === 'C' ? { ...d, layout: undefined } : d))).has('directions', /direction C: "layout" is one of/), 'a direction without its layout fails `directions`');
+expect(run('dirs-c-same-layout', (x) => dirsOf(x, (d) => (d.id === 'C' ? { ...d, layout: 'dashboard' } : d))).has('directions', /\(bold\) has A's layout/), 'bold with A\'s layout fails `directions`');
+expect(run('dirs-b-same', (x) => dirsOf(x, (d) => (d.id === 'B' ? { ...d, hero: 'The summary cards' } : d))).has('directions', /A's layout and A's hero/), 'competitor-led with A\'s layout and hero fails `directions`');
+expect(run('dirs-long-query', (x) => ({ ...x, research: { ...x.research, queries: x.research.queries.map((q, i) => (i ? q : { ...q, q: 'marketplace of sales leads with hidden contact details and an unlock button' })) } })).has('research', /is 12 words: 1–3/), 'a wide Mobbin query that describes a layout fails `research`');
+expect(run('dirs-few-queries', (x) => ({ ...x, research: { ...x.research, queries: x.research.queries.slice(5) } })).has('research', /at least 8 wide Mobbin queries/), 'fewer than eight wide queries fails `research`');
+expect(run('dirs-no-visual', (x) => ({ ...x, research: { ...x.research, trends: x.research.trends.map((t) => ({ ...t, kind: 'ux' })) } })).has('research', /at least 1 visual trend/), 'no visual trend fails `research`');
+const small = run('dirs-detail', (x) => ({ ...x, research: { ...x.research, fresh: x.research.fresh.map((f) => ({ ...f, size: 'detail' })) } }));
+expect(small.has('research', /at least 2 fresh moves change/) && small.has('fresh', /direction C \(bold\) draws no fresh move that changes the layout or the hero/), 'moves that are only details fail `research` and `fresh`');
+expect(run('dirs-a-element', (x) => ({ ...x, A: screen('A', '<div class="pfk-stats"><button class="pfk-stat"><span class="pfk-stat__value">12</span></button></div>') })).has('direction', /visual element \.pfk-stats/), 'A with a visual element fails `direction`');
+/* measured: the same main list in A and C is one layout, whatever is added around it; as cards it is another */
+const LIST = (wrap) => `<div data-pf-list="rows" ${wrap}><template><div style="padding:16px 24px;border-bottom:1px solid #f0f0f0"><span data-pf-text="$.t"></span></div></template></div>`;
+const withData = (h) => h.replace('</head>', '<script type="application/json" id="pf-data">{"rows":[{"t":"Lead one"},{"t":"Lead two"},{"t":"Lead three"},{"t":"Lead four"}]}</script></head>');
+const same = run('dirs-alike', (x) => ({ ...x, A: withData(screen('A', LIST(''))), B: withData(screen('B', B_ADD + LIST(''), true)), C: withData(screen('C', C_ADD + LIST(''), true)) }), []);
+expect(same.has('alike', /direction C draws its main list \(“rows”\) as A does/) && (same.rep.issues || []).some((i) => i.check === 'alike' && i.level === 'warn' && /direction B/.test(i.message)), 'the same list in C (an error) and in B (a warning) as in A is caught as one layout');
+const grid = run('dirs-grid', (x) => ({ ...x, A: withData(screen('A', LIST(''))), C: withData(screen('C', C_ADD + LIST('style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:16px 24px"'), true)) }), []);
+expect(!(grid.rep.issues || []).some((i) => i.check === 'alike' && /direction C/.test(i.message)) && /× 3 directions/.test(grid.rep.coverage || ''), 'the same rows as a grid of cards are another layout');
+expect(run('dirs-seen', (x) => ({ ...x, research: { ...x.research, competitors: x.research.competitors.map((c) => (c.id === 'c1' ? { ...c, seen: 'a friend' } : c)) } })).has('research', /seen is one of/), 'an unknown `seen` source fails `research`');
 
 if (!process.argv.includes('--keep')) for (const f of readdirSync(join(SK, 'designs')).filter((f) => f.startsWith('_test-dirs'))) rmSync(join(SK, 'designs', f), { recursive: true, force: true });
 console.log(failed ? `  ${failed} check(s) failed` : '  gate 1 holds three researched directions, and each rule catches its break');

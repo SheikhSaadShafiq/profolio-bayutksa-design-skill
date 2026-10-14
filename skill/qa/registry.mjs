@@ -14,7 +14,7 @@
  *
  * --json prints the slice as JSON instead of text.
  */
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -67,7 +67,7 @@ switch (what) {
     const st = groupStates(p.states);
     const text = [
       `${id} · ${p.route} · ${p.title}${p.theme ? ` · theme ${p.theme}` : ''}${p.status ? ` · ${p.status}` : ''}`,
-      `files: ${p.file}${p.mobile ? ` · ${p.mobile}` : ''} (not in the .skill: python3 qa/fetch.py ${id} [<state>…] [--375])`,
+      `files: ${p.file}${p.mobile ? ` · ${p.mobile}` : ''}${[p.file, p.mobile].filter(Boolean).every((f) => existsSync(join(ROOT, f))) ? '' : ` (not here yet: python3 qa/fetch.py ${id} [<state>…] [--375])`}`,
       `aliases: ${list(p.aliases)}`,
       `roles: ${list(p.roles)}${p.state_roles ? ` · state roles: ${JSON.stringify(p.state_roles)}` : ''}`,
       `flags: ${list(p.flags)}`,

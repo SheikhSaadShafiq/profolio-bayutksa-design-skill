@@ -38,6 +38,7 @@ function image(r) {
 }
 
 const GROUPS = [['ksa', 'KSA portals\' agent tools'], ['regional', 'Regional and global agent tools'], ['saas', 'Best-in-class SaaS for the pattern'], ['bayut', 'Bayut\'s and dubizzle\'s own markets']];
+const SEEN = { 'app-store': 'its App Store page', mobbin: 'Mobbin', 'help-centre': 'its help centre', press: 'press coverage', 'search-summary': 'a search summary: the site was not opened' };
 const KIND = { existing: 'Existing components only', competitor: 'Competitor-led: new patterns, the product\'s tokens', bold: 'Bold: new patterns and new visual language' };
 const dirs = flow.directions || [];
 const refsById = new Map([...(R.competitors || []), ...(R.mobbin || []), ...(R.web || []), ...(R.trends || [])].map((x) => [x.id, x]));
@@ -117,6 +118,7 @@ ${dirs.length ? `<h2>The directions</h2>
 <div class="grid">${dirs.map((d) => `<section class="dir">
   <h3><span class="badge">${esc(d.id)}</span>${esc(d.title || '')}</h3>
   <p class="kind">${esc(KIND[d.kind] || d.kind)}${flow.chosen === d.id ? ' · chosen' : ''}</p>
+  ${d.layout || d.hero ? `<p class="small"><b>Layout</b> ${esc(d.layout || '—')}${d.hero ? ` · <b>Read first</b> ${esc(d.hero)}` : ''}</p>` : ''}
   ${d.summary ? `<p>${esc(d.summary)}</p>` : ''}
   ${(d.fresh || []).length ? `<ul>${d.fresh.map((f) => { const m = (R.fresh || []).find((x) => x.id === f); return `<li><a href="#${esc(f)}">${esc(m ? m.title : f)}</a></li>`; }).join('')}</ul>` : '<p class="small">Uses no new pattern: the product as it is.</p>'}
   ${(qa.newTokens || []).filter((t) => t.dir === d.id).length ? `<p class="small">New tokens, for designer sign-off: ${(qa.newTokens || []).filter((t) => t.dir === d.id).map((t) => `<code>${esc(t.name)}: ${esc(t.value)}</code>`).join(', ')}</p>` : ''}
@@ -125,18 +127,24 @@ ${dirs.length ? `<h2>The directions</h2>
 <h2>Competitors</h2>
 <table>
   <thead><tr><th>Group</th><th>Product</th><th>Why it matters here</th></tr></thead>
-  <tbody>${GROUPS.flatMap(([g, label]) => (R.competitors || []).filter((c) => c.group === g).map((c) => `<tr id="${esc(c.id || '')}"><td class="group">${esc(label)}</td><td>${link(c.url, c.name)}</td><td>${esc(c.why)}${c.does ? `<br><span class="small">${esc(c.does)}</span>` : ''}</td></tr>`)).join('')}</tbody>
+  <tbody>${GROUPS.flatMap(([g, label]) => (R.competitors || []).filter((c) => c.group === g).map((c) => c.none
+    ? `<tr><td class="group">${esc(label)}</td><td class="small">none for this job</td><td class="small">Searched: ${esc(c.none)}</td></tr>`
+    : `<tr id="${esc(c.id || '')}"><td class="group">${esc(label)}</td><td>${link(c.url, c.name)}${c.seen && c.seen !== 'site' ? `<br><span class="small">seen via ${esc(SEEN[c.seen] || c.seen)}</span>` : ''}</td><td>${esc(c.why)}${c.does ? `<br><span class="small">${esc(c.does)}</span>` : ''}</td></tr>`)).join('')}</tbody>
 </table>
+
+${(R.queries || []).length ? `<h2>How Mobbin was searched</h2>
+<p class="small">Wide first: short queries naming the thing, to see what exists. Then deep: the best apps by name.</p>
+<table><thead><tr><th>Pass</th><th>Query</th><th>Kept</th></tr></thead><tbody>${R.queries.map((q) => `<tr><td class="group">${esc(q.pass || '')}${q.tool ? ' · ' + esc(q.tool) : ''}</td><td>${esc(q.q || '')}</td><td class="small">${(q.kept || []).map(refName).join(', ') || '—'}</td></tr>`).join('')}</tbody></table>` : ''}
 
 <h2>References${R.mobbin_unavailable ? '' : ' from Mobbin'}</h2>
 <div class="grid">${(R.mobbin || []).map(card).join('')}${(R.web || []).map(card).join('')}</div>
 
 <h2>Trends</h2>
-<div class="grid">${(R.trends || []).map((t) => `<section class="trend" id="${esc(t.id || '')}"><p class="small">${esc(t.date || '')}${t.source ? ' · ' + esc(t.source) : ''}</p><h3>${link(t.url, t.title)}</h3><p>${esc(t.takeaway)}</p></section>`).join('')}</div>
+<div class="grid">${(R.trends || []).map((t) => `<section class="trend" id="${esc(t.id || '')}"><p class="small">${t.kind ? esc(t.kind === 'visual' ? 'Visual' : 'UX') + ' · ' : ''}${esc(t.date || '')}${t.source ? ' · ' + esc(t.source) : ''}</p><h3>${link(t.url, t.title)}</h3><p>${esc(t.takeaway)}</p></section>`).join('')}</div>
 
 <h2>Fresh moves</h2>
 <p class="small">What makes these directions more than the ordinary version: each move comes from the references above, and the directions that draw it say so.</p>
-<div class="grid">${(R.fresh || []).map((f) => `<section class="move" id="${esc(f.id)}"><h3>${esc(f.title)}</h3><p>${esc(f.what)}</p><p class="small">From ${(f.refs || []).map(refName).join(', ')}${usedBy(f.id).length ? ` · in direction ${usedBy(f.id).join(', ')}` : ' · in no direction yet'}</p></section>`).join('')}</div>
+<div class="grid">${(R.fresh || []).map((f) => `<section class="move" id="${esc(f.id)}">${f.size ? `<p class="small">${esc({ layout: 'Changes the layout', hero: 'Changes what is read first', language: 'Changes the visual language', detail: 'A detail' }[f.size] || f.size)}</p>` : ''}<h3>${esc(f.title)}</h3><p>${esc(f.what)}</p><p class="small">From ${(f.refs || []).map(refName).join(', ')}${usedBy(f.id).length ? ` · in direction ${usedBy(f.id).join(', ')}` : ' · in no direction yet'}</p></section>`).join('')}</div>
 
 ${(R.rounds || []).length ? `<h2>Change requests</h2>
 <div class="grid">${R.rounds.map((r, i) => `<section class="move"><p class="small">Round ${i + 1}${r.date ? ' · ' + esc(r.date) : ''}</p><h3>${esc(r.asked)}</h3><p class="small">References: ${(r.refs || []).map(refName).join(', ') || '—'}${(r.options || []).length ? ` · options in the prototype: ${r.options.map(esc).join(', ')}` : ''}</p></section>`).join('')}</div>` : ''}

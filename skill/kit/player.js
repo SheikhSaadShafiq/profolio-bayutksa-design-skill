@@ -335,8 +335,12 @@
     errors: function () { return frameErrors.slice(); },
     targets: function () { return call('targets'); },
     interact: function (t) { return call('interact', [t], 15000); },
-    extremes: function (kind, lists) { return call('extremes', [kind, lists]); },
-    setVar: function (k, v) { overrides[k] = v; send({ pf: 'set', key: k, value: v }); return new Promise(function (r) { setTimeout(r, 200); }); },
+    extremes: function (kind, lists, at) { return call('extremes', [kind, lists, at]); },
+    newCopy: function () { return call('newCopy'); },
+    shape: function () { return call('shape'); },
+    setVar: function (k, v) { if (v === undefined) delete overrides[k]; else overrides[k] = v; send({ pf: 'set', key: k, value: v }); return new Promise(function (r) { setTimeout(r, 200); }); },
+    /* the state as it opens: no override left, the screen reloaded, so state.json's own values are back */
+    reset: function () { overrides = {}; cur.ready = false; return go(cur.state || M.start || M.states[0].id).then(function () { return new Promise(function (r) { setTimeout(r, 200); }); }); },
     closeShell: function () { return call('closeShell'); },
   };
 

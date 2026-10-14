@@ -18,55 +18,72 @@ the one picked.
    the questions, and work out the edge cases yourself. Then choose the path:
    - **new or changed UI** (a page, a section, a redesign, "make it better"): steps 2–5;
    - **a small fix** (copy, a bug, a token, one state the product already draws): no research
-     and no directions. Wireframe the changed area (`--wireframe`), wait for go, then hi-fi
-     (steps 4–5).
+     and no directions. Copy `context.json` to `designs/<feature>/design/`, run design-copy for
+     new words (design-accessibility too when contrast, focus or a control changes), wireframe
+     the changed area (`--wireframe`), wait for go, then hi-fi (steps 4–5).
 2. **Research** (`research/README.md`). Before any direction:
    - competitors from all four groups, from `research/competitors.md` plus the feature's own;
-   - **Mobbin**: `search_flows` for each journey, `search_screens` for each key screen, at
-     least six references from three products, each cited;
-   - trends from the last 18 months;
+   - **Mobbin, wide then deep**: eight or more queries of **1–3 words** naming the thing
+     ("lead marketplace", "credit wallet", "match score"), in `deep` mode, never a sentence
+     describing a layout (a sentence about a table finds tables); then the best apps by name.
+     At least six references from three products, each cited;
+   - trends from the last 18 months, UX and at least one **visual**;
    - three or more **fresh moves**, specific changes that make this better than the ordinary
-     version, each traced to its references.
+     version, each traced to its references and sized: at least two change the layout, the
+     hero or the visual language, not a detail.
 
-   Write `research/research.json`, run `node qa/board.mjs designs/<feature>` and publish the
-   board as its own artifact. Mobbin not connected: say so, and take the references from the
-   web.
+   Write `designs/<feature>/research/research.json` and run `node qa/board.mjs designs/<feature>`.
+   Mobbin not connected: say so, and take the references from the web. **Then send the plan
+   paragraph** (INTAKE.md § 4): it names what the research found and what each direction bets on.
 3. **The plan and three directions (gate 1).** In `designs/<feature>/`:
    - `flow.json`: the screens, every named state, the scenario controls, and the **state
      matrix**. Every region that shows data gets its loading, empty, error and no-results
-     state, even when the PRD is silent. Plus `directions` (kit/README.md → directions).
+     state, even when the PRD is silent. Plus `directions` (kit/README.md → directions). Then
+     rebuild the board, which now shows them, and publish it as its own artifact
+     (`research.board_url`).
    - `state.json`, `data.json`, `actions.json`: realistic KSA sample rows, incomplete ones
      included, and every action. One set of data for all three directions.
    - **the field matrix**: what every field shows when the source didn't send it ("Not shared",
      hidden, "From 900,000"). **Locked or gated data** gets a lock state with 2–3 variants
      (flow.json `options`).
-   - **three complete hi-fi designs** of every screen and state, web and phone, each in its own
-     folder (`A/`, `B/`, `C/`), built as HOW A HI-FI IS MADE says:
+   - **three complete hi-fi designs** of every screen and state, on the platforms D9 names, each
+     in its own folder (`A/`, `B/`, `C/`), built as HOW A HI-FI IS MADE says:
      - **A · existing components only**: rearranges what the product already draws, in its
-       tokens. No CSS of its own.
-     - **B · competitor-led**: the strongest convention in the references, as new patterns
-       (`B/new.css`, `pfx-*` classes) in the product's own colours and type.
-     - **C · bold**: new patterns and a new visual language (`C/new.css`): each new colour or
-       face declared once as a `--pfx-*` token with a `/* [new] why */` note, for the
-       designer's sign-off.
+       tokens. No CSS of its own, no visual element.
+     - **B · competitor-led**: the references' strongest convention, their layout or their
+       hero, not only a detail: the kit's visual elements and new patterns (`B/new.css`,
+       `pfx-*` classes) in the product's own colours and type.
+     - **C · bold**: a different layout from A, and a new visual language (`C/new.css`): a
+       real type scale, colour with one meaning each, the visual elements restyled; each new
+       colour or face declared once as a `--pfx-*` token with a `/* [new] why */` note, for
+       the designer's sign-off.
 
-     B and C mark the element drawing each of their fresh moves (`data-pf-fresh="f2"`).
-   - for all three, as each needs them: design-copy, design-interaction, design-forms,
-     design-grid, design-typography, design-illustration (the product's art first),
-     design-prompt-images, design-animation-opportunities then design-motion, and
-     design-accessibility.
+     Three ideas, not three skins: each direction declares its `layout` and its `hero` (what
+     is read first), and the QA measures the main list against A's. B and C mark the element
+     drawing each of their fresh moves (`data-pf-fresh="f2"`). The kit's visual elements
+     (kit/README.md) are cards, stat tiles, avatar stacks, score rings, meters, thumbnails,
+     icon chips, insight bands. The worked example teaches wiring, not looks: never start B or
+     C from its table.
+   - the design-* skills at gate 1: design-copy once for the new words (one set, shared by all
+     three); for B and C, design-grid, design-typography and design-illustration (the product's
+     art first), so the hi-fi looks finished; design-accessibility's contrast and focus pass
+     and design-review's structure critique on each. The rest wait for the chosen one (step 4).
 
-   Critique each one (design-review), then run `node qa/prototype.mjs designs/<feature> --shots`
+   Then run `node qa/prototype.mjs designs/<feature> --shots`
    until it exits 0. It QAs every direction. Send the prototype (an A/B/C switch in the
    player) and the board, with the plan paragraph: what each direction bets on, the references
    behind it, its trade-off. **Stop. The PM picks one, or mixes them.** Skip only when the user
    says "skip".
 4. **The chosen direction (gate 2).** Set flow.json `chosen`, and bring in any mix (a fresh
-   move from another direction becomes the chosen one's, marked). Critique the craft
-   (design-review, `craft`), polish the details (design-better-interface), then run
+   move from another direction becomes the chosen one's, marked). Run the rest of the design-*
+   skills it needs: design-interaction, design-forms, design-grid, design-typography,
+   design-illustration (the product's art first), design-prompt-images,
+   design-animation-opportunities then design-motion, and design-accessibility's full pass.
+   Critique the craft (design-review, `craft`), polish the details (design-better-interface),
+   then run
    `node qa/prototype.mjs designs/<feature> --shots` until it exits 0. It writes
    `designs/<feature>/qa/report.json` in design-qa's format, the one report design-deliverables
-   reads. It renders and measures, web and phone:
+   reads. It renders and measures, on every platform flow.json names:
    - every state;
    - every interaction: the rail, the header's controls, every menu and sheet;
    - the data at its extremes: empty, long, Arabic, zero;
@@ -91,7 +108,7 @@ direction, QA, and let the PM flip them live.
 
 `kit/README.md` has everything the runtime, the patterns, the directions, the wireframe and the QA do.
 `examples/leads-marketplace/` is one whole feature (README there), built before gate 1 offered three
-directions: one design, with the runtime, states and QA each direction has.
+directions: read it for the wiring (runtime, states, data, QA), never for the look.
 
 ## THE design-* SKILLS — called as the work needs them
 
@@ -211,6 +228,10 @@ inline.
 - deliver separate state files as the design: the deliverable is the prototype
 - design a new or changed UI before its research (competitors from all four groups, Mobbin, trends,
   fresh moves), or answer a redesign request from memory
+- search Mobbin with a sentence that describes the layout you already have in mind: search the
+  thing in 1–3 words, wide, then the best apps by name
+- show three directions that are one layout with things added: each has its own layout or hero,
+  and bold never takes A's layout
 - polish one direction before the PM has picked at gate 1 (unless they said "skip"); on the
   small-fix path, write hi-fi before the user said go on the wireframe
 - deliver while `node qa/prototype.mjs` reports errors, or without saying that the visual QA did not run
@@ -323,14 +344,17 @@ A PRD arrives: read `INTAKE.md` and follow it before your first reply.
 
 ## HOW A HI-FI IS MADE
 
-1. **Copy the compiled file you start from** into `designs/<feature>/<screen>.html`.
-   - Fix its links two folders up (`../../css/…`) and add `../../kit/kit.css`.
-   - Replace its `pf-compiled` meta with `<meta name="pf-base" content="pages/<page>.html">`:
-     the exact file you copied, a state file included.
-   - Name every other compiled file a block or an svg comes from in
-     `<meta name="pf-also" content="a, b">`.
-   - Drop its scripts; the prototype runs `kit/runtime.js`.
-   - Do the phone the same way, from the 375 twin (`pages/<page>.mobile.html`; 360 in 2.0).
+1. **Start from the compiled file**, with `qa/compose.mjs start <compiled file>
+   designs/<feature>/[A|B|C/]<screen>.html` (kit/README.md → composing a screen). It does what
+   follows; check it did:
+   - links two folders up (`../../css/…`, `../../kit/kit.css`), three from `A/`, `B/` or `C/`;
+   - `<meta name="pf-base" content="pages/<page>.html">` in place of `pf-compiled`: the exact
+     file you started from, a state file included;
+   - its scripts dropped (the prototype runs `kit/runtime.js`), the JSON blocks pulled in.
+
+   Name every other compiled file a block or an svg comes from in `pf-also`
+   (`compose.mjs block` to take it, `also` to name it). Do the phone the same way, from the 375
+   twin (`pages/<page>.mobile.html`; 360 in 2.0).
 2. **Keep the shell and the page's containers**, whose styles are their source's. Replace
    what they hold.
    - For what the product draws, use the registry's classes and the component files' own
@@ -380,7 +404,7 @@ A PRD arrives: read `INTAKE.md` and follow it before your first reply.
    - **Every [TBC]**: each value, string, icon or borrowed 2.0 choice you could not source,
      and where you looked.
    - **Pages affected**: the page ids in the `used_on` of every component you changed,
-     verbatim (`node qa/registry.mjs uses <id>`).
+     verbatim (`node qa/registry.mjs uses <id>`), and the platforms that inherit the change.
    - **For the developers, per state**: the APIs and data it needs, the flags that gate it
      (a flag-off state names the build or the compiled reference, never an account), the
      route (`pages[x].route` pattern, never `fixture_url`) and the account to QA it with

@@ -4,6 +4,10 @@ Read this when a PRD arrives, before your first reply. Do the steps in order. Wr
 file until the user has answered. Then research and build the three directions (or, for a
 small fix, the wireframe), and stop at gate 1 until the PM picks (SKILL.md → THE FLOW).
 
+Keep the intake in `designs/<feature>/intake.md`: the gap check, both tables, the questions,
+and the answers as they come. The edge cases (§ 3) go there too. It is the design's memory
+for later turns and for the next person.
+
 ## 0 · PRD gap check
 
 Before any question, show what the PRD gives and what it lacks, one line per section:
@@ -63,7 +67,7 @@ reply confirms every row you didn't ask: don't ask it again.
 | P5 | Roles: which of owner, staff and individual see it, and does it differ by role? (`product/roles.md`) | | |
 | P6 | Flags: each with the page whose `pages[x].flags` (or `shell.flags`) carries it. Grep its row in `product/flags.md` and quote its Referenced-in files. An effect its Gates column does not give is [TBC], at most medium; a condition `(ORed with X)` needs both. | | |
 | P7 | Credits, packages or tiers: the products and tiers affected, expiry, and payment methods (`product/ksa.md`, `PAYMENT_METHODS`). | | |
-| P8 | Contradictions: for each key noun, the shipped field that covers it (`pages[x].labels`, `copy/rendered/`). Same meaning: the shipped string wins, so flag it. Maybe another meaning: ask; a new meaning is new copy. | | |
+| P8 | Contradictions: for each key noun, the shipped field that covers it (`pages[x].labels`, `copy/rendered/`). Same meaning: the shipped string wins; use it, and list the PRD's word under **PRD deviations** in the handoff. Ask when the PM quoted the words (in quotes, or "the button says …"): they may want the change. Maybe another meaning: ask; a new meaning is new copy. | | |
 
 ### Design — for the designer
 
@@ -76,8 +80,8 @@ reply confirms every row you didn't ask: don't ask it again.
 | D5 | States: for each page in D2, name its compiled loading, empty, error and message-* from `node qa/registry.mjs page X` (or "none"). `empty` is a new account, not the feature's own empty. The feature's own states you work out yourself: the state matrix (§ 3), in flow.json, with proposed copy — shown in the wireframe, never asked. Answer flag-off and no-permission ("not drawn" if so). | | |
 | D6 | Any component the catalogue lacks? List what you think is missing. | | |
 | D7 | Copy: final or placeholder? Arabic now or deferred? | | |
-| D8 | Does it change an existing component? Paste the page ids in its `used_on` verbatim, never a count; a `registry.shell` component reaches every signed-in page. Ask whether to regenerate them. | | |
-| D9 | Responsive: web only, or web and phone (375; 360 in Profolio 2.0)? Whatever is chosen, the prototype carries every state on every platform named — the QA holds it to flow.json. | | |
+| D8 | Does it change an existing component? Paste the page ids in its `used_on` verbatim, never a count; a `registry.shell` component reaches every signed-in page. A change to its default string (a label, a placeholder, an empty-state line) reaches every one of those pages too: say so. Ask whether to regenerate them. | | |
+| D9 | Responsive: web only, or web and phone (375; 360 in Profolio 2.0)? Whatever is chosen, the prototype carries every state on every platform named — the QA holds it to flow.json. A change to a shared component (D8) reaches its phone pages too: name the platforms that inherit it, even when the PRD says web only. | | |
 
 ## 3 · Edge cases and scenarios — work them out, don't ask
 
@@ -96,7 +100,10 @@ for them. For each requirement, go through:
 - **locked or gated data**: not bought yet, not paid for, a role that may not see it, expired.
   Design the lock state, and prepare 2–3 variants for the user to pick (flow.json `options`);
 - **limits and quotas**: a balance, a cap, a maximum count;
-- **time**: expiring, expired, stale data;
+- **time**: expiring, expired, stale data. The compiled pages' clock is 1 October 2026 in
+  Riyadh (`node qa/registry.mjs clock`), so "this month" holds one day: design a partial period
+  on purpose (month to date, against the same days last month, labelled so), and date the rows
+  in `data.json` around that clock;
 - **someone else acting**: taken, changed or deleted meanwhile;
 - **one idea that would make it better than asked**: optional, flagged as such, never in the way.
 
@@ -121,43 +128,48 @@ the PRD's silence is not an answer, and the QA fails a list without them.
 full path below. A small fix (copy, a bug, a token, one state the product already draws) takes
 the short one at the end.
 
-After the reply, the first text of your next turn is the plan: ONE prose paragraph, no bullets
-and no table, sent before any tool call that writes to `designs/`. It covers:
-- the layout the data calls for, e.g. "one field per column, the contact first";
-- where the entry point sits;
-- what each state shows;
-- the competitors you will look at, by name.
-
-Then:
-1. **Research** (`research/README.md`):
+Once the user has answered:
+1. **Research** (`research/README.md`), into `designs/<feature>/research/` (the only design
+   folder written before the plan):
    - competitors from all four groups (`research/competitors.md`, plus the feature's own);
-   - Mobbin: `search_flows` and `search_screens`, six or more references from three products;
-   - trends from the last 18 months;
-   - three or more fresh moves.
+   - Mobbin, wide then deep: eight or more 1–3 word queries naming the thing, then the best
+     apps by name; six or more references from three products;
+   - trends from the last 18 months, one of them visual;
+   - three or more fresh moves, two of them changing the layout, the hero or the look.
 
-   Write `research/research.json`, run `node qa/board.mjs designs/<feature>`, and publish the
-   board.
-2. Write `designs/<feature>/flow.json`: screens, states, controls, the matrix, and
+   Write `designs/<feature>/research/research.json` and run `node qa/board.mjs designs/<feature>`.
+2. **The plan**: ONE prose paragraph, no bullets and no table, sent before any tool call that
+   writes the rest of `designs/<feature>/`. It covers:
+   - the layout the data calls for, e.g. "one field per column, the contact first";
+   - where the entry point sits;
+   - what each state shows;
+   - the competitors and references it draws on, by name, and what each direction bets on:
+     its layout and its hero (A a table, B a list beside its detail, C cards led by the score…).
+3. Write `designs/<feature>/flow.json`: screens, states, controls, the matrix, and
    `directions` A (existing), B (competitor-led), C (bold), each with its title, summary and
    fresh moves. Write `state.json`, `data.json` and `actions.json`: realistic KSA rows and
    every action, shared by all three directions (kit/README.md).
-3. Build each direction completely, every screen and state, web and phone as D9 says, in `A/`,
-   `B/`, `C/` (SKILL.md → HOW A HI-FI IS MADE):
+   Rebuild the board now (`node qa/board.mjs designs/<feature>`): it shows the directions, and
+   publish it as its own artifact. Its link goes in flow.json `research.board_url`.
+4. Build each direction completely, every screen and state, on the platforms D9 names, in `A/`,
+   `B/`, `C/` (SKILL.md → HOW A HI-FI IS MADE; start each screen with `qa/compose.mjs start`):
    - draw every variant of each open decision (the lock state, the hero), switchable in the
      player (flow.json `options`);
    - B and C mark their fresh moves (`data-pf-fresh`).
-4. Critique each direction (design-review), then run
+5. Critique each direction (design-review), then run
    `node qa/prototype.mjs designs/<feature> --shots` until it exits 0. Send the prototype and
    the board with:
    - the plan;
    - what each direction bets on, its references, and its trade-off;
    - the edge-case list and the state matrix;
    - the one or two questions still open.
-5. **Stop.** The PM picks a direction or mixes them ("A's table with C's summary"). Set
+6. **Stop.** The PM picks a direction or mixes them ("A's table with C's summary"). Set
    flow.json `chosen`. Skip this gate only when the user says "skip".
 
-**The short path, for a small fix.** Write flow.json and the JSON, then wireframe the changed
-area with `kit/wireframe.css`:
+**The short path, for a small fix.** No research, no directions. Send the plan paragraph,
+write flow.json and the JSON, copy `context.json` to `designs/<feature>/design/context.json`,
+and run design-copy for any new words (and design-accessibility when it changes contrast, focus
+or a control). Then wireframe the changed area with `kit/wireframe.css`:
 - the product shell's proportions;
 - real copy;
 - the same attributes the hi-fi will use;
