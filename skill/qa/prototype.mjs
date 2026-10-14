@@ -29,6 +29,13 @@
  * The result is written into the prototype (a red "not ready to share" bar while it fails)
  * and to designs/<feature>/qa/report.md.
  *
+ * Directions (gate 1): flow.json "directions" makes the prototype hold two or three complete
+ * designs of the same flow — A existing components only, B competitor-led, C bold — each
+ * screen drawn once per direction (screens[].directions.<id>.web/phone), switched in the
+ * player, every one QA'd. "chosen" keeps only the one picked. They start from the research
+ * (research/research.json → research/board.html, qa/board.mjs): competitors, Mobbin, trends
+ * and the fresh moves each direction draws (data-pf-fresh). kit/README.md → directions.
+ *
  *   --no-qa        build only (a draft: the prototype says QA was not run)
  *   --shots        save a PNG of every state and platform to designs/<feature>/qa/shots/, to look at
  *   --pages all|linked|none   the product pages bundled for the rail (default: flow.json "pages", else all)
@@ -84,15 +91,34 @@ for (const s of states) if (s.screen && !screenIds.has(s.screen)) E('flow', `sta
 if (flow.start && !stateIds.has(flow.start)) E('flow', `start "${flow.start}" is no state`);
 for (const c of flow.controls || []) if (!c.key || !Array.isArray(c.options) || !c.options.every((o) => Array.isArray(o) && o.length === 2)) E('flow', `control ${JSON.stringify(c.key || c)}: needs a key and options as [value, "label"] pairs`);
 
+/* ── 1b · directions: gate 1 shows complete designs of one flow, side by side ── */
+const KIND = { existing: 'Existing components only', competitor: 'Competitor-led: new patterns, the product\'s tokens', bold: 'Bold: new patterns and new visual language' };
+const DIRS = WIRE ? [] : (flow.directions || []);
+if (DIRS.length) {
+  const ids = new Set();
+  for (const d of DIRS) {
+    if (!d.id || ids.has(d.id)) E('directions', `each direction needs its own id — got ${JSON.stringify(d.id)}`);
+    ids.add(d.id);
+    if (!KIND[d.kind]) E('directions', `direction ${d.id}: kind must be ${Object.keys(KIND).join(', ')} — got ${JSON.stringify(d.kind)}`);
+  }
+  if (flow.chosen && !ids.has(flow.chosen)) E('directions', `chosen "${flow.chosen}" is no direction`);
+  if (!flow.chosen) {
+    if (DIRS.length < 2) E('directions', 'gate 1 shows two or three directions; flow.json has one — or set "chosen"');
+    if (!DIRS.some((d) => d.kind === 'existing')) E('directions', 'one direction draws only the product\'s existing components (kind "existing"), so the safest option is always on the table');
+  }
+}
+const ACTIVE = flow.chosen ? DIRS.filter((d) => d.id === flow.chosen) : DIRS;
+const DIRLIST = ACTIVE.length ? ACTIVE.map((d) => d.id) : [null];
+
 /* ── 2 · the files ───────────────────────────────────────────────────── */
-const fileOf = (s, p) => (WIRE ? (s.wireframe || {})[p] : s[p] || (p === 'phone' ? s.mobile : null));
+const fileOf = (s, p, d = null) => (WIRE ? (s.wireframe || {})[p] : d ? ((s.directions || {})[d] || {})[p] : s[p] || (p === 'phone' ? s.mobile : null));
 const screenFiles = [];
-for (const s of screens) for (const p of PLATFORMS) {
-  const f = fileOf(s, p);
-  if (!f) { E('coverage', `screen "${s.id}" has no ${p} ${WIRE ? 'wireframe' : 'file'} — flow.json screens[].${WIRE ? 'wireframe.' : ''}${p}`); continue; }
+for (const d of DIRLIST) for (const s of screens) for (const p of PLATFORMS) {
+  const f = fileOf(s, p, d);
+  if (!f) { E('coverage', `screen "${s.id}" has no ${p} ${WIRE ? 'wireframe' : 'file'}${d ? ` in direction ${d} — flow.json screens[].directions.${d}.${p}` : ` — flow.json screens[].${WIRE ? 'wireframe.' : ''}${p}`}`); continue; }
   const abs = resolve(DIR, f);
-  if (!existsSync(abs)) { E('coverage', `screen "${s.id}" (${p}): ${relative(process.cwd(), abs)} does not exist`); continue; }
-  screenFiles.push({ screen: s, platform: p, abs, html: inlineJson(abs, read(abs)) });
+  if (!existsSync(abs)) { E('coverage', `screen "${s.id}" (${p}${d ? ', ' + d : ''}): ${relative(process.cwd(), abs)} does not exist`); continue; }
+  screenFiles.push({ screen: s, platform: p, dir: d, abs, html: inlineJson(abs, read(abs)) });
 }
 
 /* <script type="application/json" id="pf-data" data-src="data.json"></script>: the file's JSON,
@@ -254,7 +280,7 @@ function stepsOf(list, where, acts) {
 }
 const LINK_RE = /<link\b[^>]*\brel=["']?stylesheet["']?[^>]*>/gi;
 for (const sf of screenFiles) {
-  const where = `${sf.screen.id} (${sf.platform})`;
+  const where = `${sf.screen.id} (${sf.platform}${sf.dir ? ', direction ' + sf.dir : ''})`;
   const h = sf.html;
   for (const l of h.match(LINK_RE) || []) {
     const href = (l.match(/\bhref=["']([^"']+)["']/) || [])[1];
@@ -318,6 +344,91 @@ const matrix = flow.matrix || [];
   }
 }
 
+/* ── 3b · each direction's own CSS: A none; B the product's tokens only; C new tokens, each
+   declared once as --pfx-* with a [new] note. A direction's classes are its own (pfx-*): none
+   restyles a product class ── */
+const newTokens = [];                // { dir, name, value, why }: the bold direction's new language, for sign-off
+const COLOUR_LIT = /#[0-9a-f]{3,8}\b|\b(rgba?|hsla?|oklch|lab|lch)\(/i;
+for (const d of ACTIVE) {
+  const local = new Map();
+  for (const sf of screenFiles.filter((f) => f.dir === d.id)) for (const l of sf.html.match(LINK_RE) || []) {
+    const href = (l.match(/\bhref=["']([^"']+)["']/) || [])[1];
+    const abs = href && !/^(https?:|data:)/.test(href) ? resolve(dirname(sf.abs), href) : null;
+    if (abs && !relative(DIR, abs).startsWith('..') && existsSync(abs)) local.set(abs, read(abs));
+  }
+  for (const [abs, css] of local) {
+    const name = relative(DIR, abs);
+    if (d.kind === 'existing') { E('direction', `direction ${d.id} draws only the product's components, and links ${name}: a new pattern belongs to a competitor-led or bold direction`); continue; }
+    for (const m of css.matchAll(/([^{}]+)\{/g)) {
+      const sel = m[1].replace(/\/\*[\s\S]*?\*\//g, '').trim();
+      if (!sel || sel.startsWith('@') || /^(from|to|\d+%)/.test(sel)) continue;
+      for (const c of sel.matchAll(/\.(-?[a-zA-Z_][\w-]*)/g)) if (!c[1].startsWith('pfx-')) { E('direction', `direction ${d.id}: ${name} styles .${c[1]} — a direction's own CSS styles its own classes (pfx-*), never the product's`); break; }
+    }
+    for (const m of css.matchAll(/(--[\w-]+|[a-z-]+)\s*:\s*([^;{}]+?)\s*(?:;|(?=\}))([ \t]*\/\*([\s\S]*?)\*\/)?/g)) {
+      const [, prop, value, , note] = m;
+      const literal = COLOUR_LIT.test(value) || (prop === 'font-family' && !/^(var\(|inherit|initial|unset)/.test(value.trim()));
+      if (!literal) continue;
+      if (d.kind === 'competitor') E('direction', `direction ${d.id} (competitor-led) keeps the product's colours and type: ${name} sets ${prop}: ${value.trim()} — use a token (tokens.md) as var(--…)`);
+      else if (!prop.startsWith('--pfx-')) E('direction', `direction ${d.id} (bold): ${name} sets ${prop}: ${value.trim()} — declare each new colour or face once, as a --pfx-* token with a /* [new] why */ note, and use var() for it`);
+      else if (!/\[new\]/i.test(note || '')) E('direction', `direction ${d.id} (bold): ${name}: ${prop} needs a /* [new] why */ note — every new value goes to the designer for sign-off`);
+      else newTokens.push({ dir: d.id, name: prop, value: value.trim(), why: (note || '').replace(/\[new\]/i, '').trim() });
+    }
+  }
+}
+
+/* ── 3c · the research behind the directions (research/research.json, kit/README.md → research):
+   competitors in the four groups, Mobbin references, recent trends, and the fresh moves each
+   direction draws — every move marked on its screens (data-pf-fresh) ── */
+const RES_FILE = join(DIR, 'research', 'research.json');
+let research = null;
+if (DIRS.length || existsSync(RES_FILE)) {
+  if (!existsSync(RES_FILE)) E('research', `research/research.json is missing — directions start from the research: competitors, Mobbin, trends, fresh moves (kit/README.md → research)`);
+  else { try { research = JSON.parse(read(RES_FILE)); } catch (e) { E('research', `research/research.json is not valid JSON: ${e.message}`); } }
+}
+const freshById = new Map();
+if (research) {
+  const R = research, ids = new Set();
+  const need = (cond, msg) => { if (!cond) E('research', msg); };
+  const comps = R.competitors || [];
+  const GROUPS = { ksa: 'KSA portals\' agent tools', regional: 'regional and global agent tools', saas: 'best-in-class SaaS for the pattern', bayut: 'Bayut\'s and dubizzle\'s own markets' };
+  for (const c of comps) { need(c.name && GROUPS[c.group] && c.why && /^https?:/.test(c.url || ''), `competitor ${JSON.stringify(c.name || c)}: needs name, group (${Object.keys(GROUPS).join(', ')}), why it is relevant to this feature, and its url`); if (c.id) ids.add(c.id); }
+  for (const [g, label] of Object.entries(GROUPS)) need(comps.some((c) => c.group === g), `no competitor from ${label} (group "${g}")`);
+  const refs = R.mobbin || [], web = R.web || [];
+  for (const r of [...refs, ...web]) { need(r.id && r.app && /^https?:/.test(r.url || '') && r.borrow, `reference ${JSON.stringify(r.id || r.app || r)}: needs id, app, url, and what to borrow`); if (r.id) ids.add(r.id); }
+  if (R.mobbin_unavailable) {
+    W('research', `Mobbin was not available: ${R.mobbin_unavailable} — the references come from the web; say so to the user`);
+    need(web.length >= 6, `Mobbin was not available, so at least 6 web references are needed — ${web.length} given`);
+  } else {
+    need(refs.length >= 6, `at least 6 Mobbin references (search_flows for journeys, search_screens for key screens) — ${refs.length} given`);
+    need(new Set(refs.map((r) => r.app)).size >= 3, 'the Mobbin references come from at least 3 different products');
+    for (const r of refs) need(/mobbin\.com/.test(r.url || ''), `Mobbin reference ${r.id}: cite its mobbin_url`);
+  }
+  const trends = R.trends || [];
+  need(trends.length >= 2, `at least 2 recent trend articles (title, url, date, takeaway) — ${trends.length} given`);
+  for (const t of trends) {
+    need(t.title && /^https?:/.test(t.url || '') && t.takeaway && /^\d{4}-\d{2}/.test(t.date || ''), `trend ${JSON.stringify(t.title || t)}: needs title, url, date (YYYY-MM) and its takeaway`);
+    if (t.id) ids.add(t.id);
+    if (/^\d{4}-\d{2}/.test(t.date || '') && (Date.now() - Date.parse(t.date.slice(0, 7) + '-01')) / 864e5 > 548) W('research', `trend “${t.title}” is from ${t.date}: older than 18 months`);
+  }
+  const fresh = R.fresh || [];
+  need(fresh.length >= 3, `at least 3 fresh moves, each from the references — ${fresh.length} given`);
+  for (const f of fresh) {
+    need(f.id && f.title && f.what && (f.refs || []).length, `fresh move ${JSON.stringify(f.id || f.title || f)}: needs id, title, what it changes, and the references it comes from`);
+    for (const r of f.refs || []) need(ids.has(r), `fresh move ${f.id}: “${r}” is no competitor, reference or trend id`);
+    if (f.id) freshById.set(f.id, f);
+  }
+  const board = join(DIR, 'research', 'board.html');
+  need(existsSync(board) && statSync(board).mtimeMs >= statSync(RES_FILE).mtimeMs - 1000, 'research/board.html is missing or older than research.json — node qa/board.mjs ' + relative(SKILL, DIR));
+}
+for (const d of ACTIVE) {
+  const min = { existing: 0, competitor: 1, bold: 2 }[d.kind] || 0;
+  if ((d.fresh || []).length < min) E('fresh', `direction ${d.id} (${d.kind}) draws at least ${min} fresh move${min > 1 ? 's' : ''} from the research — flow.json directions[].fresh`);
+  for (const f of d.fresh || []) {
+    if (research && !freshById.has(f)) E('fresh', `direction ${d.id}: fresh move “${f}” is not in research.json`);
+    if (!screenFiles.some((sf) => sf.dir === d.id && new RegExp(`\\sdata-pf-fresh="[^"]*\\b${f.replace(/[^\w-]/g, '')}\\b`).test(sf.html))) E('fresh', `direction ${d.id} lists the fresh move “${f}”, and no screen draws it — mark the element that does with data-pf-fresh="${f}"`);
+  }
+}
+
 /* ── 4 · qa/validate.py on the hi-fi screens ─────────────────────────── */
 let validate = null;
 if (!WIRE && screenFiles.length) {
@@ -367,7 +478,12 @@ function build(qa) {
   const manifest = {
     name: flow.name || basename(DIR), title: (flow.title || flow.name || basename(DIR)) + (WIRE ? ' · wireframe' : ''),
     theme: flow.theme || '', platforms: PLATFORMS, start: flow.start || (states[0] && states[0].id), wireframe: WIRE,
-    screens: screens.map((s) => ({ id: s.id, title: s.title || s.id, route: s.route || '', size: s.size || null, files: Object.fromEntries(PLATFORMS.map((p) => [p, fileOf(s, p) ? bundlePath(resolve(DIR, fileOf(s, p))) : null]).filter(([, v]) => v)) })),
+    screens: screens.map((s) => {
+      const filesFor = (d) => Object.fromEntries(PLATFORMS.map((p) => [p, fileOf(s, p, d) ? bundlePath(resolve(DIR, fileOf(s, p, d))) : null]).filter(([, v]) => v));
+      return { id: s.id, title: s.title || s.id, route: s.route || '', size: s.size || null, files: filesFor(DIRLIST[0]), dirs: ACTIVE.length ? Object.fromEntries(DIRLIST.map((d) => [d, filesFor(d)])) : null };
+    }),
+    directions: ACTIVE.map((d) => ({ id: d.id, title: d.title || '', label: d.label || '', kind: d.kind, kindLabel: KIND[d.kind] || '', summary: d.summary || '', fresh: (d.fresh || []).map((f) => ({ id: f, title: (freshById.get(f) || {}).title || f })) })),
+    board: (flow.research && flow.research.board_url) || (existsSync(join(DIR, 'research', 'board.html')) ? 'research/board.html' : null),
     pages: pageEntries, states: states.map((s) => ({ id: s.id, screen: s.screen || (screens[0] && screens[0].id), group: s.group, title: s.title, set: s.set || {}, do: s.do || [], notes: s.notes || '', try: s.try || [] })),
     controls: flow.controls || [], options: flow.options || [], shell: flow.shell || null, alias, menu: NAV.menu, labels: NAV.labels, qa,
   };
@@ -443,32 +559,36 @@ async function visual() {
       }
       await page.goto(pathToFileURL(OUT).href + '#shot');
       for (let t = 0; t < 120 && !(await page.evaluate(() => !!(window.__pfp))); t++) await new Promise((r) => setTimeout(r, 250));
+      for (const dd of DIRLIST) {
+      /* each direction is a whole design: every state, the sweep, the extremes, the options */
+      if (dd) await page.evaluate((x) => window.__pfp.dir(x), dd);
+      const tag = (x) => (dd ? `${dd} › ` : '') + x;
       for (const s of states) {
         const st = await page.evaluate(([id, p]) => window.__pfp.go(id, p).then(() => true, (e) => String(e)), [s.id, pl]);
-        const sf = screenFiles.find((f) => f.screen.id === (s.screen || screens[0].id) && f.platform === pl);
+        const sf = screenFiles.find((f) => f.screen.id === (s.screen || screens[0].id) && f.platform === pl && f.dir === dd);
         const src0 = sf && sourcesOf(sf.html)[0];
         const res = await page.evaluate((o) => window.__pfp.qa(o), { rail: (src0 && railOf.get(src0)) || null, header: (src0 && headOf.get(src0 + '|' + pl)) || null });
         const runtime = [...new Set([...(res.errors || []), ...(res.frameErrors || [])])];
-        for (const m of runtime) found.push({ level: 'error', check: 'runtime', message: 'the prototype errs: ' + m, state: s.id, platform: pl });
-        for (const d of new Set(res.dead || [])) found.push({ level: 'error', check: 'dead', message: `“${d}” was clicked and is not wired`, state: s.id, platform: pl });
+        for (const m of runtime) found.push({ level: 'error', check: 'runtime', message: 'the prototype errs: ' + m, state: tag(s.id), platform: pl });
+        for (const d of new Set(res.dead || [])) found.push({ level: 'error', check: 'dead', message: `“${d}” was clicked and is not wired`, state: tag(s.id), platform: pl });
         for (const i of res.issues || []) {
           const product = LAYOUT.has(i.check) && baseline[pl].has(i.check + '|' + i.message);
-          found.push({ ...i, level: product ? 'product' : i.level, state: s.id, platform: pl });
+          found.push({ ...i, level: product ? 'product' : i.level, state: tag(s.id), platform: pl });
         }
-        if (st !== true) found.push({ level: 'error', check: 'runtime', message: `state "${s.id}" did not open: ${st}`, state: s.id, platform: pl });
-        if (shots) { const [w, h] = await page.evaluate(() => window.__pfp.size()); await page.screenshot({ path: join(REPORT, 'shots', `${s.id}.${pl}.png`), clip: { x: 0, y: 0, width: w, height: h } }); }
+        if (st !== true) found.push({ level: 'error', check: 'runtime', message: `state "${s.id}" did not open: ${st}`, state: tag(s.id), platform: pl });
+        if (shots) { const [w, h] = await page.evaluate(() => window.__pfp.size()); await page.screenshot({ path: join(REPORT, 'shots', `${dd ? dd + '.' : ''}${s.id}.${pl}.png`), clip: { x: 0, y: 0, width: w, height: h } }); }
       }
       /* the sweep, from each screen's first state: every control that opens something, the data
          at its extremes, every variant of an open design decision */
       const record = (res, where) => {
         const runtime = [...new Set([...(res.errors || []), ...(res.frameErrors || [])])];
-        for (const m of runtime) found.push({ level: 'error', check: 'runtime', message: 'the prototype errs: ' + m, state: where, platform: pl });
+        for (const m of runtime) found.push({ level: 'error', check: 'runtime', message: 'the prototype errs: ' + m, state: tag(where), platform: pl });
         for (const i of res.issues || []) {
           const product = LAYOUT.has(i.check) && baseline[pl].has(i.check + '|' + i.message);
-          found.push({ ...i, level: product ? 'product' : i.level, state: where, platform: pl });
+          found.push({ ...i, level: product ? 'product' : i.level, state: tag(where), platform: pl });
         }
       };
-      const shot = async (name) => { if (!shots) return; const [w, h] = await page.evaluate(() => window.__pfp.size()); await page.screenshot({ path: join(REPORT, 'shots', `${name}.${pl}.png`), clip: { x: 0, y: 0, width: w, height: h } }); };
+      const shot = async (name) => { if (!shots) return; const [w, h] = await page.evaluate(() => window.__pfp.size()); await page.screenshot({ path: join(REPORT, 'shots', `${dd ? dd + '.' : ''}${name}.${pl}.png`), clip: { x: 0, y: 0, width: w, height: h } }); };
       const first = new Map();
       for (const s of states) { const sc = s.screen || screens[0].id; if (!first.has(sc)) first.set(sc, s.id); }
       const startSc = (states.find((s) => s.id === flow.start) || {}).screen;
@@ -502,6 +622,7 @@ async function visual() {
           sweep.options++;
         }
       }
+      }
       await page.close();
     }
   } finally { await b.close(); }
@@ -514,8 +635,9 @@ async function visual() {
     merged.set(k, e);
   }
   const list = [...merged.values()].sort((a, b) => ({ error: 0, warn: 1, product: 2 }[a.level] - { error: 0, warn: 1, product: 2 }[b.level]));
-  const coverage = `${states.length} states × ${PLATFORMS.length} platform${PLATFORMS.length > 1 ? 's' : ''} · ${sweep.interactions} interactions · ${sweep.extremes} extreme-data · ${sweep.options} option renders`;
-  return { ran: true, browser: b.name, renders: states.length * PLATFORMS.length + sweep.interactions + sweep.extremes + sweep.options, coverage, issues: list };
+  const nd = DIRLIST.length;
+  const coverage = `${states.length} states × ${PLATFORMS.length} platform${PLATFORMS.length > 1 ? 's' : ''}${nd > 1 ? ` × ${nd} directions` : ''} · ${sweep.interactions} interactions · ${sweep.extremes} extreme-data · ${sweep.options} option renders`;
+  return { ran: true, browser: b.name, renders: states.length * PLATFORMS.length * nd + sweep.interactions + sweep.extremes + sweep.options, coverage, issues: list };
 }
 
 /* ── run ─────────────────────────────────────────────────────────────── */
@@ -526,7 +648,7 @@ writeFileSync(OUT, build({ ran: false, note: 'QA running', errors: 0, warnings: 
 const v = errors.length && errors.some((e) => ['flow', 'coverage', 'files'].includes(e.check)) ? { ran: false, note: 'the static checks failed first' } : await visual();
 const all = [...staticIssues.map((i) => ({ ...i, platform: '', states: [] })), ...(v.issues || [])];
 const nErr = all.filter((i) => i.level === 'error').length, nWarn = all.filter((i) => i.level === 'warn').length, nProd = all.filter((i) => i.level === 'product').length;
-qa = { ran: !!v.ran, note: v.note || '', browser: v.browser || '', renders: v.renders || 0, coverage: v.coverage || '', errors: nErr, warnings: nWarn, product: nProd, issues: all.slice(0, 80), built: new Date().toISOString() };
+qa = { ran: !!v.ran, note: v.note || '', browser: v.browser || '', renders: v.renders || 0, coverage: v.coverage || '', errors: nErr, warnings: nWarn, product: nProd, issues: all.slice(0, 80), built: new Date().toISOString(), directions: DIRLIST.filter(Boolean), chosen: flow.chosen || null, newTokens };
 writeFileSync(OUT, build(qa));
 mkdirSync(REPORT, { recursive: true });
 const name = WIRE ? 'wireframe' : 'prototype';
@@ -596,7 +718,11 @@ if (!WIRE) {
     `Generated by qa/prototype.mjs on ${qa.built} from flow.json and the screens. The prototype: \`${relative(DIR, OUT)}\` (${PLATFORMS.join(' + ')}).`,
     `QA: ${qa.ran ? `${qa.errors ? `${qa.errors} error(s)` : 'passed'} in ${qa.renders} renders (${qa.browser}); ${qa.warnings} warning(s)` : `visual QA not run — ${qa.note}`}. The full report: \`qa/prototype.md\`.`, '',
     '## Screens', '', '| screen | platform | file | compiled from |', '|---|---|---|---|',
-    ...screenFiles.map((sf) => `| ${sf.screen.title || sf.screen.id} (${sf.screen.route || ''}) | ${sf.platform} | \`${relative(DIR, sf.abs)}\` | ${sourcesOf(sf.html).map((x) => `\`${x}\``).join(', ') || '—'} |`), '',
+    ...screenFiles.map((sf) => `| ${sf.screen.title || sf.screen.id} (${sf.screen.route || ''})${sf.dir ? ' · ' + sf.dir : ''} | ${sf.platform} | \`${relative(DIR, sf.abs)}\` | ${sourcesOf(sf.html).map((x) => `\`${x}\``).join(', ') || '—'} |`), '',
+    ...(ACTIVE.length ? ['## Directions', '', flow.chosen ? `Chosen: **${flow.chosen}**. The others stay in the design's folder.` : 'Gate 1: pick one, or mix them.', '',
+      ...ACTIVE.flatMap((d) => [`### ${d.id} · ${d.title || ''} — ${KIND[d.kind] || d.kind}`, '', d.summary || '', '', ...(d.fresh || []).map((f) => `- fresh: ${(freshById.get(f) || {}).title || f}`),
+        ...newTokens.filter((t) => t.dir === d.id).map((t) => `- [new] token \`${t.name}: ${t.value}\` — ${t.why} (designer sign-off)`), '']),
+      research ? `Research: \`research/board.html\`${flow.research && flow.research.board_url ? ` (${flow.research.board_url})` : ''}: ${(research.competitors || []).length} competitors, ${(research.mobbin || []).length} Mobbin references, ${(research.trends || []).length} trends, ${(research.fresh || []).length} fresh moves.` : '', ''] : []),
     '## States', '', '| state | group | what it shows |', '|---|---|---|',
     ...states.map((s) => `| ${s.title || s.id} (\`${s.id}\`) | ${s.group || ''} | ${(s.notes || '').replace(/\|/g, '\\|')} |`), '',
     '## State matrix', '', '| region | ' + ['default', 'loading', 'empty', 'no-results', 'error', 'first-use'].join(' | ') + ' |', '|---|---|---|---|---|---|---|',

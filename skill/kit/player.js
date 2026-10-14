@@ -73,7 +73,8 @@
   /* ── the page ────────────────────────────────────────────────────────── */
   var root = $('pfp');
   var frame = $('pfp-frame'), device = $('pfp-device');
-  var cur = { entry: null, platform: (M.platforms && M.platforms[0]) || 'web', state: null, ready: false };
+  var DIRS = M.directions || [];
+  var cur = { entry: null, platform: (M.platforms && M.platforms[0]) || 'web', state: null, ready: false, dir: (DIRS[0] && DIRS[0].id) || null, loadedDir: null };
   var overrides = {}, snapshot = {}, waiters = [], qaWait = {}, rpcWait = {}, frameErrors = [];
   /* call a function of the runtime in the frame (window.pf[fn]) and wait for its answer */
   function call(fn, args, ms) {
@@ -123,10 +124,13 @@
     if (pages[to]) return pages[to];
     return Object.keys(pages).map(function (k) { return pages[k]; }).filter(function (p) { return p.route === to || p.route === to.replace(/\/$/, ''); })[0] || null;
   }
+  /* a screen's files: the direction on show (A/B/C) where the design has directions */
+  function filesOf(entry) { return (entry.dirs && cur.dir && entry.dirs[cur.dir]) || entry.files; }
   function load(entry, state, carry) {
-    var path = entry.files[cur.platform] || entry.files.web || entry.files.phone;
-    if (!entry.files[cur.platform]) toast('No ' + cur.platform + ' layout for ' + (entry.title || entry.id) + ' — showing ' + (entry.files.web ? 'web' : 'phone'));
-    cur.entry = entry; cur.ready = false; frameErrors = [];
+    var files = filesOf(entry);
+    var path = files[cur.platform] || files.web || files.phone;
+    if (!files[cur.platform]) toast('No ' + cur.platform + ' layout for ' + (entry.title || entry.id) + ' — showing ' + (files.web ? 'web' : 'phone'));
+    cur.entry = entry; cur.ready = false; frameErrors = []; cur.loadedDir = cur.dir;
     var boot = { screen: entry.id, file: path, platform: cur.platform, state: state || null, carry: carry || null, menu: M.menu || {}, labels: M.labels || {}, shell: M.shell || null, feature: M.screens.some(function (x) { return x.id === entry.id; }) };
     fit();
     return frameHtml(path, boot).then(function (html) { frame.srcdoc = html; }, function (e) { toast(e.message); });
@@ -148,7 +152,7 @@
     cur.state = id;
     var entry = find(st.screen) || M.screens[0];
     notes();
-    if (!cur.entry || cur.entry.id !== entry.id || !cur.ready) {
+    if (!cur.entry || cur.entry.id !== entry.id || !cur.ready || cur.loadedDir !== cur.dir) {
       return load(entry, payload(st)).then(whenReady);
     }
     return new Promise(function (r) {
@@ -157,6 +161,15 @@
       send({ pf: 'apply', state: payload(st), id: key });
       setTimeout(function () { if (applied[key]) { delete applied[key]; r(); } }, 5000);
     });
+  }
+  /* the direction on show: the same state, drawn by another of the designs (gate 1) */
+  function setDir(d) {
+    if (!DIRS.length || d === cur.dir || !DIRS.some(function (x) { return x.id === d; })) return Promise.resolve();
+    cur.dir = d;
+    Array.prototype.forEach.call(document.querySelectorAll('[data-dir-btn]'), function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-dir-btn') === d)); });
+    notes();
+    if (cur.state) return go(cur.state);
+    return load(cur.entry || M.screens[0], null, snapshot).then(whenReady);
   }
   function setPlatform(p) {
     if (p === cur.platform || !SIZE[p]) return Promise.resolve();
@@ -219,6 +232,12 @@
       M.screens.forEach(function (s) { sel.appendChild(el('option', { value: s.id, text: s.title || s.id })); });
       bar.appendChild(el('div', { class: 'pfp-group' }, [el('label', { text: 'Screen' }), sel]));
     }
+    if (DIRS.length > 1) {
+      var dseg = el('div', { class: 'pfp-seg', role: 'group', 'aria-label': 'Direction' });
+      DIRS.forEach(function (d) { dseg.appendChild(el('button', { type: 'button', 'data-dir-btn': d.id, 'aria-pressed': String(d.id === cur.dir), title: d.title || '', text: d.id + ' · ' + (d.label || d.title || d.kind), on: { click: function () { setDir(d.id); } } })); });
+      bar.appendChild(el('div', { class: 'pfp-group' }, [el('label', { text: 'Direction' }), dseg]));
+    }
+    if (M.board) bar.appendChild(el('a', { class: 'pfp-link', href: M.board, target: '_blank', rel: 'noopener', text: 'Research board' }));
     if ((M.platforms || []).length > 1) {
       var seg = el('div', { class: 'pfp-seg', role: 'group', 'aria-label': 'Layout' });
       M.platforms.forEach(function (p) { seg.appendChild(el('button', { type: 'button', 'data-platform-btn': p, 'aria-pressed': String(p === cur.platform), text: p === 'phone' ? 'Phone' : 'Web', on: { click: function () { setPlatform(p); } } })); });
@@ -268,6 +287,13 @@
     Array.prototype.forEach.call(document.querySelectorAll('[data-state-btn]'), function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-state-btn') === cur.state)); });
     var st = cur.state && stateById(cur.state), box = $('pfp-note');
     box.textContent = '';
+    var d = DIRS.filter(function (x) { return x.id === cur.dir; })[0];
+    if (d) box.appendChild(el('div', { class: 'pfp-dir' }, [
+      el('h3', { text: 'Direction ' + d.id + ' · ' + (d.title || '') }),
+      el('p', { class: 'pfp-muted', text: d.kindLabel || d.kind || '' }),
+      d.summary ? el('p', { text: d.summary }) : null,
+      (d.fresh || []).length ? el('ul', {}, d.fresh.map(function (f) { return el('li', { text: f.title || f.id }); })) : null,
+    ]));
     if (!st) { box.appendChild(el('p', { class: 'pfp-muted', text: 'Browsing freely — pick a state to jump to it.' })); return; }
     box.appendChild(el('h2', { text: st.title || st.id }));
     if (st.notes) box.appendChild(el('p', { text: st.notes }));
@@ -301,6 +327,8 @@
     manifest: M,
     size: function () { return sizeOf(cur.entry, cur.platform); },
     go: function (id, platform) { return (platform ? setPlatform(platform) : Promise.resolve()).then(function () { return go(id); }).then(function () { return new Promise(function (r) { setTimeout(r, 250); }); }); },
+    dir: function (d) { return setDir(d).then(function () { return new Promise(function (r) { setTimeout(r, 250); }); }); },
+    directions: function () { return DIRS.map(function (x) { return x.id; }); },
     qa: qa,
     shot: function (on) { root.setAttribute('data-mode', on ? 'shot' : ''); fit(); },
     state: function () { return snapshot; },

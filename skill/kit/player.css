@@ -68,3 +68,8 @@ body { background: var(--pfp-bg); color: var(--pfp-ink); font: 13px/1.45 var(--p
 .pfp-options:empty { display: none; }
 .pfp-option p { margin: 0 0 6px; font-size: 12px; }
 .pfp-option .pfp-seg { flex-wrap: wrap; }
+/* directions (gate 1) and the research board */
+.pfp-link { color: var(--pfp-accent); font-size: 13px; text-decoration: underline; text-underline-offset: 2px; white-space: nowrap; }
+.pfp-dir { border: 1px solid var(--pfp-line); border-radius: 8px; padding: 10px 12px; margin: 0 0 12px; }
+.pfp-dir h3 { margin: 0 0 2px; }
+.pfp-dir ul { margin: 6px 0 0; padding-inline-start: 18px; }

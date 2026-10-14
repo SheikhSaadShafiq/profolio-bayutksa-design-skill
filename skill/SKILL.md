@@ -1,49 +1,72 @@
 ---
 name: profolio-ksa-design
-description: "Design system for Bayut Profolio KSA — the agent and seller portal at profolio.bayut.sa — compiled from the product's own render. Use when designing, changing or reviewing any Profolio KSA screen, component or flow: turning a PRD into a plan, a clickable wireframe and a Design-QA'd hi-fi prototype, checking a design against the system, finding which tokens, components, flags or copy a surface uses. Triggers: 'design this screen for Profolio', 'add X to Profolio KSA', 'make a prototype of…', 'what does the listings page use', 'is there a component for Y'. KSA tenant only — not Oman, Bahrain, Qatar, Jordan, Egypt or Zameen, and not the consumer side of bayut.sa."
+description: "Design system for Bayut Profolio KSA — the agent and seller portal at profolio.bayut.sa — compiled from the product's own render. Use when designing, changing or reviewing any Profolio KSA screen, component or flow: turning a PRD into research (competitors, Mobbin, trends), three hi-fi directions to pick from and a Design-QA'd prototype, checking a design against the system, finding which tokens, components, flags or copy a surface uses. Triggers: 'design this screen for Profolio', 'add X to Profolio KSA', 'make a prototype of…', 'what does the listings page use', 'is there a component for Y'. KSA tenant only — not Oman, Bahrain, Qatar, Jordan, Egypt or Zameen, and not the consumer side of bayut.sa."
 ---
 
 # Profolio KSA — design
 
 Every page, state and component here is the running product's own render, pixel-identical
 at 1440 (web) and 375 (phone). You compose from it; you never redraw it. What you deliver is
-**one working prototype**, never a set of loose files. First you agree its structure with the
-user in a wireframe. Then the Design QA passes it.
+**one working prototype**, never a set of loose files. A new or changed UI starts from research
+(competitors, Mobbin, recent trends), and the PM picks from three complete hi-fi directions:
+the product's own components, a competitor-led one, and a bold one. Then the Design QA passes
+the one picked.
 
-## THE FLOW — two gates you do not skip
+## THE FLOW — research, three directions, two gates
 
 1. **Intake**: `INTAKE.md`, before your first reply. Run the gap check, find the screens, ask
-   the questions, and work out the edge cases yourself. A pattern the product does not draw
-   yet gets a cited reference board first (design-inspiration).
-2. **Plan + wireframe (gate 1).** Write the plan into `designs/<feature>/`:
+   the questions, and work out the edge cases yourself. Then choose the path:
+   - **new or changed UI** (a page, a section, a redesign, "make it better"): steps 2–5;
+   - **a small fix** (copy, a bug, a token, one state the product already draws): no research
+     and no directions. Wireframe the changed area (`--wireframe`), wait for go, then hi-fi
+     (steps 4–5).
+2. **Research** (`research/README.md`). Before any direction:
+   - competitors from all four groups, from `research/competitors.md` plus the feature's own;
+   - **Mobbin**: `search_flows` for each journey, `search_screens` for each key screen, at
+     least six references from three products, each cited;
+   - trends from the last 18 months;
+   - three or more **fresh moves**, specific changes that make this better than the ordinary
+     version, each traced to its references.
+
+   Write `research/research.json`, run `node qa/board.mjs designs/<feature>` and publish the
+   board as its own artifact. Mobbin not connected: say so, and take the references from the
+   web.
+3. **The plan and three directions (gate 1).** In `designs/<feature>/`:
    - `flow.json`: the screens, every named state, the scenario controls, and the **state
      matrix**. Every region that shows data gets its loading, empty, error and no-results
-     state, even when the PRD is silent.
+     state, even when the PRD is silent. Plus `directions` (kit/README.md → directions).
    - `state.json`, `data.json`, `actions.json`: realistic KSA sample rows, incomplete ones
-     included, and every action.
+     included, and every action. One set of data for all three directions.
    - **the field matrix**: what every field shows when the source didn't send it ("Not shared",
-     hidden, "From 900,000"). **Locked or gated data** (not bought, not paid, a role that may
-     not see it) gets a lock state, with 2–3 variants the user picks (flow.json `options`).
-   - a greyscale wireframe of each screen, web and phone, wired to them (`kit/wireframe.css`).
-   - its words (design-copy: the product's own strings first), each control's states and
-     feedback (design-interaction), each form's fields and validation (design-forms), and a
-     new layout's grid (design-grid).
-   Before you send it: critique the structure (design-review, `structure`), then run
-   `node qa/prototype.mjs designs/<feature> --wireframe`, the Design QA's wireframe profile.
-   Send the wireframe with the plan paragraph.
-   **Stop. No hi-fi file until the user says go.** A small change gets a small wireframe of the
-   changed area. The gate is skipped only when the user says "skip".
-3. **Hi-fi.** Take the compiled page and keep its shell and containers. Compose inside them
-   from the product's components and the pattern kit (`kit/kit.css`), with the same flow.json
-   and JSON. The wireframe's columns and states carry over unchanged. As the design needs them:
-   design-typography (banners, a new hierarchy), design-illustration (empty states, first use:
-   the product's art first), design-prompt-images (photos), design-animation-opportunities then
-   design-motion (state changes), design-copy (the final English and Arabic), and
-   design-accessibility (WCAG 2.2 AA, with its annotations).
-4. **Design QA (gate 2).** Critique the craft (design-review, `craft`), polish the details
-   (design-better-interface), then run `node qa/prototype.mjs designs/<feature> --shots` until
-   it exits 0. It writes `designs/<feature>/qa/report.json` in design-qa's format, the one report
-   design-deliverables reads. It renders and measures, web and phone:
+     hidden, "From 900,000"). **Locked or gated data** gets a lock state with 2–3 variants
+     (flow.json `options`).
+   - **three complete hi-fi designs** of every screen and state, web and phone, each in its own
+     folder (`A/`, `B/`, `C/`), built as HOW A HI-FI IS MADE says:
+     - **A · existing components only**: rearranges what the product already draws, in its
+       tokens. No CSS of its own.
+     - **B · competitor-led**: the strongest convention in the references, as new patterns
+       (`B/new.css`, `pfx-*` classes) in the product's own colours and type.
+     - **C · bold**: new patterns and a new visual language (`C/new.css`): each new colour or
+       face declared once as a `--pfx-*` token with a `/* [new] why */` note, for the
+       designer's sign-off.
+
+     B and C mark the element drawing each of their fresh moves (`data-pf-fresh="f2"`).
+   - for all three, as each needs them: design-copy, design-interaction, design-forms,
+     design-grid, design-typography, design-illustration (the product's art first),
+     design-prompt-images, design-animation-opportunities then design-motion, and
+     design-accessibility.
+
+   Critique each one (design-review), then run `node qa/prototype.mjs designs/<feature> --shots`
+   until it exits 0. It QAs every direction. Send the prototype (an A/B/C switch in the
+   player) and the board, with the plan paragraph: what each direction bets on, the references
+   behind it, its trade-off. **Stop. The PM picks one, or mixes them.** Skip only when the user
+   says "skip".
+4. **The chosen direction (gate 2).** Set flow.json `chosen`, and bring in any mix (a fresh
+   move from another direction becomes the chosen one's, marked). Critique the craft
+   (design-review, `craft`), polish the details (design-better-interface), then run
+   `node qa/prototype.mjs designs/<feature> --shots` until it exits 0. It writes
+   `designs/<feature>/qa/report.json` in design-qa's format, the one report design-deliverables
+   reads. It renders and measures, web and phone:
    - every state;
    - every interaction: the rail, the header's controls, every menu and sheet;
    - the data at its extremes: empty, long, Arabic, zero;
@@ -52,7 +75,7 @@ user in a wireframe. Then the Design QA passes it.
    the coverage it prints, never more. Exit 3 means no browser was available: say so when you
    deliver, and ask for the QA button in the prototype to be pressed.
 5. **Deliver** `designs/<feature>/prototype.html`, published as an artifact wherever you can,
-   with `designs/<feature>/qa/handoff.md` completed (OUTPUT CONTRACT). Then ask: "Shall I make the dev
+   with `designs/<feature>/qa/handoff.md` completed (OUTPUT CONTRACT) and the board's link. Then ask: "Shall I make the dev
    deliverables?" On yes, run design-deliverables with `designs/<feature>/qa/report.json`. Every control in the
    prototype works:
    - filters, tabs, sort and search change the sample rows;
@@ -61,8 +84,14 @@ user in a wireframe. Then the Design QA passes it.
    - the header's bell, avatar and Post a Listing open;
    - the scenario controls switch balance, role, network and data.
 
-`kit/README.md` has everything the runtime, the patterns, the wireframe and the QA do.
-`examples/leads-marketplace/` is one whole feature built this way (README there).
+**A change request at any time after gate 1** ("redesign the filters", "change the header"): never
+answer from memory. Research that part again: one or two Mobbin searches, a round in
+research.json (`research/README.md`). Draw 2–3 variants as flow.json `options` in the chosen
+direction, QA, and let the PM flip them live.
+
+`kit/README.md` has everything the runtime, the patterns, the directions, the wireframe and the QA do.
+`examples/leads-marketplace/` is one whole feature (README there), built before gate 1 offered three
+directions: one design, with the runtime, states and QA each direction has.
 
 ## THE design-* SKILLS — called as the work needs them
 
@@ -72,7 +101,7 @@ above; a person can call any of them directly too.
 | skill | for |
 |---|---|
 | design-context | the product's design language: this skill ships it as `context.json` |
-| design-inspiration | a pattern the product lacks: Mobbin and the web, cited |
+| design-inspiration | references for one pattern: Mobbin and the web, cited (this skill's research step does the whole feature: `research/README.md`) |
 | design-copy · design-forms · design-interaction | words · forms · states and feedback |
 | design-grid · design-typography | layout · type, banners included |
 | design-illustration · design-prompt-images | art (the product's first) · photo prompts |
@@ -180,13 +209,16 @@ inline.
 ## NEVER
 
 - deliver separate state files as the design: the deliverable is the prototype
-- write a hi-fi file before the user said go on the wireframe (unless they said "skip")
+- design a new or changed UI before its research (competitors from all four groups, Mobbin, trends,
+  fresh moves), or answer a redesign request from memory
+- polish one direction before the PM has picked at gate 1 (unless they said "skip"); on the
+  small-fix path, write hi-fi before the user said go on the wireframe
 - deliver while `node qa/prototype.mjs` reports errors, or without saying that the visual QA did not run
 - leave a control that does nothing: wire it (`data-pf-*`), or mark it `data-pf-inert="why"`
 - write prototype JavaScript of your own, or match clicks by their text: the runtime does both
 - leave a field without what it shows when the data lacks it: a blank, "undefined" or "null" fails
 - design locked or gated content without a lock state, or settle how it looks without offering
-  the user 2–3 options at the wireframe gate
+  the user 2–3 options at gate 1
 - call a prototype checked beyond the coverage the QA printed
 - design a list, table or dropdown without its loading, empty, error and (when it filters)
   no-results states, even when the PRD is silent, nor promise in an empty state a feature the
@@ -196,7 +228,10 @@ inline.
   - media-led → cards;
   - one hero per row;
   - one vertical alignment per row.
-- invent a token: a value is in `tokens.md`, or it is [TBC]
+- invent a token: a value is in `tokens.md`, or it is [TBC]. The one exception is direction C's
+  `new.css`: each new value declared once as `--pfx-*` with a `/* [new] why */` note
+- give a direction CSS that restyles a product class: B and C style only their own `pfx-*`
+  classes, in their own `new.css`; A has none
 - add CSS to make something fit, or write a `style` attribute on an element you create or
   retype. Use a utility (`fz-12`, `mb-8`…) or a kit class; a block copied from a compiled file
   keeps its own. The one exception is `--pfk-cols`.

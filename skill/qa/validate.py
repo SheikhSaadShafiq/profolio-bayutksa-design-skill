@@ -15,6 +15,7 @@ The checks
   1  no style value outside the copied sources
   2  a hex or rgb colour in a design        (outside css/; not in a compiled reference)
   3  a class on a page that registry.json and the kit (kit/kit.css, kit/wireframe.css) do not know
+     (a direction's own pfx-* classes, in a stylesheet in the design's folder, are known to it)
   4  a registry entry whose file does not exist
   5  a page missing a state its registry entry lists
   6  a component class that neither stylesheet defines
@@ -184,6 +185,20 @@ def kit_classes():
         path = os.path.join(ROOT, 'kit', name)
         if os.path.exists(path):
             out.update(c for c in CSS_CLASS_RE.findall(read(path)) if c in ('pfk', 'wf') or c.startswith(('pfk-', 'wf-')))
+    return out
+
+
+def direction_classes(path, html):
+    """a direction's own pattern classes (pfx-*), defined in a stylesheet in the design's own
+    folder that the page links (designs/<feature>/<B|C>/new.css): qa/prototype.mjs holds that
+    stylesheet to its direction's rules"""
+    out = set()
+    designs = os.path.join(ROOT, 'designs') + os.sep
+    for href in re.findall(r'<link\b[^>]*\brel=["\']?stylesheet["\']?[^>]*\bhref=["\']([^"\']+)["\']', html, flags=re.I) + \
+            re.findall(r'<link\b[^>]*\bhref=["\']([^"\']+)["\'][^>]*\brel=["\']?stylesheet', html, flags=re.I):
+        css = os.path.normpath(os.path.join(os.path.dirname(path), href))
+        if css.startswith(designs) and os.path.exists(css):
+            out.update(c for c in CSS_CLASS_RE.findall(read(css)) if c.startswith('pfx-'))
     return out
 
 
@@ -688,7 +703,7 @@ def main(argv):
         # the pages and the designs; a component file's own page chrome (ds-*) is not a product class
         if ref and not rel(path).startswith('pages' + os.sep):
             continue
-        for c in classes_in(SCRIPT_STYLE_RE.sub('', html)) - known:
+        for c in classes_in(SCRIPT_STYLE_RE.sub('', html)) - known - (set() if ref else direction_classes(path, html)):
             unknown.setdefault(c, rel(path))
     report.add(3, 'every class on a page is in registry.json or the kit', [f'.{c} — first on {where}' for c, where in sorted(unknown.items())], f'{len(known)} classes known')
 

@@ -1,8 +1,8 @@
 # Intake — from a PRD to a plan
 
-Read this when a PRD arrives, before your first reply. Do the steps in order. Produce no
-hi-fi until the user has answered, you have sent the plan with its wireframe, and they said
-go (SKILL.md → THE FLOW).
+Read this when a PRD arrives, before your first reply. Do the steps in order. Write no design
+file until the user has answered. Then research and build the three directions (or, for a
+small fix, the wireframe), and stop at gate 1 until the PM picks (SKILL.md → THE FLOW).
 
 ## 0 · PRD gap check
 
@@ -115,31 +115,55 @@ list, a dropdown's options, a counter, a dialog's content. For each, name the st
 A kind that cannot happen gets `"not drawn: <why>"`. Design these even when the PRD is silent:
 the PRD's silence is not an answer, and the QA fails a list without them.
 
-## 4 · The plan and the wireframe — gate 1
+## 4 · The research, the plan and three directions — gate 1
+
+**Which path.** A new or changed UI (a page, a section, a redesign, "make it better") takes the
+full path below. A small fix (copy, a bug, a token, one state the product already draws) takes
+the short one at the end.
 
 After the reply, the first text of your next turn is the plan: ONE prose paragraph, no bullets
 and no table, sent before any tool call that writes to `designs/`. It covers:
-- the layout you chose and why the data calls for it, e.g. "one field per column, the contact
-  first";
+- the layout the data calls for, e.g. "one field per column, the contact first";
 - where the entry point sits;
-- what each state shows.
+- what each state shows;
+- the competitors you will look at, by name.
 
 Then:
-1. Write `designs/<feature>/flow.json` (screens, states, controls, the matrix) and `state.json`,
-   `data.json`, `actions.json`: realistic KSA rows, every action (kit/README.md).
-2. Write the wireframe of each screen, web and phone as D9 says, with `kit/wireframe.css`.
-   - Show the product shell's proportions.
-   - Use real copy.
-   - Wire it with the same attributes the hi-fi will use.
-   - Add numbered pins for what the user should look at.
-   - Draw every variant of each open decision (the lock state, the hero), switchable in the
-     player (flow.json `options`).
-3. `node qa/prototype.mjs designs/<feature> --wireframe`, then send `wireframe.html` with:
-   - the plan;
-   - the edge-case list and the state matrix;
-   - the one or two structural questions still open, and the options to pick from.
-4. **Stop.** Change the wireframe until the user says go: it is cheap here and expensive in
-   hi-fi. A small change to an existing screen gets a small wireframe of the changed area.
-   Skip this gate only when the user says "skip".
+1. **Research** (`research/README.md`):
+   - competitors from all four groups (`research/competitors.md`, plus the feature's own);
+   - Mobbin: `search_flows` and `search_screens`, six or more references from three products;
+   - trends from the last 18 months;
+   - three or more fresh moves.
 
-Then build the hi-fi, following SKILL.md → HOW A HI-FI IS MADE.
+   Write `research/research.json`, run `node qa/board.mjs designs/<feature>`, and publish the
+   board.
+2. Write `designs/<feature>/flow.json`: screens, states, controls, the matrix, and
+   `directions` A (existing), B (competitor-led), C (bold), each with its title, summary and
+   fresh moves. Write `state.json`, `data.json` and `actions.json`: realistic KSA rows and
+   every action, shared by all three directions (kit/README.md).
+3. Build each direction completely, every screen and state, web and phone as D9 says, in `A/`,
+   `B/`, `C/` (SKILL.md → HOW A HI-FI IS MADE):
+   - draw every variant of each open decision (the lock state, the hero), switchable in the
+     player (flow.json `options`);
+   - B and C mark their fresh moves (`data-pf-fresh`).
+4. Critique each direction (design-review), then run
+   `node qa/prototype.mjs designs/<feature> --shots` until it exits 0. Send the prototype and
+   the board with:
+   - the plan;
+   - what each direction bets on, its references, and its trade-off;
+   - the edge-case list and the state matrix;
+   - the one or two questions still open.
+5. **Stop.** The PM picks a direction or mixes them ("A's table with C's summary"). Set
+   flow.json `chosen`. Skip this gate only when the user says "skip".
+
+**The short path, for a small fix.** Write flow.json and the JSON, then wireframe the changed
+area with `kit/wireframe.css`:
+- the product shell's proportions;
+- real copy;
+- the same attributes the hi-fi will use;
+- numbered pins for what to look at.
+
+Run `node qa/prototype.mjs designs/<feature> --wireframe`, send `wireframe.html` with the plan,
+and stop until the user says go.
+
+Then finish the chosen direction (or, on the short path, build the hi-fi), following SKILL.md → HOW A HI-FI IS MADE and THE FLOW, step 4.

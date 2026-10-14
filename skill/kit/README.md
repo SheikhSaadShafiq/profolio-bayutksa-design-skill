@@ -17,14 +17,58 @@ one whole feature built this way; copy its shape.
 
 ```
 designs/<feature>/
-  flow.json                   the plan: screens, states, scenario controls, the state matrix
-  state.json data.json actions.json   the variables, the rows, the named actions — shared by every screen
-  wf-<screen>.html            the wireframe, web     (+ wf-<screen>.mobile.html)
-  <screen>.html               the hi-fi, web         (+ <screen>.mobile.html)
+  flow.json                   the plan: screens, states, scenario controls, the state matrix, the directions
+  state.json data.json actions.json   the variables, the rows, the named actions — shared by every screen and direction
+  research/research.json      the research: competitors, Mobbin, trends, fresh moves (research/README.md)
+  research/img/<id>.webp      the Mobbin images kept, embedded in the board
+  research/board.html         built: node qa/board.mjs designs/<feature> — publish it as its own artifact
+  A/ B/ C/                    the three directions: <screen>.html (+ .mobile.html) each; B and C may have new.css
+  wf-<screen>.html            the wireframe, small fixes only (+ wf-<screen>.mobile.html)
+  <screen>.html               the hi-fi of a design with no directions (a small fix)
   wireframe.html              built: node qa/prototype.mjs designs/<feature> --wireframe
   prototype.html              built: node qa/prototype.mjs designs/<feature>
   qa/                         built: prototype.md (the QA report), handoff.md, shots/ (--shots)
 ```
+
+A screen in `A/`, `B/` or `C/` sits one folder deeper: its links go three folders up
+(`../../../css/…`, `../../../kit/kit.css`) and its JSON two (`data-src="../data.json"`).
+
+## Directions
+
+Gate 1 shows two or three complete designs of one flow, every screen and state, web and
+phone, switched in the player and all QA'd:
+
+```json
+"directions": [
+  { "id": "A", "kind": "existing",   "title": "The product as it is", "label": "Existing", "summary": "…", "fresh": [] },
+  { "id": "B", "kind": "competitor", "title": "Stripe-style report",  "label": "Competitor-led", "summary": "…", "fresh": ["f1"] },
+  { "id": "C", "kind": "bold",       "title": "Insight-first",        "label": "Bold", "summary": "…", "fresh": ["f2", "f3"] }
+],
+"screens": [{ "id": "report", "title": "Agency Report", "route": "/reports/agency",
+  "directions": { "A": { "web": "A/report.html", "phone": "A/report.mobile.html" },
+                  "B": { "web": "B/report.html", "phone": "B/report.mobile.html" },
+                  "C": { "web": "C/report.html", "phone": "C/report.mobile.html" } } }],
+"research": { "board_url": "https://claude.ai/…" }
+```
+
+- **existing (A)**: the product's components and kit patterns only, in its tokens. No stylesheet of
+  its own: the QA fails a direction A that links one.
+- **competitor (B)**: new patterns, the strongest convention in the references, in `B/new.css`
+  on `pfx-*` classes, in the product's colours and type only. The QA fails a colour or a font
+  written in it: use `var(--pf-…)` / `var(--pfk-…)` from tokens.md.
+- **bold (C)**: new patterns and a new visual language in `C/new.css`. Each new colour or face is
+  declared once as a token with its reason, and used through `var()`:
+  `--pfx-ink: #0b3d2e; /* [new] a deeper green for the insight band */`. The QA lists every new
+  token in the handoff and on the board, for the designer's sign-off.
+- A direction's CSS styles only its own `pfx-*` classes, never a product class (`.pf-card`):
+  wrap a product component in a `pfx-` container instead.
+- **fresh**: the research's fresh moves the direction draws (B at least one, C at least two),
+  each marked on the element that draws it: `data-pf-fresh="f2"`. The QA fails a listed move
+  that no screen marks.
+- **chosen**: after gate 1, `"chosen": "B"`. The prototype then holds that direction alone, and
+  the gate-2 QA covers it. The others stay in the folder.
+- **research.board_url**: the published board's link, opened by the player's "Research board".
+  Without it, the player links `research/board.html`, beside the prototype.
 
 A screen links its stylesheets two folders up (`../../css/…`, `../../kit/kit.css`) and pulls the
 shared JSON in:
