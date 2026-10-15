@@ -7,7 +7,7 @@ a:is(.ds-active,[data-pf-active]) { color: var(--pf-color-link-active); }
 a:is(.ds-active,[data-pf-active]), a:is(.ds-hover,[data-pf-hover]) { text-decoration: var(--pf-link-hover-decoration); outline: 0px; }
 a:is(.ds-focus,[data-pf-focus]) { text-decoration: var(--pf-link-focus-decoration); outline: 0px; }
 .pf-btn:not(:disabled):is(.ds-focus-visible,[data-pf-focus-visible]) { outline: var(--pf-line-width-focus) solid var(--pf-color-primary-border); outline-offset: 1px; transition: outline-offset, outline; }
-.pf-btn-variant-outlined:not(:disabled):not(.pf-btn-disabled):is(.ds-hover,[data-pf-hover]), .pf-btn-variant-dashed:not(:disabled):not(.pf-btn-disabled):is(.ds-hover,[data-pf-hover]) { color: var(--pf-button-default-hover-color); border-color: var(--pf-button-default-hover-border-color); background: var(--pf-button-default-hover-bg); }
+.pf-btn-variant-outlined:not(:disabled):not(.pf-btn-disabled):is(.ds-hover,[data-pf-hover]), .pf-btn-variant-dashed:not(:disabled):not(.pf-btn-disabled):is(.ds-hover,[data-pf-hover]) { color: #208e57; border-color: var(--pf-button-default-hover-border-color); background: var(--pf-button-default-hover-bg); }
 .pf-btn-variant-outlined:not(:disabled):not(.pf-btn-disabled):is(.ds-active,[data-pf-active]), .pf-btn-variant-dashed:not(:disabled):not(.pf-btn-disabled):is(.ds-active,[data-pf-active]) { color: var(--pf-button-default-active-color); border-color: var(--pf-button-default-active-border-color); background: var(--pf-button-default-active-bg); }
 .pf-btn-variant-solid:not(:disabled):not(.pf-btn-disabled):is(.ds-hover,[data-pf-hover]) { background: var(--pf-color-primary-hover); color: var(--pf-button-primary-color); }
 .pf-btn-variant-solid:not(:disabled):not(.pf-btn-disabled):is(.ds-active,[data-pf-active]) { background: var(--pf-color-primary-active); color: var(--pf-button-primary-color); }
@@ -44,7 +44,7 @@ a:is(.ds-focus,[data-pf-focus]) { text-decoration: var(--pf-link-focus-decoratio
 .pf-tabs > .pf-tabs-nav .pf-tabs-nav-add:is(.ds-active,[data-pf-active]), .pf-tabs > div > .pf-tabs-nav .pf-tabs-nav-add:is(.ds-active,[data-pf-active]), .pf-tabs > .pf-tabs-nav .pf-tabs-nav-add:is(.ds-focus,[data-pf-focus]):not(:is(.ds-focus-visible,[data-pf-focus-visible])), .pf-tabs > div > .pf-tabs-nav .pf-tabs-nav-add:is(.ds-focus,[data-pf-focus]):not(:is(.ds-focus-visible,[data-pf-focus-visible])) { color: var(--pf-tabs-item-active-color); }
 .pf-tabs .pf-tabs-tab-btn:is(.ds-focus,[data-pf-focus]):not(:is(.ds-focus-visible,[data-pf-focus-visible])), .pf-tabs .pf-tabs-tab-remove:is(.ds-focus,[data-pf-focus]):not(:is(.ds-focus-visible,[data-pf-focus-visible])), .pf-tabs .pf-tabs-tab-btn:is(.ds-active,[data-pf-active]), .pf-tabs .pf-tabs-tab-remove:is(.ds-active,[data-pf-active]) { color: var(--pf-tabs-item-active-color); }
 .pf-tabs .pf-tabs-tab-btn:is(.ds-focus-visible,[data-pf-focus-visible]), .pf-tabs .pf-tabs-tab-remove:is(.ds-focus-visible,[data-pf-focus-visible]) { outline: var(--pf-line-width-focus) solid var(--pf-color-primary-border); outline-offset: 1px; transition: outline-offset, outline; }
-.pf-tabs .pf-tabs-tab:is(.ds-hover,[data-pf-hover]) { color: var(--pf-tabs-item-hover-color); }
+.pf-tabs .pf-tabs-tab:is(.ds-hover,[data-pf-hover]) { color: #208e57; }
 .pf-tour .pf-tour-inner .pf-tour-close:is(.ds-hover,[data-pf-hover]) { color: var(--pf-color-icon-hover); background-color: var(--pf-color-bg-text-hover); }
 .pf-tour .pf-tour-inner .pf-tour-close:is(.ds-active,[data-pf-active]) { background-color: var(--pf-color-bg-text-active); }
 .pf-tour .pf-tour-inner .pf-tour-close:is(.ds-focus-visible,[data-pf-focus-visible]) { outline: var(--pf-line-width-focus) solid var(--pf-color-primary-border); outline-offset: 1px; transition: outline-offset, outline; }
@@ -52,7 +52,7 @@ a:is(.ds-focus,[data-pf-focus]) { text-decoration: var(--pf-link-focus-decoratio
 .pf-pagination .pf-pagination-item:not(.pf-pagination-item-active):is(.ds-hover,[data-pf-hover]) { transition: all var(--pf-motion-duration-mid); background-color: var(--pf-color-bg-text-hover); }
 .pf-pagination .pf-pagination-item:not(.pf-pagination-item-active):is(.ds-active,[data-pf-active]) { background-color: var(--pf-color-bg-text-active); }
 .pf-pagination .pf-pagination-item-active:is(.ds-hover,[data-pf-hover]) { border-color: var(--pf-color-primary-hover); }
-.pf-pagination .pf-pagination-item-active:is(.ds-hover,[data-pf-hover]) a { color: var(--pf-color-primary-hover); }
+.pf-pagination .pf-pagination-item-active:is(.ds-hover,[data-pf-hover]) a { color: #208e57; }
 .pf-pagination .pf-pagination-jump-prev:is(.ds-hover,[data-pf-hover]) .pf-pagination-item-link-icon, .pf-pagination .pf-pagination-jump-next:is(.ds-hover,[data-pf-hover]) .pf-pagination-item-link-icon { opacity: 1; }
 .pf-pagination .pf-pagination-jump-prev:is(.ds-hover,[data-pf-hover]) .pf-pagination-item-ellipsis, .pf-pagination .pf-pagination-jump-next:is(.ds-hover,[data-pf-hover]) .pf-pagination-item-ellipsis { opacity: 0; }
 .pf-pagination .pf-pagination-prev:is(.ds-hover,[data-pf-hover]) .pf-pagination-item-link, .pf-pagination .pf-pagination-next:is(.ds-hover,[data-pf-hover]) .pf-pagination-item-link { background-color: var(--pf-color-bg-text-hover); }
@@ -93,7 +93,7 @@ a.pf-typography:is(.ds-active,[data-pf-active]), .pf-typography a:is(.ds-active,
 .pf-input-number:is(.ds-hover,[data-pf-hover]) .pf-input-number-handler-wrap { width: var(--pf-input-number-handle-width); opacity: 1; }
 .pf-input-number .pf-input-number-handler:is(.ds-active,[data-pf-active]) { background: var(--pf-input-number-handle-active-bg); }
 .pf-input-number .pf-input-number-handler:is(.ds-hover,[data-pf-hover]) { height: 60%; }
-.pf-input-number .pf-input-number-handler:is(.ds-hover,[data-pf-hover]) .pf-input-number-handler-up-inner, .pf-input-number .pf-input-number-handler:is(.ds-hover,[data-pf-hover]) .pf-input-number-handler-down-inner { color: var(--pf-input-number-handle-hover-color); }
+.pf-input-number .pf-input-number-handler:is(.ds-hover,[data-pf-hover]) .pf-input-number-handler-up-inner, .pf-input-number .pf-input-number-handler:is(.ds-hover,[data-pf-hover]) .pf-input-number-handler-down-inner { color: #208e57; }
 .pf-slider:is(.ds-hover,[data-pf-hover]) .pf-slider-rail { background-color: var(--pf-slider-rail-hover-bg); }
 .pf-slider:is(.ds-hover,[data-pf-hover]) .pf-slider-track { background-color: var(--pf-slider-track-hover-bg); }
 .pf-slider:is(.ds-hover,[data-pf-hover]) .pf-slider-dot { border-color: var(--pf-color-fill-content-hover); }
@@ -109,7 +109,7 @@ a.pf-typography:is(.ds-active,[data-pf-active]), .pf-typography a:is(.ds-active,
 .pf-picker:is(.ds-hover,[data-pf-hover]) .pf-picker-clear { opacity: 1; }
 .pf-picker:is(.ds-hover,[data-pf-hover]) .pf-picker-suffix:not(:last-child) { opacity: 0; }
 .pf-picker-dropdown .pf-picker-header > button:is(.ds-hover,[data-pf-hover]) { color: var(--pf-color-icon-hover); }
-.pf-picker-dropdown .pf-picker-header-view > button:is(.ds-hover,[data-pf-hover]) { color: var(--pf-color-primary); }
+.pf-picker-dropdown .pf-picker-header-view > button:is(.ds-hover,[data-pf-hover]) { color: #208e57; }
 .pf-picker-dropdown .pf-picker-cell:is(.ds-hover,[data-pf-hover]):not(.pf-picker-cell-in-view):not(.pf-picker-cell-disabled) .pf-picker-cell-inner, .pf-picker-dropdown .pf-picker-cell:is(.ds-hover,[data-pf-hover]):not(.pf-picker-cell-selected):not(.pf-picker-cell-range-start):not(.pf-picker-cell-range-end):not(.pf-picker-cell-disabled) .pf-picker-cell-inner { background: var(--pf-date-picker-cell-hover-bg); }
 .pf-picker-dropdown .pf-picker-time-panel-column:is(.ds-hover,[data-pf-hover]) { overflow-y: auto; }
 .pf-picker-dropdown .pf-picker-time-panel-column > li.pf-picker-time-panel-cell .pf-picker-time-panel-cell-inner:is(.ds-hover,[data-pf-hover]) { background: var(--pf-date-picker-cell-hover-bg); }
@@ -132,40 +132,40 @@ ul._menuList_1czyz_46 > li:not(._ignoreItem_1czyz_52) > a:is(.ds-hover,[data-pf-
 ._logoutButton_d3dh0_54:is(.ds-hover,[data-pf-hover]) { background: var(--strat-header-hover-color, #f5f5f5); }
 ._settingsItem_14dhw_15:is(.ds-hover,[data-pf-hover]) { background: var(--strat-header-hover-color, #f5f5f5); }
 .rdrMonthAndYearPickers select:is(.ds-hover,[data-pf-hover]) { background-color: rgba(0, 0, 0, 0.07); }
-.rdrNextPrevButton:is(.ds-hover,[data-pf-hover]) { background: rgb(225, 231, 240); }
+.rdrNextPrevButton:is(.ds-hover,[data-pf-hover]) { background: rgb(246, 247, 251); }
 .rdrDay:is(.ds-focus,[data-pf-focus]) { outline: 0px; }
-.rdrStaticRange:is(.ds-hover,[data-pf-hover]) .rdrStaticRangeLabel, .rdrStaticRange:is(.ds-focus,[data-pf-focus]) .rdrStaticRangeLabel { background: rgb(239, 242, 247); }
+.rdrStaticRange:is(.ds-hover,[data-pf-hover]) .rdrStaticRangeLabel, .rdrStaticRange:is(.ds-focus,[data-pf-focus]) .rdrStaticRangeLabel { background: rgb(246, 247, 251); }
 ._unitSelect_ahaws_1:is(.ds-hover,[data-pf-hover]) .pf-input, ._unitSelect_ahaws_1:is(.ds-focus-within,[data-pf-focus-within]) .pf-input, ._unitSelect_ahaws_1:is(.ds-hover,[data-pf-hover]) .pf-input-affix-wrapper, ._unitSelect_ahaws_1:is(.ds-focus-within,[data-pf-focus-within]) .pf-input-affix-wrapper, ._unitSelect_ahaws_1:is(.ds-hover,[data-pf-hover]) .pf-select:not(.pf-select-disabled) .pf-select-selector, ._unitSelect_ahaws_1:is(.ds-focus-within,[data-pf-focus-within]) .pf-select:not(.pf-select-disabled) .pf-select-selector { border-color: var(--pf-color-primary-hover) !important; }
 ._unitSelect_ahaws_1:is(.ds-hover,[data-pf-hover]) .pf-input-affix-wrapper, ._unitSelect_ahaws_1:is(.ds-focus-within,[data-pf-focus-within]) .pf-input-affix-wrapper, ._unitSelect_ahaws_1:is(.ds-hover,[data-pf-hover]) .pf-select .pf-select-selector, ._unitSelect_ahaws_1:is(.ds-focus-within,[data-pf-focus-within]) .pf-select .pf-select-selector { box-shadow: none !important; }
-._moreFiltersBtn_nalos_150:is(.ds-hover,[data-pf-hover]), ._moreFiltersBtn_nalos_150:is(.ds-focus,[data-pf-focus]) { background-color: rgb(225, 242, 240) !important; }
+._moreFiltersBtn_nalos_150:is(.ds-hover,[data-pf-hover]), ._moreFiltersBtn_nalos_150:is(.ds-focus,[data-pf-focus]) { background-color: rgb(233, 247, 240) !important; }
 input:-webkit-autofill:is(.ds-hover,[data-pf-hover]), input:-webkit-autofill:is(.ds-focus,[data-pf-focus]), input:-webkit-autofill:is(.ds-active,[data-pf-active]) { transition: background-color 5e+06s ease-in-out; }
-.pf-btn-white:is(.ds-hover,[data-pf-hover]) { border-color: rgb(255, 255, 255); color: rgb(0, 97, 105) !important; background-color: rgb(255, 255, 255) !important; }
+.pf-btn-white:is(.ds-hover,[data-pf-hover]) { border-color: rgb(255, 255, 255); color: rgb(32, 142, 87) !important; background-color: rgb(255, 255, 255) !important; }
 .pf-btn-white:is(.ds-focus,[data-pf-focus]) { background-color: transparent !important; }
 .pf-dropdown-menu li:is(.ds-hover,[data-pf-hover]) { background-color: rgba(95, 99, 242, 0.02); }
 .dateFilter:is(.ds-hover,[data-pf-hover]) { cursor: pointer; }
-.btnLink:is(.ds-hover,[data-pf-hover]) { color: rgb(0, 97, 105); text-decoration: none; }
-.languageSwitcher:is(.ds-hover,[data-pf-hover]) svg { fill: rgb(0, 97, 105) !important; }
+.btnLink:is(.ds-hover,[data-pf-hover]) { color: rgb(32, 142, 87); text-decoration: none; }
+.languageSwitcher:is(.ds-hover,[data-pf-hover]) svg { fill: rgb(40, 177, 109) !important; }
 .tableHoverGradient:is(.ds-hover,[data-pf-hover]) td { background: linear-gradient(0deg, var(--primary-light) 0%, #ffffff 100%) !important; }
 .styles_otpInput__2umfM:is(.ds-focus,[data-pf-focus]) { border-color: rgb(32, 196, 244); }
 .styles_error__2Hacn > .styles_otpInput__2umfM:is(.ds-focus,[data-pf-focus]) { border-color: rgb(208, 2, 27); }
 .pf-button-styled:is(.ds-hover,[data-pf-hover]), .pf-button-styled:is(.ds-focus,[data-pf-focus]), .pf-button-styled:is(.ds-active,[data-pf-active]) { --btn-bg-color: #0D79DF; --btn-content-color: #fff; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
-.pf-button-styled.pf-btn.pf-btn-link:is(.ds-hover,[data-pf-hover]), .pf-button-styled.pf-btn.pf-btn-link:is(.ds-focus,[data-pf-focus]) { --btn-content-color: #006169; --pf-color-link-hover: var(--btn-content-color); }
-.pf-button-styled--v2:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v2:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v2:is(.ds-active,[data-pf-active]) { --btn-bg-color: #006169; --btn-content-color: #fff; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
-.pf-button-styled--v3:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v3:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v3:is(.ds-active,[data-pf-active]) { --btn-content-color: #006169; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
-.pf-button-styled--v4:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v4:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v4:is(.ds-active,[data-pf-active]) { --btn-content-color: #006169; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
+.pf-button-styled.pf-btn.pf-btn-link:is(.ds-hover,[data-pf-hover]), .pf-button-styled.pf-btn.pf-btn-link:is(.ds-focus,[data-pf-focus]) { --btn-content-color: #28B16D; --pf-color-link-hover: var(--btn-content-color); }
+.pf-button-styled--v2:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v2:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v2:is(.ds-active,[data-pf-active]) { --btn-bg-color: #28B16D; --btn-content-color: #fff; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
+.pf-button-styled--v3:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v3:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v3:is(.ds-active,[data-pf-active]) { --btn-content-color: #28B16D; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
+.pf-button-styled--v4:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v4:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v4:is(.ds-active,[data-pf-active]) { --btn-content-color: #28B16D; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
 .pf-button-styled--v4:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v4:is(.ds-focus,[data-pf-focus]) { --btn-border-color: #DEDEDE; }
 .pf-button-styled--v30:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v30:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v30:is(.ds-active,[data-pf-active]) { --btn-content-color: #fff; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
-.pf-button-styled--v30:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v30:is(.ds-focus,[data-pf-focus]) { --btn-bg-color: #006169; --btn-border-color: #006169; --btn-content-color: #fff !important; }
+.pf-button-styled--v30:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v30:is(.ds-focus,[data-pf-focus]) { --btn-bg-color: #28B16D; --btn-border-color: #28B16D; --btn-content-color: #fff !important; }
 .pf-button-styled--v29:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v29:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v29:is(.ds-active,[data-pf-active]) { --btn-bg-color: #0D79DF; --btn-content-color: #fff; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
-.pf-button-styled--v29.pf-btn.pf-btn-link:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v29.pf-btn.pf-btn-link:is(.ds-focus,[data-pf-focus]) { --btn-content-color: #006169; --pf-color-link-hover: var(--btn-content-color); }
-.pf-button-styled--v15:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v15:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v15:is(.ds-active,[data-pf-active]) { --btn-content-color: #006169; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
+.pf-button-styled--v29.pf-btn.pf-btn-link:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v29.pf-btn.pf-btn-link:is(.ds-focus,[data-pf-focus]) { --btn-content-color: #28B16D; --pf-color-link-hover: var(--btn-content-color); }
+.pf-button-styled--v15:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v15:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v15:is(.ds-active,[data-pf-active]) { --btn-content-color: #28B16D; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
 .pf-button-styled--v16:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v16:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v16:is(.ds-active,[data-pf-active]) { --btn-bg-color: #0D79DF; --btn-content-color: #fff; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
-.pf-button-styled--v16.pf-btn.pf-btn-link:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v16.pf-btn.pf-btn-link:is(.ds-focus,[data-pf-focus]) { --btn-content-color: #006169; --pf-color-link-hover: var(--btn-content-color); }
-.pf-button-styled--v18:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v18:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v18:is(.ds-active,[data-pf-active]) { --btn-content-color: #006169; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
+.pf-button-styled--v16.pf-btn.pf-btn-link:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v16.pf-btn.pf-btn-link:is(.ds-focus,[data-pf-focus]) { --btn-content-color: #28B16D; --pf-color-link-hover: var(--btn-content-color); }
+.pf-button-styled--v18:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v18:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v18:is(.ds-active,[data-pf-active]) { --btn-content-color: #28B16D; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
 .pf-button-styled--v5:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v5:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v5:is(.ds-active,[data-pf-active]) { --btn-content-color: #fff; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
-.pf-button-styled--v5.pf-button-styled--v5:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v5.pf-button-styled--v5:is(.ds-focus,[data-pf-focus]) { --btn-bg-color: #F4F5F7; --btn-content-color: #006169; --pf-button-default-hover-border-color: transparent; --pf-button-default-hover-bg: #E1F2F0; --pf-button-default-active-border-color: var( --pf-button-default-hover-bg); --pf-button-default-active-bg: var( --pf-button-default-hover-bg); }
+.pf-button-styled--v5.pf-button-styled--v5:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v5.pf-button-styled--v5:is(.ds-focus,[data-pf-focus]) { --btn-bg-color: #F3F4F5; --btn-content-color: #28B16D; --pf-button-default-hover-border-color: transparent; --pf-button-default-hover-bg: #E9F7F0; --pf-button-default-active-border-color: var( --pf-button-default-hover-bg); --pf-button-default-active-bg: var( --pf-button-default-hover-bg); }
 .pf-button-styled--v6:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v6:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v6:is(.ds-active,[data-pf-active]) { --btn-content-color: #fff; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
-.pf-button-styled--v6:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v6:is(.ds-focus,[data-pf-focus]) { --btn-bg-color: #006169; --btn-border-color: #006169; --btn-content-color: #fff !important; }
+.pf-button-styled--v6:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v6:is(.ds-focus,[data-pf-focus]) { --btn-bg-color: #28B16D; --btn-border-color: #28B16D; --btn-content-color: #fff !important; }
 .pf-button-styled--v7:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v7:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v7:is(.ds-active,[data-pf-active]) { --btn-bg-color: #aa6afa; --btn-content-color: #fff; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
 .pf-button-styled--v7.pf-button-styled--v7:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v7.pf-button-styled--v7:is(.ds-focus,[data-pf-focus]) { --btn-bg-color: #af6fff1a; --btn-content-color: #af6fff; --pf-button-default-hover-border-color: transparent; --pf-button-default-hover-bg: #af6fff1a; --pf-button-default-active-border-color: var( --pf-button-default-hover-bg); --pf-button-default-active-bg: var( --pf-button-default-hover-bg); }
 .pf-button-styled--v8:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v8:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v8:is(.ds-active,[data-pf-active]) { --btn-bg-color: #f12a2d; --btn-content-color: #fff; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
@@ -176,91 +176,91 @@ input:-webkit-autofill:is(.ds-hover,[data-pf-hover]), input:-webkit-autofill:is(
 .pf-button-styled--v10.pf-button-styled--v10:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v10.pf-button-styled--v10:is(.ds-focus,[data-pf-focus]) { --btn-bg-color: #5462af1a; --btn-content-color: #5462AF; --pf-button-default-hover-border-color: transparent; --pf-button-default-hover-bg: #5462af1a; --pf-button-default-active-border-color: var( --pf-button-default-hover-bg); --pf-button-default-active-bg: var( --pf-button-default-hover-bg); }
 .pf-button-styled--v11:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v11:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v11:is(.ds-active,[data-pf-active]) { --btn-bg-color: #f9a400; --btn-content-color: #fff; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
 .pf-button-styled--v11.pf-button-styled--v11:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v11.pf-button-styled--v11:is(.ds-focus,[data-pf-focus]) { --btn-bg-color: #ffa9001a; --btn-content-color: #FFA900; --pf-button-default-hover-border-color: transparent; --pf-button-default-hover-bg: #ffa9001a; --pf-button-default-active-border-color: var( --pf-button-default-hover-bg); --pf-button-default-active-bg: var( --pf-button-default-hover-bg); }
-.pf-button-styled--v12:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v12:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v12:is(.ds-active,[data-pf-active]) { --btn-bg-color: #74c8cc; --btn-content-color: #fff; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
-.pf-button-styled--v12.pf-button-styled--v12:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v12.pf-button-styled--v12:is(.ds-focus,[data-pf-focus]) { --btn-bg-color: #79cdd11a; --btn-content-color: #79cdd1; --pf-button-default-hover-border-color: transparent; --pf-button-default-hover-bg: #79cdd11a; --pf-button-default-active-border-color: var( --pf-button-default-hover-bg); --pf-button-default-active-bg: var( --pf-button-default-hover-bg); }
+.pf-button-styled--v12:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v12:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v12:is(.ds-active,[data-pf-active]) { --btn-bg-color: #7ed0a7; --btn-content-color: #fff; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
+.pf-button-styled--v12.pf-button-styled--v12:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v12.pf-button-styled--v12:is(.ds-focus,[data-pf-focus]) { --btn-bg-color: #7ed0a71a; --btn-content-color: #7ed0a7; --pf-button-default-hover-border-color: transparent; --pf-button-default-hover-bg: #7ed0a71a; --pf-button-default-active-border-color: var( --pf-button-default-hover-bg); --pf-button-default-active-bg: var( --pf-button-default-hover-bg); }
 .pf-button-styled--v21:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v21:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v21:is(.ds-active,[data-pf-active]) { --btn-content-color: #fff; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
-.pf-button-styled--v21:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v21:is(.ds-focus,[data-pf-focus]) { --btn-bg-color: #006169; --btn-border-color: #006169; --btn-content-color: #fff !important; }
+.pf-button-styled--v21:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v21:is(.ds-focus,[data-pf-focus]) { --btn-bg-color: #28B16D; --btn-border-color: #28B16D; --btn-content-color: #fff !important; }
 .pf-button-styled--v24:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v24:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v24:is(.ds-active,[data-pf-active]) { --btn-content-color: #fff; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
 .pf-button-styled--v24:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v24:is(.ds-focus,[data-pf-focus]) { --btn-border-color: var(--btn-bg-color); }
-.pf-button-styled--v24:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v24:is(.ds-focus,[data-pf-focus]) { --btn-bg-color: #006169; --btn-border-color: #006169; --btn-content-color: #fff !important; }
-.pf-button-styled--v13:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v13:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v13:is(.ds-active,[data-pf-active]) { --btn-content-color: #006169; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
-.pf-button-styled--v13.pf-button-styled--v13:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v13.pf-button-styled--v13:is(.ds-focus,[data-pf-focus]) { --btn-bg-color: #F4F5F7; --btn-content-color: #006169; --pf-button-default-hover-border-color: transparent; --pf-button-default-hover-bg: #E1F2F0; --pf-button-default-active-border-color: var( --pf-button-default-hover-bg); --pf-button-default-active-bg: var( --pf-button-default-hover-bg); }
+.pf-button-styled--v24:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v24:is(.ds-focus,[data-pf-focus]) { --btn-bg-color: #28B16D; --btn-border-color: #28B16D; --btn-content-color: #fff !important; }
+.pf-button-styled--v13:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v13:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v13:is(.ds-active,[data-pf-active]) { --btn-content-color: #28B16D; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
+.pf-button-styled--v13.pf-button-styled--v13:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v13.pf-button-styled--v13:is(.ds-focus,[data-pf-focus]) { --btn-bg-color: #F3F4F5; --btn-content-color: #28B16D; --pf-button-default-hover-border-color: transparent; --pf-button-default-hover-bg: #E9F7F0; --pf-button-default-active-border-color: var( --pf-button-default-hover-bg); --pf-button-default-active-bg: var( --pf-button-default-hover-bg); }
 .pf-button-styled--v14:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v14:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v14:is(.ds-active,[data-pf-active]) { --btn-content-color: #fff; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
-.pf-button-styled--v19:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v19:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v19:is(.ds-active,[data-pf-active]) { --btn-bg-color: #006169; --btn-content-color: #fff; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
-.pf-button-styled--v20:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v20:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v20:is(.ds-active,[data-pf-active]) { --btn-bg-color: #5A5F7D; --btn-content-color: #fff; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
+.pf-button-styled--v19:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v19:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v19:is(.ds-active,[data-pf-active]) { --btn-bg-color: #28B16D; --btn-content-color: #fff; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
+.pf-button-styled--v20:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v20:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v20:is(.ds-active,[data-pf-active]) { --btn-bg-color: #707070; --btn-content-color: #fff; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
 .pf-button-styled--v20:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v20:is(.ds-focus,[data-pf-focus]) { --btn-border-color: var(--btn-bg-color); }
-.pf-button-styled--v17:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v17:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v17:is(.ds-active,[data-pf-active]) { --btn-bg-color: #006169; --btn-content-color: #fff; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
+.pf-button-styled--v17:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v17:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v17:is(.ds-active,[data-pf-active]) { --btn-bg-color: #28B16D; --btn-content-color: #fff; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
 .pf-button-styled--v28:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v28:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v28:is(.ds-active,[data-pf-active]) { --btn-content-color: #fff; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
-.pf-button-styled--v23:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v23:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v23:is(.ds-active,[data-pf-active]) { --btn-content-color: #006169; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
-.pf-button-styled--v23.pf-button-styled--v23:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v23.pf-button-styled--v23:is(.ds-focus,[data-pf-focus]) { --btn-bg-color: #F4F5F7; --btn-content-color: #006169; --pf-button-default-hover-border-color: transparent; --pf-button-default-hover-bg: #E1F2F0; --pf-button-default-active-border-color: var( --pf-button-default-hover-bg); --pf-button-default-active-bg: var( --pf-button-default-hover-bg); }
+.pf-button-styled--v23:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v23:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v23:is(.ds-active,[data-pf-active]) { --btn-content-color: #28B16D; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
+.pf-button-styled--v23.pf-button-styled--v23:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v23.pf-button-styled--v23:is(.ds-focus,[data-pf-focus]) { --btn-bg-color: #F3F4F5; --btn-content-color: #28B16D; --pf-button-default-hover-border-color: transparent; --pf-button-default-hover-bg: #E9F7F0; --pf-button-default-active-border-color: var( --pf-button-default-hover-bg); --pf-button-default-active-bg: var( --pf-button-default-hover-bg); }
 .pf-button-styled--v22:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v22:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v22:is(.ds-active,[data-pf-active]) { --btn-content-color: #fff; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
-.pf-button-styled--v22:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v22:is(.ds-focus,[data-pf-focus]) { --btn-bg-color: #006169; --btn-border-color: #006169; --btn-content-color: #fff !important; }
+.pf-button-styled--v22:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v22:is(.ds-focus,[data-pf-focus]) { --btn-bg-color: #28B16D; --btn-border-color: #28B16D; --btn-content-color: #fff !important; }
 .pf-button-styled--v25:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v25:is(.ds-focus,[data-pf-focus]), .pf-button-styled--v25:is(.ds-active,[data-pf-active]) { --btn-content-color: #fff; --pf-color-primary-hover: var(--btn-bg-color); --pf-color-primary-active: var(--btn-bg-color); }
-.pf-button-styled--v25:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v25:is(.ds-focus,[data-pf-focus]) { --btn-bg-color: #006169; --btn-border-color: #006169; --btn-content-color: #fff !important; }
+.pf-button-styled--v25:is(.ds-hover,[data-pf-hover]), .pf-button-styled--v25:is(.ds-focus,[data-pf-focus]) { --btn-bg-color: #28B16D; --btn-border-color: #28B16D; --btn-content-color: #fff !important; }
 .pf-sc-imwyai--v3.pf-input-affix-wrapper:not(.pf-input-affix-wrapper-disabled):is(.ds-hover,[data-pf-hover]) { border-color: var(--input-border-color,#DEDEDE); }
-.pf-sc-imwyai--v3.pf-input-affix-wrapper:not(.pf-input-affix-wrapper-disabled):is(.ds-hover,[data-pf-hover]), .pf-sc-imwyai--v3.pf-input-affix-wrapper:not(.pf-input-affix-wrapper-disabled):is(.ds-focus,[data-pf-focus]) { --input-border-color: #006169; --input-shadow: #E1F2F0; }
+.pf-sc-imwyai--v3.pf-input-affix-wrapper:not(.pf-input-affix-wrapper-disabled):is(.ds-hover,[data-pf-hover]), .pf-sc-imwyai--v3.pf-input-affix-wrapper:not(.pf-input-affix-wrapper-disabled):is(.ds-focus,[data-pf-focus]) { --input-border-color: #28B16D; --input-shadow: #E9F7F0; }
 .pf-sc-imwyai.pf-input-affix-wrapper:not(.pf-input-affix-wrapper-disabled):is(.ds-hover,[data-pf-hover]) { border-color: var(--input-border-color,#DEDEDE); }
-.pf-sc-imwyai.pf-input-affix-wrapper:not(.pf-input-affix-wrapper-disabled):is(.ds-hover,[data-pf-hover]), .pf-sc-imwyai.pf-input-affix-wrapper:not(.pf-input-affix-wrapper-disabled):is(.ds-focus,[data-pf-focus]) { --input-border-color: #006169; --input-shadow: #0061691a; }
-.pf-dropdown-styled:is(.ds-hover,[data-pf-hover]), .pf-dropdown-styled:is(.ds-focus,[data-pf-focus]) { border-color: rgb(0, 97, 105); }
+.pf-sc-imwyai.pf-input-affix-wrapper:not(.pf-input-affix-wrapper-disabled):is(.ds-hover,[data-pf-hover]), .pf-sc-imwyai.pf-input-affix-wrapper:not(.pf-input-affix-wrapper-disabled):is(.ds-focus,[data-pf-focus]) { --input-border-color: #28B16D; --input-shadow: #28b16d1a; }
+.pf-dropdown-styled:is(.ds-hover,[data-pf-hover]), .pf-dropdown-styled:is(.ds-focus,[data-pf-focus]) { border-color: rgb(40, 177, 109); }
 .pf-sc-imwyai--v2.pf-input-affix-wrapper:not(.pf-input-affix-wrapper-disabled):is(.ds-hover,[data-pf-hover]) { border-color: var(--input-border-color,#DEDEDE); }
-.pf-sc-imwyai--v2.pf-input-affix-wrapper:not(.pf-input-affix-wrapper-disabled):is(.ds-hover,[data-pf-hover]), .pf-sc-imwyai--v2.pf-input-affix-wrapper:not(.pf-input-affix-wrapper-disabled):is(.ds-focus,[data-pf-focus]) { --input-border-color: #006169; --input-shadow: #E1F2F0; }
+.pf-sc-imwyai--v2.pf-input-affix-wrapper:not(.pf-input-affix-wrapper-disabled):is(.ds-hover,[data-pf-hover]), .pf-sc-imwyai--v2.pf-input-affix-wrapper:not(.pf-input-affix-wrapper-disabled):is(.ds-focus,[data-pf-focus]) { --input-border-color: #28B16D; --input-shadow: #E9F7F0; }
 .pf-rega-card-card:is(.ds-hover,[data-pf-hover]) { box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 12px; }
 .pf-upload-button:is(.ds-hover,[data-pf-hover]) { height: initial; color: rgb(255, 255, 255); }
 @media only screen and (max-width: 991px) {
-.pf-upload-button:is(.ds-hover,[data-pf-hover]) { border: 1px dashed rgb(166, 200, 202); color: rgb(112, 112, 112); background: none; text-shadow: none; box-shadow: none; min-width: 96px; width: 100%; white-space: normal; height: 96px; display: flex; flex-direction: column; place-content: center; gap: 4px; font-size: 12px; font-weight: 400; }
+.pf-upload-button:is(.ds-hover,[data-pf-hover]) { border: 1px dashed rgb(190, 232, 211); color: rgb(112, 112, 112); background: none; text-shadow: none; box-shadow: none; min-width: 96px; width: 100%; white-space: normal; height: 96px; display: flex; flex-direction: column; place-content: center; gap: 4px; font-size: 12px; font-weight: 400; }
 }
-.pf-card-styled .pf-tabs-tab:is(.ds-hover,[data-pf-hover]) { color: var(--_accent-color); }
-.pf-card-styled .pf-tabs-tab-btn:is(.ds-active,[data-pf-active]) { color: var(--_accent-color); }
-.pf-card-styled--v2 .pf-tabs-tab:is(.ds-hover,[data-pf-hover]) { color: var(--_accent-color); }
-.pf-card-styled--v2 .pf-tabs-tab-btn:is(.ds-active,[data-pf-active]) { color: var(--_accent-color); }
-.pf-amenities-card.pf-card.selected-card:is(.ds-hover,[data-pf-hover]) { border-color: rgb(204, 223, 225) !important; background-color: rgb(242, 250, 250) !important; }
-.pf-phone-input-style .PhoneInputCountry:is(.ds-hover,[data-pf-hover]), .pf-phone-input-style .PhoneInputInput:is(.ds-hover,[data-pf-hover]) { border-color: rgb(0, 97, 105); }
-.pf-phone-input-style .PhoneInputInput:is(.ds-focus,[data-pf-focus]) { outline: none; border-color: rgb(0, 97, 105); box-shadow: rgba(0, 97, 105, 0.2) 0px 0px 0px 2px; }
-.pf-nav-wrapper .pf-btn-link:is(.ds-focus,[data-pf-focus]) { color: rgb(0, 97, 105) !important; }
-.pf-notifications-wrapper.notification-center:is(.ds-hover,[data-pf-hover]) { background-color: rgb(242, 250, 250); }
-.pf-footer-styled .footerNav a:is(.ds-hover,[data-pf-hover]), .pf-footer-styled .footerNav a:is(.ds-focus,[data-pf-focus]) { color: rgb(242, 242, 242); text-decoration: underline; }
+.pf-card-styled .pf-tabs-tab:is(.ds-hover,[data-pf-hover]) { color: #208e57; }
+.pf-card-styled .pf-tabs-tab-btn:is(.ds-active,[data-pf-active]) { color: #208e57; }
+.pf-card-styled--v2 .pf-tabs-tab:is(.ds-hover,[data-pf-hover]) { color: #208e57; }
+.pf-card-styled--v2 .pf-tabs-tab-btn:is(.ds-active,[data-pf-active]) { color: #208e57; }
+.pf-amenities-card.pf-card.selected-card:is(.ds-hover,[data-pf-hover]) { border-color: rgb(212, 239, 226) !important; background-color: rgb(240, 250, 245) !important; }
+.pf-phone-input-style .PhoneInputCountry:is(.ds-hover,[data-pf-hover]), .pf-phone-input-style .PhoneInputInput:is(.ds-hover,[data-pf-hover]) { border-color: rgb(40, 177, 109); }
+.pf-phone-input-style .PhoneInputInput:is(.ds-focus,[data-pf-focus]) { outline: none; border-color: rgb(40, 177, 109); box-shadow: rgba(40, 177, 109, 0.2) 0px 0px 0px 2px; }
+.pf-nav-wrapper .pf-btn-link:is(.ds-focus,[data-pf-focus]) { color: rgb(32, 142, 87) !important; }
+.pf-notifications-wrapper.notification-center:is(.ds-hover,[data-pf-hover]) { background-color: rgb(240, 250, 245); }
+.pf-footer-styled .footerNav a:is(.ds-hover,[data-pf-hover]), .pf-footer-styled .footerNav a:is(.ds-focus,[data-pf-focus]) { color: rgb(255, 255, 255); text-decoration: underline; }
 .pf-footer-styled .hoverIcon:is(.ds-hover,[data-pf-hover]) { --pf-button-default-hover-bg: var(--hover-bg); --pf-button-default-hover-color: #fff; }
 .pf-footer-styled .pf-dropdown-trigger:is(.ds-hover,[data-pf-hover]) svg { filter: none; }
 .pf-footer-styled .instagram-logo:is(.ds-hover,[data-pf-hover]) { --pf-button-default-hover-bg: radial-gradient( circle farthest-corner at 28% 120%, var(--ig-yellow) -16%, var(--ig-yellow_to) 16%, var(--ig-orange) 32%, var(--ig-red) 48%, transparent 64% ), linear-gradient(0deg,var(--ig-red) 16%,transparent 72%), radial-gradient(circle farthest-corner at 12% 12%,var(--ig-blue) -8%,var(--ig-purple) 32%); background-repeat: no-repeat; background-position: center center; background-origin: border-box; }
 .pf-footer-styled .scrollTop:is(.ds-hover,[data-pf-hover]) { opacity: 1; }
-.pf-menu-row:is(.ds-hover,[data-pf-hover]), .pf-menu-row:is(.ds-focus-visible,[data-pf-focus-visible]) { background: rgb(242, 250, 250); color: rgb(40, 177, 109); }
+.pf-menu-row:is(.ds-hover,[data-pf-hover]), .pf-menu-row:is(.ds-focus-visible,[data-pf-focus-visible]) { background: rgb(240, 250, 245); color: rgb(36, 159, 98); }
 .pf-card-packages .titanium-card:is(.ds-hover,[data-pf-hover]) .listing-tag { background: linear-gradient(263.91deg, rgb(187, 81, 235) 2.05%, rgb(221, 148, 255) 97.78%); color: rgb(255, 255, 255) !important; }
-.pf-card-packages .package-list:is(.ds-hover,[data-pf-hover]) { background-color: rgba(0, 97, 105, 0.04); border-color: rgb(166, 200, 202); }
-.pf-card-packages .package-list:is(.ds-hover,[data-pf-hover]) .listing-tag { background: linear-gradient(83.24deg, rgb(40, 177, 109) -3.89%, rgb(0, 97, 105) 93.22%); color: rgb(255, 255, 255) !important; }
-.pf-item-wraper .rdrDefinedRangesWrapper .rdrStaticRanges .rdrStaticRange:is(.ds-hover,[data-pf-hover]) span { font-weight: 400; color: rgb(0, 97, 105); background-color: rgba(0, 97, 105, 0.063); }
-.pf-how-to-earn-button:is(.ds-hover,[data-pf-hover]) { color: rgb(14, 128, 115); text-decoration: underline; }
+.pf-card-packages .package-list:is(.ds-hover,[data-pf-hover]) { background-color: rgba(40, 177, 109, 0.04); border-color: rgb(190, 232, 211); }
+.pf-card-packages .package-list:is(.ds-hover,[data-pf-hover]) .listing-tag { background: linear-gradient(83.24deg, rgb(40, 177, 109) -3.89%, rgb(40, 177, 109) 93.22%); color: rgb(255, 255, 255) !important; }
+.pf-item-wraper .rdrDefinedRangesWrapper .rdrStaticRanges .rdrStaticRange:is(.ds-hover,[data-pf-hover]) span { font-weight: 400; color: rgb(32, 142, 87); background-color: rgba(40, 177, 109, 0.063); }
+.pf-how-to-earn-button:is(.ds-hover,[data-pf-hover]) { color: rgb(32, 142, 87); text-decoration: underline; }
 @media only screen and (min-width: 767px) {
-.pf-popover-listing-container.listing-detail:is(.ds-hover,[data-pf-hover]) { background-color: rgb(225, 242, 240); width: 100%; border-radius: 6px; }
+.pf-popover-listing-container.listing-detail:is(.ds-hover,[data-pf-hover]) { background-color: rgb(233, 247, 240); width: 100%; border-radius: 6px; }
 }
 .pf-select-styled--v2.pf-select:not(.pf-select-disabled):is(.ds-hover,[data-pf-hover]) .pf-select-selector { border-color: var(--_accent-color); }
 .pf-learn-more:is(.ds-hover,[data-pf-hover]) { text-decoration: underline; }
-.pf-view-leaderboard-button--v2:is(.ds-hover,[data-pf-hover]) { color: rgb(10, 97, 88); text-decoration: underline; }
-.pf-public-profile-link:is(.ds-hover,[data-pf-hover]) { text-decoration: underline; color: rgb(0, 81, 88); }
+.pf-view-leaderboard-button--v2:is(.ds-hover,[data-pf-hover]) { color: rgb(32, 142, 87); text-decoration: underline; }
+.pf-public-profile-link:is(.ds-hover,[data-pf-hover]) { text-decoration: underline; color: rgb(32, 142, 87); }
 .pf-tile-left:is(.ds-hover,[data-pf-hover]) { transform: translateY(-1px); }
 .pf-tile-link:is(.ds-hover,[data-pf-hover]) { text-decoration: underline; }
-.pf-tru-points-button:is(.ds-hover,[data-pf-hover]), .pf-tru-points-button:is(.ds-focus,[data-pf-focus]) { background-color: rgb(242, 250, 250); border-color: rgb(0, 97, 105); color: rgb(0, 97, 105); }
-.pf-tru-points-button:is(.ds-active,[data-pf-active]) { background-color: rgb(232, 245, 251); border-color: rgb(0, 97, 105); color: rgb(0, 97, 105); }
+.pf-tru-points-button:is(.ds-hover,[data-pf-hover]), .pf-tru-points-button:is(.ds-focus,[data-pf-focus]) { background-color: rgb(240, 250, 245); border-color: rgb(40, 177, 109); color: rgb(32, 142, 87); }
+.pf-tru-points-button:is(.ds-active,[data-pf-active]) { background-color: rgb(232, 245, 251); border-color: rgb(40, 177, 109); color: rgb(32, 142, 87); }
 .pf-select-styled.pf-select:not(.pf-select-disabled):is(.ds-hover,[data-pf-hover]) .pf-select-selector { border-color: var(--_accent-color); }
-.pf-content a:is(.ds-hover,[data-pf-hover]) { background: rgba(0, 97, 105, 0.063); color: rgb(0, 97, 105); }
+.pf-content a:is(.ds-hover,[data-pf-hover]) { background: rgba(40, 177, 109, 0.063); color: rgb(32, 142, 87); }
 .pf-select-styled--v3.pf-select:not(.pf-select-disabled):is(.ds-hover,[data-pf-hover]) .pf-select-selector { border-color: var(--_accent-color); }
-.pf-nav ul li a:is(.ds-hover,[data-pf-hover]) { background-color: rgb(248, 249, 251); color: rgb(0, 97, 105); }
-.pf-nav ul li a:is(.ds-hover,[data-pf-hover]) svg, .pf-nav ul li a:is(.ds-hover,[data-pf-hover]) i { color: rgb(0, 97, 105); }
-.pf-table-list .pf-table .pf-table-tbody tr:is(.ds-hover,[data-pf-hover]) td { background: rgb(248, 249, 251); }
+.pf-nav ul li a:is(.ds-hover,[data-pf-hover]) { background-color: rgb(246, 247, 251); color: rgb(32, 142, 87); }
+.pf-nav ul li a:is(.ds-hover,[data-pf-hover]) svg, .pf-nav ul li a:is(.ds-hover,[data-pf-hover]) i { color: rgb(32, 142, 87); }
+.pf-table-list .pf-table .pf-table-tbody tr:is(.ds-hover,[data-pf-hover]) td { background: rgb(246, 247, 251); }
 .pf-link-styled:is(.ds-hover,[data-pf-hover]) { text-decoration: none; }
-.pf-link-styled:is(.ds-hover,[data-pf-hover]) { color: rgb(89, 89, 89); border-color: rgb(224, 224, 224); background: rgb(250, 250, 250); text-decoration: none; }
+.pf-link-styled:is(.ds-hover,[data-pf-hover]) { color: rgb(98, 98, 98); border-color: rgb(222, 222, 222); background: rgb(250, 250, 250); text-decoration: none; }
 .pf-link-styled--v2:is(.ds-hover,[data-pf-hover]) { text-decoration: underline; }
-.pf-image-gallery-section.gallery-container .btn-transparent:is(.ds-hover,[data-pf-hover]) { background-color: rgb(0, 97, 105); color: rgb(255, 255, 255); }
+.pf-image-gallery-section.gallery-container .btn-transparent:is(.ds-hover,[data-pf-hover]) { background-color: rgb(40, 177, 109); color: rgb(255, 255, 255); }
 @media (hover: hover) {
 .pf-image-gallery-section.gallery-container .btn-transparent:is(.ds-hover,[data-pf-hover]), .pf-image-gallery-section.gallery-container .btn-transparent:is(.ds-focus,[data-pf-focus]) { }
 }
 .pf-segmented-styled.pf-segmented .pf-segmented-item:is(.ds-hover,[data-pf-hover]) { color: rgb(112, 112, 112); }
 .pf-segmented-styled.pf-segmented .pf-segmented-item-selected:is(.ds-hover,[data-pf-hover]) { color: rgb(255, 255, 255); }
-.pf-segmented-styled.pf-segmented:is(.ds-hover,[data-pf-hover]) { background-color: rgb(242, 250, 250); }
-.pf-user-dropdown .user-dropdwon .dropdwon-links a:is(.ds-hover,[data-pf-hover]) { background: rgba(0, 97, 105, 0.02); color: rgb(0, 97, 105); }
+.pf-segmented-styled.pf-segmented:is(.ds-hover,[data-pf-hover]) { background-color: rgb(240, 250, 245); }
+.pf-user-dropdown .user-dropdwon .dropdwon-links a:is(.ds-hover,[data-pf-hover]) { background: rgba(40, 177, 109, 0.02); color: rgb(32, 142, 87); }
 .pf-div .pf-layout-sider .pf-layout-sider-children .pf-menu-item:is(.ds-hover,[data-pf-hover]), .pf-div .pf-layout-sider .pf-layout-sider-children .pf-menu-submenu-title:is(.ds-hover,[data-pf-hover]) { background-color: rgb(245, 245, 245); }
-.pf-div .pf-layout-sider .pf-layout-sider-children .pf-menu-item:is(.ds-active,[data-pf-active]), .pf-div .pf-layout-sider .pf-layout-sider-children .pf-menu-submenu-title:is(.ds-active,[data-pf-active]) { background-color: rgb(247, 252, 252); }
-.pf-div .pf-layout-sider .sidebar-expand-btn:is(.ds-hover,[data-pf-hover]) { background: rgb(0, 97, 105); color: rgb(255, 255, 255); border-color: rgb(0, 97, 105); }
+.pf-div .pf-layout-sider .pf-layout-sider-children .pf-menu-item:is(.ds-active,[data-pf-active]), .pf-div .pf-layout-sider .pf-layout-sider-children .pf-menu-submenu-title:is(.ds-active,[data-pf-active]) { background-color: rgb(240, 250, 245); }
+.pf-div .pf-layout-sider .sidebar-expand-btn:is(.ds-hover,[data-pf-hover]) { background: rgb(40, 177, 109); color: rgb(255, 255, 255); border-color: rgb(40, 177, 109); }
 .pf-div .pf-layout-sider .sidebar-expand-btn:is(.ds-hover,[data-pf-hover]) svg path { stroke: rgb(255, 255, 255); }
-.pf-div .pf-layout-sider .sidebar-expand-btn:is(.ds-focus-visible,[data-pf-focus-visible]) { outline: rgb(0, 97, 105) solid 2px; outline-offset: 2px; }
+.pf-div .pf-layout-sider .sidebar-expand-btn:is(.ds-focus-visible,[data-pf-focus-visible]) { outline: rgb(40, 177, 109) solid 2px; outline-offset: 2px; }
 .pf-div .pf-layout-sider:is(.ds-hover,[data-pf-hover]) .sidebar-expand-btn, .pf-div .pf-layout-sider .sidebar-expand-btn:is(.ds-hover,[data-pf-hover]), .pf-div .pf-layout-sider .sidebar-expand-btn:is(.ds-focus-visible,[data-pf-focus-visible]) { opacity: 1; transform: scale(1); }
-.pf-user-card--v2.select-card .listing-card-check:is(.ds-hover,[data-pf-hover]) { background-color: rgb(242, 250, 250); }
+.pf-user-card--v2.select-card .listing-card-check:is(.ds-hover,[data-pf-hover]) { background-color: rgb(240, 250, 245); }

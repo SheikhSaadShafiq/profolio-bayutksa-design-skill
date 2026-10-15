@@ -81,8 +81,8 @@
   --pf-ml-space-section: 24px;
   /* type — the families, then each role as a font shorthand (phone, 360pt) */
   --pf-ml-font-ui: Geist, "Helvetica Neue", Helvetica, sans-serif;
-  --pf-ml-font-app: Lato, sans-serif;
-  --pf-ml-font-chrome: Figtree, sans-serif;
+  --pf-ml-font-app: Geist, sans-serif;
+  --pf-ml-font-chrome: Geist, sans-serif;
   --pf-ml-font-mono: "JetBrains Mono", ui-monospace, monospace;
   --pf-ml-type-price: 700 16px/normal var(--pf-ml-font-ui); /* tokens.json: Geist 17/22 · 700 — follows the build */
   --pf-ml-type-subtype: 600 11px/normal var(--pf-ml-font-ui); /* tokens.json: Geist 12/16 · 600 · #249F62 — follows the build */
