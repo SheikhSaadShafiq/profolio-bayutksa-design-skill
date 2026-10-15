@@ -1,7 +1,7 @@
 # The design-* skills
 
 Seventeen small skills that each do one design job well, for any product. A
-design-system skill (such as `profolio-ksa-design`) calls them as its work
+design-system skill (such as `profolio-ksa-web-design`) calls them as its work
 needs them; a person can call any of them directly; another skill can too.
 
 ## The one rule: context first

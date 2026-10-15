@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "context_skill_name": "profolio-ksa-design",
+  "context_skill_name": "profolio-ksa-web-design",
   "context_skill_version": "2.5.1",
   "built": "2026-10-13",
   "product": {
@@ -8,23 +8,23 @@
     "summary": "The agent and seller portal at profolio.bayut.sa: listings, credits, leads (TruLeads), reports and agency staff, for the KSA property market.",
     "audience": "agency owners, agency staff and individual sellers",
     "market": "KSA",
-    "design_system": "profolio-ksa-design (registry.json, css/tokens.css, kit/)"
+    "design_system": "profolio-ksa-web-design (registry.json, css/tokens.css, kit/)"
   },
   "sources": [
     {
       "kind": "design-system-skill",
       "ref": "css/tokens.css",
-      "hash": "c8e0219cf2d4"
+      "hash": "ea348bac179a"
     },
     {
       "kind": "design-system-skill",
       "ref": "css/profolio.css",
-      "hash": "d9449616e6b1"
+      "hash": "53e6e93da0c8"
     },
     {
       "kind": "design-system-skill",
       "ref": "registry.json",
-      "hash": "8594ce583b3e"
+      "hash": "dbe90feccc9b"
     },
     {
       "kind": "design-system-skill",
@@ -59,7 +59,7 @@
     {
       "id": "en",
       "dir": "ltr",
-      "font": "Figtree",
+      "font": "Geist",
       "provenance": "measured"
     },
     {
@@ -105,12 +105,12 @@
         "source": "skill/css/tokens.css"
       },
       "--pf-gray-550": {
-        "value": "#BABABA",
+        "value": "#D6D6D6",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
       "--pf-gray-500": {
-        "value": "#C2C2C2",
+        "value": "#D6D6D6",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
@@ -135,37 +135,37 @@
         "source": "skill/css/tokens.css"
       },
       "--pf-primary": {
-        "value": "#006169",
+        "value": "#28B16D",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
       "--pf-primary-hover": {
-        "value": "#006169",
+        "value": "#28B16D",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
       "--pf-primary-light": {
-        "value": "#F7FCFC",
+        "value": "#F0FAF5",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
       "--pf-primary-light-1": {
-        "value": "#A6C8CA",
+        "value": "#BEE8D3",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
       "--pf-primary-light-2": {
-        "value": "#CCDFE1",
+        "value": "#D4EFE2",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
       "--pf-primary-light-3": {
-        "value": "#E1F2F0",
+        "value": "#E9F7F0",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
       "--pf-primary-light-4": {
-        "value": "#F2FAFA",
+        "value": "#F0FAF5",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
@@ -250,22 +250,22 @@
         "source": "skill/css/tokens.css"
       },
       "--pf-dark": {
-        "value": "#272B41",
+        "value": "#222222",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
       "--pf-dark-hover": {
-        "value": "#131623",
+        "value": "#222222",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
       "--pf-gray": {
-        "value": "#5A5F7D",
+        "value": "#707070",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
       "--pf-gray-lightest": {
-        "value": "#bdbdbd",
+        "value": "#d6d6d6",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
@@ -275,7 +275,7 @@
         "source": "skill/css/tokens.css"
       },
       "--pf-gray-hover": {
-        "value": "#363A51",
+        "value": "#4F4F4F",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
@@ -285,7 +285,7 @@
         "source": "skill/css/tokens.css"
       },
       "--pf-light-hover": {
-        "value": "#e2e6ea",
+        "value": "#e6e6e6",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
@@ -300,17 +300,17 @@
         "source": "skill/css/tokens.css"
       },
       "--pf-white-hover": {
-        "value": "#5A5F7D",
+        "value": "#707070",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
       "--pf-extra-light": {
-        "value": "#ADB4D2",
+        "value": "#9D9D9D",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
       "--pf-border-color-light": {
-        "value": "#F1F2F6",
+        "value": "#F0F0F0",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
@@ -320,27 +320,27 @@
         "source": "skill/css/tokens.css"
       },
       "--pf-border-color-deep": {
-        "value": "#C6D0DC",
+        "value": "#DEDEDE",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
       "--pf-bg-gray-color-deep": {
-        "value": "#EFF0F3",
+        "value": "#F3F4F5",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
       "--pf-bg-gray-color-light": {
-        "value": "#F8F9FB",
+        "value": "#F6F7FB",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
       "--pf-bg-gray-color-normal": {
-        "value": "#F4F5F7",
+        "value": "#F3F4F5",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
       "--pf-light-gray": {
-        "value": "#868EAE",
+        "value": "#8A9099",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
@@ -370,7 +370,7 @@
         "source": "skill/css/tokens.css"
       },
       "--pf-health-color-default": {
-        "value": "#C1BFBF",
+        "value": "#D6D6D6",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
@@ -390,7 +390,7 @@
         "source": "skill/css/tokens.css"
       },
       "--pf-color-primary": {
-        "value": "#006169",
+        "value": "#28B16D",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
@@ -525,47 +525,47 @@
         "source": "skill/css/tokens.css"
       },
       "--pf-color-primary-bg": {
-        "value": "#97a8a7",
+        "value": "#53c18a",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
       "--pf-color-primary-bg-hover": {
-        "value": "#649c99",
+        "value": "#7ed0a7",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
       "--pf-color-primary-border": {
-        "value": "#458f8e",
+        "value": "#69c899",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
       "--pf-color-primary-border-hover": {
-        "value": "#2a8182",
+        "value": "#53c18a",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
       "--pf-color-primary-hover": {
-        "value": "#137075",
+        "value": "#28B16D",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
       "--pf-color-primary-active": {
-        "value": "#003b42",
+        "value": "#208e57",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
       "--pf-color-primary-text-hover": {
-        "value": "#137075",
+        "value": "#208E57",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
       "--pf-color-primary-text": {
-        "value": "#006169",
+        "value": "#208E57",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
       "--pf-color-primary-text-active": {
-        "value": "#003b42",
+        "value": "#208e57",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
@@ -605,7 +605,7 @@
         "source": "skill/css/tokens.css"
       },
       "--pf-color-success-text": {
-        "value": "#28b16d",
+        "value": "#249f62",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
@@ -805,7 +805,7 @@
         "source": "skill/css/tokens.css"
       },
       "--pf-color-split": {
-        "value": "rgba(5, 5, 5, 0.06)",
+        "value": "rgba(0, 0, 0, 0.06)",
         "provenance": "measured",
         "source": "skill/css/tokens.css"
       },
@@ -868,7 +868,7 @@
     "type": {
       "families": {
         "latin": {
-          "value": "Figtree",
+          "value": "Geist",
           "provenance": "measured",
           "source": "registry.themes.current"
         },
@@ -1213,15 +1213,15 @@
       ],
       "colours": [
         "rgb(34, 34, 34)",
+        "rgb(32, 142, 87)",
         "rgb(112, 112, 112)",
-        "rgb(0, 97, 105)",
+        "rgb(157, 157, 157)",
         "rgb(98, 98, 98)",
         "rgb(79, 79, 79)",
-        "rgb(32, 142, 87)",
-        "rgb(242, 250, 250)",
-        "rgb(157, 157, 157)",
-        "rgb(40, 177, 109)",
+        "rgb(240, 250, 245)",
+        "rgb(36, 159, 98)",
         "rgb(255, 255, 255)",
+        "rgb(233, 247, 240)",
         "rgb(247, 49, 49)",
         "rgb(237, 237, 237)"
       ],

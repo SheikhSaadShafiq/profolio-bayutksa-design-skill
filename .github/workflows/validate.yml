@@ -49,6 +49,8 @@ jobs:
         run: node tests/kit/directions-catches.mjs
       - name: the prototype works
         run: node tests/kit/runtime.mjs
+      - name: the skill draws the Profolio 2.0 look only (no teal, no Figtree or Lato)
+        run: node scripts/look/apply.mjs --check
       - name: the composer makes screens the QA accepts
         run: node tests/kit/compose.mjs
       - name: the runtime's smaller pieces work

@@ -759,7 +759,7 @@ const dqaFindings = all.map((i) => {
 });
 const dqaCounts = { blocker: dqaFindings.filter((f) => f.severity === 'blocker').length, warning: dqaFindings.filter((f) => f.severity === 'warning').length, note: dqaFindings.filter((f) => f.severity === 'note').length, waived: 0, skipped_checks: 0 };
 writeFileSync(join(REPORT, WIRE ? 'report.wireframe.json' : 'report.json'), JSON.stringify({
-  schema_version: 1, generated_at: qa.built, qa_skill_name: 'profolio-ksa-design',
+  schema_version: 1, generated_at: qa.built, qa_skill_name: 'profolio-ksa-web-design',
   qa_skill_version: String((REG.source && REG.source.ref) || '').replace(/^refs\/tags\/skill-v/, '') || 'dev',
   ids_available: false, render_available: !!qa.ran,
   scope: { feature: flow.name || basename(DIR), pages: (flow.screens || []).map((s) => s.id), platforms: PLATFORMS, locales: ['en'], profile: WIRE ? 'wireframe' : 'hifi' },

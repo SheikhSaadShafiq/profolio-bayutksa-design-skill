@@ -46,15 +46,15 @@ Fill every row with a proposed answer and a confidence: high, medium or low. Pre
 tables. Then ask only:
 
 - a row you could not fill, or filled at low confidence;
-- what a row's own text orders you to ask: D2 when the PRD is ambiguous, D4 on every PRD,
+- what a row's own text orders you to ask: D2 when the PRD is ambiguous,
   D7 for Arabic timing, D8 for regenerating pages, P8 for another meaning, and P9, the
   competitor shortlist (§ 3b), on every new or changed UI.
 
 Write "asked" after the confidence ("high; regenerate asked"). Ask nothing else: a medium row
 states what you will assume. Never ask what SKILL.md already decides — shipped copy wins, and
-the design is English (Arabic RTL is not compiled). D4 is the exception: ask it on every PRD,
-with the theme SKILL.md gives the page as your proposed answer. A row the PRD or the PM has
-already answered (D4, D7, any other) is not asked again: quote the answer, confidence high.
+the design is English (Arabic RTL is not compiled), and the look is Profolio 2.0. A row the PRD
+or the PM has already answered (D7, any other) is not asked again: quote the answer, confidence
+high.
 
 At most one question per row. Each question names its row and carries your proposed answer,
 so a yes is enough. Group the questions under **For the PM** and **For the designer**. The one
@@ -81,7 +81,7 @@ reply confirms every row you didn't ask: don't ask it again.
 | D1 | A new page, a change to an existing page, or a new cross-page component? | | |
 | D2 | Which page(s): route and registry id. If the PRD is ambiguous, list the candidates and ask. | | |
 | D3 | Entry point: how does the user arrive here? | | |
-| D4 | Asked on every PRD. Design language: current Profolio (Figtree, teal) or Profolio 2.0 (Geist, green)? Propose the theme the page has today. 2.0 is compiled for My Listings (`listings-new`); on another page it is allowed and flagged: the shell from a `listings-new` file, the kit's 2.0 patterns, `--pf-ml-*` tokens, every borrowed choice [TBC] for the designer's sign-off (SKILL.md → THEMES). In the same row: reuse existing components only, or kit patterns and new ones allowed? Density: match the page, or a new layout? Illustration and empty-state art: the product's own only? | | |
+| D4 | The look is always Profolio 2.0 (green, 2.0 greys, Geist; SKILL.md → LOOK): never asked. Ask instead: reuse existing components only, or kit patterns and new ones allowed? Density: match the page, or a new layout? Illustration and empty-state art: the product's own only? | | |
 | D5 | States: for each page in D2, name its compiled loading, empty, error and message-* from `node qa/registry.mjs page X` (or "none"). `empty` is a new account, not the feature's own empty. The feature's own states you work out yourself: the state matrix (§ 3), in flow.json, with proposed copy — shown in the wireframe, never asked. Answer flag-off and no-permission ("not drawn" if so). | | |
 | D6 | Any component the catalogue lacks? List what you think is missing. | | |
 | D7 | Copy: final or placeholder? Arabic now or deferred? | | |

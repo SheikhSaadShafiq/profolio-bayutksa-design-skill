@@ -561,8 +561,8 @@ if (existsSync(join(NT, 'listings.html')) && themeStates && themeF) {
   };
   registry.pages.listings.themes = { current: 'listings', new: 'listings-new' };
   registry.themes = {
-    current: { scope: 'every page', tokens: 'tokens.md (the first table) · css/tokens.css', typefaces: ['Figtree', 'Droid Arabic Kufi'] },
-    new: { scope: ['listings'], page: 'listings-new', status: 'not yet live — due about mid-October 2026', tokens: 'tokens.md → My Listings — new theme · css/new-theme/tokens.css', typefaces: ['Geist (UI, My Listings only)', 'Figtree (titles, chrome)'], teal: 'the rank and Quality Score explainers; also the TruCheck glyph, the trend\'s selected metric pill and the tour\'s hero gradient', shell: 'the product shell is kept (the designer, 2026-09-29): every screen draws the product\'s own header, and the web screens its rail', tokens_follow: 'the build (the designer, 2026-09-29)', riyal: 'the official riyal sign, kit/riyal.svg: the product\'s own icon-font glyph (U+E900) as an SVG. Wherever the handover drew its rough icon("sar") or wrote "SAR", the compiled screens draw this glyph (2026-09-30). Size: height max(7px, 0.6 × the amount\'s font-size), width height × 916/1024, fill currentColor. Never SAR, never the icon-font class.', same },
+    current: { name: 'Profolio 2.0', scope: 'every page, KSA, Oman, Bahrain, Qatar, Jordan and Egypt (Zameen keeps its own look)', ticket: 'https://app.clickup.com/t/z8v0kmv11c', colours: 'every teal → its 2.0 green (#28B16D fill, #208E57 text), every grey → the 2.0 grey of its lightness; blue, red, amber, purple, pink and illustrations unchanged — data/look/map.json, applied by scripts/look/apply.mjs', typefaces: ['Geist', 'Droid Arabic Kufi'], tokens: 'tokens.md · css/tokens.css (the product\'s names, 2.0 values) · css/new-theme/tokens.css (--pf-ml-*)', status: 'behind a runtime switch in the product, off at launch: the skill draws this look only' },
+    redesign: { scope: ['listings'], page: 'listings-new', status: 'the 2.0 My Listings redesign, not yet live', tokens: 'tokens.md → My Listings — 2.0 redesign · css/new-theme/tokens.css', teal: 'kept by design in the rank and Quality Score explainers; also the TruCheck glyph, the trend\'s selected metric pill and the tour\'s hero gradient', shell: 'the product shell is kept (the designer, 2026-09-29), in 2.0 colours', tokens_follow: 'the build (the designer, 2026-09-29)' },
   };
   registry.counts.pages = Object.keys(registry.pages).length;
   registry.counts.states = Object.values(registry.pages).reduce((n, p) => n + p.states.length, 0);
@@ -571,42 +571,40 @@ if (existsSync(join(NT, 'listings.html')) && themeStates && themeF) {
   /* the spec, in the designer's words, and what the skill needs to know first */
   for (const f of ['web-spec.md', 'phone-spec.md']) if (existsSync(join(ROOT, 'data', 'theme', 'spec', f))) { mkdirSync(join(SKILL, 'product', 'listings-new'), { recursive: true }); copyFileSync(join(ROOT, 'data', 'theme', 'spec', f), join(SKILL, 'product', 'listings-new', f)); }
   const stateTable = (dev) => [...byName.entries()].filter(([, ds]) => ds.has(dev)).map(([n]) => `| \`${n}\` | ${notes[dev][n]} | \`pages/listings-new/${n}${dev === 'mobile' ? '.mobile' : ''}.html\` |`).join('\n');
-  write('product/listings-new/README.md', `# My Listings — the new theme
+  write('product/listings-new/README.md', `# My Listings — the 2.0 redesign
 
-Profolio 2.0 starts with My Listings. Its redesign is **not live yet** (due about mid-October
-2026). What is compiled here is the designer's handover — the build embedded in the spec —
-lifted out at its own size and held to it pixel for pixel (≤0.5%): the design, not yet the
-product. At launch the product is compiled again and compared.
+Every page of this skill is in the Profolio 2.0 look (SKILL.md → LOOK). My Listings also has
+its **2.0 redesign**, \`listings-new\`: the designer's handover — the build embedded in the spec —
+lifted out at its own size and held to it pixel for pixel (≤0.5%). It is the design, not yet
+the product; at launch the product is compiled again and compared. \`listings\` is today's My
+Listings layout, in the 2.0 look.
 
 ## When to use it
 
-- **Only My Listings** (\`/listings\`) has a new theme. Every other page stays the current theme.
+- **A My Listings design starts from \`listings-new\`**, the redesign; any other page from its
+  own compiled file, already in the 2.0 look.
 - **The shell stays the product's** (the designer's decision, 29 Sep 2026): every screen draws the
-  product's own header, and every web screen its rail — the current theme — in place of the
+  product's own header, and every web screen its rail, in 2.0 colours, in place of the
   handover's. On a phone the product's 60px header replaces the artboard's status bar and title
   (its rail is the header menu's drawer). Design inside it; never restyle it.
-- The intake asks every PRD for its design language — current Profolio or Profolio 2.0 (INTAKE.md, D4); 2.0 is compiled only for My Listings.
-- Another page is drawn in the current theme by default. 2.0 on it is allowed and flagged (the
-  owner's decision, 2026-09-30; SKILL.md → THEMES): the shell from a \`listings-new\` file, the
-  kit's 2.0 patterns and \`--pf-ml-*\` tokens, every borrowed choice [TBC] for the designer.
 
 ## Its rules
 
-- **Tokens**: \`tokens.md\` → *My Listings — new theme*; as CSS, \`css/new-theme/tokens.css\`
+- **Tokens**: \`tokens.md\` → *My Listings — 2.0 redesign*; as CSS, \`css/new-theme/tokens.css\`
   (\`--pf-ml-*\`), My Listings' only. They **follow the build** where tokens.json and the build
   disagreed (the designer's decision): ${(themeF.adjusted || []).length} adjusted, ${(themeF.variants || []).length} named variants added,
   tokens.json's own values kept in \`tokens.md\` and \`css/new-theme/tokens.resolved.json\`. The type
   roles are the phone's (tokens.json is the phone's, 360pt); the web's card roles are the \`*Web\`
   variants, and the web's card stat is \`type.statPerformance\` (16 · 700).
-- **Primary is the green**: a ramp −1…11 around \`#28B16D\` (8). The current theme's teal primary
-  and \`colorPrimaryActive\` are gone from My Listings; the green was \`secondaryColor\`.
+- **Primary is the green**: a ramp −1…11 around \`#28B16D\` (8). The old teal primary and
+  \`colorPrimaryActive\` are gone; the green was \`secondaryColor\`.
 - **Teal stays in the rank and Quality Score explainers** — the How to Earn Quality Score drawer
   (web) and sheet (phone), the rank and quality cards (\`tint.teal050\`). It also shows on the
   TruCheck glyph, the trend's selected metric pill, and the onboarding tour's hero card (a
   \`#F2FAFA\` → \`#F0FAF5\` gradient).
-- **Geist is the UI face, on My Listings only.** Figtree draws the empty states, the modals and
-  most sheet and drawer titles (the web page title is the product header's — the current theme);
-  the Listing Performance drawer and sheet titles are Geist. Arabic is not in the handover.
+- **Geist is the face of every English string** (the 2.0 look). The handover drew its empty
+  states, modals and most sheet and drawer titles in Figtree; here they are Geist, as the look
+  sets it. Arabic is not in the handover: it is Droid Arabic Kufi.
 - **The riyal is a glyph** — never "SAR". The screens draw the official riyal sign, \`kit/riyal.svg\`,
   wherever the handover wrote "SAR" (the designer's decision) and wherever it drew its own
   \`icon("sar")\`. That icon is a rough four-bar sketch, not the official sign, so it was redrawn on
@@ -616,7 +614,7 @@ product. At launch the product is compiled again and compared.
   - width height × 916/1024;
   - fill \`currentColor\` and \`vertical-align: baseline\`;
   - \`margin-inline-end: 0.22em\`, only where a space followed.
-  The current theme's icon-font class (\`.currency-Saudi_Riyal_Symbol\`) does not load here.
+  The product's icon-font class (\`.currency-Saudi_Riyal_Symbol\`) does not load here.
   A user's own text (a listing description) keeps "SAR" as they typed it.
 - **Markup**: the handover's build writes its styles inline. A block copied from a
   \`listings-new\` file keeps them (name that file in pf-base or pf-also); a value you add is

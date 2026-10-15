@@ -1,12 +1,13 @@
 ---
-name: profolio-ksa-design
-description: "Design system for Bayut Profolio KSA — the agent and seller portal at profolio.bayut.sa — compiled from the product's own render. Use when designing, changing or reviewing any Profolio KSA screen, component or flow: turning a PRD into research (competitors, Mobbin, trends), three hi-fi directions to pick from and a Design-QA'd prototype, checking a design against the system, finding which tokens, components, flags or copy a surface uses. Triggers: 'design this screen for Profolio', 'add X to Profolio KSA', 'make a prototype of…', 'what does the listings page use', 'is there a component for Y'. KSA tenant only — not Oman, Bahrain, Qatar, Jordan, Egypt or Zameen, and not the consumer side of bayut.sa."
+name: profolio-ksa-web-design
+description: "Web design system for Bayut Profolio KSA — the agent and seller portal at profolio.bayut.sa — compiled from the product's own render, in the Profolio 2.0 look (green, 2.0 greys, Geist). Use when designing, changing or reviewing any Profolio KSA screen, component or flow: turning a PRD into research (competitors, Mobbin, trends), three hi-fi directions to pick from and a Design-QA'd prototype, checking a design against the system, finding which tokens, components, flags or copy a surface uses. Triggers: 'design this screen for Profolio', 'add X to Profolio KSA', 'make a prototype of…', 'what does the listings page use', 'is there a component for Y'. KSA tenant only — not Oman, Bahrain, Qatar, Jordan, Egypt or Zameen, and not the consumer side of bayut.sa."
 ---
 
-# Profolio KSA — design
+# Profolio KSA — web design
 
-Every page, state and component here is the running product's own render, pixel-identical
-at 1440 (web) and 375 (phone). You compose from it; you never redraw it. What you deliver is
+Every page, state and component here is the running product's own render at 1440 (web) and
+375 (phone), its geometry and markup pixel for pixel, in the **Profolio 2.0 look**: green for
+teal, the 2.0 greys, Geist for English (LOOK). You compose from it; you never redraw it. What you deliver is
 **one working prototype**, never a set of loose files. A new or changed UI starts from research
 (competitors, Mobbin, recent trends), and the PM picks from three complete hi-fi directions:
 the product's own components, a competitor-led one, and a bold one. Then the Design QA passes
@@ -170,8 +171,8 @@ above; a person can call any of them directly too.
 
 **Where the files are.** Everything this skill uses sits in its own folder, next to this
 SKILL.md, not in the user's project. Find that folder first and run every command from it.
-- In Claude Code it is `~/.claude/skills/profolio-ksa-design/`.
-- Elsewhere: `find / -name INTAKE.md -path '*profolio-ksa-design*' 2>/dev/null`.
+- In Claude Code it is `~/.claude/skills/profolio-ksa-web-design/`.
+- Elsewhere: `find / -name INTAKE.md -path '*profolio-ksa-web-design*' 2>/dev/null`.
 
 The `.skill` carries:
 - the instructions, `registry.json` and `tokens.md`;
@@ -195,7 +196,7 @@ tell the user, and run the intake meanwhile, since it needs no page.
 
 A state's id says which files it has:
 - a state id ending `@web` has only `pages/<page>/<state>.html`;
-- one ending `@375` (`@360` in the new theme) has only `<state>.mobile.html`;
+- one ending `@375` (`@360` for `listings-new`) has only `<state>.mobile.html`;
 - the suffix is dropped from the file name;
 - any other id has both.
 
@@ -218,7 +219,7 @@ A state's id says which files it has:
 | REGA, Nafath, FAL, credits | `product/ksa.md` |
 | an icon | `atoms/icon.html` by the name the product uses, or a compiled screen's own svg (copy it, name its file in pf-also) |
 | the rail (left nav): a new item, a group's items, NEW, what is selected | flow.json `shell.rail` (`kit/README.md`); the Reports group open: `rail-expanded-reports` (web), `mobile-menu-reports` (phone), on every page |
-| My Listings in the **new theme** (Profolio 2.0) | `product/listings-new/README.md` first, then `page listings-new`, `tokens.md` → *My Listings — new theme* |
+| The **2.0 My Listings redesign** (`listings-new`) | `product/listings-new/README.md` first, then `page listings-new`, `tokens.md` → *My Listings — 2.0 redesign* |
 
 ## LOCKED
 
@@ -285,16 +286,17 @@ inline.
   a click, as the product does. A rail change (a new item, at the top level or inside the Reports group, the product's
   NEW chip, which item is selected) is flow.json `shell.rail` (`kit/README.md`); the QA fails a
   rail that is not the product's (`rail`) and a control in the browser's default style (`unstyled`)
-- write an amount with "SAR", "ر.س" or U+20C1. In the current theme the riyal is the
+- write an amount with "SAR", "ر.س" or U+20C1. On a product page the riyal is the
   icon-font glyph (`.currency-Saudi_Riyal_Symbol`) before the number. Everywhere the icon
-  font does not load (2.0, the kit, a wireframe), it is `<i class="pfk-riyal" aria-label="SAR"></i>`
-  or `kit/riyal.svg`, the same official sign. Area is "Sq. M.".
+  font does not load (`listings-new`, the kit, a wireframe), it is `<i class="pfk-riyal" aria-label="SAR"></i>`
+  or `kit/riyal.svg`, the same official sign. Area is "Sq. M."
+- design in the old teal look (Figtree or Lato, `#006169`): the skill draws Profolio 2.0 only (LOOK)
 - design for another Bayut market, or for the consumer side of bayut.sa
 
 ## THE PRODUCT, IN SIX FACTS
 
-- **Type**: Figtree (variable 300–900, upright), Droid Arabic Kufi for Arabic — antd's
-  `fontFamily`. Body text 14px / 22px. (The new My Listings adds Geist — THEMES.)
+- **Type**: Geist (300–800, every weight a real face), Droid Arabic Kufi for Arabic — antd's
+  `fontFamily` and the theme's, in the 2.0 look (LOOK). Body text 14px / 22px.
 - **Web shell**: header 60px; the rail ships collapsed at 60px. It is click-toggled, not
   hovered (`PUSH_CONTENT_ON_SIDEBAR_EXPAND`, withAdminLayout.js): a click on it or its edge
   button expands it to 220px and pushes the page aside, only its ‹ button collapses it, and
@@ -319,31 +321,38 @@ inline.
   formats them in the browser's zone, and its `TIMEZONE` constant is read nowhere. Any
   day-based rule names its timezone.
 
-## THEMES — current, and Profolio 2.0
+## LOOK — Profolio 2.0, on every page
 
-Every page is the **current** theme. **My Listings** alone is compiled in the **new** theme,
-Profolio 2.0: `pages/listings-new*.html`, compiled from the designer's handover. It is not
-live yet: it is the design, not yet the product. Its tokens are My Listings' own
-(`--pf-ml-*`, green primary, Geist UI face) and follow the build; teal stays in the rank and
-Quality Score explainers.
-- **The shell stays the product's.** Every 2.0 screen draws the current header, and the web
-  screens draw its rail. Design inside them; never restyle them.
-- **2.0 on another page is allowed, flagged** (the owner's decision, 2026-09-30).
-  - Start from a `listings-new` file for the shell.
-  - Compose with the kit's 2.0 patterns, whose values are measured from the build, and with
-    `--pf-ml-*` tokens only.
-  - Say in flow.json's `theme` and in the handoff that the extension needs the designer's
-    sign-off, and list every borrowed choice under [TBC].
-- **Markup:** a value you add to a 2.0 page is a kit class or a `var(--pf-ml-…)`. The build
-  writes its styles inline, so a control's selected look is a kit modifier class toggled by
-  the runtime.
-- **The phone** is 360 × 800 in 2.0 (flow.json `size`).
+There is one look: **Profolio 2.0**, as the ticket "[KSA + GCC] Profolio 2.0 look: teal to
+green, 2.0 greys and Geist" sets it (ClickUp z8v0kmv11c). The old teal look is gone from this
+skill. Every page, state, component and stylesheet here was moved to 2.0 by its colour map
+(`data/look/map.json`, applied by `scripts/look/apply.mjs`): the product's geometry and markup
+are unchanged, only colours and type.
+- **Colours**: every teal → its 2.0 green: `#28B16D` brand-green for fills, `#208E57`
+  brand-green-pressed for text. Every grey → the 2.0 grey of its lightness. Blue, red, amber,
+  purple and pink, and illustrations' own colours, are unchanged.
+- **Type**: Geist for every English string, weights 300–800 as written (no faked weights).
+  Arabic stays Droid Arabic Kufi.
+- **Tokens**: the product's names (`--pf-primary`, `--pf-gray500`…) now hold their 2.0 values
+  (`tokens.md`, `css/tokens.css`); the 2.0 design's own are `--pf-ml-*` (`css/new-theme/tokens.css`).
+  A text colour and a fill colour can differ for one name: the primary is `#28B16D` as a
+  fill, `#208E57` as text.
+- **In the product**: behind one runtime switch for KSA, Oman, Bahrain, Qatar, Jordan and
+  Egypt, off at launch. Designs are made in the 2.0 look regardless; Zameen keeps its own.
+- **My Listings** has two pages: `listings` (today's layout, in the 2.0 look) and
+  `listings-new`, the 2.0 redesign from the designer's handover, which keeps teal in its rank
+  and Quality Score explainers by design. Read `product/listings-new/README.md` before
+  designing in it.
+- **The shell stays the product's** (in 2.0 colours): every screen draws its header, and the
+  web screens its rail. Design inside them; never restyle them.
+- **Markup:** a value you add is a product or kit class, or a token: `var(--pf-…)` or
+  `var(--pf-ml-…)`. The 2.0 build writes its styles inline, so a control's selected look is a
+  kit modifier class toggled by the runtime.
+- **The phone** is 375 × 812, and 360 × 800 for `listings-new` (flow.json `size`).
 - States marked `pf-derived` (Mark as Booked) are composed, not drawn by the build: say so.
-- **The riyal** is the official sign (`svg[data-pf-riyal]`, `kit/riyal.svg`), before the
-  number. Its height is max(7px, 0.6 × the amount's font-size). Never "SAR", never the
-  icon-font class (it does not load there).
-
-Read `product/listings-new/README.md` before designing in it.
+- **The riyal** is the official sign (`svg[data-pf-riyal]`, `kit/riyal.svg`) or the icon-font
+  glyph where the product draws it, before the number; its height is max(7px, 0.6 × the
+  amount's font-size). Never "SAR".
 
 ## INTAKE — mandatory, before producing anything
 
