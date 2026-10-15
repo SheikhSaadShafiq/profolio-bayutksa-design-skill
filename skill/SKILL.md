@@ -1,5 +1,5 @@
 ---
-name: profolio-ksa-web-design
+name: profolio-ksa-design
 description: "Web design system for Bayut Profolio KSA — the agent and seller portal at profolio.bayut.sa — compiled from the product's own render, in the Profolio 2.0 look (green, 2.0 greys, Geist). Use when designing, changing or reviewing any Profolio KSA screen, component or flow: turning a PRD into research (competitors, Mobbin, trends), three hi-fi directions to pick from and a Design-QA'd prototype, checking a design against the system, finding which tokens, components, flags or copy a surface uses. Triggers: 'design this screen for Profolio', 'add X to Profolio KSA', 'make a prototype of…', 'what does the listings page use', 'is there a component for Y'. KSA tenant only — not Oman, Bahrain, Qatar, Jordan, Egypt or Zameen, and not the consumer side of bayut.sa."
 ---
 
@@ -171,8 +171,8 @@ above; a person can call any of them directly too.
 
 **Where the files are.** Everything this skill uses sits in its own folder, next to this
 SKILL.md, not in the user's project. Find that folder first and run every command from it.
-- In Claude Code it is `~/.claude/skills/profolio-ksa-web-design/`.
-- Elsewhere: `find / -name INTAKE.md -path '*profolio-ksa-web-design*' 2>/dev/null`.
+- In Claude Code it is `~/.claude/skills/profolio-ksa-design/`.
+- Elsewhere: `find / -name INTAKE.md -path '*profolio-ksa-design*' 2>/dev/null`.
 
 The `.skill` carries:
 - the instructions, `registry.json` and `tokens.md`;

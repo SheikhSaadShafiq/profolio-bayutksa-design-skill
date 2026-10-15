@@ -72,7 +72,7 @@ node scripts/design-skills.mjs        # dist/design-skills/<name>.skill, and ski
 node tests/design-skills/run.mjs      # the skills on a product that is not Profolio
 ```
 
-**Get it** — build it (below) and share `dist/profolio-ksa-web-design.skill` (under 1.5 MB), or
+**Get it** — build it (below) and share `dist/profolio-ksa-design.skill` (under 1.5 MB), or
 publish it to your organisation's skills. Nobody needs the repo link: the file knows it. It carries the instructions, the registry, the tokens and the product and design knowledge
 bases. The stylesheets and pages stay here, and the skill fetches only what a PRD needs.
 
@@ -85,12 +85,12 @@ intake (the gap check, the questions, the edge cases and the plan) and says whic
 **Claude Code** — a `.skill` file is a zip; unzip it into your skills folder:
 
 ```bash
-mkdir -p ~/.claude/skills && unzip -o profolio-ksa-web-design.skill -d ~/.claude/skills/
+mkdir -p ~/.claude/skills && unzip -o profolio-ksa-design.skill -d ~/.claude/skills/
 ```
 
 Then, in any session, paste a PRD ("design this for Profolio KSA: …"). To have every page local
 instead (about 450 MB), clone this repo and link its `skill/` folder:
-`ln -s "$PWD/skill" ~/.claude/skills/profolio-ksa-web-design`.
+`ln -s "$PWD/skill" ~/.claude/skills/profolio-ksa-design`.
 
 **Build a release** — a `.skill` fetches pages from the tag it was built with, so they always
 match the registry it carries. Tag the commit, push the tag, then build; `skill:file` checks the

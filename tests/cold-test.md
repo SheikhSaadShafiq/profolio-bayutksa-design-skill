@@ -14,11 +14,11 @@ behaves the same way. Test it cold.
 
 **Claude Code (recommended).** Build the `.skill` file (README → Build a release) and install
 it: it carries the instructions, registry, tokens and both knowledge bases, and fetches pages and
-`css/` from GitHub by path, at its own tag. If `~/.claude/skills/profolio-ksa-web-design` is a link
+`css/` from GitHub by path, at its own tag. If `~/.claude/skills/profolio-ksa-design` is a link
 to this repo, remove the link first.
 
 ```bash
-mkdir -p ~/.claude/skills && unzip -o dist/profolio-ksa-web-design.skill -d ~/.claude/skills/
+mkdir -p ~/.claude/skills && unzip -o dist/profolio-ksa-design.skill -d ~/.claude/skills/
 ```
 
 Then open a new Claude Code session **in an empty folder** — not this repo, and not a session

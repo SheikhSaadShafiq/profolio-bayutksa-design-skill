@@ -22,7 +22,7 @@
  *   SKILL_REF=skill-vX.Y npm run package && git commit -am "skill-vX.Y" && git tag skill-vX.Y
  *   git push saad HEAD skill-vX.Y && npm run skill:file
  *
- * Writes dist/profolio-ksa-web-design.skill — share the file, or publish it to the
+ * Writes dist/profolio-ksa-design.skill — share the file, or publish it to the
  * organisation's skills. Refuses a tag that is not on GitHub or holds another skill/.
  *
  * The build checks the zip as claude.ai will (scripts/lib/skill-upload.mjs): at most 200
@@ -41,7 +41,7 @@ import { checkSkillZip, LIMIT } from './lib/skill-upload.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SKILL = join(ROOT, 'skill');
-const NAME = 'profolio-ksa-web-design';
+const NAME = 'profolio-ksa-design';
 const STAGE = join(ROOT, '.build', 'skill-file', NAME);
 const CARRIED = ['SKILL.md', 'INTAKE.md', 'registry.json', 'tokens.md', 'context.json', 'kb', 'product', 'qa', 'kit', 'research', 'skills/index.json', 'examples/worked-example.md', 'examples/leads-marketplace'];
 const CHECK = process.argv.includes('--check');

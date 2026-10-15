@@ -70,7 +70,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PHONE_ONLY = ('375', '360')
 ROLES = ('as-staff', 'as-individual')
 RAW = 'https://raw.githubusercontent.com/{repo}/{ref}/skill/{path}'
-GIT_CACHE = os.path.join(tempfile.gettempdir(), 'profolio-ksa-web-design-git')
+GIT_CACHE = os.path.join(tempfile.gettempdir(), 'profolio-ksa-design-git')
 SKILLS = os.path.join(ROOT, 'skills')
 UNREACHABLE = '''
   GitHub is not reachable from here — raw.githubusercontent.com: {raw}; github.com (git): {git}.

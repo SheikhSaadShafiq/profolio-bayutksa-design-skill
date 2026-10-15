@@ -101,7 +101,7 @@ export function contextCard() {
 
   const card = {
     schema_version: 1,
-    context_skill_name: 'profolio-ksa-web-design',
+    context_skill_name: 'profolio-ksa-design',
     context_skill_version: reg.source && reg.source.ref ? String(reg.source.ref).replace(/^refs\/tags\/skill-v/, '').replace(/^refs\/tags\//, '') : 'unreleased',
     built: reg.built,
     product: {
@@ -109,7 +109,7 @@ export function contextCard() {
       summary: 'The agent and seller portal at profolio.bayut.sa: listings, credits, leads (TruLeads), reports and agency staff, for the KSA property market.',
       audience: 'agency owners, agency staff and individual sellers',
       market: 'KSA',
-      design_system: 'profolio-ksa-web-design (registry.json, css/tokens.css, kit/)',
+      design_system: 'profolio-ksa-design (registry.json, css/tokens.css, kit/)',
     },
     sources: [
       { kind: 'design-system-skill', ref: 'css/tokens.css', hash: sha(join(SKILL, 'css', 'tokens.css')) },
