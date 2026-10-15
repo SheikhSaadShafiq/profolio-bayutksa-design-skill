@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "context_skill_name": "profolio-ksa-web-design",
-  "context_skill_version": "2.5.1",
+  "context_skill_version": "2.6",
   "built": "2026-10-13",
   "product": {
     "name": "Bayut Profolio KSA",
@@ -24,7 +24,7 @@
     {
       "kind": "design-system-skill",
       "ref": "registry.json",
-      "hash": "dbe90feccc9b"
+      "hash": "d76f7954431f"
     },
     {
       "kind": "design-system-skill",
