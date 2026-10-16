@@ -1,0 +1,2061 @@
+{
+ "source": "the colour map attached to ClickUp z8v0kmv11c (colour-map.csv, 2026-10-08): teal, grey and green rows",
+ "primary": {
+  "old": "#006169",
+  "brand": "#28b16d",
+  "pressed": "#208e57"
+ },
+ "greens": [
+  "#f0faf5",
+  "#e9f7f0",
+  "#d4efe2",
+  "#bee8d3",
+  "#a9e0c5",
+  "#93d8b6",
+  "#7ed0a7",
+  "#69c899",
+  "#53c18a",
+  "#28b16d",
+  "#249f62",
+  "#208e57",
+  "#10603a"
+ ],
+ "textGreys": [
+  "#000000",
+  "#222222",
+  "#4f4f4f",
+  "#626262",
+  "#707070",
+  "#9d9d9d",
+  "#ffffff"
+ ],
+ "fillGreys": [
+  "#000000",
+  "#222222",
+  "#4f4f4f",
+  "#626262",
+  "#707070",
+  "#8a9099",
+  "#9d9d9d",
+  "#d6d6d6",
+  "#dedede",
+  "#e6e6e6",
+  "#ededed",
+  "#f0f0f0",
+  "#f3f4f5",
+  "#f5f5f5",
+  "#f6f7fb",
+  "#fafafa",
+  "#fcfcfc",
+  "#ffffff"
+ ],
+ "colours": {
+  "#ffffff": {
+   "family": "neutral",
+   "fill": "#ffffff",
+   "text": "#ffffff"
+  },
+  "#006169": {
+   "family": "teal",
+   "fill": "#28b16d",
+   "text": "#208e57"
+  },
+  "#222222": {
+   "family": "neutral",
+   "fill": "#222222",
+   "text": "#222222"
+  },
+  "#9d9d9d": {
+   "family": "neutral",
+   "fill": "#9d9d9d",
+   "text": "#9d9d9d"
+  },
+  "#707070": {
+   "family": "neutral",
+   "fill": "#707070",
+   "text": "#707070"
+  },
+  "#28b16d": {
+   "family": "green",
+   "fill": "#28b16d",
+   "text": "#249f62"
+  },
+  "#f2fafa": {
+   "family": "teal",
+   "fill": "#f0faf5",
+   "text": "#f0faf5"
+  },
+  "#000000": {
+   "family": "neutral",
+   "fill": "#000000",
+   "text": "#000000"
+  },
+  "#5a5f7d": {
+   "family": "neutral",
+   "fill": "#707070",
+   "text": "#626262"
+  },
+  "#808080": {
+   "family": "neutral",
+   "fill": "#707070",
+   "text": "#707070"
+  },
+  "#f5f5f5": {
+   "family": "neutral",
+   "fill": "#f5f5f5"
+  },
+  "#272b41": {
+   "family": "neutral",
+   "fill": "#222222",
+   "text": "#222222"
+  },
+  "#dedede": {
+   "family": "neutral",
+   "fill": "#dedede",
+   "text": "#9d9d9d"
+  },
+  "#71a8ac": {
+   "family": "teal",
+   "fill": "#7ed0a7"
+  },
+  "#c2c2c2": {
+   "family": "neutral",
+   "fill": "#d6d6d6",
+   "text": "#9d9d9d"
+  },
+  "#626262": {
+   "family": "neutral",
+   "fill": "#626262",
+   "text": "#626262"
+  },
+  "#767676": {
+   "family": "neutral",
+   "fill": "#707070",
+   "text": "#707070"
+  },
+  "#a6c8ca": {
+   "family": "teal",
+   "fill": "#bee8d3",
+   "text": "#bee8d3"
+  },
+  "#f1f2f6": {
+   "family": "neutral",
+   "fill": "#f0f0f0"
+  },
+  "#e1f2f0": {
+   "family": "teal",
+   "fill": "#e9f7f0",
+   "text": "#e9f7f0"
+  },
+  "#7ecca5": {
+   "family": "green",
+   "fill": "#7ecca5",
+   "keep": true
+  },
+  "#005960": {
+   "family": "teal",
+   "fill": "#208e57"
+  },
+  "#868eae": {
+   "family": "neutral",
+   "fill": "#8a9099",
+   "text": "#9d9d9d"
+  },
+  "#cecece": {
+   "family": "neutral",
+   "fill": "#d6d6d6"
+  },
+  "#f0f0f0": {
+   "family": "neutral",
+   "fill": "#f0f0f0",
+   "text": "#ffffff"
+  },
+  "#ccdfe1": {
+   "family": "teal",
+   "fill": "#d4efe2",
+   "text": "#d4efe2"
+  },
+  "#f1f1f1": {
+   "family": "neutral",
+   "fill": "#f1f1f1",
+   "keep": true
+  },
+  "#adb4d2": {
+   "family": "neutral",
+   "fill": "#9d9d9d",
+   "text": "#9d9d9d"
+  },
+  "#20c997": {
+   "family": "green",
+   "fill": "#53c18a",
+   "text": "#249f62"
+  },
+  "#4f4f4f": {
+   "family": "neutral",
+   "fill": "#4f4f4f",
+   "text": "#4f4f4f"
+  },
+  "#f8f9fb": {
+   "family": "neutral",
+   "fill": "#f6f7fb"
+  },
+  "#e6e6e6": {
+   "family": "neutral",
+   "fill": "#e6e6e6"
+  },
+  "#4c4a4a": {
+   "family": "neutral",
+   "fill": "#4f4f4f",
+   "text": "#4f4f4f"
+  },
+  "#f4f5f7": {
+   "family": "neutral",
+   "fill": "#f3f4f5",
+   "text": "#ffffff"
+  },
+  "#d9d9d9": {
+   "family": "neutral",
+   "fill": "#d9d9d9",
+   "keep": true
+  },
+  "#e7f3ef": {
+   "family": "teal",
+   "fill": "#e9f7f0"
+  },
+  "#f7fcfc": {
+   "family": "teal",
+   "fill": "#f0faf5"
+  },
+  "#c1d9da": {
+   "family": "teal",
+   "fill": "#d4efe2"
+  },
+  "#66a0a5": {
+   "family": "teal",
+   "fill": "#7ed0a7"
+  },
+  "#c1bfbf": {
+   "family": "neutral",
+   "fill": "#d6d6d6",
+   "text": "#9d9d9d"
+  },
+  "#a3a3a3": {
+   "family": "neutral",
+   "fill": "#9d9d9d",
+   "text": "#9d9d9d"
+  },
+  "#9299b8": {
+   "family": "neutral",
+   "fill": "#9299b8",
+   "text": "#9d9d9d"
+  },
+  "#fafafa": {
+   "family": "neutral",
+   "fill": "#fafafa"
+  },
+  "rgba(0,0,0,0.08)": {
+   "family": "neutral",
+   "fill": "rgba(0,0,0,0.08)"
+  },
+  "#dbd5ef": {
+   "family": "neutral",
+   "fill": "#dbd5ef",
+   "keep": true
+  },
+  "#50cc85": {
+   "family": "green",
+   "fill": "#50cc85",
+   "keep": true
+  },
+  "#bdbdbd": {
+   "family": "neutral",
+   "fill": "#d6d6d6",
+   "text": "#9d9d9d"
+  },
+  "#1f1f1f": {
+   "family": "neutral",
+   "text": "#222222"
+  },
+  "#00a651": {
+   "family": "green",
+   "fill": "#249f62",
+   "text": "#249f62"
+  },
+  "#55969b": {
+   "family": "teal",
+   "fill": "#69c899"
+  },
+  "#dbdbdb": {
+   "family": "neutral",
+   "fill": "#dedede",
+   "text": "#9d9d9d"
+  },
+  "#f7f7f7": {
+   "family": "neutral",
+   "fill": "#f3f4f5"
+  },
+  "#e3e3e3": {
+   "family": "neutral",
+   "fill": "#e6e6e6"
+  },
+  "#182b49": {
+   "family": "neutral",
+   "text": "#222222"
+  },
+  "rgba(0,0,0,0.13)": {
+   "family": "neutral",
+   "fill": "rgba(0,0,0,0.13)",
+   "keep": true
+  },
+  "#e3e6ef": {
+   "family": "neutral",
+   "fill": "#e6e6e6",
+   "text": "#ffffff"
+  },
+  "#c5cae1": {
+   "family": "neutral",
+   "fill": "#c5cae1",
+   "keep": true
+  },
+  "#5e9499": {
+   "family": "teal",
+   "fill": "#69c899"
+  },
+  "#e5e9f2": {
+   "family": "neutral",
+   "fill": "#f6f7fb",
+   "text": "#ffffff"
+  },
+  "#bababa": {
+   "family": "neutral",
+   "text": "#9d9d9d"
+  },
+  "#25d366": {
+   "family": "green",
+   "fill": "#25d366",
+   "keep": true,
+   "text": "#25d366"
+  },
+  "#00745f": {
+   "family": "teal",
+   "fill": "#10603a",
+   "text": "#208e57"
+  },
+  "#e8e8e8": {
+   "family": "neutral",
+   "fill": "#e6e6e6"
+  },
+  "#3f3d56": {
+   "family": "neutral",
+   "fill": "#3f3d56",
+   "keep": true
+  },
+  "#f2f2f2": {
+   "family": "neutral",
+   "fill": "#f0f0f0",
+   "text": "#ffffff"
+  },
+  "#053940": {
+   "family": "teal",
+   "fill": "#208e57"
+  },
+  "#033f46": {
+   "family": "teal",
+   "fill": "#208e57"
+  },
+  "#d0d0d0": {
+   "family": "neutral",
+   "fill": "#d0d0d0",
+   "keep": true
+  },
+  "#f3f3f1": {
+   "family": "neutral",
+   "fill": "#f3f3f1",
+   "keep": true
+  },
+  "#71a7ac": {
+   "family": "teal",
+   "fill": "#7ed0a7",
+   "text": "#208e57"
+  },
+  "#e5e5e5": {
+   "family": "neutral",
+   "fill": "#e6e6e6",
+   "text": "#ffffff"
+  },
+  "rgba(95,99,242,0.1)": {
+   "family": "neutral",
+   "fill": "rgba(105,110,255,0.1)"
+  },
+  "#249f62": {
+   "family": "green",
+   "fill": "#249f62",
+   "text": "#249f62"
+  },
+  "#666666": {
+   "family": "neutral",
+   "text": "#626262"
+  },
+  "#f5fbfb": {
+   "family": "teal",
+   "fill": "#f0faf5"
+  },
+  "#e6f0ff": {
+   "family": "neutral",
+   "fill": "#f0f0f0"
+  },
+  "#58c1ca": {
+   "family": "teal",
+   "fill": "#69c899"
+  },
+  "#7ed8aa": {
+   "family": "green",
+   "fill": "#7ed8aa",
+   "keep": true
+  },
+  "#43bb3f": {
+   "family": "green",
+   "fill": "#28b16d",
+   "text": "#249f62"
+  },
+  "#0e8073": {
+   "family": "teal",
+   "fill": "#208e57",
+   "text": "#208e57"
+  },
+  "rgba(255,255,255,0.6)": {
+   "family": "neutral",
+   "fill": "rgba(255,255,255,0.6)",
+   "keep": true
+  },
+  "#333333": {
+   "family": "neutral",
+   "fill": "#222222",
+   "text": "#222222"
+  },
+  "#c6d0dc": {
+   "family": "neutral",
+   "fill": "#dedede",
+   "text": "#9d9d9d"
+  },
+  "#009f2b": {
+   "family": "green",
+   "fill": "#249f62",
+   "text": "#249f62"
+  },
+  "#046f38": {
+   "family": "green",
+   "fill": "#046f38",
+   "keep": true
+  },
+  "#a6a6a6": {
+   "family": "neutral",
+   "fill": "#a6a6a6",
+   "keep": true
+  },
+  "#77e6a6": {
+   "family": "green",
+   "fill": "#77e6a6",
+   "keep": true
+  },
+  "rgba(146,153,184,0.13)": {
+   "family": "neutral",
+   "fill": "rgba(146,153,184,0.13)"
+  },
+  "rgba(0,0,0,0.2)": {
+   "family": "neutral",
+   "fill": "rgba(0,0,0,0.2)",
+   "keep": true
+  },
+  "#2d2d2d": {
+   "family": "neutral",
+   "fill": "#222222"
+  },
+  "rgba(28,28,28,0.1)": {
+   "family": "neutral",
+   "fill": "rgba(28,28,28,0.1)"
+  },
+  "#1c7c4c": {
+   "family": "green",
+   "fill": "#208e57"
+  },
+  "rgba(0,0,0,0.16)": {
+   "family": "neutral",
+   "fill": "rgba(0,0,0,0.16)"
+  },
+  "rgba(0,0,0,0.25)": {
+   "family": "neutral",
+   "fill": "rgba(0,0,0,0.25)",
+   "keep": true,
+   "text": "rgba(0,0,0,0.25)"
+  },
+  "#ddeaeb": {
+   "family": "teal",
+   "fill": "#e9f7f0"
+  },
+  "#e0e0e0": {
+   "family": "neutral",
+   "fill": "#dedede"
+  },
+  "#4caf50": {
+   "family": "green",
+   "fill": "#4caf50",
+   "keep": true
+  },
+  "#f5faff": {
+   "family": "neutral",
+   "fill": "#f0f7fc"
+  },
+  "#f6f7fb": {
+   "family": "neutral",
+   "fill": "#f6f7fb"
+  },
+  "rgba(0,0,0,0.1)": {
+   "family": "neutral",
+   "fill": "rgba(0,0,0,0.1)",
+   "text": "rgba(0,0,0,0.1)",
+   "keep": true
+  },
+  "#eef6f5": {
+   "family": "teal",
+   "fill": "#f0faf5"
+  },
+  "#a7a7a7": {
+   "family": "neutral",
+   "text": "#9d9d9d"
+  },
+  "rgba(0,0,0,0.06)": {
+   "family": "neutral",
+   "fill": "rgba(0,0,0,0.06)"
+  },
+  "rgba(0,0,0,0.45)": {
+   "family": "neutral",
+   "fill": "rgba(23,26,31,0.42)",
+   "text": "rgba(0,0,0,0.45)",
+   "keep": true
+  },
+  "#005158": {
+   "family": "teal",
+   "fill": "#208e57",
+   "text": "#208e57"
+  },
+  "#8eb9bc": {
+   "family": "teal",
+   "fill": "#a9e0c5"
+  },
+  "#bbbbbb": {
+   "family": "neutral",
+   "fill": "#9d9d9d",
+   "text": "#9d9d9d"
+  },
+  "#a6aeba": {
+   "family": "neutral",
+   "fill": "#a6aeba",
+   "keep": true
+  },
+  "#eaedfb": {
+   "family": "neutral",
+   "fill": "#eaedfb",
+   "keep": true
+  },
+  "#1ce1ac": {
+   "family": "green",
+   "fill": "#69c899"
+  },
+  "#999999": {
+   "family": "neutral",
+   "text": "#9d9d9d"
+  },
+  "rgba(40,177,109,0.14)": {
+   "family": "green",
+   "text": "rgba(40,177,109,0.14)"
+  },
+  "rgba(0,0,0,0.88)": {
+   "family": "neutral",
+   "text": "rgba(0,0,0,0.88)",
+   "keep": true
+  },
+  "#d6d6d6": {
+   "family": "neutral",
+   "fill": "#d6d6d6"
+  },
+  "#cccccc": {
+   "family": "neutral",
+   "fill": "#d6d6d6",
+   "text": "#9d9d9d"
+  },
+  "#b3d0d2": {
+   "family": "teal",
+   "fill": "#bee8d3"
+  },
+  "#59b5c3": {
+   "family": "teal",
+   "fill": "#93d8b6"
+  },
+  "#1292a6": {
+   "family": "teal",
+   "fill": "#69c899"
+  },
+  "#a1dd9f": {
+   "family": "green",
+   "fill": "#a1dd9f",
+   "keep": true
+  },
+  "#223b5a": {
+   "family": "neutral",
+   "fill": "#223b5a",
+   "keep": true
+  },
+  "#d2dceb": {
+   "family": "neutral",
+   "fill": "#d2dceb",
+   "keep": true
+  },
+  "#00cccc": {
+   "family": "teal",
+   "fill": "#69c899"
+  },
+  "#cbe0e3": {
+   "family": "teal",
+   "fill": "#d4efe2"
+  },
+  "#74de00": {
+   "family": "green",
+   "fill": "#53c18a"
+  },
+  "rgba(0,0,0,0.32)": {
+   "family": "neutral",
+   "text": "rgba(0,0,0,0.32)",
+   "keep": true
+  },
+  "#262626": {
+   "family": "neutral",
+   "text": "#222222"
+  },
+  "#595959": {
+   "family": "neutral",
+   "text": "#626262"
+  },
+  "#52c41a": {
+   "family": "green",
+   "text": "#249f62"
+  },
+  "#a8aab3": {
+   "family": "neutral",
+   "text": "#9d9d9d"
+  },
+  "#f3faf9": {
+   "family": "teal",
+   "fill": "#f0faf5"
+  },
+  "#f5f9ff": {
+   "family": "neutral",
+   "fill": "#f5f9ff",
+   "keep": true
+  },
+  "rgba(0,0,0,0.5)": {
+   "family": "neutral",
+   "fill": "rgba(23,26,31,0.42)"
+  },
+  "#00b1d2": {
+   "family": "teal",
+   "fill": "#28b16d"
+  },
+  "#d5dbe1": {
+   "family": "neutral",
+   "fill": "#d5dbe1",
+   "keep": true
+  },
+  "#acc9cb": {
+   "family": "teal",
+   "fill": "#bee8d3"
+  },
+  "#1e814e": {
+   "family": "green",
+   "fill": "#1e814e",
+   "keep": true
+  },
+  "#f3f3ff": {
+   "family": "neutral",
+   "fill": "#f3f3ff",
+   "keep": true
+  },
+  "#efefef": {
+   "family": "neutral",
+   "fill": "#efefef",
+   "keep": true
+  },
+  "rgba(0,0,0,0.05)": {
+   "family": "neutral",
+   "fill": "rgba(0,0,0,0.05)"
+  },
+  "#008000": {
+   "family": "green",
+   "fill": "#208e57",
+   "text": "#208e57"
+  },
+  "#1d1d1f": {
+   "family": "neutral",
+   "fill": "#222222",
+   "text": "#222222"
+  },
+  "#9c9c9c": {
+   "family": "neutral",
+   "text": "#9d9d9d"
+  },
+  "#80dfff": {
+   "family": "teal",
+   "fill": "#a9e0c5"
+  },
+  "rgba(40,177,109,0.15)": {
+   "family": "green",
+   "fill": "rgba(40,177,109,0.15)"
+  },
+  "#888888": {
+   "family": "neutral",
+   "fill": "#888888",
+   "text": "#9d9d9d"
+  },
+  "rgba(0,0,0,0.7)": {
+   "family": "neutral",
+   "fill": "rgba(23,26,31,0.42)"
+  },
+  "#e5eff0": {
+   "family": "teal",
+   "fill": "#e9f7f0"
+  },
+  "rgba(0,0,0,0.12)": {
+   "family": "neutral",
+   "fill": "rgba(0,0,0,0.12)"
+  },
+  "#eff0f3": {
+   "family": "neutral",
+   "fill": "#f3f4f5"
+  },
+  "#1a8f7a": {
+   "family": "teal",
+   "fill": "#208e57",
+   "text": "#208e57"
+  },
+  "#0d9488": {
+   "family": "teal",
+   "fill": "#208e57",
+   "text": "#208e57"
+  },
+  "#e9ecef": {
+   "family": "neutral",
+   "fill": "#f0f0f0"
+  },
+  "#fcfcfc": {
+   "family": "neutral",
+   "fill": "#fcfcfc"
+  },
+  "#53c18a": {
+   "family": "green",
+   "text": "#249f62"
+  },
+  "rgba(0,97,105,0.7)": {
+   "family": "teal",
+   "fill": "#69c899"
+  },
+  "rgba(0,97,105,0.05)": {
+   "family": "teal",
+   "fill": "#f0faf5"
+  },
+  "#a4afc1": {
+   "family": "neutral",
+   "fill": "#a4afc1",
+   "keep": true
+  },
+  "#f9f9f9": {
+   "family": "neutral",
+   "fill": "#ffffff"
+  },
+  "#e2e2e2": {
+   "family": "neutral",
+   "fill": "#e2e2e2",
+   "keep": true
+  },
+  "#73ccc3": {
+   "family": "teal",
+   "fill": "#7ed0a7"
+  },
+  "#ecf7f0": {
+   "family": "green",
+   "fill": "#e9f7f0"
+  },
+  "#aeaed6": {
+   "family": "neutral",
+   "fill": "#aeaed6",
+   "keep": true
+  },
+  "#38b49d": {
+   "family": "teal",
+   "fill": "#28b16d"
+  },
+  "#2f413d": {
+   "family": "teal",
+   "fill": "#208e57"
+  },
+  "#ceedf0": {
+   "family": "teal",
+   "fill": "#d4efe2"
+  },
+  "#00a488": {
+   "family": "teal",
+   "fill": "#249f62"
+  },
+  "#212223": {
+   "family": "neutral",
+   "fill": "#222222"
+  },
+  "#212224": {
+   "family": "neutral",
+   "fill": "#222222"
+  },
+  "#060707": {
+   "family": "neutral",
+   "fill": "#060707",
+   "keep": true
+  },
+  "#04d4e6": {
+   "family": "teal",
+   "fill": "#7ed0a7"
+  },
+  "#69c899": {
+   "family": "green",
+   "fill": "#69c899"
+  },
+  "#00a174": {
+   "family": "green",
+   "fill": "#249f62"
+  },
+  "rgba(255,255,255,0.8)": {
+   "family": "neutral",
+   "fill": "rgba(255,255,255,0.8)",
+   "keep": true
+  },
+  "rgba(255,255,255,0.56)": {
+   "family": "neutral",
+   "text": "rgba(255,255,255,0.56)",
+   "keep": true
+  },
+  "#dadada": {
+   "family": "neutral",
+   "fill": "#dadada",
+   "keep": true
+  },
+  "#f5f5ff": {
+   "family": "neutral",
+   "fill": "#f5f5ff",
+   "keep": true
+  },
+  "#e2e7fa": {
+   "family": "neutral",
+   "fill": "#e2e7fa",
+   "keep": true
+  },
+  "#539ba0": {
+   "family": "teal",
+   "fill": "#7ed0a7"
+  },
+  "#e5e1f9": {
+   "family": "neutral",
+   "fill": "#e5e1f9",
+   "keep": true
+  },
+  "#292c47": {
+   "family": "neutral",
+   "fill": "#292c47",
+   "keep": true
+  },
+  "#ebf5ff": {
+   "family": "neutral",
+   "fill": "#f0f7fc"
+  },
+  "rgba(0,23,55,0.5)": {
+   "family": "neutral",
+   "fill": "rgba(23,26,31,0.42)"
+  },
+  "rgba(28,225,172,0.5)": {
+   "family": "teal",
+   "fill": "#bee8d3"
+  },
+  "rgba(0,0,0,0.18)": {
+   "family": "neutral",
+   "fill": "rgba(0,0,0,0.18)"
+  },
+  "rgba(255,255,255,0.5)": {
+   "family": "neutral",
+   "fill": "rgba(255,255,255,0.5)",
+   "keep": true
+  },
+  "#e1f6ed": {
+   "family": "green",
+   "fill": "#e9f7f0"
+  },
+  "#e9f7f0": {
+   "family": "green",
+   "fill": "#e9f7f0"
+  },
+  "rgba(255,255,255,0.2)": {
+   "family": "neutral",
+   "fill": "rgba(255,255,255,0.2)",
+   "keep": true
+  },
+  "#dddddd": {
+   "family": "neutral",
+   "fill": "#dedede"
+  },
+  "#dcdcdc": {
+   "family": "neutral",
+   "fill": "#dedede"
+  },
+  "#f6fff9": {
+   "family": "green",
+   "fill": "#f0faf5"
+  },
+  "#d9f7be": {
+   "family": "green",
+   "fill": "#f0f0f0"
+  },
+  "#e9fce9": {
+   "family": "green",
+   "fill": "#d4efe2"
+  },
+  "rgba(95,99,242,0.05)": {
+   "family": "neutral",
+   "fill": "#f6f7fb"
+  },
+  "rgba(0,97,105,0.06)": {
+   "family": "teal",
+   "fill": "#f0faf5"
+  },
+  "#f7f9ff": {
+   "family": "neutral",
+   "fill": "#f6f7fb"
+  },
+  "#f7faff": {
+   "family": "neutral",
+   "fill": "#f6f7fb"
+  },
+  "rgba(0,0,0,0.3)": {
+   "family": "neutral",
+   "fill": "rgba(0,0,0,0.3)",
+   "keep": true
+  },
+  "rgba(0,0,0,0.15)": {
+   "family": "neutral",
+   "fill": "rgba(0,0,0,0.15)"
+  },
+  "rgba(0,0,0,0.55)": {
+   "family": "neutral",
+   "fill": "rgba(23,26,31,0.42)"
+  },
+  "#434651": {
+   "family": "neutral",
+   "fill": "#434651",
+   "keep": true
+  },
+  "#d0cde1": {
+   "family": "neutral",
+   "fill": "#d0cde1",
+   "keep": true
+  },
+  "#93d5ad": {
+   "family": "green",
+   "fill": "#93d5ad",
+   "keep": true
+  },
+  "#228652": {
+   "family": "green",
+   "fill": "#228652",
+   "keep": true
+  },
+  "#036734": {
+   "family": "green",
+   "fill": "#036734",
+   "keep": true
+  },
+  "#05582e": {
+   "family": "green",
+   "fill": "#05582e",
+   "keep": true
+  },
+  "#b2b2b2": {
+   "family": "neutral",
+   "fill": "#b2b2b2",
+   "keep": true
+  },
+  "#eceaec": {
+   "family": "neutral",
+   "fill": "#eceaec",
+   "keep": true
+  },
+  "#dbd8db": {
+   "family": "neutral",
+   "fill": "#dbd8db",
+   "keep": true
+  },
+  "#0a9a8f": {
+   "family": "teal",
+   "fill": "#249f62"
+  },
+  "#f5f7fa": {
+   "family": "neutral",
+   "fill": "#f5f7fa",
+   "keep": true
+  },
+  "#00d2ff": {
+   "family": "teal",
+   "fill": "#7ed0a7"
+  },
+  "#00dfff": {
+   "family": "teal",
+   "fill": "#93d8b6"
+  },
+  "#00e3ff": {
+   "family": "teal",
+   "fill": "#a9e0c5"
+  },
+  "#32a071": {
+   "family": "green",
+   "fill": "#32a071",
+   "keep": true
+  },
+  "#2da771": {
+   "family": "green",
+   "fill": "#2da771",
+   "keep": true
+  },
+  "#15cf74": {
+   "family": "green",
+   "fill": "#15cf74",
+   "keep": true
+  },
+  "#06e775": {
+   "family": "green",
+   "fill": "#06e775",
+   "keep": true
+  },
+  "#00f076": {
+   "family": "green",
+   "fill": "#00f076",
+   "keep": true
+  },
+  "#ededed": {
+   "family": "neutral",
+   "fill": "#ededed"
+  },
+  "#fefefe": {
+   "family": "neutral",
+   "fill": "#fefefe",
+   "keep": true
+  },
+  "#19d3c5": {
+   "family": "teal",
+   "fill": "#7ed0a7"
+  },
+  "#02858e": {
+   "family": "teal",
+   "fill": "#53c18a"
+  },
+  "#005257": {
+   "family": "teal",
+   "fill": "#208e57"
+  },
+  "#1deb85": {
+   "family": "green",
+   "fill": "#1deb85",
+   "keep": true
+  },
+  "#2b7b82": {
+   "family": "teal",
+   "fill": "#53c18a",
+   "text": "#208e57"
+  },
+  "#d4d4d4": {
+   "family": "neutral",
+   "fill": "#d4d4d4",
+   "keep": true
+  },
+  "#f2fff8": {
+   "family": "green",
+   "fill": "#e9f7f0"
+  },
+  "#a9e0c5": {
+   "family": "green",
+   "fill": "#a9e0c5"
+  },
+  "#006c35": {
+   "family": "green",
+   "fill": "#006c35",
+   "keep": true
+  },
+  "rgba(146,153,184,0.08)": {
+   "family": "neutral",
+   "fill": "rgba(146,153,184,0.08)"
+  },
+  "rgba(15,23,42,0.03)": {
+   "family": "neutral",
+   "fill": "#f3f4f5"
+  },
+  "rgba(15,23,42,0.02)": {
+   "family": "neutral",
+   "fill": "#ffffff"
+  },
+  "#e6f5f5": {
+   "family": "teal",
+   "fill": "#e9f7f0"
+  },
+  "rgba(110,192,219,0.22)": {
+   "family": "teal",
+   "fill": "rgba(105,200,153,0.22)"
+  },
+  "rgba(218,255,253,0.22)": {
+   "family": "teal",
+   "fill": "#ffffff"
+  },
+  "rgba(29,151,108,0.22)": {
+   "family": "teal",
+   "fill": "#d4efe2"
+  },
+  "#fbfbfb": {
+   "family": "neutral",
+   "fill": "#ffffff"
+  },
+  "#a0d911": {
+   "family": "green",
+   "text": "#a0d911",
+   "keep": true
+  },
+  "#2eb67d": {
+   "family": "green",
+   "fill": "#2eb67d",
+   "keep": true
+  },
+  "#aacc60": {
+   "family": "green",
+   "fill": "#aacc60",
+   "keep": true
+  },
+  "#202338": {
+   "family": "neutral",
+   "fill": "#202338",
+   "keep": true
+  },
+  "#6e6760": {
+   "family": "neutral",
+   "fill": "#6e6760",
+   "keep": true
+  },
+  "rgba(95,99,242,0.02)": {
+   "family": "neutral",
+   "fill": "#f6f7fb"
+  },
+  "rgba(255,255,255,0.65)": {
+   "family": "neutral",
+   "text": "rgba(255,255,255,0.65)",
+   "keep": true
+  },
+  "rgba(255,255,255,0.05)": {
+   "family": "neutral",
+   "fill": "rgba(255,255,255,0.05)",
+   "keep": true
+  },
+  "#0cab7c": {
+   "family": "green",
+   "text": "#249f62"
+  },
+  "#4d4d4d": {
+   "family": "neutral",
+   "text": "#4f4f4f"
+  },
+  "#444444": {
+   "family": "neutral",
+   "text": "#4f4f4f"
+  },
+  "rgba(68,193,129,0.17)": {
+   "family": "green",
+   "fill": "rgba(83,193,138,0.17)"
+  },
+  "#32bf77": {
+   "family": "green",
+   "text": "#249f62"
+  },
+  "#79cdd1": {
+   "family": "teal",
+   "fill": "#7ed0a7",
+   "text": "#7ed0a7"
+  },
+  "#1ce383": {
+   "family": "green",
+   "fill": "#53c18a"
+  },
+  "#fffbfb": {
+   "family": "neutral",
+   "fill": "#ffffff"
+  },
+  "rgba(255,255,255,0.02)": {
+   "family": "neutral",
+   "fill": "rgba(255,255,255,0.02)",
+   "keep": true
+  },
+  "rgba(0,97,105,0.04)": {
+   "family": "neutral",
+   "fill": "rgba(40,177,109,0.04)"
+  },
+  "rgba(0,0,0,0.14)": {
+   "family": "neutral",
+   "fill": "rgba(0,0,0,0.14)"
+  },
+  "#e5eef8": {
+   "family": "neutral",
+   "fill": "#f0f7fc"
+  },
+  "#f0faf6": {
+   "family": "teal",
+   "fill": "#f0faf5"
+  },
+  "#e8f5f6": {
+   "family": "teal",
+   "fill": "#e9f7f0"
+  },
+  "#388b91": {
+   "family": "teal",
+   "fill": "#69c899"
+  },
+  "rgba(0,23,55,0.31)": {
+   "family": "neutral",
+   "fill": "rgba(23,26,31,0.42)"
+  },
+  "rgba(28,225,172,0.31)": {
+   "family": "teal",
+   "fill": "#d4efe2"
+  },
+  "rgba(255,255,255,0.75)": {
+   "family": "neutral",
+   "text": "rgba(255,255,255,0.75)",
+   "keep": true
+  },
+  "rgba(225,246,237,0.93)": {
+   "family": "green",
+   "fill": "#e9f7f0"
+  },
+  "rgba(225,246,237,0.68)": {
+   "family": "green",
+   "fill": "#f0faf5"
+  },
+  "#e1f5ec": {
+   "family": "green",
+   "fill": "#e1f5ec",
+   "keep": true
+  },
+  "#cfe7e8": {
+   "family": "teal",
+   "fill": "#d4efe2"
+  },
+  "rgba(255,255,255,0.31)": {
+   "family": "neutral",
+   "fill": "rgba(255,255,255,0.31)",
+   "keep": true
+  },
+  "rgba(32,201,151,0.1)": {
+   "family": "teal",
+   "fill": "#f0faf5"
+  },
+  "#d8dceb": {
+   "family": "neutral",
+   "text": "#9d9d9d"
+  },
+  "#eaeaea": {
+   "family": "neutral",
+   "fill": "#e6e6e6"
+  },
+  "#e6f5e7": {
+   "family": "green",
+   "fill": "#e9f7f0"
+  },
+  "#f6f7f7": {
+   "family": "neutral",
+   "fill": "#f3f4f5"
+  },
+  "#22c55e": {
+   "family": "green",
+   "text": "#249f62"
+  },
+  "#c7ffff": {
+   "family": "teal",
+   "fill": "#e9f7f0"
+  },
+  "rgba(255,255,255,0.13)": {
+   "family": "neutral",
+   "fill": "rgba(255,255,255,0.13)",
+   "keep": true
+  },
+  "rgba(0,0,0,0.6)": {
+   "family": "neutral",
+   "fill": "rgba(0,0,0,0.6)",
+   "keep": true
+  },
+  "#cfd6d7": {
+   "family": "teal",
+   "fill": "#d4efe2"
+  },
+  "#f8fbfb": {
+   "family": "neutral",
+   "fill": "#ffffff"
+  },
+  "#b0b0b0": {
+   "family": "neutral",
+   "text": "#9d9d9d"
+  },
+  "#555555": {
+   "family": "neutral",
+   "text": "#4f4f4f"
+  },
+  "rgba(146,153,184,0.19)": {
+   "family": "neutral",
+   "fill": "rgba(146,153,184,0.19)"
+  },
+  "rgba(146,153,184,0.2)": {
+   "family": "neutral",
+   "fill": "rgba(146,153,184,0.2)"
+  },
+  "#009688": {
+   "family": "teal",
+   "text": "#208e57"
+  },
+  "#e6f4ef": {
+   "family": "teal",
+   "fill": "#e9f7f0"
+  },
+  "#d5ede8": {
+   "family": "teal",
+   "fill": "#d4efe2"
+  },
+  "#3ab16c": {
+   "family": "green",
+   "text": "#249f62"
+  },
+  "rgba(118,118,118,0.06)": {
+   "family": "neutral",
+   "fill": "#f3f4f5"
+  },
+  "rgba(40,177,109,0.2)": {
+   "family": "green",
+   "fill": "#d4efe2"
+  },
+  "#f0faf5": {
+   "family": "green",
+   "fill": "#f0faf5"
+  },
+  "#d4efe2": {
+   "family": "green",
+   "fill": "#d4efe2"
+  },
+  "rgba(225,242,240,0.4)": {
+   "family": "teal",
+   "fill": "rgba(233,247,240,0.4)"
+  },
+  "#e2edf8": {
+   "family": "neutral",
+   "text": "#ffffff"
+  },
+  "#f5fafa": {
+   "family": "teal",
+   "fill": "#f0faf5"
+  },
+  "#f3f4f5": {
+   "family": "neutral",
+   "fill": "#f3f4f5"
+  },
+  "#e9eef0": {
+   "family": "teal",
+   "fill": "#f0faf5"
+  },
+  "rgba(65,65,65,0.18)": {
+   "family": "neutral",
+   "fill": "rgba(65,65,65,0.18)"
+  },
+  "#e5f2e5": {
+   "family": "green",
+   "fill": "#e9f7f0"
+  },
+  "#198c19": {
+   "family": "green",
+   "text": "#208e57"
+  },
+  "rgba(245,245,245,0.6)": {
+   "family": "neutral",
+   "fill": "#ffffff"
+  },
+  "#dff2e9": {
+   "family": "green",
+   "fill": "#dff2e9",
+   "keep": true
+  },
+  "#f1faf6": {
+   "family": "green",
+   "fill": "#f1faf6",
+   "keep": true
+  },
+  "#ddf3e8": {
+   "family": "green",
+   "fill": "#ddf3e8",
+   "keep": true
+  },
+  "#eaf7f0": {
+   "family": "green",
+   "fill": "#eaf7f0",
+   "keep": true
+  },
+  "#e7eced": {
+   "family": "teal",
+   "fill": "#f0faf5"
+  },
+  "#2fdf84": {
+   "family": "green",
+   "fill": "#2fdf84",
+   "keep": true
+  },
+  "#00b871": {
+   "family": "green",
+   "fill": "#00b871",
+   "keep": true
+  },
+  "#231f20": {
+   "family": "neutral",
+   "fill": "#231f20",
+   "keep": true
+  },
+  "#00a551": {
+   "family": "green",
+   "fill": "#00a551",
+   "keep": true
+  },
+  "#cacaca": {
+   "family": "neutral",
+   "fill": "#cacaca",
+   "keep": true
+  },
+  "#5d5d5d": {
+   "family": "neutral",
+   "fill": "#5d5d5d",
+   "keep": true
+  },
+  "#242424": {
+   "family": "neutral",
+   "fill": "#242424",
+   "keep": true
+  },
+  "#d8e7e8": {
+   "family": "teal",
+   "fill": "#d4efe2"
+  },
+  "#edf4f5": {
+   "family": "teal",
+   "fill": "#f0faf5"
+  },
+  "#00ec89": {
+   "family": "green",
+   "fill": "#00ec89",
+   "keep": true
+  },
+  "#00cb75": {
+   "family": "green",
+   "fill": "#00cb75",
+   "keep": true
+  },
+  "#bceaf9": {
+   "family": "teal",
+   "fill": "#bee8d3"
+  },
+  "#7dd5f4": {
+   "family": "teal",
+   "fill": "#93d8b6"
+  },
+  "#c9f7f6": {
+   "family": "teal",
+   "fill": "#d4efe2"
+  },
+  "#8beae7": {
+   "family": "teal",
+   "fill": "#bee8d3"
+  },
+  "#00051c": {
+   "family": "neutral",
+   "fill": "#00051c",
+   "keep": true
+  },
+  "#55cd6c": {
+   "family": "green",
+   "fill": "#55cd6c",
+   "keep": true
+  },
+  "#e6efe9": {
+   "family": "green",
+   "fill": "#e6efe9",
+   "keep": true
+  },
+  "#37474f": {
+   "family": "neutral",
+   "fill": "#37474f",
+   "keep": true
+  },
+  "#253239": {
+   "family": "neutral",
+   "fill": "#253239",
+   "keep": true
+  },
+  "#6fc38a": {
+   "family": "green",
+   "fill": "#6fc38a",
+   "keep": true
+  },
+  "#00aa45": {
+   "family": "green",
+   "fill": "#00aa45",
+   "keep": true
+  },
+  "#d3d3d3": {
+   "family": "neutral",
+   "fill": "#d3d3d3",
+   "keep": true
+  },
+  "#bdddf9": {
+   "family": "neutral",
+   "fill": "#bdddf9",
+   "keep": true
+  },
+  "#025459": {
+   "family": "teal",
+   "fill": "#208e57"
+  },
+  "#5eccc8": {
+   "family": "teal",
+   "fill": "#7ed0a7"
+  },
+  "#53d8e3": {
+   "family": "teal",
+   "fill": "#93d8b6"
+  },
+  "#18a8c9": {
+   "family": "teal",
+   "fill": "#28b16d"
+  },
+  "#d6e8fe": {
+   "family": "neutral",
+   "fill": "#d6e8fe",
+   "keep": true
+  },
+  "#34a853": {
+   "family": "green",
+   "fill": "#34a853",
+   "keep": true
+  },
+  "#0db561": {
+   "family": "green",
+   "fill": "#0db561",
+   "keep": true
+  },
+  "#02974d": {
+   "family": "green",
+   "fill": "#02974d",
+   "keep": true
+  },
+  "#1b1d1b": {
+   "family": "neutral",
+   "fill": "#222222"
+  },
+  "#007a3d": {
+   "family": "green",
+   "fill": "#007a3d",
+   "keep": true
+  },
+  "#57b236": {
+   "family": "green",
+   "fill": "#57b236",
+   "keep": true
+  },
+  "#6fba47": {
+   "family": "green",
+   "fill": "#6fba47",
+   "keep": true
+  },
+  "#c6c6c6": {
+   "family": "neutral",
+   "fill": "#c6c6c6",
+   "keep": true
+  },
+  "#30e8bf": {
+   "family": "teal",
+   "fill": "#93d8b6"
+  },
+  "#3c3c3c": {
+   "family": "neutral",
+   "fill": "#4f4f4f"
+  },
+  "#c4c4c4": {
+   "family": "neutral",
+   "fill": "#dedede"
+  },
+  "#eef1f2": {
+   "family": "neutral",
+   "fill": "#f3f4f5"
+  },
+  "rgba(255,255,255,0.15)": {
+   "family": "neutral",
+   "fill": "rgba(255,255,255,0.15)",
+   "keep": true
+  },
+  "rgba(0,97,105,0.1)": {
+   "family": "teal",
+   "fill": "#e9f7f0"
+  },
+  "#e7e8fd": {
+   "family": "neutral",
+   "fill": "#f6f7fb"
+  },
+  "#ddf7f0": {
+   "family": "teal",
+   "fill": "#e9f7f0"
+  },
+  "#88ef8a": {
+   "family": "green",
+   "fill": "#88ef8a",
+   "keep": true
+  },
+  "#e8faf4": {
+   "family": "teal",
+   "fill": "#e9f7f0"
+  },
+  "#63b963": {
+   "family": "green",
+   "text": "#249f62"
+  },
+  "rgba(65,65,65,0.39)": {
+   "family": "neutral",
+   "fill": "rgba(65,65,65,0.39)"
+  },
+  "rgba(0,0,0,0.47)": {
+   "family": "neutral",
+   "fill": "rgba(23,26,31,0.42)"
+  },
+  "#9e9e9e": {
+   "family": "neutral",
+   "text": "#9d9d9d"
+  },
+  "rgba(232,245,251,0.4)": {
+   "family": "neutral",
+   "fill": "#ffffff"
+  },
+  "#cbcbcb": {
+   "family": "neutral",
+   "fill": "#cbcbcb"
+  },
+  "#8c8c8c": {
+   "family": "neutral",
+   "text": "#9d9d9d"
+  },
+  "#b3d4d6": {
+   "family": "teal",
+   "fill": "#bee8d3"
+  },
+  "#0a6158": {
+   "family": "teal",
+   "text": "#208e57"
+  },
+  "rgba(242,250,250,0.5)": {
+   "family": "neutral",
+   "fill": "rgba(240,250,245,0.5)"
+  },
+  "#f5f6fa": {
+   "family": "neutral",
+   "fill": "#f6f7fb"
+  },
+  "rgba(0,97,105,0.36)": {
+   "family": "teal",
+   "fill": "#a9e0c5"
+  },
+  "#f7fdfa": {
+   "family": "green",
+   "fill": "#f0faf5"
+  },
+  "#f6fcf9": {
+   "family": "green",
+   "fill": "#f0faf5"
+  },
+  "rgba(16,24,40,0.1)": {
+   "family": "neutral",
+   "fill": "rgba(16,24,40,0.1)"
+  },
+  "#eff1f5": {
+   "family": "neutral",
+   "fill": "#f0f0f0"
+  },
+  "rgba(0,0,0,0.4)": {
+   "family": "neutral",
+   "text": "rgba(0,0,0,0.4)",
+   "keep": true
+  },
+  "#13c2c2": {
+   "family": "teal",
+   "text": "#208e57"
+  },
+  "rgba(239,239,239,0.06)": {
+   "family": "neutral",
+   "fill": "rgba(239,239,239,0.06)"
+  },
+  "#7d808d": {
+   "family": "neutral",
+   "text": "#707070"
+  },
+  "rgba(146,153,184,0.06)": {
+   "family": "neutral",
+   "fill": "rgba(146,153,184,0.06)"
+  },
+  "rgba(255,255,255,0.38)": {
+   "family": "neutral",
+   "text": "rgba(255,255,255,0.38)",
+   "keep": true
+  },
+  "rgba(0,0,0,0.65)": {
+   "family": "neutral",
+   "text": "rgba(0,0,0,0.65)",
+   "keep": true
+  },
+  "rgba(255,255,255,0.9)": {
+   "family": "neutral",
+   "fill": "rgba(255,255,255,0.9)",
+   "keep": true
+  },
+  "rgba(146,153,184,0.05)": {
+   "family": "neutral",
+   "fill": "rgba(146,153,184,0.05)"
+  },
+  "#57bb63": {
+   "family": "green",
+   "fill": "#57bb63",
+   "keep": true
+  },
+  "#c4e2ff": {
+   "family": "neutral",
+   "fill": "#c4e2ff",
+   "keep": true
+  },
+  "#48cfad": {
+   "family": "teal",
+   "fill": "#69c899"
+  },
+  "#a0d468": {
+   "family": "green",
+   "fill": "#a0d468",
+   "keep": true
+  },
+  "#e6e9ed": {
+   "family": "neutral",
+   "fill": "#e6e9ed",
+   "keep": true
+  },
+  "#434a54": {
+   "family": "neutral",
+   "fill": "#434a54",
+   "keep": true
+  },
+  "#9ddff6": {
+   "family": "teal",
+   "fill": "#a9e0c5"
+  },
+  "#50b6cf": {
+   "family": "teal",
+   "fill": "#53c18a"
+  },
+  "#3cadc9": {
+   "family": "teal",
+   "fill": "#28b16d"
+  },
+  "#50becf": {
+   "family": "teal",
+   "fill": "#53c18a"
+  },
+  "#71c4d1": {
+   "family": "teal",
+   "fill": "#69c899"
+  },
+  "#d6d9db": {
+   "family": "neutral",
+   "fill": "#d6d9db",
+   "keep": true
+  },
+  "#88b337": {
+   "family": "green",
+   "fill": "#88b337",
+   "keep": true
+  },
+  "#87ced9": {
+   "family": "teal",
+   "fill": "#7ed0a7"
+  },
+  "#343a44": {
+   "family": "neutral",
+   "fill": "#343a44",
+   "keep": true
+  },
+  "#232c3d": {
+   "family": "neutral",
+   "fill": "#232c3d",
+   "keep": true
+  },
+  "#172339": {
+   "family": "neutral",
+   "fill": "#172339",
+   "keep": true
+  },
+  "#142138": {
+   "family": "neutral",
+   "fill": "#142138",
+   "keep": true
+  },
+  "#d4dbe2": {
+   "family": "neutral",
+   "fill": "#d4dbe2",
+   "keep": true
+  },
+  "#d9d8ef": {
+   "family": "neutral",
+   "fill": "#d9d8ef",
+   "keep": true
+  },
+  "#4199a0": {
+   "family": "teal",
+   "fill": "#69c899"
+  },
+  "#1d262d": {
+   "family": "neutral",
+   "fill": "#1d262d",
+   "keep": true
+  },
+  "#c3d3dd": {
+   "family": "neutral",
+   "fill": "#c3d3dd",
+   "keep": true
+  },
+  "#cfbeb6": {
+   "family": "neutral",
+   "fill": "#cfbeb6",
+   "keep": true
+  },
+  "#323657": {
+   "family": "neutral",
+   "fill": "#323657",
+   "keep": true
+  },
+  "#375c23": {
+   "family": "green",
+   "fill": "#375c23",
+   "keep": true
+  },
+  "#424240": {
+   "family": "neutral",
+   "fill": "#424240",
+   "keep": true
+  },
+  "#918880": {
+   "family": "neutral",
+   "fill": "#918880",
+   "keep": true
+  },
+  "rgba(134,142,174,0.06)": {
+   "family": "neutral",
+   "fill": "#ffffff"
+  },
+  "rgba(32,201,151,0.06)": {
+   "family": "teal",
+   "fill": "#f0faf5"
+  },
+  "rgba(146,153,184,0.01)": {
+   "family": "neutral",
+   "fill": "rgba(146,153,184,0.01)"
+  },
+  "rgba(244,245,247,0.08)": {
+   "family": "neutral",
+   "fill": "#ffffff"
+  },
+  "rgba(95,99,242,0.06)": {
+   "family": "neutral",
+   "fill": "rgba(105,110,255,0.06)"
+  },
+  "#f8f8f8": {
+   "family": "neutral",
+   "fill": "#f3f4f5"
+  },
+  "rgba(34,34,34,0.9)": {
+   "family": "neutral",
+   "fill": "rgba(23,26,31,0.42)"
+  },
+  "rgba(146,153,184,0.35)": {
+   "family": "neutral",
+   "fill": "rgba(146,153,184,0.35)"
+  },
+  "rgba(0,0,0,0.102)": {
+   "family": "neutral",
+   "fill": "rgba(0,0,0,0.102)"
+  },
+  "rgba(146,153,184,0.02)": {
+   "family": "neutral",
+   "fill": "rgba(146,153,184,0.02)"
+  },
+  "rgba(16,18,33,0.19)": {
+   "family": "neutral",
+   "fill": "rgba(34,34,34,0.19)"
+  },
+  "#e2edee": {
+   "family": "teal",
+   "fill": "#e9f7f0"
+  },
+  "#f7f8fa": {
+   "family": "neutral",
+   "fill": "#f3f4f5"
+  },
+  "rgba(0,0,0,0.9)": {
+   "family": "neutral",
+   "fill": "rgba(23,26,31,0.42)"
+  },
+  "#c0c0c0": {
+   "family": "neutral",
+   "fill": "#d6d6d6"
+  },
+  "#eaf1fb": {
+   "family": "neutral",
+   "fill": "#f0f7fc"
+  },
+  "#d5e3f6": {
+   "family": "neutral",
+   "text": "#9d9d9d"
+  },
+  "#c9d8ec": {
+   "family": "neutral",
+   "fill": "#d6d6d6"
+  },
+  "#ececec": {
+   "family": "neutral",
+   "fill": "#f0f0f0"
+  },
+  "#e0eef2": {
+   "family": "teal",
+   "fill": "#e9f7f0"
+  },
+  "rgba(255,255,255,0.92)": {
+   "family": "neutral",
+   "fill": "rgba(255,255,255,0.92)",
+   "keep": true
+  },
+  "#0a5158": {
+   "family": "teal",
+   "fill": "#208e57"
+  },
+  "#16847d": {
+   "family": "teal",
+   "fill": "#208e57"
+  },
+  "#0c5a61": {
+   "family": "teal",
+   "fill": "#208e57"
+  },
+  "#098f79": {
+   "family": "teal",
+   "fill": "#208e57"
+  },
+  "#e7f6ec": {
+   "family": "green",
+   "fill": "#e9f7f0"
+  },
+  "#e9f1f1": {
+   "family": "teal",
+   "fill": "#f0faf5"
+  },
+  "#1da851": {
+   "family": "green",
+   "text": "#249f62"
+  },
+  "#c8c8c8": {
+   "family": "neutral",
+   "fill": "#c8c8c8",
+   "keep": true
+  },
+  "rgba(221,234,235,0.5)": {
+   "family": "teal",
+   "fill": "#f0faf5"
+  },
+  "rgba(0,97,105,0.56)": {
+   "family": "teal",
+   "fill": "#7ed0a7"
+  },
+  "#434343": {
+   "family": "neutral",
+   "text": "#4f4f4f"
+  },
+  "#f5faf8": {
+   "family": "teal",
+   "fill": "#f0faf5"
+  },
+  "#e8f5e9": {
+   "family": "green",
+   "fill": "#e9f7f0"
+  },
+  "#2e7d32": {
+   "family": "green",
+   "text": "#208e57"
+  },
+  "rgba(0,0,0,0.35)": {
+   "family": "neutral",
+   "fill": "rgba(0,0,0,0.35)"
+  },
+  "rgba(0,0,0,0.11)": {
+   "family": "neutral",
+   "fill": "rgba(0,0,0,0.11)"
+  },
+  "rgba(247,236,253,0.1)": {
+   "family": "neutral",
+   "fill": "#ffffff"
+  },
+  "#f4fbfa": {
+   "family": "teal",
+   "fill": "#f0faf5"
+  },
+  "#009f48": {
+   "family": "green",
+   "fill": "#249f62"
+  },
+  "#e8f6f9": {
+   "family": "teal",
+   "fill": "#e9f7f0"
+  },
+  "#f2f8fa": {
+   "family": "teal",
+   "fill": "#f0faf5"
+  },
+  "#f5f9fc": {
+   "family": "neutral",
+   "fill": "#f0f7fc"
+  },
+  "#eaf9f3": {
+   "family": "teal",
+   "fill": "#e9f7f0"
+  },
+  "#2cb270": {
+   "family": "green",
+   "fill": "#2cb270",
+   "keep": true
+  },
+  "#eef5fe": {
+   "family": "neutral",
+   "fill": "#f0f7fc"
+  },
+  "#ecf8f0": {
+   "family": "green",
+   "fill": "#e9f7f0"
+  }
+ }
+}

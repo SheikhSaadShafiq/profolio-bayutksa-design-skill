@@ -85,7 +85,7 @@
 .pfk-empty__art { width: 88px; height: 88px; border-radius: 26px; display: grid; place-items: center; background: #F4F9F6; margin-bottom: var(--pf-ml-space-md, 8px); }   /* the build's empty art (listings-new/empty-*.html) */
 .pfk-empty__art--grey { background: #F6F7F8; }                                             /* its offline art */
 .pfk-empty__art > svg { width: 42px; height: 42px; }
-.pfk-empty__title { font: 700 20px/24px Figtree, sans-serif; color: var(--pf-ml-text-primary, #222); margin: 0; }   /* the build's empty-state title */
+.pfk-empty__title { font: 700 20px/24px var(--pf-ml-font-ui, Geist), sans-serif; color: var(--pf-ml-text-primary, #222); margin: 0; }   /* the build's empty-state title */
 .pfk-empty__text { font-weight: 400; font-size: 14px; line-height: 21px; font-family: var(--pf-ml-font-ui, inherit); color: var(--pf-ml-text-muted, #707070); max-width: 400px; margin: 0; }
 .pfk-empty__actions { display: flex; gap: var(--pf-ml-space-md, 8px); margin-top: var(--pf-ml-space-md, 8px); }
 
@@ -136,13 +136,13 @@
 .pfk-mask { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 24px; background: var(--pf-ml-surface-scrim, rgba(23, 26, 31, 0.42)); }
 .pfk-dialog { width: 520px; max-width: 100%; max-height: 100%; display: flex; flex-direction: column; overflow: hidden; background: var(--pf-ml-surface-card, #fff); border-radius: var(--pf-ml-radius-lg, 12px); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 8px 20px 0 rgba(0, 0, 0, 0.06), 0 16px 40px 8px rgba(0, 0, 0, 0.04); font-family: var(--pf-ml-font-ui, inherit); }
 .pfk-dialog__head { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; border-bottom: 1px solid var(--pf-ml-border-soft, #F0F0F0); }
-.pfk-dialog__title { margin: 0; font: 600 15px/22px Figtree, sans-serif; color: var(--pf-ml-text-primary, #222); }
+.pfk-dialog__title { margin: 0; font: 600 15px/22px var(--pf-ml-font-ui, Geist), sans-serif; color: var(--pf-ml-text-primary, #222); }
 .pfk-dialog__close { display: grid; place-items: center; width: 24px; height: 24px; padding: 0; border: 0; background: none; border-radius: var(--pf-ml-radius-xs, 4px); color: var(--pf-ml-text-muted, #707070); cursor: pointer; }
 .pfk-dialog__close > svg { width: 16px; height: 16px; }
 .pfk-dialog__body { display: flex; flex-direction: column; gap: 20px; padding: 20px 24px; overflow: auto; }
 .pfk-dialog__foot { display: flex; justify-content: flex-end; gap: 10px; padding: 16px 24px; border-top: 1px solid var(--pf-ml-border-soft, #F0F0F0); }
-.pfk-dialog__note { margin: 0; font: 400 12px/14px Figtree, sans-serif; color: var(--pf-ml-text-faint, #9D9D9D); }
-.pfk-dialog .pfk-btn { min-height: 37px; padding: 8px 24px; border-radius: var(--pf-ml-radius-md, 8px); font: 600 14px/21px Figtree, sans-serif; }
+.pfk-dialog__note { margin: 0; font: 400 12px/14px var(--pf-ml-font-ui, Geist), sans-serif; color: var(--pf-ml-text-faint, #9D9D9D); }
+.pfk-dialog .pfk-btn { min-height: 37px; padding: 8px 24px; border-radius: var(--pf-ml-radius-md, 8px); font: 600 14px/21px var(--pf-ml-font-ui, Geist), sans-serif; }
 .pfk-dialog .pfk-btn--secondary { padding: 8px 20px; border: 0; outline: 1px solid var(--pf-ml-border-base, #E6E6E6); outline-offset: -1px; color: var(--pf-ml-text-muted, #707070); font-weight: 500; }
 .pfk-summary { display: flex; flex-direction: column; gap: 6px; padding: 12px 16px; border-radius: var(--pf-ml-radius-md, 8px); background: #F9F9F9; outline: 1px solid var(--pf-ml-border-soft, #F0F0F0); outline-offset: -1px; }
 .pfk-kv { display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 14px; color: var(--pf-ml-text-secondary, #4F4F4F); }
@@ -177,7 +177,7 @@
 .pfk-lead--muted { opacity: 0.54; }
 .pfk-sheet { position: fixed; inset: auto 0 0 0; z-index: 1001; display: flex; flex-direction: column; gap: 16px; max-height: calc(100% - 48px); overflow: auto; padding: 20px 16px 24px; background: var(--pf-ml-surface-sheet, #fff); border-radius: var(--pf-ml-radius-sheet, 20px) var(--pf-ml-radius-sheet, 20px) 0 0; box-shadow: 0 -10px 40px rgba(23, 26, 31, 0.2); font-family: var(--pf-ml-font-ui, inherit); }
 .pfk-sheet__handle { position: absolute; top: 8px; left: 50%; width: 36px; height: 4px; margin-left: -18px; border-radius: 20px; background: var(--pf-ml-border-strong, #DEDEDE); }
-.pfk-sheet__title { margin: 0; font: 700 17px/24px Figtree, sans-serif; color: var(--pf-ml-text-primary, #222); }
+.pfk-sheet__title { margin: 0; font: 700 17px/24px var(--pf-ml-font-ui, Geist), sans-serif; color: var(--pf-ml-text-primary, #222); }
 .pfk-sheet .pfk-menu__item { min-height: 44px; padding: 0 4px; font-size: 14px; }
 .pfk-sheet .pfk-btn { min-height: 44px; }
 .pfk-mask--sheet { align-items: flex-end; padding: 0; }

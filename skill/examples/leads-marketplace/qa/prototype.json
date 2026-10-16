@@ -775,9 +775,9 @@
    "platform": "web",
    "message": "Text “Top-Up your Credits” is 2.76:1 (#ffffff on #28b16d) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "box": {
-    "x": 776,
+    "x": 772,
     "y": 531,
-    "w": 180,
+    "w": 184,
     "h": 39
    },
    "states": [
@@ -2155,7 +2155,7 @@
    ]
   }
  ],
- "built": "2026-10-14T14:36:30.634Z",
+ "built": "2026-10-15T09:35:06.408Z",
  "directions": [],
  "chosen": null,
  "newTokens": []

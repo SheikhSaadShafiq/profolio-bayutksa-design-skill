@@ -1,8 +1,8 @@
 {
  "schema_version": 1,
- "generated_at": "2026-10-14T14:36:30.634Z",
+ "generated_at": "2026-10-15T09:35:06.408Z",
  "qa_skill_name": "profolio-ksa-design",
- "qa_skill_version": "2.5",
+ "qa_skill_version": "2.5.1",
  "ids_available": false,
  "render_available": true,
  "scope": {
@@ -407,7 +407,7 @@
    "message": "Text “Top-Up your Credits” is 2.76:1 (#ffffff on #28b16d) — WCAG AA asks 4.5:1: the product's own palette, for the designer",
    "expected": null,
    "actual": null,
-   "evidence": "box 776,531,180,39",
+   "evidence": "box 772,531,184,39",
    "waived": false,
    "waiver": null,
    "section_hint": "open-questions"

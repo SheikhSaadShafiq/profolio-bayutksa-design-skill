@@ -7,7 +7,7 @@ one whole feature built this way; copy its shape.
 |---|---|
 | `runtime.js` | makes a screen behave, by `data-pf-*` attributes and three JSON blocks |
 | `layer.js` | shows a compiled product state (the expanded rail, a popover, a drawer) over any screen, in its own layer |
-| `kit.css` | the pattern kit: layouts the product does not draw yet, and the 2.0 controls as classes (`pfk-*`) |
+| `kit.css` | the pattern kit: layouts the product does not draw yet, and the 2.0 redesign's controls as classes (`pfk-*`) |
 | `wireframe.css` | low fidelity at the shell's true proportions (`wf-*`) |
 | `qa.js` | the Design QA, measured inside a rendered screen |
 | `player.js`, `player.css` | the page around a prototype: states, web ↔ phone, scenario controls, notes |
@@ -284,14 +284,14 @@ Use a pattern for anything the product does not draw. Use the product's own comp
 it does draw: copy it from `registry.components[x].file`. Every value is a token or measured from
 a compiled 2.0 screen. A pattern needs no `style` attribute.
 
-**The kit's controls are 2.0's** (green, Geist): `pfk-btn`, `pfk-seg`, `pfk-select`, `pfk-chips`,
-`pfk-tabs`, `pfk-pill`. On a page in the **current theme** (every page but My Listings), use the
-product's own controls instead: `node qa/registry.mjs component button` (also `select`, `tabs`,
-`tag`, `modal`) gives the file whose markup to copy, with `qa/compose.mjs block`. Take from the
-kit only what has no product equivalent: `pfk-table`, `pfk-stack`, `pfk-empty`, `pfk-skel`,
-`pfk-toasts`, `pfk-missing`, `pfk-lock`. On a current page their `--pf-ml-*` values fall back to
-the page's own font and neutral greys. A 2.0 control on a current
-page mixes the two themes: [TBC], for the designer.
+**Product controls first, everywhere.** Every page is in the 2.0 look, the product's own antd
+controls included (green, Geist). The kit's controls (`pfk-btn`, `pfk-seg`, `pfk-select`,
+`pfk-chips`, `pfk-tabs`, `pfk-pill`) are the 2.0 My Listings redesign's, measured from its build:
+use them on `listings-new` and for what the product does not draw. Elsewhere, copy the product's
+own: `node qa/registry.mjs component button` (also `select`, `tabs`, `tag`, `modal`) gives the
+file whose markup to copy, with `qa/compose.mjs block`. The kit's layouts and states
+(`pfk-table`, `pfk-stack`, `pfk-empty`, `pfk-skel`, `pfk-toasts`, `pfk-missing`, `pfk-lock`) fit any
+page.
 - **One exception:** a table's columns, `style="--pfk-cols: minmax(0, 1.3fr) … 216px"`.
   `qa/validate.py` allows it.
 
