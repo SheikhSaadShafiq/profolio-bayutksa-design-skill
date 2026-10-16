@@ -22,5 +22,6 @@ export default {
       expanded: false,
     },
   } : {},
-  viteFinal: async (config) => ({ ...config, base: './' }),
+  /* publicDir: false — staticDirs copies public/ already; Vite copying it too races (EEXIST) */
+  viteFinal: async (config) => ({ ...config, base: './', publicDir: false }),
 };
