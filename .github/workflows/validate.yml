@@ -21,6 +21,22 @@ jobs:
         working-directory: skill
         run: python3 qa/validate.py
 
+  # the look: every file in the skill draws Profolio 2.0 (no teal, no Figtree or Lato)
+  look:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            skill
+            scripts/look
+            data/look
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: the skill draws the Profolio 2.0 look only (no teal, no Figtree or Lato)
+        run: npm install --no-save --no-package-lock chroma-js@3.2.0 && node scripts/look/apply.mjs --check
+
   # the kit: the Design QA sees every defect it was built for, the worked example's prototype
   # works when used, and its QA passes — in a real headless Chromium
   kit:
@@ -49,8 +65,6 @@ jobs:
         run: node tests/kit/directions-catches.mjs
       - name: the prototype works
         run: node tests/kit/runtime.mjs
-      - name: the skill draws the Profolio 2.0 look only (no teal, no Figtree or Lato)
-        run: node scripts/look/apply.mjs --check
       - name: the composer makes screens the QA accepts
         run: node tests/kit/compose.mjs
       - name: the runtime's smaller pieces work
