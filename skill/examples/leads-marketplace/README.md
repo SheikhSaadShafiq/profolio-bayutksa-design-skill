@@ -13,6 +13,11 @@ through this skill on claude.ai on 30 Sep 2026. His first result had these fault
 This rebuild is what the flow produces instead. Run `node qa/prototype.mjs examples/leads-marketplace`
 from the skill's folder to build it and see the QA pass.
 
+**Read it for the wiring, not the look.** It was built before gate 1 offered three directions,
+and its table is one safe layout, direction A at most. It shows how the runtime, the states,
+the data, the matrix and the QA fit together. A new design, even of this same feature, starts
+from its research: never copy this table into direction B or C (the QA measures it, `alike`).
+
 ## The brief
 
 Agents buy leads with credits; a bought lead lands in TruLeads.

@@ -20,6 +20,11 @@
      skeleton  a loading skeleton whose blocks don't follow the columns of the table above it
      spacing   a button's label split into flex items, the gap between every word
      blank     a bound value that renders nothing, or "undefined", "null", "NaN", when the data lacks it
+     covered   a control something else lies over at its centre (not an open dialog, menu or scrim):
+               nobody can click it
+     contrast  text under WCAG AA against what is behind it (4.5:1; 3:1 for large text): an error in a
+               direction's own pattern (pfx-*), a warning in the product's or the kit's palette
+     squeezed  text in a box too narrow for it: three lines or more of a word or two each
      unstyled  a button, select or input in the browser's own default style (an outset or inset
                border, which the product's CSS never draws): its stylesheet is missing
      rail      the shell is not the product's: on the web, a rail not 60 px when the screen opens
@@ -32,7 +37,9 @@
                expanded rail lying over the page instead of pushing it aside
      clip      (in the sweep, too) a menu or dialog cut off by a container or the screen's edge
      rows      (warning) cells of one row aligned differently: some top, some centre
-     targets   (warning, phone) a control smaller than the build's 32 px (the platforms ask 44)
+     focus     a control the keyboard reaches that shows no focus (its outline hidden, no :focus-visible rule)
+     targets   (phone) a control under 24 px: an error; under the build's 32 px: a warning (the
+               platforms ask 44). A link inside a sentence is exempt
      small     (warning) visible text under 11 px */
 (function () {
   'use strict';
@@ -102,6 +109,44 @@
 
   var SHELL = '[data-pf-shell-root], [data-pf-shell], .pf-layout-sider, .pf-layout-header, [data-pf-rail]';
   function inShell(e) { return !!(e && e.closest && e.closest(SHELL)); }
+  /* the ancestors whose overflow really clips an element: a fixed or absolute box escapes every
+     ancestor below its containing block (a transformed ancestor, or for absolute a positioned one) */
+  function clippers(el, stop, self) {
+    var out = [], need = null, st = function (e) { return getComputedStyle(e); };
+    if (self && /(hidden|clip|auto|scroll)/.test(st(el).overflowX + ' ' + st(el).overflowY)) out.push(el);
+    var cbFixed = function (a) { var s = st(a); return s.transform !== 'none' || s.perspective !== 'none' || (s.filter && s.filter !== 'none') || /paint|layout|strict|content/.test(s.contain || '') || /transform|filter/.test(s.willChange || ''); };
+    var cbAbs = function (a) { return st(a).position !== 'static' || cbFixed(a); };
+    var p0 = st(el).position;
+    need = p0 === 'fixed' ? cbFixed : p0 === 'absolute' ? cbAbs : null;
+    for (var a = el.parentElement; a && a !== stop; a = a.parentElement) {
+      if (need) { if (!need(a)) continue; need = null; }
+      var s = st(a);
+      if (/(hidden|clip|auto|scroll)/.test(s.overflowX + ' ' + s.overflowY)) out.push(a);
+      if (s.position === 'fixed') need = cbFixed; else if (s.position === 'absolute') need = cbAbs;
+    }
+    return out;
+  }
+  /* what lies over the page on purpose: an open menu, dialog, drawer, popover, toast or scrim */
+  var LAYER = '[data-pf-menu-panel], [data-pf-overlay], .pfk-menu, .pfk-mask, .pfk-toast, .pfk-toasts, .pf-modal-wrap, .pf-modal-mask, .pf-drawer, .pf-dropdown, .pf-select-dropdown, .pf-popover, .pf-picker-dropdown, .pf-message, .pf-notification, .pf-tooltip, [role="dialog"], [role="menu"], [role="listbox"]';
+  /* WCAG relative luminance and contrast, from computed rgb()/rgba() */
+  function rgba(c) { var m = String(c).match(/rgba?\(([^)]+)\)/); if (!m) return null; var p = m[1].split(/[ ,\/]+/).filter(Boolean).map(parseFloat); return { r: p[0], g: p[1], b: p[2], a: p.length > 3 ? p[3] : 1 }; }
+  function lum(c) { return [c.r, c.g, c.b].map(function (v) { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }).reduce(function (s, v, i) { return s + v * [0.2126, 0.7152, 0.0722][i]; }, 0); }
+  function over(top, under) { var a = top.a; return { r: top.r * a + under.r * (1 - a), g: top.g * a + under.g * (1 - a), b: top.b * a + under.b * (1 - a), a: 1 }; }
+  /* what is behind a text: the stacked fills of its ancestors over white; null where an image,
+     a gradient or a dimmed (disabled) ancestor makes it unknown */
+  function behind(e) {
+    var fills = [];
+    for (var n = e; n && n.nodeType === 1; n = n.parentElement) {
+      var s = cs(n);
+      if (s.backgroundImage && s.backgroundImage !== 'none') return null;
+      if (+s.opacity < 1) return null;
+      var b = rgba(s.backgroundColor);
+      if (b && b.a > 0) { fills.push(b); if (b.a >= 1) break; }
+    }
+    var c = { r: 255, g: 255, b: 255, a: 1 };
+    for (var i = fills.length - 1; i >= 0; i--) c = over(fills[i], c);
+    return c;
+  }
   function bgOf(e) { for (var n = e; n && n.nodeType === 1; n = n.parentElement) { var b = cs(n).backgroundColor; if (b !== 'rgba(0, 0, 0, 0)' && b !== 'transparent') return b; } return 'rgb(255, 255, 255)'; }
   /* a box that draws itself: a fill unlike what is behind it, a border or an outline */
   function ownPaint(e) {
@@ -273,24 +318,67 @@
       var r = p.getBoundingClientRect(), fs = textSize(p);
       if (r.height < Math.max(24, fs * 1.6)) add('error', 'controls', '“' + label(p) + '” is squashed: ' + Math.round(r.height) + ' px tall for ' + fs + ' px text', p);
     });
+    /* a link inside a sentence is exempt (WCAG 2.5.8): its line is its target */
+    function inSentence(c) {
+      var p = c.parentElement;
+      return c.tagName === 'A' && p && cs(c).display === 'inline' && (p.textContent || '').trim().length > (c.textContent || '').trim().length + 8;
+    }
     if (phone) controls.forEach(function (c) {
       var rr = c.getBoundingClientRect();
-      if ((rr.width < 32 || rr.height < 32) && rr.width > 0 && !inShell(c)) add('warn', 'targets', '“' + label(c) + '” is ' + Math.round(rr.width) + ' × ' + Math.round(rr.height) + ' px — under the build\'s 32 px on a phone (the platforms ask 44)', c);
+      if (!((rr.width < 32 || rr.height < 32) && rr.width > 0) || inShell(c) || inSentence(c)) return;
+      var tiny = rr.width < 24 || rr.height < 24;
+      add(tiny ? 'error' : 'warn', 'targets', '“' + label(c) + '” is ' + Math.round(rr.width) + ' × ' + Math.round(rr.height) + ' px — ' + (tiny ? 'under 24 px, too small to tap on a phone: give it padding or a bigger row' : 'under the build\'s 32 px on a phone (the platforms ask 44)'), c);
     });
+    /* focus: a control the keyboard reaches shows where focus is (WCAG 2.4.7). Read from the
+       stylesheets: a :focus or :focus-visible rule that draws something, or nothing that hides
+       the browser's own ring (an outline set as a border, or outline: none on focus) */
+    var fRules = [], oRules = [];
+    (function walk(list) {
+      Array.prototype.forEach.call(list || [], function (r) {
+        if (r.cssRules && r.media) { if (matchMedia(r.media.mediaText).matches) walk(r.cssRules); return; }
+        if (r.cssRules && !r.selectorText) { walk(r.cssRules); return; }
+        if (!r.selectorText) return;
+        r.selectorText.split(',').forEach(function (part) {
+          if (/:focus(?!-within)/.test(part)) fRules.push({ sel: part.replace(/:focus(-visible)?/g, '').replace(/::?(before|after)\b/g, '').trim() || '*', st: r.style });
+          else if (r.style.getPropertyValue('outline-style') && !/:(hover|active|checked|disabled)/.test(part)) oRules.push({ sel: part, st: r.style });
+        });
+      });
+    })(Array.prototype.reduce.call(document.styleSheets, function (all, sh) { try { return all.concat(Array.prototype.slice.call(sh.cssRules)); } catch (e) { return all; } }, []));
+    var matches = function (el, sel) { try { return el.matches(sel); } catch (e) { return false; } };
+    var draws = function (st) {
+      var os = st.getPropertyValue('outline-style'), ow = st.getPropertyValue('outline-width');
+      return (os && os !== 'none' && ow !== '0px' && ow !== '0') || (st.getPropertyValue('box-shadow') && st.getPropertyValue('box-shadow') !== 'none') ||
+        st.getPropertyValue('border-color') || st.getPropertyValue('border-top-color') || st.getPropertyValue('background-color') || st.getPropertyValue('text-decoration-line');
+    };
+    var focusSeen = {};
+    controls.forEach(function (c) {
+      if (!(c.matches('button, a[href], input, select, textarea, [tabindex]') && c.tabIndex >= 0) || inShell(c) || c.disabled || c.getAttribute('aria-disabled') === 'true' || !shown(c)) return;
+      var fr = fRules.filter(function (r) { return matches(c, r.sel); });
+      if (fr.some(function (r) { return draws(r.st); })) return;
+      var hidden = fr.some(function (r) { var os = r.st.getPropertyValue('outline-style'), ow = r.st.getPropertyValue('outline-width'); return os === 'none' || ow === '0px' || ow === '0'; }) ||
+        oRules.some(function (r) { return matches(c, r.sel); });
+      if (!hidden || focusSeen[label(c)]) return;
+      focusSeen[label(c)] = 1;
+      add('error', 'focus', '“' + (label(c) || c.tagName.toLowerCase()) + '” shows no keyboard focus: its outline is set (or removed) and no :focus-visible rule draws one — add one (kit.css has it for pfk- controls)', c);
+    });
+
     /* dead: looks clickable, does nothing */
     controls.forEach(function (c) {
       if (c.matches('input:not([type=checkbox]):not([type=radio]):not([type=button]):not([type=submit]), textarea') && !c.closest('[data-pf-value]') && !c.hasAttribute('data-pf-value')) {
         if (!c.readOnly && !c.disabled) add('warn', 'dead', 'The field “' + label(c) + '” is not bound (data-pf-value) — what is typed changes nothing', c);
         return;
       }
-      if (c.closest(ACT) || c.closest('[disabled], [aria-disabled="true"]')) return;
+      if (c.closest(ACT) || c.closest('[disabled], [aria-disabled="true"], [data-pf-skeleton-row]')) return;   /* a skeleton row is a picture of a row */
       if (c.closest('[data-menu-id]') && c.closest('.pf-layout-sider, [data-pf-rail]')) return;
       if (c.closest('a[href]')) return;                                  /* the runtime opens a link's page, or says it leaves */
       if (c.closest('[data-pf-shell-open]')) return;
       if (window.pf && pf.shellOut && inShell(c)) { var lb = label(c); if (Object.keys(pf.shellOut).some(function (k) { return lb.indexOf(k) === 0; })) return; }
       if (c.closest('template')) return;
-      var shellPart = c.closest('[data-pf-shell-root], .pf-layout-sider, .pf-layout-header');
-      add(shellPart ? 'warn' : 'error', 'dead', '“' + (label(c) || c.tagName.toLowerCase()) + '” looks clickable and does nothing — wire it (data-pf-…) or mark it data-pf-inert="why"', c);
+      /* the shell is the product's, and the runtime's to wire; antd's internals are not controls
+         (a virtual list's scrollbar, a hidden listbox's options, a select's search box) */
+      if (c.closest('[data-pf-shell-root], .pf-layout-sider, .pf-layout-header')) return;
+      if (c.closest('.rc-virtual-list-scrollbar, [role="listbox"], .pf-select-selection-search')) return;
+      add('error', 'dead', '“' + (label(c) || c.tagName.toLowerCase()) + '” looks clickable and does nothing — wire it (data-pf-…) or mark it data-pf-inert="why"', c);
     });
 
     /* interaction: what a click opened (the QA's sweep passes it in) */
@@ -329,12 +417,10 @@
         if (!shown(p)) return;
         /* a menu or a dialog cut by a container that clips it, or by the screen's edge */
         var r = p.getBoundingClientRect(), v = { l: r.left, t: r.top, r: r.right, b: r.bottom };
-        for (var a = p.parentElement; a && a !== document.documentElement; a = a.parentElement) {
-          var ac = cs(a);
-          if (!/(hidden|clip|auto|scroll)/.test(ac.overflowX + ' ' + ac.overflowY)) continue;
+        clippers(p, document.documentElement).forEach(function (a) {
           var ar = a.getBoundingClientRect();
           v = { l: Math.max(v.l, ar.left), t: Math.max(v.t, ar.top), r: Math.min(v.r, ar.right), b: Math.min(v.b, ar.bottom) };
-        }
+        });
         v = { l: Math.max(v.l, 0), t: Math.max(v.t, 0), r: Math.min(v.r, innerWidth), b: Math.min(v.b, innerHeight) };
         var full = r.width * r.height, seenA = Math.max(0, v.r - v.l) * Math.max(0, v.b - v.t);
         if (full > 0 && seenA / full < 0.95) add('error', 'clip', nm + ' opens cut off: ' + Math.round((1 - seenA / full) * 100) + '% of it is hidden by the container that clips it, or the screen\'s edge', p);
@@ -352,7 +438,7 @@
     /* spacing: a button or chip whose words are separate flex items get the gap between each */
     Array.prototype.forEach.call(document.querySelectorAll('button, [role=button], a, .pfk-btn, .wf-btn, [data-pf-do], [data-pf-set], [data-pf-open]'), function (b) {
       var st = cs(b);
-      if (!/flex/.test(st.display) || !(parseFloat(st.columnGap) > 0) || !shown(b) || inShell(b)) return;
+      if (!/flex/.test(st.display) || /column/.test(st.flexDirection) || !(parseFloat(st.columnGap) > 0) || !shown(b) || inShell(b)) return;   /* stacked lines (a stat tile) are not one label */
       /* words: text runs and plain inline elements — a count pill or an icon is its own item */
       var items = Array.prototype.filter.call(b.childNodes, function (n) { return n.nodeType === 3 ? n.textContent.trim() : n.nodeType === 1 && (n.textContent || '').trim() && cs(n).display !== 'none' && !/^(svg|SVG|IMG|I)$/.test(n.tagName) && !ownPaint(n); });
       if (items.length >= 3) add('error', 'spacing', '“' + label(b) + '”: its words are ' + items.length + ' flex items, each ' + st.columnGap + ' apart — wrap the label in one element', b);
@@ -370,7 +456,11 @@
       var cx0 = Math.min(innerWidth - 1, Math.max(0, r.left + r.width / 2)), cy0 = Math.min(innerHeight - 1, Math.max(0, r.top + r.height / 2));
       var top = document.elementFromPoint(cx0, cy0);
       var covered = r.top < innerHeight && r.bottom > 0 && top && !(top === t.parentElement || t.parentElement.contains(top) || top.contains(t.parentElement));
-      texts.push({ node: t, el: t.parentElement, r: r, lines: Array.prototype.slice.call(range.getClientRects()).filter(function (q) { return q.width >= 1 && q.height >= 1; }), covered: !!covered });
+      /* where it draws: each line clipped by the boxes that clip it (an ellipsis, a scroll box) */
+      var cut = { left: -1e9, top: -1e9, right: 1e9, bottom: 1e9 };
+      clippers(t.parentElement, document.body, true).forEach(function (an) { var ab = an.getBoundingClientRect(); cut = { left: Math.max(cut.left, ab.left), top: Math.max(cut.top, ab.top), right: Math.min(cut.right, ab.right), bottom: Math.min(cut.bottom, ab.bottom) }; });
+      var lines = Array.prototype.slice.call(range.getClientRects()).map(function (q) { var l = Math.max(q.left, cut.left), tp = Math.max(q.top, cut.top), rt = Math.min(q.right, cut.right), bt = Math.min(q.bottom, cut.bottom); return { left: l, top: tp, right: rt, bottom: bt, width: rt - l, height: bt - tp }; }).filter(function (q) { return q.width >= 1 && q.height >= 1; });
+      texts.push({ node: t, el: t.parentElement, r: r, lines: lines, covered: !!covered, layer: !!t.parentElement.closest(LAYER) });
     }
     stats.texts = texts.length;
     var buckets = {};
@@ -384,6 +474,7 @@
         var A = texts[ids[a]], B = texts[ids[b]], key = ids[a] + ':' + ids[b];
         if (seen[key]) continue; seen[key] = 1;
         if (A.el === B.el || A.el.contains(B.el) || B.el.contains(A.el) || A.covered || B.covered) continue;
+        if (A.layer !== B.layer) continue;                 /* an open menu, dialog or toast over the page: layering, not a clash */
         /* line by line: a text that wraps has a box around both lines, which is not where it draws */
         var best = null;
         A.lines.forEach(function (a) { B.lines.forEach(function (b2) {
@@ -411,6 +502,57 @@
       }
       var fs = parseFloat(cs(x.el).fontSize);
       if (fs < 11 && !x.el.closest('[class*="badge"], [class*="count"], sup, sub')) add('warn', 'small', 'Text “' + label(x.el) + '” is ' + fs + ' px', x.el);
+    });
+
+    /* contrast: each text against what is behind it, WCAG AA (4.5:1; 3:1 at 24 px, or 18.66 px bold) */
+    var hex = function (c) { return '#' + [c.r, c.g, c.b].map(function (v) { return ('0' + Math.round(v).toString(16)).slice(-2); }).join(''); };
+    var lowSeen = {};
+    texts.slice(0, 1500).forEach(function (x) {
+      if (x.covered || x.el.closest('[aria-hidden="true"], [data-pf-skeleton-row], [disabled], [aria-disabled="true"]')) return;
+      var s = cs(x.el), fg = rgba(s.color), bg = behind(x.el);
+      if (!fg || !bg || fg.a < 0.1) return;
+      fg = over(fg, bg);
+      var L1 = lum(fg), L2 = lum(bg), ratio = (Math.max(L1, L2) + 0.05) / (Math.min(L1, L2) + 0.05);
+      var fs = parseFloat(s.fontSize), bold = (+s.fontWeight || 400) >= 700, large = fs >= 24 || (fs >= 18.66 && bold);
+      var need = large ? 3 : 4.5, key = hex(fg) + hex(bg);
+      if (ratio + 0.005 >= need || lowSeen[key + label(x.el)]) return;
+      lowSeen[key + label(x.el)] = 1;
+      /* a direction's own pattern (pfx-*) is the design's choice: under AA it fails. The product's and
+         the kit's palette (2.0's white on green is 2.76:1) is the designer's to know: a warning, in
+         every direction alike — a kit control inside a pfx- container is still the kit's */
+      var styled = x.el.closest('[class]');
+      var own = !!styled && /(^|\s)pfx-/.test(styled.getAttribute('class') || '');
+      add(own ? 'error' : 'warn', 'contrast', 'Text “' + label(x.el) + '” is ' + ratio.toFixed(2) + ':1 (' + hex(fg) + ' on ' + hex(bg) + ') — WCAG AA asks ' + need + ':1' + (own ? '' : ': the product\'s own palette, for the designer'), x.el);
+    });
+    /* squeezed: three lines or more of a word or two each — its box is too narrow for it */
+    var squeezedSeen = [];
+    texts.forEach(function (x) {
+      var n = x.el, words = (n.textContent || '').trim().split(/\s+/).length, lines = x.lines.length;
+      if (lines < 3 || words < 3 || words / lines > 2 || squeezedSeen.indexOf(n) > -1 || x.covered) return;
+      squeezedSeen.push(n);
+      add('error', 'squeezed', '“' + label(n) + '” wraps to ' + lines + ' lines of a word or two (' + Math.round(n.getBoundingClientRect().width) + ' px wide): its box is too narrow', n);
+    });
+    /* covered: a control something else lies over at its centre — not an open layer, which covers
+       the page on purpose — cannot be clicked */
+    controls.forEach(function (c) {
+      if (inShell(c) || c.closest(LAYER + ', template, [disabled], [aria-disabled="true"], [data-pf-skeleton-row]')) return;
+      var r = c.getBoundingClientRect();
+      if (r.width < 4 || r.height < 4) return;
+      var x = r.left + r.width / 2, y = r.top + r.height / 2, hit, saved = null;
+      if (x < 0 || y < 0 || x >= innerWidth || y >= innerHeight) {
+        /* below the fold: scroll it into view to test it, then put every scroll back */
+        saved = [[document.scrollingElement || document.documentElement, 0, 0]];
+        for (var p = c.parentElement; p; p = p.parentElement) if (p.scrollHeight > p.clientHeight || p.scrollWidth > p.clientWidth) saved.push([p, 0, 0]);
+        saved.forEach(function (sv) { sv[1] = sv[0].scrollTop; sv[2] = sv[0].scrollLeft; });
+        c.scrollIntoView({ block: 'center', inline: 'center' });
+        r = c.getBoundingClientRect(); x = r.left + r.width / 2; y = r.top + r.height / 2;
+      }
+      if (x >= 0 && y >= 0 && x < innerWidth && y < innerHeight) hit = document.elementFromPoint(x, y);
+      if (saved) saved.forEach(function (sv) { sv[0].scrollTop = sv[1]; sv[0].scrollLeft = sv[2]; });
+      if (!hit || hit === c || c.contains(hit) || hit.contains(c)) return;
+      if (hit.closest(LAYER) || hit.closest('iframe[data-pf-layer], .pfp-qa-layer, #pfk-qa-layer') || inShell(hit)) return;
+      if (cs(c).pointerEvents === 'none') return;
+      add('error', 'covered', '“' + (label(c) || c.tagName.toLowerCase()) + '” is covered by “' + (label(hit) || hit.tagName.toLowerCase()) + '” at its centre — nobody can click it', c);
     });
 
     /* fonts: every web font a visible text uses is present and loaded */

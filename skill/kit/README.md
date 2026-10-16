@@ -17,17 +17,108 @@ one whole feature built this way; copy its shape.
 
 ```
 designs/<feature>/
-  flow.json                   the plan: screens, states, scenario controls, the state matrix
-  state.json data.json actions.json   the variables, the rows, the named actions — shared by every screen
-  wf-<screen>.html            the wireframe, web     (+ wf-<screen>.mobile.html)
-  <screen>.html               the hi-fi, web         (+ <screen>.mobile.html)
+  intake.md                   the intake: the gap check, the questions and answers, the edge cases (INTAKE.md)
+  design/context.json         copied from the skill's context.json, for the design-* skills
+  flow.json                   the plan: screens, states, scenario controls, the state matrix, the directions
+  state.json data.json actions.json   the variables, the rows, the named actions — shared by every screen and direction
+  research/research.json      the research: gaps, competitors by fit, flows, rules, the capability
+                              matrix, trends, ranked findings (research/README.md)
+  research/img/<id>.webp      the Mobbin images kept (img/<flow>-<pos>.webp for a flow's step)
+  research/summary.md         built with the board: the findings summary, to paste
+  research/board.html         built: node qa/board.mjs designs/<feature> — rebuild it once flow.json
+                              has its directions, then publish it as its own artifact
+  A/ B/ C/                    the three directions: <screen>.html (+ .mobile.html) each; B and C may have new.css
+  wf-<screen>.html            the wireframe, small fixes only (+ wf-<screen>.mobile.html)
+  <screen>.html               the hi-fi of a design with no directions (a small fix)
   wireframe.html              built: node qa/prototype.mjs designs/<feature> --wireframe
   prototype.html              built: node qa/prototype.mjs designs/<feature>
   qa/                         built: prototype.md (the QA report), handoff.md, shots/ (--shots)
 ```
 
-A screen links its stylesheets two folders up (`../../css/…`, `../../kit/kit.css`) and pulls the
-shared JSON in:
+A screen in `A/`, `B/` or `C/` sits one folder deeper: its links go three folders up
+(`../../../css/…`, `../../../kit/kit.css`) and its JSON two (`data-src="../data.json"`).
+`qa/compose.mjs` (below) gets all of this right; start every screen with it.
+
+## Composing a screen (qa/compose.mjs)
+
+Never hand-copy a compiled file: the links, the metas and the JSON blocks are easy to get
+wrong, and the QA then fails on what is not your design.
+
+```
+node qa/compose.mjs start pages/leads.html designs/<feature>/B/leads.html --direction B
+node qa/compose.mjs find  pages/leads.html ".pf-table"                  # what the selector matches, with line numbers
+node qa/compose.mjs block pages/agency-staff.html ".pf-card" --nth 1 \
+  | node qa/compose.mjs insert designs/<feature>/B/leads.html ".pf-filters" - --after
+node qa/compose.mjs also    designs/<feature>/B/leads.html pages/agency-staff.html
+node qa/compose.mjs replace designs/<feature>/B/leads.html ".pf-page-content" - < new-body.html
+```
+
+- **start** copies the compiled file and fixes it for where it goes: the links (two or three
+  folders up), `pf-base` set to the file you named, scripts dropped, `tokens.css` and `kit.css`
+  linked, the JSON blocks beside flow.json pulled in, and for B and C `new.css` linked (made
+  with its header if missing). `--empty "<selector>"` empties a container to fill.
+- **block** prints a compiled block's markup (or writes it with `--out`); **replace** and
+  **insert** (`--before`, `--after`, `--prepend`, `--append`) put markup from a file, or `-` for
+  stdin, into a screen; **also** names a file a block came from in `pf-also`.
+- Selectors: a tag, `.class`, `#id`, `[attr]`, `[attr="v"]` (also `*=`, `^=`, `$=`), and
+  descendants (`.pf-card .pf-title`). `--nth N` picks a match by the index `find` prints (from 0).
+
+## Directions
+
+Gate 1 shows two or three complete designs of one flow, every screen and state, web and
+phone, switched in the player and all QA'd:
+
+```json
+"directions": [
+  { "id": "A", "kind": "existing",   "title": "The product as it is", "label": "Existing", "layout": "table",
+    "hero": "the search's name", "summary": "…", "fresh": [] },
+  { "id": "B", "kind": "competitor", "title": "Linear-style views",   "label": "Competitor-led", "layout": "list-detail",
+    "hero": "the open search's new matches", "summary": "…", "fresh": ["f1"] },
+  { "id": "C", "kind": "bold",       "title": "Matches first",        "label": "Bold", "layout": "cards",
+    "hero": "the new matches, as photos", "summary": "…", "fresh": ["f2", "f3"] }
+],
+"screens": [{ "id": "saved", "title": "Saved searches", "route": "/saved-searches",
+  "directions": { "A": { "web": "A/saved.html", "phone": "A/saved.mobile.html" },
+                  "B": { "web": "B/saved.html", "phone": "B/saved.mobile.html" },
+                  "C": { "web": "C/saved.html", "phone": "C/saved.mobile.html" } } }],
+"research": { "board_url": "https://claude.ai/…" }
+```
+
+- **Three ideas, not three skins.** Each direction declares its **layout** (`table`, `list`,
+  `cards`, `list-detail`, `feed`, `board`, `dashboard`, `map`, `wizard`) and its **hero**, the
+  one thing read first. Bold never takes A's layout; competitor-led changes A's layout or its
+  hero. The QA also measures it: on the web, at the first state, the main list of each
+  direction is held against A's (how many per row, how wide, how tall). The same list with a
+  band or a rail added around it is the same layout (`alike`: an error for C, a warning for B).
+  The 2026-10-14 test failed this way: three directions, one table.
+- **existing (A)**: the product's components and kit patterns only, in its tokens. No stylesheet of
+  its own: the QA fails a direction A that links one, or that uses a visual element.
+- **competitor (B)**: new patterns, the strongest convention in the references (their layout,
+  not only a detail), with the kit's visual elements and `B/new.css` on `pfx-*` classes, in the
+  product's colours and type only. The QA fails a colour or a font
+  written in it: use `var(--pf-…)` / `var(--pfk-…)` from tokens.md.
+- **bold (C)**: a new layout, new patterns and a new visual language in `C/new.css`: a type
+  scale with a real hero size, colour given one meaning each, the visual elements restyled
+  through its tokens. Four colours on A's table is not bold. Each new colour or face is
+  declared once as a token with its reason, and used through `var()`:
+  `--pfx-ink: #0b3d2e; /* [new] a deeper green for the insight band */`. The QA lists every new
+  token in the handoff and on the board, for the designer's sign-off.
+- A direction's CSS styles only its own `pfx-*` classes, never a product class (`.pf-card`):
+  wrap a product component in a `pfx-` container instead.
+- **fresh**: the research's ranked findings the direction draws (B at least one, C at least two),
+  each marked on the element that draws it: `data-pf-fresh="f2"`. B and C each draw at least
+  one move of size `layout` or `hero`. The QA fails a listed move that no screen marks.
+- **chosen**: after gate 1, `"chosen": "B"`. The prototype then holds that direction alone, and
+  the gate-2 QA covers it. The others stay in the folder.
+- **research.board_url**: the published board's link, opened by the player's "Research board".
+  Without it, the player links `research/board.html`, beside the prototype.
+- **One set of states and data for all three.** Where a direction draws a step another way (a
+  dialog in A, a menu in B), the state sets both keys, `"set": {"overlay": "status", "menu":
+  "status"}`, and each direction's markup answers to its own. Never fork the data.
+
+A screen at the design's root (a small fix) links its stylesheets two folders up
+(`../../css/…`, `../../kit/kit.css`); one in `A/`, `B/` or `C/`, three. Both pull the shared
+JSON in (`data-src="../data.json"` from a direction's folder):
 
 ```html
 <script type="application/json" id="pf-state" data-src="state.json"></script>
@@ -55,14 +146,22 @@ shared JSON in:
 }
 ```
 
-- **states** are named scenarios. `set` gives variables, and `do` runs actions from the start with
-  no waiting. The player lists them, and the QA renders every one on every platform.
+- **states** are named scenarios. `set` gives variables first, then `do` runs actions with no
+  waiting, so an action sees what `set` gave (`"set": {"lead": "O1"}, "do": ["buy"]`). The
+  player lists them, and the QA renders every one on every platform.
+- **data.json** is keyed by list: `{"owner": [...]}`. A list that changes with the `data`
+  control is keyed by dataset too: `{"owner": {"many": [...], "none": []}}`. `data=none` then
+  shows `none`; a dataset a list lacks shows it empty; no `data` shows `many` (else the first).
 - **controls** are the scenario switches in the player: balance, role, network, data. A state
   keeps a control's value unless it sets that key itself.
 - **matrix** is the state matrix, one row per region that shows data: a table, a list, a
   dropdown's options, a counter. Every row needs `default`, `loading`, `empty` and `error`,
   plus `no-results` when the list filters or searches. Each one names a state, or says
-  `"not drawn: <why>"`. Work these out even when the PRD is silent: the QA fails without them.
+  `"not drawn: <why>"`, or `"compiled: <file>"` for a region the design leaves as the product
+  draws it. Work these out even when the PRD is silent: the QA fails without them.
+  - `count`: the `data-pf-count` key the region's counter uses, when it is not the list's name.
+  - `row`: the row the extremes change (from 0), when the first is not typical: a row whose
+    status hides the field, say. Fields a `$.field=` condition reads are never changed.
 - **pages**: the compiled product pages the rail opens. `"all"` gives the whole product,
   `"none"`, or a list of page ids. A wireframe bundles none by default.
 - **size**: a screen's own viewport. The 2.0 phone is 360 × 800; the default is 1440 × 900
@@ -73,7 +172,8 @@ shared JSON in:
   - The markup shows each variant by `data-pf-show="opt.lock=mask"`.
   - `state.json` sets the default.
   - Once the user picks, write `"chosen": "mask"`. The hi-fi may keep all variants until then.
-  - The QA renders every variant.
+  - `state`: the state that shows the option (a dialog's). Without it, the QA renders every
+    variant in each state that sets the key, else in the first state.
 - **shell.rail**: the rail as the design changes it, applied wherever the product's rail
   draws: the design's own rail, the other pages', the expanded rail, an open group and the
   phone's menu. **The only way to change the rail**: never edit its markup, never draw one.
@@ -109,14 +209,16 @@ The braces do + − × ÷.
 | binding | does |
 |---|---|
 | `data-pf-show="expr"` | shows the element when true (it restores the element's own `display`) |
-| `data-pf-text="key"` · `data-pf-fmt="n"` · `data-pf-default="…"` | its text is the value (n: 72,880) |
+| `data-pf-text="key"` · `data-pf-fmt="n"` · `data-pf-default="…"` | its text is the value (`n`: 72,880 · `money`: 1,250.00 · `upper`); a sum in braces works too: `data-pf-text="{@balance-@price}"` |
+| `data-pf-var="--pfk-value: $.score"` | sets a pattern's own custom property per row (`--pfk-*`, `--pfx-*` only): a score ring's value, a bar's fill |
 | `data-pf-class="cls: expr; cls2: expr"` | toggles classes — a control's selected look |
 | `data-pf-attr="aria-selected: expr"` | toggles an attribute |
 | `data-pf-value="key"` | an input's value, both ways |
 | `data-pf-overlay="id"` | shown while `overlay=id` (a dialog, a sheet) |
 | `data-pf-menu-panel="id"` | shown while `menu=id` (a dropdown); a click outside closes it |
 | `data-pf-list="rows"` + a `<template>` child | one copy of the template per row. Also: `data-pf-filter="purpose=@filter.purpose; price>=@min; types~@filter.type"` (a clause with an empty value is off; `~` contains), `data-pf-search="q: name city"`, `data-pf-sort="@sort"` (a field, `-field` descending), `data-pf-count="key"` (a second list of the same rows keeps its own count) |
-| `data-pf-skeleton="rows"` · `data-pf-rows="6"` | skeleton rows built from that list's own row, so they follow its columns |
+| `data-pf-skeleton="rows"` · `data-pf-rows="6"` | skeleton rows built from that list's own row, so they follow its columns. `data-pf-skeleton-from=".sel"` names the list when it is not the nearest |
+| `data-pf-count="key"` | on a list: the count it writes (`count.<key>`); a second list of the same rows needs its own |
 
 | action (on click) | does |
 |---|---|
@@ -130,6 +232,25 @@ The braces do + − × ÷.
 | `data-pf-href="https://…"` | says where it would go, outside the prototype |
 | `data-pf-busy="600"` | the button loads for that long before its action |
 | `data-pf-inert="why"` | not interactive, on purpose — the QA accepts it |
+| `data-pf-standin="what"` | a placeholder for a step the product hands on (`"Checkout.com card form"`, `"a phone call"`): listed in the handoff under Stand-ins, [TBC] |
+
+**A menu on every row**, inside the row's template so it opens beside it. The trigger sets the
+row and toggles the menu; the panel shows only in that row:
+
+```html
+<button data-pf-set="row=$.id" data-pf-menu="row-menu">…</button>
+<div data-pf-show="row=$.id"><div class="pfk-menu" data-pf-menu-panel="row-menu">…</div></div>
+```
+
+Its items act on `@row` (`"where": "$.id=@row"`). The sweep clicks the first row's trigger, as a
+person would, so no QA-only fallback is needed.
+
+**An antd modal or drawer copied from a compiled state**: put `data-pf-overlay="<id>"` on its
+root (`.ant-modal-root`, `.ant-drawer`), not on the dialog inside, so the mask hides with it.
+
+**A step the product hands on** (a payment form, a call, an e-mail app): draw what the user
+sees before it, then a stand-in with `data-pf-standin` that does what the step would end in
+(`data-pf-do="paid"`). Never draw the third party's own form.
 
 **Actions** are lists of steps in `actions.json`:
 `{"set": {…}}`, `{"wait": 900}`, `{"open": "buy"}`, `{"close": true}`, `{"toast": "bought"}`,
@@ -162,6 +283,15 @@ A control the QA still calls dead gets `data-pf-go` (a compiled state), `data-pf
 Use a pattern for anything the product does not draw. Use the product's own component for what
 it does draw: copy it from `registry.components[x].file`. Every value is a token or measured from
 a compiled 2.0 screen. A pattern needs no `style` attribute.
+
+**The kit's controls are 2.0's** (green, Geist): `pfk-btn`, `pfk-seg`, `pfk-select`, `pfk-chips`,
+`pfk-tabs`, `pfk-pill`. On a page in the **current theme** (every page but My Listings), use the
+product's own controls instead: `node qa/registry.mjs component button` (also `select`, `tabs`,
+`tag`, `modal`) gives the file whose markup to copy, with `qa/compose.mjs block`. Take from the
+kit only what has no product equivalent: `pfk-table`, `pfk-stack`, `pfk-empty`, `pfk-skel`,
+`pfk-toasts`, `pfk-missing`, `pfk-lock`. On a current page their `--pf-ml-*` values fall back to
+the page's own font and neutral greys. A 2.0 control on a current
+page mixes the two themes: [TBC], for the designer.
 - **One exception:** a table's columns, `style="--pfk-cols: minmax(0, 1.3fr) … 216px"`.
   `qa/validate.py` allows it.
 
@@ -211,8 +341,49 @@ cannot see. Offer 2–3 variants as flow.json `options`, e.g.:
 - B: masked (`pfk-masked`: "M••• A•••••", "+966 55 ••• ••37") with an inline "Unlock for 40 credits";
 - C: an initials avatar with the lock (`pfk-avatar` + `pfk-avatar__lock`).
 The lock icon is the product's (`atoms/icon.html` → `#icon-lock-bages`; name the file in pf-also).
-The real value never reaches the page before it is unlocked: the data carries a placeholder,
-a masked value or initials, and the handoff says the API must too.
+In the product, the real value never reaches the page before it is unlocked: the API sends a
+placeholder, a masked value or initials, and the handoff says so. The prototype must reveal it,
+so `data.json` keeps it in its own field (`contact`), shown only by the state after the unlock
+(`data-pf-show="$.unlocked"`); say in the handoff that the API sends it only then.
+
+**Dialogs and sheets** (`data-pf-overlay`) are `position: fixed`: put them at the page's root,
+outside any scrolling container, so nothing clips them and the QA measures them as the
+product would show them.
+
+## Visual elements (kit.css, v2.4) — for B and C
+
+What turns a list into a design. Each is a 2.0 token pattern, QA-clean as it is. Direction A
+may not use them.
+
+**Restyling them (C, or B in product tokens)**: set their hooks once, on the direction's own
+container in `new.css`, never by restyling a `pfk-` class:
+`.pfx-board { --pfk-accent: var(--pfx-ink); --pfk-accent-soft: var(--pfx-wash); --pfk-radius: 16px; --pfk-figure: 28px; }`.
+Hooks: `--pfk-accent` (fills, rings, meters, the selected tile) · `--pfk-accent-ink` (text on
+tints, a rising delta) · `--pfk-accent-soft` (tints) · `--pfk-warn` · `--pfk-surface` ·
+`--pfk-line` · `--pfk-radius` · `--pfk-figure` (the hero number's size). A ring's or a bar's
+value per row: `data-pf-var="--pfk-value: $.score"`.
+
+| element | classes | for |
+|---|---|---|
+| card grid | `pfk-grid` (`--pfk-min: 280px`) | items as cards, as many per row as fit |
+| list beside detail | `pfk-split` › … · `pfk-split__side` (`--pfk-side: 380px`, sticky) | browse on the left, the open item on the right |
+| rich card | `pfk-tile` (`--on`, `--muted`) › `__head` (`__media` + title stack) · `__title` · `__meta` · `__figure` · `__body` · `__foot` | an item as a small page: what it is, the one figure, its actions |
+| stat tiles | `pfk-stats` › `pfk-stat` (`--on`; a `<button>` to filter) › `__value` · `__label` · `pfk-delta--up` / `--down` | the numbers that matter now, each a way in |
+| avatar stack | `pfk-avatars` › `pfk-avatar` × n · `pfk-avatars__more` | who else is here: agencies that unlocked, agents on a lead |
+| score ring | `pfk-ring` (`style="--pfk-value: 72"`, `--lg`) › `pfk-ring__value` | a match or quality score, read at a glance |
+| meter · progress | `pfk-meter` › `pfk-meter__seg` (`--on`, `--warn`) · `pfk-progress` (`--pfk-value`; not `pfk-bar`, the 2.0 phone's filter bar) | slots taken, a quota, progress |
+| thumbnails | `pfk-thumbs` › `<img>` · `pfk-thumbs__more` | the listings behind a number, shown |
+| icon chips | `pfk-ichips` › `pfk-ichip` (`--good`, `--warn`) with the product's icon | facts with their icon: beds, purpose, slots left |
+| insight band | `pfk-band` (`--warn`) › icon · `pfk-band__text` · an action | one sentence on what matters now |
+| sparkline | `<svg class="pfk-spark" viewBox="0 0 80 24"><polyline points="…"/></svg>` | a trend beside a number |
+| steps | `pfk-steps` › `li` › `pfk-steps__dot` (`--done`) | what happens next |
+
+`--pfk-value`, `--pfk-min` and `--pfk-side` are the only style attributes `qa/validate.py`
+allows on them. Icons and art are the product's own (`atoms/icon.html`, design-illustration).
+
+**The worked example is about wiring, not looks.** `examples/leads-marketplace/` shows how the
+runtime, the states and the QA fit together. Its table is one layout among many: never start a
+direction B or C from it.
 
 ## Wireframes (wireframe.css)
 
@@ -243,11 +414,17 @@ It writes one file and checks:
   - `currency`;
   - `unstyled`: a button, select or input in the browser's default style (an outset or inset
     border): its stylesheet is missing, as in a control copied without it or written by hand;
+  - `targets` (phone): a control under 24 px is an error, under 32 px a warning; a link inside
+    a sentence is exempt;
+  - `alike`: a direction's main list drawn as A's (above, directions);
+  - `focus`: a control the keyboard reaches that shows no focus (its outline set as a border or
+    removed, and no `:focus-visible` rule drawing one). The kit's controls have one. A dialog
+    that opens takes the focus, and gives it back when it closes (the runtime);
   - `rail`: on the web, the rail is not 60 px when the screen opens (it ships collapsed), or
     has items its compiled page does not (or lost some), or is missing where the pf-base
     draws it. A hand-built navigation fails here;
   - `runtime`.
-  `rows`, `targets` and `small` are warnings.
+  `rows` and `small` are warnings.
 
 Then the **sweep**, from each screen's first state:
 - **every interaction**: each shell control, the expanded rail among them; each group a `shell.rail` item
@@ -287,3 +464,10 @@ a designer's eye does: one hero per row, a calm hierarchy, nothing competing.
   `"empty": "not drawn: the 13 regions always exist"`.
 - **In a copied phone page**, controls the build never wired (the 2.0 phone's bell) get a
   `data-pf-go` to the compiled state: `states/listings--drawer-notifications-mark-all-as.html`.
+  It is the one change the shell allows: an attribute on a control that is already there.
+  Nothing in the shell is redrawn, restyled or moved.
+- **The 2.0 phone header's title** sits beside the bell and its badge: a long page title runs
+  under the badge, and the QA does not measure the shell. Keep it to one or two words
+  ("Marketplace"), [TBC] if it shortens the PRD's name.
+- **The QA takes minutes on a big design.** While fixing, check one direction or one state:
+  `--only B`, `--state browse`. It exits 5 when that part passes; run it whole before delivering.

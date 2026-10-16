@@ -43,7 +43,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SKILL = join(ROOT, 'skill');
 const NAME = 'profolio-ksa-design';
 const STAGE = join(ROOT, '.build', 'skill-file', NAME);
-const CARRIED = ['SKILL.md', 'INTAKE.md', 'registry.json', 'tokens.md', 'context.json', 'kb', 'product', 'qa', 'kit', 'skills/index.json', 'examples/worked-example.md', 'examples/leads-marketplace'];
+const CARRIED = ['SKILL.md', 'INTAKE.md', 'registry.json', 'tokens.md', 'context.json', 'kb', 'product', 'qa', 'kit', 'research', 'skills/index.json', 'examples/worked-example.md', 'examples/leads-marketplace'];
 const CHECK = process.argv.includes('--check');
 const fail = (msg) => { console.error(`  ${msg}`); process.exit(2); };
 const git = (...args) => execFileSync('git', args, { cwd: ROOT }).toString().trim();

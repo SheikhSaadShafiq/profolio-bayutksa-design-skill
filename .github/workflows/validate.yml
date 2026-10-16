@@ -45,8 +45,14 @@ jobs:
         run: node tests/kit/sweep-catches.mjs
       - name: the rail is the product's, and shell.rail adds to a group
         run: node tests/kit/rail-catches.mjs
+      - name: gate 1 holds three researched directions, and each rule catches its break
+        run: node tests/kit/directions-catches.mjs
       - name: the prototype works
         run: node tests/kit/runtime.mjs
+      - name: the composer makes screens the QA accepts
+        run: node tests/kit/compose.mjs
+      - name: the runtime's smaller pieces work
+        run: node tests/kit/runtime-pieces.mjs
       - name: the worked example passes its QA
         working-directory: skill
         run: node qa/prototype.mjs examples/leads-marketplace --no-install
