@@ -2,8 +2,8 @@
 
 Every Profolio KSA component and variant from the design skill, the kit's patterns, and the
 components locked designs propose. Published on GitHub Pages at `/storybook/` (the current main)
-and `/storybook/<version>/` (each release in `versions.json`), with a **Releases** menu in the
-sidebar to open an earlier release.
+and `/storybook/<version>/` (each release in `versions.json`), with a release menu at the bottom
+of the sidebar (the section named after a release, below Kit) to open an earlier release.
 
     cd storybook && npm ci
     npm run dev        # http://localhost:6006
