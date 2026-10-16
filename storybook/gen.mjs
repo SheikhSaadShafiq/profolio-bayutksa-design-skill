@@ -174,6 +174,6 @@ writeFileSync(join(GEN, 'Welcome.mdx'), `import { Meta } from '@storybook/addon-
 - **Components**: ${nComp} compiled components, ${nStory} variants, by level (atoms, molecules, organisms).
 - **Kit**: the skill's patterns for what the product does not draw yet.
 - **Proposed**: components locked designs add, not in the product yet; each proposal is a version (${nProp} so far).
-- **Releases**: the version menu at the top of the sidebar opens the components of an earlier skill release.
+- **Releases**: the last section of the sidebar, below Kit, carries a release's name; its menu opens the components of each earlier skill release.
 `);
 console.log(`  storybook: ${nComp} components · ${nStory} variant stories · ${nKit} kit stories · ${nProp} proposed versions — ${LABEL} (from ${relative(process.cwd(), SKILL) || '.'})`);
