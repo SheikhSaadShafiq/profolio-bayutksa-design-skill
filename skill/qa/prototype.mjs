@@ -47,7 +47,7 @@
  * did not run — say so when you deliver · 5 a partial QA passed (--only, --state) · 2 a usage or
  * setup error.
  */
-import { readFileSync, writeFileSync, existsSync, mkdirSync, statSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync, statSync, appendFileSync } from 'node:fs';
 import { join, dirname, resolve, relative, basename, posix } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { gzipSync } from 'node:zlib';
@@ -110,6 +110,7 @@ if (DIRS.length) {
   if (!flow.chosen) {
     if (DIRS.length < 2) E('directions', 'gate 1 shows two or three directions; flow.json has one — or set "chosen"');
     if (!DIRS.some((d) => d.kind === 'existing')) E('directions', 'one direction draws only the product\'s existing components (kind "existing"), so the safest option is always on the table');
+    if (!['system', 'new'].includes(flow.variations)) E('directions', `flow.json "variations" is "system" (within the design system) or "new" (new components in its style): the PM's answer to D10 — got ${JSON.stringify(flow.variations)}`);
     /* each direction is a different idea, not the same screen with a widget added: its layout and
        its hero (the one thing read first) are declared, and bold never shares A's layout */
     for (const d of DIRS) {
@@ -428,6 +429,34 @@ for (const d of ACTIVE) {
       else if (!/\[new\]/i.test(note || '')) E('direction', `direction ${d.id} (bold): ${name}: ${prop} needs a /* [new] why */ note — every new value goes to the designer for sign-off`);
       else newTokens.push({ dir: d.id, name: prop, value: value.trim(), why: (note || '').replace(/\[new\]/i, '').trim() });
     }
+  }
+}
+
+/* ── 3b+ · D10, the variations the PM asked for: within the design system, no direction adds CSS
+   of its own; new components in its style, each one B or C adds is named in flow.json
+   (directions[].components: { name, class, why }), so the locked design proposes it ── */
+const proposed = [];
+for (const d of ACTIVE.filter((x) => x.kind !== 'existing')) {
+  const css = new Map();
+  for (const sf of screenFiles.filter((f) => f.dir === d.id)) for (const l of sf.html.match(LINK_RE) || []) {
+    const href = (l.match(/\bhref=["']([^"']+)["']/) || [])[1];
+    const abs = href && !/^(https?:|data:)/.test(href) ? resolve(dirname(sf.abs), href) : null;
+    if (abs && !relative(DIR, abs).startsWith('..') && existsSync(abs)) css.set(relative(DIR, abs), read(abs));
+  }
+  if (flow.variations === 'system' && css.size) E('direction', `variations "system" (D10): direction ${d.id} adds CSS of its own (${[...css.keys()].join(', ')}) — within the design system, B and C compose the product's components and the kit, and add none`);
+  if (flow.variations !== 'new' || !css.size) continue;
+  const comps = d.components || [];
+  const allCss = [...css.values()].join('\n'), screensHtml = screenFiles.filter((f) => f.dir === d.id).map((f) => f.html).join('\n');
+  /* a root class (.pfx-x, not .pfx-x__part or .pfx-x--mod) is a new component, or a layout wrapper */
+  const roots = [...new Set((allCss.replace(/\/\*[\s\S]*?\*\//g, '').match(/\.pfx-[\w-]+/g) || []).map((c) => c.slice(1)).filter((c) => !/__|--/.test(c)))];
+  if (roots.length && !comps.length) E('direction', `direction ${d.id} adds new components (${roots.map((c) => `.${c}`).join(', ')}): name each in flow.json directions[].components — { "name": "Lead card", "class": "pfx-lead-card", "why": "…" } — so it is proposed to the design system when the design is locked`);
+  else for (const c of roots.filter((r) => !comps.some((x) => x.class === r))) W('direction', `direction ${d.id}: .${c} is not in its components — a new component goes there (to be proposed); a layout wrapper can stay out`);
+  for (const c of comps) {
+    const ok = c.name && /^pfx-[\w-]+$/.test(c.class || '') && c.why;
+    if (!ok) { E('direction', `direction ${d.id}: component ${JSON.stringify(c.name || c)} needs a name, its root class (pfx-…) and why the design system lacks it`); continue; }
+    if (!new RegExp(`\\.${c.class}(?![\\w-])`).test(allCss)) E('direction', `direction ${d.id}: component “${c.name}” — no rule for .${c.class} in its CSS`);
+    if (!new RegExp(`class="[^"]*\\b${c.class}(?![\\w-])`).test(screensHtml)) E('direction', `direction ${d.id}: component “${c.name}” — no screen draws .${c.class}`);
+    proposed.push({ ...c, direction: d.id });
   }
 }
 
@@ -813,6 +842,7 @@ if (!WIRE) {
     ...matrix.map((r) => `| ${r.region} | ` + ['default', 'loading', 'empty', 'no-results', 'error', 'first-use'].map((k) => (r.kinds || {})[k] || '—').join(' | ') + ' |'), '',
     '## New copy — English, Arabic to come', '', '| English | platforms | Arabic |', '|---|---|---|',
     ...[...copy].map(([t, p]) => `| ${t.replace(/\|/g, '\\|')} | ${[...p].join(', ')} | [TBC] |`), '',
+    ...(proposed.length ? ['## Proposed components — new to the design system', '', ...proposed.map((c) => `- **${c.name}** (\`.${c.class}\`, direction ${c.direction}): ${c.why}${c.based_on ? ` — based on ${c.based_on}` : ''}`), ''] : []),
     ...(standins.size ? ['## Stand-ins — placeholders for a step the product hands on', '', ...[...standins].map(([w, at]) => `- **${w}**: ${[...at].join(', ')} [TBC]`), ''] : []),
     '## Data each list needs', '', ...[...fields].map(([l, f]) => `- **${l}**: ${[...f].join(', ')}`), '',
     '## Actions', '', ...Object.entries(acts).map(([n, st]) => `- **${n}**: ${JSON.stringify(st).slice(0, 220)}${JSON.stringify(st).length > 220 ? '…' : ''}`), '',
@@ -830,6 +860,12 @@ log(`  visual: ${qa.ran ? `${nErr ? '✗' : '✓'} ${qa.renders} renders (${qa.b
 for (const i of all.filter((x) => x.level !== 'product').slice(0, 30)) log(`    ${i.level.padEnd(5)} ${i.check.padEnd(9)} ${[i.platform, (i.states || []).slice(0, 4).join(', ') + ((i.states || []).length > 4 ? ` +${i.states.length - 4}` : '')].filter(Boolean).join(' · ')}${i.platform ? ': ' : ''}${i.message}`);
 if (all.filter((x) => x.level !== 'product').length > 30) log(`    … ${relative(process.cwd(), join(REPORT, name + '.md'))} has all ${all.length}`);
 if (nProd) log(`  ${nProd} issue(s) are the product's own (its compiled page has them too) — listed in the report, not counted`);
+/* every run, logged: the retro (qa/retro.mjs) reads how many runs a design took and what failed */
+try {
+  const byCheck = {};
+  for (const i of all) if (i.level === 'error') byCheck[i.check] = (byCheck[i.check] || 0) + 1;
+  appendFileSync(join(REPORT, 'runs.jsonl'), JSON.stringify({ at: new Date().toISOString(), ran: qa.ran, partial: PARTIAL || null, errors: nErr, warnings: nWarn, coverage: qa.coverage || '', checks: byCheck, directions: DIRLIST.filter(Boolean), chosen: flow.chosen || null }) + '\n');
+} catch (e) { /* a read-only folder: the run still counts */ }
 if (nErr) { log(`  → fix the errors and run again. Until QA passes, the ${name} says “not ready to share”.`); process.exit(1); }
 if (PARTIAL && qa.ran) { log(`  → the partial QA (${PARTIAL}) passed. Run it whole, without --only and --state, before delivering.`); process.exit(5); }
 if (!qa.ran) { log(`  → built, but the visual QA did not run here. Deliver it saying so, and ask for the QA button in the ${name} to be pressed.`); process.exit(3); }

@@ -66,7 +66,7 @@ if (tag && !CHECK) {
 
 rmSync(join(ROOT, '.build', 'skill-file'), { recursive: true, force: true });
 /* not the caches, and not what a build writes: the bundles and the QA's shots stay on GitHub */
-const keep = (p) => !/(^|\/)(__pycache__|\.DS_Store|shots)(\/|$)/.test(p) && !/examples\/[^/]+\/(prototype|wireframe)\.html$/.test(p.split('\\').join('/'));
+const keep = (p) => !/(^|\/)(__pycache__|\.DS_Store|shots|runs\.jsonl)(\/|$)/.test(p) && !/examples\/[^/]+\/(prototype|wireframe)\.html$/.test(p.split('\\').join('/'));
 for (const f of CARRIED) { mkdirSync(dirname(join(STAGE, f)), { recursive: true }); cpSync(join(SKILL, f), join(STAGE, f), { recursive: true, filter: keep }); }
 mkdirSync(join(ROOT, 'dist'), { recursive: true });
 const out = CHECK ? join(ROOT, '.build', 'skill-file', `${NAME}.check.skill`) : join(ROOT, 'dist', `${NAME}.skill`);

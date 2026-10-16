@@ -110,6 +110,14 @@ phone, switched in the player and all QA'd:
   one move of size `layout` or `hero`. The QA fails a listed move that no screen marks.
 - **chosen**: after gate 1, `"chosen": "B"`. The prototype then holds that direction alone, and
   the gate-2 QA covers it. The others stay in the folder.
+- **variations** (D10, required with directions): `"system"`, within the design system, no direction
+  adds CSS of its own; `"new"`, B and C may add components in its style, each in
+  `directions[].components`: `{ "name": "Lead card", "class": "pfx-lead-card", "why": "the
+  product has no card for a lead", "based_on": "pfk-tile" }`. The QA checks each one's CSS rule and
+  that a screen draws it; the handoff lists them under Proposed components.
+- **locked**: `"locked": "2026-10-20"`, the day the PM or designer called the design final. The retro
+  (`node qa/retro.mjs`) runs on a locked design only, and sends the chosen direction's components
+  to the Storybook's "Proposed" section.
 - **research.board_url**: the published board's link, opened by the player's "Research board".
   Without it, the player links `research/board.html`, beside the prototype.
 - **One set of states and data for all three.** Where a direction draws a step another way (a

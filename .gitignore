@@ -43,3 +43,8 @@ dist/
 # Design QA screenshots (node qa/prototype.mjs --shots): regenerated on every run
 skill/examples/*/qa/shots/
 skill/designs/*/qa/shots/
+
+# the QA's run log and the retro's assembled files: per design, never committed
+skill/designs/*/qa/runs.jsonl
+skill/designs/*/qa/retro/
+skill/examples/*/qa/runs.jsonl

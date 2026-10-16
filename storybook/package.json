@@ -1,0 +1,17 @@
+{
+  "name": "profolio-components-storybook",
+  "private": true,
+  "description": "The Profolio KSA components as a Storybook: every component and variant, each skill release a version, and the components locked designs propose.",
+  "type": "module",
+  "scripts": {
+    "gen": "node gen.mjs",
+    "build": "node gen.mjs && storybook build -o dist --quiet",
+    "dev": "node gen.mjs && storybook dev -p 6006"
+  },
+  "devDependencies": {
+    "@storybook/addon-docs": "^10.6.1",
+    "@storybook/html-vite": "10.6.1",
+    "storybook": "10.6.1",
+    "vite": "6.4.3"
+  }
+}

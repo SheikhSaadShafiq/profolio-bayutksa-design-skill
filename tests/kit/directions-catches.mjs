@@ -80,11 +80,13 @@ const research = () => ({
   rounds: [],
 });
 const flow = () => ({
-  name: 'dirs', title: 'Agency Report — three directions', platforms: ['web'], start: 'report', pages: 'none',
+  name: 'dirs', title: 'Agency Report — three directions', platforms: ['web'], start: 'report', pages: 'none', variations: 'new',
   directions: [
     { id: 'A', kind: 'existing', title: 'The product as it is', label: 'Existing', layout: 'dashboard', hero: 'the summary cards', summary: 'Summary page reordered', fresh: [] },
-    { id: 'B', kind: 'competitor', title: 'Stripe-style summary', label: 'Competitor-led', layout: 'dashboard', hero: 'one line on the week', summary: 'a one-line summary', fresh: ['f1'] },
-    { id: 'C', kind: 'bold', title: 'Insight-first', label: 'Bold', layout: 'feed', hero: 'the insight band', summary: 'an insight band in a new green', fresh: ['f2', 'f3'] },
+    { id: 'B', kind: 'competitor', title: 'Stripe-style summary', label: 'Competitor-led', layout: 'dashboard', hero: 'one line on the week', summary: 'a one-line summary', fresh: ['f1'],
+      components: [{ name: 'Week summary', class: 'pfx-summary', why: 'the product has no one-line summary of a period' }] },
+    { id: 'C', kind: 'bold', title: 'Insight-first', label: 'Bold', layout: 'feed', hero: 'the insight band', summary: 'an insight band in a new green', fresh: ['f2', 'f3'],
+      components: [{ name: 'Insight band', class: 'pfx-band', why: 'the product has no band that says what changed' }] },
   ],
   screens: [{ id: 'report', title: 'Agency Report', directions: { A: { web: 'A/report.html' }, B: { web: 'B/report.html' }, C: { web: 'C/report.html' } } }],
   states: [{ id: 'report', title: 'Agency Report', set: {} }],
@@ -203,6 +205,13 @@ expect(run('dirs-rule', (x) => R0(x, (r) => ({ ...r, rules: r.rules.map((q) => (
 expect(run('dirs-matrix', (x) => R0(x, (r) => ({ ...r, capabilities: r.capabilities.map((k, i) => (i ? k : { ...k, values: { ...k.values, c4: undefined } })) }))).has('research', /“c4” is yes, partly, no or not-checked/), 'a capability matrix with a blank fails `research`');
 expect(run('dirs-deep', (x) => R0(x, (r) => ({ ...r, queries: [...r.queries, { q: 'landlord reviews a renter lead and messages them', pass: 'deep', tool: 'flows' }] }))).has('research', /names no app/), 'a deep query that names no app fails `research`');
 expect(/Findings, ranked/.test(readFileSync(join(good.dir, 'research', 'board.html'), 'utf8')) && /## Top findings[\s\S]*One line on what changed this week/.test(readFileSync(join(good.dir, 'research', 'summary.md'), 'utf8')), 'the board has the ranked findings, and summary.md is written');
+/* D10: within the design system, or new components in its style */
+expect(run('dirs-no-variations', (x) => ({ ...x, flow: { ...x.flow, variations: undefined } })).has('directions', /"variations" is "system"/), 'directions without the D10 answer fail `directions`');
+expect(run('dirs-system-css', (x) => ({ ...x, flow: { ...x.flow, variations: 'system' } })).has('direction', /variations "system" \(D10\): direction B adds CSS of its own/), 'within the design system, a direction with CSS of its own fails `direction`');
+expect(run('dirs-unnamed', (x) => dirsOf(x, (d) => (d.id === 'C' ? { ...d, components: [] } : d))).has('direction', /direction C adds new components .* name each/), 'a new component not named in flow.json fails `direction`');
+expect(run('dirs-undrawn', (x) => dirsOf(x, (d) => (d.id === 'B' ? { ...d, components: [{ name: 'Ghost', class: 'pfx-ghost', why: 'none' }] } : d))).has('direction', /“Ghost” — no rule for \.pfx-ghost/), 'a named component that nothing draws fails `direction`');
+const named = readFileSync(join(good.dir, 'qa', 'handoff.md'), 'utf8');
+expect(/## Proposed components[\s\S]*\*\*Week summary\*\* \(`\.pfx-summary`, direction B\)[\s\S]*\*\*Insight band\*\*/.test(named), 'the handoff lists the proposed components');
 expect(run('dirs-seen', (x) => ({ ...x, research: { ...x.research, competitors: x.research.competitors.map((c) => (c.id === 'c1' ? { ...c, seen: 'a friend' } : c)) } })).has('research', /seen is one of/), 'an unknown `seen` source fails `research`');
 
 if (!process.argv.includes('--keep')) for (const f of readdirSync(join(SK, 'designs')).filter((f) => f.startsWith('_test-dirs'))) rmSync(join(SK, 'designs', f), { recursive: true, force: true });

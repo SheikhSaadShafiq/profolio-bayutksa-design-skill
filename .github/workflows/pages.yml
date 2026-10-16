@@ -16,6 +16,8 @@ on:
       - 'deliverables/**'
       - 'data/live/*.png'
       - 'scripts/**'
+      - 'skill/**'
+      - 'storybook/**'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
 
@@ -36,6 +38,8 @@ jobs:
       url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0          # the release tags, for the Storybook's versions
 
       - uses: actions/setup-node@v4
         with:
@@ -55,6 +59,23 @@ jobs:
           cp data/live/*.png      _site/data/live/ 2>/dev/null || true
           # kb/index.html is the landing page; kb.css imports ../deliverables/fonts.css,
           # so deliverables must sit beside it exactly as in the repo
+
+      # The components Storybook: the current main at /storybook/, and each release in
+      # storybook/versions.json at /storybook/<path>/, built from its tag's skill/ folder.
+      - name: Build the components Storybook
+        working-directory: storybook
+        run: |
+          npm ci --no-audit --no-fund
+          BASE="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/storybook"
+          SB_BASE="$BASE" SB_PATH="" node gen.mjs --label "latest (main)"
+          SB_BASE="$BASE" SB_PATH="" npx storybook build -o ../_site/storybook --quiet
+          for row in $(node -e "for (const v of require('./versions.json')) console.log(v.tag + '|' + v.path)"); do
+            tag="${row%%|*}"; vdir="${row##*|}"; src="$(mktemp -d)"
+            git -C .. archive "$tag" skill | tar -x -C "$src"
+            label="$(node -e "console.log(require('./versions.json').find((v) => v.tag === '$tag').label)")"
+            SB_BASE="$BASE" SB_PATH="$vdir" node gen.mjs --skill "$src/skill" --label "$label"
+            SB_BASE="$BASE" SB_PATH="$vdir" npx storybook build -o "../_site/storybook/$vdir" --quiet
+          done
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

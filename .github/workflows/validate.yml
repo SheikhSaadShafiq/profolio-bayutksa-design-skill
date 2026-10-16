@@ -47,6 +47,11 @@ jobs:
         run: node tests/kit/rail-catches.mjs
       - name: gate 1 holds three researched directions, and each rule catches its break
         run: node tests/kit/directions-catches.mjs
+      - name: the retro runs on a locked design only, and each rule catches its break
+        run: node tests/kit/retro-catches.mjs
+      - name: the components Storybook builds (main, with any proposed components)
+        working-directory: storybook
+        run: npm ci --no-audit --no-fund && node gen.mjs && npx storybook build -o /tmp/sb --quiet
       - name: the prototype works
         run: node tests/kit/runtime.mjs
       - name: the skill draws the Profolio 2.0 look only (no teal, no Figtree or Lato)
