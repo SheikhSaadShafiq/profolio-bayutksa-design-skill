@@ -46,7 +46,8 @@ Fill every row with a proposed answer and a confidence: high, medium or low. Pre
 tables. Then ask only:
 
 - a row you could not fill, or filled at low confidence;
-- what a row's own text orders you to ask: D2 when the PRD is ambiguous,
+- what a row's own text orders you to ask: D2 when the PRD is ambiguous, D10 (variations) on every
+  new or changed UI,
   D7 for Arabic timing, D8 for regenerating pages, P8 for another meaning, and P9, the
   competitor shortlist (§ 3b), on every new or changed UI.
 
@@ -87,6 +88,7 @@ reply confirms every row you didn't ask: don't ask it again.
 | D7 | Copy: final or placeholder? Arabic now or deferred? | | |
 | D8 | Does it change an existing component? Paste the page ids in its `used_on` verbatim, never a count; a `registry.shell` component reaches every signed-in page. A change to its default string (a label, a placeholder, an empty-state line) reaches every one of those pages too: say so. Ask whether to regenerate them. | | |
 | D9 | Responsive: web only, or web and phone (375; 360 in Profolio 2.0)? Whatever is chosen, the prototype carries every state on every platform named — the QA holds it to flow.json. A change to a shared component (D8) reaches its phone pages too: name the platforms that inherit it, even when the PRD says web only. | | |
+| D10 | Variations: **within the design system** (every direction composes the product's own components and the kit; B and C change the layout, the hierarchy and the kit's visual elements, and add no component of their own), or **new components in the design system's style** (B and C may add components of their own, `pfx-*`, each named in flow.json and proposed to the design system when the design is locked)? Propose "within" for a section or a change, "new components" for a new page or a redesign. Asked on every new or changed UI. | | |
 
 ## 3 · Edge cases and scenarios — work them out, don't ask
 
@@ -177,7 +179,8 @@ Once the user has answered:
      its layout and its hero (A a table, B a list beside its detail, C cards led by the score…).
 3. Write `designs/<feature>/flow.json`: screens, states, controls, the matrix, and
    `directions` A (existing), B (competitor-led), C (bold), each with its title, summary and
-   fresh moves. Write `state.json`, `data.json` and `actions.json`: realistic KSA rows and
+   fresh moves, and `variations` (D10): with `"new"`, each component B or C adds goes in its
+   `components`. Write `state.json`, `data.json` and `actions.json`: realistic KSA rows and
    every action, shared by all three directions (kit/README.md).
    Rebuild the board now (`node qa/board.mjs designs/<feature>`): it shows the directions, and
    publish it as its own artifact. Its link goes in flow.json `research.board_url`.
@@ -185,7 +188,9 @@ Once the user has answered:
    `B/`, `C/` (SKILL.md → HOW A HI-FI IS MADE; start each screen with `qa/compose.mjs start`):
    - draw every variant of each open decision (the lock state, the hero), switchable in the
      player (flow.json `options`);
-   - B and C mark their fresh moves (`data-pf-fresh`).
+   - B and C mark their fresh moves (`data-pf-fresh`);
+   - with D10 `"system"`, no direction has a `new.css`: B and C differ by layout, hierarchy
+     and the kit's visual elements only.
 5. Critique each direction (design-review), then run
    `node qa/prototype.mjs designs/<feature> --shots` until it exits 0. Send the prototype and
    the board with:
